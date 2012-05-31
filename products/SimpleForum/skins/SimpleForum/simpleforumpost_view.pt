@@ -1,0 +1,101 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="simpleforum">
+
+
+
+
+
+<head>
+
+  <metal:top fill-slot="top_slot">
+    <tal:block define="mtool nocall:here/portal_membership;
+                       checkPermission nocall:mtool/checkPermission;
+                       canReview python:checkPermission('Review portal content',here);
+                       border_action python:canReview and 'enable_border' or 'disable_border';
+                       dummy python:request.set(border_action,1)"
+               condition="not:canReview">
+      <tal:comments replace="nothing">
+        Uncomment this block to make entire thread view as post view when user is not a reviewer.        
+        <tal:global define="view_details request/view_details | nothing;
+                            global here python:view_details and here or here.getTopic()" />    
+      </tal:comments>                       
+    </tal:block>    
+  </metal:top>
+
+  <metal:css fill-slot="css_slot">
+    <style type="text/css" media="all"
+           tal:content="string:@import url($portal_url/simpleforum.css);"></style>    
+          
+  </metal:css>
+
+
+</head>
+
+<body>
+
+<metal:main fill-slot="main">
+  <tal:main-macro metal:define-macro="main"
+                  tal:define="toLocalizedTime nocall:portal/toLocalizedTime;
+                              sftool nocall:portal/simpleforum_tool;
+                              post_view python:request.get('post_view', 'thread');
+                              post nocall:here;
+                              post_item here/wrapToItem;
+                              post_items here/getPostItems;
+                              forum here/getForum;
+                              forum_add_post_permission python:checkPermission('SimpleForum: Add Post', forum);
+                              forum_macros nocall:here/simpleforum_macros/macros">
+  
+    <h1 class="documentFirstHeading"
+        tal:content="post_item/title" />
+
+	<div metal:use-macro="here/document_byline/macros/byline">
+	    Get the byline - contains details about author and modification date.
+	</div>
+
+    <a href=""
+       i18n:domain="plone"
+       class="link-parent"
+           tal:define="parent_url python:here.navigationParent(here, template.getId())"
+           tal:condition="parent_url"
+           tal:attributes="href parent_url"
+           i18n:translate="go_to_parent_url">
+        Up one level
+    </a>
+    <a tal:define="forum here/getForum;
+                   forum_url forum/absolute_url"
+       class="back-to-forum visualIconPadding contenttype-simpleforum"            
+       tal:attributes="href forum_url"
+       i18n:translate="label_back_to_forum">
+      Back to forum
+    </a>      
+    <form name="post_view_form"
+          id="post-view-form"
+          method="get"
+          tal:attributes="action here_url">
+      <label i18n:translate="label_post_view">View :</label>
+      <select name="post_view"
+              id="post-view"
+              onchange="javascript:document.getElementById('post-view-form').submit();"
+              tal:define="vocab here/getDisplayViewVocabulary">
+        <tal:block tal:repeat="item vocab">
+          <option tal:attributes="value item;
+                                  selected python:test(item == post_view, 'selected', None)"
+                  tal:content="python:vocab.getValue(item)" />
+        </tal:block>
+      </select>    
+    </form>
+     
+    
+    <tal:block tal:condition="python:post_view == 'inline'">
+      <metal:block metal:use-macro="forum_macros/postInline" />
+    </tal:block>
+    
+    <tal:block tal:condition="python:post_view == 'thread'">
+      <metal:block metal:use-macro="forum_macros/postThread" />
+    </tal:block>
+  </tal:main-macro>
+</metal:main>
+</body>
+</html>

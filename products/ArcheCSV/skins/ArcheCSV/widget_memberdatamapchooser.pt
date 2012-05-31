@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+  <head><title></title></head>
+  <body>
+
+
+        <metal:block define-macro="view"
+                        tal:define="voc field/Vocabulary;
+                                    accessor python:field.getAccessor(here);
+                                    value python: voc and voc.getValue(accessor()) or accessor();
+                                    attachments python:here.getFolderContents(contentFilter = {'portal_type' : ['FileAttachment']})">
+        
+        
+        
+        </metal:block>
+
+        <metal:block define-macro="edit">
+            <span class="discreet">Use the form below to map the fields from the csv file on the left to the memberdata fields on the right</span>
+            <div tal:define="header python: here.getCSVheader();
+                             memberdatapropertyids python: here.getMemberPropertyIds()">
+        
+                  <table class="listing" width="80%">
+                      <th>Csv header</th>
+                      <th>Memberdata fields</th>        
+                      <div tal:repeat="h header">
+                          <tr>
+                              <td>
+                                  <span tal:content="python: test(h,h,'empty')" />
+                              </td>
+                              <td>
+        
+                                  <div tal:condition="python:len(here.getMap_fields())==len(header)">
+                                      <select name="map_fields:list"
+                                              tal:define="current_item repeat/h/index;
+                                                          saved_item python:here.getMap_fields()[current_item];
+                                                          memberdatapropertyids python:memberdatapropertyids">
+                
+                                          <option tal:attributes="selected python:test('None'==saved_item,'selected','');
+                                                                  value string:None">
+                                              Not used
+                                          </option>
+                                          <option tal:attributes="selected python:test(f==saved_item,'selected','')"
+                                                  tal:repeat="f memberdatapropertyids">
+                                              <div tal:replace="python:f" />
+                                          </option>
+                
+                                      </select>
+                                  </div>
+                                  <div tal:condition="python:len(here.getMap_fields())!=len(header)">
+                                      <select name="map_fields:list"
+                                              tal:condition="python:not(len(here.getMap_fields())==len(header))"
+                                              tal:define="current_item repeat/h/index;
+                                                          memebrdatapropertyids python:memberdatapropertyids">
+                
+                                          <option tal:attributes="value string:None">
+                                              Not used
+                                          </option>
+                                          <option  tal:repeat="f memberdatapropertyids">
+                                              <div tal:replace="python:f" />
+                                          </option>
+                                      </select>
+                                  </div>
+                             </td>
+                         </tr>
+                      </div>
+                  </table>
+                
+        	</div>
+
+        </metal:block>
+    </body>
+</html>

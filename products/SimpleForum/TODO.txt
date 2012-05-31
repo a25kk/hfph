@@ -1,0 +1,24 @@
+Roadmap
+
+1.1
+
+  * Allow posting a reply with quote
+
+  * Allow Anonymous User to post replies. This will be an option you have to set on the Forum object.
+
+1.2
+
+  * Add the ability to add a file attachment to a post.
+
+  * Display the portrait of the post author based on portal_memberdata (as an option).
+
+1.3
+  
+  * Skin improvements : flat view for discussions, with ordering and batching (see http://plone.org/documentation/tutorial/plonebatch/), JS/CSS for expanding/collapsing discussions, AJaX...
+
+  * Complete unit tests and functionnal tests.
+  
+2.0
+
+  * Let users subscribe to a discussion in order to be notified by mail when there are new answers (possibly use PloneSubscription).
+

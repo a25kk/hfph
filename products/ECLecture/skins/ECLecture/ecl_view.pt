@@ -1,0 +1,346 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en" xml:lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="eduComponents">
+  
+  <body>
+    <metal:block fill-slot="css_slot">
+      <style type="text/css" media="screen" tal:content="string: @import url($portal_url/ecl_styles.css);">
+      </style>
+    </metal:block>
+
+    <div metal:fill-slot="main">
+      <div metal:define-macro="main"
+        tal:define="user_id python: member.getId();">
+
+        <div metal:use-macro="here/document_actions/macros/document_actions">
+            Document actions (print, sendto etc)
+        </div>
+    
+        <h1 class="documentFirstHeading" tal:content="here/title_or_id">
+          Title or id
+        </h1>
+
+        <div metal:use-macro="here/document_byline/macros/byline">
+          Get the byline - contains details about author and modification date.
+        </div>
+
+        <div class="documentDescription" tal:content="here/Description">
+            Description
+        </div>
+
+<!--
+        <div class="visualClear"></div>
+    
+        <h2 i18n:translate="label_lecture_descr">Lecture Description</h2>
+-->
+
+        <fieldset style="float: right; margin-left: 0.5em; margin-top: 0;"
+            tal:define="externalRes here/getAvailableResources;
+                        searchPath  python: '/'.join(here.getPhysicalPath());
+                        localRes    python: here.portal_catalog.searchResults(
+                            path={'query':searchPath, 'depth':1,}, 
+                            sort_on='getObjPositionInParent', 
+                            review_state='published');"
+            tal:condition="python: externalRes or localRes"
+        >
+
+          <legend i18n:translate="label_resources_legend">Available resources</legend>
+
+          <ul style="list-style-type: none; list-style-image: none; margin-left: 0;">
+            <tal:resources repeat="resource externalRes">
+              <li tal:define="title resource/title;
+                              url   resource/url;"
+              >
+                <!-- link with default icon -->
+                <span class="contenttype-topic visualIconPadding">
+                  <a href="" 
+                     class="link-plain" 
+                     title=""
+                     tal:attributes="href string:${url};" 
+                     tal:content="title">
+                    Link to the resource
+                  </a>
+                </span>
+
+              </li>
+            </tal:resources>
+            
+            <tal:resources repeat="resource localRes">
+              <li>
+                <!-- link with icon of this protal type -->
+                <span tal:attributes="class python: 'contenttype-' + normalizeString(resource.portal_type) + ' visualIconPadding'">
+                  <a href="" 
+                     class="link-plain" 
+                     title=""
+                     tal:attributes="href resource/getURL" 
+                     tal:content="resource/pretty_title_or_id">
+                    Link to the resource
+                  </a>
+                </span>
+
+              </li>
+            </tal:resources>
+          </ul>
+        </fieldset>
+
+        <table class="vertical listing">
+          <tr tal:define="joinURL here/joinURL;"
+              tal:condition="joinURL">
+            <th i18n:translate="label_registration">Registration</th>
+            <td>
+
+              <!-- ecl_register is used, thats fine -->
+              <tal:if condition="python: (joinURL == 'ecl_register')"
+                  define="canEnroll python:not here.hasEnrollmentLimitReached();
+                          isParticipant python:here.isParticipant(user_id);"
+              >
+                <!-- Anonymous user, please log in -->
+                <tal:if condition="python: isAnon">
+                  <a href=""
+                    class="link_plain"
+                    tal:attributes="href string:login_form;"
+                    i18n:translate="label_login_to_see_enrollment">
+                    Please login in to see if you are already enrolled in this course.
+                  </a>
+                </tal:if>
+
+                <!-- user isn't already enrolled but the enrollment limit has been reached -->
+                <tal:if condition="python: (not isAnon) and (not isParticipant) and (not canEnroll)">
+                  <span tal:attributes="style python:'color:red;;';" 
+                      i18n:translate="label_enrollment_limit_reached">
+                    The maximum number of participants has been reached.
+                  </span>
+                </tal:if>
+
+                <!-- user isn't already enrolled and enrollment limit has not been reached -->
+                <tal:if condition="python: (not isAnon) and (not isParticipant) and (canEnroll)">
+                  <a href=""
+                    class="link-plain" 
+                    tal:attributes="href here/getJoinURL;"
+                    i18n:translate="label_enroll">
+                    Click here to enroll in this course
+                  </a>
+                </tal:if>
+
+                <!-- user is enrolled; show link for cancellation of enrollment -->
+                <tal:if condition="python: (not isAnon) and (isParticipant)">
+                  <a href=""
+                    class="link-plain" 
+                    tal:attributes="href here/getJoinURL;"
+                    i18n:translate="label_cancellation">
+                    Click here to cancel your enrollment in this course
+                  </a>
+                </tal:if>
+              </tal:if>
+              
+              <!-- show registration link if this course does not use ecl_register -->
+              <!-- FIXME: add a condition so the link will not be shown if the enrollment limit has been reached -->
+              <tal:if condition="python: not (joinURL == 'ecl_register')">
+                <a href=""
+                   class="link-plain" 
+                   tal:attributes="href joinURL;"
+                    i18n:translate="label_enroll">
+                    Click here to enroll in this course
+                </a>
+              </tal:if>
+            </td>
+          </tr>
+
+          <tr tal:condition="here/getMaxParticipants">
+            <th i18n:translate="label_max_participants">Enrollment limit</th>
+            <td tal:define="max here/getMaxParticipants;
+              current python: len(here.getGroupMembers(here.associatedGroup))">
+              <span tal:omit-tag="" tal:content="max"/>
+              <span tal:omit-tag="" i18n:translate="current_enrollment">
+                (currently enrolled:
+                <span i18n:name="number"
+                  tal:attributes="style python:test(current >= max, 'color:red;;', '');"
+                  tal:content="current"/>)
+              </span>
+            </td>
+          </tr>
+
+          <tr tal:condition="here/getCourseType">
+            <th i18n:translate="label_course_type">Course type</th>
+            <td tal:content="here/getCourseType"></td>
+          </tr>
+
+          <tr tal:define="instructors here/getInstructors"
+              tal:condition="instructors">
+            <th tal:condition="python: len(instructors) == 1"
+              i18n:translate="label_instructor">Instructor</th>
+            <th tal:condition="python: len(instructors)  > 1"
+              i18n:translate="label_instructors">Instructors</th>
+            <td>
+              <tal:loop tal:repeat="userid python: instructors">
+                <tal:if condition="userid">
+                  <a href="#"
+                    tal:attributes="href python: mtool.getHomeUrl(userid)"
+                    tal:content="python: mtool.getMemberInfo(userid)
+                    and mtool.getMemberInfo(userid)['fullname']
+                    or userid">
+                    The instructors' fullnames or user IDs
+                  </a><span tal:condition="not: repeat/userid/end"
+                    tal:replace="string:, "/>
+                </tal:if>
+              </tal:loop>
+            </td>
+
+          </tr>
+
+          <tr>
+            <th i18n:translate="label_time">Time</th>
+            <td tal:define="weekday here/getStartDateWeekday;
+                            timePeriod here/getTimePeriod">
+              <span tal:condition="weekday" tal:omit-tag="">
+                <span tal:omit-tag="" i18n:translate="" tal:content="weekday"/>,
+              </span>
+              <span tal:condition="not: here/getRecurrence" tal:omit-tag="">
+                <span tal:omit-tag=""
+                  tal:content="python: here.toLocalizedTime(here.getStartDate())"/>,
+              </span>
+              <span tal:omit-tag=""
+                tal:condition="timePeriod"
+                tal:content="timePeriod"/>
+            </td>
+          </tr>
+
+          <tr tal:condition="python: here.getRecurrence()">
+            <th i18n:translate="label_recurrence">Recurrence</th>
+            <td>
+              <span i18n:translate="recurrence_text">
+                <span i18n:name="recurrence" tal:content="python:
+                  here.getRecurrenceDisplayList().getValue(here.getRecurrence())"/>
+                from
+                <span i18n:name="start_date" tal:content="python:
+                  here.toLocalizedTime(here.getStartDate())"/>
+                until
+                <span i18n:name="end_date"
+                  tal:content="python: here.toLocalizedTime(here.getEndDate())"/>
+              </span>
+            </td>
+          </tr>
+
+          <tr tal:define="datetime python: here.firstSession"
+              tal:condition="datetime">
+            <th i18n:translate="label_first_session">First session</th>
+            <td> 
+              <span tal:condition="python: datetime.hour() == 0 and datetime.minute() == 0"
+                tal:content="python: here.toLocalizedTime(here.firstSession, False)"/>
+              <span tal:condition="python: datetime.hour() != 0 or datetime.minute() != 0"
+                tal:content="python: here.toLocalizedTime(here.firstSession, True)"/>
+            </td>
+          </tr>
+          <tr>
+            <th i18n:translate="label_location">Location</th>
+            <td>
+              <span 
+                tal:condition="here/getLocation"
+                tal:replace="here/getLocation"/>
+            </td>
+          </tr>
+
+          <tr tal:condition="here/getCourseLanguage">
+            <th i18n:translate="label_course_language">Language of instruction</th>
+            <td i18n:domain="plone" i18n:translate=""
+              tal:content="python: dict(here.availableLanguages())[here.getCourseLanguage()]"></td>
+          </tr>
+
+          <tr tal:condition="here/getCredits">
+            <th i18n:translate="label_credits">Credits</th>
+            <td tal:content="here/getCredits"></td>
+          </tr>
+
+          <tr tal:condition="here/getDirectoryEntry">
+            <th i18n:translate="label_directory">Directory</th>
+            <td>
+              <a href=""
+                 class="link-plain"  
+                 tal:attributes="href here/getDirectoryEntry"
+                 i18n:translate="help_directory_entry">
+                Link to the directory entry for this lecture
+              </a>
+            </td>
+          </tr>
+        </table>
+
+
+        <div class="visualClear"/>
+
+        <tal:block condition="python: not here.isParticipant(user_id)">
+          <tal:if condition="python: here.getJoinURL()
+            and not here.getMaxParticipants ()">
+            <p class="portalMessage"
+              i18n:translate="notice_registration">
+              Note: This course requires
+              <span i18n:name="registration">
+                <a i18n:translate="link_to_registration"
+                  href="#"
+                  tal:attributes="href  here/getJoinURL;
+                  class string:link-plain">registration</a>
+              </span>.
+            </p>
+          </tal:if>
+
+          <tal:if condition="python: not here.getJoinURL()
+            and here.getMaxParticipants()">
+            <p class="portalMessage"
+              i18n:translate="notice_limited">Note: There is an enrollment limit
+              for this course.
+            </p>
+          </tal:if>
+
+          <tal:if condition="python: here.getJoinURL()
+            and here.getMaxParticipants()">
+            <p class="portalMessage"
+              i18n:translate="notice_limited_registration">Note: There is an
+              enrollment limit for this course and
+              <span i18n:name="registration">
+                <a i18n:translate="link_to_registration"
+                  href="#"
+                  tal:attributes="href  here/getJoinURL;
+                  class string:link-plain">registration</a>
+              </span> is required.
+            </p>
+          </tal:if>
+        </tal:block>
+
+        <tal:block condition="python: here.isParticipant(user_id)">
+          <p class="ec-hint" i18n:translate="note_enrolled">
+            Note: You are enrolled in this course.</p>
+        </tal:block>
+
+        <div tal:replace="structure here/getText"/>
+
+        <div class="visualClear"/>
+
+        <div tal:condition="here/getPrereq">
+          <h2 i18n:translate="label_prereq">Prerequisites</h2>
+          <div tal:replace="structure here/getPrereq"/>
+        </div>
+
+        <div tal:condition="here/getTarget">
+          <h2 i18n:translate="label_target">Target group</h2>
+          <div tal:replace="structure here/getTarget"/>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+</html>
+<!-- Keep this comment at the end of the file
+Local variables:
+mode:xml
+sgml-local-catalogs:("/usr/local/lib/sgml/XHTML11.cat")
+sgml-validate-command:"xmllint \\-\\-valid \\-\\-noout %s %s"
+sgml-indent-step:2
+sgml-indent-data:t
+fill-column:79
+End:
+-->

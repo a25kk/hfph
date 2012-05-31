@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
+  <head><title></title></head>
+  <body>
+
+<!-- Attachments -->
+<metal:block define-macro="view"
+                tal:define="voc field/Vocabulary; 
+                            accessor python:field.getAccessor(here);
+                            value python: voc and voc.getValue(accessor()) or accessor();
+                            attachments python:here.getFolderContents(contentFilter = {'portal_type' : ['FileAttachment']})">
+
+
+
+</metal:block>
+
+<metal:block define-macro="edit">
+
+
+    <div   tal:define="header python: here.getCSVheader();
+           target_fields python: here.getArchFields()">
+
+
+
+
+          <table class="listing" width="50%">
+
+              <th>Archetypes "<div tal:replace="python: here.target_type" />"  relationships</th>
+
+              <tr>
+                 <td align="center">
+
+                      Please select source relationship:
+                      
+                      <select name="map_fields" >
+                       <div tal:repeat="t target_fields" >
+                        
+                          <option  tal:condition="python:t.type=='reference'" tal:content="python:t.relationship">fieldname</option>
+                       </div>
+
+                      </select>
+
+                      <!--
+                      Please select target reference field:
+                      <select>
+                       <div tal:repeat="t source_fields" >
+                          <option tal:condition="python:t.type=='reference'" tal:content="python:t.getName()">fieldname</option>
+                       </div>
+
+                      </select>
+                      -->
+                 </td>
+              </tr>
+          </table>
+
+
+	</div>
+
+
+</metal:block>
+
+</body>
+</html>

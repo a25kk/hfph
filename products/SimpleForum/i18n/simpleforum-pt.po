@@ -1,0 +1,67 @@
+# Translation of simpleforum.pot to Portuguese
+# Gettext Message File for Plone
+msgid ""
+msgstr ""
+"Project-Id-Version: SimpleForum\n"
+"POT-Creation-Date: 2005-11-06 00:38+0100\n"
+"PO-Revision-Date: 2005-11-07 11:39+0100\n"
+"Last-Translator: \n"
+"Language-Team: Pedro Silva <pedrosilva@myrealbox.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: pt\n"
+"Language-Name: Portuguese\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: simpleforum\n"
+"X-Is-Fallback-For: pt-pt pt-br\n"
+
+msgid "heading_forum_view"
+msgstr "Discussão"
+
+msgid "label_post_author"
+msgstr "Autor"
+
+msgid "label_post_text"
+msgstr "Texto da entrada"
+
+msgid "label_topic_title"
+msgstr "Título"
+
+msgid "label_posting_date"
+msgstr "Criado a"
+
+msgid "label_posted_at"
+msgstr "em"
+
+msgid "label_posted_by"
+msgstr "Colocado por"
+
+msgid "label_anonymous_user"
+msgstr "Utilizador anónimo"
+
+msgid "text_no_reply"
+msgstr "Sem resposta"
+
+msgid "label_reply_count"
+msgstr "${count} responder"
+
+msgid "label_replies_count"
+msgstr "${count} respostas"
+
+msgid "text_forum_post"
+msgstr "Responder no forum"
+
+msgid "action_reply"
+msgstr "Responder"
+
+msgid "Reply to this post"
+msgstr "Responder"
+
+msgid "Add new topic"
+msgstr "Novo tópico"
+
+msgid "Reply"
+msgstr "Responder"
+
