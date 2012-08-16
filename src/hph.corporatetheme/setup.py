@@ -20,7 +20,7 @@ setup(name='hph.corporatetheme',
       url='http://dist.vorwaerts-werbung.de',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['example'],
+      namespace_packages=['hph'],
       include_package_data=True,
       zip_safe=False,
       install_requires=[
