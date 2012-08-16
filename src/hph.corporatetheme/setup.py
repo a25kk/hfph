@@ -3,7 +3,7 @@ import os
 
 version = '1.0'
 
-setup(name='example.sitetheme',
+setup(name='hph.corporatetheme',
       version=version,
       description="Example Diazo Plone Theme",
       long_description=open("README.txt").read() + "\n" +

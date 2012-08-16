@@ -4,7 +4,7 @@
     xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-    i18n_domain="example.sitetheme">
+    i18n_domain="hph.corporatetheme">
 
   <five:registerPackage package="." initialize=".initialize" />
 
@@ -12,9 +12,9 @@
 
   <genericsetup:registerProfile
       name="default"
-      title="example.sitetheme"
+      title="hph.corporatetheme"
       directory="profiles/default"
-      description="Installs the example.sitetheme package"
+      description="Installs the hph.corporatetheme package"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
   <!-- -*- extra stuff goes here -*- -->

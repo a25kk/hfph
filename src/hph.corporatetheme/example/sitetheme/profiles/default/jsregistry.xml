@@ -3,5 +3,5 @@
  <javascript authenticated="False" cacheable="True" compression="safe"
      conditionalcomment="" cookable="True" enabled="True"
      expression="request/HTTP_X_THEME_ENABLED | nothing"
-     id="++theme++example.sitetheme/js/application.js" inline="False"/>
+     id="++theme++hph.corporatetheme/js/application.js" inline="False"/>
 </object>

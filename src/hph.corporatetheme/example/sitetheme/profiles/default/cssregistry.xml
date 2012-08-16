@@ -14,7 +14,7 @@
  <stylesheet title="" authenticated="False" cacheable="True"
     compression="safe" conditionalcomment="" cookable="True" enabled="on"
     expression="request/HTTP_X_THEME_ENABLED | nothing"
-    id="++theme++example.sitetheme/css/styles.css" media="" rel="stylesheet"
+    id="++theme++hph.corporatetheme/css/styles.css" media="" rel="stylesheet"
     rendering="link"
     applyPrefix="True"
     />
