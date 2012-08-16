@@ -1,27 +1,25 @@
-*.py[co]
-
-# Packages
-*.egg
-*.egg-info
-dist
-build
-eggs
-parts
-bin
-var
-sdist
-develop-eggs
-.installed.cfg
-
-# Installer logs
-pip-log.txt
-
-# Unit test / coverage reports
-.coverage
-.tox
-
-#Translations
 *.mo
-
-#Mr Developer
+*.egg-info
+*.egg
+*.EGG
+*.EGG-INFO
+bin
+build
+develop-eggs
+coverage
+downloads
+eggs
+fake-eggs
+parts
+dist
+.installed.cfg
 .mr.developer.cfg
+var
+.hg
+.bzr
+.svn
+*.pyc
+*.pyo
+*-ck.js
+etc/**/*
+src/sauna.reload
