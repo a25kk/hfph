@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts">
+ <javascript authenticated="False" cacheable="True" compression="safe"
+     conditionalcomment="" cookable="True" enabled="True"
+     expression="request/HTTP_X_THEME_ENABLED | nothing"
+     id="++theme++example.sitetheme/js/application.js" inline="False"/>
+</object>
