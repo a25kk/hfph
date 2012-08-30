@@ -1,5 +1,233 @@
 // Plone CMS UI styles
-// A very basic override to make the editbar look simpler
+
+// User portrait editbar
+
+.avatar {
+    margin-right: 2px;
+    line-height: @baseLineHeight;
+    border: 1px solid #ddd;
+    .border-radius(4px);
+    .box-shadow(0 1px 3px rgba(0,0,0,.055));
+    .transition(all .2s ease-in-out);
+    &.avatar-small {
+        .square(@baseFontSize);
+    }
+}
+
+// Basic content formatting
+
+.discreet {
+    color: #666;
+    font-size: 85%;
+    font-weight: normal;
+}
+
+.visualHighlight {
+    background-color: @yellow;
+}
+
+.pullquote {
+    //margin: 0 1em 0.5em 0.5em;
+    line-height: @baseLineHeight;
+    float: right;
+    width: 35%;
+    clear: right;
+    color: @grayLight;
+    #font > .shorthand(14px,300,@baseLineHeight * 1.25);
+    line-height: @baseLineHeight - 3;
+    padding: @baseLineHeight / 2 @baseLineHeight;
+    margin: @baseLineHeight 0 @baseLineHeight @baseLineHeight;
+    border-left: 5px solid @grayLight;
+    background: @grayLighter;
+}
+.callout {
+    background: @grayLighter;
+    padding: @baseLineHeight;
+    margin: 0 0 @baseLineHeight;
+    border-left: 5px solid @grayLight;
+    #font > .shorthand(16px,300,@baseLineHeight * 1.25);
+    clear: both;
+}
+
+/* @group Image alignment classes */
+
+.image-left {
+   float: left;
+   margin: @baseLineHeight / 2 @baseLineHeight @baseLineHeight 0;
+}
+.image-right {
+   float: right;
+   margin: @baseLineHeight / 2 0 @baseLineHeight @baseLineHeight;
+}
+.image-inline {
+   float: none;
+}
+/*note: the tricky thing here is that image-inline|image-left|image-right
+can both be on an image and a wrapper element e.g. a dl tag*/
+img.image-left,
+img.image-right,
+.captioned img {
+    .thumbnail();
+}
+dd.image-caption {
+    text-align: left;
+    padding: 0 0 0 3px; /*image padding+border with*/
+    margin: 0;
+    color: #666;
+    font-size: 85%;
+}
+
+/* @end */
+
+
+input.context,
+input.standalone {
+    .btn();
+}
+
+#category {
+    font-size: 11px;
+    margin: @baseLineHeight 0px;
+    a.link-category,
+    span.selectedTag {
+        padding: 0.25em 0.5em;
+        background: @linkColor;
+        color: @white;
+        border-radius: 0.5em;
+        .border-radius(4px);
+    }
+    a.link-category:hover {
+        background: @linkColorHover;
+    }
+    .separator {
+        display: none;
+    }
+}
+
+.listingBar {
+    .pager();
+    a {
+        display: inline-block;
+        padding: 5px 14px;
+        background-color: #fff;
+        border: 1px solid @grayLight;
+        .border-radius(4px);
+        font-size: 11px;
+        &.next {
+            float: right;
+        }
+        &.previous {
+            float: left;
+        }   
+    }
+    a:hover {
+      text-decoration: none;
+      background-color: #f5f5f5;
+    }
+}
+
+/* Form overrides */
+
+input[type="checkbox"] + label,
+.ArchetypesBooleanWidget label {
+    display: inline-block;
+    .ie7-inline-block();
+    margin-left: @baseLineHeight / 4;
+}
+
+input.datetime-widget,
+.ArchetypesCalendarWidget select {
+    width: auto;
+}
+
+/* Emulates the styling from the h1 tag */
+#content .field input[type="text"][name$=".title"],
+#form-widgets-IBasic-title,
+#archetypes-fieldname-title input {
+    height: @baseLineHeight * 1.5;
+    line-height: @baseLineHeight * 1.5;
+    font-size: @baseLineHeight * 1.25;
+    font-weight: bold;
+    width: 100%;
+    color: @gray;
+}
+
+/* Emulates styling from the description's view */
+#content .field textarea[name$=".description"],
+#form-widgets-IBasic-description,
+#archetypes-fieldname-description textarea#description {
+    color:@gray;
+    font-size:1.25em;
+    font-weight: bold;
+    width: 100%;
+}
+
+#content-core label {
+    font-weight: bold;
+}
+
+div.field {
+    .control-group();
+}
+
+div.formHelp {
+    .help-block();
+}
+
+.formControls {
+    .form-actions();
+}
+
+input.context,
+input.standalone {
+    .btn();
+}
+
+.fieldRequired,
+span.required {
+    display: inline-block;
+}
+
+/* Portal messages are styled like alerts */
+
+dl.portalMessage {
+    .alert();
+    dt {
+        margin: 0;
+    }
+    dd {
+        margin-left: 0px;
+    }
+}
+
+/* Pulldown menu state indicators */
+
+#plone-contentmenu-workflow {
+    .state-private,
+    .state-visible,
+    .state-published,
+    .state-pending,
+    .state-expired {
+        text-shadow: none;
+        border: none;
+        .badge();
+    }
+    .state-private {
+        background-color: @errorText;
+    }
+    .state-published {
+        background-color: @successText;
+    }
+    .state-pending {
+        background-color: @infoText;
+    }
+    .state-expired {
+        background-color: @orange;
+    }
+    .state-visible {
+        background-color: @grayDark;
+    }
+}
 
 /* styling for overlays (popups) */
 
@@ -187,13 +415,37 @@ a.historyComparePrevious span {
 
 /* @group Editing */
 
+ul.formTabs {
+    background: transparent;
+    .nav();
+    .nav-tabs();
+    li {
+        float: left;
+        margin-bottom: -1px;
+        a {
+        padding: 8px 12px;
+        display: block;
+        line-height: @baseLineHeight - 6;
+        border: 1px solid transparent;
+        .border-radius(4px 4px 0 0);
+            &:hover {
+                border-color: @grayLighter @grayLighter #ddd;
+            }
+            &.selected {
+                color: @gray;
+                background-color: @white;
+                border: 1px solid #ddd;
+                border-bottom-color: transparent;
+                cursor: default;
+            }
+        }
+    }
+    
+}
+
+
 /* @group Tabs */
 
-/* Color differences between the two tab types */
-#content ul.formTabs {
-    background-color: #ddd;
-    border: 0.3em solid #ddd;
-}
 #edit-bar {
 }
 #content-views {
@@ -215,44 +467,23 @@ a.historyComparePrevious span {
 }
 
 /* Shared CSS between the two tab types */
-#content ul.formTabs,
-#content-core ul.formTabs {
-    display: block;
-    border-style: solid solid none solid;
-    margin-left: 0;
-    .border-radius(4px);
-}
-#content li.formTab,
-#content-core li.formTab {
-    display: inline;
-    margin-right:0.25em;
-}
-#content-views a,
-#content li.formTab a,
-#content-core li.formTab a {
+
+#content-views a {
     /* this isn't supported by all browsers, so we keep it in a separate rule */
     display: inline-block;
 }
-#content-views a,
-#content li.formTab a,
-#content-core li.formTab a {
+#content-views a {
     line-height: 2em;
     padding: 0 0.75em;
     text-decoration: none;
     border: none;
     margin: 0 ;
 }
-#content-views li.selected a,
-#content li.formTab a.selected,
-#content-core li.formTab a.selected {
+#content-views li.selected a {
     font-weight: bold;
 }
 #content-views li.selected a,
-#content-views li a:hover,
-#content li.formTab a.selected,
-#content li.formTab a:hover,
-#content-core li.formTab a.selected,
-#content-core li.formTab a:hover {
+#content-views li a:hover {
     background: White;
     color: Black;
     .border-radius(4px);
@@ -262,8 +493,7 @@ a.historyComparePrevious span {
     background-color: red;
     color: White;
 }
-#content li.formTab a.required span:after, 
-#content-core li.formTab a.required span:after, 
+ 
 div.field span.required:after {
     content: "■";
     color: Red;
@@ -417,8 +647,7 @@ dl.actionMenu.activated dd div {
 
 table.listing,
 table.plain {
-    border-spacing: 0;
-    border-collapse: collapse;
+    margin-bottom: @baseLineHeight;
 }
 
 table.invisible td,
@@ -432,7 +661,7 @@ table.listing th {
 }
 table.plain th,
 table.plain td {
-    border: 1px solid #ddd;
+    //border: 1px solid #ddd;
 }
 
 table.listing td.listingCheckbox,
@@ -452,10 +681,10 @@ table.listing .top {
 }
 table.listing th {
     text-align: left;
-    color: #666;
+    color: @grayLight;
     border: 0.1em solid #e7e7e7;
     border-style: solid solid none;
-    background: #ddd;
+    background: @grayLighter;
 }
 table.listing tr.odd th {
     border: 0.1em solid #fff;
