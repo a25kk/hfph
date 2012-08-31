@@ -4950,6 +4950,597 @@ a.badge:hover {
 .affix {
   position: fixed;
 }
+.avatar {
+  margin-right: 2px;
+  line-height: 20px;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.avatar.avatar-small {
+  width: 14px;
+  height: 14px;
+}
+.discreet {
+  color: #666;
+  font-size: 85%;
+  font-weight: normal;
+}
+.visualHighlight {
+  background-color: #ffc40d;
+}
+.pullquote {
+  line-height: 20px;
+  float: right;
+  width: 35%;
+  clear: right;
+  color: #999999;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 25px;
+  line-height: 17px;
+  padding: 10px 20px;
+  margin: 20px 0 20px 20px;
+  border-left: 5px solid #999999;
+  background: #eeeeee;
+}
+.callout {
+  background: #eeeeee;
+  padding: 20px;
+  margin: 0 0 20px;
+  border-left: 5px solid #999999;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 25px;
+  clear: both;
+}
+/* @group Image alignment classes */
+.image-left {
+  float: left;
+  margin: 10px 20px 20px 0;
+}
+.image-right {
+  float: right;
+  margin: 10px 0 20px 20px;
+}
+.image-inline {
+  float: none;
+}
+/*note: the tricky thing here is that image-inline|image-left|image-right
+can both be on an image and a wrapper element e.g. a dl tag*/
+img.image-left,
+img.image-right,
+.captioned img {
+  display: block;
+  padding: 4px;
+  line-height: 20px;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+}
+dd.image-caption {
+  text-align: left;
+  padding: 0 0 0 3px;
+  /*image padding+border with*/
+
+  margin: 0;
+  color: #666;
+  font-size: 85%;
+}
+/* @end */
+input.context,
+input.standalone {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+  padding: 4px 14px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  *line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #333333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #e6e6e6;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  border: 1px solid #bbbbbb;
+  *border: 0;
+  border-bottom-color: #a2a2a2;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  *margin-left: .3em;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  border-color: #c5c5c5;
+  border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+}
+input.context [class^="icon-"],
+input.standalone [class^="icon-"],
+input.context [class*=" icon-"],
+input.standalone [class*=" icon-"] {
+  /* keeps button heights with and without icons the same */
+
+  line-height: .9em;
+}
+input.context:hover,
+input.standalone:hover,
+input.context:active,
+input.standalone:active,
+input.context.active,
+input.standalone.active,
+input.context.disabled,
+input.standalone.disabled,
+input.context[disabled],
+input.standalone[disabled] {
+  color: #333333;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+}
+input.context:active,
+input.standalone:active,
+input.context.active,
+input.standalone.active {
+  background-color: #cccccc \9;
+}
+input.context:first-child,
+input.standalone:first-child {
+  *margin-left: 0;
+}
+input.context:hover,
+input.standalone:hover {
+  color: #333333;
+  text-decoration: none;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+  /* Buttons in IE7 don't get borders, so darken on hover */
+
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+input.context:focus,
+input.standalone:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+input.context.active,
+input.standalone.active,
+input.context:active,
+input.standalone:active {
+  background-color: #e6e6e6;
+  background-color: #d9d9d9 \9;
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+input.context.disabled,
+input.standalone.disabled,
+input.context[disabled],
+input.standalone[disabled] {
+  cursor: default;
+  background-color: #e6e6e6;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+input.context .label,
+input.standalone .label,
+input.context .badge,
+input.standalone .badge {
+  position: relative;
+  top: -1px;
+}
+#category {
+  font-size: 11px;
+  margin: 20px 0px;
+}
+#category a.link-category,
+#category span.selectedTag {
+  padding: 0.25em 0.5em;
+  background: #0088cc;
+  color: #ffffff;
+  border-radius: 0.5em;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+#category a.link-category:hover {
+  background: #005580;
+}
+#category .separator {
+  display: none;
+}
+.listingBar {
+  margin: 20px 0;
+  list-style: none;
+  text-align: center;
+  *zoom: 1;
+}
+.listingBar:before,
+.listingBar:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.listingBar:after {
+  clear: both;
+}
+.listingBar a {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: #fff;
+  border: 1px solid #999999;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  font-size: 11px;
+}
+.listingBar a.next {
+  float: right;
+}
+.listingBar a.previous {
+  float: left;
+}
+.listingBar a:hover {
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+/* Form overrides */
+input[type="checkbox"] + label,
+.ArchetypesBooleanWidget label {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+  margin-left: 5px;
+}
+input.datetime-widget,
+.ArchetypesCalendarWidget select {
+  width: auto;
+}
+/* Emulates the styling from the h1 tag */
+#content .field input[type="text"][name$=".title"],
+#form-widgets-IBasic-title,
+#archetypes-fieldname-title input {
+  height: 30px;
+  line-height: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  width: 100%;
+  color: #555555;
+}
+/* Emulates styling from the description's view */
+#content .field textarea[name$=".description"],
+#form-widgets-IBasic-description,
+#archetypes-fieldname-description textarea#description {
+  color: #555555;
+  font-size: 1.25em;
+  font-weight: bold;
+  width: 100%;
+}
+#content-core label {
+  font-weight: bold;
+}
+div.field {
+  margin-bottom: 10px;
+}
+div.formHelp {
+  color: #595959;
+  display: block;
+  margin-bottom: 10px;
+}
+.formControls {
+  padding: 19px 20px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #e5e5e5;
+  *zoom: 1;
+}
+.formControls:before,
+.formControls:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.formControls:after {
+  clear: both;
+}
+input.context,
+input.standalone {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+  padding: 4px 14px;
+  margin-bottom: 0;
+  font-size: 14px;
+  line-height: 20px;
+  *line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  color: #333333;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+  background-color: #f5f5f5;
+  background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+  background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+  border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #e6e6e6;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  border: 1px solid #bbbbbb;
+  *border: 0;
+  border-bottom-color: #a2a2a2;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  *margin-left: .3em;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+  border-color: #c5c5c5;
+  border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
+}
+input.context [class^="icon-"],
+input.standalone [class^="icon-"],
+input.context [class*=" icon-"],
+input.standalone [class*=" icon-"] {
+  /* keeps button heights with and without icons the same */
+
+  line-height: .9em;
+}
+input.context:hover,
+input.standalone:hover,
+input.context:active,
+input.standalone:active,
+input.context.active,
+input.standalone.active,
+input.context.disabled,
+input.standalone.disabled,
+input.context[disabled],
+input.standalone[disabled] {
+  color: #333333;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+}
+input.context:active,
+input.standalone:active,
+input.context.active,
+input.standalone.active {
+  background-color: #cccccc \9;
+}
+input.context:first-child,
+input.standalone:first-child {
+  *margin-left: 0;
+}
+input.context:hover,
+input.standalone:hover {
+  color: #333333;
+  text-decoration: none;
+  background-color: #e6e6e6;
+  *background-color: #d9d9d9;
+  /* Buttons in IE7 don't get borders, so darken on hover */
+
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+input.context:focus,
+input.standalone:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+input.context.active,
+input.standalone.active,
+input.context:active,
+input.standalone:active {
+  background-color: #e6e6e6;
+  background-color: #d9d9d9 \9;
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05);
+}
+input.context.disabled,
+input.standalone.disabled,
+input.context[disabled],
+input.standalone[disabled] {
+  cursor: default;
+  background-color: #e6e6e6;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+input.context .label,
+input.standalone .label,
+input.context .badge,
+input.standalone .badge {
+  position: relative;
+  top: -1px;
+}
+.fieldRequired,
+span.required {
+  display: inline-block;
+}
+/* Portal messages are styled like alerts */
+dl.portalMessage {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: #fcf8e3;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #c09853;
+}
+dl.portalMessage dt {
+  margin: 0;
+}
+dl.portalMessage dd {
+  margin-left: 0px;
+}
+/* Pulldown menu state indicators */
+#plone-contentmenu-workflow .state-private,
+#plone-contentmenu-workflow .state-visible,
+#plone-contentmenu-workflow .state-published,
+#plone-contentmenu-workflow .state-pending,
+#plone-contentmenu-workflow .state-expired {
+  text-shadow: none;
+  border: none;
+  font-size: 11.844px;
+  font-weight: bold;
+  line-height: 14px;
+  color: #ffffff;
+  vertical-align: baseline;
+  white-space: nowrap;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #999999;
+  padding: 1px 9px 2px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+#plone-contentmenu-workflow .state-private-important,
+#plone-contentmenu-workflow .state-visible-important,
+#plone-contentmenu-workflow .state-published-important,
+#plone-contentmenu-workflow .state-pending-important,
+#plone-contentmenu-workflow .state-expired-important {
+  background-color: #b94a48;
+}
+#plone-contentmenu-workflow .state-private-important[href],
+#plone-contentmenu-workflow .state-visible-important[href],
+#plone-contentmenu-workflow .state-published-important[href],
+#plone-contentmenu-workflow .state-pending-important[href],
+#plone-contentmenu-workflow .state-expired-important[href] {
+  background-color: #953b39;
+}
+#plone-contentmenu-workflow .state-private-warning,
+#plone-contentmenu-workflow .state-visible-warning,
+#plone-contentmenu-workflow .state-published-warning,
+#plone-contentmenu-workflow .state-pending-warning,
+#plone-contentmenu-workflow .state-expired-warning {
+  background-color: #f89406;
+}
+#plone-contentmenu-workflow .state-private-warning[href],
+#plone-contentmenu-workflow .state-visible-warning[href],
+#plone-contentmenu-workflow .state-published-warning[href],
+#plone-contentmenu-workflow .state-pending-warning[href],
+#plone-contentmenu-workflow .state-expired-warning[href] {
+  background-color: #c67605;
+}
+#plone-contentmenu-workflow .state-private-success,
+#plone-contentmenu-workflow .state-visible-success,
+#plone-contentmenu-workflow .state-published-success,
+#plone-contentmenu-workflow .state-pending-success,
+#plone-contentmenu-workflow .state-expired-success {
+  background-color: #468847;
+}
+#plone-contentmenu-workflow .state-private-success[href],
+#plone-contentmenu-workflow .state-visible-success[href],
+#plone-contentmenu-workflow .state-published-success[href],
+#plone-contentmenu-workflow .state-pending-success[href],
+#plone-contentmenu-workflow .state-expired-success[href] {
+  background-color: #356635;
+}
+#plone-contentmenu-workflow .state-private-info,
+#plone-contentmenu-workflow .state-visible-info,
+#plone-contentmenu-workflow .state-published-info,
+#plone-contentmenu-workflow .state-pending-info,
+#plone-contentmenu-workflow .state-expired-info {
+  background-color: #3a87ad;
+}
+#plone-contentmenu-workflow .state-private-info[href],
+#plone-contentmenu-workflow .state-visible-info[href],
+#plone-contentmenu-workflow .state-published-info[href],
+#plone-contentmenu-workflow .state-pending-info[href],
+#plone-contentmenu-workflow .state-expired-info[href] {
+  background-color: #2d6987;
+}
+#plone-contentmenu-workflow .state-private-inverse,
+#plone-contentmenu-workflow .state-visible-inverse,
+#plone-contentmenu-workflow .state-published-inverse,
+#plone-contentmenu-workflow .state-pending-inverse,
+#plone-contentmenu-workflow .state-expired-inverse {
+  background-color: #333333;
+}
+#plone-contentmenu-workflow .state-private-inverse[href],
+#plone-contentmenu-workflow .state-visible-inverse[href],
+#plone-contentmenu-workflow .state-published-inverse[href],
+#plone-contentmenu-workflow .state-pending-inverse[href],
+#plone-contentmenu-workflow .state-expired-inverse[href] {
+  background-color: #1a1a1a;
+}
+#plone-contentmenu-workflow .state-private {
+  background-color: #b94a48;
+}
+#plone-contentmenu-workflow .state-published {
+  background-color: #468847;
+}
+#plone-contentmenu-workflow .state-pending {
+  background-color: #3a87ad;
+}
+#plone-contentmenu-workflow .state-expired {
+  background-color: #f89406;
+}
+#plone-contentmenu-workflow .state-visible {
+  background-color: #333333;
+}
 /* styling for overlays (popups) */
 div.overlay {
   width: auto;
@@ -5111,12 +5702,53 @@ a.historyComparePrevious span {
 }
 /* @end */
 /* @group Editing */
-/* @group Tabs */
-/* Color differences between the two tab types */
-#content ul.formTabs {
-  background-color: #ddd;
-  border: 0.3em solid #ddd;
+ul.formTabs {
+  background: transparent;
+  margin-left: 0;
+  margin-bottom: 20px;
+  list-style: none;
+  *zoom: 1;
+  border-bottom: 1px solid #ddd;
 }
+ul.formTabs [class^="icon-"],
+ul.formTabs [class*=" icon-"] {
+  /* keeps button heights with and without icons the same */
+
+  line-height: .9em;
+}
+ul.formTabs:before,
+ul.formTabs:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+ul.formTabs:after {
+  clear: both;
+}
+ul.formTabs li {
+  float: left;
+  margin-bottom: -1px;
+}
+ul.formTabs li a {
+  padding: 8px 12px;
+  display: block;
+  line-height: 14px;
+  border: 1px solid transparent;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+ul.formTabs li a:hover {
+  border-color: #eeeeee #eeeeee #dddddd;
+}
+ul.formTabs li a.selected {
+  color: #555555;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+/* @group Tabs */
 #content-views {
   float: left;
   margin-top: 5px;
@@ -5135,47 +5767,23 @@ a.historyComparePrevious span {
   color: White;
 }
 /* Shared CSS between the two tab types */
-#content ul.formTabs,
-#content-core ul.formTabs {
-  display: block;
-  border-style: solid solid none solid;
-  margin-left: 0;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-}
-#content li.formTab,
-#content-core li.formTab {
-  display: inline;
-  margin-right: 0.25em;
-}
-#content-views a,
-#content li.formTab a,
-#content-core li.formTab a {
+#content-views a {
   /* this isn't supported by all browsers, so we keep it in a separate rule */
 
   display: inline-block;
 }
-#content-views a,
-#content li.formTab a,
-#content-core li.formTab a {
+#content-views a {
   line-height: 2em;
   padding: 0 0.75em;
   text-decoration: none;
   border: none;
   margin: 0 ;
 }
-#content-views li.selected a,
-#content li.formTab a.selected,
-#content-core li.formTab a.selected {
+#content-views li.selected a {
   font-weight: bold;
 }
 #content-views li.selected a,
-#content-views li a:hover,
-#content li.formTab a.selected,
-#content li.formTab a:hover,
-#content-core li.formTab a.selected,
-#content-core li.formTab a:hover {
+#content-views li a:hover {
   background: White;
   color: Black;
   -webkit-border-radius: 4px;
@@ -5187,8 +5795,6 @@ a.historyComparePrevious span {
   background-color: red;
   color: White;
 }
-#content li.formTab a.required span:after,
-#content-core li.formTab a.required span:after,
 div.field span.required:after {
   content: "■";
   color: Red;
@@ -5322,8 +5928,7 @@ dl.actionMenu.activated dd div {
 /* @group Data tables */
 table.listing,
 table.plain {
-  border-spacing: 0;
-  border-collapse: collapse;
+  margin-bottom: 20px;
 }
 table.invisible td,
 table.invisible th,
@@ -5333,10 +5938,6 @@ table.listing td,
 table.listing th {
   padding: 0.5em 1em;
   vertical-align: top;
-}
-table.plain th,
-table.plain td {
-  border: 1px solid #ddd;
 }
 table.listing td.listingCheckbox,
 table.listing th.listingCheckbox {
@@ -5353,10 +5954,10 @@ table.listing .top {
 }
 table.listing th {
   text-align: left;
-  color: #666;
+  color: #999999;
   border: 0.1em solid #e7e7e7;
   border-style: solid solid none;
-  background: #ddd;
+  background: #eeeeee;
 }
 table.listing tr.odd th {
   border: 0.1em solid #fff;
@@ -5444,40 +6045,27 @@ table.grid th {
 .make-some-noise {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQAQMAAAC032DuAAAABlBMVEUAAAAAAAClZ7nPAAAAAnRSTlMACHhIRQoAAAN7SURBVCiRAXADj/wAAkQJcM1mLQnAjAAb4sEhBjkWRBpWAIKF/FlkjVDJKKgA0KxA5QFOFWKpQgBG5PjjxiiDVJtnAHD5UwQVQstA7u8AOAYIMPmwiKga2gBooyeQA+jdVxiNABAIYGkr3lgTDBsAXQBAcGFmEGFEXQAwUgJEk6SsEMjDAApsetkgJK9PKJQAfDApaQUONGIDEgAKpcRsXsojEuY1ACYN4xSjdyGRVLcAsCBxpEiAUIkwYgBGLNoX24Yj9iJRAGMGy8gopJFOQvkAEZgtO9HAJC+9WACKQEJCwJGqpRoIAKYmUxdgMdl89AIApMRLQ/2pQLVbBQBDTLPsYJCDUEjoAHzhwoxoCKB4DAgAAN6ASuQFERMyvQCzWAJoFpkGjFsGAGLQnTrBTH4zIKIAFGUFG3UALzJDiwCmsCEwxUDwgFgIAFi/LtLBIAUJNBEAE4TENLhU8TjOCgAtAYILmwxnJrBoAAhNyenNNwViQFkANAFOhHKUo84QUAD0DRiji8DNOMJqADHrmeMWgFAgRrQAmIm9A9EhEGSBSgAulqWIGymRfxpwAH0DAAQSAnKWgdQASeJNibLEQzNOZwBzyCNrQnAEFoQoAAxMomBElggSqkgAAwFV5OAQZJ28ZwCCFaFCjSWxAObRAB8AJgRUj4BKIygApBGgk0MCkUMxFADVwIDCBY+OdMWgAG1xdOROdABshSMACAFX0QKD4hVCgwB2Mh6ZnAco8kNpAHsI4C8RY9CIiewAqyAZg6UNgAz7mgBkAxCbD25svIhqACgzbQNxciGqYNQAkARc2iVSMJ2lZADNJknADN80kC5jAOOUE5OONKUAsA0ARQLA1ABqDAEQCACIlnFgRPrqeUQyAKkAOV/GAUgi1RAAeAIX22Pv4uTlJABvEiKL1OBOaIWIAEsoNPRyRGQcMM0AQmzLIn0jGg0gNAAqsAQfVSb/NB1UAAi0AywKJQUIjCoA85ksYPNtqJExcQAYgoDzhYBwbWAdAKsgPswqlOqHbJMAUQlvpxLB1UzAGABpyxQ0mCs81wNXACHgmQEVxF1T9FUA8jrxkbDXWRJhoQBgoSwOksFRSSibACNkCSFowJxiMBYA4ek2cwRDk1DM8wCQCsQXTxHsamgRAEGGIlVQmcLwKhUAG+wigJjtKYW0HQC0OKRNEGFqXIOAbRpCReUGtgIAAAAASUVORK5CYII=);
 }
-body > header #editbar-wrapper .navbar-inner {
-  background-color: #999999;
-  background-image: -moz-linear-gradient(top, #999999, #999999);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#999999), to(#999999));
-  background-image: -webkit-linear-gradient(top, #999999, #999999);
-  background-image: -o-linear-gradient(top, #999999, #999999);
-  background-image: linear-gradient(to bottom, #999999, #999999);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff999999', endColorstr='#ff999999', GradientType=0);
-}
-body > header #editbar-wrapper .navbar-inner #editbar .brand {
-  color: #333333;
-}
-body > header #editbar-wrapper + nav {
+body > header #toolbar + nav {
   margin-top: 40px;
 }
-body > header #editbar-wrapper + nav .navbar-inner {
+body > header #toolbar + nav .navbar-inner {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
-body > header #editbar-wrapper + nav .navbar-inner .container {
+body > header #toolbar + nav .navbar-inner .container {
   width: 940px;
   margin-right: auto;
   margin-left: auto;
   *zoom: 1;
 }
-body > header #editbar-wrapper + nav .navbar-inner .container:before,
-body > header #editbar-wrapper + nav .navbar-inner .container:after {
+body > header #toolbar + nav .navbar-inner .container:before,
+body > header #toolbar + nav .navbar-inner .container:after {
   display: table;
   content: "";
   line-height: 0;
 }
-body > header #editbar-wrapper + nav .navbar-inner .container:after {
+body > header #toolbar + nav .navbar-inner .container:after {
   clear: both;
 }
 body > footer {
