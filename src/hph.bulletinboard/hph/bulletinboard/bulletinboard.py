@@ -1,27 +1,16 @@
 from five import grok
+from Acquisition import aq_inner
 from plone.directives import dexterity, form
 
-from zope import schema
-from zope.schema.interfaces import IContextSourceBinder
-from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+from Products.CMFCore.utils import getToolByName
 
-from zope.interface import invariant, Invalid
-
-from z3c.form import group, field
-
-from plone.namedfile.interfaces import IImageScaleTraversable
-from plone.namedfile.field import NamedImage, NamedFile
-from plone.namedfile.field import NamedBlobImage, NamedBlobFile
-
-from plone.app.textfield import RichText
-
-from z3c.relationfield.schema import RelationList, RelationChoice
-from plone.formwidget.contenttree import ObjPathSourceBinder
+from plone.app.contentlisting.interfaces import IContentListing
+from hph.bulletinboard.bulletin import IBulletin
 
 from hph.bulletinboard import MessageFactory as _
 
 
-class IBulletinBoard(form.Schema, IImageScaleTraversable):
+class IBulletinBoard(form.Schema):
     """
     A bulletin board holding announcements
     """
@@ -35,3 +24,14 @@ class View(grok.View):
     grok.context(IBulletinBoard)
     grok.require('zope2.View')
     grok.name('view')
+
+    def update(self):
+        self.has_bulletins = len(self.contained_bulletins()) > 0
+
+    def contained_bulletins(self):
+        context = aq_inner(self.context)
+        catalog = getToolByName(context, 'portal_catalog')
+        results = catalog(object_provides=IBulletin.__identifier__,
+                          review_state='published')
+        resultlist = IContentListing(results)
+        return resultlist
