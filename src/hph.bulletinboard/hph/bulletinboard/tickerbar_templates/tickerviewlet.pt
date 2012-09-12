@@ -1,5 +1,11 @@
-<div id="tickerbar">
-    <div class="tickeritems">
-        Tickerbar viewlet
+<div id="tickerbar"
+    tal:define="portal_url context/portal_url">
+    <div class="alert"
+        data-appui="tickerfeed"
+        data-appui-placeholder="#bulletins"
+        tal:attributes="data-appui-source python:portal_url + '/schwarzes-brett/@@bulletins'">
+        <div id="bulletins">
+            Tickerbar viewlet
+        </div>
     </div>
 </div>

@@ -70,7 +70,8 @@
         <!-- Breadcrumbs -->
         <replace css:content-children='#portal-breadcrumbs'
             css:theme-children='#breadcrumbs' />
-
+        <replace css:theme="#ticker-bar"
+            css:content="#tickerbar" />
         <!-- Document Content -->
         <replace css:content-children="#content" 
             css:theme-children="#main-content" />

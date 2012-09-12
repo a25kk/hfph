@@ -9,8 +9,18 @@
             // enhancement.
             return;
         }
-        // Add custom javascript calls here
-        // e.g.
-        // $('#my-gallery').scrollable();
+        $('div[data-appui="tickerfeed"]').each(function () {
+            var source_url = $(this).data('appui-source');
+            var target_el = $(this).data('appui-placeholder');
+            $.getJSON(source_url, function (data) {
+                var div_data = '';
+                $.each(data.items, function (i, item) {
+                    //alert('Item:' + item.title);
+                    div_data += '<div class="bulletin">';
+                    div_data += '<a href="' + item.url + '">' + item.title + '</a></div>';
+                });
+                $(target_el).html(div_data);
+            });
+        });
     });
 }(jQuery));
