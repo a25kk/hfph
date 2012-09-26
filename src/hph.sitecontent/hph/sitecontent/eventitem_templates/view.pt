@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+  <article id="eventitem-view">
+    <header class="page-title">
+      <h1 tal:content="context/Title">Title inserted here</h1>
+      <p>Published: <time pubdate datetime="2009-10-09">
+        9th October, 2009</time>
+      </p>
+    </header>
+    <p class="muted" tal:content="context/location" />
+    <div tal:condition="context/text"
+      tal:content="structure context/text/output" />
+    <footer>
+      <p><strong>Start:</strong>
+        <time tal:attributes="datetime context/start"
+          tal:content="context/start" /></p>
+      <p><strong>End:</strong>
+        <time tal:attributes="datetime context/end"
+          tal:content="context/end" /></p>
+    </footer>
+  </article>
+    
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+
