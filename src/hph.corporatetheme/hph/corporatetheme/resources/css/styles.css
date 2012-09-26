@@ -6247,14 +6247,25 @@ table.grid th {
 .visualClear {
   clear: both;
 }
+body {
+  background: #eeeeee;
+}
 .make-some-noise {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAABQAQMAAAC032DuAAAABlBMVEUAAAAAAAClZ7nPAAAAAnRSTlMACHhIRQoAAAN7SURBVCiRAXADj/wAAkQJcM1mLQnAjAAb4sEhBjkWRBpWAIKF/FlkjVDJKKgA0KxA5QFOFWKpQgBG5PjjxiiDVJtnAHD5UwQVQstA7u8AOAYIMPmwiKga2gBooyeQA+jdVxiNABAIYGkr3lgTDBsAXQBAcGFmEGFEXQAwUgJEk6SsEMjDAApsetkgJK9PKJQAfDApaQUONGIDEgAKpcRsXsojEuY1ACYN4xSjdyGRVLcAsCBxpEiAUIkwYgBGLNoX24Yj9iJRAGMGy8gopJFOQvkAEZgtO9HAJC+9WACKQEJCwJGqpRoIAKYmUxdgMdl89AIApMRLQ/2pQLVbBQBDTLPsYJCDUEjoAHzhwoxoCKB4DAgAAN6ASuQFERMyvQCzWAJoFpkGjFsGAGLQnTrBTH4zIKIAFGUFG3UALzJDiwCmsCEwxUDwgFgIAFi/LtLBIAUJNBEAE4TENLhU8TjOCgAtAYILmwxnJrBoAAhNyenNNwViQFkANAFOhHKUo84QUAD0DRiji8DNOMJqADHrmeMWgFAgRrQAmIm9A9EhEGSBSgAulqWIGymRfxpwAH0DAAQSAnKWgdQASeJNibLEQzNOZwBzyCNrQnAEFoQoAAxMomBElggSqkgAAwFV5OAQZJ28ZwCCFaFCjSWxAObRAB8AJgRUj4BKIygApBGgk0MCkUMxFADVwIDCBY+OdMWgAG1xdOROdABshSMACAFX0QKD4hVCgwB2Mh6ZnAco8kNpAHsI4C8RY9CIiewAqyAZg6UNgAz7mgBkAxCbD25svIhqACgzbQNxciGqYNQAkARc2iVSMJ2lZADNJknADN80kC5jAOOUE5OONKUAsA0ARQLA1ABqDAEQCACIlnFgRPrqeUQyAKkAOV/GAUgi1RAAeAIX22Pv4uTlJABvEiKL1OBOaIWIAEsoNPRyRGQcMM0AQmzLIn0jGg0gNAAqsAQfVSb/NB1UAAi0AywKJQUIjCoA85ksYPNtqJExcQAYgoDzhYBwbWAdAKsgPswqlOqHbJMAUQlvpxLB1UzAGABpyxQ0mCs81wNXACHgmQEVxF1T9FUA8jrxkbDXWRJhoQBgoSwOksFRSSibACNkCSFowJxiMBYA4ek2cwRDk1DM8wCQCsQXTxHsamgRAEGGIlVQmcLwKhUAG+wigJjtKYW0HQC0OKRNEGFqXIOAbRpCReUGtgIAAAAASUVORK5CYII=);
 }
-body > header #header .brand {
+body > header #header #logo {
   width: 100px;
   height: 100px;
   display: block;
   border: 1px solid #999999;
+}
+body > header #header .navbar-inner {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+body > header #header .navbar-inner #bulletin {
+  position: absolute;
 }
 body > header #toolbar + #header {
   margin-top: 40px;
@@ -6274,7 +6285,21 @@ body > header #toolbar + #header {
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
+.panel {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+  margin-bottom: 20px;
+}
+#content {
+  padding: 20px;
+}
 body > footer {
+  background: #ffffff;
   margin-top: 20px;
   padding: 20px 0;
   border-top: 1px solid #eeeeee;

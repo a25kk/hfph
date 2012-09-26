@@ -33,7 +33,7 @@
           </div>
         </div>
       </div>
-      <div id="header" class="container">
+      <div id="header" class="container panel">
         <a class="brand" id="logo" href="#">Hochschule f&uuml;r Philosophie M&uuml;nchen</a>
         <nav class="navbar">
           <div class="navbar-inner">
@@ -45,49 +45,57 @@
               </a>
               <div class="nav-collapse">
                 <ul class="nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#about">About</a></li>
-                  <li><a href="#contact">Contact</a></li>
+                  <li class="active"><a href="#">
+                    <i class="icon-sign-blank"></i></a></li>
+                  <li class="divider-vertical"></li>
+                  <li><a href="#about">Hochschule</a></li>
+                  <li class="divider-vertical"></li>
+                  <li><a href="#contact">Studium</a></li>
+                  <li class="divider-vertical"></li>
+                  <li><a href="#contact">Forschung</a></li>
+                  <li class="divider-vertical"></li>
+                  <li><a href="#contact">Impulse</a></li>
                 </ul>
               </div><!--/.nav-collapse -->
+              <form class="navbar-form pull-right">
+                <button type="submit" class="btn">Submit</button>
+                <input type="text" class="span2">
+              </form>
             </div>
           </div>
         </nav>
       </div>
     </header>
 
-    <header id="topbar">
-      <!-- Twitter boostrap based default navigation -->
-      
-    </header>
+    <section id="ticker-bar" class="container panel">
+    </section>
 
     <section class="container">
-      <div id="ticker-bar"></div>
       <div class="row">
-        <div class="span8">
-          <section id="main-content">
-            <header class="page-header">
-              <h1>Starter template <small>Fixed Layout, 12 cell grid</small></h1>
-            </header>
-            <article>
-              <p>Use this document as a way to quick start any new project.<br>
-                All you get is this message and a barebones HTML document.</p>
-            </article>
+        <div class="span9">
+          <section id="main-content" class="panel">
+            <section id="content">
+              <header class="page-header">
+                <h1>Starter template <small>Fixed Layout, 12 cell grid</small></h1>
+              </header>
+              <article>
+                <p>Use this document as a way to quick start any new project.<br>
+                  All you get is this message and a barebones HTML document.</p>
+              </article>
+            </section>
           </section>
         </div>
-        <div class="span4">
-          <aside id="sidebar">
-            <div class="well">
+        <div class="span3">
+          <aside id="sidebar" class="panel">
               <h2>Sidebar</h2>
-            </div>
           </aside>
         </div>
       </div>
     </section> <!-- /container -->
 
 
-    <footer id="site-footer">
-      <div class="container">
+    <footer id="site-footer" class="container panel">
+      <div>
         <p>&copy; Kreativkombinat GbR 2012</p>
       </div>
     </footer>

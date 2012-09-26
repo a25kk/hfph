@@ -3,7 +3,7 @@
 
 
 body {
-    //background: #f5f5f5;
+    background: @grayLighter;
 }
 
 // Example for providing a data image via stylesheet
@@ -17,10 +17,16 @@ body {
 // browser toolbar
 body > header {
     #header {
-        .brand {
+        #logo {
             .square(100px);
             display: block;
             border: 1px solid @grayLight;
+        }
+        .navbar-inner {
+            .border-radius(0px);
+            #bulletin {
+                position: absolute;
+            }
         }
     }
     #toolbar + #header {
@@ -37,8 +43,20 @@ body > header {
     }
 }
 
+.panel {
+    .border-radius(0px);
+    .box-shadow(0 0 5px 5px rgba(0,0,0,.05));
+    background: @white;
+    margin-bottom: @baseLineHeight;
+}
+
+#content {
+    padding: @baseLineHeight;
+}
+
 // Example styles for a HMTL5 based site footer
 body > footer {
+    background: @white;
     margin-top: @baseLineHeight;
     padding: @baseLineHeight 0;
     border-top: 1px solid @grayLighter;

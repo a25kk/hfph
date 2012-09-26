@@ -9,6 +9,15 @@
             // enhancement.
             return;
         }
+        $("#ticker-tabs").tabs('#bulletins > div', {
+            effect: 'fade',
+            fadeOutSpeed: 1000,
+            rotate: true
+        }).slideshow({
+            autoplay: true,
+            interval: 6000,
+            clickable: false
+        });
         //$('div[data-appui="tickerfeed"]').each(function () {
         //    var source_url = $(this).data('appui-source');
         //    var target_el = $(this).data('appui-placeholder');

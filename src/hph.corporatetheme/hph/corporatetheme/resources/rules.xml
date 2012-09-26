@@ -70,11 +70,11 @@
         <!-- Breadcrumbs -->
         <replace css:content-children='#portal-breadcrumbs'
             css:theme-children='#breadcrumbs' />
-        <replace css:theme="#ticker-bar"
+        <replace css:theme-children="#ticker-bar"
             css:content="#tickerbar" />
         <!-- Document Content -->
         <replace css:content-children="#content" 
-            css:theme-children="#main-content" />
+            css:theme-children="#content" />
         
         <before css:content=".portalMessage" css:theme="#document-content" />
         <replace css:content-children="#viewlet-below-content"
