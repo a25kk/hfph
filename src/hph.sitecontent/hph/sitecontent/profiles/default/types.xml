@@ -8,6 +8,8 @@
   -->
 <object name="portal_types" meta_type="Plone Types Tool">
   <!-- -*- extra stuff goes here -*- -->
+  <object name="hph.sitecontent.eventfolder" meta_type="Dexterity FTI" />
+  <object name="hph.sitecontent.newsfolder" meta_type="Dexterity FTI" />
   <object name="hph.sitecontent.eventitem" meta_type="Dexterity FTI" />
   <object name="hph.sitecontent.newsentry" meta_type="Dexterity FTI" />
   <object name="hph.sitecontent.contentpage" meta_type="Dexterity FTI" />
