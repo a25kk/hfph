@@ -28,6 +28,15 @@ body > header {
     }
 }
 
+#tickerbar {
+    .navbar-inner {
+        #gradient > .vertical(@errorBackground, @errorBackground);
+        border: 1px solid @errorBorder;
+        color: @errorText;
+        .border-radius(0px);
+    }
+}
+
 // Example styles for a HMTL5 based site footer
 body > footer {
     margin-top: @baseLineHeight;

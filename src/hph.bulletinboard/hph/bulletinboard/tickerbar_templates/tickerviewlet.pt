@@ -1,11 +1,14 @@
 <div id="tickerbar"
+    class="navbar navbar-fixed-bottom"
+    tal:condition="viewlet/available"
     tal:define="portal_url context/portal_url">
-    <div class="alert"
+    <div class="navbar-inner"
         data-appui="tickerfeed"
         data-appui-placeholder="#bulletins"
         tal:attributes="data-appui-source python:portal_url + '/schwarzes-brett/@@bulletins'">
-        <div id="bulletins">
-            Tickerbar viewlet
+        <div id="bulletins" class="container">
+            <p><i class="icon-warning-sign"></i>
+            Tickerbar viewlet</p>
         </div>
     </div>
 </div>

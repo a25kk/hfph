@@ -5460,6 +5460,11 @@ input.datetime-widget,
 #content-core label {
   font-weight: bold;
 }
+#content-core label span.formHelp {
+  color: #595959;
+  display: block;
+  margin-bottom: 10px;
+}
 div.field {
   margin-bottom: 10px;
 }
@@ -6267,6 +6272,21 @@ body > header #toolbar + nav .navbar-inner .container:after {
 }
 body > header #toolbar + nav .navbar-inner .container:after {
   clear: both;
+}
+#tickerbar .navbar-inner {
+  background-color: #f2dede;
+  background-image: -moz-linear-gradient(top, #f2dede, #f2dede);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f2dede), to(#f2dede));
+  background-image: -webkit-linear-gradient(top, #f2dede, #f2dede);
+  background-image: -o-linear-gradient(top, #f2dede, #f2dede);
+  background-image: linear-gradient(to bottom, #f2dede, #f2dede);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#fff2dede', GradientType=0);
+  border: 1px solid #eed3d7;
+  color: #b94a48;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
 body > footer {
   margin-top: 20px;
