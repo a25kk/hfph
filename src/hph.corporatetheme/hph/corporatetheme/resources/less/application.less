@@ -16,15 +16,15 @@ body {
 // twitter bootstarp navbar to make the edit bar look like a
 // browser toolbar
 body > header {
-    #toolbar + nav {
-        margin-top: @navbarHeight;
-        .navbar-inner {
-            .border-radius(0px);
-            .container {
-                width: @gridRowWidth;
-                .container-fixed();
-            }
+    #header {
+        .brand {
+            .square(100px);
+            display: block;
+            border: 1px solid @grayLight;
         }
+    }
+    #toolbar + #header {
+        margin-top: @navbarHeight;
     }
 }
 
