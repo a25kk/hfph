@@ -12,11 +12,50 @@
 
     <article id="publication-view">
       <header class="page-header">
+        <p class="muted">
+          <span tal:replace="context/authorOne" />
+          <span tal:condition="context/authorTwo">,
+            <span tal:replace="context/authorTwo" /></span>
+          <span tal:condition="context/authorThree">,
+            <span tal:replace="context/authorThree" /></span>
+          <span tal:condition="context/authorPlus">u.a.</span>
+          <span tal:condition="context/editor">(Hrsg.)</span>:
+        </p>
         <h1 tal:content="context/Title" />
       </header>
       <section id="content-core">
-        <p>Content will be here</p>
+        <div tal:condition="context/summary"
+          tal:content="structure context/summary/output" />
       </section>
+      <h3>Metadaten</h3>
+      <table class="table">
+        <tbody>
+          <tr tal:condition="context/medium">
+            <td>Medium</td>
+            <td tal:define="items context/medium">
+              <tal:block tal:repeat="item items">
+                <span tal:replace="item" />,
+              </tal:block>
+            </td>
+          </tr>
+          <tr tal:condition="context/series">
+            <td>Reihe</td>
+            <td tal:define="items context/series">
+              <tal:block tal:repeat="item items">
+                <span tal:replace="item" />,
+              </tal:block>
+            </td>
+          </tr>
+          <tr tal:condition="context/display">
+            <td>anzeigen unter:</td>
+            <td tal:define="items context/display">
+              <tal:block tal:repeat="item items">
+                <span tal:replace="item" />,
+              </tal:block>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </article>
   </metal:content-core>
 </metal:main>
