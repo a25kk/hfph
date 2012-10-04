@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.publications">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <section id="publication-list">
+      <header class="page-header">
+        <h1 tal:content="context/Title" />
+      </header>
+      <section id="content-core">
+        <p>The publications will be listed here</p>
+        <div class="alert">
+          <h4>Note:</h4>
+          <p>Not implemented yet</p>
+        </div>
+      </section>
+    </section>
+   
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

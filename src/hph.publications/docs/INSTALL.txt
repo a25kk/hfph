@@ -1,0 +1,17 @@
+hph.publications Installation
+-----------------------------
+
+To install hph.publications using zc.buildout and the plone.recipe.zope2instance
+recipe to manage your project, you can do this:
+
+* Add ``hph.publications`` to the list of eggs to install, e.g.:
+
+    [buildout]
+    ...
+    eggs =
+        ...
+        hph.publications
+       
+* Re-run buildout, e.g. with:
+
+    $ ./bin/buildout
