@@ -18,6 +18,20 @@
             interval: 6000,
             clickable: false
         });
+        $('#formfield-form-widgets-series input.checkbox-widget').on('click', function () {
+            var input_id = this.id;
+            if (input_id === 'form-widgets-series-5') {
+                alert('We have the correct id');
+                if ($(this).is(':checked')) {
+                    $('#form-widgets-medium-1').attr('checked', true);
+                }
+            }
+            else {
+                if ($(this).is(':checked')) {
+                    $('#form-widgets-medium-0').attr('checked', true);
+                }
+            }
+        });
         //$('div[data-appui="tickerfeed"]').each(function () {
         //    var source_url = $(this).data('appui-source');
         //    var target_el = $(this).data('appui-placeholder');
