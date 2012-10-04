@@ -1,0 +1,97 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: 2012-08-03 14:20+0000\n"
+"PO-Revision-Date: 2012-10-04 10:44+0100\n"
+"Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
+"Language-Team: KK Language Team <info@kreativkombinat.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: de\n"
+"Language-Name: German\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: hph.sitecontent\n"
+
+#: ./../profiles/default/types/hph.sitecontent.contentpage.xml
+msgid "A content page type including fulltext and preview image"
+msgstr "Inhaltsseite mit Vorschaubild"
+
+#: ./../profiles/default/types/hph.sitecontent.eventfolder.xml
+msgid "A folder acting as a collection for events"
+msgstr "Sammelordner für Termine"
+
+#: ./../profiles/default/types/hph.sitecontent.newsfolder.xml
+msgid "A folder acting as a collection for news items"
+msgstr "SAmmelordner für aktuelle Nachrichten"
+
+#: ./../profiles/default/types/hph.sitecontent.newsentry.xml
+msgid "A news or announcement item"
+msgstr "Newsbeitrag"
+
+#: ./../profiles/default/types/hph.sitecontent.eventitem.xml
+msgid "An event with a start and end date"
+msgstr "Ein Termin mit Anfangs- und Enddatum"
+
+#: ./../profiles/default/types/hph.sitecontent.contentpage.xml
+msgid "ContentPage"
+msgstr "Inhaltsseite"
+
+#: ./../eventitem.py:29
+msgid "End date"
+msgstr "Ende"
+
+#: ./../eventitem.py:33
+msgid "Event Description"
+msgstr "Terminbeschreibung"
+
+#: ./../eventitem.py:21
+msgid "Event Location"
+msgstr "Veranstaltungsort"
+
+#: ./../profiles/default/types/hph.sitecontent.eventfolder.xml
+msgid "EventFolder"
+msgstr "Terminordner"
+
+#: ./../profiles/default/types/hph.sitecontent.eventitem.xml
+msgid "EventItem"
+msgstr "Aktueller Termin"
+
+#: ./../newsentry.py:23
+msgid "Main Text"
+msgstr "Haupttext"
+
+#: ./../profiles/default/types/hph.sitecontent.newsentry.xml
+msgid "NewsEntry"
+msgstr "Aktuelle Nachricht"
+
+#: ./../profiles/default/types/hph.sitecontent.newsfolder.xml
+msgid "NewsFolder"
+msgstr "Nachrichtenordner"
+
+#: ./../contentpage.py:21
+#: ./../newsentry.py:17
+msgid "Preview Image"
+msgstr "Vorschaubild"
+
+#: ./../eventitem.py:25
+msgid "Start date"
+msgstr "Beginn"
+
+#: ./../contentpage.py:17
+msgid "Text"
+msgstr "Text"
+
+#: ./../eventitem.py:17
+msgid "Title"
+msgstr "Titel"
+
+#: ./../newsentry.py:18
+msgid "Upload a preview image that will be used in news teasers."
+msgstr "Laden Sie ein Vorschaubild hoch, dass in der Nachrichtenvorschau verwendet wird"
+
+#: ./../contentpage.py:22
+msgid "Upload preview image that can be used in search results and listings."
+msgstr "Laden Sie ein Voschaubild hoch, dass in Auflistungen und bei der Anzeige von Suchtreffern verwendet wird."
+
