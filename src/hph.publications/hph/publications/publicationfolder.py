@@ -1,29 +1,17 @@
+from Acquisition import aq_inner
 from five import grok
 from plone.directives import dexterity, form
 
-from zope import schema
-from zope.schema.interfaces import IContextSourceBinder
-from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+from Products.CMFCore.utils import getToolByName
 
-from zope.interface import invariant, Invalid
+from plone.app.contentlisting.interfaces import IContentListing
 
-from z3c.form import group, field
-
-from plone.namedfile.interfaces import IImageScaleTraversable
-from plone.namedfile.field import NamedImage, NamedFile
-from plone.namedfile.field import NamedBlobImage, NamedBlobFile
-
-from plone.app.textfield import RichText
-
-from z3c.relationfield.schema import RelationList, RelationChoice
-from plone.formwidget.contenttree import ObjPathSourceBinder
+from hph.publications.publication import IPublication
 
 from hph.publications import MessageFactory as _
 
 
-# Interface class; used to define content-type schema.
-
-class IPublicationFolder(form.Schema, IImageScaleTraversable):
+class IPublicationFolder(form.Schema):
     """
     A  central collection of publications with filter functionality
     """
@@ -37,3 +25,12 @@ class View(grok.View):
     grok.context(IPublicationFolder)
     grok.require('zope2.View')
     grok.name('view')
+
+    def update(self):
+        self.has_publications = len(self.publications()) > 0
+
+    def publications(self):
+        context = aq_inner(self.context)
+        catalog = getToolByName(context, 'portal_catalog')
+        results = catalog(object_provides=IPublication.__identifier__,)
+        return IContentListing(results)

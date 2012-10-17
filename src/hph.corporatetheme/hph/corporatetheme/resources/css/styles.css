@@ -5542,6 +5542,8 @@ input.datetime-widget,
   color: #595959;
   display: block;
   margin-bottom: 10px;
+  color: #999999;
+  font-weight: normal;
 }
 div.field {
   margin-bottom: 10px;
@@ -5736,11 +5738,9 @@ dl.portalMessage dd {
   white-space: nowrap;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   background-color: #999999;
-  padding-left: 9px;
-  padding-right: 9px;
-  -webkit-border-radius: 9px;
-  -moz-border-radius: 9px;
-  border-radius: 9px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 #plone-contentmenu-workflow .state-private-important,
 #plone-contentmenu-workflow .state-visible-important,
@@ -6339,6 +6339,11 @@ body > header #header #logo {
   height: 100px;
   display: block;
   border: 1px solid #999999;
+  background: #eeeeee;
+  margin: 20px;
+}
+body > header #header .navbar {
+  margin-bottom: 0px;
 }
 body > header #header .navbar-inner {
   -webkit-border-radius: 0px;
@@ -6379,9 +6384,15 @@ body > header #toolbar + #header {
 #content {
   padding: 20px;
 }
+#sidebar {
+  padding: 20px;
+}
 body > footer {
   background: #ffffff;
   margin-top: 20px;
   padding: 20px 0;
   border-top: 1px solid #eeeeee;
+}
+body > footer #footer {
+  padding: 20px;
 }

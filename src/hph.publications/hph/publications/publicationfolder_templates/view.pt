@@ -15,11 +15,26 @@
         <h1 tal:content="context/Title" />
       </header>
       <section id="content-core">
-        <p>The publications will be listed here</p>
-        <div class="alert">
+        <div class="alert" tal:condition="not:view/has_publications">
           <h4>Note:</h4>
-          <p>Not implemented yet</p>
+          <p>There are no publications available yet</p>
         </div>
+        <tal:block tal:condition="view/has_publications">
+          <div class="row-fluid"
+            tal:repeat="item view/publications">
+            <div class="span3">
+              <img class="img-polaroid" src="http://placehold.it/140x140" />
+            </div>
+            <div class="span9">
+              <h2>
+                <small>Author Information</small><br />
+                <span tal:replace="item/Title" />
+              </h2>
+              <div tal:condition="item/summary"
+                tal:content="structure item/summary/output" />
+            </div>
+          </div>
+        </tal:block>
       </section>
     </section>
    

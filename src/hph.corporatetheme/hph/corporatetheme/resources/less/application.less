@@ -21,6 +21,11 @@ body > header {
             .square(100px);
             display: block;
             border: 1px solid @grayLight;
+            background:@grayLighter;
+            margin: @baseLineHeight;
+        }
+        .navbar {
+            margin-bottom: 0px;
         }
         .navbar-inner {
             .border-radius(0px);
@@ -53,6 +58,9 @@ body > header {
 #content {
     padding: @baseLineHeight;
 }
+#sidebar {
+    padding: @baseLineHeight;
+}
 
 // Example styles for a HMTL5 based site footer
 body > footer {
@@ -60,4 +68,7 @@ body > footer {
     margin-top: @baseLineHeight;
     padding: @baseLineHeight 0;
     border-top: 1px solid @grayLighter;
+    #footer {
+        padding: @baseLineHeight;
+    }
 }
