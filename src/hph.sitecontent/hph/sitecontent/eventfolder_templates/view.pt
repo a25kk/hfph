@@ -7,11 +7,27 @@
       i18n:domain="hph.sitecontent">
 <body>
 
-<metal:main fill-slot="content-core">
-  <metal:content-core define-macro="content-core">
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
 
-    <div tal:content="context/Title">Title inserted here</div>
-    
+   <section id="news-listing"
+    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+    <header class="page-header">
+        <h1 tal:content="context/Title" />
+    </header>
+    <div tal:define="items context/@@folderListing">
+        <article tal:repeat="item items">
+            <h4><a href="" tal:content="item/Title"
+                    tal:attributes="href item/getURL" /></h4>
+            <p class="muted"
+                tal:define="date item/effective">
+                <span tal:attributes="datetime date"
+                    tal:content="python:toLocalizedTime(date)" />
+            </p>
+        </article>
+    </div>
+  </section>  
+
   </metal:content-core>
 </metal:main>
 
