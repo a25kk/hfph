@@ -17,21 +17,24 @@ body {
 // browser toolbar
 body > header {
     #header {
+        border-top: 5px solid @appBlue;
         #logo {
-            .square(100px);
             display: block;
-            border: 1px solid @grayLight;
-            background:@grayLighter;
+            overflow: hidden;
             margin: @baseLineHeight;
+            border: 0px solid @grayLight;
+            background:url(../img/logo.jpg)  no-repeat 0 0;
+            text-indent: -999999px;
+            .size(97px,243px);
         }
         .navbar {
             margin-bottom: 0px;
         }
         .navbar-inner {
-            .border-radius(0px);
             #bulletin {
                 position: absolute;
             }
+            .border-radius(0px);
         }
     }
     #toolbar + #header {
@@ -41,18 +44,18 @@ body > header {
 
 #tickerbar {
     .navbar-inner {
-        #gradient > .vertical(@errorBackground, @errorBackground);
         border: 1px solid @errorBorder;
         color: @errorText;
+        #gradient > .vertical(@errorBackground, @errorBackground);
         .border-radius(0px);
     }
 }
 
 .panel {
+    margin-bottom: @baseLineHeight;
+    background: @white;
     .border-radius(0px);
     .box-shadow(0 0 5px 5px rgba(0,0,0,.05));
-    background: @white;
-    margin-bottom: @baseLineHeight;
 }
 
 #content {
@@ -64,11 +67,18 @@ body > header {
 
 // Example styles for a HMTL5 based site footer
 body > footer {
-    background: @white;
     margin-top: @baseLineHeight;
-    padding: @baseLineHeight 0;
-    border-top: 1px solid @grayLighter;
+    padding: @baseLineHeight /3;
+    border-top: 5px solid @appBlue;
+    background: @white;
     #footer {
-        padding: @baseLineHeight;
+        padding: 0;
+        .nav {
+            margin-top: -11px;
+            margin-bottom: 0;
+            margin-left: 77px;
+            width: 513px;
+            border-top: 5px solid @appGrey;
+        }
     }
 }
