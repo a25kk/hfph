@@ -13,7 +13,11 @@ body {
 }
 
 a {
-    outline: none;
+    outline: none !important;
+}
+
+.visualClear{
+    clear:both;
 }
 
 // Example styles for a custom editbar override of the basic
@@ -22,6 +26,7 @@ a {
 body > header {
     #header {
         border-top: 5px solid @appBlue;
+        background: @white;
         #logo {
             display: block;
             overflow: hidden;
@@ -29,7 +34,62 @@ body > header {
             border: 0px solid @grayLight;
             background:url(../img/logo.jpg)  no-repeat 0 0;
             text-indent: -999999px;
+            float: left;
             .size(97px,243px);
+        }
+        .meta-wrapper {
+            border: 0px;
+        }
+        #meta {
+            float: right;
+            width: 364px;
+            height: 30px;
+            display: block;
+            vertical-align: top;
+            margin-right: 80px;
+            
+            .language {
+                float: left;
+                padding: 7px;
+                a:hover {
+                        background: @appBlue;
+                        color: white;
+                        padding: 2px;
+                        text-decoration: none;
+                    }
+            }
+            .touch {
+                float: right;
+                border-top: 5px solid @appGrey;
+                border-left: 1px solid @appGrey;
+                border-right: 1px solid @appGrey;
+                border-bottom: 1px solid @appGrey;
+                margin-top: -5px;
+                padding: 7px;
+            }
+            ul {
+                list-style-image: none;
+                list-style-type: none;
+                text-align: center;
+                margin: 0px;
+                li {
+                    display: inline;
+                    text-transform: uppercase;
+                    font-size: 0.8em;
+                    padding: 0px 4px;
+                    a {
+                        padding: 2px;
+                    }
+                    .nl {
+                         background:url(../img/nl.gif)  no-repeat 0 2px;
+                         padding: 0px 0px 0px 20px;  
+                    }
+                    a:hover .nl  {
+                         background:url(../img/nl.gif)  no-repeat 0 2px;
+                         padding: 0px 0px 0px 20px;  
+                    }
+                }
+            }
         }
         .navbar {
             .divider-vertical {
@@ -58,7 +118,7 @@ body > header {
                 margin-right: 0px;
             }
             .nav li {
-                width:165px;
+                width:164px;
                 text-align: center;
                 line-height: 15px;
             }
@@ -77,7 +137,7 @@ body > header {
                 position: absolute;
             }
             .navbar-form {
-                width: 240px;
+                width: 239px;
                 background-color: @grayLight;
             }
             .border-radius(0px);
@@ -108,7 +168,7 @@ label {
 }
 
 .divider-vertical {
-    width: 1px !important;
+    width: 2px !important;
     border: 0px solid red;
 }
 
