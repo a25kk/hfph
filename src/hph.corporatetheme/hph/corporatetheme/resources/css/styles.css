@@ -144,7 +144,7 @@ textarea {
 }
 body {
   margin: 0;
-  font-family: Trebuchet MS "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Trebuchet MS, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
   color: #333333;
@@ -795,7 +795,7 @@ input,
 button,
 select,
 textarea {
-  font-family: Trebuchet MS "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Trebuchet MS, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 label {
   display: block;
@@ -3889,7 +3889,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-search .search-query {
   margin-bottom: 0;
   padding: 4px 14px;
-  font-family: Trebuchet MS "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Trebuchet MS, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   font-weight: normal;
   line-height: 1;
@@ -6340,7 +6340,7 @@ body > header #header {
 body > header #header #logo {
   display: block;
   overflow: hidden;
-  margin: 20px;
+  margin: 60px 0px 60px 77px;
   border: 0px solid #999999;
   background: url(../img/logo.jpg) no-repeat 0 0;
   text-indent: -999999px;
@@ -6349,17 +6349,63 @@ body > header #header #logo {
 }
 body > header #header .navbar {
   margin-bottom: 0px;
+  border: 0px solid red;
+  padding: 0px;
+}
+body > header #header .navbar .divider-vertical {
+  margin: 0px;
+  height: 35px;
+  border: 0px;
+  background-color: #ffffff;
+}
+body > header #header .navbar .active a {
+  background-color: #ffffff;
+  color: #ffffff;
+  box-shadow: none;
+  border: 13px solid #003366;
+  padding: 9px 0px 0px 0px;
 }
 body > header #header .navbar-inner {
+  background: #ffcc33;
+  border: 0px solid #D4D4D4;
+  padding: 0px !important;
+  min-height: 34px;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
 }
+body > header #header .navbar-inner .nav {
+  margin-right: 0px;
+}
+body > header #header .navbar-inner .nav li {
+  width: 170px;
+  text-align: center;
+  line-height: 15px;
+}
+body > header #header .navbar-inner .nav .active {
+  width: 35px;
+  height: 35px;
+  background-color: #ffffff;
+}
 body > header #header .navbar-inner #bulletin {
   position: absolute;
 }
+body > header #header .navbar-inner .navbar-form {
+  width: 215px;
+  background-color: #999999;
+}
 body > header #toolbar + #header {
   margin-top: 40px;
+}
+#nav-search {
+  width: 215px;
+}
+#searchField {
+  width: 80px;
+}
+.divider-vertical {
+  width: 1px !important;
+  border: 0px solid red;
 }
 #tickerbar .navbar-inner {
   border: 1px solid #eed3d7;

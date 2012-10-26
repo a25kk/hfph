@@ -21,18 +21,55 @@ body > header {
         #logo {
             display: block;
             overflow: hidden;
-            margin: @baseLineHeight;
+            margin: 60px 0px 60px 77px;
             border: 0px solid @grayLight;
             background:url(../img/logo.jpg)  no-repeat 0 0;
             text-indent: -999999px;
             .size(97px,243px);
         }
         .navbar {
+            .divider-vertical {
+                margin: 0px;
+                height: 35px;
+                border: 0px;
+                background-color: @white;
+            }
+            .active a {
+                background-color: @white;
+                color: @white;
+                box-shadow: none;
+                border: 13px solid @appBlue;
+                padding: 9px 0px 0px 0px;
+            }
             margin-bottom: 0px;
+            border: 0px solid red;
+            padding: 0px;
         }
         .navbar-inner {
+            background: #ffcc33;
+            border: 0px solid #D4D4D4;
+            padding: 0px !important;
+            min-height: 34px;
+            .nav {
+                margin-right: 0px;
+            }
+            .nav li {
+                width:170px;
+                text-align: center;
+                line-height: 15px;
+            }
+            .nav .active {
+                width:35px;
+                height: 35px;
+                
+                background-color: @white;
+            }
             #bulletin {
                 position: absolute;
+            }
+            .navbar-form {
+                width: 215px;
+                background-color: @grayLight;
             }
             .border-radius(0px);
         }
@@ -40,6 +77,19 @@ body > header {
     #toolbar + #header {
         margin-top: @navbarHeight;
     }
+}
+
+#nav-search {
+    width: 215px;
+}
+
+#searchField {
+    width: 80px;
+}
+
+.divider-vertical {
+    width: 1px !important;
+    border: 0px solid red;
 }
 
 #tickerbar {
