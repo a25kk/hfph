@@ -1,5 +1,6 @@
 from Acquisition import aq_inner
 from five import grok
+from zope.component import getMultiAdapter
 from Products.CMFCore.utils import getToolByName
 
 from plone.app.layout.navigation.interfaces import INavigationRoot
@@ -26,6 +27,18 @@ class FrontpageView(grok.View):
         resultlist = IContentListing(results)
         return resultlist
 
+    def newsitems(self):
+        news = self.recent_news()
+        items = []
+        for x in news:
+            item = {}
+            item['title'] = x.Title
+            item['description'] = x.Description
+            item['url'] = x.getURL,
+            item['image_tag'] = self.constructImageTag(x)
+            items.append(item)
+        return items
+
     def recent_news(self):
         context = aq_inner(self.context)
         catalog = getToolByName(context, 'portal_catalog')
@@ -33,3 +46,14 @@ class FrontpageView(grok.View):
                           review_state='published')
         resultlist = IContentListing(results)
         return resultlist
+
+    def constructImageTag(self, item):
+        obj = item.getObject()
+        scales = getMultiAdapter((obj, self.request), name='images')
+        scale = scales.scale('image', width=200, height=200)
+        item = {}
+        if scale is not None:
+            item['url'] = scale.url
+            item['width'] = scale.width
+            item['height'] = scale.height
+        return item

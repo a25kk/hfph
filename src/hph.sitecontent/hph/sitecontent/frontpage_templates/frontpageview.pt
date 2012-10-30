@@ -58,19 +58,19 @@
     <div class="panel panel-news">
       <section class="row-fluid"
         tal:condition="view/has_news">
-        <tal:block tal:repeat="item view/recent_news">
+        <tal:block tal:repeat="item view/newsitems">
           <div class="span3">
             <section class="box">
               <header class="box-header">
-                <h5 tal:content="item/Title" />
+                <h5 tal:content="item/title" />
               </header>
-              <img tal:define="item_obj item/getObject;
-                               scales item_obj/@@images"
-                   tal:replace="structure python: scales.tag('image',
-                                width=200, height=200, direction='down')" />
-              <p class="muted" tal:content="item/Description" />
+              <img tal:define="img item/image_tag"
+                tal:attributes="src img/url;
+                                width img/width;
+                                height img/height" />
+              <p tal:content="item/description" />
               <a href="" class="link-more pull-right"
-                tal:attributes="href item/getURL">&raquo;</a>
+                tal:attributes="href item/url">&raquo;</a>
             </section>
           </div>
         </tal:block>
