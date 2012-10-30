@@ -131,8 +131,12 @@ body > header {
     .navbar-inner {
         border: 1px solid @errorBorder;
         color: @errorText;
-        #gradient > .vertical(@errorBackground, @errorBackground);
+        #gradient > .vertical(@warningBackground, @warningBackground);
+        border-bottom: 2px solid @errorText;
         .border-radius(0px);
+        #bulletins {
+            padding: @baseLineHeight / 2  0 0;
+        }
     }
 }
 

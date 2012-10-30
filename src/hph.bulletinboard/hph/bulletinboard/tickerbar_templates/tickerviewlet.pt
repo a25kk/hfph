@@ -1,5 +1,5 @@
 <div id="tickerbar"
-    class="navbar container"
+    class="navbar navbar-static-top"
     tal:condition="viewlet/available"
     tal:define="portal_url context/portal_url">
     <div class="navbar-inner"

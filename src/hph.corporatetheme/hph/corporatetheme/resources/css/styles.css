@@ -6451,17 +6451,21 @@ body > header #toolbar + #header {
 #tickerbar .navbar-inner {
   border: 1px solid #eed3d7;
   color: #b94a48;
-  background-color: #f2dede;
-  background-image: -moz-linear-gradient(top, #f2dede, #f2dede);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f2dede), to(#f2dede));
-  background-image: -webkit-linear-gradient(top, #f2dede, #f2dede);
-  background-image: -o-linear-gradient(top, #f2dede, #f2dede);
-  background-image: linear-gradient(to bottom, #f2dede, #f2dede);
+  background-color: #fcf8e3;
+  background-image: -moz-linear-gradient(top, #fcf8e3, #fcf8e3);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fcf8e3), to(#fcf8e3));
+  background-image: -webkit-linear-gradient(top, #fcf8e3, #fcf8e3);
+  background-image: -o-linear-gradient(top, #fcf8e3, #fcf8e3);
+  background-image: linear-gradient(to bottom, #fcf8e3, #fcf8e3);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#fff2dede', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffcf8e3', endColorstr='#fffcf8e3', GradientType=0);
+  border-bottom: 2px solid #b94a48;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
+}
+#tickerbar .navbar-inner #bulletins {
+  padding: 10px 0 0;
 }
 .panel {
   margin-bottom: 20px;

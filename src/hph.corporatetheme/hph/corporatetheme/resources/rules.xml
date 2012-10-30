@@ -8,7 +8,7 @@
     <!-- Example to add minimal theme template for the
          tiles editiong overlays -->
     <!--<theme href="minimal.html" if-path="@@edit-tile" />-->
-    
+
     <theme href="frontpage.html" css:if-content="body.template-frontpage-view" />
     
     <!-- Rules applying to a standard Plone web page -->
@@ -72,7 +72,7 @@
         <!-- Breadcrumbs -->
         <replace css:content-children='#portal-breadcrumbs'
             css:theme-children='#breadcrumbs' />
-        <replace css:theme-children="#ticker-bar"
+        <before css:theme="#header"
             css:content="#tickerbar" />
         <!-- Document Content -->
         <replace css:content-children="#content" 
