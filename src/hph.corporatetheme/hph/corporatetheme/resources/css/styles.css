@@ -6342,21 +6342,21 @@ body > header #header #logo {
   display: block;
   overflow: hidden;
   margin: 60px 0px 60px 77px;
-  border: 0px solid #999999;
+  border: 0px;
   background: url(../img/logo.jpg) no-repeat 0 0;
   text-indent: -999999px;
   float: left;
   width: 243px;
   height: 97px;
 }
-body > header #header .meta-wrapper {
-  border: 0px;
-}
 body > header #header #meta {
   height: 30px;
   display: block;
   vertical-align: top;
   margin-right: 80px;
+}
+body > header #header #meta ul {
+  padding: 7px;
 }
 body > header #header #meta ul li {
   list-style: none;
@@ -6371,10 +6371,6 @@ body > header #header #meta ul li a {
   text-transform: uppercase;
   padding: 1px 6px;
 }
-body > header #header #meta ul.language {
-  float: left;
-  padding: 7px;
-}
 body > header #header #meta ul.language a:hover {
   background: #003366;
   color: white;
@@ -6384,7 +6380,6 @@ body > header #header #meta ul.touch {
   border: 1px solid #999999;
   border-top-width: 5px;
   margin-top: -5px;
-  padding: 7px;
 }
 body > header #header .navbar {
   margin-bottom: 0px;
