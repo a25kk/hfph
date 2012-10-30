@@ -6600,6 +6600,12 @@ body > footer #footer .nav {
   margin-top: -11px;
   margin-bottom: 0;
   margin-left: 77px;
-  width: 513px;
+  width: 480px;
   border-top: 5px solid #999999;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+body > footer #footer .donation {
+  background: url(../img/donation.gif) no-repeat 0 7px;
+  padding-left: 25px;
 }
