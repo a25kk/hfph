@@ -52,6 +52,7 @@ class FrontpageView(grok.View):
         scales = getMultiAdapter((obj, self.request), name='images')
         scale = scales.scale('image', width=200, height=200)
         item = {}
+        import pdb; pdb.set_trace( )
         if scale is not None:
             item['url'] = scale.url
             item['width'] = scale.width
