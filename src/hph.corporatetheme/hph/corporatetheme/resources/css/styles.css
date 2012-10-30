@@ -6483,6 +6483,7 @@ body > header #toolbar + #header {
 }
 .panel.panel-news .box {
   border-right: 1px solid #eeeeee;
+  padding-right: 30px;
 }
 .panel.panel-news h5 {
   color: #003366;
