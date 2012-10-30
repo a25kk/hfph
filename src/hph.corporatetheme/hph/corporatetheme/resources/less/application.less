@@ -172,6 +172,14 @@ body > header {
     padding: @baseLineHeight;
 }
 
+a.link-more {
+    font-size: @baseFontSize * 2;
+    text-decoration: none;
+    &:hover {
+        color: @black;
+    }
+}
+
 // Sidebar specific styles
 
 #sidebar {
@@ -181,6 +189,11 @@ body > header {
         h4,
         h5 {
             color: @appBlue;
+        }
+        .btn {
+            margin-top: @baseLineHeight / 2;
+            .border-radius(0);
+            .buttonBackground(@grayLight, lighten(@grayLight, 5%));
         }
         .box-content {
             border: 1px solid @grayLighter;

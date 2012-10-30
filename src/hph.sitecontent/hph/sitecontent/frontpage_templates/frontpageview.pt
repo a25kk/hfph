@@ -69,7 +69,7 @@
                    tal:replace="structure python: scales.tag('image',
                                 width=200, height=200, direction='down')" />
               <p class="muted" tal:content="item/Description" />
-              <a href="" class="pull-right"
+              <a href="" class="link-more pull-right"
                 tal:attributes="href item/getURL">&raquo;</a>
             </section>
           </div>

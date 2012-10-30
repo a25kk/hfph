@@ -16,9 +16,6 @@
       </header>
       <div tal:condition="context/text"
         tal:content="structure context/text/output" />
-        <img tal:define="scales context/@@images"
-          tal:replace="structure python: scales.tag('image', scale='mini')"
-        />
       <aside>
         <p>Attachments and Links are inserted here</p>
       </aside>

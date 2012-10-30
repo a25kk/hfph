@@ -6502,6 +6502,13 @@ body > header #toolbar + #header {
 #frontpage-content {
   padding: 20px;
 }
+a.link-more {
+  font-size: 28px;
+  text-decoration: none;
+}
+a.link-more:hover {
+  color: #000000;
+}
 #sidebar {
   padding: 20px 10px;
 }
@@ -6520,6 +6527,41 @@ body > header #toolbar + #header {
 #sidebar .box h4,
 #sidebar .box h5 {
   color: #003366;
+}
+#sidebar .box .btn {
+  margin-top: 10px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #9e9e9e;
+  background-image: -moz-linear-gradient(top, #999999, #a6a6a6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#999999), to(#a6a6a6));
+  background-image: -webkit-linear-gradient(top, #999999, #a6a6a6);
+  background-image: -o-linear-gradient(top, #999999, #a6a6a6);
+  background-image: linear-gradient(to bottom, #999999, #a6a6a6);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff999999', endColorstr='#ffa6a6a6', GradientType=0);
+  border-color: #a6a6a6 #a6a6a6 #808080;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #a6a6a6;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+#sidebar .box .btn:hover,
+#sidebar .box .btn:active,
+#sidebar .box .btn.active,
+#sidebar .box .btn.disabled,
+#sidebar .box .btn[disabled] {
+  color: #ffffff;
+  background-color: #a6a6a6;
+  *background-color: #999999;
+}
+#sidebar .box .btn:active,
+#sidebar .box .btn.active {
+  background-color: #8c8c8c \9;
 }
 #sidebar .box .box-content {
   border: 1px solid #eeeeee;
