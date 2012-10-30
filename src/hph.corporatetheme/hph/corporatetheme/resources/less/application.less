@@ -66,81 +66,70 @@ body > header {
             }
         }
         .navbar {
-            .divider-vertical {
-                margin: 0px;
-                height: 35px;
-                border: 0px;
-                background-color: @white;
-            }
-            .active a {
-                background-color: @white;
-                color: @white;
-                box-shadow: none;
-                border: 13px solid @appBlue;
-                padding: 9px 0px 0px 0px;
+            .navbar-inner {
+                background: @appYellow;
+                padding: 0px;
+                min-height: 34px;
+                .nav {
+                    margin-right: 0px;
+                }
+                .nav li {
+                    width:164px;
+                    text-align: center;
+                    line-height: 15px;
+                    a {
+                        color: @appBlue;
+                        font-weight: bold;
+                    }
+                    &.active {
+                        background-color: @white;
+                        .square(35px);
+                        a {
+                            background-color: @white;
+                            color: @white;
+                            box-shadow: none;
+                            border: 13px solid @appBlue;
+                            padding: 9px 0px 0px 0px;   
+                        }
+                    }
+                    &.divider-vertical {
+                        margin: 0px;
+                        height: 35px;
+                        width: 2px;
+                        border: 0px;
+                        background-color: @white;
+                    }
+                }
+                #bulletin {
+                    position: absolute;
+                }
+                .navbar-form {
+                    width: 239px;
+                    background-color: @grayLight;
+                    #searchField {
+                        width: 135px;
+                        line-height: 15px;
+                        height: 10px;
+                        margin: 8px 0px 7px 0px;
+                        border-radius: 0px;
+                    }
+                    label {
+                        color: @white;
+                        text-transform: uppercase;
+                        font-size: 0.8em;
+                        padding: 0px 20px;
+                    }
+                }
+                .border-radius(0px);
             }
             margin-bottom: 0px;
             border: 0px solid red;
             padding: 0px;
         }
-        .navbar-inner {
-            background: #ffcc33;
-            border: 0px solid #D4D4D4;
-            padding: 0px !important;
-            min-height: 34px;
-            .nav {
-                margin-right: 0px;
-            }
-            .nav li {
-                width:164px;
-                text-align: center;
-                line-height: 15px;
-            }
-
-            .nav a {
-                color: @appBlue;
-                font-weight: bold;
-            }
-            .nav .active {
-                width:35px;
-                height: 35px;
-                
-                background-color: @white;
-            }
-            #bulletin {
-                position: absolute;
-            }
-            .navbar-form {
-                width: 239px;
-                background-color: @grayLight;
-            }
-            .border-radius(0px);
-        }
     }
     #toolbar + #header {
         margin-top: @navbarHeight;
     }
-}
-
-#nav-search {
-    #searchField {
-        width: 135px;
-        line-height: 15px;
-        height: 10px;
-        margin: 8px 0px 7px 0px;
-        border-radius: 0px;
-    }
-    label {
-        color: @white;
-        text-transform: uppercase;
-        font-size: 0.8em;
-        padding: 0px 20px;
-    }
-}
-
-.divider-vertical {
-    width: 2px !important;
-    border: 0px solid red;
 }
 
 #tickerbar {

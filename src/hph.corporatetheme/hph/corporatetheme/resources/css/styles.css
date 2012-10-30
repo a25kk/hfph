@@ -6391,71 +6391,67 @@ body > header #header .navbar {
   border: 0px solid red;
   padding: 0px;
 }
-body > header #header .navbar .divider-vertical {
-  margin: 0px;
-  height: 35px;
-  border: 0px;
-  background-color: #ffffff;
+body > header #header .navbar .navbar-inner {
+  background: #ffcc33;
+  padding: 0px;
+  min-height: 34px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
 }
-body > header #header .navbar .active a {
+body > header #header .navbar .navbar-inner .nav {
+  margin-right: 0px;
+}
+body > header #header .navbar .navbar-inner .nav li {
+  width: 164px;
+  text-align: center;
+  line-height: 15px;
+}
+body > header #header .navbar .navbar-inner .nav li a {
+  color: #003366;
+  font-weight: bold;
+}
+body > header #header .navbar .navbar-inner .nav li.active {
+  background-color: #ffffff;
+  width: 35px;
+  height: 35px;
+}
+body > header #header .navbar .navbar-inner .nav li.active a {
   background-color: #ffffff;
   color: #ffffff;
   box-shadow: none;
   border: 13px solid #003366;
   padding: 9px 0px 0px 0px;
 }
-body > header #header .navbar-inner {
-  background: #ffcc33;
-  border: 0px solid #D4D4D4;
-  padding: 0px !important;
-  min-height: 34px;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-}
-body > header #header .navbar-inner .nav {
-  margin-right: 0px;
-}
-body > header #header .navbar-inner .nav li {
-  width: 164px;
-  text-align: center;
-  line-height: 15px;
-}
-body > header #header .navbar-inner .nav a {
-  color: #003366;
-  font-weight: bold;
-}
-body > header #header .navbar-inner .nav .active {
-  width: 35px;
+body > header #header .navbar .navbar-inner .nav li.divider-vertical {
+  margin: 0px;
   height: 35px;
+  width: 2px;
+  border: 0px;
   background-color: #ffffff;
 }
-body > header #header .navbar-inner #bulletin {
+body > header #header .navbar .navbar-inner #bulletin {
   position: absolute;
 }
-body > header #header .navbar-inner .navbar-form {
+body > header #header .navbar .navbar-inner .navbar-form {
   width: 239px;
   background-color: #999999;
 }
-body > header #toolbar + #header {
-  margin-top: 40px;
-}
-#nav-search #searchField {
+body > header #header .navbar .navbar-inner .navbar-form #searchField {
   width: 135px;
   line-height: 15px;
   height: 10px;
   margin: 8px 0px 7px 0px;
   border-radius: 0px;
 }
-#nav-search label {
+body > header #header .navbar .navbar-inner .navbar-form label {
   color: #ffffff;
   text-transform: uppercase;
   font-size: 0.8em;
   padding: 0px 20px;
 }
-.divider-vertical {
-  width: 2px !important;
-  border: 0px solid red;
+body > header #toolbar + #header {
+  margin-top: 40px;
 }
 #tickerbar .navbar-inner {
   border: 1px solid #eed3d7;
