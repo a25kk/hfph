@@ -27,33 +27,23 @@ class FrontpageView(grok.View):
         resultlist = IContentListing(results)
         return resultlist
 
-    def newsitems(self):
-        news = self.recent_news()
-        items = []
-        for x in news:
-            item = {}
-            item['title'] = x.Title
-            item['description'] = x.Description
-            item['url'] = x.getURL,
-            item['image_tag'] = self.constructImageTag(x)
-            items.append(item)
-        return items
-
     def recent_news(self):
         context = aq_inner(self.context)
         catalog = getToolByName(context, 'portal_catalog')
         results = catalog(object_provides=INewsEntry.__identifier__,
-                          review_state='published')
-        resultlist = IContentListing(results)
-        return resultlist
+                          review_state='published',
+                          sort_on='effective',
+                          sort_order='reverse',
+                          sort_limit=4)[:4]
+        return results
 
     def constructImageTag(self, brain):
         obj = brain.getObject()
         scales = getMultiAdapter((obj, self.request), name='images')
         scale = scales.scale('image', width=200, height=200)
-        item = {}
+        data = {}
         if scale is not None:
-            item['url'] = scale.url
-            item['width'] = scale.width
-            item['height'] = scale.height
-        return item
+            data['url'] = scale.url
+            data['width'] = scale.width
+            data['height'] = scale.height
+        return data

@@ -9,13 +9,17 @@
         tal:attributes="data-appui-source python:portal_url + '/schwarzes-brett/@@bulletins'">
         <div id="bulletins" class="container"
             tal:define="items viewlet/active_bulletins">
-            <tal:block tal:repeat="item items">
-                <div id="bulletin">
-                <p><i class="icon-warning-sign"></i>
-                   <span tal:replace="item/Title" />
-                </p>
-                </div>
-            </tal:block>
+            <p><strong><i class="icon-warning-sign icon-large"></i>
+                Wichtiger Hinweis:</strong>
+                <tal:block tal:repeat="item items">
+                <span id="bulletin">
+                        <span tal:replace="item/Title" />
+                </span>
+                </tal:block>
+            <a href=""
+                tal:attributes="href python:portal_url + '/schwarzes-brett'">
+                mehr&hellip;</a>
+            </p>
         </div>
         <div id="ticker-tabs">
             <tal:tabnav tal:repeat="tab viewlet/active_bulletins">

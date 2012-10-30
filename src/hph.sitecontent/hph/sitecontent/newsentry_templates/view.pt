@@ -16,6 +16,13 @@
       </header>
       <div tal:condition="context/text"
         tal:content="structure context/text/output" />
+
+      <p>
+      <a href="" class="btn btn-primary pull-right"
+        tal:define="portal_url context/portal_url"
+        tal:attributes="href python:portal_url + '/nachrichten'">
+        Weitere Nachrichten</a>
+      </p>
       <aside>
         <p>Attachments and Links are inserted here</p>
       </aside>

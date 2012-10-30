@@ -32,6 +32,23 @@
                 }
             }
         });
+        if ($("#tickerbar").length > 0) {
+            $('div[data-appui="tickerfeed"]').each(function () {
+                var source_url = $(this).data('appui-source');
+                $.getJSON(source_url, function (data) {
+                    $.each(data.items, function (i, item) {
+                        var unique_id = $.gritter.add({
+                            // (string | mandatory) the heading of the notification
+                            title: '<i class="icon-info-sign"></i> Hinweis',
+                            // (string | mandatory) the text inside the notification
+                            text: item.title,
+                            sticky: true,
+                            time: 6000
+                        });
+                    });
+                });
+            });
+        }
         //$('div[data-appui="tickerfeed"]').each(function () {
         //    var source_url = $(this).data('appui-source');
         //    var target_el = $(this).data('appui-placeholder');
