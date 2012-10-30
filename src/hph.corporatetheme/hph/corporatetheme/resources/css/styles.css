@@ -6477,6 +6477,27 @@ body > header #toolbar + #header {
   padding: 20px;
   margin-bottom: 0px;
 }
+.panel.panel-news .box {
+  border-right: 1px solid #eeeeee;
+}
+.panel.panel-news h5 {
+  color: #003366;
+}
+.panel.panel-news img {
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #ffcc33;
+}
+.panel.panel-news p {
+  margin-top: 10px;
+  font-size: 11.9px;
+  line-height: 16px;
+}
 #content,
 #frontpage-content {
   padding: 20px;

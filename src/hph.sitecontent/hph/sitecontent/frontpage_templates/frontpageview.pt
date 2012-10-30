@@ -34,7 +34,10 @@
                 class="box-content">
                 <div class="box-item" tal:repeat="item items">
                   <h5 tal:define="startdate item/start">
-                    <span tal:replace="python:toLocalizedTime(startdate)" />
+                    <a href=""
+                      tal:attributes="href item/getURL">
+                      <span tal:replace="python:toLocalizedTime(startdate)" />
+                    </a>
                   </h5>
                   <p class="muted" tal:content="item/Title">
                     Description of the item</p>
@@ -44,7 +47,9 @@
                 </div>
               </section>
             </tal:eventlist>
-            <a href="" class="btn pull-right">
+            <a href="" class="btn pull-right"
+              tal:define="portal_url context/portal_url"
+              tal:attributes="href python:portal_url + '/termine'">
               Weitere Termine</a>
           </div>
         </aside>
@@ -55,14 +60,18 @@
         tal:condition="view/has_news">
         <tal:block tal:repeat="item view/recent_news">
           <div class="span3">
-            <h4 tal:content="item/Title" />
-            <img tal:define="item_obj item/getObject;
-                             scales item_obj/@@images"
-                 tal:replace="structure python: scales.tag('image',
-                              width=200, height=200, direction='down')" />
-            <p class="muted" tal:content="item/Description" />
-            <a href="" class="pull-right"
-              tal:attributes="href item/getURL">&raquo;</a>
+            <section class="box">
+              <header class="box-header">
+                <h5 tal:content="item/Title" />
+              </header>
+              <img tal:define="item_obj item/getObject;
+                               scales item_obj/@@images"
+                   tal:replace="structure python: scales.tag('image',
+                                width=200, height=200, direction='down')" />
+              <p class="muted" tal:content="item/Description" />
+              <a href="" class="pull-right"
+                tal:attributes="href item/getURL">&raquo;</a>
+            </section>
           </div>
         </tal:block>
       </section>

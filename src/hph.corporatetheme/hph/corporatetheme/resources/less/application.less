@@ -146,6 +146,21 @@ body > header {
     &.panel-news {
         padding: @baseLineHeight;
         margin-bottom: 0px;
+        .box {
+            border-right: 1px solid @grayLighter;
+        }
+        h5 {
+            color: @appBlue;
+        }
+        img {
+            .img-polaroid();
+            border-top: 4px solid @appYellow;
+        }
+        p {
+            margin-top: @baseLineHeight / 2;
+            font-size: @fontSizeSmall;
+            line-height: @baseLineHeight - 4;
+        }
     }
 }
 
