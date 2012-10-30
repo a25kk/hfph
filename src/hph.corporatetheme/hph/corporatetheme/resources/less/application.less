@@ -69,7 +69,7 @@ body > header {
                     margin-right: 0px;
                 }
                 .nav li {
-                    width:210px;
+                    width:163px;
                     text-align: center;
                     line-height: 15px;
                     a {
@@ -156,7 +156,25 @@ body > header {
 // Sidebar specific styles
 
 #sidebar {
-    padding: @baseLineHeight;
+    padding: @baseLineHeight @baseLineHeight / 2;
+    .box {
+        .clearfix();
+        h4,
+        h5 {
+            color: @appBlue;
+        }
+        .box-content {
+            border: 1px solid @grayLighter;
+            border-top: 4px solid @appYellow;
+            .box-item {
+                padding: @paddingMini; 
+                .clearfix();
+                &:nth-child(odd) {
+                    background-color: @tableBackgroundAccent;
+                }
+            }
+        }
+    }
 }
 
 // site footer

@@ -10,8 +10,9 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-  <section id="frontpage">
-    <div class="row">
+  <section id="frontpage"
+    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
+    <div class="row-fluid">
       <div class="span9">
         <section id="main-content">
           <section id="frontpage-content" class="panel">
@@ -19,21 +20,49 @@
               <h1><span tal:replace="context/Title" /></h1>
             </header>
             <article>
-              <p>We include banner content here later.</p>
+              <img class="img-polaroid" src="http://placehold.it/640x500" />
             </article>
           </section>
         </section>
       </div>
       <div class="span3">
         <aside id="sidebar" class="panel">
-            <h2>News</h2>
-            <p class="muted">
-              Newest events will be listed here</p>
+          <div class="box">
+            <h4>Aktuelle Termine</h4>
+            <tal:eventlist tal:condition="view/has_events">
+              <section tal:define="items view/eventitems"
+                class="box-content">
+                <div class="box-item" tal:repeat="item items">
+                  <h5 tal:define="startdate item/start">
+                    <span tal:replace="python:toLocalizedTime(startdate)" />
+                  </h5>
+                  <p class="muted" tal:content="item/Title">
+                    Description of the item</p>
+                  <a href="" class="link-more pull-right"
+                    tal:attributes="href item/getURL">
+                    &raquo;</a>
+                </div>
+              </section>
+            </tal:eventlist>
+            <a href="" class="btn pull-right">
+              Weitere Termine</a>
+          </div>
         </aside>
       </div>
     </div>
     <div class="panel panel-news">
-      <h2>News items will be listed here</h2>
+      <section class="row-fluid"
+        tal:condition="view/has_news">
+        <tal:block tal:repeat="item view/recent_news">
+          <div class="span3">
+            <h4 tal:content="item/Title" />
+            <img class="img-polaroid" src="http://placehold.it/140x140" />
+            <p class="muted" tal:content="item/Description" />
+            <a href="" class="pull-right"
+              tal:attributes="href item/getURL">&raquo;</a>
+          </div>
+        </tal:block>
+      </section>
     </div>
   </section>
   </metal:content-core>

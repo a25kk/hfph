@@ -6398,7 +6398,7 @@ body > header #header .navbar .navbar-inner .nav {
   margin-right: 0px;
 }
 body > header #header .navbar .navbar-inner .nav li {
-  width: 210px;
+  width: 163px;
   text-align: center;
   line-height: 15px;
 }
@@ -6478,7 +6478,43 @@ body > header #toolbar + #header {
   padding: 20px;
 }
 #sidebar {
-  padding: 20px;
+  padding: 20px 10px;
+}
+#sidebar .box {
+  *zoom: 1;
+}
+#sidebar .box:before,
+#sidebar .box:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+#sidebar .box:after {
+  clear: both;
+}
+#sidebar .box h4,
+#sidebar .box h5 {
+  color: #003366;
+}
+#sidebar .box .box-content {
+  border: 1px solid #eeeeee;
+  border-top: 4px solid #ffcc33;
+}
+#sidebar .box .box-content .box-item {
+  padding: 1px 6px;
+  *zoom: 1;
+}
+#sidebar .box .box-content .box-item:before,
+#sidebar .box .box-content .box-item:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+#sidebar .box .box-content .box-item:after {
+  clear: both;
+}
+#sidebar .box .box-content .box-item:nth-child(odd) {
+  background-color: #f9f9f9;
 }
 body > footer {
   margin-top: 20px;
