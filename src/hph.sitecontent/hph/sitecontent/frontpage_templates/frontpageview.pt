@@ -56,7 +56,10 @@
         <tal:block tal:repeat="item view/recent_news">
           <div class="span3">
             <h4 tal:content="item/Title" />
-            <img class="img-polaroid" src="http://placehold.it/140x140" />
+            <img tal:define="item_obj item/getObject;
+                             scales item_obj/@@images"
+                 tal:replace="structure python: scales.tag('image',
+                              width=200, height=200, direction='down')" />
             <p class="muted" tal:content="item/Description" />
             <a href="" class="pull-right"
               tal:attributes="href item/getURL">&raquo;</a>

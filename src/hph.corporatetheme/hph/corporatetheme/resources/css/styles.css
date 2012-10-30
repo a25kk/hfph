@@ -538,7 +538,7 @@ h4,
 h5,
 h6 {
   margin: 10px 0;
-  font-family: inherit;
+  font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: bold;
   line-height: 20px;
   color: inherit;
@@ -6472,6 +6472,10 @@ body > header #toolbar + #header {
   -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
   -moz-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
+}
+.panel.panel-news {
+  padding: 20px;
+  margin-bottom: 0px;
 }
 #content,
 #frontpage-content {
