@@ -9,6 +9,8 @@
          tiles editiong overlays -->
     <!--<theme href="minimal.html" if-path="@@edit-tile" />-->
     
+    <theme href="frontpage.html" css:if-content="body.template-frontpage-view" />
+    
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
 
@@ -76,7 +78,7 @@
         <replace css:content-children="#content" 
             css:theme-children="#content" />
         
-        <before css:content=".portalMessage" css:theme="#document-content" />
+        <before css:content=".portalMessage" css:theme="#content" />
         <replace css:content-children="#viewlet-below-content"
             css:theme-children="#below-main-content" />
 

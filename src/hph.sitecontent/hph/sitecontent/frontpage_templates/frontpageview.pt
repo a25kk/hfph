@@ -7,15 +7,35 @@
       i18n:domain="hph.sitecontent">
 <body>
 
-<metal:main fill-slot="content-core">
-  <metal:content-core define-macro="content-core">
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
 
-    <div tal:content="context/Title">Title inserted here</div>
-
-    <div class="alert">
-        This is the frontpage view
+  <section id="frontpage">
+    <div class="row">
+      <div class="span9">
+        <section id="main-content">
+          <section id="frontpage-content" class="panel">
+            <header class="page-header">
+              <h1><span tal:replace="context/Title" /></h1>
+            </header>
+            <article>
+              <p>We include banner content here later.</p>
+            </article>
+          </section>
+        </section>
+      </div>
+      <div class="span3">
+        <aside id="sidebar" class="panel">
+            <h2>News</h2>
+            <p class="muted">
+              Newest events will be listed here</p>
+        </aside>
+      </div>
     </div>
-    
+    <div class="panel panel-news">
+      <h2>News items will be listed here</h2>
+    </div>
+  </section>
   </metal:content-core>
 </metal:main>
 
