@@ -175,14 +175,25 @@ body > header {
 
 // Main content area styles
 
-#content,
-#frontpage-content {
+#content {
     padding: @baseLineHeight;
+    #frontpage-content {
+    padding: 0;
+    }
 }
+.page-header {
+        display: none;
+}
+.documentFirstHeading {
+        font-size: @fontSizeLarge;
+        color: @appBlue;
+    }
 
 a.link-more {
-    font-size: @baseFontSize * 2;
+    font-size: @baseFontSize * 1.5;
     text-decoration: none;
+    line-height: @baseLineHeight / 4;
+    margin-bottom: 9px;
     &:hover {
         color: @black;
     }
@@ -197,6 +208,12 @@ a.link-more {
         h4,
         h5 {
             color: @appBlue;
+            margin: 5px 0px 3px 0px;
+        }
+        p {
+            margin: 0;
+            font-size: @fontSizeMini;
+            color: @black;
         }
         .btn {
             margin-top: @baseLineHeight / 2;
@@ -225,6 +242,7 @@ body > footer {
     background: @white;
     #footer {
         padding: 0;
+        
         .nav {
             margin-top: -11px;
             margin-bottom: 0;

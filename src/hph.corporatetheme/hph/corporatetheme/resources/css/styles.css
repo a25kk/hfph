@@ -6503,13 +6503,24 @@ body > header #toolbar + #header {
   font-size: 11.9px;
   line-height: 16px;
 }
-#content,
-#frontpage-content {
+#content {
   padding: 20px;
 }
+#content #frontpage-content {
+  padding: 0;
+}
+.page-header {
+  display: none;
+}
+.documentFirstHeading {
+  font-size: 17.5px;
+  color: #003366;
+}
 a.link-more {
-  font-size: 28px;
+  font-size: 21px;
   text-decoration: none;
+  line-height: 5px;
+  margin-bottom: 9px;
 }
 a.link-more:hover {
   color: #000000;
@@ -6532,6 +6543,12 @@ a.link-more:hover {
 #sidebar .box h4,
 #sidebar .box h5 {
   color: #003366;
+  margin: 5px 0px 3px 0px;
+}
+#sidebar .box p {
+  margin: 0;
+  font-size: 10.5px;
+  color: #000000;
 }
 #sidebar .box .btn {
   margin-top: 10px;

@@ -20,7 +20,9 @@
               <h1 tal:content="context/Title">Title</h1>
             </header>
             <article>
-              <img class="img-polaroid" src="http://placehold.it/640x500" />
+              <img class="img-polaroid" 
+                tal:define="portal_url context/portal_url" 
+                tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/img/banner-dummy.jpg'" />
             </article>
           </section>
         </div>
