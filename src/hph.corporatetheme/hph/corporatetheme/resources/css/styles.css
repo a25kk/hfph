@@ -6414,17 +6414,20 @@ body > header #header .navbar .navbar-inner .nav li a {
   color: #003366;
   font-weight: bold;
 }
-body > header #header .navbar .navbar-inner .nav li.active {
+body > header #header .navbar .navbar-inner .nav li.home {
   background-color: #ffffff;
   width: 35px;
   height: 35px;
 }
-body > header #header .navbar .navbar-inner .nav li.active a {
+body > header #header .navbar .navbar-inner .nav li.home a {
   background-color: #ffffff;
   color: #ffffff;
   box-shadow: none;
   border: 13px solid #003366;
   padding: 9px 0px 0px 0px;
+  text-indent: -9999px;
+  overflow: hidden;
+  line-height: 0px;
 }
 body > header #header .navbar .navbar-inner .nav li.divider-vertical {
   margin: 0px;

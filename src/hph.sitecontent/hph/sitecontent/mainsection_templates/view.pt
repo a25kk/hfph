@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+  <section id="main-section"
+    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                portal_url context/portal_url">
+    <div class="row-fluid">
+      <div class="span9">
+        <div id="main-content">
+          <section id="section-content" class="panel">
+            <aside>
+              <img class="img-polaroid" 
+                tal:define="portal_url context/portal_url" 
+                tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/img/banner-dummy.jpg'" />
+            </aside>
+          </section>
+        </div>
+      </div>
+      <div class="span3">
+        <aside id="sidebar" class="panel">
+          <div class="box">
+            <h4>Aktuelle Termine</h4>
+            <div class="box-content"
+              data-appui="eventbox"
+              tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
+            </div>
+            <a href="" class="btn pull-right"
+              tal:define="portal_url context/portal_url"
+              tal:attributes="href python:portal_url + '/termine'">
+              Weitere Termine</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <div class="panel panel-news">
+      <section>
+        <header class="page-header">
+          <h1 tal:content="context/Title">Title</h1>
+        </header>
+        <div class="row-fluid">
+          <div class="span6">
+            <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/block-one" />
+          </div>
+          <div class="span6">
+            <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/block-two" />
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+    
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

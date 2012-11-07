@@ -1,0 +1,44 @@
+<div id="sections">
+    <ul id="portal-navigation"
+        class="nav nav-pills"
+        tal:define="navtree viewlet/sections">
+        <li class="home">
+            <a href="/" tal:attributes="href viewlet/portal_url">
+                Home
+            </a>
+        </li>
+        <li class="divider-vertical"></li>
+        <tal:sections tal:repeat="tab viewlet/sections">
+            <li tal:define="item tab/item;
+                            item_id item/getId;
+                            item_title item/Title;
+                            item_url item/getURL;
+                            selected python:viewlet.isActiveItem(item_id)"
+                tal:attributes="id string:tab-${item_id};
+                                class selected">
+                <a href=""
+                    tal:attributes="href item_url"
+                    tal:content="item_title" />
+            </li>
+        </tal:sections>
+    </ul>
+</div>
+<div id="subsections">
+    <ul id="portal-subnavigation"
+        class="nav nav-pills"
+        tal:define="navtree viewlet/sub_sections">
+        <tal:sections tal:repeat="tab viewlet/sub_sections">
+            <li tal:define="item tab/item;
+                            item_id item/getId;
+                            item_title item/Title;
+                            item_url item/getURL;
+                            selected python:viewlet.isActiveItem(item_id)"
+                tal:attributes="id string:tab-${item_id};
+                                class selected">
+                <a href=""
+                    tal:attributes="href item_url"
+                    tal:content="item_title" />
+            </li>
+        </tal:sections>
+    </ul>
+</div>

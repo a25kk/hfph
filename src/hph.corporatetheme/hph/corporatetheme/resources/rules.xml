@@ -66,8 +66,8 @@
             css:theme="#portal-searchbox" />-->
 
         <!-- Global navigation -->
-        <replace css:content="#portal-globalnav li"
-            css:theme-children="#main-nav" />
+        <replace css:content="#portal-navigation"
+            css:theme="#navigation" />
 
         <!-- Breadcrumbs -->
         <replace css:content-children='#portal-breadcrumbs'

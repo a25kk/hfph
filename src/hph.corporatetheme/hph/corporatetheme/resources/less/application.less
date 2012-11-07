@@ -80,7 +80,7 @@ body > header {
                         color: @appBlue;
                         font-weight: bold;
                     }
-                    &.active {
+                    &.home {
                         background-color: @white;
                         .square(35px);
                         a {
@@ -89,6 +89,9 @@ body > header {
                             box-shadow: none;
                             border: 13px solid @appBlue;
                             padding: 9px 0px 0px 0px;   
+                            text-indent:-9999px;
+                            overflow: hidden;
+                            line-height: 0px;
                         }
                     }
                     &.divider-vertical {
