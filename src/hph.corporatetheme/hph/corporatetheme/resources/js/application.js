@@ -49,27 +49,20 @@
                 });
             });
         }
-        //$('div[data-appui="tickerfeed"]').each(function () {
-        //    var source_url = $(this).data('appui-source');
-        //    var target_el = $(this).data('appui-placeholder');
-        //    $.getJSON(source_url, function (data) {
-        //        var div_data = '';
-        //        $.each(data.items, function (i, item) {
-        //            //alert('Item:' + item.title);
-        //            div_data += '<div class="bulletin">';
-        //            div_data += '<a href="' + item.url + '">' + item.title + '</a></div>';
-        //        });
-        //        $(target_el).html(div_data);
-        //    });
-        //    //var ticker = function() {
-        //    //    setTimeout(function() {
-        //    //        $(target_el).find('div:first').animate( {marginTop: '-4em'}, 500, function() {
-        //    //            $(this).detach().appendTo(target_el).removeAttr('style');
-        //    //        });
-        //    //        ticker();
-        //    //    }, 5000);
-        //    //};
-        //    //ticker();
-        //});
+        $('div[data-appui="eventbox"]').each(function () {
+            var source_url = $(this).data('source');
+            var target_el = $(this);
+            $.getJSON(source_url, function (data) {
+                var div_data = '';
+                $.each(data.items, function (i, item) {
+                    //alert('Item:' + item.title);
+                    div_data += '<div class="box-item">';
+                    div_data += '<h5><a href="' + item.url + '">' + item.date + '</a></h5>';
+                    div_data += '<p class="muted">' + item.title + '</p>';
+                    div_data += '<a class="link-more pull-right" href="' + item.url + '">&raquo;</a></div>';
+                });
+                target_el.html(div_data);
+            });
+        });
     });
 }(jQuery));

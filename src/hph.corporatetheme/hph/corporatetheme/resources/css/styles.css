@@ -6509,9 +6509,6 @@ body > header #toolbar + #header {
 #content #frontpage-content {
   padding: 0;
 }
-.page-header {
-  display: none;
-}
 .documentFirstHeading {
   font-size: 17.5px;
   color: #003366;
