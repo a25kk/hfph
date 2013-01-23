@@ -27,6 +27,7 @@ class NavbarViewlet(grok.Viewlet):
                                  name='plone_portal_state')
         self.portal_url = pstate.portal_url
         self.available = len(self.subsections()) > 0
+        self.has_subsections = len(self.get_subsections()) > 0
 
     def subsections(self):
         context = aq_inner(self.context)
@@ -55,13 +56,27 @@ class NavbarViewlet(grok.Viewlet):
         navtree = self.navStrategy(portal, types, depth)
         return navtree
 
-    def sub_sections(self):
+    def get_subsections(self):
+        context = aq_inner(self.context)
+        sections = self.sections()
+        subsections = {}
+        for section in sections:
+            section_brain = section['item']
+            section_id = section_brain.getId
+            if section_id == context.getId():
+                subsections = self.sub_sections(context)
+        return subsections
+
+    def sub_sections(self, obj=None):
         pstate = getMultiAdapter((self.context, self.request),
                                  name='plone_portal_state')
-        portal = pstate.portal()
+        if obj is not None:
+            root_obj = obj
+        else:
+            root_obj = pstate.portal()
         types = ('hph.sitecontent.contentpage',)
         depth = 2
-        navtree = self.navStrategy(portal, types, depth)
+        navtree = self.navStrategy(root_obj, types, depth)
         return navtree
 
     def navStrategy(self, obj, types, start):

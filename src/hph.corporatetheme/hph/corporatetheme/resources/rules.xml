@@ -66,8 +66,13 @@
             css:theme="#portal-searchbox" />-->
 
         <!-- Global navigation -->
-        <!--<replace css:content="#portal-navigation"
-            css:theme="#navigation" />-->
+        <replace css:content="#portal-navigation"
+            css:theme="#navigation" />
+
+        <drop css:theme="#subnavbar"
+            css:if-not-content="#subsections" />
+        <replace css:content-children="#subsections"
+            css:theme-children="#subnavigation" />
 
         <!-- Breadcrumbs -->
         <replace css:content-children='#portal-breadcrumbs'

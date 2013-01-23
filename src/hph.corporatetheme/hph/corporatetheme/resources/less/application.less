@@ -94,6 +94,13 @@ body > header {
                             line-height: 0px;
                         }
                     }
+                    &.active {
+                        a {
+                            background: @appBlue;
+                            color: #fff;
+                            text-shadow: 0 1px 0 darken(@appBlue, 10%);
+                        }
+                    }
                     &.divider-vertical {
                         margin: 0px;
                         height: 35px;
@@ -144,6 +151,10 @@ body > header {
             padding: @baseLineHeight / 2  0 0;
         }
     }
+}
+
+#subnavigation {
+    padding-left: @baseLineHeight * 1.5;
 }
 
 // Base utility classes
