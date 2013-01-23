@@ -15,7 +15,7 @@
     <rules css:if-content="#visual-portal-wrapper">
 
         <notheme if="$ajax_load" />          
-        <theme href="frontpage.html" />
+        <theme href="theme.html" />
 
         <replace theme="/htm/head/title" content="/html/head/title" />
         <after css:theme-children="html head" css:content="html head base" />

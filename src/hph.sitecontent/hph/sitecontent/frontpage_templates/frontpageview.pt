@@ -12,7 +12,7 @@
 
   <section id="frontpage"
     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
-    <div class="row-fluid">
+    <div class="row">
       <div class="span9">
         <div id="main-content">
           <section id="frontpage-content" class="panel">
@@ -58,7 +58,7 @@
       </div>
     </div>
     <div class="panel panel-news">
-      <section class="row-fluid"
+      <section class="row"
         tal:condition="view/has_news">
         <tal:block tal:repeat="item view/recent_news">
           <div class="span3">

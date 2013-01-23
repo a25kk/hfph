@@ -4,13 +4,13 @@
 
 .avatar {
     margin-right: 2px;
-    line-height: @baseLineHeight;
+    line-height: @line-height-base;
     border: 1px solid #ddd;
-    .border-radius(4px);
+    border-radius: 4px;
     .box-shadow(0 1px 3px rgba(0,0,0,.055));
     .transition(all .2s ease-in-out);
     &.avatar-small {
-        .square(@baseFontSize);
+        .square(@font-size-base);
     }
 }
 
@@ -23,29 +23,29 @@
 }
 
 .visualHighlight {
-    background-color: @yellow;
+    background-color: @state-warning-text;
 }
 
 .pullquote {
     //margin: 0 1em 0.5em 0.5em;
-    line-height: @baseLineHeight;
+    line-height: @line-height-base;
     float: right;
     width: 35%;
     clear: right;
     color: @grayLight;
-    #font > .shorthand(14px,300,@baseLineHeight * 1.25);
-    line-height: @baseLineHeight - 3;
-    padding: @baseLineHeight / 2 @baseLineHeight;
-    margin: @baseLineHeight 0 @baseLineHeight @baseLineHeight;
+    #font > .shorthand(14px,300,@line-height-base * 1.25);
+    line-height: @line-height-base - 3;
+    padding: @line-height-base / 2 @line-height-base;
+    margin: @line-height-base 0 @line-height-base @line-height-base;
     border-left: 5px solid @grayLight;
     background: @grayLighter;
 }
 .callout {
     background: @grayLighter;
-    padding: @baseLineHeight;
-    margin: 0 0 @baseLineHeight;
+    padding: @line-height-base;
+    margin: 0 0 @line-height-base;
     border-left: 5px solid @grayLight;
-    #font > .shorthand(16px,300,@baseLineHeight * 1.25);
+    #font > .shorthand(16px,300,@line-height-base * 1.25);
     clear: both;
 }
 
@@ -53,11 +53,11 @@
 
 .image-left {
    float: left;
-   margin: @baseLineHeight / 2 @baseLineHeight @baseLineHeight 0;
+   margin: @line-height-base / 2 @line-height-base @line-height-base 0;
 }
 .image-right {
    float: right;
-   margin: @baseLineHeight / 2 0 @baseLineHeight @baseLineHeight;
+   margin: @line-height-base / 2 0 @line-height-base @line-height-base;
 }
 .image-inline {
    float: none;
@@ -82,22 +82,22 @@ dd.image-caption {
 
 input.context,
 input.standalone {
-    .btn();
+    //.btn();
 }
 
 #category {
     font-size: 11px;
-    margin: @baseLineHeight 0px;
+    margin: @line-height-base 0px;
     a.link-category,
     span.selectedTag {
         padding: 0.25em 0.5em;
-        background: @linkColor;
-        color: @white;
+        background: @link-color;
+        color: #fff;
         border-radius: 0.5em;
-        .border-radius(4px);
+        border-radius:4px;
     }
     a.link-category:hover {
-        background: @linkColorHover;
+        background: @link-color-hover;
     }
     .separator {
         display: none;
@@ -111,7 +111,7 @@ input.standalone {
         padding: 5px 14px;
         background-color: #fff;
         border: 1px solid @grayLight;
-        .border-radius(4px);
+        border-radius: 4px;
         font-size: 11px;
         &.next {
             float: right;
@@ -131,8 +131,7 @@ input.standalone {
 input[type="checkbox"] + label,
 .ArchetypesBooleanWidget label {
     display: inline-block;
-    .ie7-inline-block();
-    margin-left: @baseLineHeight / 4;
+    margin-left: @line-height-base / 4;
 }
 
 input.datetime-widget,
@@ -144,9 +143,9 @@ input.datetime-widget,
 #content .field input[type="text"][name$=".title"],
 #form-widgets-IBasic-title,
 #archetypes-fieldname-title input {
-    height: @baseLineHeight * 1.5;
-    line-height: @baseLineHeight * 1.5;
-    font-size: @baseLineHeight * 1.25;
+    height: @line-height-base * 1.5;
+    line-height: @line-height-base * 1.5;
+    font-size: @line-height-base * 1.25;
     font-weight: bold;
     width: 100%;
     color: @gray;
@@ -172,7 +171,7 @@ input.datetime-widget,
 }
 
 div.field {
-    .control-group();
+    //.controls();
 }
 
 div.formHelp {
@@ -185,7 +184,7 @@ div.formHelp {
 
 input.context,
 input.standalone {
-    .btn();
+    //.btn();
 }
 
 .fieldRequired,
@@ -215,19 +214,19 @@ dl.portalMessage {
     .state-expired {
         text-shadow: none;
         border: none;
-        .label();
+        .counter();
     }
     .state-private {
-        background-color: @errorText;
+        background-color: @state-error-text;
     }
     .state-published {
-        background-color: @successText;
+        background-color: @state-success-text;
     }
     .state-pending {
-        background-color: @infoText;
+        background-color: @state-info-text;
     }
     .state-expired {
-        background-color: @orange;
+        background-color: @state-warning-text;
     }
     .state-visible {
         background-color: @grayDark;
@@ -276,7 +275,7 @@ div.overlay div.close {
 .pb-ajax, .pb-image, .overlay iframe {
     background-color: #fff;
     border: 1px solid #999;
-    .border-radius(4px);
+    border-radius: 4px;
     white-space: normal;
     box-shadow: 0 0 3em 0.5em #666;
     -moz-box-shadow: 0 0 3em 0.5em #666;
@@ -430,15 +429,15 @@ ul.formTabs {
         a {
         padding: 8px 12px;
         display: block;
-        line-height: @baseLineHeight - 6;
+        line-height: @line-height-base - 6;
         border: 1px solid transparent;
-        .border-radius(4px 4px 0 0);
+        border-radius: 4px 4px 0 0;
             &:hover {
                 border-color: @grayLighter @grayLighter #ddd;
             }
             &.selected {
                 color: @gray;
-                background-color: @white;
+                background-color: #fff;
                 border: 1px solid #ddd;
                 border-bottom-color: transparent;
                 cursor: default;
@@ -491,7 +490,7 @@ ul.formTabs {
 #content-views li a:hover {
     background: White;
     color: Black;
-    .border-radius(4px);
+    border-radius: 4px;
 }
 #content li.formTab a.notify,
 #content-core li.formTab a.notify {
@@ -578,7 +577,7 @@ div.field span.required:after {
     color: #666;
 }
 #contentActionMenus dl.actionMenu {
-    line-height: @baseLineHeight;
+    line-height: @line-height-base;
 }
 
 #folderHeader, #contextHeader {
@@ -652,7 +651,7 @@ dl.actionMenu.activated dd div {
 
 table.listing,
 table.plain {
-    margin-bottom: @baseLineHeight;
+    margin-bottom: @line-height-base;
 }
 
 table.invisible td,

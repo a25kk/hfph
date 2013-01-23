@@ -13,7 +13,7 @@
   <section id="main-section"
     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                 portal_url context/portal_url">
-    <div class="row-fluid">
+    <div class="row">
       <div class="span9">
         <div id="main-content">
           <section id="section-content" class="panel">
@@ -46,7 +46,7 @@
         <header class="page-header">
           <h1 tal:content="context/Title">Title</h1>
         </header>
-        <div class="row-fluid">
+        <div class="row">
           <div class="span6">
             <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/block-one" />
           </div>

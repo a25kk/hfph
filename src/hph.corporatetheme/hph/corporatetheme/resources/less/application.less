@@ -1,6 +1,12 @@
 // Custom application specific styles
 //--------------------------------------
 
+// App colors Trebuchet MS
+// -------------------------
+@appBlue:               #003366;
+@appGrey:               #999999;
+@appYellow:             #ffcc33;
+
 
 body {
     background: @grayLighter;
@@ -10,9 +16,20 @@ body {
 // ------------------------------------------------------
 
 .btn {
-    .border-radius(0px);
+    border-radius: 0px;
 }
 
+input.context,
+input.standalone,
+#sharing-save-button {
+    .btn();
+    margin-right: @line-height-base / 2;
+}
+
+
+#toolbar {
+    .navbar-inverse();
+}
 
 
 
@@ -22,7 +39,7 @@ body {
 body > header {
     #header {
         border-top: 5px solid @appBlue;
-        background: @white;
+        background: white;
         #logo {
             display: block;
             overflow: hidden;
@@ -31,23 +48,22 @@ body > header {
             background:url(../img/logo.jpg)  no-repeat 0 0;
             text-indent: -999999px;
             float: left;
-            .size(97px,243px);
+            .size(243px, 97px);
         }
         #meta {
-            height: @navbarHeight - 10px;
+            height: @navbar-height - 10px;
             display: block;
             vertical-align: top;
-            margin-right: @navbarHeight * 2;
+            margin-right: @navbar-height * 2;
             ul {
                 padding: 7px;
                 li {
                     list-style: none;
                     display: inline-block;
-                    .ie7-inline-block();
-                    font-size: @fontSizeMini;
+                    font-size: @font-size-mini;
                     a {
                         text-transform: uppercase;
-                        padding: @paddingMini;
+                        padding: @padding-mini;
                     }
                 }
                 &.language {
@@ -64,13 +80,16 @@ body > header {
                 }
             }
         }
-        .navbar {
-            .navbar-inner {
+        #main-navigation {
+            margin-bottom: 0px;
+            padding: 0px;
+            .mainnav-inner {
                 background: @appYellow;
                 padding: 0px;
                 min-height: 34px;
                 .nav {
                     margin-right: 0px;
+                    margin-bottom: 0px;
                 }
                 .nav li {
                     width:163px;
@@ -79,13 +98,14 @@ body > header {
                     a {
                         color: @appBlue;
                         font-weight: bold;
+                        padding: @font-size-base / 2 0;
                     }
                     &.home {
-                        background-color: @white;
+                        background-color: white;
                         .square(35px);
                         a {
-                            background-color: @white;
-                            color: @white;
+                            background-color: white;
+                            color: white;
                             box-shadow: none;
                             border: 13px solid @appBlue;
                             padding: 9px 0px 0px 0px;   
@@ -106,7 +126,7 @@ body > header {
                         height: 35px;
                         width: 2px;
                         border: 0px;
-                        background-color: @white;
+                        background-color: white;
                     }
                 }
                 #bulletin {
@@ -114,74 +134,73 @@ body > header {
                 }
                 .navbar-form {
                     width: 239px;
+                    margin: 0px;
                     background-color: @grayLight;
                     #searchField {
                         width: 135px;
                         line-height: 15px;
-                        height: 10px;
+                        min-height: 10px;
                         margin: 8px 0px 7px 0px;
+                        padding: 0px;
                         border-radius: 0px;
                     }
                     label {
-                        color: @white;
+                        color: white;
                         text-transform: uppercase;
                         font-size: 0.8em;
                         padding: 0px 20px;
                     }
                 }
-                .border-radius(0px);
+                border-radius: 0px;
             }
-            margin-bottom: 0px;
-            border: 0px solid red;
-            padding: 0px;
         }
     }
     #toolbar + #header {
-        margin-top: @navbarHeight;
+        margin-top: @navbar-height;
     }
 }
 
 #tickerbar {
     .navbar-inner {
-        color: @warningText;
-        background: @warningBackground;
-        border-bottom: 2px solid @warningBorder;
-        .border-radius(0px);
+        color: @state-warning-text;
+        background: @state-warning-background;
+        border-bottom: 2px solid @state-warning-border;
+        border-radius: 0px;
         #bulletins {
-            padding: @baseLineHeight / 2  0 0;
+            padding: @line-height-base / 2  0 0;
         }
     }
 }
 
 #subnavigation {
-    padding-left: @baseLineHeight * 1.5;
+    padding-left: @line-height-base * 1.5;
 }
 
 // Base utility classes
 
 .panel {
-    margin-bottom: @baseLineHeight;
-    background: @white;
-    .border-radius(0px);
+    margin-bottom: @line-height-base;
+    background: white;
+    border-radius: 0px;
     .box-shadow(0 0 5px 5px rgba(0,0,0,.05));
     &.panel-news {
-        padding: @baseLineHeight;
+        padding: @line-height-base;
         margin-bottom: 0px;
         .box {
             border-right: 1px solid @grayLighter;
-            padding-right: @baseLineHeight * 1.5;
+            padding-right: @line-height-base * 1.5;
         }
         h5 {
             color: @appBlue;
         }
         img {
-            .img-polaroid();
+            //.img-polaroid();
             border-top: 4px solid @appYellow;
         }
         p {
-            margin-top: @baseLineHeight / 2;
-            font-size: @fontSizeSmall;
-            line-height: @baseLineHeight - 4;
+            margin-top: @line-height-base / 2;
+            font-size: @font-size-small;
+            line-height: @line-height-base - 4;
         }
     }
 }
@@ -190,30 +209,33 @@ body > header {
 // Main content area styles
 
 #content {
-    padding: @baseLineHeight;
+    padding: @line-height-base;
     #frontpage-content {
-    padding: 0;
+        padding: 0;
+        .page-header {
+            display: none;
+        }
     }
 }
 .documentFirstHeading {
-    font-size: @fontSizeLarge;
+    font-size: @font-size-large;
     color: @appBlue;
 }
 
 a.link-more {
-    font-size: @baseFontSize * 1.5;
+    font-size: @font-size-base * 1.5;
     text-decoration: none;
-    line-height: @baseLineHeight / 4;
+    line-height: @line-height-base / 4;
     margin-bottom: 9px;
     &:hover {
-        color: @black;
+        color: black;
     }
 }
 
 // Sidebar specific styles
 
 #sidebar {
-    padding: @baseLineHeight @baseLineHeight / 2;
+    padding: @line-height-base @line-height-base / 2;
     .box {
         .clearfix();
         h4,
@@ -223,22 +245,22 @@ a.link-more {
         }
         p {
             margin: 0;
-            font-size: @fontSizeMini;
-            color: @black;
+            font-size: @font-size-mini;
+            color: black;
         }
         .btn {
-            margin-top: @baseLineHeight / 2;
-            .border-radius(0);
-            .buttonBackground(@grayLight, lighten(@grayLight, 5%));
+            margin-top: @line-height-base / 2;
+            border-radius: 0;
+            //.buttonBackground(@grayLight, lighten(@grayLight, 5%));
         }
         .box-content {
             border: 1px solid @grayLighter;
             border-top: 4px solid @appYellow;
             .box-item {
-                padding: @paddingMini; 
+                padding: @padding-mini; 
                 .clearfix();
                 &:nth-child(odd) {
-                    background-color: @tableBackgroundAccent;
+                    background-color: @table-background-accent;
                 }
             }
         }
@@ -247,10 +269,10 @@ a.link-more {
 
 // site footer
 body > footer {
-    margin-top: @baseLineHeight;
-    padding: @baseLineHeight /3;
+    margin-top: @line-height-base;
+    padding: @line-height-base /3;
     border-top: 5px solid @appBlue;
-    background: @white;
+    background: white;
     #footer {
         padding: 0;
         
