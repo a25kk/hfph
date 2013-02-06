@@ -135,19 +135,29 @@ input[type="checkbox"] + label,
 }
 
 input.datetime-widget,
-.ArchetypesCalendarWidget select {
+.ArchetypesCalendarWidget select,
+input.datetime-widget,
+select.datetime-widget {
     width: auto;
 }
+
+a.caltrigger {
+  padding: 0px;
+}
+
+#caltitle select {
+  width: 165px;
+}
+
 
 /* Emulates the styling from the h1 tag */
 #content .field input[type="text"][name$=".title"],
 #form-widgets-IBasic-title,
 #archetypes-fieldname-title input {
-    height: @line-height-base * 1.5;
+    height: @line-height-base * 2;
     line-height: @line-height-base * 1.5;
-    font-size: @line-height-base * 1.25;
+    font-size: @font-size-base * 1.5;
     font-weight: bold;
-    width: 100%;
     color: @gray;
 }
 
@@ -171,7 +181,7 @@ input.datetime-widget,
 }
 
 div.field {
-    //.controls();
+    padding: @line-height-base / 2 0;
 }
 
 div.formHelp {

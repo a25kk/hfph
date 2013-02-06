@@ -27,6 +27,7 @@ setup(name='hph.sitecontent',
       install_requires=[
           'setuptools',
           'plone.app.dexterity',
+          'five.grok',
           'plone.namedfile [blobs]',
           # -*- Extra requirements: -*-
       ],
