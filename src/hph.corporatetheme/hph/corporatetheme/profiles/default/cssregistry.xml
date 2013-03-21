@@ -4,11 +4,31 @@
  <!-- Set conditions on stylesheets we don't want to pull in -->
  <stylesheet
      expression="not:request/HTTP_X_THEME_ENABLED | nothing"
+     id="base.css"
+     />
+ <stylesheet
+     expression="not:request/HTTP_X_THEME_ENABLED | nothing"
+     id="member.css"
+     />
+ <stylesheet
+     expression="not:request/HTTP_X_THEME_ENABLED | nothing"
+     id="reset.css"
+     />
+ <stylesheet
+     expression="not:request/HTTP_X_THEME_ENABLED | nothing"
      id="columns.css"
      />
  <stylesheet
      expression="not:request/HTTP_X_THEME_ENABLED | nothing"
      id="public.css"
+     />
+ <stylesheet
+     expression="not:request/HTTP_X_THEME_ENABLED | nothing"
+     id="authoring.css"
+     />
+ <stylesheet
+     expression="not:request/HTTP_X_THEME_ENABLED | nothing"
+     id="portlets.css"
      />
 
  <stylesheet title="" authenticated="False" cacheable="True"

@@ -5197,7 +5197,8 @@ body > header #header #meta ul {
 body > header #header #meta ul li {
   list-style: none;
   display: inline-block;
-  font-size: 10.5;
+  font-size: 10.5px;
+  font-size: 1.05rem;
 }
 body > header #header #meta ul li a {
   text-transform: uppercase;
@@ -5235,7 +5236,7 @@ body > header #header #main-navigation .mainnav-inner .nav li {
 body > header #header #main-navigation .mainnav-inner .nav li a {
   color: #003366;
   font-weight: bold;
-  padding: 7 0;
+  padding: 7px 0;
 }
 body > header #header #main-navigation .mainnav-inner .nav li.home {
   background-color: white;
@@ -5327,9 +5328,6 @@ body > header #toolbar + #header {
   font-size: 11.9;
   line-height: 16px;
 }
-#content {
-  padding: 20px;
-}
 #content #frontpage-content {
   padding: 0;
 }
@@ -5341,7 +5339,8 @@ body > header #toolbar + #header {
   color: #003366;
 }
 a.link-more {
-  font-size: 21;
+  font-size: 21px;
+  font-size: 2.1rem;
   text-decoration: none;
   line-height: 5px;
   margin-bottom: 9px;
@@ -5371,7 +5370,8 @@ a.link-more:hover {
 }
 #sidebar .box p {
   margin: 0;
-  font-size: 10.5;
+  font-size: 10.5px;
+  font-size: 1.05rem;
   color: black;
 }
 #sidebar .box .btn {
