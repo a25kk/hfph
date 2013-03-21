@@ -1,24 +1,22 @@
 <div id="sections">
     <ul id="portal-navigation"
         class="nav"
-        tal:define="navtree viewlet/sections">
+        tal:define="navtree viewlet/main_sections;
+                    selected viewlet/selected_section">
         <li class="home">
             <a href="/" tal:attributes="href viewlet/portal_url">
                 Home
             </a>
         </li>
         <li class="divider-vertical"></li>
-        <tal:sections tal:repeat="tab viewlet/sections">
-            <li tal:define="item tab/item;
-                            item_id item/getId;
-                            item_title item/Title;
-                            item_url item/getURL;
-                            selected python:viewlet.isActiveItem(item_id)"
-                tal:attributes="id string:tab-${item_id};
+        <tal:sections tal:repeat="tab navtree">
+            <li tal:define="tab_id tab/id;
+                            selected python:selected==tab_id and 'navitem active' or 'navitem'"
+                tal:attributes="id string:tab-${tab_id};
                                 class selected">
                 <a href=""
-                    tal:attributes="href item_url"
-                    tal:content="item_title" />
+                    tal:attributes="href tab/url"
+                    tal:content="tab/name" />
             </li>
             <li class="divider-vertical"></li>
         </tal:sections>

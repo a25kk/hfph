@@ -9,15 +9,15 @@
             // enhancement.
             return;
         }
-        $("#ticker-tabs").tabs('#bulletins > div', {
-            effect: 'fade',
-            fadeOutSpeed: 1000,
-            rotate: true
-        }).slideshow({
-            autoplay: true,
-            interval: 6000,
-            clickable: false
-        });
+        //$("#ticker-tabs").tabs('#bulletins > div', {
+        //    effect: 'fade',
+        //    fadeOutSpeed: 1000,
+        //    rotate: true
+        //}).slideshow({
+        //    autoplay: true,
+        //    interval: 6000,
+        //    clickable: false
+        //});
         $('#formfield-form-widgets-series input.checkbox-widget').on('click', function () {
             var input_id = this.id;
             if (input_id === 'form-widgets-series-5') {

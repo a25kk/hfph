@@ -27,6 +27,21 @@ class NavbarViewlet(grok.Viewlet):
         self.portal_url = pstate.portal_url
         self.available = len(self.subsections()) > 0
         self.has_subsections = len(self.get_subsections()) > 0
+        self.selected_tabs = self.selectedItems(
+            portal_tabs=self.main_sections())
+        self.selected_section = self.selected_tabs['portal']
+
+    def main_sections(self):
+        sections = self.sections()
+        results = []
+        for section in sections:
+            item = section['item']
+            data = {'name': item.Title,
+                    'id': item.getId,
+                    'url': item.getURL(),
+                    'description': item.Description}
+            results.append(data)
+        return results
 
     def subsections(self):
         context = aq_inner(self.context)
@@ -108,3 +123,33 @@ class NavbarViewlet(grok.Viewlet):
             item['children'] = c.get('children', '')
             items.append(item)
         return items
+
+    def selectedItems(self, default_tab='index_html', portal_tabs=()):
+        plone_url = getToolByName(self.context, 'portal_url')()
+        plone_url_len = len(plone_url)
+        request = self.request
+        valid_actions = []
+
+        url = request['URL']
+        path = url[plone_url_len:]
+
+        for action in portal_tabs:
+            if not action['url'].startswith(plone_url):
+                # In this case the action url is an external link. Then, we
+                # avoid issues (bad portal_tab selection) continuing with next
+                # action.
+                continue
+            action_path = action['url'][plone_url_len:]
+            if not action_path.startswith('/'):
+                action_path = '/' + action_path
+            if path.startswith(action_path + '/') or path == action_path:
+                # Make a list of the action ids, along with the path length
+                # for choosing the longest (most relevant) path.
+                valid_actions.append((len(action_path), action['id']))
+
+        # Sort by path length, the longest matching path wins
+        valid_actions.sort()
+        if valid_actions:
+            return {'portal': valid_actions[-1][1]}
+
+        return {'portal': default_tab}

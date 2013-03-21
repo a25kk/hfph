@@ -20,7 +20,7 @@
           <p>There are no publications available yet</p>
         </div>
         <tal:block tal:condition="view/has_publications">
-          <div class="row-fluid"
+          <div class="row"
             tal:repeat="item view/publications">
             <div class="span3">
               <img class="img-polaroid" src="http://placehold.it/140x140" />
