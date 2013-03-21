@@ -12,7 +12,6 @@ from Products.CMFPlone.browser.navtree import DefaultNavtreeStrategy
 
 from plone.app.layout.viewlets.interfaces import IPortalFooter
 
-from hph.sitecontent.mainsection import IMainSection
 from hph.sitecontent.contentpage import IContentPage
 
 
@@ -65,6 +64,8 @@ class NavbarViewlet(grok.Viewlet):
             section_id = section_brain.getId
             if section_id == context.getId():
                 subsections = self.sub_sections(context)
+            else:
+                subsections = self.sub_sections(context)
         return subsections
 
     def sub_sections(self, obj=None):
@@ -74,7 +75,8 @@ class NavbarViewlet(grok.Viewlet):
             root_obj = obj
         else:
             root_obj = pstate.portal()
-        types = ('hph.sitecontent.contentpage',)
+        types = ('hph.sitecontent.contentpage',
+                 'hph.publications.publicationfolder')
         depth = 2
         navtree = self.navStrategy(root_obj, types, depth)
         return navtree
