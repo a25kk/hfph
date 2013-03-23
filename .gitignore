@@ -21,6 +21,7 @@ var
 *.pyc
 *.pyo
 *-ck.js
+.codeintel
 etc/**/*
 src/sauna.reload
 src/vwc.toolbar
