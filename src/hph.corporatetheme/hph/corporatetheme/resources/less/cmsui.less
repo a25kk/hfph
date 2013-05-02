@@ -34,6 +34,7 @@
     clear: right;
     color: @grayLight;
     font-family: @font-family-monospace;
+    font-weight: 300;
     line-height: @line-height-base - 3;
     padding: @line-height-base / 2 @line-height-base;
     margin: @line-height-base 0 @line-height-base @line-height-base;
@@ -46,6 +47,8 @@
     margin: 0 0 @line-height-base;
     border-left: 5px solid @grayLight;
     font-family: @font-family-monospace;
+    font-size: @font-size-base + 2;
+    line-height: @line-height-base * 1.25;
     clear: both;
 }
 
@@ -97,7 +100,7 @@ input.standalone {
         border-radius:4px;
     }
     a.link-category:hover {
-        background: @link-color-hover;
+        background: @link-hover-color;
     }
     .separator {
         display: none;
@@ -135,29 +138,20 @@ input[type="checkbox"] + label,
 }
 
 input.datetime-widget,
-.ArchetypesCalendarWidget select,
-input.datetime-widget,
-select.datetime-widget {
+select.datetime-widget,
+.ArchetypesCalendarWidget select {
     width: auto;
 }
-
-a.caltrigger {
-  padding: 0px;
-}
-
-#caltitle select {
-  width: 165px;
-}
-
 
 /* Emulates the styling from the h1 tag */
 #content .field input[type="text"][name$=".title"],
 #form-widgets-IBasic-title,
 #archetypes-fieldname-title input {
-    height: @line-height-base * 2;
+    height: @line-height-base * 1.5;
     line-height: @line-height-base * 1.5;
-    font-size: @font-size-base * 1.5;
+    font-size: @font-size-base * 1.25;
     font-weight: bold;
+    width: 100%;
     color: @gray;
 }
 
@@ -166,25 +160,38 @@ a.caltrigger {
 #form-widgets-IBasic-description,
 #archetypes-fieldname-description textarea#description {
     color:@gray;
-    font-size:1.25em;
+    font-size: @font-size-base;
     font-weight: bold;
     width: 100%;
+}
+
+div.fieldTextFormat {
+    //padding: @line-height-base;
+    text-align: right;
+    label {
+        font-weight: normal;
+        .text-muted();
+    }
+    select {
+        width: 120px;
+    }
 }
 
 #content-core label {
     font-weight: bold;
     span.formHelp {
         .help-block();
-        .muted();
+        .text-muted();
         font-weight: normal;
     }
 }
 
 div.field {
-    padding: @line-height-base / 2 0;
+    margin-bottom: @line-height-base / 2;
 }
 
-div.formHelp {
+div.formHelp,
+span.formHelp {
     .help-block();
 }
 
@@ -206,6 +213,7 @@ span.required {
 
 dl.portalMessage {
     .alert();
+    font-size:@font-size-small;
     dt {
         margin: 0;
     }
@@ -224,10 +232,10 @@ dl.portalMessage {
     .state-expired {
         text-shadow: none;
         border: none;
-        .counter();
+        .badge();
     }
     .state-private {
-        background-color: @state-error-text;
+        background-color: @state-danger-text;
     }
     .state-published {
         background-color: @state-success-text;
@@ -433,6 +441,8 @@ ul.formTabs {
     background: transparent;
     .nav();
     .nav-tabs();
+    margin: 0 0 @line-height-base / 2;
+    list-style-type: none;
     li {
         float: left;
         margin-bottom: -1px;
