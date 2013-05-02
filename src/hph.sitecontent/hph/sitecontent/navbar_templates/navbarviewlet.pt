@@ -1,6 +1,6 @@
 <div id="sections">
     <ul id="portal-navigation"
-        class="nav"
+        class="nav navbar-nav nav-justified"
         tal:define="navtree viewlet/main_sections;
                     selected viewlet/selected_section">
         <li class="home">

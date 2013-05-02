@@ -6,7 +6,35 @@
 // Global project settings
 // --------------------------------------------------
 
+@app-blue:               #003366;
+@app-grey:               #404040;
+@app-yellow:             #ffcc33;
+
 
 // BS overrides
 // --------------------------------------------------
 
+
+@link-color:            @app-grey;
+
+@font-family-sans-serif:        Trebuchet MS, "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+
+// Application specific overrides of bootstrap components
+// ------------------------------------------------------
+
+.btn {
+    border-radius: 0px;
+}
+
+input.context,
+input.standalone,
+#sharing-save-button {
+    .btn();
+    margin-right: @line-height-base / 2;
+}
+
+#toolbar {
+    .navbar-inverse();
+}
