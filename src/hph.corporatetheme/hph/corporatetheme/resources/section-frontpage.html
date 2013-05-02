@@ -28,7 +28,7 @@
       <div id="editbar-wrapper" class="navbar navbar-fixed-top">
         <div class="container">
           <div class="xcontainer" id="editbar">
-            <a class="navbar-brand" href="#">CMSUI Editbar</a>
+            <a class="brand" href="#">Plone CMSUI Editbar</a>
             <!-- Plone CMS Editbar inserted as a toolbar -->
           </div>
         </div>
@@ -36,18 +36,25 @@
       <div id="header" class="container tile">
         <div class="meta-wrapper xcontainer">
           <div id="meta" class="pull-right">
-            <ul class="language pull-left">
-              <li><a href="#">Deutsh</a></li>
-              <li><a href="#">English</a></li>
+            <ul class="metasections pull-left">
+              <li><a href="/hochschule">Hochschule</a></li>
+                  <li class="divider-vertical"></li>
+                  <li><a href="/studium">Studium</a></li>
+                  <li class="divider-vertical"></li>
+                  <li><a href="/forschung">Forschung</a></li>
+                  <li class="divider-vertical"></li>
+                  <li><a href="/impulse">Impulse</a></li>
+                  <li class="divider-vertical"></li>
+              
             </ul>
-            <ul class="touch pull-right">
-              <li><a href="#">Kontakt</a></li>
-              <li><a class="nl" href="#">
-                  <i class="icon-envelope"></i>
-                  Newsletter abonnieren</a></li>
-            </ul>
+
+              <form id="nav-search" class="form-inline navbar-form pull-right">
+                <label for="searchField">Suche</label>
+                <input id="searchField" type="text">
+              </form>
           </div>
-          <a class="navbar-brand" id="logo" href="#">Hochschule f&uuml;r Philosophie M&uuml;nchen</a>
+          
+          <a class="brand" id="logo" href="#">Hochschule f&uuml;r Philosophie M&uuml;nchen</a>
         </div>
         <nav class="navbar visualClear" id="main-navigation">
           <div class="mainnav-inner">
@@ -58,7 +65,7 @@
                 <span class="icon-bar"></span>
               </a>
               <div class="nav-collapse">
-                <ul class="nav" id="navigation">
+                <ul class="nav nav-justified" id="navigation">
                   <li class="home"><a href="/">
                     </a></li>
                   <li class="divider-vertical"></li>
@@ -72,10 +79,6 @@
                   <li class="divider-vertical"></li>
                 </ul>
               </div><!--/.nav-collapse -->
-              <form id="nav-search" class="form-inline navbar-form pull-right">
-                <label for="searchField">Suche</label>
-                <input id="searchField" type="text">
-              </form>
             </div>
           </div>
         </nav>
@@ -87,38 +90,23 @@
       </div>
     </section>
 
-    <section class="container" id="content-area">
-      <div class="row">
-        <div class="col col-lg-9">
-          <section id="main-content">
-            <section id="content" class="tile">
-              <header class="page-header">
-                <h1>Starter template <small>Fixed Layout, 12 cell grid</small></h1>
-              </header>
-              <article>
-                <p>Use this document as a way to quick start any new project.<br>
-                  All you get is this message and a barebones HTML document.</p>
-              </article>
-            </section>
-          </section>
-        </div>
-        <div class="col col-lg-3">
-          <aside id="sidebar" class="panel">
-              <h2>Sidebar</h2>
-          </aside>
-        </div>
-      </div>
+    <section class="container" id="content">
+      <!-- Frontpage content -->
     </section> <!-- /container -->
 
 
-    <footer id="site-footer" class="container panel">
+    <footer id="site-footer" class="container tile">
       <div id="footer">
         <ul class="nav nav-pills">
           <li><a href="#">Dialogportal</a></li>
           <li><a href="#">Presse</a></li>
           <li><a href="#">Impressum</a></li>
           <li><a class="donation" href="#">Online-Spende</a></li>
-          <li><a href="#">pro philisophia</a></li>
+          <li><a href="#">pro philosophia</a></li>
+           <li><a href="#">Kontakt</a></li>
+              <li><a class="nl" href="#">
+                  <i class="icon-envelope"></i>
+                  Newsletter abonnieren</a></li>
         </ul>
       </div>
     </footer> <!-- /footer -->
