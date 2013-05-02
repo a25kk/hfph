@@ -7,7 +7,7 @@
     <!-- Add alternativ theme templates -->
     <!-- Example to add minimal theme template for the
          tiles editiong overlays -->
-    <!--<theme href="minimal.html" if-path="@@edit-tile" />-->
+    <theme href="minimal.html" if-path="@@edit-tile" />
 
     <theme href="frontpage.html" css:if-content="body.template-frontpage-view" />
     <theme href="section-frontpage.html" css:if-content="body.section-hochschule" />

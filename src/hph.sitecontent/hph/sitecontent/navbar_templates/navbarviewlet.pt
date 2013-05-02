@@ -3,11 +3,11 @@
         class="nav navbar-nav nav-justified"
         tal:define="navtree viewlet/main_sections;
                     selected viewlet/selected_section">
-        <li class="home">
+        <!--<li class="home">
             <a href="/" tal:attributes="href viewlet/portal_url">
                 Home
             </a>
-        </li>
+        </li>-->
         <li class="divider-vertical"></li>
         <tal:sections tal:repeat="tab navtree">
             <li tal:define="tab_id tab/id;

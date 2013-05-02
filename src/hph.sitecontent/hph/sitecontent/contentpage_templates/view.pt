@@ -10,7 +10,7 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-  <article id="contentpage-view">
+  <article id="contentpage-view" class="tile">
     <header class="page-header">
       <h1 tal:content="context/Title">Title inserted here</h1>
     </header>

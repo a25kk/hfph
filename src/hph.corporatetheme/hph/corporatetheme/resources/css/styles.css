@@ -7105,6 +7105,12 @@ body > header #toolbar + #header,
 body > header #editbar-wrapper + #header {
   margin-top: 50px;
 }
+#portal-subnavigation > li.active > a,
+#portal-subnavigation > li.active > a:hover,
+#portal-subnavigation > li.active > a:focus {
+  background: #003366;
+  border-radius: 0px;
+}
 #tickerbar .navbar-inner {
   color: #b94a48;
   background: #f2dede;
