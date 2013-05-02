@@ -9,6 +9,9 @@
             // enhancement.
             return;
         }
+        setTimeout(function () {
+            $('.bs-docs-top').affix()
+        }, 100)
         //$("#ticker-tabs").tabs('#bulletins > div', {
         //    effect: 'fade',
         //    fadeOutSpeed: 1000,
