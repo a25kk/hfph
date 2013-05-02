@@ -84,66 +84,13 @@ body > header {
                     }
                 }
         }
-        #xmain-navigation {
-            margin-bottom: 0px;
-            padding: 0px;
-            .mainnav-inner {
-                background: @app-yellow;
-                padding: 0px;
-                //max-height: 50px;
-                .nav {
-                    margin-right: 0px;
-                    margin-bottom: 0px;
-                }
-                .nav li {
-                    //width:163px;
-                    text-align: center;
-                    //line-height: @line-height-base;
-                    a {
-                        color: @app-blue;
-                        font-weight: bold;
-                        //padding: 7px 0;
-                    }
-                    &.home {
-                        background-color: white;
-                        //.square(35px);
-                        a {
-                            background-color: white;
-                            color: white;
-                            box-shadow: none;
-                            border: 13px solid @app-blue;
-                            padding: 9px 0px 0px 0px;   
-                            text-indent:-9999px;
-                            overflow: hidden;
-                            line-height: 0px;
-                        }
-                    }
-                    &.active {
-                        a {
-                            background: @app-blue;
-                            color: #fff;
-                            text-shadow: 0 1px 0 darken(@app-blue, 10%);
-                        }
-                    }
-                    &.divider-vertical {
-                        margin: 0px;
-                        display: none;
-                        height: 35px;
-                        width: 2px;
-                        border: 0px;
-                        background-color: white;
-                    }
-                }
-                #bulletin {
-                    position: absolute;
-                }
-                border-radius: 0px;
-            }
-        }
         #home-btn {
             background: @app-blue;
             color: #fff;
             margin: 5px 0px 0;
+        }
+        .nav-collapse {
+            margin-left: @navbar-height - 3;
         }
         .nav-justified {
           max-height: 50px;
@@ -162,19 +109,11 @@ body > header {
           text-align: center;
           border-left: 1px solid rgba(255,255,255,.75);
           border-right: 1px solid rgba(0,0,0,.1);
-          background-color: @app-yellow; /* Old browsers */
-          //background-repeat: repeat-x; /* Repeat the gradient */
-          //background-image: -moz-linear-gradient(top, #f5f5f5 0%, #e5e5e5 100%); /* FF3.6+ */
-          //background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f5f5f5), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
-          //background-image: -webkit-linear-gradient(top, #f5f5f5 0%,#e5e5e5 100%); /* Chrome 10+,Safari 5.1+ */
-          //background-image: -ms-linear-gradient(top, #f5f5f5 0%,#e5e5e5 100%); /* IE10+ */
-          //background-image: -o-linear-gradient(top, #f5f5f5 0%,#e5e5e5 100%); /* Opera 11.10+ */
-          //filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
-          //background-image: linear-gradient(top, #f5f5f5 0%,#e5e5e5 100%); /* W3C */
+          background-color: @app-yellow;
         }
         .nav-justified .active a {
           background-color: @app-blue;
-          background-image: none;
+          color: #fff;
           box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
         }
         .nav-justified li:first-child a {
@@ -236,6 +175,10 @@ body > header {
             font-size: @font-size-small;
             line-height: @line-height-base - 4;
         }
+    }
+    .page-header {
+        margin-top: 0px;
+        padding-top: @line-height-base;
     }
 }
 

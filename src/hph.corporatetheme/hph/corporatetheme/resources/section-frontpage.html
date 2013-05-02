@@ -25,11 +25,10 @@
   <body>
 
     <header id="topbar">
-      <div id="editbar-wrapper" class="navbar navbar-fixed-top">
+      <div id="editbar-wrapper" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
           <div class="xcontainer" id="editbar">
-            <a class="brand" href="#">Plone CMSUI Editbar</a>
-            <!-- Plone CMS Editbar inserted as a toolbar -->
+            <a class="navbar-brand" href="#">Plone CMSUI Editbar</a>
           </div>
         </div>
       </div>
@@ -47,7 +46,6 @@
                   <li class="divider-vertical"></li>
               
             </ul>
-
               <form id="nav-search" class="form-inline navbar-form pull-right">
                 <label for="searchField">Suche</label>
                 <input id="searchField" type="text">
@@ -57,31 +55,25 @@
           <a class="brand" id="logo" href="#">Hochschule f&uuml;r Philosophie M&uuml;nchen</a>
         </div>
         <div id="section-name" class="pull-right">Hochschule</div>
-        <nav class="navbar visualClear" id="main-navigation">
-          <div class="mainnav-inner">
-            <div class="container">
+        <nav class="xnavbar visualClear" id="main-navigation">
+            <div class="container mainnav-inner">
               <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </a>
-              <div class="nav-collapse">
+              <a class="navbar-brand" href="#" id="home-btn">
+                <i class="icon-stop"></i>
+              </a>
+              <div class="nav-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav nav-justified" id="navigation">
-                  <li class="home"><a href="/">
-                    </a></li>
-                  <li class="divider-vertical"></li>
                   <li><a href="/hochschule">Hochschule</a></li>
-                  <li class="divider-vertical"></li>
                   <li><a href="/studium">Studium</a></li>
-                  <li class="divider-vertical"></li>
                   <li><a href="/forschung">Forschung</a></li>
-                  <li class="divider-vertical"></li>
                   <li><a href="/impulse">Impulse</a></li>
-                  <li class="divider-vertical"></li>
                 </ul>
               </div><!--/.nav-collapse -->
             </div>
-          </div>
         </nav>
       </div>
     </header> <!-- /header -->
