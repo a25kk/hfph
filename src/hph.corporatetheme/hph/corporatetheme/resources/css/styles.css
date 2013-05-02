@@ -6919,6 +6919,7 @@ body.styleguide #styleguide-content .bs-docs-section-header .lead {
 .styleguide-example {
   position: relative;
   padding: 39px 14px 14px;
+  margin-top: 40px;
   margin-bottom: -1px;
   border: 1px solid #999999;
   border-radius: 0px;

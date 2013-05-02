@@ -324,38 +324,6 @@
     <p>For improved cross-browser rendering, we use <a href="http://necolas.github.com/normalize.css/" target="_blank">Normalize</a>, a project by <a href="http://twitter.com/necolas" target="_blank">Nicolas Gallagher</a> and <a href="http://twitter.com/jon_neal" target="_blank">Jonathan Neal</a>.</p>
   </div>
 
-  <header>
-  <nav class="navbar visualClear" id="main-navigation">
-          <div class="mainnav-inner">
-            <div class="container">
-              <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </a>
-              <div class="nav-collapse">
-                <ul class="nav" id="navigation">
-                  <li class="home"><a href="/">
-                    </a></li>
-                  <li class="divider-vertical"></li>
-                  <li><a href="/hochschule">Hochschule</a></li>
-                  <li class="divider-vertical"></li>
-                  <li><a href="/studium">Studium</a></li>
-                  <li class="divider-vertical"></li>
-                  <li><a href="/forschung">Forschung</a></li>
-                  <li class="divider-vertical"></li>
-                  <li><a href="/impulse">Impulse</a></li>
-                  <li class="divider-vertical"></li>
-                </ul>
-              </div><!--/.nav-collapse -->
-              <form id="nav-search" class="form-inline navbar-form pull-right">
-                <label for="searchField">Suche</label>
-                <input id="searchField" type="text">
-              </form>
-            </div>
-          </div>
-        </nav>
-    </header>
   <!-- Grid system
   ================================================== -->
   <div class="bs-docs-section" id="grid">
@@ -391,31 +359,31 @@
         <div class="col col-lg-6">6</div>
       </div>
     </div>
-{% highlight html %}
-<div class="row">
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-  <div class="col col-lg-1">1</div>
-</div>
-<div class="row">
-  <div class="col col-lg-4">4</div>
-  <div class="col col-lg-4">4</div>
-  <div class="col col-lg-4">4</div>
-</div>
-<div class="row">
-  <div class="col col-lg-6">6</div>
-  <div class="col col-lg-6">6</div>
-</div>
-{% endhighlight %}
+<pre class="styleguide-example prettyprint">
+&lt;div class="row"&gt;
+  &lt;div class="col col-lg-1"&gt;1&lt;/div&gt;
+  &lt;div class="col col-lg-1"&gt;1&lt;/div&gt;
+  &lt;div class="col col-lg-1"&gt;1&lt;/div&gt;
+  &lt;div class="col col-lg-1"&gt;1&lt;/div&gt;
+  &lt;div class="col col-lg-1"&gt;1&lt;/div&gt;
+  &lt;div class="col col-lg-1"&gt;1&lt;/div&gt;
+  &lt;div class="col col-lg-1"&gt;1&lt;/div&gt;
+  &lt;div class="col col-lg-1"&gt;1&lt;/div&gt;
+  &lt;div class="col col-lg-1"&gt;1&lt;/div&gt;
+  &lt;div class="col col-lg-1"&gt;1&lt;/div&gt;
+  &lt;div class="col col-lg-1"&gt;1&lt;/div&gt;
+  &lt;div class="col col-lg-1"&gt;1&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+  &lt;div class="col col-lg-4"&gt;4&lt;/div&gt;
+  &lt;div class="col col-lg-4"&gt;4&lt;/div&gt;
+  &lt;div class="col col-lg-4"&gt;4&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+  &lt;div class="col col-lg-6"&gt;6&lt;/div&gt;
+  &lt;div class="col col-lg-6"&gt;6&lt;/div&gt;
+&lt;/div&gt;
+</pre>
 
     <h3 id="grid-offsetting">Offsetting columns</h3>
     <p>Move columns to the right using <code>.col-offset-*</code> classes. These classes increase the left margin of a column by <code>*</code> columns. For example, <code>.col-offset-4</code> moves <code>.col col-lg-4</code> over four columns.</p>
@@ -432,51 +400,19 @@
         <div class="col col-lg-6 col-offset-3">6 offset 3</div>
       </div><!-- /row -->
     </div>
-{% highlight html %}
-<div class="row">
-  <div class="col col-lg-4">...</div>
-  <div class="col col-lg-4 col-offset-4">...</div>
-</div>
-<div class="row">
-  <div class="col col-lg-3 col-offset-3">3 offset 3</div>
-  <div class="col col-lg-3 col-offset-3">3 offset 3</div>
-</div>
-<div class="row">
-  <div class="col col-lg-6 col-offset-3">...</div>
-</div>
-{% endhighlight %}
-
-
-    <h3 id="grid-nesting">Nesting columns</h3>
-    <p>To nest your content with the default grid, add a new <code>.row</code> and set of <code>.col-span-*</code> columns within an existing <code>.col-span-*</code> column. Nested rows should include a set of columns that add up to 12.</p>
-    <div class="row show-grid">
-      <div class="col col-lg-9">
-        Level 1: 9 columns
-        <div class="row show-grid">
-          <div class="col col-lg-6">
-            Level 2: 6 columns
-          </div>
-          <div class="col col-lg-6">
-            Level 2: 6 columns
-          </div>
-        </div>
-      </div>
-    </div>
-{% highlight html %}
-<div class="row">
-  <div class="col col-lg-9">
-    Level 1: 9 columns
-    <div class="row">
-      <div class="col col-lg-6">
-        Level 2: 6 columns
-      </div>
-      <div class="col col-lg-6">
-        Level 2: 6 columns
-      </div>
-    </div>
-  </div>
-</div>
-{% endhighlight %}
+<pre class="styleguide-example prettyprint">
+&lt;div class="row"&gt;
+  &lt;div class="col col-lg-4"&gt;...&lt;/div&gt;
+  &lt;div class="col col-lg-4 col-offset-4"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+  &lt;div class="col col-lg-3 col-offset-3"&gt;3 offset 3&lt;/div&gt;
+  &lt;div class="col col-lg-3 col-offset-3"&gt;3 offset 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row"&gt;
+  &lt;div class="col col-lg-6 col-offset-3"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+</pre>
 
     <h3 id="grid-column-ordering">Column ordering</h3>
     <p>Easily change the order of our built-in grid columns with <code>.col-push-*</code> and <code>.col-pull-*</code> modifier classes.</p>
@@ -485,12 +421,12 @@
       <div class="col col-lg-3 col-pull-9">3</div>
     </div>
 
-{% highlight html %}
-<div class="row show-grid">
-  <div class="col col-lg-9 col-push-3">9</div>
-  <div class="col col-lg-3 col-pull-9">3</div>
-</div>
-{% endhighlight %}
+<pre class="styleguide-example prettyprint">
+&lt;div class="row show-grid"&gt;
+  &lt;div class="col col-lg-9 col-push-3"&gt;9&lt;/div&gt;
+  &lt;div class="col col-lg-3 col-pull-9"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+</pre>
 
     <h3 id="grid-small">Small device grid</h3>
     <p>Use the small device grid classes, like <code>.col-sm-6</code>, to create columned layouts on phone and tablet devices (anything under 768px). Offsets, pushes, and pulls are not available with the small grid at this time.</p>
@@ -499,28 +435,29 @@
       <div class="col col-lg-4 col-sm-6">4 cols, 6 small cols</div>
       <div class="col col-lg-4 col-sm-12">4 cols, 12 small cols</div>
     </div>
-{% highlight html %}
-<div class="row">
-  <div class="col col-lg-4 col-sm-6">4 cols, 6 small cols</div>
-  <div class="col col-lg-4 col-sm-6">4 cols, 6 small cols</div>
-  <div class="col col-lg-4 col-sm-12">4 cols, 12 small cols</div>
-</div>
-{% endhighlight %}
+
+<pre class="styleguide-example prettyprint">
+&lt;div class="row"&gt;
+  &lt;div class="col col-lg-4 col-sm-6"&gt;9&lt;/div&gt;
+  &lt;div class="col col-lg-4 col-sm-6"&gt;3&lt;/div&gt;
+  &lt;div class="col col-lg-4 col-sm-6"&gt;3&lt;/div&gt;
+&lt;/div&gt;
+</pre>
 
     <h3 id="grid-less">LESS mixins and variables</h3>
     <p>In addition to <a href="#grid-example">prebuilt grid classes</a> for fast layouts, Bootstrap includes LESS variables and mixins for quickly generating your own simple, semantic layouts.</p>
 
     <h4>Variables</h4>
     <p>Variables determine the number of columns, the gutter width, and the media query point at which to begin floating columns. We use these to generate the predefined grid classes documented above, as well as for the custom mixins listed below.</p>
-{% highlight css %}
+<pre class="styleguide-example prettyprint">
 @grid-columns:              12;
 @grid-gutter-width:         30px;
 @grid-float-breakpoint:     768px;
-{% endhighlight %}
+</pre>
 
     <h4>Mixins</h4>
     <p>Mixins are used in conjunction with the grid variables to generate semantic CSS for individual grid columns.</p>
-{% highlight css %}
+<pre class="styleguide-example prettyprint">
 // Creates a wrapper for a series of columns
 .make-row() {
   // Negative margin the row out to align the content of columns
@@ -550,11 +487,11 @@
     margin-left: percentage((@columns / @grid-columns));
   }
 }
-{% endhighlight %}
+</pre>
 
     <h4>Example usage</h4>
     <p>You can modify the variables to your own custom values, or just use the mixins with their default values. Here's an example of using the default settings to create a two-column layout with a gap between.</p>
-{% highlight css %}
+<pre class="styleguide-example prettyprint">
 .wrapper {
   .make-row();
 }
@@ -565,13 +502,13 @@
   .make-column(3);
   .make-column-offset(1);
 }
-{% endhighlight %}
-{% highlight html %}
-<div class="wrapper">
-  <div class="content-main">...</div>
-  <div class="content-secondary">...</div>
-</div>
-{% endhighlight %}
+</pre>
+<pre class="styleguide-example prettyprint">
+&lt;div class="wrapper"&gt;
+  &lt;div class="content-main"&gt;...&lt;/div&gt;
+  &lt;div class="content-secondary"&gt;...&lt;/div&gt;
+&lt;/div&gt;
+</pre>
 
   </div>
 
