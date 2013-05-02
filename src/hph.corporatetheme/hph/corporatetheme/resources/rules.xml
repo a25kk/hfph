@@ -10,7 +10,8 @@
     <!--<theme href="minimal.html" if-path="@@edit-tile" />-->
 
     <theme href="frontpage.html" css:if-content="body.template-frontpage-view" />
-    <theme href="frontpage.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />
+    <theme href="section-frontpage.html" css:if-content="body.section-hochschule" />
+    <!--<theme href="frontpage.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />-->
     
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
