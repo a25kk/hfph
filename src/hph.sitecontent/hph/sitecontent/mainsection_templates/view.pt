@@ -14,7 +14,7 @@
     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                 portal_url context/portal_url">
     <div class="row">
-      <div class="span9">
+      <div class="col col-lg-9">
         <div id="main-content">
           <section id="section-content" class="panel">
             <aside>
@@ -25,7 +25,7 @@
           </section>
         </div>
       </div>
-      <div class="span3">
+      <div class="col col-lg-3">
         <aside id="sidebar" class="panel">
           <div class="box">
             <h4>Aktuelle Termine</h4>
@@ -47,10 +47,10 @@
           <h1 tal:content="context/Title">Title</h1>
         </header>
         <div class="row">
-          <div class="span6">
+          <div class="col col-lg-6">
             <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/block-one" />
           </div>
-          <div class="span6">
+          <div class="col col-lg-6">
             <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/block-two" />
           </div>
         </div>
