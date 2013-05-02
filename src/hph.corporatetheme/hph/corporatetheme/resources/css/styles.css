@@ -6862,6 +6862,13 @@ body > header #header #logo {
   width: 243px;
   height: 97px;
 }
+body > header #header #section-name {
+  border: 0px solid red !important;
+  font-size: 52.5px;
+  line-height: 60px !important;
+  margin: 20px 100px;
+  color: #999999;
+}
 body > header #header #meta {
   height: 40px;
   display: block;
