@@ -27,6 +27,7 @@ class NavbarViewlet(grok.Viewlet):
         self.portal_url = pstate.portal_url
         self.available = len(self.subsections()) > 0
         self.has_subsections = len(self.get_subsections()) > 0
+        self.has_subsubsections = len(self.get_subsubsections()) > 0
         self.selected_tabs = self.selectedItems(
             portal_tabs=self.main_sections())
         self.selected_section = self.selected_tabs['portal']
@@ -82,6 +83,13 @@ class NavbarViewlet(grok.Viewlet):
             else:
                 subsections = self.sub_sections(context)
         return subsections
+
+    def get_subsubsections(self):
+        context = aq_inner(self.context)
+        types = ('hph.sitecontent.contentpage',)
+        depth = 3
+        navtree = self.navStrategy(context, types, depth)
+        return navtree
 
     def sub_sections(self, obj=None):
         pstate = getMultiAdapter((self.context, self.request),

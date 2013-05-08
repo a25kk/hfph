@@ -68,12 +68,19 @@
             css:theme="#portal-searchbox" />-->
 
         <!-- Global navigation -->
+        <replace css:content-children="#portal-navigation"
+            css:theme-children="#sections" />
+
+        <replace css:content-children="#portal-subnavigation"
+            css:theme-children="#navigation" />
+
         <replace css:content="#portal-navigation"
-            css:theme="#navigation" />
+            css:theme="#navigation"
+            css:if-content="body.template-frontpage-view" />
 
         <drop css:theme="#subnavbar"
-            css:if-not-content="#subsections" />
-        <replace css:content-children="#subsections"
+            css:if-not-content="#subsubsections" />
+        <replace css:content-children="#subsubsections"
             css:theme-children="#subnavigation" />
 
         <!-- Breadcrumbs -->

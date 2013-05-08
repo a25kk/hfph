@@ -25,7 +25,7 @@
 <div id="subsections"
     tal:condition="viewlet/has_subsections">
     <ul id="portal-subnavigation"
-        class="nav nav-pills"
+        class="nav navbar-nav nav-justified"
         tal:define="navtree viewlet/sub_sections">
         <tal:sections tal:repeat="tab viewlet/get_subsections">
             <li tal:define="item tab/item;
@@ -41,5 +41,23 @@
             </li>
         </tal:sections>
     </ul>
-    <code tal:content="viewlet/sub_sections" />
+</div>
+<div id="subsubsections"
+    tal:condition="viewlet/has_subsubsections">
+    <ul id="portal-subsubnavigation"
+        class="nav nav-pills">
+        <tal:sections tal:repeat="tab viewlet/get_subsubsections">
+            <li tal:define="item tab/item;
+                            item_id item/getId;
+                            item_title item/Title;
+                            item_url item/getURL;
+                            selected python:viewlet.isActiveItem(item_id)"
+                tal:attributes="id string:tab-${item_id};
+                                class selected">
+                <a href=""
+                    tal:attributes="href item_url"
+                    tal:content="item_title" />
+            </li>
+        </tal:sections>
+    </ul>
 </div>

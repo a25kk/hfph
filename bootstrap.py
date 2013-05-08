@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2006 Zope Foundation and Contributors.
+# Copyright (c) 2006 Zope Corporation and Contributors.
 # All Rights Reserved.
 #
 # This software is subject to the provisions of the Zope Public License,
@@ -16,11 +16,13 @@
 Simply run this script in a directory containing a buildout.cfg.
 The script accepts buildout command-line options, so you can
 use the -c option to specify an alternate configuration file.
-
-$Id$
 """
 
-import os, shutil, sys, tempfile, urllib2
+import os
+import shutil
+import sys
+import tempfile
+import urllib2
 from optparse import OptionParser
 
 tmpeggs = tempfile.mkdtemp()
@@ -28,16 +30,11 @@ tmpeggs = tempfile.mkdtemp()
 is_jython = sys.platform.startswith('java')
 
 # parsing arguments
-parser = OptionParser(
-    'This is a custom version of the zc.buildout %prog script.  It is '
-    'intended to meet a temporary need if you encounter problems with '
-    'the zc.buildout 1.5 release.')
-parser.add_option("-v", "--version", dest="version", default='1.5.2',
-                          help='Use a specific zc.buildout version.  *This '
-                          'bootstrap script defaults to '
-                          '1.5.2, unlike usual buildout bootstrap scripts.*')
+parser = OptionParser()
+parser.add_option("-v", "--version", dest="version",
+                          help="use a specific zc.buildout version")
 parser.add_option("-d", "--distribute",
-                   action="store_true", dest="distribute", default=True,
+                   action="store_true", dest="distribute", default=False,
                    help="Use Disribute rather than Setuptools.")
 
 parser.add_option("-c", None, action="store", dest="config_file",
@@ -55,7 +52,9 @@ if options.version is not None:
 else:
     VERSION = ''
 
-USE_DISTRIBUTE = options.distribute
+# We decided to always use distribute, make sure this is the default for us
+# USE_DISTRIBUTE = options.distribute
+USE_DISTRIBUTE = True
 args = args + ['bootstrap']
 
 to_reload = False
@@ -67,12 +66,12 @@ try:
 except ImportError:
     ez = {}
     if USE_DISTRIBUTE:
-        exec urllib2.urlopen('http://python-distribute.org/distribute_setup.py'
-                         ).read() in ez
+        setup_url = 'http://python-distribute.org/distribute_setup.py'
+        exec urllib2.urlopen(setup_url).read() in ez
         ez['use_setuptools'](to_dir=tmpeggs, download_delay=0, no_fake=True)
     else:
-        exec urllib2.urlopen('http://peak.telecommunity.com/dist/ez_setup.py'
-                             ).read() in ez
+        ez_setup_url = 'http://peak.telecommunity.com/dist/ez_setup.py'
+        exec urllib2.urlopen(ez_setup_url).read() in ez
         ez['use_setuptools'](to_dir=tmpeggs, download_delay=0)
 
     if to_reload:
@@ -80,45 +79,39 @@ except ImportError:
     else:
         import pkg_resources
 
-if sys.platform == 'win32':
-    def quote(c):
-        if ' ' in c:
-            return '"%s"' % c # work around spawn lamosity on windows
-        else:
-            return c
-else:
-    def quote (c):
-        return c
 
-ws  = pkg_resources.working_set
+def quote(c):
+    if sys.platform == 'win32':
+        if ' ' in c:
+            return '"%s"' % c  # work around spawn lamosity on windows
+    return c
+
+cmd = 'from setuptools.command.easy_install import main; main()'
+ws = pkg_resources.working_set
 
 if USE_DISTRIBUTE:
     requirement = 'distribute'
 else:
     requirement = 'setuptools'
 
-env = dict(os.environ,
-           PYTHONPATH=
-           ws.find(pkg_resources.Requirement.parse(requirement)).location
-           )
-
-cmd = [quote(sys.executable),
-       '-c',
-       quote('from setuptools.command.easy_install import main; main()'),
-       '-mqNxd',
-       quote(tmpeggs)]
-
-if 'bootstrap-testing-find-links' in os.environ:
-    cmd.extend(['-f', os.environ['bootstrap-testing-find-links']])
-
-cmd.append('zc.buildout' + VERSION)
+pythonpath = ws.find(pkg_resources.Requirement.parse(requirement)).location
 
 if is_jython:
     import subprocess
-    exitcode = subprocess.Popen(cmd, env=env).wait()
-else: # Windows prefers this, apparently; otherwise we would prefer subprocess
-    exitcode = os.spawnle(*([os.P_WAIT, sys.executable] + cmd + [env]))
-assert exitcode == 0
+
+    assert subprocess.Popen([sys.executable] + ['-c', quote(cmd), '-mqNxd',
+           quote(tmpeggs), 'zc.buildout' + VERSION],
+           env=dict(os.environ,
+               PYTHONPATH=pythonpath),
+           ).wait() == 0
+
+else:
+    assert os.spawnle(
+        os.P_WAIT, sys.executable, quote(sys.executable),
+        '-c', quote(cmd), '-mqNxd', quote(tmpeggs), 'zc.buildout' + VERSION,
+        dict(os.environ,
+            PYTHONPATH=pythonpath),
+        ) == 0
 
 ws.add_entry(tmpeggs)
 ws.require('zc.buildout' + VERSION)
