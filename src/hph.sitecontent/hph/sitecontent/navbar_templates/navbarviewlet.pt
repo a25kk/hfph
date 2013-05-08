@@ -41,4 +41,5 @@
             </li>
         </tal:sections>
     </ul>
+    <code tal:content="viewlet/sub_sections" />
 </div>
