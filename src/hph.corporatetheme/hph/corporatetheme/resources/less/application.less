@@ -92,7 +92,8 @@ body > header {
         #home-btn {
             background: @app-blue;
             color: #fff;
-            margin: 5px 0px 0;
+            margin: 10px 0px 0;
+            z-index: @zindex-dropdown;
         }
         .nav-collapse {
             margin-left: @navbar-height - 3;
@@ -136,6 +137,10 @@ body > header {
     #editbar-wrapper + #header {
         margin-top: @navbar-height;
     }
+}
+
+#navigation {
+    margin-left: 0px;
 }
 
 #navigation > li > a {
@@ -208,6 +213,9 @@ body > header {
         .page-header {
             display: none;
         }
+    }
+    .tile-content {
+        padding: @line-height-base;
     }
 }
 .documentFirstHeading {

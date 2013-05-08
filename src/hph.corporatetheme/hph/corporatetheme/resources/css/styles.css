@@ -939,63 +939,63 @@ th {
   border-left: 0;
   border-radius: 4px;
 }
-.table-bordered thead > tr > th,
-.table-bordered tbody > tr > th,
-.table-bordered thead > tr > td,
-.table-bordered tbody > tr > td {
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td {
   border-left: 1px solid #dddddd;
 }
-.table-bordered caption + thead > tr:first-child th,
-.table-bordered caption + tbody > tr:first-child th,
-.table-bordered caption + tbody > tr:first-child td,
-.table-bordered colgroup + thead > tr:first-child th,
-.table-bordered colgroup + tbody > tr:first-child th,
-.table-bordered colgroup + tbody > tr:first-child td,
-.table-bordered thead:first-child > tr:first-child th,
-.table-bordered tbody:first-child > tr:first-child th,
-.table-bordered tbody:first-child > tr:first-child td {
+.table-bordered > caption + thead > tr:first-child th,
+.table-bordered > caption + tbody > tr:first-child th,
+.table-bordered > caption + tbody > tr:first-child td,
+.table-bordered > colgroup + thead > tr:first-child th,
+.table-bordered > colgroup + tbody > tr:first-child th,
+.table-bordered > colgroup + tbody > tr:first-child td,
+.table-bordered > thead:first-child > tr:first-child th,
+.table-bordered > tbody:first-child > tr:first-child th,
+.table-bordered > tbody:first-child > tr:first-child td {
   border-top: 0;
 }
-.table-bordered thead:first-child > tr:first-child > th:first-child,
-.table-bordered tbody:first-child > tr:first-child > td:first-child,
-.table-bordered tbody:first-child > tr:first-child > th:first-child {
+.table-bordered > thead:first-child > tr:first-child > th:first-child,
+.table-bordered > tbody:first-child > tr:first-child > td:first-child,
+.table-bordered > tbody:first-child > tr:first-child > th:first-child {
   border-top-left-radius: 4px;
 }
-.table-bordered thead:first-child > tr:first-child > th:last-child,
-.table-bordered tbody:first-child > tr:first-child > td:last-child,
-.table-bordered tbody:first-child > tr:first-child > th:last-child {
+.table-bordered > thead:first-child > tr:first-child > th:last-child,
+.table-bordered > tbody:first-child > tr:first-child > td:last-child,
+.table-bordered > tbody:first-child > tr:first-child > th:last-child {
   border-top-right-radius: 4px;
 }
-.table-bordered thead:last-child > tr:last-child > th:first-child,
-.table-bordered tbody:last-child > tr:last-child > td:first-child,
-.table-bordered tbody:last-child > tr:last-child > th:first-child,
-.table-bordered tfoot:last-child > tr:last-child > td:first-child,
-.table-bordered tfoot:last-child > tr:last-child > th:first-child {
+.table-bordered > thead:last-child > tr:last-child > th:first-child,
+.table-bordered > tbody:last-child > tr:last-child > td:first-child,
+.table-bordered > tbody:last-child > tr:last-child > th:first-child,
+.table-bordered > tfoot:last-child > tr:last-child > td:first-child,
+.table-bordered > tfoot:last-child > tr:last-child > th:first-child {
   border-bottom-left-radius: 4px;
 }
-.table-bordered thead:last-child > tr:last-child > th:last-child,
-.table-bordered tbody:last-child > tr:last-child > td:last-child,
-.table-bordered tbody:last-child > tr:last-child > th:last-child,
-.table-bordered tfoot:last-child > tr:last-child > td:last-child,
-.table-bordered tfoot:last-child > tr:last-child > th:last-child {
+.table-bordered > thead:last-child > tr:last-child > th:last-child,
+.table-bordered > tbody:last-child > tr:last-child > td:last-child,
+.table-bordered > tbody:last-child > tr:last-child > th:last-child,
+.table-bordered > tfoot:last-child > tr:last-child > td:last-child,
+.table-bordered > tfoot:last-child > tr:last-child > th:last-child {
   border-bottom-right-radius: 4px;
 }
-.table-bordered tfoot + tbody:last-child > tr:last-child > td:first-child {
+.table-bordered > tfoot + tbody:last-child > tr:last-child > td:first-child {
   border-bottom-left-radius: 0;
 }
-.table-bordered tfoot + tbody:last-child > tr:last-child > td:last-child {
+.table-bordered > tfoot + tbody:last-child > tr:last-child > td:last-child {
   border-bottom-right-radius: 0;
 }
-.table-bordered caption + thead > tr:first-child > th:first-child,
-.table-bordered caption + tbody > tr:first-child > td:first-child,
-.table-bordered colgroup + thead > tr:first-child > th:first-child,
-.table-bordered colgroup + tbody > tr:first-child > td:first-child {
+.table-bordered > caption + thead > tr:first-child > th:first-child,
+.table-bordered > caption + tbody > tr:first-child > td:first-child,
+.table-bordered > colgroup + thead > tr:first-child > th:first-child,
+.table-bordered > colgroup + tbody > tr:first-child > td:first-child {
   border-top-left-radius: 4px;
 }
-.table-bordered caption + thead > tr:first-child > th:last-child,
-.table-bordered caption + tbody > tr:first-child > td:last-child,
-.table-bordered colgroup + thead > tr:first-child > th:last-child,
-.table-bordered colgroup + tbody > tr:first-child > td:last-child {
+.table-bordered > caption + thead > tr:first-child > th:last-child,
+.table-bordered > caption + tbody > tr:first-child > td:last-child,
+.table-bordered > colgroup + thead > tr:first-child > th:last-child,
+.table-bordered > colgroup + tbody > tr:first-child > td:last-child {
   border-top-right-radius: 4px;
 }
 .table-striped > tbody > tr:nth-child(odd) > td,
@@ -1091,9 +1091,10 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"] {
-  display: inline-block;
+  display: block;
   min-height: 34px;
   padding: 6px 9px;
+  margin-bottom: 10px;
   font-size: 14px;
   line-height: 20px;
   color: #555555;
@@ -1103,10 +1104,10 @@ input[type="color"] {
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border linear .2s, box-shadow linear .2s;
-  -moz-transition: border linear .2s, box-shadow linear .2s;
-  -o-transition: border linear .2s, box-shadow linear .2s;
-  transition: border linear .2s, box-shadow linear .2s;
+  -webkit-transition: border-color linear .2s, box-shadow linear .2s;
+  -moz-transition: border-color linear .2s, box-shadow linear .2s;
+  -o-transition: border-color linear .2s, box-shadow linear .2s;
+  transition: border-color linear .2s, box-shadow linear .2s;
 }
 input,
 select,
@@ -1202,12 +1203,14 @@ textarea::-webkit-input-placeholder {
   min-height: 20px;
   margin-bottom: 10px;
   padding-left: 20px;
+  vertical-align: middle;
 }
 .radio label,
 .checkbox label {
   display: inline;
   margin-bottom: 0;
   font-weight: normal;
+  cursor: pointer;
 }
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
@@ -1220,18 +1223,21 @@ textarea::-webkit-input-placeholder {
 .checkbox + .checkbox {
   margin-top: -5px;
 }
+/*
+// Move the options list down to align with labels
 .controls > .radio:first-child,
 .controls > .checkbox:first-child {
-  padding-top: 5px;
+  padding-top: 5px; // has to be padding because margin collaspes
 }
+*/
 .radio-inline,
 .checkbox-inline {
   display: inline-block;
-  padding-top: 5px;
   padding-left: 20px;
   margin-bottom: 0;
   vertical-align: middle;
   font-weight: normal;
+  cursor: pointer;
 }
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
@@ -1417,19 +1423,22 @@ select:focus:invalid:focus {
 .input-group {
   display: table;
 }
-.input-group[class*="span"] {
+.input-group.col {
   float: none;
-  padding: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 .input-group input,
 .input-group select {
   width: 100%;
+  margin-bottom: 0;
 }
 .input-group-addon,
 .input-group-btn,
 .input-group input {
   display: table-cell;
-  margin: 0;
+  /*margin: 0;*/
+
   border-radius: 0;
 }
 .input-group-addon.input-small,
@@ -1549,6 +1558,14 @@ select:focus:invalid:focus {
 .input-group-btn:last-child > .dropdown-toggle.btn-small {
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
+}
+.form-inline input,
+.form-inline select,
+.form-inline textarea,
+.form-inline .radio,
+.form-inline .checkbox {
+  display: inline-block;
+  margin-bottom: 0;
 }
 @media screen and (min-width: 768px) {
   .form-horizontal .control-group {
@@ -2712,9 +2729,9 @@ a.list-group-item.active .list-group-item-text {
 }
 .close {
   float: right;
-  font-size: 20px;
+  font-size: 21px;
   font-weight: bold;
-  line-height: 20px;
+  line-height: 1;
   color: #000;
   text-shadow: 0 1px 0 #ffffff;
   opacity: 0.2;
@@ -2834,6 +2851,8 @@ button.close {
   float: none;
   display: table-cell;
   width: 1%;
+}
+.nav-tabs.nav-justified > li > a {
   text-align: center;
 }
 .nav-tabs.nav-justified > li > a {
@@ -2872,12 +2891,14 @@ button.close {
   float: none;
   display: table-cell;
   width: 1%;
+}
+.nav-justified > li > a {
   text-align: center;
 }
 .nav-header {
   display: block;
   padding: 3px 15px;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: bold;
   line-height: 20px;
   color: #999999;
@@ -3017,7 +3038,7 @@ button.close {
   clear: both;
 }
 .navbar-nav {
-  margin-top: 5px;
+  margin: 10px -15px 0;
 }
 .navbar-nav > li > a {
   padding-top: 15px;
@@ -3058,6 +3079,7 @@ button.close {
 }
 .navbar-fixed-bottom {
   bottom: 0;
+  margin-bottom: 0;
 }
 .navbar-brand {
   display: block;
@@ -3065,7 +3087,7 @@ button.close {
   margin-left: auto;
   margin-right: auto;
   padding: 15px;
-  font-size: 18px;
+  font-size: 17.5px;
   font-weight: 500;
   line-height: 20px;
   color: #777777;
@@ -3219,16 +3241,6 @@ button.close {
   .navbar .nav.pull-right {
     float: right;
   }
-  .navbar .nav > .divider {
-    width: 1px;
-    height: 30px;
-    margin: 10px 9px;
-    border-bottom: 0;
-    border-right: 1px solid #fbfbfb;
-  }
-  .navbar-inverse .nav > .divider {
-    border-right-color: #2f2f2f;
-  }
   .navbar-toggle {
     position: relative;
     top: auto;
@@ -3240,62 +3252,21 @@ button.close {
     overflow: visible !important;
   }
 }
-/*
-
-// Janky solution for now to account for links outside the .nav
-// -------------------------
+.navbar-btn {
+  margin-top: 8px;
+}
 .navbar-link {
-  color: @navbar-link-color;
-  &:hover {
-    color: @navbar-link-hover-color;
-  }
+  color: #777777;
 }
-
-// Buttons in navbar
-// -------------------------
-.navbar .btn,
-.navbar .btn-group {
-  .navbarVerticalAlign(30px); // Vertically center in navbar
+.navbar-link:hover {
+  color: #333333;
 }
-.navbar .btn-group .btn,
-.navbar .input-prepend .btn,
-.navbar .input-append .btn {
-  margin-top: 0; // then undo the margin here so we don't accidentally double it
+.navbar-inverse .navbar-link {
+  color: #999999;
 }
-
-// Navbar forms
-// -------------------------
-.navbar-form {
-  margin-bottom: 0; // remove default bottom margin
-  .clearfix();
-  input,
-  select,
-  .radio,
-  .checkbox {
-    .navbarVerticalAlign(30px); // Vertically center in navbar
-  }
-  input,
-  select,
-  .btn {
-    display: inline-block;
-    margin-bottom: 0;
-  }
-  input[type="image"],
-  input[type="checkbox"],
-  input[type="radio"] {
-    margin-top: 3px;
-  }
-  .input-append,
-  .input-prepend {
-    margin-top: 5px;
-    white-space: nowrap; // preven two  items from separating within a .navbar-form that has .pull-left
-    input {
-      margin-top: 0; // remove the margin on top since it's on the parent
-    }
-  }
+.navbar-inverse .navbar-link:hover {
+  color: #ffffff;
 }
-
-*/
 .btn .caret {
   border-top-color: #ffffff;
 }
@@ -3374,6 +3345,21 @@ button.close {
 .btn-group > .large.dropdown-toggle {
   border-bottom-right-radius: 6px;
   border-top-right-radius: 6px;
+}
+.btn-group > .btn-group {
+  float: left;
+}
+.btn-group > .btn-group > .btn {
+  border-radius: 0;
+}
+.btn-group > .btn-group:last-child > .btn {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.btn-group > .btn-group:first-child > .btn {
+  margin-left: 0;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
 }
 .btn-group .dropdown-toggle:active,
 .btn-group.open .dropdown-toggle {
@@ -3752,7 +3738,7 @@ button.close {
   z-index: 1030;
   display: block;
   visibility: visible;
-  font-size: 11px;
+  font-size: 10.5px;
   line-height: 1.4;
   opacity: 0;
   filter: alpha(opacity=0);
@@ -4126,7 +4112,7 @@ a.thumbnail:focus {
   display: inline-block;
   min-width: 10px;
   padding: 3px 7px;
-  font-size: 12px;
+  font-size: 11.9px;
   font-weight: bold;
   color: #fff;
   line-height: 1;
@@ -4213,7 +4199,7 @@ a.list-group-item.active > .badge,
   float: left;
   width: 0%;
   height: 100%;
-  font-size: 12px;
+  font-size: 11.9px;
   color: #fff;
   text-align: center;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -4224,6 +4210,9 @@ a.list-group-item.active > .badge,
   -moz-transition: width 0.6s ease;
   -o-transition: width 0.6s ease;
   transition: width 0.6s ease;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .progress-striped .progress-bar {
   background-color: #428bca;
@@ -4484,7 +4473,7 @@ a.list-group-item.active > .badge,
     border-radius: 6px;
   }
   .jumbotron h1 {
-    font-size: 60px;
+    font-size: 63px;
   }
 }
 .clearfix:before,
@@ -5967,7 +5956,7 @@ dl.portalMessage dd {
   display: inline-block;
   min-width: 10px;
   padding: 3px 7px;
-  font-size: 12px;
+  font-size: 11.9px;
   font-weight: bold;
   color: #fff;
   line-height: 1;
@@ -6272,6 +6261,8 @@ ul.formTabs.nav-justified > li {
   float: none;
   display: table-cell;
   width: 1%;
+}
+ul.formTabs.nav-justified > li > a {
   text-align: center;
 }
 ul.formTabs.nav-justified > li > a {
@@ -7173,7 +7164,8 @@ body > header #header #meta .navbar-form label {
 body > header #header #home-btn {
   background: #003366;
   color: #fff;
-  margin: 5px 0px 0;
+  margin: 10px 0px 0;
+  z-index: 1000;
 }
 body > header #header .nav-collapse {
   margin-left: 47px;
@@ -7214,6 +7206,9 @@ body > header #header .nav-justified li:last-child a {
 body > header #toolbar + #header,
 body > header #editbar-wrapper + #header {
   margin-top: 50px;
+}
+#navigation {
+  margin-left: 0px;
 }
 #navigation > li > a {
   text-transform: uppercase;
@@ -7271,6 +7266,9 @@ body > header #editbar-wrapper + #header {
 }
 #content #frontpage-content .page-header {
   display: none;
+}
+#content .tile-content {
+  padding: 20px;
 }
 .documentFirstHeading {
   font-size: 17.5px;

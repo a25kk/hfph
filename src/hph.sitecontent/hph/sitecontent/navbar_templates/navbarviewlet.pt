@@ -1,5 +1,7 @@
-<div id="section-name">
-    Hochschule
+<div id="section-name" class="pull-right"
+    tal:define="selected viewlet/selected_section;
+                pretty_tab python:viewlet.prettify_section_name(selected)">
+    <span tal:content="pretty_tab" />
 </div>
 <div id="sections">
     <ul id="portal-navigation"
@@ -7,7 +9,6 @@
         tal:define="navtree viewlet/main_sections;
                     selected viewlet/selected_section">
         <li class="divider-vertical"></li>
-        <li><code tal:content="viewlet/selected_section" /></li>
         <tal:sections tal:repeat="tab navtree">
             <li tal:define="tab_id tab/id;
                             active python:selected == tab_id"
