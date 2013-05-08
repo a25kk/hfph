@@ -7207,10 +7207,12 @@ body > header #toolbar + #header,
 body > header #editbar-wrapper + #header {
   margin-top: 50px;
 }
-#navigation {
+#navigation,
+#portal-navigation {
   margin-left: 0px;
 }
-#navigation > li > a {
+#navigation > li > a,
+#portal-navigation > li > a {
   text-transform: uppercase;
 }
 #portal-subsubnavigation > li.active > a,

@@ -10,7 +10,7 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-  <section id="news-listing"
+  <section id="news-listing" class="tile-content"
     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
     <header class="page-header">
         <h1 tal:content="context/Title" />
