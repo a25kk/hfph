@@ -48,10 +48,15 @@ body > header {
                 li {
                     list-style: none;
                     display: inline-block;
-                    .font-size(@font-size-mini);
+                    font-size: @font-size-mini;
                     a {
                         text-transform: uppercase;
                         padding: @padding-mini;
+                    }
+                    &.active {
+                        a {
+                            color: lighten(@app-blue, 20%);
+                        }
                     }
                 }
                 &.metasections {
@@ -133,9 +138,13 @@ body > header {
     }
 }
 
-#portal-subnavigation > li.active > a,
-    #portal-subnavigation > li.active > a:hover,
-    #portal-subnavigation > li.active > a:focus {
+#navigation > li > a {
+    text-transform: uppercase;
+}
+
+#portal-subsubnavigation > li.active > a,
+    #portal-subsubnavigation > li.active > a:hover,
+    #portal-subsubnavigation > li.active > a:focus {
         background: @app-blue;
         border-radius: 0px;
 }

@@ -7136,12 +7136,14 @@ body > header #header #meta ul {
 body > header #header #meta ul li {
   list-style: none;
   display: inline-block;
-  font-size: 10.5pxpx;
-  font-size: 1.05pxrem;
+  font-size: 10.5px;
 }
 body > header #header #meta ul li a {
   text-transform: uppercase;
   padding: 0 6px;
+}
+body > header #header #meta ul li.active a {
+  color: #0066cc;
 }
 body > header #header #meta ul.metasections a:hover {
   background: #003366;
@@ -7213,9 +7215,12 @@ body > header #toolbar + #header,
 body > header #editbar-wrapper + #header {
   margin-top: 50px;
 }
-#portal-subnavigation > li.active > a,
-#portal-subnavigation > li.active > a:hover,
-#portal-subnavigation > li.active > a:focus {
+#navigation > li > a {
+  text-transform: uppercase;
+}
+#portal-subsubnavigation > li.active > a,
+#portal-subsubnavigation > li.active > a:hover,
+#portal-subsubnavigation > li.active > a:focus {
   background: #003366;
   border-radius: 0px;
 }

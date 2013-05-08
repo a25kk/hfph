@@ -1,4 +1,5 @@
 from five import grok
+from plone import api
 from Acquisition import aq_inner
 from zope.interface import Interface
 from zope.component import getMultiAdapter
@@ -31,6 +32,12 @@ class NavbarViewlet(grok.Viewlet):
         self.selected_tabs = self.selectedItems(
             portal_tabs=self.main_sections())
         self.selected_section = self.selected_tabs['portal']
+
+    def section_name(self):
+        selected_section = self.selected_section
+        portal = api.portal.get()
+        section = portal[selected_section]
+        return section.Title
 
     def main_sections(self):
         sections = self.sections()

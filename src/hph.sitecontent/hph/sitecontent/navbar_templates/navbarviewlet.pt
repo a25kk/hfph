@@ -1,19 +1,18 @@
+<div id="section-name">
+    Hochschule
+</div>
 <div id="sections">
     <ul id="portal-navigation"
         class="nav navbar-nav nav-justified"
         tal:define="navtree viewlet/main_sections;
                     selected viewlet/selected_section">
-        <!--<li class="home">
-            <a href="/" tal:attributes="href viewlet/portal_url">
-                Home
-            </a>
-        </li>-->
         <li class="divider-vertical"></li>
+        <li><code tal:content="viewlet/selected_section" /></li>
         <tal:sections tal:repeat="tab navtree">
             <li tal:define="tab_id tab/id;
-                            selected python:selected==tab_id and 'navitem active' or 'navitem'"
+                            active python:selected == tab_id"
                 tal:attributes="id string:tab-${tab_id};
-                                class selected">
+                                class python:active and 'navitem active' or 'navitem'">
                 <a href=""
                     tal:attributes="href tab/url"
                     tal:content="tab/name" />
