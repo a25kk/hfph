@@ -7365,6 +7365,92 @@ a.link-more:hover {
 #sidebar .box .box-content .box-item:nth-child(odd) {
   background-color: #f9f9f9;
 }
+ul.navTree {
+  margin-left: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+ul.navTree:before,
+ul.navTree:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+ul.navTree:after {
+  clear: both;
+}
+ul.navTree:before,
+ul.navTree:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+ul.navTree:after {
+  clear: both;
+}
+ul.navTree > li {
+  display: block;
+}
+ul.navTree > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+ul.navTree > li > a:hover,
+ul.navTree > li > a:focus {
+  text-decoration: none;
+  background-color: #eeeeee;
+}
+ul.navTree > li.disabled > a {
+  color: #999999;
+}
+ul.navTree > li.disabled > a:hover,
+ul.navTree > li.disabled > a:focus {
+  color: #999999;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: default;
+}
+ul.navTree > li + .nav-header {
+  margin-top: 9px;
+}
+ul.navTree > .pull-right {
+  float: right;
+}
+ul.navTree .divider {
+  height: 2px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+  border-bottom: 1px solid #ffffff;
+}
+ul.navTree [class^="icon-"],
+ul.navTree [class*=" icon-"] {
+  display: inline;
+  /* keeps button heights with and without icons the same */
+
+}
+ul.navTree [class^="icon-"].icon-large,
+ul.navTree [class*=" icon-"].icon-large {
+  line-height: .9em;
+}
+ul.navTree [class^="icon-"].icon-spin,
+ul.navTree [class*=" icon-"].icon-spin {
+  display: inline-block;
+}
+ul.navTree li.navTreeCurrentNode a,
+ul.navTree li.navTreeCurrentNode a:hover,
+ul.navTree li.navTreeCurrentNode a:focus {
+  text-decoration: none;
+  background-color: #eeeeee;
+}
 body > footer {
   margin-top: 20px;
   padding: 6.666666666666667px;

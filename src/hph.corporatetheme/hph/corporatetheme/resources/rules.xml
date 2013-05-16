@@ -99,6 +99,13 @@
             css:theme-children="#below-main-content" />
 
         <!-- Columns -->
+        <rules css:if-not-content="#portal-column-one">
+            <drop css:theme="#sidebar-wrapper" />
+            <before css:theme-children="#main-content-wrapper">
+                <xsl:attribute name="class">col col-lg-12</xsl:attribute>
+            </before>
+        </rules>
+        
         <replace css:content-children="#portal-column-one > *"
             css:theme-children="#sidebar-left" />
         <replace css:content-children="#portal-column-two > *"
