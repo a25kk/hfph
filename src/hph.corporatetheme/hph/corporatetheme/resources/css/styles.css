@@ -7218,7 +7218,7 @@ body > header #editbar-wrapper + #header {
 #portal-subsubnavigation > li.active > a,
 #portal-subsubnavigation > li.active > a:hover,
 #portal-subsubnavigation > li.active > a:focus {
-  background: #003366;
+  background: #404040;
   border-radius: 0px;
 }
 #tickerbar .navbar-inner {
@@ -7262,6 +7262,9 @@ body > header #editbar-wrapper + #header {
 .tile .page-header {
   margin-top: 0px;
   padding-top: 20px;
+}
+.tile .page-header h1 {
+  color: #003366;
 }
 #content #frontpage-content {
   padding: 0;
