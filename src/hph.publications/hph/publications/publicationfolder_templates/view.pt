@@ -23,7 +23,8 @@
           <div class="row"
             tal:repeat="item view/publications">
             <div class="col col-3 col-lg-3">
-                <img tal:define="item_obj item/getObject;
+                <img tal:condition="item/image"
+                    tal:define="item_obj item/getObject;
                                  scales item_obj/@@images"
                     tal:replace="structure python: scales.tag('image',
                                  width=140, height=140, direction='down')"
