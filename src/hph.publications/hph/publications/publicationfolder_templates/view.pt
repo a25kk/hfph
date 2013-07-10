@@ -22,10 +22,14 @@
         <tal:block tal:condition="view/has_publications">
           <div class="row"
             tal:repeat="item view/publications">
-            <div class="span3">
-              <img class="img-polaroid" src="http://placehold.it/140x140" />
+            <div class="col col-3 col-lg-3">
+                <img tal:define="item_obj item/getObject;
+                                 scales item_obj/@@images"
+                    tal:replace="structure python: scales.tag('image',
+                                 width=140, height=140, direction='down')"
+                />
             </div>
-            <div class="span9">
+            <div class="col col-9 col-lg-9">
               <h2>
                 <small>Author Information</small><br />
                 <span tal:replace="item/Title" />
