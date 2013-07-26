@@ -28,8 +28,8 @@ body > header {
         #section-name {
               border: 0px solid red !important;
               font-size: @font-size-large * 3;
-              line-height: @line-height-computed * 3 !important; 
-              margin: @line-height-computed @line-height-computed * 5;
+              line-height: @line-height-computed * 3; 
+              margin: @navbar-height @line-height-computed * 5;
               color: @gray-light;
             }
 
@@ -88,15 +88,6 @@ body > header {
                         padding: 0px 20px;
                     }
                 }
-        }
-        #home-btn {
-            background: @app-blue;
-            color: #fff;
-            margin: 10px 0px 0;
-            z-index: @zindex-dropdown;
-        }
-        .nav-collapse {
-            margin-left: @navbar-height - 3;
         }
     }
     #toolbar + #header,

@@ -5607,6 +5607,9 @@ body.styleguide #styleguide-content .bs-docs-section-header .lead {
 .topbar {
   padding-top: 50px;
 }
+.az5-navigation {
+  border: 1px solid red;
+}
 .site-navigation {
   background: #ffcc33;
   border-radius: 0;
@@ -5659,8 +5662,8 @@ body > header #header #logo {
 body > header #header #section-name {
   border: 0px solid red !important;
   font-size: 54px;
-  line-height: 60px !important;
-  margin: 20px 100px;
+  line-height: 60px;
+  margin: 50px 100px;
   color: #999999;
 }
 body > header #header #meta {
@@ -5712,15 +5715,6 @@ body > header #header #meta .navbar-form label {
   text-transform: uppercase;
   font-size: 0.8em;
   padding: 0px 20px;
-}
-body > header #header #home-btn {
-  background: #003366;
-  color: #fff;
-  margin: 10px 0px 0;
-  z-index: 1000;
-}
-body > header #header .nav-collapse {
-  margin-left: 47px;
 }
 body > header #toolbar + #header,
 body > header #editbar-wrapper + #header {
