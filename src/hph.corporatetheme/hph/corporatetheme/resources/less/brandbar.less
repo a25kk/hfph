@@ -1,0 +1,21 @@
+//
+// Brandbar including section locator and logo
+// --------------------------------------------------
+
+.brandbar {
+    padding: @navbar-height * 2 @navbar-height @navbar-height;
+    .brandbar-brand {
+        display: block;
+        overflow: hidden;
+        background:url(../img/logo.jpg)  no-repeat 0 0 transparent;
+        text-indent: -999999px;
+        .size(250px, 100px);
+    }
+    .brandbar-section {
+        font-size: @font-size-large * 3;
+        line-height: @line-height-computed * 3; 
+        //margin: @navbar-height @line-height-computed * 5;
+        color: @gray-light;
+        text-align: right;
+    }
+}

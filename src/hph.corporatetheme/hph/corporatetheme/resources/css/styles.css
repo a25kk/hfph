@@ -5177,6 +5177,1195 @@ ul.icons li [class*=" icon-"] {
 .icon-folder-open-alt:before {
   content: "\f115";
 }
+/* TODO: move to library as well */
+/*!
+ * Plone Combat Styles v1.0.0
+ *
+ * Copyright 2013 Ade25
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world by ade25
+ */
+#plone-contentmenu-workflow .state-private,
+#plone-contentmenu-workflow .state-visible,
+#plone-contentmenu-workflow .state-published,
+#plone-contentmenu-workflow .state-pending,
+#plone-contentmenu-workflow .state-expired {
+  text-shadow: none;
+  border: none;
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #999999;
+  border-radius: 10px;
+}
+#plone-contentmenu-workflow .state-private:empty,
+#plone-contentmenu-workflow .state-visible:empty,
+#plone-contentmenu-workflow .state-published:empty,
+#plone-contentmenu-workflow .state-pending:empty,
+#plone-contentmenu-workflow .state-expired:empty {
+  display: none;
+}
+#plone-contentmenu-workflow .state-private {
+  background-color: #b94a48;
+}
+#plone-contentmenu-workflow .state-published {
+  background-color: #468847;
+}
+#plone-contentmenu-workflow .state-pending {
+  background-color: #3a87ad;
+}
+#plone-contentmenu-workflow .state-expired {
+  background-color: #c09853;
+}
+#plone-contentmenu-workflow .state-visible {
+  background-color: #333333;
+}
+/* @group Tabs */
+#content-views {
+  float: left;
+  margin-top: 5px;
+  background-color: transparent;
+}
+#content-views li {
+  display: inline;
+  list-style: none;
+}
+/* fix shift on content views list under ie6 */
+/* .ie6 is set on <html> by Modernizr library */
+.ie6 ul#content-views {
+  margin: -2px -3px 0px -3px;
+}
+#content-views a {
+  color: White;
+}
+/* Shared CSS between the two tab types */
+#content-views a {
+  /* this isn't supported by all browsers, so we keep it in a separate rule */
+
+  display: inline-block;
+}
+#content-views a {
+  line-height: 2em;
+  padding: 0 0.75em;
+  text-decoration: none;
+  border: none;
+  margin: 0 ;
+}
+#content-views li.selected a {
+  font-weight: bold;
+}
+#content-views li.selected a,
+#content-views li a:hover {
+  background: White;
+  color: Black;
+  border-radius: 4px;
+}
+#content li.formTab a.notify,
+#content-core li.formTab a.notify {
+  background-color: red;
+  color: White;
+}
+div.field span.required:after {
+  content: "■";
+  color: Red;
+  padding-left: 0.2em;
+}
+#content fieldset.formPanel,
+#content-core fieldset.formPanel {
+  border: none;
+}
+#content fieldset.formPanel.hidden,
+#content-core fieldset.formPanel.hidden {
+  display: none;
+}
+#content div.formControls input.hidden,
+#content-core div.formControls input.hidden {
+  display: none;
+}
+/* @end */
+/* @group Pulldown menus */
+/* @group Personal tools pulldown */
+#portal-personaltools dt {
+  font-weight: normal;
+}
+#portal-personaltools dt.actionMenuHeader a:after {
+  content: " ▼";
+}
+#portal-personaltools dd {
+  right: 0;
+  padding-top: 0.5em;
+}
+#portal-personaltools dd {
+  background: #e3e3e3;
+  padding-bottom: 0.5em;
+}
+#portal-personaltools dd a {
+  line-height: 2em;
+  padding: 0 0.75em;
+}
+#portal-personaltools dd a:hover {
+  background: #205c90;
+  color: White;
+}
+/* @end */
+/* @group Content pulldowns */
+#contentActionMenus li {
+  display: inline;
+}
+#contentActionMenus dl.actionMenu a {
+  background-color: transparent;
+  color: White;
+  z-index: 5;
+}
+#contentActionMenus dl.actionMenu.activated dd {
+  background-color: #999999;
+  color: White;
+  z-index: 5;
+}
+#contentActionMenus dl.actionMenu.activated dd {
+  border-bottom: 0.5em solid #999999;
+  right: -3px;
+}
+#contentActionMenus dl.actionMenu.activated dd a:hover,
+#contentActionMenus dl.actionMenu.activated dd .actionMenuSelected {
+  background-color: White !important;
+  color: #666;
+}
+#contentActionMenus dl.actionMenu {
+  line-height: 20px;
+}
+#folderHeader,
+#contextHeader {
+  border-bottom: 2px solid white;
+}
+#contextHeader {
+  margin-top: 5px;
+}
+/* @end */
+#contentActionMenus {
+  float: right;
+  background: transparent;
+  margin: 0;
+  position: relative;
+  top: 10px;
+  right: -0.24em;
+  padding: 4px 4px -4px 0;
+}
+.actionMenuContent {
+  padding: 0 0.25em;
+}
+dl.actionMenu {
+  float: right;
+  white-space: nowrap;
+  position: relative;
+  margin-left: 0.5em;
+  margin-bottom: 0px;
+}
+dl.actionMenu a,
+dl.actionMenu div {
+  display: block !important;
+  white-space: nowrap;
+}
+dl.actionMenu dt {
+  font-weight: normal;
+}
+span.arrowDownAlternative {
+  font-size: 80%;
+}
+dl.actionMenu.deactivated dt {
+  margin: 0 0.25em;
+}
+dl.actionMenu.deactivated dd {
+  display: none;
+}
+dl.actionMenu.activated dd {
+  position: absolute;
+  width: auto;
+  min-width: 100%;
+  border-bottom-right-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  -webkit-border-bottom-right-radius: 0.5em;
+  -webkit-border-bottom-left-radius: 0.5em;
+  -moz-border-radius-bottomleft: 0.5em;
+  -moz-border-radius-bottomright: 0.5em;
+}
+dl.actionMenu.activated dt a,
+dl.actionMenu.activated dd a,
+dl.actionMenu.activated dd div {
+  margin: 0 0.25em;
+}
+/* @end *//* @group Content History */
+div.historyRecord {
+  margin-bottom: 1em;
+}
+div.historyTools ul {
+  float: right;
+  margin: 0.5em 1em;
+}
+div.historyTools ul li {
+  display: inline;
+  padding: 0 0.015em;
+}
+div.historyTools ul li a {
+  border-bottom: none;
+}
+div.historyTools form {
+  display: inline;
+}
+.historyByLine {
+  background: #ddd;
+  padding: 0.5em;
+  border-top-right-radius: 0.5em;
+  border-top-left-radius: 0.5em;
+  -webkit-border-top-right-radius: 0.5em;
+  -webkit-border-top-left-radius: 0.5em;
+  -moz-border-radius-topleft: 0.5em;
+  -moz-border-radius-topright: 0.5em;
+}
+div.historyLinks {
+  float: right;
+  clear: right;
+  margin: 0.5em 1em 0 0;
+}
+div.historyComment {
+  padding: 0.5em 1em;
+  border: 1px solid #ddd;
+}
+div.historyComment p {
+  margin: 0;
+  padding-top: 1px;
+}
+a.historyComparePrevious {
+  border-top: 1px dotted #ccc;
+  display: block;
+  margin-top: 3em;
+  text-align: center;
+}
+a.historyComparePrevious span {
+  background-color: white;
+  position: relative;
+  top: -0.75em;
+  padding: 0 0.5em;
+}
+/* @end */
+ul.formTabs {
+  background: transparent;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+  border-bottom: 1px solid #ddd;
+  margin: 0 0 10px;
+  list-style-type: none;
+}
+ul.formTabs:before,
+ul.formTabs:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+ul.formTabs:after {
+  clear: both;
+}
+ul.formTabs:before,
+ul.formTabs:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+ul.formTabs:after {
+  clear: both;
+}
+ul.formTabs > li {
+  position: relative;
+  display: block;
+}
+ul.formTabs > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+ul.formTabs > li > a:hover,
+ul.formTabs > li > a:focus {
+  text-decoration: none;
+  background-color: #eeeeee;
+}
+ul.formTabs > li.disabled > a {
+  color: #999999;
+}
+ul.formTabs > li.disabled > a:hover,
+ul.formTabs > li.disabled > a:focus {
+  color: #999999;
+  text-decoration: none;
+  background-color: transparent;
+  cursor: default;
+}
+ul.formTabs > li + .nav-header {
+  margin-top: 9px;
+}
+ul.formTabs.open > a,
+ul.formTabs.open > a:hover,
+ul.formTabs.open > a:focus {
+  color: #fff;
+  background-color: #404040;
+  border-color: #404040;
+}
+ul.formTabs.open > a .caret,
+ul.formTabs.open > a:hover .caret,
+ul.formTabs.open > a:focus .caret {
+  border-top-color: #fff;
+  border-bottom-color: #fff;
+}
+ul.formTabs > .pull-right {
+  float: right;
+}
+ul.formTabs .nav-divider {
+  height: 2px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+  border-bottom: 1px solid #ffffff;
+}
+ul.formTabs [class^="icon-"],
+ul.formTabs [class*=" icon-"] {
+  display: inline;
+  /* keeps button heights with and without icons the same */
+
+}
+ul.formTabs [class^="icon-"].icon-large,
+ul.formTabs [class*=" icon-"].icon-large {
+  line-height: .9em;
+}
+ul.formTabs [class^="icon-"].icon-spin,
+ul.formTabs [class*=" icon-"].icon-spin {
+  display: inline-block;
+}
+ul.formTabs > li {
+  float: left;
+  margin-bottom: -1px;
+}
+ul.formTabs > li > a {
+  margin-right: 2px;
+  line-height: 1.428571429;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+ul.formTabs > li > a:hover {
+  border-color: #eeeeee #eeeeee #dddddd;
+}
+ul.formTabs > li.active > a,
+ul.formTabs > li.active > a:hover,
+ul.formTabs > li.active > a:focus {
+  color: #555555;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+ul.formTabs.nav-justified {
+  width: 100%;
+  border-bottom: 0;
+}
+ul.formTabs.nav-justified > li {
+  float: none;
+  display: table-cell;
+  width: 1%;
+}
+ul.formTabs.nav-justified > li > a {
+  text-align: center;
+}
+ul.formTabs.nav-justified > li > a {
+  border-bottom: 1px solid #ddd;
+  margin-right: 0;
+}
+ul.formTabs.nav-justified > .active > a {
+  border-bottom-color: #ffffff;
+}
+ul.formTabs [class^="icon-"],
+ul.formTabs [class*=" icon-"] {
+  /* keeps button heights with and without icons the same */
+
+}
+ul.formTabs [class^="icon-"],
+ul.formTabs [class*=" icon-"],
+ul.formTabs [class^="icon-"].icon-large,
+ul.formTabs [class*=" icon-"].icon-large {
+  line-height: .9em;
+}
+ul.formTabs li {
+  float: left;
+  margin-bottom: -1px;
+}
+ul.formTabs li a {
+  padding: 8px 12px;
+  display: block;
+  line-height: 14px;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+ul.formTabs li a:hover {
+  border-color: #eeeeee #eeeeee #dddddd;
+}
+ul.formTabs li a.selected {
+  color: #555555;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+input.context,
+input.standalone,
+input.addreference,
+input.submit-widget {
+  display: inline-block;
+  padding: 8px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.428571429;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  white-space: nowrap;
+  border-radius: 0px;
+  color: #ffffff;
+  background-color: #474949;
+  border-color: #474949;
+  margin-right: 10px;
+}
+input.context:focus,
+input.standalone:focus,
+input.addreference:focus,
+input.submit-widget:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+input.context:hover,
+input.standalone:hover,
+input.addreference:hover,
+input.submit-widget:hover,
+input.context:focus,
+input.standalone:focus,
+input.addreference:focus,
+input.submit-widget:focus {
+  color: #fff;
+  text-decoration: none;
+}
+input.context:active,
+input.standalone:active,
+input.addreference:active,
+input.submit-widget:active,
+input.context.active,
+input.standalone.active,
+input.addreference.active,
+input.submit-widget.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+input.context.disabled,
+input.standalone.disabled,
+input.addreference.disabled,
+input.submit-widget.disabled,
+input.context[disabled],
+input.standalone[disabled],
+input.addreference[disabled],
+input.submit-widget[disabled],
+fieldset[disabled] input.context,
+fieldset[disabled] input.standalone,
+fieldset[disabled] input.addreference,
+fieldset[disabled] input.submit-widget {
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+input.context [class^="icon-"],
+input.standalone [class^="icon-"],
+input.addreference [class^="icon-"],
+input.submit-widget [class^="icon-"],
+input.context [class*=" icon-"],
+input.standalone [class*=" icon-"],
+input.addreference [class*=" icon-"],
+input.submit-widget [class*=" icon-"] {
+  display: inline;
+  /* keeps button heights with and without icons the same */
+
+}
+input.context [class^="icon-"].icon-large,
+input.standalone [class^="icon-"].icon-large,
+input.addreference [class^="icon-"].icon-large,
+input.submit-widget [class^="icon-"].icon-large,
+input.context [class*=" icon-"].icon-large,
+input.standalone [class*=" icon-"].icon-large,
+input.addreference [class*=" icon-"].icon-large,
+input.submit-widget [class*=" icon-"].icon-large {
+  line-height: .9em;
+}
+input.context [class^="icon-"].icon-spin,
+input.standalone [class^="icon-"].icon-spin,
+input.addreference [class^="icon-"].icon-spin,
+input.submit-widget [class^="icon-"].icon-spin,
+input.context [class*=" icon-"].icon-spin,
+input.standalone [class*=" icon-"].icon-spin,
+input.addreference [class*=" icon-"].icon-spin,
+input.submit-widget [class*=" icon-"].icon-spin {
+  display: inline-block;
+}
+input.context [class^="icon-"].pull-left.icon-2x,
+input.standalone [class^="icon-"].pull-left.icon-2x,
+input.addreference [class^="icon-"].pull-left.icon-2x,
+input.submit-widget [class^="icon-"].pull-left.icon-2x,
+input.context [class*=" icon-"].pull-left.icon-2x,
+input.standalone [class*=" icon-"].pull-left.icon-2x,
+input.addreference [class*=" icon-"].pull-left.icon-2x,
+input.submit-widget [class*=" icon-"].pull-left.icon-2x,
+input.context [class^="icon-"].pull-right.icon-2x,
+input.standalone [class^="icon-"].pull-right.icon-2x,
+input.addreference [class^="icon-"].pull-right.icon-2x,
+input.submit-widget [class^="icon-"].pull-right.icon-2x,
+input.context [class*=" icon-"].pull-right.icon-2x,
+input.standalone [class*=" icon-"].pull-right.icon-2x,
+input.addreference [class*=" icon-"].pull-right.icon-2x,
+input.submit-widget [class*=" icon-"].pull-right.icon-2x {
+  margin-top: .18em;
+}
+input.context [class^="icon-"].icon-spin.icon-large,
+input.standalone [class^="icon-"].icon-spin.icon-large,
+input.addreference [class^="icon-"].icon-spin.icon-large,
+input.submit-widget [class^="icon-"].icon-spin.icon-large,
+input.context [class*=" icon-"].icon-spin.icon-large,
+input.standalone [class*=" icon-"].icon-spin.icon-large,
+input.addreference [class*=" icon-"].icon-spin.icon-large,
+input.submit-widget [class*=" icon-"].icon-spin.icon-large {
+  line-height: .8em;
+}
+input.context:hover,
+input.standalone:hover,
+input.addreference:hover,
+input.submit-widget:hover,
+input.context:focus,
+input.standalone:focus,
+input.addreference:focus,
+input.submit-widget:focus,
+input.context:active,
+input.standalone:active,
+input.addreference:active,
+input.submit-widget:active,
+input.context.active,
+input.standalone.active,
+input.addreference.active,
+input.submit-widget.active {
+  background-color: #3a3c3c;
+  border-color: #2e2f2f;
+}
+input.context.disabled,
+input.standalone.disabled,
+input.addreference.disabled,
+input.submit-widget.disabled,
+input.context[disabled],
+input.standalone[disabled],
+input.addreference[disabled],
+input.submit-widget[disabled],
+fieldset[disabled] input.context,
+fieldset[disabled] input.standalone,
+fieldset[disabled] input.addreference,
+fieldset[disabled] input.submit-widget,
+input.context.disabled:hover,
+input.standalone.disabled:hover,
+input.addreference.disabled:hover,
+input.submit-widget.disabled:hover,
+input.context[disabled]:hover,
+input.standalone[disabled]:hover,
+input.addreference[disabled]:hover,
+input.submit-widget[disabled]:hover,
+fieldset[disabled] input.context:hover,
+fieldset[disabled] input.standalone:hover,
+fieldset[disabled] input.addreference:hover,
+fieldset[disabled] input.submit-widget:hover,
+input.context.disabled:focus,
+input.standalone.disabled:focus,
+input.addreference.disabled:focus,
+input.submit-widget.disabled:focus,
+input.context[disabled]:focus,
+input.standalone[disabled]:focus,
+input.addreference[disabled]:focus,
+input.submit-widget[disabled]:focus,
+fieldset[disabled] input.context:focus,
+fieldset[disabled] input.standalone:focus,
+fieldset[disabled] input.addreference:focus,
+fieldset[disabled] input.submit-widget:focus,
+input.context.disabled:active,
+input.standalone.disabled:active,
+input.addreference.disabled:active,
+input.submit-widget.disabled:active,
+input.context[disabled]:active,
+input.standalone[disabled]:active,
+input.addreference[disabled]:active,
+input.submit-widget[disabled]:active,
+fieldset[disabled] input.context:active,
+fieldset[disabled] input.standalone:active,
+fieldset[disabled] input.addreference:active,
+fieldset[disabled] input.submit-widget:active,
+input.context.disabled.active,
+input.standalone.disabled.active,
+input.addreference.disabled.active,
+input.submit-widget.disabled.active,
+input.context[disabled].active,
+input.standalone[disabled].active,
+input.addreference[disabled].active,
+input.submit-widget[disabled].active,
+fieldset[disabled] input.context.active,
+fieldset[disabled] input.standalone.active,
+fieldset[disabled] input.addreference.active,
+fieldset[disabled] input.submit-widget.active {
+  background-color: #474949;
+  border-color: #474949;
+}
+input.context {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #428bca;
+}
+input.context:hover,
+input.context:focus,
+input.context:active,
+input.context.active {
+  background-color: #357ebd;
+  border-color: #3071a9;
+}
+input.context.disabled,
+input.context[disabled],
+fieldset[disabled] input.context,
+input.context.disabled:hover,
+input.context[disabled]:hover,
+fieldset[disabled] input.context:hover,
+input.context.disabled:focus,
+input.context[disabled]:focus,
+fieldset[disabled] input.context:focus,
+input.context.disabled:active,
+input.context[disabled]:active,
+fieldset[disabled] input.context:active,
+input.context.disabled.active,
+input.context[disabled].active,
+fieldset[disabled] input.context.active {
+  background-color: #428bca;
+  border-color: #428bca;
+}
+input[type="checkbox"] + label,
+.ArchetypesBooleanWidget label {
+  display: inline-block;
+  margin-left: 5px;
+}
+input.datetime-widget,
+select.datetime-widget,
+.ArchetypesCalendarWidget select {
+  width: auto;
+}
+/* Emulates the styling from the h1 tag */
+#content .field input[type="text"][name$=".title"],
+#form-widgets-IBasic-title,
+#archetypes-fieldname-title input {
+  height: 35px;
+  line-height: 30px;
+  font-size: 17.5px;
+  font-weight: 400;
+  width: 100%;
+  color: #555555;
+}
+/* Emulates styling from the description's view */
+#content .field textarea[name$=".description"],
+#form-widgets-IBasic-description,
+#archetypes-fieldname-description textarea#description {
+  color: #555555;
+  font-size: 14px;
+  font-weight: 400;
+  width: 100%;
+}
+div.fieldTextFormat {
+  text-align: right;
+}
+div.fieldTextFormat label {
+  font-weight: 300;
+  color: #999999;
+}
+div.fieldTextFormat select {
+  width: 120px;
+}
+#content-core label {
+  font-weight: 400;
+}
+#content-core label span.formHelp {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373;
+  color: #999999;
+  font-weight: 300;
+}
+div.field {
+  margin-bottom: 10px;
+}
+div.field label span.formHelp {
+  display: block;
+  font-weight: normal;
+  color: #999999;
+}
+div.field div.label {
+  background: transparent;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  padding: 0px;
+  text-align: left;
+}
+div.field div.label span.formHelp {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373;
+  color: #999999;
+  font-weight: normal;
+}
+div.formHelp {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373;
+}
+.formControls {
+  padding-top: 10px;
+}
+.fieldRequired,
+span.required {
+  display: inline-block;
+}
+div.overlay {
+  width: auto;
+  height: auto;
+  /* initially overlay is hidden */
+
+  display: none;
+  /* some padding to layout nested elements nicely  */
+
+  margin: 1em;
+}
+div.overlay-iframe,
+div.overlay-ajax {
+  width: auto;
+  min-height: 100px;
+  left: 20%;
+  z-index: 99;
+  /* overlays should be above everything */
+
+}
+div.overlay-iframe {
+  height: 60%;
+}
+/* default close button positioned on upper-left corner */
+div.overlaybg div.close,
+div.overlay div.close {
+  background-image: url(../images/pb_close.png);
+  position: absolute;
+  left: -14px;
+  top: -14px;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+}
+.pb-ajax {
+  overflow-y: auto;
+}
+.pb-ajax,
+.pb-image,
+.overlay iframe {
+  background-color: #fff;
+  border: 1px solid #999;
+  border-radius: 4px;
+  white-space: normal;
+  box-shadow: 0 0 3em 0.5em #666;
+  -moz-box-shadow: 0 0 3em 0.5em #666;
+  -webkit-box-shadow: 0 0 3em #666;
+}
+.pb-ajax > div {
+  width: 92%;
+  padding: 1em;
+}
+.pb-ajax .documentActions {
+  display: none;
+}
+div.overlay {
+  /* Hide form elements that don't make sense within an overlay. */
+
+  /* lets play nice with paragraphs, links, tabbed pages in overlay e.g. when plone.openid is installed */
+
+}
+div.overlay div.close span,
+div.overlay div.close a {
+  display: block;
+  height: 1px;
+  margin: -1px 0 0 -1px;
+  overflow: hidden;
+  padding: 0;
+  width: 1px;
+}
+div.overlay textarea {
+  width: 100%;
+}
+div.overlay .link-parent {
+  display: none;
+}
+div.overlay #createGroup legend,
+div.overlay #createGroup fieldset {
+  display: none;
+}
+div.overlay p {
+  margin-bottom: 1.428571429;
+}
+div.overlay label {
+  margin-bottom: 0.25em;
+}
+div.overlay .formTab {
+  margin-right: 1em;
+  font-weight: bold;
+}
+div.overlay .formTab.lastFormTab {
+  margin-right: 0em;
+}
+div.overlay .formControls a {
+  display: block;
+  margin: 0.75em;
+}
+/* @end */
+table.listing,
+table.plain {
+  width: 100%;
+  margin-bottom: 20px;
+}
+table.listing thead > tr > th,
+table.plain thead > tr > th,
+table.listing tbody > tr > th,
+table.plain tbody > tr > th,
+table.listing tfoot > tr > th,
+table.plain tfoot > tr > th,
+table.listing thead > tr > td,
+table.plain thead > tr > td,
+table.listing tbody > tr > td,
+table.plain tbody > tr > td,
+table.listing tfoot > tr > td,
+table.plain tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.428571429;
+  vertical-align: top;
+  border-top: 1px solid #dddddd;
+}
+table.listing thead > tr > th,
+table.plain thead > tr > th {
+  vertical-align: bottom;
+}
+table.listing caption + thead tr:first-child th,
+table.plain caption + thead tr:first-child th,
+table.listing colgroup + thead tr:first-child th,
+table.plain colgroup + thead tr:first-child th,
+table.listing thead:first-child tr:first-child th,
+table.plain thead:first-child tr:first-child th,
+table.listing caption + thead tr:first-child td,
+table.plain caption + thead tr:first-child td,
+table.listing colgroup + thead tr:first-child td,
+table.plain colgroup + thead tr:first-child td,
+table.listing thead:first-child tr:first-child td,
+table.plain thead:first-child tr:first-child td {
+  border-top: 0;
+}
+table.listing tbody + tbody,
+table.plain tbody + tbody {
+  border-top: 2px solid #dddddd;
+}
+table.listing .table,
+table.plain .table {
+  background-color: #ffffff;
+}
+table.invisible td,
+table.invisible th,
+table.plain td,
+table.plain th,
+table.listing td,
+table.listing th {
+  padding: 0.5em 1em;
+  vertical-align: top;
+}
+table.listing td.listingCheckbox,
+table.listing th.listingCheckbox {
+  text-align: center;
+}
+table.listing {
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+table.listing .top {
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+table.listing th {
+  text-align: left;
+  color: #999999;
+  border: 0.1em solid #e7e7e7;
+  border-style: solid solid none;
+  background: #eeeeee;
+  font-weight: 400;
+}
+table.listing tr.odd th {
+  border: 0.1em solid #fff;
+  border-style: solid solid none none;
+}
+table.listing tbody th {
+  font-weight: 400;
+}
+table.listing tbody tr {
+  text-align: left;
+}
+table.listing tbody tr.odd {
+  background: #eee;
+}
+table.listing tbody tr td {
+  background: transparent;
+}
+table.listing tbody tr.odd td {
+  background: #eee;
+}
+table.listing td {
+  border-right: 1px solid #ddd;
+}
+.icons-on table.listing td {
+  line-height: 2em;
+}
+table.listing a {
+  border: none;
+  display: inline-block;
+  border-bottom: none !important;
+}
+table.listing td.draggable {
+  text-shadow: White 1px 1px 1px;
+  background: #ddd !important;
+  border-bottom: 1px solid white;
+  padding: 0.4em 0.4em 0 0.5em;
+}
+/* Vertical table data listings */
+table.vertical th {
+  text-align: right;
+}
+table.vertical td {
+  border-top: 0.1em solid #e7e7e7;
+  padding: 0.5em;
+}
+/* Grid table listings */
+table.grid td,
+table.grid th {
+  border: 1px solid #e7e7e7;
+  padding: 0.5em;
+}
+.dragindicator {
+  outline: 2px solid #FFD700;
+}
+#foldercontents-order-column {
+  padding: 0;
+}
+#category {
+  font-size: 11px;
+  margin: 20px 0px;
+}
+#category a.link-category,
+#category span.selectedTag {
+  padding: 0.25em 0.5em;
+  background: #404040;
+  color: #fff;
+  border-radius: 0.5em;
+  border-radius: 4px;
+}
+#category a.link-category:hover {
+  background: #1a1a1a;
+}
+#category .separator {
+  display: none;
+}
+.listingBar {
+  padding-left: 0;
+  margin: 20px 0;
+  list-style: none;
+  text-align: center;
+}
+.listingBar:before,
+.listingBar:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+.listingBar:after {
+  clear: both;
+}
+.listingBar:before,
+.listingBar:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+.listingBar:after {
+  clear: both;
+}
+.listingBar li {
+  display: inline;
+}
+.listingBar li > a,
+.listingBar li > span {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 15px;
+}
+.listingBar li > a:hover,
+.listingBar li > a:focus {
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+.listingBar .next > a,
+.listingBar .next > span {
+  float: right;
+}
+.listingBar .previous > a,
+.listingBar .previous > span {
+  float: left;
+}
+.listingBar .disabled > a,
+.listingBar .disabled > a:hover,
+.listingBar .disabled > a:focus,
+.listingBar .disabled > span {
+  color: #999999;
+  background-color: #ffffff;
+  cursor: default;
+}
+.listingBar a {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: #fff;
+  border: 1px solid #999999;
+  border-radius: 4px;
+  font-size: 11px;
+}
+.listingBar a.next {
+  float: right;
+}
+.listingBar a.previous {
+  float: left;
+}
+.listingBar a:hover {
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+.avatar {
+  margin-right: 2px;
+  line-height: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.055);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.avatar.avatar-small {
+  width: 14px;
+  height: 14px;
+}
+/* @group Image alignment classes */
+.image-left {
+  float: left;
+  margin: 10px 20px 20px 0;
+}
+.image-right {
+  float: right;
+  margin: 10px 0 20px 20px;
+}
+.image-inline {
+  float: none;
+}
+/*note: the tricky thing here is that image-inline|image-left|image-right
+can both be on an image and a wrapper element e.g. a dl tag*/
+img.image-left,
+img.image-right,
+.captioned img {
+  padding: 4px;
+  line-height: 1.428571429;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: block;
+}
+dd.image-caption {
+  text-align: left;
+  padding: 0 0 0 3px;
+  /*image padding+border with*/
+
+  margin: 0;
+  color: #666;
+  font-size: 85%;
+}
+.discreet {
+  color: #666;
+  font-size: 12px;
+  font-weight: 1;
+}
+.visualHighlight {
+  background-color: #c09853;
+}
+.pullquote {
+  line-height: 20px;
+  float: right;
+  width: 35%;
+  clear: right;
+  color: #999999;
+  line-height: 17px;
+  padding: 10px 20px;
+  margin: 20px 0 20px 20px;
+  border-left: 5px solid #999999;
+  background: #eeeeee;
+}
+.callout {
+  background: #eeeeee;
+  padding: 20px;
+  margin: 0 0 20px;
+  border-left: 5px solid #999999;
+  clear: both;
+}
 .btn {
   border-radius: 0px;
 }

@@ -1,0 +1,112 @@
+// Styles to combat Plone specific issues with forms
+// -------------------------------------------------
+
+
+// Buttons
+
+input.context,
+input.standalone,
+input.addreference,
+input.submit-widget {
+    .btn();
+    .btn-default();
+    margin-right: @line-height-computed / 2;
+}
+
+input.context {
+    .btn-primary();
+}
+
+// Inputs
+
+
+input[type="checkbox"] + label,
+.ArchetypesBooleanWidget label {
+    display: inline-block;
+    margin-left: @line-height-computed / 4;
+}
+
+input.datetime-widget,
+select.datetime-widget,
+.ArchetypesCalendarWidget select {
+    width: auto;
+}
+
+/* Emulates the styling from the h1 tag */
+#content .field input[type="text"][name$=".title"],
+#form-widgets-IBasic-title,
+#archetypes-fieldname-title input {
+    height: @line-height-computed * 1.75;
+    line-height: @line-height-computed * 1.5;
+    font-size: @font-size-base * 1.25;
+    font-weight: 400;
+    width: 100%;
+    color: @gray;
+}
+
+/* Emulates styling from the description's view */
+#content .field textarea[name$=".description"],
+#form-widgets-IBasic-description,
+#archetypes-fieldname-description textarea#description {
+    color:@gray;
+    font-size: @font-size-base;
+    font-weight: 400;
+    width: 100%;
+}
+
+div.fieldTextFormat {
+    //padding: @line-height-computed;
+    text-align: right;
+    label {
+        font-weight: 300;
+        .text-muted();
+    }
+    select {
+        width: 120px;
+    }
+}
+
+#content-core label {
+    font-weight: 400;
+    span.formHelp {
+        .help-block();
+        .text-muted();
+        font-weight: 300;
+    }
+}
+
+div.field {
+    margin-bottom: @line-height-computed / 2;
+    label span.formHelp {
+        display: block;
+        font-weight: normal;
+        .text-muted();
+    }
+    div.label {
+        background: transparent;
+        color: @text-color;
+        font-size: @font-size-base;
+        font-weight: 700;
+        line-height: @line-height-computed;
+        padding: 0px;
+        .text-left();
+        span.formHelp {
+            .help-block();
+            .text-muted();
+            font-weight: normal;
+        }
+    }
+}
+
+div.formHelp {
+    .help-block();
+}
+
+.formControls {
+    padding-top: @line-height-computed / 2;
+}
+
+.fieldRequired,
+span.required {
+    display: inline-block;
+}
