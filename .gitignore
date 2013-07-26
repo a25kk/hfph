@@ -25,4 +25,6 @@ var
 etc/**/*
 src/sauna.reload
 src/vwc.toolbar
+src/ade25.toolbar
+src/ade25.fabfiles
 src/kk.tiles

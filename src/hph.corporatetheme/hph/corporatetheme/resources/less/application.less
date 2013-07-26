@@ -28,8 +28,8 @@ body > header {
         #section-name {
               border: 0px solid red !important;
               font-size: @font-size-large * 3;
-              line-height: @line-height-base * 3 !important; 
-              margin: @line-height-base @line-height-base * 5;
+              line-height: @line-height-computed * 3 !important; 
+              margin: @line-height-computed @line-height-computed * 5;
               color: @gray-light;
             }
 
@@ -48,10 +48,10 @@ body > header {
                 li {
                     list-style: none;
                     display: inline-block;
-                    font-size: @font-size-mini;
+                    font-size: @font-size-small;
                     a {
                         text-transform: uppercase;
-                        padding: @padding-mini;
+                        padding: @padding-small-vertical;
                     }
                     &.active {
                         a {
@@ -75,7 +75,7 @@ body > header {
                     border: 0px solid red !important;
                     #searchField {
                         width: 135px;
-                        line-height: @line-height-base;
+                        line-height: @line-height-computed;
                         min-height: 10px;
                         margin: 8px 0px 7px 0px;
                         padding: 0px;
@@ -97,40 +97,6 @@ body > header {
         }
         .nav-collapse {
             margin-left: @navbar-height - 3;
-        }
-        .nav-justified {
-          max-height: 50px;
-          background-color: @app-yellow;
-          border-radius: 0px;
-          //border: 1px solid #ccc;
-          .divider-vertical {
-            display: none;
-          }
-        }
-        .nav-justified li a {
-          padding-top: 15px;
-          padding-bottom: 15px;
-          color: @app-blue;
-          font-weight: 700;
-          text-align: center;
-          border-left: 1px solid rgba(255,255,255,.75);
-          border-right: 1px solid rgba(0,0,0,.1);
-          background-color: @app-yellow;
-        }
-        .nav-justified .active a {
-          background-color: @app-blue;
-          color: #fff;
-          box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
-        }
-        .nav-justified li:first-child a {
-          border-left: 0;
-          border-top-left-radius: 5px;
-          border-bottom-left-radius: 5px;
-        }
-        .nav-justified li:last-child a {
-          border-right: 0;
-          border-top-right-radius: 5px;
-          border-bottom-right-radius: 5px;
         }
     }
     #toolbar + #header,
@@ -163,13 +129,13 @@ body > header {
         border-bottom: 2px solid @state-danger-border;
         border-radius: 0px;
         #bulletins {
-            padding: @line-height-base / 2  0 0;
+            padding: @line-height-computed / 2  0 0;
         }
     }
 }
 
 #subnavigation {
-    padding-left: @line-height-base * 1.5;
+    padding-left: @line-height-computed * 1.5;
 }
 
 // Base utility classes
@@ -229,7 +195,7 @@ body > header {
 }
 
 a.link-more {
-    .font-size(@font-size-base * 1.5);
+    font-size: @font-size-base * 1.5;
     text-decoration: none;
     line-height: @line-height-base / 4;
     margin-bottom: 9px;
@@ -251,7 +217,7 @@ a.link-more {
         }
         p {
             margin: 0;
-            .font-size(@font-size-mini);
+            font-size: @font-size-small;
             color: black;
         }
         .btn {
@@ -263,7 +229,7 @@ a.link-more {
             border: 1px solid @gray-lighter;
             border-top: 4px solid @app-yellow;
             .box-item {
-                padding: @padding-mini; 
+                padding: @padding-small-vertical; 
                 .clearfix();
                 &:nth-child(odd) {
                     background-color: @table-bg-accent;
@@ -295,11 +261,11 @@ body > footer {
         padding: 0;
         
         .nav {
-            margin-top: -11px;
+            margin-top: -@padding-small-vertical;
             margin-bottom: 0;
             margin-left: 77px;
             width: 600px;
-            border-top: 5px solid @app-gray;
+            border-top: @padding-small-vertical solid @app-gray;
             text-transform: uppercase;
             font-size: 0.8em;
         }
