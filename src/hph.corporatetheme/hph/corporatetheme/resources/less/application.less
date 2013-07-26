@@ -14,7 +14,7 @@ body > header {
     #header {
         border-top: 5px solid @app-blue;
         background: white;
-        #logo {
+        #xxxlogo {
             display: block;
             overflow: hidden;
             margin: 60px 0px 60px 77px;
@@ -25,7 +25,7 @@ body > header {
             .size(243px, 97px);
         }
 
-        #section-name {
+        #xxxsection-name {
               border: 0px solid red !important;
               font-size: @font-size-large * 3;
               line-height: @line-height-computed * 3; 
@@ -96,6 +96,18 @@ body > header {
     }
 }
 
+
+// Actionbar including searchbox and meta navigation
+
+.site-actionbar {
+    border: 1px solid @app-gray;
+    ul {
+        font-size: @font-size-small;
+        text-transform: uppercase;
+    }
+}
+
+
 #navigation,
 #portal-navigation {
     margin-left: 0px;
@@ -137,11 +149,11 @@ body > header {
     border-radius: 0px;
     .box-shadow(0 0 5px 5px rgba(0,0,0,.05));
     &.tile-news {
-        padding: @line-height-base;
+        padding: @line-height-computed;
         margin-bottom: 0px;
         .box {
             border-right: 1px solid @gray-lighter;
-            padding-right: @line-height-base * 1.5;
+            padding-right: @line-height-computed * 1.5;
         }
         h5 {
             color: @app-blue;
@@ -151,14 +163,14 @@ body > header {
             border-top: 4px solid @app-yellow;
         }
         p {
-            margin-top: @line-height-base / 2;
+            margin-top: @line-height-computed / 2;
             font-size: @font-size-small;
-            line-height: @line-height-base - 4;
+            line-height: @line-height-computed - 4;
         }
     }
     .page-header {
         margin-top: 0px;
-        padding-top: @line-height-base;
+        padding-top: @line-height-computed;
         h1 {
             color: @app-blue;
         }

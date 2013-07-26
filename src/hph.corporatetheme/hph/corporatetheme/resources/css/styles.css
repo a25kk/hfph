@@ -5604,8 +5604,26 @@ body.styleguide #styleguide-content .bs-docs-section-header .lead {
     position: absolute;
   }
 }
+.brandbar {
+  padding: 100px 50px 50px;
+}
+.brandbar .brandbar-brand {
+  display: block;
+  overflow: hidden;
+  background: url(../img/logo.jpg) no-repeat 0 0 transparent;
+  text-indent: -999999px;
+  width: 250px;
+  height: 100px;
+}
+.brandbar .brandbar-section {
+  font-size: 54px;
+  line-height: 60px;
+  color: #999999;
+  text-align: right;
+}
 .topbar {
   padding-top: 50px;
+  margin-bottom: 20px;
 }
 .az5-navigation {
   border: 1px solid red;
@@ -5614,6 +5632,7 @@ body.styleguide #styleguide-content .bs-docs-section-header .lead {
   background: #ffcc33;
   border-radius: 0;
   padding: 0px;
+  margin-bottom: 0px;
 }
 .site-navigation .navbar-brand {
   background: #003366;
@@ -5648,7 +5667,7 @@ body > header #header {
   border-top: 5px solid #003366;
   background: white;
 }
-body > header #header #logo {
+body > header #header #xxxlogo {
   display: block;
   overflow: hidden;
   margin: 60px 0px 60px 77px;
@@ -5659,7 +5678,7 @@ body > header #header #logo {
   width: 243px;
   height: 97px;
 }
-body > header #header #section-name {
+body > header #header #xxxsection-name {
   border: 0px solid red !important;
   font-size: 54px;
   line-height: 60px;
@@ -5720,6 +5739,13 @@ body > header #toolbar + #header,
 body > header #editbar-wrapper + #header {
   margin-top: 50px;
 }
+.site-actionbar {
+  border: 1px solid #404040;
+}
+.site-actionbar ul {
+  font-size: 12px;
+  text-transform: uppercase;
+}
 #navigation,
 #portal-navigation {
   margin-left: 0px;
@@ -5754,12 +5780,12 @@ body > header #editbar-wrapper + #header {
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
 }
 .tile.tile-news {
-  padding: 1.428571429;
+  padding: 20px;
   margin-bottom: 0px;
 }
 .tile.tile-news .box {
   border-right: 1px solid #eeeeee;
-  padding-right: 2.1428571435;
+  padding-right: 30px;
 }
 .tile.tile-news h5 {
   color: #003366;
@@ -5768,13 +5794,13 @@ body > header #editbar-wrapper + #header {
   border-top: 4px solid #ffcc33;
 }
 .tile.tile-news p {
-  margin-top: 0.7142857145;
+  margin-top: 10px;
   font-size: 12px;
-  line-height: -2.571428571;
+  line-height: 16px;
 }
 .tile .page-header {
   margin-top: 0px;
-  padding-top: 1.428571429;
+  padding-top: 20px;
 }
 .tile .page-header h1 {
   color: #003366;
