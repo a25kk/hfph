@@ -9,8 +9,8 @@
          tiles editiong overlays -->
     <theme href="minimal.html" if-path="@@edit-tile" />
 
-    <theme href="frontpage.html" css:if-content="body.template-frontpage-view" />
-    <theme href="section-frontpage.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />
+    <!--<theme href="frontpage.html" css:if-content="body.template-frontpage-view" />-->
+    <theme href="section.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />
     
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
@@ -52,12 +52,12 @@
         <copy attributes="id dir" css:content="body" css:theme="body" />
 
         <!-- CMSUI Editbar replacements -->
-        <drop css:theme="#editbar-wrapper"
+        <drop css:theme="#app-toolbar"
             css:if-content="#anon-personalbar" />
-        <replace css:theme="#editbar-wrapper" css:content="#toolbar" />
+        <replace css:theme="#app-toolbar" css:content="#toolbar" />
 
         <!-- Logo (link target) -->
-        <copy attributes="href" css:content="#portal-logo" css:theme="#logo" />
+        <copy attributes="href" css:content="#portal-logo" css:theme="#brandbar-brand" />
 
         <!-- Site actions -->
         <!--<replace css:content="#portal-siteactions li" css:theme-children="#global-nav" />-->
@@ -67,11 +67,11 @@
             css:theme="#portal-searchbox" />-->
 
         <replace css:content="#section-name"
-            css:theme="#section-name" />
+            css:theme="brandbar-sectionname" />
 
         <!-- Global navigation -->
         <replace css:content-children="#portal-navigation"
-            css:theme-children="#sections" />
+            css:theme-children="#app-navbar-main" />
 
         <replace css:content-children="#portal-subnavigation"
             css:theme-children="#navigation" />
@@ -92,17 +92,17 @@
             css:content="#tickerbar" />
         <!-- Document Content -->
         <replace css:content-children="#content" 
-            css:theme-children="#content" />
+            css:theme-children="#app-content-body" />
         
-        <before css:content=".portalMessage" css:theme="#content-area" />
+        <before css:content=".portalMessage" css:theme="#app-content" />
         <replace css:content-children="#viewlet-below-content"
             css:theme-children="#below-main-content" />
 
         <!-- Columns -->
         <rules css:if-not-content="#portal-column-one">
-            <drop css:theme="#sidebar-wrapper" />
-            <before css:theme-children="#main-content-wrapper">
-                <xsl:attribute name="class">col col-lg-12</xsl:attribute>
+            <drop css:theme="#app-col-sidebar" />
+            <before css:theme-children="#app-col-content">
+                <xsl:attribute name="class">col-xs-12 col-lg-12</xsl:attribute>
             </before>
         </rules>
         

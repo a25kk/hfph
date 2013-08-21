@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+    <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -21,7 +21,8 @@
     <script data-ui="development" src="js/application.js"></script>
 </head>
   
-  <body class="app-theme">
+  <body class="app-main-section">
+
     <div class="navbar navbar-inverse navbar-fixed-top app-toolbar" id="app-toolbar">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-toolbar-collapse">
@@ -133,30 +134,23 @@
     </header><!-- /app-header -->
 
     <section class="container" id="subnavbar">
-    <div class="tile" id="subnavigation"></div>
-</section>
-    <section class="container app-content" id="app-content">
-      <div class="row">
-        <div class="col-xs-12 col-lg-3" id="app-col-sidebar">
-          <aside class="app-tile app-sidebar" id="app-sidebar">
-              <h2>Sidebar</h2>
-          </aside>
-        </div>
-        <div class="col-xs-12 col-lg-9" id="app-col-content">
-          <section class="app-tile app-content-body" id="app-content-body">
-            <section class="page">
-              <header class="page-header">
-                <h1>Starter template <small>Fixed Layout, 12 cell grid</small></h1>
-              </header>
-              <article class="page-content"> 
-                <p>Use this document as a way to quick start any new project.<br>
-                  All you get is this message and a barebones HTML document.</p>
-              </article>
-            </section>
-          </section>
-        </div>
+      <div class="tile" id="subnavigation">
       </div>
-    </section> <!-- /container app-content -->
+    </section>
+
+    <section class="container app-content" id="app-content">
+        <section class="app-tile app-content-body" id="app-content-body">
+          <section class="page">
+            <header class="page-header">
+              <h1>Starter template <small>Fixed Layout, 12 cell grid</small></h1>
+            </header>
+            <article class="page-content"> 
+              <p>Use this document as a way to quick start any new project.<br>
+                All you get is this message and a barebones HTML document.</p>
+            </article>
+          </section>
+        </section><!-- /app-content-body -->
+    </section>
 
 
     <footer class="container app-footer" id="app-footer">
