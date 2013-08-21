@@ -10,75 +10,77 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-  <section id="frontpage"
-    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
-    <div class="row">
-      <div class="col col-lg-9">
-        <div id="main-content">
-          <section id="frontpage-content" class="tile">
-            <header class="page-header">
-              <h1 tal:content="context/Title">Title</h1>
-            </header>
-            <article>
-              <img class="img-polaroid" 
+    <section class="container app-content app-content-fp" id="app-content"
+        tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                    portal_url context/portal_url">
+      <div class="row">
+        <div class="col-xs-12 col-lg-9" id="app-col-content">
+            <aside class="app-tile" id="app-sidebar-fp">
+            <img class="img-polaroid" 
                 tal:define="portal_url context/portal_url" 
-                tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/img/banner-dummy.jpg'" />
-            </article>
-          </section>
+                tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/banner-dummy.jpg'" />
+          </aside>
+        </div>
+        <div class="col-xs-12 col-lg-3" id="app-col-sidebar">
+            <aside class="app-tile" id="app-sidebar" >
+                <div class="box">
+                <h4 class="box-title">Aktuelle Termine</h4>
+                  <tal:eventlist tal:condition="view/has_events">
+                    <section tal:define="items view/eventitems"
+                      class="box-content">
+                      <div class="box-item" tal:repeat="item items">
+                        <h5 tal:define="startdate item/start">
+                          <a href=""
+                            tal:attributes="href item/getURL">
+                            <span tal:replace="python:toLocalizedTime(startdate)" />
+                          </a>
+                        </h5>
+                        <p class="muted" tal:content="item/Title">
+                          Description of the item</p>
+                        <a href="" class="link-more pull-right"
+                          tal:attributes="href item/getURL">
+                          &raquo;</a>
+                      </div>
+                    </section>
+                  </tal:eventlist>
+                    <div class="box-footer text-right">
+                        <a href="" class="btn btn-default"
+                            tal:define="portal_url context/portal_url"
+                            tal:attributes="href python:portal_url + '/termine'">
+                            Weitere Termine</a>
+                    </div>
+                </div>
+            </aside>
         </div>
       </div>
-      <div class="col col-lg-3">
-        <aside id="sidebar" class="tile">
-          <div class="box">
-            <h4>Aktuelle Termine</h4>
-            <tal:eventlist tal:condition="view/has_events">
-              <section tal:define="items view/eventitems"
-                class="box-content">
-                <div class="box-item" tal:repeat="item items">
-                  <h5 tal:define="startdate item/start">
-                    <a href=""
-                      tal:attributes="href item/getURL">
-                      <span tal:replace="python:toLocalizedTime(startdate)" />
-                    </a>
-                  </h5>
-                  <p class="muted" tal:content="item/Title">
-                    Description of the item</p>
-                  <a href="" class="link-more pull-right"
-                    tal:attributes="href item/getURL">
-                    &raquo;</a>
+        <div class="app-tile">
+            <section class="app-tile app-content-body" id="app-content-body">
+            <section class="page">
+              <article class="page-content">
+                <div class="row"
+                    tal:condition="view/has_news">
+                    <tal:block tal:repeat="item view/recent_news">
+                      <div class="col-xs-6 col-lg-3">
+                        <section class="box">
+                          <header class="box-header">
+                            <h5 tal:content="item/Title" />
+                          </header>
+                          <img tal:define="img python:view.constructImageTag(item);"
+                            tal:attributes="src img/url;
+                                            width img/width;
+                                            height img/height" />
+                          <p tal:content="item/Description" />
+                          <a href="" class="link-more pull-right"
+                            tal:attributes="href item/getURL">&raquo;</a>
+                        </section>
+                      </div>
+                    </tal:block>
                 </div>
-              </section>
-            </tal:eventlist>
-            <a href="" class="btn pull-right"
-              tal:define="portal_url context/portal_url"
-              tal:attributes="href python:portal_url + '/termine'">
-              Weitere Termine</a>
-          </div>
-        </aside>
-      </div>
-    </div>
-    <div class="panel panel-news">
-      <section class="row"
-        tal:condition="view/has_news">
-        <tal:block tal:repeat="item view/recent_news">
-          <div class="col col-lg-3">
-            <section class="box">
-              <header class="box-header">
-                <h5 tal:content="item/Title" />
-              </header>
-              <img tal:define="img python:view.constructImageTag(item);"
-                tal:attributes="src img/url;
-                                width img/width;
-                                height img/height" />
-              <p tal:content="item/Description" />
-              <a href="" class="link-more pull-right"
-                tal:attributes="href item/getURL">&raquo;</a>
+              </article>
             </section>
-          </div>
-        </tal:block>
-      </section>
-    </div>
-  </section>
+          </section>
+        </div>
+    </section> <!-- /container app-content -->
   </metal:content-core>
 </metal:main>
 

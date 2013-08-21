@@ -91,8 +91,12 @@
         <before css:theme="#header"
             css:content="#tickerbar" />
 
+        <rules css:if-content="body.template-frontpage-view">
+            <replace css:content-children="#app-content" 
+                css:theme-children="#app-content" />
+        </rules>
         <rules css:if-content="body.portaltype-hph-sitecontent-mainsection">
-            <replace css:content-children="#main-content" 
+            <replace css:content-children="#app-content" 
                 css:theme-children="#app-content" />
         </rules>
 

@@ -8597,6 +8597,32 @@ dd.image-caption {
   -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
 }
+.box {
+  padding: 10px;
+}
+.box-title {
+  color: #003366;
+  margin: 5px;
+}
+.box-content {
+  border: 1px solid #eeeeee;
+  border-top: 4px solid #ffcc33;
+}
+.box-content p {
+  margin: 0;
+  font-size: 12px;
+  color: black;
+}
+.box-content .btn {
+  margin-top: 0.7142857145;
+  border-radius: 0;
+}
+.box-content .box-item {
+  padding: 5px;
+}
+.box-content .box-item:nth-child(odd) {
+  background-color: #f9f9f9;
+}
 .brandbar {
   padding: 100px 50px 50px;
 }
@@ -8765,7 +8791,7 @@ body > header #editbar-wrapper + #header {
   padding-left: 30px;
 }
 .page {
-  padding-top: 20px;
+  padding: 20px;
 }
 .page .page-header {
   margin-top: 0;
@@ -8791,81 +8817,6 @@ a.link-more {
 }
 a.link-more:hover {
   color: black;
-}
-#sidebar {
-  padding: 1.428571429 0.7142857145;
-}
-#sidebar .box:before,
-#sidebar .box:after {
-  content: " ";
-  /* 1 */
-
-  display: table;
-  /* 2 */
-
-}
-#sidebar .box:after {
-  clear: both;
-}
-#sidebar .box:before,
-#sidebar .box:after {
-  content: " ";
-  /* 1 */
-
-  display: table;
-  /* 2 */
-
-}
-#sidebar .box:after {
-  clear: both;
-}
-#sidebar .box h4,
-#sidebar .box h5 {
-  color: #003366;
-  margin: 5px 0px 3px 0px;
-}
-#sidebar .box p {
-  margin: 0;
-  font-size: 12px;
-  color: black;
-}
-#sidebar .box .btn {
-  margin-top: 0.7142857145;
-  border-radius: 0;
-}
-#sidebar .box .box-content {
-  border: 1px solid #eeeeee;
-  border-top: 4px solid #ffcc33;
-}
-#sidebar .box .box-content .box-item {
-  padding: 5px;
-}
-#sidebar .box .box-content .box-item:before,
-#sidebar .box .box-content .box-item:after {
-  content: " ";
-  /* 1 */
-
-  display: table;
-  /* 2 */
-
-}
-#sidebar .box .box-content .box-item:after {
-  clear: both;
-}
-#sidebar .box .box-content .box-item:before,
-#sidebar .box .box-content .box-item:after {
-  content: " ";
-  /* 1 */
-
-  display: table;
-  /* 2 */
-
-}
-#sidebar .box .box-content .box-item:after {
-  clear: both;
-}
-#sidebar .box .box-content .box-item:nth-child(odd) {
-  background-color: #f9f9f9;
 }
 ul.navTree {
   margin-bottom: 0;

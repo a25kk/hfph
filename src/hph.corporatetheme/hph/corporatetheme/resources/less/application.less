@@ -118,7 +118,7 @@ body > header {
 // Temporary fix for page-header in new app-tile components
 
 .page {
-    padding-top: @line-height-computed;
+    padding: @line-height-computed;
     .page-header {
         margin-top: 0;
     }
@@ -153,41 +153,6 @@ a.link-more {
     margin-bottom: 9px;
     &:hover {
         color: black;
-    }
-}
-
-// Sidebar specific styles
-
-#sidebar {
-    padding: @line-height-base @line-height-base / 2;
-    .box {
-        .clearfix();
-        h4,
-        h5 {
-            color: @app-blue;
-            margin: 5px 0px 3px 0px;
-        }
-        p {
-            margin: 0;
-            font-size: @font-size-small;
-            color: black;
-        }
-        .btn {
-            margin-top: @line-height-base / 2;
-            border-radius: 0;
-            //.buttonBackground(@grayLight, lighten(@grayLight, 5%));
-        }
-        .box-content {
-            border: 1px solid @gray-lighter;
-            border-top: 4px solid @app-yellow;
-            .box-item {
-                padding: @padding-small-vertical; 
-                .clearfix();
-                &:nth-child(odd) {
-                    background-color: @table-bg-accent;
-                }
-            }
-        }
     }
 }
 

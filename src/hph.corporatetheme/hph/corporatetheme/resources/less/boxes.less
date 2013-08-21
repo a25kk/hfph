@@ -1,0 +1,32 @@
+//
+// Info and action boxes
+// -------------------------------------------------
+
+.box {
+    padding: @line-height-computed / 2;
+}
+
+.box-title {
+    color: @app-blue;
+    margin: @padding-small-vertical;
+}
+.box-content {
+    border: 1px solid @gray-lighter;
+    border-top: 4px solid @app-yellow;
+    p {
+        margin: 0;
+        font-size: @font-size-small;
+        color: black;
+    }
+    .btn {
+        margin-top: @line-height-base / 2;
+        border-radius: 0;
+        //.buttonBackground(@grayLight, lighten(@grayLight, 5%));
+    }
+    .box-item {
+        padding: @padding-small-vertical; 
+        &:nth-child(odd) {
+            background-color: @table-bg-accent;
+        }
+    }
+}

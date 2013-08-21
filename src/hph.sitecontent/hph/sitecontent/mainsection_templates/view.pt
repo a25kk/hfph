@@ -10,53 +10,54 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-  <section id="main-section"
+  <section class="container app-content" id="app-content"
     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                 portal_url context/portal_url">
-    <div class="row">
-      <div class="col col-lg-9">
-        <div id="main-content">
-          <section id="section-content" class="app-tile">
-            <aside>
-              <img class="img-polaroid" 
+      <div class="row">
+        <div class="col-xs-12 col-lg-9" id="app-col-content">
+            <aside class="app-tile app-sidebar" id="app-sidebar">
+            <img class="img-polaroid" 
                 tal:define="portal_url context/portal_url" 
-                tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/img/banner-dummy.jpg'" />
+                tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/banner-dummy.jpg'" />
+          </aside>
+        </div>
+        <div class="col-xs-12 col-lg-3" id="app-col-sidebar">
+            <aside id="sidebar" class="app-tile">
+              <div class="box">
+                <h4>Aktuelle Termine</h4>
+                <div class="box-content"
+                  data-appui="eventbox"
+                  tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
+                </div>
+                <a href="" class="btn pull-right"
+                  tal:define="portal_url context/portal_url"
+                  tal:attributes="href python:portal_url + '/termine'">
+                  Weitere Termine</a>
+              </div>
             </aside>
+        </div>
+      </div>
+        <div class="app-tile">
+            <section class="app-tile app-content-body" id="app-content-body">
+            <section class="page">
+              <header class="page-header">
+                <h1 tal:content="context/Title">Title</h1>
+              </header>
+              <article class="page-content"> 
+                <div class="row">
+                  <div class="col-xs-12 col-lg-6">
+                    <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/block-one" />
+                  </div>
+                  <div class="col-xs-12 col-lg-6">
+                    <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/block-two" />
+                  </div>
+                </div>
+              </article>
+            </section>
           </section>
         </div>
-      </div>
-      <div class="col col-lg-3">
-        <aside id="sidebar" class="app-tile">
-          <div class="box">
-            <h4>Aktuelle Termine</h4>
-            <div class="box-content"
-              data-appui="eventbox"
-              tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
-            </div>
-            <a href="" class="btn pull-right"
-              tal:define="portal_url context/portal_url"
-              tal:attributes="href python:portal_url + '/termine'">
-              Weitere Termine</a>
-          </div>
-        </aside>
-      </div>
-    </div>
-    <div class="app-tile">
-      <section class="tile-content">
-        <header class="page-header">
-          <h1 tal:content="context/Title">Title</h1>
-        </header>
-        <div class="row">
-          <div class="col col-lg-6">
-            <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/block-one" />
-          </div>
-          <div class="col col-lg-6">
-            <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/block-two" />
-          </div>
-        </div>
-      </section>
-    </div>
-  </section>
+    </section> <!-- /container app-content -->
+
     
   </metal:content-core>
 </metal:main>
