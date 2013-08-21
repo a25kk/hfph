@@ -1,11 +1,11 @@
 /*!
- * Bootstrap v3.0.0
+ * hph theme v1.0.0
  *
- * Copyright 2013 Twitter, Inc
+ * Copyright 2013 Kreativkombinat GbR
  * Licensed under the Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Designed and built with all the love in the world by @mdo and @fat.
+ * Designed and built with all the love in the world
  */
 /*!
  * Bootstrap v3.0.0
@@ -8618,7 +8618,7 @@ dd.image-caption {
   padding-top: 50px;
   margin-bottom: 20px;
 }
-.az5-navigation {
+.app-navigation {
   border: 1px solid red;
 }
 .site-navigation {
@@ -8678,8 +8678,8 @@ dd.image-caption {
 body {
   background: #eeeeee;
 }
-.app-header-toplink .btn {
-  border: none;
+.app-toolbar + .app-header {
+  margin-top: 50px;
 }
 body > header #header {
   border-top: 5px solid #003366;
