@@ -1,0 +1,295 @@
+//
+// Application specific overrides of bootstrap components
+// ------------------------------------------------------
+
+.btn {
+    border-radius: 0px;
+}
+
+input.context,
+input.standalone,
+#sharing-save-button {
+    .btn();
+    margin-right: @line-height-base / 2;
+}
+
+#toolbar {
+    .navbar-inverse();
+}
+
+
+// styleguide experiments - SHOULD BE MOVED TO DEDICATED FILE
+
+body.styleguide {
+    padding-left: 280px;
+    background: #fff;
+    position:relative;
+    .bs-docs-container,
+    .bs-home-container {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    .bs-docs-container {
+      max-width: 860px;
+    }
+    .bs-docs-container .row {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+    
+    /* Side notes for calling out things */
+    .bs-docs-sidenote {
+      margin: 20px 0;
+      padding: 15px 30px 15px 15px;
+      background-color: #fcf2f2;
+      border-left: 5px solid #df7c7b;
+    }
+    .bs-docs-sidenote h4 {
+      margin-top: 0;
+    }
+    .bs-docs-sidenote p:last-child {
+      margin-bottom: 0;
+    }
+    .bs-docs-sidenote code,
+    .bs-docs-sidenote .highlight {
+      background-color: #fff;
+    }
+    #styleguide-content {
+        padding: @line-height-base @line-height-base * 2 @line-height-base;
+        /* Padding for in-page bookmarks */
+        section,
+        .bs-docs-section {
+          padding-top: 30px;
+        }
+        
+        /* Few stylistic typography tweaks */
+        .page-header {
+          color: #5a5a5a;
+        }
+        .lead {
+          color: @gray-dark;
+        }
+        #welcome {
+          h1 {
+            color: @app-yellow;
+            font-size: 60px;
+            small {
+              color: @app-blue;
+            }
+          }
+          .lead {
+            color: @gray-light;
+          }
+        }
+        .bs-docs-section-header {
+            padding-top: 60px;
+            color: #b94a48;
+            color: @app-yellow;
+            border-bottom: 5px solid @app-yellow;
+            .lead {
+              color: @app-yellow;
+            }
+        }
+    }
+}
+
+/* Base class */
+.styleguide-example {
+  position: relative;
+  padding: 39px 14px 14px;
+  margin-top: @line-height-base * 2;
+  margin-bottom: -1px;
+  border: 1px solid @gray-light;
+  border-radius: 0px;
+  background: #fff;
+  color: @gray;
+}
+/* Echo out a label for the example */
+.styleguide-example:after {
+  content: "Code";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 500;
+  color: @gray-light;
+  background-color: #f5f5f5;
+  border: 1px solid @gray-light;
+}
+
+/* Special grid styles
+-------------------------------------------------- */
+
+.show-grid {
+  margin-bottom: 15px;
+}
+.show-grid .col {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #eee;
+  border: 1px solid #ddd;
+}
+.show-grid .col:hover {
+  background-color: #ddd;
+}
+
+
+/* Sidenav
+-------------------------------------------------- */
+
+.bs-docs-sidebar {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 240px;
+  overflow-y: scroll;
+  text-shadow: 0 1px 0 #fff;
+  background-color: #f5f5f5;
+  box-shadow: inset -1px 0 0 #e5e5e5;
+}
+
+/* Nav: first level */
+.bs-docs-sidebar > .nav {
+  margin: 0 0 25px 0;
+}
+.bs-docs-sidebar .nav > li > a {
+  display: block;
+  color: #666;
+  padding: 4px 25px;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+  text-decoration: none;
+  border-right: 1px solid #d5d5d5;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+  font-weight: 500;
+  color: #b94a48;
+  background-color: transparent;
+  border-right: 1px solid #b94a48;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+  display: none;
+  margin-bottom: 5px;
+}
+.bs-docs-sidebar .nav > .active > ul {
+  display: block;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 40px;
+  font-size: 90%;
+}
+
+.bs-docs-sidenav-heading {
+  margin: 0 0 25px;
+}
+.bs-docs-sidenav-heading a {
+  display: block;
+  padding: 15px 25px;
+  color: @app-yellow;
+  border-bottom: 1px solid #e5e5e5;
+  box-shadow: 0 1px 0 #fff;
+}
+.bs-docs-sidenav-heading a:hover {
+  color: #a3403e;
+  text-decoration: none;
+}
+
+/* Section headings for groups of links */
+.bs-docs-sidenav > li > .nav-header {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+.bs-docs-sidenav > .active > .nav-header,
+.bs-docs-sidenav > .active > .nav-header:hover {
+  color: #333;
+  border-color: #333;
+}
+
+
+/* Tablets and up */
+@media screen and (min-width: 768px) {
+
+  /* Back to top link */
+  .bs-docs-top {
+    float: left;
+    padding: 7px 15px;
+    font-weight: 500;
+    color: #999;
+    background-color: #eee;
+    border-radius: 4px;
+  }
+  .bs-docs-top:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #999;
+  }
+  .bs-docs-top.affix {
+    position: fixed;
+    right:  15px;
+    bottom: 15px;
+  }
+
+  .bs-docs-section-header h1 {
+    font-size: 80px;
+    font-size: 8rem;
+    line-height: 1;
+  }
+
+  .bs-docs-section-header .lead {
+    color: @app-blue;
+  }
+
+  /* Account for fixed navbar (which is static to start) */
+  .bs-docs-docs {
+    padding-left: 260px;
+  }
+
+  /* Undo custom padding */
+  .bs-docs-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Show the docs nav */
+  .bs-docs-sidebar {
+    display: block;
+  }
+
+  /* Tweak display of docs jumbotrons */
+  .masthead {
+    padding-top:    100px;
+    padding-bottom: 100px;
+  }
+  .masthead h1 {
+    font-size: 100px;
+  }
+  .masthead p {
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 30px;
+  }
+  .subhead {
+    padding-top:    60px;
+    padding-bottom: 60px;
+    text-align: left;
+  }
+
+  .bs-navbar-top-example .navbar-fixed-top,
+  .bs-navbar-bottom-example .navbar-fixed-bottom {
+    position: absolute;
+  }
+
+}

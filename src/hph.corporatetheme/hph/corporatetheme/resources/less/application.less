@@ -6,6 +6,12 @@ body {
     background: @gray-lighter;
 }
 
+.app-header-toplink {
+    .btn {
+        border: none;
+    }
+}
+
 
 // Header styles including brand and main navigation
 // -------------------------------------------------
@@ -141,41 +147,6 @@ body > header {
     padding-left: @line-height-computed * 1.5;
 }
 
-// Base utility classes
-
-.tile {
-    margin-bottom: @line-height-base;
-    background: white;
-    border-radius: 0px;
-    .box-shadow(0 0 5px 5px rgba(0,0,0,.05));
-    &.tile-news {
-        padding: @line-height-computed;
-        margin-bottom: 0px;
-        .box {
-            border-right: 1px solid @gray-lighter;
-            padding-right: @line-height-computed * 1.5;
-        }
-        h5 {
-            color: @app-blue;
-        }
-        img {
-            //.img-polaroid();
-            border-top: 4px solid @app-yellow;
-        }
-        p {
-            margin-top: @line-height-computed / 2;
-            font-size: @font-size-small;
-            line-height: @line-height-computed - 4;
-        }
-    }
-    .page-header {
-        margin-top: 0px;
-        padding-top: @line-height-computed;
-        h1 {
-            color: @app-blue;
-        }
-    }
-}
 
 
 // Main content area styles
@@ -254,27 +225,3 @@ ul.navTree {
     }
 }
 
-// site footer
-body > footer {
-    margin-top: @line-height-base;
-    padding: @line-height-base /3;
-    border-top: 5px solid @app-blue;
-    background: white;
-    #footer {
-        padding: 0;
-        
-        .nav {
-            margin-top: -@padding-small-vertical;
-            margin-bottom: 0;
-            margin-left: 77px;
-            width: 600px;
-            border-top: @padding-small-vertical solid @app-gray;
-            text-transform: uppercase;
-            font-size: 0.8em;
-        }
-        .donation {
-            background:url(../img/donation.gif)  no-repeat 0 7px;
-            padding-left: 25px;
-        }
-    }
-}
