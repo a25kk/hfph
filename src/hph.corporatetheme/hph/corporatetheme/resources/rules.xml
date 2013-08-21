@@ -90,10 +90,16 @@
             css:theme-children='#breadcrumbs' />
         <before css:theme="#header"
             css:content="#tickerbar" />
+
+        <rules css:if-content="body.portaltype-hph-sitecontent-mainsection">
+            <replace css:content-children="#main-content" 
+                css:theme-children="#app-content" />
+        </rules>
+
         <!-- Document Content -->
         <replace css:content-children="#content" 
             css:theme-children="#app-content-body" />
-        
+
         <before css:content=".portalMessage" css:theme="#app-content" />
         <replace css:content-children="#viewlet-below-content"
             css:theme-children="#below-main-content" />

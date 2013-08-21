@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col col-lg-9">
         <div id="main-content">
-          <section id="section-content" class="tile">
+          <section id="section-content" class="app-tile">
             <aside>
               <img class="img-polaroid" 
                 tal:define="portal_url context/portal_url" 
@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="col col-lg-3">
-        <aside id="sidebar" class="tile">
+        <aside id="sidebar" class="app-tile">
           <div class="box">
             <h4>Aktuelle Termine</h4>
             <div class="box-content"
@@ -41,7 +41,7 @@
         </aside>
       </div>
     </div>
-    <div class="tile">
+    <div class="app-tile">
       <section class="tile-content">
         <header class="page-header">
           <h1 tal:content="context/Title">Title</h1>
