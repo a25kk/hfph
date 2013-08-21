@@ -110,17 +110,6 @@ body > header {
     }
 }
 
-
-#navigation,
-#portal-navigation {
-    margin-left: 0px;
-}
-
-#navigation > li > a,
-#portal-navigation > li > a {
-    text-transform: uppercase;
-}
-
 #portal-subsubnavigation > li.active > a,
     #portal-subsubnavigation > li.active > a:hover,
     #portal-subsubnavigation > li.active > a:focus {
@@ -145,10 +134,20 @@ body > header {
 }
 
 
+// Temporary fix for page-header in new app-tile components
+
+.page {
+    padding-top: @line-height-computed;
+    .page-header {
+        margin-top: 0;
+    }
+}
+
+
 
 // Main content area styles
 
-#content {
+.app-content {
     //padding: @line-height-base;
     #frontpage-content {
         padding: 0;
@@ -160,6 +159,7 @@ body > header {
         padding: @line-height-base;
     }
 }
+
 .documentFirstHeading {
     font-size: @font-size-large;
     color: @app-blue;

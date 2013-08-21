@@ -8614,13 +8614,6 @@ dd.image-caption {
   color: #999999;
   text-align: right;
 }
-.topbar {
-  padding-top: 50px;
-  margin-bottom: 20px;
-}
-.app-navigation {
-  border: 1px solid red;
-}
 .app-navbar {
   background: #ffcc33;
   border-radius: 0;
@@ -8634,21 +8627,28 @@ dd.image-caption {
   margin-right: 0px;
   z-index: 1000;
 }
-.app-navbar li a {
-  border-left: 1px solid rgba(255, 255, 255, 0.75);
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: 15px;
-  padding-bottom: 15px;
+.app-navbar .navbar-collapse {
+  padding-right: 0;
+}
+.app-navbar-main {
+  padding-right: 0;
+}
+.app-navbar-main > .navitem a {
   font-weight: 700;
   color: #003366;
+  text-transform: uppercase;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-left: 1px solid rgba(255, 255, 255, 0.75);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
-.app-navbar li a:hover {
+.app-navbar-main > .navitem a:hover {
   background-color: #003366;
   color: #fff;
   box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15);
 }
-.app-navbar li.active a,
-.app-navbar li.selected a {
+.app-navbar-main.active a,
+.app-navbar-main.selected a {
   background-color: #003366;
   color: #fff;
   box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15);
@@ -8764,14 +8764,6 @@ body > header #editbar-wrapper + #header {
   font-size: 12px;
   text-transform: uppercase;
 }
-#navigation,
-#portal-navigation {
-  margin-left: 0px;
-}
-#navigation > li > a,
-#portal-navigation > li > a {
-  text-transform: uppercase;
-}
 #portal-subsubnavigation > li.active > a,
 #portal-subsubnavigation > li.active > a:hover,
 #portal-subsubnavigation > li.active > a:focus {
@@ -8790,13 +8782,19 @@ body > header #editbar-wrapper + #header {
 #subnavigation {
   padding-left: 30px;
 }
-#content #frontpage-content {
+.page {
+  padding-top: 20px;
+}
+.page .page-header {
+  margin-top: 0;
+}
+.app-content #frontpage-content {
   padding: 0;
 }
-#content #frontpage-content .page-header {
+.app-content #frontpage-content .page-header {
   display: none;
 }
-#content .tile-content {
+.app-content .tile-content {
   padding: 1.428571429;
 }
 .documentFirstHeading {
