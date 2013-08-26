@@ -8563,6 +8563,50 @@ dd.image-caption {
   color: #666;
   font-size: 85%;
 }
+.text-discreet {
+  color: #666;
+  font-size: 12px;
+  font-weight: 1;
+}
+.text-highlight {
+  background-color: #c09853;
+}
+.text-callout {
+  background: #eeeeee;
+  padding: 20px;
+  margin: 0 0 20px;
+  border-left: 5px solid #999999;
+  clear: both;
+}
+.text-pullquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  border-left: 5px solid #eeeeee;
+  border-right: 5px solid #eeeeee;
+}
+.text-pullquote p,
+.text-pullquote small {
+  text-align: right;
+}
+.text-pullquote p {
+  font-size: 17.5px;
+  font-weight: 300;
+  line-height: 1.25;
+}
+.text-pullquote p:last-child {
+  margin-bottom: 0;
+}
+.text-pullquote small {
+  display: block;
+  line-height: 1.428571429;
+  color: #999999;
+}
+.text-pullquote small:before {
+  content: '';
+}
+.text-pullquote small:after {
+  content: '\00A0 \2014';
+}
 .discreet {
   color: #666;
   font-size: 12px;
@@ -8571,24 +8615,41 @@ dd.image-caption {
 .visualHighlight {
   background-color: #c09853;
 }
-.pullquote {
-  line-height: 20px;
-  float: right;
-  width: 35%;
-  clear: right;
-  color: #999999;
-  line-height: 17px;
-  padding: 10px 20px;
-  margin: 20px 0 20px 20px;
-  border-left: 5px solid #999999;
-  background: #eeeeee;
-}
 .callout {
   background: #eeeeee;
   padding: 20px;
   margin: 0 0 20px;
   border-left: 5px solid #999999;
   clear: both;
+}
+.pullquote {
+  padding: 10px 20px;
+  margin: 0 0 20px;
+  border-left: 5px solid #eeeeee;
+  border-right: 5px solid #eeeeee;
+}
+.pullquote p,
+.pullquote small {
+  text-align: right;
+}
+.pullquote p {
+  font-size: 17.5px;
+  font-weight: 300;
+  line-height: 1.25;
+}
+.pullquote p:last-child {
+  margin-bottom: 0;
+}
+.pullquote small {
+  display: block;
+  line-height: 1.428571429;
+  color: #999999;
+}
+.pullquote small:before {
+  content: '';
+}
+.pullquote small:after {
+  content: '\00A0 \2014';
 }
 .app-tile {
   margin-bottom: 20px;
@@ -8639,9 +8700,6 @@ dd.image-caption {
 .app-box-item:after {
   clear: both;
 }
-.app-box-item:nth-child(odd) {
-  background-color: #f9f9f9;
-}
 .app-box-item .app-box-date {
   display: block;
   margin-bottom: 7px;
@@ -8651,6 +8709,9 @@ dd.image-caption {
 }
 .app-box-footer {
   padding: 10px 0;
+}
+.app-box-striped .app-box-item:nth-child(odd) {
+  background-color: #f9f9f9;
 }
 .brandbar {
   padding: 100px 50px 50px;
@@ -8833,6 +8894,18 @@ body > header #editbar-wrapper + #header {
 }
 .app-content .tile-content {
   padding: 1.428571429;
+}
+.app-img {
+  margin-bottom: 10px;
+  line-height: 1.428571429;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-top: 4px solid #ffcc33;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
 }
 .documentFirstHeading {
   font-size: 18px;

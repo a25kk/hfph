@@ -27,9 +27,6 @@
     .clearfix();
     padding: @line-height-computed / 2;
     color: @app-gray;
-    &:nth-child(odd) {
-        background-color: @table-bg-accent;
-    }
     .app-box-date {
         display: block;
         margin-bottom: ceil(@line-height-computed / 3);
@@ -41,4 +38,14 @@
 
 .app-box-footer {
     padding: @line-height-computed / 2 0;
+}
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.app-box-striped {
+    .app-box-item:nth-child(odd) {
+        background-color: @table-bg-accent;
+    }
 }

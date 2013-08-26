@@ -1,108 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+    <head>
     <meta charset="utf-8">
-    <title>Hochschule für Philosophie in München</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <title>Hochschule für Philosophie München</title>
 
-    <!-- Le styles -->
-    <link href="less/styles.less" rel="stylesheet/less" type="text/css">
-    <!-- Responsive styles - enable if necessary -->
-    <!--<link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">-->
+    <link data-ui="development" href="less/styles.less" rel="stylesheet/less" type="text/css">
+    <!--<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" />-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="assets/js/html5shiv.js"></script>
+          <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
+    <script data-ui="development" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+    <script data-ui="development" type="text/javascript" src="http://cdn.jquerytools.org/1.2.7/all/jquery.tools.min.js"></script>
+    <script data-ui="development" type="text/javascript" src="assets/js/less-1.4.1.min.js"></script>
+    <script data-ui="development" src="assets/js/bootstrap.min.js"></script>
+    <script data-ui="development" src="assets/js/holder.js"></script>
+    <script data-ui="development" src="js/application.js"></script>
+</head>
+  
+  <body class="app-main-section">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
-    <script type="text/javascript" src="http://cdn.jquerytools.org/1.2.7/all/jquery.tools.min.js"></script>
-    <script type="text/javascript" src="js/less-1.3.3.min.js"></script>
-  </head>
-
-  <body>
-
-    <header id="topbar">
-      <div id="editbar-wrapper" class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-          <div class="xcontainer" id="editbar">
-            <a class="navbar-brand" href="#">Plone CMSUI Editbar</a>
-            <!-- Plone CMS Editbar inserted as a toolbar -->
-          </div>
-        </div>
-      </div>
-      <div id="header" class="container tile">
-        <div class="meta-wrapper xcontainer">
-          <div id="meta" class="pull-right">
-            <ul class="language pull-left">
-              <li><a href="#">Deutsch</a></li>
-              <li><a href="#">English</a></li>
+    <div class="navbar navbar-inverse navbar-fixed-top app-toolbar" id="app-toolbar">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-toolbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand visible-xs" href="#">CMS Toolbar</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-toolbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Inhalte</a></li>
+          <li><a href="#">Anzeigen</a></li>
+          <li><a href="#">Bearbeiten</a></li>
+          <li><a href="#">Freigabe</a></li>
+          <li><a href="#">Status</a></li>
+        </ul>
+        <p class="navbar-text pull-right">CMS Toolbar</p>
+        <ul class="nav navbar-nav pull-right">
+          <li id="plone-personal-actions" class="dropdown dropdown-userinfo">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="/author/123456789">
+              <span>John Doe</span>
+              <b class="caret">
+            </b></a>
+            <ul class="dropdown-menu"><li id="plone-personal-actions-dashboard">
+                <a href="/dashboard">Pers&ouml;nliche Seite</a>
+              </li>
+              <li id="plone-personal-actions-preferences">
+                <a href="/preferences">Meine Einstellungen</a>
+              </li>
+              <li id="plone-personal-actions-plone_setup">
+                <a href="/controlpanel">Konfiguration</a>
+              </li>
+              <li id="plone-personal-actions-logout">
+                <a href="/logout">Abmelden</a>
+              </li>
+            </ul></li>
+        </ul>
+    </div>
+</div>
+    <header class="container app-header" id="app-header">
+        <div class="app-tile app-header-content" id="app-header-content">
+            <div class="pull-right site-actionbar meta-wrapper">
+    <div class="row" id="xmeta">
+        <div class="col col-lg-9">
+            <ul class="nav nav-tabs metasections pull-left" id="sections">
+                <li><a href="/hochschule">Hochschule</a></li>
+                <li class="divider-vertical"></li>
+                <li><a href="/studium">Studium</a></li>
+                <li class="divider-vertical"></li>
+                <li><a href="/forschung">Forschung</a></li>
+                <li class="divider-vertical"></li>
+                <li><a href="/impulse">Impulse</a></li>
+                <li class="divider-vertical"></li>
             </ul>
-            <form id="nav-search" class="form-inline navbar-form pull-right">
-                <label for="searchField">Suche</label>
-                <input id="searchField" type="text">
-            </form>
-          </div>
-          <a class="brand" id="logo" href="#">Hochschule f&uuml;r Philosophie M&uuml;nchen</a>
         </div>
-       <nav class="xnavbar visualClear" id="main-navigation">
-            <div class="container mainnav-inner">
-              <!--<a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </a>-->
-              <a class="navbar-brand" href="#" id="home-btn">
-                <i class="icon-stop"></i>
-              </a>
-              <div class="nav-collapse collapse navbar-responsive-collapse">
-                <ul class="nav navbar-nav nav-justified" id="navigation">
-                  <!--<li class="home" id="home-btn"><a href="/">
-                    </a></li>-->
-                  <!--<li class="divider-vertical"></li>-->
-                  <li><a href="/hochschule">Hochschule</a></li>
-                  <!--<li class="divider-vertical"></li>-->
-                  <li><a href="/studium">Studium</a></li>
-                  <!--<li class="divider-vertical"></li>-->
-                  <li><a href="/forschung">Forschung</a></li>
-                  <!--<li class="divider-vertical"></li>-->
-                  <li><a href="/impulse">Impulse</a></li>
-                  <!--<li class="divider-vertical"></li>-->
-                </ul>
-              </div><!--/.nav-collapse -->
+        <div class="col col-lg-3">
+            <form id="nav-search" class="xform-inline xnavbar-form pull-right">
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                  </span>
+                  <input type="text" class="form-control">
+                </div><!-- /input-group -->
+            </form>
+        </div>
+    </div>
+</div>            <div class="brandbar">
+    <div class="row">
+        <div class="col-xs-12 col-lg-6">
+            <a class="brandbar-brand" id="brandbar-brand" href="#">
+                Hochschule f&uuml;r Philosophie M&uuml;nchen
+            </a>
+        </div>
+        <div class="col-xs-12 col-lg-6">
+            <div class="brandbar-sectionname" id="brandbar-sectionname">
+                Hochschule
             </div>
-        </nav>
-      </div>
-    </header> <!-- /header -->
+        </div>
+    </div>
+</div>            <nav class="navbar navbar-default app-navbar" id="app-navbar" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse-app1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#"><i class="icon-stop"></i></a>
+  </div>
+    <div class="collapse navbar-collapse navbar-collapse-app1">
+        <ul class="nav nav-justified app-navbar-main" id="app-navbar-main">
+            <li class="navitem" id="tab-hochschule">
+                <a href="http://localhost:8499/hph/hochschule">Hochschule</a>
+            </li>
+            <li class="navitem" id="tab-studium">
+                <a href="http://localhost:8499/hph/studium">Studium</a>
+            </li>
+            <li class="navitem" id="tab-forschung">
+                <a href="http://localhost:8499/hph/forschung">Forschung</a>
+            </li>
+            <li class="navitem" id="tab-impulse">
+                <a href="http://localhost:8499/hph/impulse">Impulse</a>
+            </li>
+        </ul>
+    </div><!--/.nav-collapse -->
+</nav>        </div>
+    </header><!-- /app-header -->
 
     <section class="container" id="subnavbar">
       <div class="tile" id="subnavigation">
       </div>
     </section>
 
-    <section class="container" id="content">
-      <!-- Frontpage content -->
-    </section> <!-- /container -->
-
-
-    <footer id="site-footer" class="container tile">
-      <div id="footer">
-        <ul class="nav nav-pills">
-          <li><a href="#">Dialogportal</a></li>
-          <li><a href="#">Presse</a></li>
-          <li><a href="#">Impressum</a></li>
-          <li><a class="donation" href="#">Online-Spende</a></li>
-          <li><a href="#">pro philosophia</a></li>
-        </ul>
+    <section class="container app-content" id="app-content">
+      <div class="row">
+        <div class="col-xs-12 col-lg-9" id="app-col-content">
+          <section class="app-tile app-content-body" id="app-content-body">
+            <section class="page">
+              <header class="page-header">
+                <h1>Starter template <small>Fixed Layout, 12 cell grid</small></h1>
+              </header>
+              <article class="page-content"> 
+                <p>Use this document as a way to quick start any new project.<br>
+                  All you get is this message and a barebones HTML document.</p>
+              </article>
+            </section>
+          </section>
+        </div>
+        <div class="col-xs-12 col-lg-3" id="app-col-sidebar">
+          <aside class="app-tile app-sidebar" id="app-sidebar">
+            <div class="app-sidebar-content">
+              <aside class="app-box app-box-striped app-box-events">
+    <div class="app-box-header">
+        <h4 class="app-box-heading">
+            <a href="#">App Box Title</a>
+        </h4>
+    </div>
+    <div class="app-box-content">
+        <a class="app-box-item">
+            <time class="app-box-date h5">13.13.2013</time>
+            Albert-Keller-Lecture:  Glaube und Freiheit. Kardinal Reinhard Marx.
+            <i class="icon-double-angle-right pull-right"></i>
+        </a>
+        <a class="app-box-item">
+            <time class="app-box-date h5">13.13.2013</time>
+            Albert-Keller-Lecture:  Glaube und Freiheit. Kardinal Reinhard Marx.
+            <i class="icon-double-angle-right pull-right"></i>
+        </a>
+        <a class="app-box-item">
+            <time class="app-box-date h5">13.13.2013</time>
+            Albert-Keller-Lecture:  Glaube und Freiheit. Kardinal Reinhard Marx.
+            <i class="icon-double-angle-right pull-right"></i>
+        </a>
+    </div>
+    <div class="app-box-footer text-right">
+        <a class="btn btn-default btn-sm" href="#">
+            App box more
+        </a>
+    </div>
+</aside>            </div>
+          </aside>
+        </div>
       </div>
-    </footer> <!-- /footer -->
+    </section> <!-- /container app-content -->
 
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../js/application.js"></script>
+    <div class="container app-content">
+        <section class="app-tile app-content-body" id="app-content-body">
+            <section class="page">
+                <article class="page-content">
+                    <div class="row">
+    <div class="col-xs-12 col-sm-6 col-lg-3">
+        <div class="app-box app-box-aside app-box-news">
+            <div class="app-box-header">
+                <h4 class="app-box-heading">
+                    <a href="#">App Box Title</a>
+                </h4>
+            </div>
+            <div class="app-box-body">
+                <div class="app-box-item">
+                    <a href="'">
+                        <img class="app-img" width="200" height="133" src="http://localhost:8499/hph/nachrichten/vortrag-von-pater-bordt/@@images/19377011-e46e-4f58-8596-717d4c8b1952.jpeg">
+                    </a>
+                    <p class="text-discreet">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                </div>
+            </div>
+            <div class="app-box-footer text-right">
+                <a href="#">
+                    <i class="icon-double-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-lg-3">
+        <div class="app-box app-box-aside app-box-news">
+            <div class="app-box-header">
+                <h4 class="app-box-heading">
+                    <a href="#">Master-Studium</a>
+                </h4>
+            </div>
+            <div class="app-box-body">
+                <div class="app-box-item">
+                    <a href="'">
+                        <img class="app-img" width="200" height="133" src="http://localhost:8499/hph/nachrichten/master-studium/@@images/d004adf6-bd90-4aef-b658-b4cd55f40e83.jpeg">
+                    </a>
+                    <p class="text-discreet">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                </div>
+            </div>
+            <div class="app-box-footer text-right">
+                <a href="#">
+                    <i class="icon-double-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-lg-3">
+        <div class="app-box app-box-aside app-box-news">
+            <div class="app-box-header">
+                <h4 class="app-box-heading">
+                    <a href="#">App Box Title</a>
+                </h4>
+            </div>
+            <div class="app-box-body">
+                <div class="app-box-item">
+                    <a href="'">
+                        <img class="app-img" width="200" height="133" src="http://localhost:8499/hph/nachrichten/vortrag-von-pater-bordt/@@images/19377011-e46e-4f58-8596-717d4c8b1952.jpeg">
+                    </a>
+                    <p class="text-discreet">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                </div>
+            </div>
+            <div class="app-box-footer text-right">
+                <a href="#">
+                    <i class="icon-double-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-lg-3">
+        <div class="app-box app-box-aside app-box-news">
+            <div class="app-box-header">
+                <h4 class="app-box-heading">
+                    <a href="#">Master-Studium</a>
+                </h4>
+            </div>
+            <div class="app-box-body">
+                <div class="app-box-item">
+                    <a href="'">
+                        <img class="app-img" width="200" height="133" src="http://localhost:8499/hph/nachrichten/master-studium/@@images/d004adf6-bd90-4aef-b658-b4cd55f40e83.jpeg">
+                    </a>
+                    <p class="text-discreet">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                </div>
+            </div>
+            <div class="app-box-footer text-right">
+                <a href="#">
+                    <i class="icon-double-angle-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>                </article>
+            </section>
+        </section>
+    </div>
 
+
+    <footer class="container app-footer" id="app-footer">
+  <div class="app-footer-content" id="app-footer-content">
+    <ul class="nav nav-pills">
+      <li><a href="#">Dialogportal</a></li>
+      <li><a href="#">Presse</a></li>
+      <li><a href="#">Impressum</a></li>
+      <li><a class="nav-footer-donation" href="#">Online-Spende</a></li>
+      <li><a href="#">pro philosophia</a></li>
+    </ul>
+  </div>
+</footer> <!-- /footer -->
   </body>
 </html>
