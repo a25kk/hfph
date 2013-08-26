@@ -1,4 +1,4 @@
-<div id="section-name" class="pull-right"
+<div id="brandbar-sectionname" class="brandbar-sectionname"
     tal:define="selected viewlet/selected_section;
                 pretty_tab python:viewlet.prettify_section_name(selected)">
     <span tal:content="pretty_tab" />
