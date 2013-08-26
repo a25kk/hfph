@@ -4,26 +4,31 @@
 
 
 .app-footer {
-    margin-top: @line-height-base;
-    padding: @line-height-base /3;
-    border-top: 5px solid @app-blue;
-    background: white;
+    margin-top: @line-height-computed / 4;
+    margin-bottom: @line-height-computed;
+
 }
 
 .app-footer-content {
     padding: 0;
     .nav {
-        margin-top: -@padding-small-vertical;
-        margin-bottom: 0;
-        margin-left: 77px;
-        width: 600px;
-        border-top: @padding-small-vertical solid @app-gray;
+        margin: -@padding-small-vertical auto;
         text-transform: uppercase;
-        font-size: 0.8em;
+        border-top: 5px solid @app-blue;
+        background: white;
+        .box-shadow(0 0 5px 5px rgba(0,0,0,.05));
+        padding: @line-height-computed;
+        font-size: @font-size-base - 2;
+        li > a:hover {
+            background-color: transparent;
+        }
+        li > a:focus {
+            background-color: transparent;
+        }
     }
     // Custom styles for donation link in footer navigation
     .link-donation {
-        background:url(../assets/img/donation.gif)  no-repeat 0 7px;
+        background:url(../assets/img/donation.gif)  no-repeat 0 10px;
         padding-left: 25px;
     }
 }
