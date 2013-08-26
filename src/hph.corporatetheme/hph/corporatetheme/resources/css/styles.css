@@ -8646,6 +8646,9 @@ dd.image-caption {
   display: block;
   margin-bottom: 7px;
 }
+.app-box-item .app-box-item-more {
+  display: block;
+}
 .app-box-footer {
   padding: 10px 0;
 }

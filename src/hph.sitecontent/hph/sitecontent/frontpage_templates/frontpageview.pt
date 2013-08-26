@@ -23,31 +23,32 @@
         </div>
         <div class="col-xs-12 col-lg-3" id="app-col-sidebar">
             <aside class="app-tile" id="app-sidebar" >
-                <div class="box">
-                <h4 class="box-title">Aktuelle Termine</h4>
-                  <tal:eventlist tal:condition="view/has_events">
-                    <section tal:define="items view/eventitems"
-                      class="box-content">
-                      <div class="box-item" tal:repeat="item items">
-                        <h5 tal:define="startdate item/start">
-                          <a href=""
-                            tal:attributes="href item/getURL">
-                            <span tal:replace="python:toLocalizedTime(startdate)" />
-                          </a>
-                        </h5>
-                        <p class="muted" tal:content="item/Title">
-                          Description of the item</p>
-                        <a href="" class="link-more pull-right"
-                          tal:attributes="href item/getURL">
-                          &raquo;</a>
-                      </div>
-                    </section>
-                  </tal:eventlist>
-                    <div class="box-footer text-right">
-                        <a href="" class="btn btn-default"
+                <div class="app-box app-box-aside app-box-events">
+                    <div class="app-box-header">
+                        <h4 class="app-box-heading">
+                            <a href="#" tal:define="portal_url context/portal_url"
+                                tal:attributes="href python:portal_url + '/termine'">
+                                Aktuelle Termine</a>
+                        </h4>
+                    </div>
+                    <div class="app-box-content" tal:condition="view/has_events">
+                        <a class="app-box-item" tal:repeat="item view/eventitems">
+                            <time class="app-box-date h5"
+                                tal:define="startdate item/start">
+                                <span tal:replace="python:toLocalizedTime(startdate)" />
+                            </time>
+                            <span tal:replace="item/Title" />
+                            <span class="app-box-item-more text-right">
+                                <i class="icon-double-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="app-box-footer text-right">
+                        <a class="btn btn-default btn-sm" href="#"
                             tal:define="portal_url context/portal_url"
                             tal:attributes="href python:portal_url + '/termine'">
-                            Weitere Termine</a>
+                            Weitere Termine
+                        </a>
                     </div>
                 </div>
             </aside>
