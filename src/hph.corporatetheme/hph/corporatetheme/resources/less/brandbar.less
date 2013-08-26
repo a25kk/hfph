@@ -3,7 +3,7 @@
 // --------------------------------------------------
 
 .app-brandbar {
-    padding: @navbar-height * 2 @navbar-height @navbar-height;
+    padding: @navbar-height @navbar-height (@navbar-height / 2);
     .brandbar-brand {
         display: block;
         overflow: hidden;
@@ -18,4 +18,11 @@
         color: @gray-light;
         text-align: right;
     }
+}
+
+// Add spacing on desktop screens
+@media (min-width: @screen-desktop) {
+  .app-navbar {
+    padding: (@navbar-height * 2) @navbar-height @navbar-height;
+  }
 }

@@ -8729,10 +8729,16 @@ dd.image-caption {
 .app-actionbar-form {
   width: 100%;
   background: #555555;
-  padding: 5px;
+  padding: 5px 20px;
+}
+@media (min-width: 992px) {
+  .app-actionbar-nav {
+    float: right !important;
+    float: right;
+  }
 }
 .app-brandbar {
-  padding: 100px 50px 50px;
+  padding: 50px 50px 25px;
 }
 .app-brandbar .brandbar-brand {
   display: block;
@@ -8747,6 +8753,11 @@ dd.image-caption {
   line-height: 60px;
   color: #999999;
   text-align: right;
+}
+@media (min-width: 992px) {
+  .app-navbar {
+    padding: 100px 50px 50px;
+  }
 }
 .app-navbar {
   background: #ffcc33;

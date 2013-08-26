@@ -24,3 +24,10 @@
     background: @gray;
     padding: @padding-small-vertical @line-height-computed;
 }
+
+// Make the nav align with the search bar on larger screens
+@media (min-width: @screen-desktop) {
+  .app-actionbar-nav {
+    .pull-right();
+  }
+}
