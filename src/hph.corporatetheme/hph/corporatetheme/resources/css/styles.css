@@ -8777,14 +8777,14 @@ dd.image-caption {
   padding: 0;
 }
 .app-footer-content .nav {
+  padding: 20px;
   margin: -5px auto;
   text-transform: uppercase;
   border-top: 5px solid #003366;
   background: white;
+  font-size: 12px;
   -webkit-box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.05);
-  padding: 20px;
-  font-size: 12px;
 }
 .app-footer-content .nav li > a:hover {
   background-color: transparent;
