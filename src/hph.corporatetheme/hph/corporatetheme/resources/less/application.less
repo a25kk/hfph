@@ -6,10 +6,13 @@ body {
     background: @gray-lighter;
 }
 
-a {
-    outline: none !important;
+// Reset border radius on form elements
+.btn,
+.form-control {
+    border-radius: 0;
 }
 
+// Adjust header for cms toolbar height
 .app-toolbar + .app-header {
     margin-top: @navbar-height;
 }
