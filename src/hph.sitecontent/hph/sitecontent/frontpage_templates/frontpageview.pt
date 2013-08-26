@@ -61,21 +61,32 @@
                 <div class="row"
                     tal:condition="view/has_news">
                     <tal:block tal:repeat="item view/recent_news">
-                      <div class="col-xs-6 col-lg-3">
-                        <section class="box">
-                          <header class="box-header">
-                            <h5 tal:content="item/Title" />
-                          </header>
-                          <img tal:define="img python:view.constructImageTag(item);"
-                            tal:attributes="src img/url;
-                                            width img/width;
-                                            height img/height" />
-                          <p tal:content="item/Description" />
-                          <a href="" class="link-more pull-right"
-                            tal:attributes="href item/getURL">
-                             <i class="icon-double-angle-right"></i>
-                            </a>
-                        </section>
+                      <div class="col-xs-12 col-sm-6 col-lg-3">
+                        <div class="app-box app-box-aside app-box-newsitem">
+                            <div class="app-box-header">
+                                <h4 class="app-box-heading">
+                                    <a tal:attributes="href item/getURL"
+                                        tal:content="item/Title">App Box Title</a>
+                                </h4>
+                            </div>
+                            <div class="app-box-body">
+                                <div class="app-box-item">
+                                    <a tal:attributes="href item/getURL">
+                                        <img tal:define="img python:view.constructImageTag(item);"
+                                            tal:attributes="class string:app-img;
+                                                            src img/url;
+                                                            width img/width;
+                                                            height img/height" />
+                                    </a>
+                                    <p class="text-discreet" tal:content="item/Description" />
+                                </div>
+                            </div>
+                            <div class="app-box-footer text-right">
+                                <a tal:attributes="href item/getURL">
+                                    <i class="icon-double-angle-right"></i>
+                                </a>
+                            </div>
+                        </div>                        
                       </div>
                     </tal:block>
                 </div>
