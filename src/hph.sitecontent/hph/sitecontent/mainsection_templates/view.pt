@@ -22,19 +22,30 @@
           </aside>
         </div>
         <div class="col-xs-12 col-lg-3" id="app-col-sidebar">
-            <aside id="sidebar" class="app-tile">
-              <div class="box">
-                <h4>Aktuelle Termine</h4>
-                <div class="box-content"
-                  data-appui="eventbox"
-                  tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
+
+            <aside class="app-tile" id="app-sidebar" >
+                <div class="app-box app-box-striped app-box-events">
+                    <div class="app-box-header">
+                        <h4 class="app-box-heading">
+                            <a href="#" tal:define="portal_url context/portal_url"
+                                tal:attributes="href python:portal_url + '/termine'">
+                                Aktuelle Termine</a>
+                        </h4>
+                    </div>
+                    <div class="app-box-content"
+                        data-appui="eventbox"
+                        tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
+                    </div>
+                    <div class="app-box-footer text-right">
+                        <a class="btn btn-default btn-sm" href="#"
+                            tal:define="portal_url context/portal_url"
+                            tal:attributes="href python:portal_url + '/termine'">
+                            Weitere Termine
+                        </a>
+                    </div>
                 </div>
-                <a href="" class="btn pull-right"
-                  tal:define="portal_url context/portal_url"
-                  tal:attributes="href python:portal_url + '/termine'">
-                  Weitere Termine</a>
-              </div>
             </aside>
+
         </div>
       </div>
         <div class="app-tile">

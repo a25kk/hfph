@@ -59,6 +59,8 @@
         <!-- Logo (link target) -->
         <copy attributes="href" css:content="#portal-logo" css:theme="#brandbar-brand" />
 
+        <copy attributes="href" css:content="#portal-logo" css:theme=".navbar-brand" />
+
         <!-- Site actions -->
         <!--<replace css:content="#portal-siteactions li" css:theme-children="#global-nav" />-->
 
@@ -66,18 +68,18 @@
         <!--<copy attributes="action" css:content="#portal-searchbox form"
             css:theme="#portal-searchbox" />-->
 
-        <replace css:content="#section-name"
-            css:theme="brandbar-sectionname" />
+        <replace css:content="#brandbar-sectionname"
+            css:theme="#brandbar-sectionname" />
 
         <!-- Global navigation -->
         <replace css:content-children="#portal-navigation"
             css:theme-children="#app-navbar-main" />
 
         <replace css:content-children="#portal-subnavigation"
-            css:theme-children="#navigation" />
+            css:theme-children="#app-navbar-main" />
 
-        <replace css:content="#portal-navigation"
-            css:theme="#navigation"
+        <replace css:content-children="#portal-navigation"
+            css:theme-children="#app-navbar-main"
             css:if-content="body.template-frontpage-view" />
 
         <drop css:theme="#subnavbar"

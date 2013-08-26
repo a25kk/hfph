@@ -61,10 +61,11 @@
                 var div_data = '';
                 $.each(data.items, function (i, item) {
                     //alert('Item:' + item.title);
-                    div_data += '<div class="box-item">';
-                    div_data += '<h5><a href="' + item.url + '">' + item.date + '</a></h5>';
-                    div_data += '<p class="muted">' + item.title + '</p>';
-                    div_data += '<a class="link-more pull-right" href="' + item.url + '">&raquo;</a></div>';
+                    div_data += '<a class="app-box-item" href="' + item.url + '">';
+                    div_data += '<time>' + item.date + '</time>';
+                    div_data += '<span>' + item.title + '</span>';
+                    div_data += '<span class="app-box-item-more text-right"><i class="icon-double-angle-right"></i></span>';
+                    div_data += '</a>';
                 });
                 target_el.html(div_data);
             });
