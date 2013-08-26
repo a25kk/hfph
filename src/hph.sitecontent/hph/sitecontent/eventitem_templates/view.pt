@@ -10,7 +10,7 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-  <article id="eventitem-view" class="tile-content">
+  <article class="app-content" id="app-content">
     <header class="page-title">
       <h1 tal:content="context/Title">Title inserted here</h1>
       <p>Published: <time pubdate datetime="2009-10-09">

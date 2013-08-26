@@ -10,22 +10,24 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-    <article id="newsentry-view" class="tile-content">
-      <header class="page-header">
-        <h1 tal:content="context/Title">Title inserted here</h1>
-      </header>
-      <div tal:condition="context/text"
-        tal:content="structure context/text/output" />
-
-      <p>
-      <a href="" class="btn btn-primary pull-right"
-        tal:define="portal_url context/portal_url"
-        tal:attributes="href python:portal_url + '/nachrichten'">
-        Weitere Nachrichten</a>
-      </p>
-      <aside>
-        <p>Attachments and Links are inserted here</p>
-      </aside>
+    <article classs="app-content" id="app-content">
+        <section class="page">
+            <header class="page-header">
+              <h1 tal:content="context/Title">Title</h1>
+            </header>
+            <article class="page-content"> 
+                <div tal:condition="context/text"
+                    tal:content="structure context/text/output" />
+                <a href="" class="btn btn-primary pull-right"
+                  tal:define="portal_url context/portal_url"
+                  tal:attributes="href python:portal_url + '/nachrichten'">
+                  Weitere Nachrichten</a>
+                <h5>Attachments</h5>
+                <div class="alert alert-info">
+                  <p>Attachments and Links are inserted here</p>
+                </div>
+            </article>
+        </section>
     </article>
     
   </metal:content-core>
