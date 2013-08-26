@@ -19,18 +19,29 @@
     </section>
 
     <section class="container app-content" id="app-content">
-        <section class="app-tile app-content-body" id="app-content-body">
-          <section class="page">
-            <header class="page-header">
-              <h1>Starter template <small>Fixed Layout, 12 cell grid</small></h1>
-            </header>
-            <article class="page-content"> 
-              <p>Use this document as a way to quick start any new project.<br>
-                All you get is this message and a barebones HTML document.</p>
-            </article>
+      <div class="row">
+        <div class="col-xs-12 col-lg-9" id="app-col-content">
+          <section class="app-tile app-content-body" id="app-content-body">
+            <section class="page">
+              <header class="page-header">
+                <h1>Starter template <small>Fixed Layout, 12 cell grid</small></h1>
+              </header>
+              <article class="page-content"> 
+                <p>Use this document as a way to quick start any new project.<br>
+                  All you get is this message and a barebones HTML document.</p>
+              </article>
+            </section>
           </section>
-        </section><!-- /app-content-body -->
-    </section>
+        </div>
+        <div class="col-xs-12 col-lg-3" id="app-col-sidebar">
+          <aside class="app-tile app-sidebar" id="app-sidebar">
+            <div class="app-sidebar-content">
+              <!-- @include "_includes/eventbox.html" -->
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section> <!-- /container app-content -->
 
 
     <!-- @include "_includes/footer.html" -->

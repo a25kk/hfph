@@ -18,6 +18,7 @@
     <script data-ui="development" type="text/javascript" src="http://cdn.jquerytools.org/1.2.7/all/jquery.tools.min.js"></script>
     <script data-ui="development" type="text/javascript" src="assets/js/less-1.4.1.min.js"></script>
     <script data-ui="development" src="assets/js/bootstrap.min.js"></script>
+    <script data-ui="development" src="assets/js/holder.js"></script>
     <script data-ui="development" src="js/application.js"></script>
 </head>
   
@@ -139,18 +140,60 @@
     </section>
 
     <section class="container app-content" id="app-content">
-        <section class="app-tile app-content-body" id="app-content-body">
-          <section class="page">
-            <header class="page-header">
-              <h1>Starter template <small>Fixed Layout, 12 cell grid</small></h1>
-            </header>
-            <article class="page-content"> 
-              <p>Use this document as a way to quick start any new project.<br>
-                All you get is this message and a barebones HTML document.</p>
-            </article>
+      <div class="row">
+        <div class="col-xs-12 col-lg-9" id="app-col-content">
+          <section class="app-tile app-content-body" id="app-content-body">
+            <section class="page">
+              <header class="page-header">
+                <h1>Starter template <small>Fixed Layout, 12 cell grid</small></h1>
+              </header>
+              <article class="page-content"> 
+                <p>Use this document as a way to quick start any new project.<br>
+                  All you get is this message and a barebones HTML document.</p>
+              </article>
+            </section>
           </section>
-        </section><!-- /app-content-body -->
-    </section>
+        </div>
+        <div class="col-xs-12 col-lg-3" id="app-col-sidebar">
+          <aside class="app-tile app-sidebar" id="app-sidebar">
+            <div class="app-sidebar-content">
+              <aside class="app-box app-box-aside app-box-events">
+    <div class="app-box-header">
+        <h4 class="app-box-heading">
+            <a href="#">App Box Title</a>
+        </h4>
+    </div>
+    <div class="app-box-content">
+        <a class="app-box-item">
+            <time class="app-box-date h5">13.13.2013</time>
+            Albert-Keller-Lecture:  Glaube und Freiheit. Kardinal Reinhard Marx.
+            <i class="icon-double-angle-right pull-right"></i>
+        </a>
+        <div class="app-box-item">
+            <h6>13.13.2013</h6>
+            <p class="text-discreet">Albert-Keller-Lecture:  Glaube und Freiheit. Kardinal Reinhard Marx.</p>
+            <a class="app-box-link" href="#">
+                <i class="icon-double-angle-right"></i>
+            </a>
+        </div>
+        <div class="app-box-item">
+            <h6>13.13.2013</h6>
+            <p class="text-discreet">Albert-Keller-Lecture:  Glaube und Freiheit. Kardinal Reinhard Marx.</p>
+            <a class="app-box-link" href="#">
+                <i class="icon-double-angle-right"></i>
+            </a>
+        </div>
+    </div>
+    <div class="app-box-footer text-right">
+        <a class="btn btn-default btn-sm" href="#">
+            App box more
+        </a>
+    </div>
+</aside>            </div>
+          </aside>
+        </div>
+      </div>
+    </section> <!-- /container app-content -->
 
 
     <footer class="container app-footer" id="app-footer">

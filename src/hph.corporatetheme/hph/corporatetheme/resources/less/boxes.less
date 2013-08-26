@@ -2,31 +2,40 @@
 // Info and action boxes
 // -------------------------------------------------
 
-.box {
+.app-box {
     padding: @line-height-computed / 2;
 }
 
-.box-title {
-    color: @app-blue;
-    margin: @padding-small-vertical;
+.app-box-header {
+    padding: 0 @line-height-computed / 2;
 }
-.box-content {
+
+.app-box-heading {
+    color: @app-blue;
+    //margin: @padding-small-vertical;
+}
+.app-box-content {
     border: 1px solid @gray-lighter;
     border-top: 4px solid @app-yellow;
-    p {
-        margin: 0;
-        font-size: @font-size-small;
-        color: black;
+}
+
+// App box items can be attached to anchor tags for clickable
+// boxes
+
+.app-box-item {
+    display: block;
+    .clearfix();
+    padding: @line-height-computed / 2;
+    color: @app-gray;
+    &:nth-child(odd) {
+        background-color: @table-bg-accent;
     }
-    .btn {
-        margin-top: @line-height-base / 2;
-        border-radius: 0;
-        //.buttonBackground(@grayLight, lighten(@grayLight, 5%));
+    .app-box-date {
+        display: block;
+        margin-bottom: ceil(@line-height-computed / 3);
     }
-    .box-item {
-        padding: @padding-small-vertical; 
-        &:nth-child(odd) {
-            background-color: @table-bg-accent;
-        }
-    }
+}
+
+.app-box-footer {
+    padding: @line-height-computed / 2 0;
 }
