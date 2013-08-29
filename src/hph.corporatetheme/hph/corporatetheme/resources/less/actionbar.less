@@ -11,18 +11,35 @@
     margin-right: -(@line-height-computed * 1.5);
     font-size: @font-size-small;
     text-transform: uppercase;
-    border: 1px solid @app-gray;
+    border: 0px solid @app-gray;
     border-width: 1px 0 1px 1px;
     > li > a {
         border-radius: 0;
         padding: (@line-height-computed / 2);
+        border: 0;
+    }
+    > li > a:hover {
+        background: none;
+        border: 0;
+        color: @app-blue;
     }
 }
 
 .app-actionbar-form {
     width: 100%;
-    background: @gray;
-    padding: @padding-small-vertical @line-height-computed;
+    background: @gray-light !important;
+    padding: @padding-small-vertical - 1  @line-height-computed;
+    border: none;
+
+    .btn-sm {
+        background: white;
+        border: 0;
+    }
+
+    .input-sm {
+        border-color: @gray-light;
+        border-left: none;
+    }
 }
 
 // Make the nav align with the search bar on larger screens
