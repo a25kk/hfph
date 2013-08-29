@@ -30,6 +30,14 @@ def deploy():
 
 
 @task
+def deploy_staging():
+    """ Deploy current master to staging server """
+    project.site.update()
+    with cd(env.code_root):
+        run('bin/buildout -Nc staging.cfg')
+    project.site.restart()
+
+@task
 def deploy_full():
     """ Deploy current master to production and run buildout """
     project.site.update()
