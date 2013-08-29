@@ -8734,7 +8734,7 @@ dd.image-caption {
 }
 .app-actionbar-form {
   width: 100%;
-  background: #999999 !important;
+  background: #999999;
   padding: 4px 20px;
   border: none;
 }
@@ -8847,64 +8847,6 @@ body {
   border-radius: 0;
 }
 .app-toolbar + .app-header {
-  margin-top: 50px;
-}
-body > header #header {
-  border-top: 5px solid #003366;
-  background: white;
-}
-body > header #header #meta {
-  height: 40px;
-  display: block;
-  vertical-align: top;
-  margin-right: 100px;
-  border: 1px solid #404040;
-  border-top-width: 5px;
-  margin-top: -5px;
-}
-body > header #header #meta ul {
-  padding: 7px;
-  margin-left: 10px;
-}
-body > header #header #meta ul li {
-  list-style: none;
-  display: inline-block;
-  font-size: 12px;
-}
-body > header #header #meta ul li a {
-  text-transform: uppercase;
-  padding: 5px;
-}
-body > header #header #meta ul li.active a {
-  color: #0066cc;
-}
-body > header #header #meta ul.metasections a:hover {
-  background: #003366;
-  color: white;
-  text-decoration: none;
-}
-body > header #header #meta .navbar-form {
-  width: 239px;
-  margin: 0px;
-  background-color: #999999;
-  border: 0px solid red !important;
-}
-body > header #header #meta .navbar-form #searchField {
-  width: 135px;
-  line-height: 20px;
-  min-height: 10px;
-  margin: 8px 0px 7px 0px;
-  padding: 0px;
-  border-radius: 0px;
-}
-body > header #header #meta .navbar-form label {
-  color: white;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  padding: 0px 20px;
-}
-body > header #toolbar + #header,
-body > header #editbar-wrapper + #header {
   margin-top: 50px;
 }
 .site-actionbar {
