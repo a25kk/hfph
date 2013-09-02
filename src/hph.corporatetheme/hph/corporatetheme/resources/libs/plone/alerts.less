@@ -6,7 +6,9 @@
 dl.portalMessage {
     .alert();
     .alert-warning();
+    margin-top: 0;
     margin-bottom: 0;
+    border-radius: 0;
     dt {
         margin: 0;
     }
@@ -21,4 +23,8 @@ dl.portalMessage {
     &.error {
         .alert-danger();
     }
+}
+
+body > .portalMessage {
+    padding-top: @navbar-height + (@line-height-computed / 2);
 }

@@ -23,7 +23,7 @@
         </div>
         <div class="col-xs-12 col-lg-3" id="app-col-sidebar">
             <aside class="app-tile" id="app-sidebar" >
-                <div class="app-box app-box-aside app-box-events">
+                <div class="app-box app-box-striped app-box-events">
                     <div class="app-box-header">
                         <h4 class="app-box-heading">
                             <a href="#" tal:define="portal_url context/portal_url"
@@ -32,16 +32,18 @@
                         </h4>
                     </div>
                     <div class="app-box-content" tal:condition="view/has_events">
-                        <a class="app-box-item" tal:repeat="item view/eventitems">
-                            <time class="app-box-date h5"
-                                tal:define="startdate item/start">
-                                <span tal:replace="python:toLocalizedTime(startdate)" />
-                            </time>
-                            <span tal:replace="item/Title" />
-                            <span class="app-box-item-more text-right">
-                                <i class="icon-double-angle-right"></i>
-                            </span>
-                        </a>
+                        <tal:block tal:repeat="item view/eventitems">
+                            <a class="app-box-item" tal:attributes="href item/getURL">
+                                <time class="app-box-date h5"
+                                    tal:define="startdate item/start">
+                                    <span tal:replace="python:toLocalizedTime(startdate)" />
+                                </time>
+                                <span tal:replace="item/Title" />
+                                <span class="app-box-item-more text-right">
+                                    <i class="icon-double-angle-right"></i>
+                                </span>
+                            </a>
+                        </tal:block>
                     </div>
                     <div class="app-box-footer text-right">
                         <a class="btn btn-default btn-sm" href="#"

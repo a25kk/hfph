@@ -45,6 +45,17 @@ textarea {
     height: auto;
 }
 
+// Form control sizing
+// Redefined here since our custom input field reset is applied later
+// during rendering and therefore overrides these
+.input-sm {
+  .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+}
+
+.input-lg {
+  .input-size(@input-height-large; @padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
+}
+
 
 input[type="checkbox"] + label,
 .ArchetypesBooleanWidget label {
@@ -55,12 +66,14 @@ input[type="checkbox"] + label,
 input.datetime-widget,
 select.datetime-widget,
 .ArchetypesCalendarWidget select {
+    display: inline-block;
     width: auto;
 }
 
 /* Emulates the styling from the h1 tag */
 #content .field input[type="text"][name$=".title"],
 #form-widgets-IBasic-title,
+#form-widgets-title,
 #archetypes-fieldname-title input {
     .input-lg();
     border-radius: 0;
@@ -85,23 +98,18 @@ div.fieldTextFormat {
     }
 }
 
-#content-core label {
-    font-weight: 400;
-    span.formHelp {
-        .help-block();
-        .text-muted();
-        font-weight: 300;
-    }
-}
-
 div.field {
     .form-group();
+    xlabel {
+        font-weight: 600;
+    }
     label span.formHelp {
         display: block;
         font-weight: normal;
         .text-muted();
     }
-    div.label {
+    div.label,
+    label {
         background: transparent;
         color: @text-color;
         font-size: @font-size-base;

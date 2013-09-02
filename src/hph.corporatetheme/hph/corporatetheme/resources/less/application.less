@@ -17,8 +17,9 @@ body {
 .app-toolbar + .app-header {
     margin-top: @navbar-height;
 }
-.portalMessage {
-    margin-top: @navbar-height;
+// Reset when alerts are displayed
+.portalMessage + .app-header {
+    margin-top: 0;
 }
 
 // Actionbar including searchbox and meta navigation
@@ -81,8 +82,18 @@ body {
     }
 }
 
+.app-content-body {
+    padding: @line-height-computed;
+}
+
 .template-login_form .app-content-body {
     padding: @line-height-computed;
+}
+
+// Special fullscreen hero unit (login form etc)
+.app-content-hero {
+    max-width: @container-tablet;
+    margin: (@navbar-height * 2) auto;
 }
 
 
@@ -123,5 +134,17 @@ ul.navTree {
             background-color: @gray-lighter;
         }
     }
+}
+
+// Spacing for login/signin page
+
+#login-forgotten-password {
+    margin: @navbar-height 0;
+}
+
+// Reset tiny mce content body styling for better readability
+
+.mceContentBody {
+    padding: @line-height-computed;
 }
 

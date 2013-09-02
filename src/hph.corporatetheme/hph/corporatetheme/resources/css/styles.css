@@ -3172,6 +3172,17 @@ textarea.input-group-lg > .input-group-addon,
 textarea.input-group-lg > .input-group-btn > .btn {
   height: auto;
 }
+select.input-group-lg > .form-control,
+select.input-group-lg > .input-group-addon,
+select.input-group-lg > .input-group-btn > .btn {
+  height: 45px;
+  line-height: 45px;
+}
+textarea.input-group-lg > .form-control,
+textarea.input-group-lg > .input-group-addon,
+textarea.input-group-lg > .input-group-btn > .btn {
+  height: auto;
+}
 .input-group-sm > .form-control,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn {
@@ -3180,6 +3191,17 @@ textarea.input-group-lg > .input-group-btn > .btn {
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
+}
+select.input-group-sm > .form-control,
+select.input-group-sm > .input-group-addon,
+select.input-group-sm > .input-group-btn > .btn {
+  height: 30px;
+  line-height: 30px;
+}
+textarea.input-group-sm > .form-control,
+textarea.input-group-sm > .input-group-addon,
+textarea.input-group-sm > .input-group-btn > .btn {
+  height: auto;
 }
 select.input-group-sm > .form-control,
 select.input-group-sm > .input-group-addon,
@@ -8284,6 +8306,34 @@ textareainput[type="color"] {
 textarea {
   height: auto;
 }
+.input-sm {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+select.input-sm {
+  height: 30px;
+  line-height: 30px;
+}
+textarea.input-sm {
+  height: auto;
+}
+.input-lg {
+  height: 45px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+}
+select.input-lg {
+  height: 45px;
+  line-height: 45px;
+}
+textarea.input-lg {
+  height: auto;
+}
 input[type="checkbox"] + label,
 .ArchetypesBooleanWidget label {
   display: inline-block;
@@ -8292,11 +8342,13 @@ input[type="checkbox"] + label,
 input.datetime-widget,
 select.datetime-widget,
 .ArchetypesCalendarWidget select {
+  display: inline-block;
   width: auto;
 }
 /* Emulates the styling from the h1 tag */
 #content .field input[type="text"][name$=".title"],
 #form-widgets-IBasic-title,
+#form-widgets-title,
 #archetypes-fieldname-title input {
   height: 45px;
   padding: 10px 16px;
@@ -8307,12 +8359,27 @@ select.datetime-widget,
 }
 select#content .field input[type="text"][name$=".title"],
 select#form-widgets-IBasic-title,
+select#form-widgets-title,
 select#archetypes-fieldname-title input {
   height: 45px;
   line-height: 45px;
 }
 textarea#content .field input[type="text"][name$=".title"],
 textarea#form-widgets-IBasic-title,
+textarea#form-widgets-title,
+textarea#archetypes-fieldname-title input {
+  height: auto;
+}
+select#content .field input[type="text"][name$=".title"],
+select#form-widgets-IBasic-title,
+select#form-widgets-title,
+select#archetypes-fieldname-title input {
+  height: 45px;
+  line-height: 45px;
+}
+textarea#content .field input[type="text"][name$=".title"],
+textarea#form-widgets-IBasic-title,
+textarea#form-widgets-title,
 textarea#archetypes-fieldname-title input {
   height: auto;
 }
@@ -8332,26 +8399,19 @@ div.fieldTextFormat label {
 div.fieldTextFormat select {
   width: 120px;
 }
-#content-core label {
-  font-weight: 400;
-}
-#content-core label span.formHelp {
-  display: block;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  color: #737373;
-  color: #999999;
-  font-weight: 300;
-}
 div.field {
   margin-bottom: 15px;
+}
+div.field xlabel {
+  font-weight: 600;
 }
 div.field label span.formHelp {
   display: block;
   font-weight: normal;
   color: #999999;
 }
-div.field div.label {
+div.field div.label,
+div.field label {
   background: transparent;
   color: #333333;
   font-size: 14px;
@@ -8360,7 +8420,8 @@ div.field div.label {
   padding: 0px;
   text-align: left;
 }
-div.field div.label span.formHelp {
+div.field div.label span.formHelp,
+div.field label span.formHelp {
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
@@ -8639,7 +8700,9 @@ dl.portalMessage {
   background-color: #fcf8e3;
   border-color: #fbeed5;
   color: #c09853;
+  margin-top: 0;
   margin-bottom: 0;
+  border-radius: 0;
 }
 dl.portalMessage h4 {
   margin-top: 0;
@@ -8694,6 +8757,9 @@ dl.portalMessage.error hr {
 dl.portalMessage.danger .alert-link,
 dl.portalMessage.error .alert-link {
   color: #953b39;
+}
+body > .portalMessage {
+  padding-top: 60px;
 }
 .listingBar {
   padding-left: 0;
@@ -9015,6 +9081,18 @@ dd.image-caption {
 .app-actionbar-form .input-sm {
   border-color: #999999;
   border-left: none;
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+select.app-actionbar-form .input-sm {
+  height: 30px;
+  line-height: 30px;
+}
+textarea.app-actionbar-form .input-sm {
+  height: auto;
 }
 @media (min-width: 992px) {
   .app-actionbar-nav {
@@ -9119,8 +9197,8 @@ body {
 .app-toolbar + .app-header {
   margin-top: 50px;
 }
-.portalMessage {
-  margin-top: 50px;
+.portalMessage + .app-header {
+  margin-top: 0;
 }
 .site-actionbar {
   border: 1px solid #404040;
@@ -9162,8 +9240,15 @@ body {
 .app-content .tile-content {
   padding: 1.428571429;
 }
+.app-content-body {
+  padding: 20px;
+}
 .template-login_form .app-content-body {
   padding: 20px;
+}
+.app-content-hero {
+  max-width: 750px;
+  margin: 100px auto;
 }
 .app-img {
   margin-bottom: 10px;
@@ -9271,4 +9356,10 @@ ul.navTree li.navTreeCurrentNode a:hover,
 ul.navTree li.navTreeCurrentNode a:focus {
   text-decoration: none;
   background-color: #eeeeee;
+}
+#login-forgotten-password {
+  margin: 50px 0;
+}
+.mceContentBody {
+  padding: 20px;
 }
