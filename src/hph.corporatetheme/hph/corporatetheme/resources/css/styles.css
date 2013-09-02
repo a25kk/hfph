@@ -8281,6 +8281,9 @@ textareainput[type="tel"],
 textareainput[type="color"] {
   height: auto;
 }
+textarea {
+  height: auto;
+}
 input[type="checkbox"] + label,
 .ArchetypesBooleanWidget label {
   display: inline-block;
@@ -8295,21 +8298,29 @@ select.datetime-widget,
 #content .field input[type="text"][name$=".title"],
 #form-widgets-IBasic-title,
 #archetypes-fieldname-title input {
-  height: 35px;
-  line-height: 30px;
-  font-size: 17.5px;
-  font-weight: 400;
-  width: 100%;
-  color: #555555;
+  height: 45px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 6px;
+  border-radius: 0;
+}
+select#content .field input[type="text"][name$=".title"],
+select#form-widgets-IBasic-title,
+select#archetypes-fieldname-title input {
+  height: 45px;
+  line-height: 45px;
+}
+textarea#content .field input[type="text"][name$=".title"],
+textarea#form-widgets-IBasic-title,
+textarea#archetypes-fieldname-title input {
+  height: auto;
 }
 /* Emulates styling from the description's view */
 #content .field textarea[name$=".description"],
 #form-widgets-IBasic-description,
 #archetypes-fieldname-description textarea#description {
-  color: #555555;
-  font-size: 14px;
   font-weight: 400;
-  width: 100%;
 }
 div.fieldTextFormat {
   text-align: right;
@@ -8619,6 +8630,70 @@ table.grid th {
 }
 #category .separator {
   display: none;
+}
+dl.portalMessage {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: #fcf8e3;
+  border-color: #fbeed5;
+  color: #c09853;
+  margin-bottom: 0;
+}
+dl.portalMessage h4 {
+  margin-top: 0;
+  color: inherit;
+}
+dl.portalMessage .alert-link {
+  font-weight: bold;
+}
+dl.portalMessage > p,
+dl.portalMessage > ul {
+  margin-bottom: 0;
+}
+dl.portalMessage > p + p {
+  margin-top: 5px;
+}
+dl.portalMessage hr {
+  border-top-color: #f8e5be;
+}
+dl.portalMessage .alert-link {
+  color: #a47e3c;
+}
+dl.portalMessage dt {
+  margin: 0;
+}
+dl.portalMessage dd {
+  margin-left: 0px;
+}
+dl.portalMessage.note,
+dl.portalMessage.tip {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #3a87ad;
+}
+dl.portalMessage.note hr,
+dl.portalMessage.tip hr {
+  border-top-color: #a6e1ec;
+}
+dl.portalMessage.note .alert-link,
+dl.portalMessage.tip .alert-link {
+  color: #2d6987;
+}
+dl.portalMessage.danger,
+dl.portalMessage.error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+}
+dl.portalMessage.danger hr,
+dl.portalMessage.error hr {
+  border-top-color: #e6c1c7;
+}
+dl.portalMessage.danger .alert-link,
+dl.portalMessage.error .alert-link {
+  color: #953b39;
 }
 .listingBar {
   padding-left: 0;
@@ -9042,6 +9117,9 @@ body {
   border-radius: 0;
 }
 .app-toolbar + .app-header {
+  margin-top: 50px;
+}
+.portalMessage {
   margin-top: 50px;
 }
 .site-actionbar {

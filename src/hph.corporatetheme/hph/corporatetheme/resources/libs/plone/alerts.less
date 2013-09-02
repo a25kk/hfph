@@ -1,0 +1,24 @@
+//
+// Portal messages
+// -----------------------------------------------------
+
+
+dl.portalMessage {
+    .alert();
+    .alert-warning();
+    margin-bottom: 0;
+    dt {
+        margin: 0;
+    }
+    dd {
+        margin-left: 0px;
+    }
+    &.note,
+    &.tip {
+        .alert-info();
+    }
+    &.danger,
+    &.error {
+        .alert-danger();
+    }
+}

@@ -109,7 +109,7 @@
         <replace css:content-children="#content" 
             css:theme-children="#app-content-body" />
 
-        <before css:content=".portalMessage" css:theme="#app-content" />
+        <before css:content=".portalMessage" css:theme="#app-header" />
         <replace css:content-children="#viewlet-below-content"
             css:theme-children="#below-main-content" />
 

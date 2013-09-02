@@ -40,6 +40,11 @@ input[type="color"] {
     .form-control();
 }
 
+// Reset tetarea height
+textarea {
+    height: auto;
+}
+
 
 input[type="checkbox"] + label,
 .ArchetypesBooleanWidget label {
@@ -57,22 +62,15 @@ select.datetime-widget,
 #content .field input[type="text"][name$=".title"],
 #form-widgets-IBasic-title,
 #archetypes-fieldname-title input {
-    height: @line-height-computed * 1.75;
-    line-height: @line-height-computed * 1.5;
-    font-size: @font-size-base * 1.25;
-    font-weight: 400;
-    width: 100%;
-    color: @gray;
+    .input-lg();
+    border-radius: 0;
 }
 
 /* Emulates styling from the description's view */
 #content .field textarea[name$=".description"],
 #form-widgets-IBasic-description,
 #archetypes-fieldname-description textarea#description {
-    color:@gray;
-    font-size: @font-size-base;
     font-weight: 400;
-    width: 100%;
 }
 
 div.fieldTextFormat {
