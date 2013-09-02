@@ -9197,9 +9197,6 @@ body {
 .app-toolbar + .app-header {
   margin-top: 50px;
 }
-.portalMessage + .app-toolbar + .app-header {
-  margin-top: 0;
-}
 .site-actionbar {
   border: 1px solid #404040;
 }
