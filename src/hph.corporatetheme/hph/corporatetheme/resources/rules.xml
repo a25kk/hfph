@@ -54,7 +54,7 @@
         <!-- CMSUI Editbar replacements -->
         <drop css:theme="#app-toolbar"
             css:if-content="#anon-personalbar" />
-        <replace css:theme="#app-toolbar" css:content="#toolbar" />
+        <replace css:theme="#app-toolbar" css:content="#app-toolbar" />
 
         <!-- Logo (link target) -->
         <copy attributes="href" css:content="#portal-logo" css:theme="#brandbar-brand" />
@@ -98,6 +98,9 @@
                 css:theme-children="#app-content" />
         </rules>
         <rules css:if-content="body.portaltype-hph-sitecontent-mainsection">
+            <replace css:content-children="#content" 
+                css:theme-children="#app-content"
+                css:if-content="body.template-edit" />
             <replace css:content-children="#app-content" 
                 css:theme-children="#app-content" />
         </rules>

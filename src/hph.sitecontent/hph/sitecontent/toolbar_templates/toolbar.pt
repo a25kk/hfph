@@ -1,0 +1,65 @@
+<div class="navbar navbar-inverse navbar-fixed-top app-toolbar" id="app-toolbar"
+    tal:condition="not:viewlet/anonymous" i18n:domain="plone">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-toolbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand visible-xs" href="#">CMS Toolbar</a>
+    </div>
+    <div class="collapse navbar-collapse navbar-toolbar-collapse">
+        <ul class="nav navbar-nav">
+            <li tal:repeat="item viewlet/actions"
+                tal:attributes="class item/klass|nothing; id item/id|nothing;">
+              <a href="#"
+                tal:attributes="
+                    href item/url|nothing;
+                    target item/link_target|nothing;"
+                tal:content="item/title"
+                 i18n:translate="">Link Title</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+            <li tal:repeat="item viewlet/contentmenu"
+              tal:attributes="class string:dropdown ${item/klass|nothing}; id item/id|nothing;">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" 
+                   tal:attributes="href item/action; target item/link_target|nothing;">
+                  <span tal:content="item/title">Link Title</span>
+                  <span tal:condition="python:'extra' in item and 'stateTitle' in item['extra']"
+                        tal:attributes="class item/extra/class"
+                        tal:content="item/extra/stateTitle"
+                         i18n:translate="">Private</span>
+                  <b class="caret">
+                </a>
+                <ul class="dropdown-menu" tal:condition="item/submenu">
+                  <li tal:repeat="subitem item/submenu"
+                      tal:attributes="class subitem/klass|nothing; id subitem/id|nothing;">
+                    <a href="#"
+                       tal:attributes="href subitem/action; target subitem/link_target|nothing;">
+                      <span tal:content="subitem/title"
+                         i18n:translate="">Link Title</span>
+                    </a>
+                  </li>
+                </ul>
+            </li>
+            <li class="dropdown" id="plone-personal-actions">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" 
+                 tal:attributes="href viewlet/user_homeurl">
+                <span tal:content="viewlet/user_displayname">Fullname</span>
+                <b class="caret">
+              </a>
+              <ul class="dropdown-menu">
+                <li tal:repeat="subitem viewlet/user_actions"
+                  tal:attributes="id string:plone-personal-actions-${subitem/id};">
+                  <a href="#"
+                     tal:attributes="href subitem/url; target subitem/link_target|nothing;"
+                     tal:content="subitem/title">Link Title</a>
+                </li>
+              </ul>
+            </li>
+        </ul>
+
+    </div>
+</div>
