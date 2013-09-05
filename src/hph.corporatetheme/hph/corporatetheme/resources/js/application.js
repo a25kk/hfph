@@ -62,7 +62,7 @@
                 $.each(data.items, function (i, item) {
                     //alert('Item:' + item.title);
                     div_data += '<a class="app-box-item" href="' + item.url + '">';
-                    div_data += '<time>' + item.date + '</time>';
+                    div_data += '<time class="app-box-date h5">' + item.date + '</time>';
                     div_data += '<span>' + item.title + '</span>';
                     div_data += '<span class="app-box-item-more text-right"><i class="icon-double-angle-right"></i></span>';
                     div_data += '</a>';

@@ -8760,6 +8760,7 @@ dl.portalMessage.error .alert-link {
 }
 body > .portalMessage {
   padding-top: 60px;
+  margin-bottom: -50px;
 }
 .listingBar {
   padding-left: 0;
@@ -9068,6 +9069,13 @@ dd.image-caption {
   border: 0;
   color: #003366;
 }
+.app-actionbar-nav > li.active > a,
+.app-actionbar-nav > li.active > a:hover,
+.app-actionbar-nav > li.active > a:focus {
+  border: 0;
+  color: #333333;
+  background: transparent;
+}
 .app-actionbar-form {
   width: 100%;
   background: #999999;
@@ -9145,8 +9153,7 @@ textarea.app-actionbar-form .input-sm {
   font-weight: 700;
   color: #003366;
   text-transform: uppercase;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding: 15px 10px;
   border-left: 1px solid rgba(255, 255, 255, 0.75);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 3px 7px rgba(0, 0, 0, 0.15);
@@ -9159,6 +9166,9 @@ textarea.app-actionbar-form .input-sm {
 .app-navbar-main > .navitem.selected a {
   background-color: #003366;
   color: #fff;
+}
+.app-subnavbar {
+  border: 1px solid #eeeeee;
 }
 .app-footer {
   margin-top: 5px;

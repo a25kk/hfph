@@ -7,15 +7,15 @@ from zope.component import getUtility
 from zope.interface import Interface
 from zope.browsermenu.interfaces import IBrowserMenu
 from zope.traversing.interfaces import ITraversable
-from plone.app.layout.viewlets.interfaces import IPortalFooter
+from plone.app.layout.viewlets.interfaces import IPortalHeader
 from plone.memoize.instance import memoize
 
 
-class Toolbar(grok.Viewlet):
+class ToolbarViewlet(grok.Viewlet):
     grok.context(Interface)
     grok.require('zope2.View')
-    grok.viewletmanager(IPortalFooter)
-    grok.name('ade25.toolbar.ToolbarViewlet')
+    grok.viewletmanager(IPortalHeader)
+    grok.name('vwc.toolbar.ToolbarViewlet')
 
     def update(self):
         self.context = aq_inner(self.context)

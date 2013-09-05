@@ -15,7 +15,7 @@
                 portal_url context/portal_url">
       <div class="row">
         <div class="col-xs-12 col-lg-9" id="app-col-content">
-            <aside class="app-tile app-sidebar" id="app-sidebar">
+            <aside class="app-tile app-sidebar" id="page-content">
             <img class="img-polaroid" 
                 tal:define="portal_url context/portal_url" 
                 tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/banner-dummy.jpg'" />

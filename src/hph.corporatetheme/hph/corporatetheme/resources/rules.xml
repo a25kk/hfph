@@ -77,21 +77,26 @@
         <replace css:content="#brandbar-sectionname"
             css:theme="#brandbar-sectionname" />
 
-        <!-- Global navigation -->
         <replace css:content-children="#portal-navigation"
-            css:theme-children="#app-navbar-main" />
+            css:theme-children="#app-sections"
+            css:if-not-content="body.template-frontpage-view" />
 
-        <replace css:content-children="#portal-subnavigation"
-            css:theme-children="#app-navbar-main" />
+        <!-- FIXME: Global navigation -->
+        <!--<replace css:content-children="#portal-navigation"
+            css:theme-children="#app-navbar-main" />-->
 
         <replace css:content-children="#portal-navigation"
             css:theme-children="#app-navbar-main"
             css:if-content="body.template-frontpage-view" />
 
+        <replace css:content-children="#portal-subnavigation"
+            css:theme-children="#app-navbar-main" />
+
         <drop css:theme="#subnavbar"
             css:if-not-content="#subsubsections" />
-        <replace css:content-children="#subsubsections"
-            css:theme-children="#subnavigation" />
+        <replace css:content-children="#portal-subsubnavigation"
+            css:theme-children="#app-subnavigation" />
+
 
         <!-- Breadcrumbs -->
         <replace css:content-children='#portal-breadcrumbs'
@@ -113,10 +118,11 @@
         </rules>
         <rules css:if-content="body.portaltype-hph-sitecontent-mainsection">
             <replace css:content-children="#content" 
-                css:theme-children="#app-content"
-                css:if-content="body.template-edit" />
+                css:theme-children="#app-content-body"
+                css:if-not-content="#app-content" />
             <replace css:content-children="#app-content" 
-                css:theme-children="#app-content" />
+                css:theme-children="#app-content"
+                css:if-content="#app-content" />
         </rules>
 
         <!-- Document Content -->
