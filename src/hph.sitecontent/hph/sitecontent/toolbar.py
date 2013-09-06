@@ -15,7 +15,7 @@ class ToolbarViewlet(grok.Viewlet):
     grok.context(Interface)
     grok.require('zope2.View')
     grok.viewletmanager(IPortalHeader)
-    grok.name('vwc.toolbar.ToolbarViewlet')
+    grok.name('hph.sitecontent.ToolbarViewlet')
 
     def update(self):
         self.context = aq_inner(self.context)
