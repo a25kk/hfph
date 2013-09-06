@@ -61,6 +61,17 @@ body {
     }
 }
 
+.page-signin {
+    max-width: 480px;
+    .page-content {
+        padding-top: @line-height-computed;
+    }
+    .page-footer {
+        //padding-top: @line-height-computed;
+        //border-top: 1px solid @gray-lighter;
+    }
+}
+
 
 
 // Main content area styles
@@ -88,8 +99,16 @@ body {
 
 // Special fullscreen hero unit (login form etc)
 .app-content-hero {
-    max-width: @container-tablet;
+    max-width: 480px;
     margin: (@navbar-height * 2) auto;
+}
+
+.signin-brand {
+    display: block;
+    overflow: hidden;
+    background:url(../assets/img/logo.jpg)  no-repeat 0 0 transparent;
+    text-indent: -999999px;
+    .size(250px, 100px);
 }
 
 
@@ -135,7 +154,7 @@ ul.navTree {
 // Spacing for login/signin page
 
 #login-forgotten-password {
-    margin: @navbar-height 0;
+    margin: @navbar-height 0 @line-height-computed;
 }
 
 // Reset tiny mce content body styling for better readability
