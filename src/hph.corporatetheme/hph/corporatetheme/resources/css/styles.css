@@ -9250,6 +9250,26 @@ body {
 .app-content-body {
   padding: 20px;
 }
+.app-content-body #publication-list {
+  padding: 20px;
+}
+.app-content-body #publication-list .row {
+  border: 0px solid black;
+  background: #eeeeee;
+  padding: 20px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.app-content-body #publication-list .row h2 {
+  border: 0px solid red;
+  margin-top: 0;
+}
+.app-content-body #publication-list .row img {
+  margin-top: 40px;
+  border: 5px solid white;
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(25, 25, 25, 0.3);
+}
 .template-login_form .app-content-body {
   padding: 20px;
 }

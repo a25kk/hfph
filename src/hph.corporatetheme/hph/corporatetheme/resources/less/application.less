@@ -80,6 +80,32 @@ body {
 
 .app-content-body {
     padding: @line-height-computed;
+
+    #publication-list {
+        padding: @line-height-computed;
+
+        .row {
+            border: 0px solid black;
+            background: @gray-lighter;
+            padding: @line-height-computed;
+            border-radius: @border-radius-base;
+            margin-bottom: @line-height-computed; 
+
+            h2 {
+            border: 0px solid red;
+            margin-top: 0;
+            }
+
+            img {
+                margin-top: @line-height-computed * 2;
+                border: 5px solid white;
+                border-radius: @border-radius-base;
+                box-shadow: 0 0 3px rgba(25, 25, 25, 0.30);
+
+            }
+
+        }
+    }
 }
 
 .template-login_form .app-content-body {
