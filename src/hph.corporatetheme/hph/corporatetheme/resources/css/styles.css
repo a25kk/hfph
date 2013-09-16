@@ -9287,7 +9287,7 @@ body {
   border: none;
 }
 .app-content-body #publication-list {
-  padding: 20px;
+  padding: 0 20px 20px 20px;
 }
 .app-content-body #publication-list .row {
   border: 0px solid black;
