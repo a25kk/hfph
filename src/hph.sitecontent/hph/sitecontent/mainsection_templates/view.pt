@@ -18,7 +18,7 @@
             <aside class="app-tile" id="page-content">
                 <tal:img tal:condition="context/image">
                     <img tal:define="img view/banner_image"
-                        tal:attributes="class string:img-thumbnail;
+                        tal:attributes="class string:img-polaroid;
                                         src img/url;
                                         width img/width;
                                         height img/height" />
