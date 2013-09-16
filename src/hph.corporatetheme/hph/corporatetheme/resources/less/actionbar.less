@@ -2,8 +2,9 @@
 // Actionbar including meta nav and search box
 // -------------------------------------------------
 
-.app-actionbar {
-    
+.app-actionbar { 
+    margin-right: @line-height-computed * 2; 
+    margin-top: -(@line-height-computed * 0.3);
 }
 
 .app-actionbar-nav {
@@ -11,12 +12,14 @@
     margin-right: -(@line-height-computed * 1.5);
     font-size: @font-size-small;
     text-transform: uppercase;
-    border: 0px solid @app-gray;
-    border-width: 1px 0 1px 1px;
+    border: 6px solid @gray-light;
+    border-width: 6px 0 1px 1px !important;
+    border-radius: 0 0 0 @border-radius-base;
     > li > a {
         border-radius: 0;
-        padding: (@line-height-computed / 2);
+        padding: (@line-height-computed / 2.5);
         border: 0;
+        outline: none;
     }
     > li > a:hover {
         background: none;
@@ -36,8 +39,9 @@
 .app-actionbar-form {
     width: 100%;
     background: @gray-light;
-    padding: (@padding-small-vertical - 1)  @line-height-computed;
-    border: none;
+    padding: (@padding-small-vertical - 1.6)  @line-height-computed;
+    border-top: 2px solid @gray-light;
+    border-radius: 0 0 @border-radius-base 0;
     .btn-sm {
         background: white;
         border: 0;
