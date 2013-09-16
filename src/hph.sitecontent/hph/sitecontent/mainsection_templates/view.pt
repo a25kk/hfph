@@ -15,10 +15,18 @@
                 portal_url context/portal_url">
       <div class="row">
         <div class="col-xs-12 col-lg-9" id="app-col-content">
-            <aside class="app-tile app-sidebar" id="page-content">
-            <img class="img-polaroid" 
-                tal:define="portal_url context/portal_url" 
-                tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/banner-dummy.jpg'" />
+            <aside class="app-tile" id="page-content">
+                <tal:img tal:condition="context/image">
+                    <img tal:define="img python:view.constructImageTag(item);"
+                        tal:attributes="class string:img-thumbnail;
+                                        src img/url;
+                                        width img/width;
+                                        height img/height" />
+                </tal:img>
+                <img class="img-polaroid" 
+                    tal:condition="not:context/image"
+                    tal:define="portal_url context/portal_url" 
+                    tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/banner-dummy.jpg'" />
           </aside>
         </div>
         <div class="col-xs-12 col-lg-3" id="app-col-sidebar">
