@@ -9139,7 +9139,7 @@ textarea.app-actionbar-form .input-sm {
   }
 }
 .app-brandbar {
-  padding: 50px 50px 25px;
+  padding: 50px 25px 25px;
 }
 .app-brandbar .brandbar-brand {
   display: block;
@@ -9150,15 +9150,27 @@ textarea.app-actionbar-form .input-sm {
   height: 100px;
 }
 .app-brandbar .brandbar-label {
-  text-align: right;
+  margin-top: 20px;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .app-brandbar .brandbar-label {
+    text-align: right;
+    margin-top: 0;
+  }
 }
 .app-brandbar .brandbar-sectionname {
   font-size: 54px;
   line-height: 60px;
   color: #999999;
   text-align: right;
+}
+@media (min-width: 992px) {
+  .app-brandbar {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
 }
 @media (min-width: 992px) {
   .app-navbar {

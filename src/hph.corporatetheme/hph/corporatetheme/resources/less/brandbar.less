@@ -3,7 +3,7 @@
 // --------------------------------------------------
 
 .app-brandbar {
-    padding: @navbar-height @navbar-height (@navbar-height / 2);
+    padding: @navbar-height (@navbar-height / 2) (@navbar-height / 2);
     .brandbar-brand {
         display: block;
         overflow: hidden;
@@ -11,17 +11,24 @@
         text-indent: -999999px;
         .size(250px, 100px);
     }
-
     .brandbar-label {
-        text-align: right;
+        margin-top: @line-height-computed;
         text-transform: uppercase;
-        font-weight: bold;
+        font-weight: 600;
+        @media (min-width: @screen-tablet) {
+            .text-right();
+            margin-top: 0;
+        }
     }
     .brandbar-sectionname {
         font-size: @font-size-large * 3;
         line-height: @line-height-computed * 3; 
         color: @gray-light;
         text-align: right;
+    }
+    @media (min-width: @screen-desktop) {
+        padding-right: @navbar-height;
+        padding-left: @navbar-height;
     }
 }
 
