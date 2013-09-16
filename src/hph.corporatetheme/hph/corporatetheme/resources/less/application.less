@@ -62,7 +62,17 @@ body {
     padding: @line-height-computed;
     .page-header {
         margin-top: 0;
+        border: none;
     }
+}
+
+// sidebar
+
+.app-sidebar {
+    border: 0px solid red;
+    display: inline-block;
+    width: 100%;
+    padding: @line-height-computed;
 }
 
 
@@ -84,6 +94,11 @@ body {
 
 .app-content-body {
     padding: @line-height-computed;
+
+    .page-header {
+        margin-top: 0;
+        border: none;
+    }
 
     #publication-list {
         padding: @line-height-computed;

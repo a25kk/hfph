@@ -9262,6 +9262,13 @@ body {
 }
 .page .page-header {
   margin-top: 0;
+  border: none;
+}
+.app-sidebar {
+  border: 0px solid red;
+  display: inline-block;
+  width: 100%;
+  padding: 20px;
 }
 .app-content #frontpage-content {
   padding: 0;
@@ -9274,6 +9281,10 @@ body {
 }
 .app-content-body {
   padding: 20px;
+}
+.app-content-body .page-header {
+  margin-top: 0;
+  border: none;
 }
 .app-content-body #publication-list {
   padding: 20px;
