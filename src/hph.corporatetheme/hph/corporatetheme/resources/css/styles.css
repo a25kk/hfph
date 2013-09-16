@@ -9342,6 +9342,24 @@ body {
   border-radius: 4px;
   box-shadow: 0 0 3px rgba(25, 25, 25, 0.3);
 }
+.news .app-content-body {
+  padding-bottom: 0;
+}
+.news .app-tile {
+  box-shadow: none;
+}
+.news .page {
+  padding: 0;
+}
+.news .app-box {
+  padding: 0px;
+}
+.news .app-img {
+  width: 100%;
+}
+.news .app-box-footer {
+  padding: 0;
+}
 .template-login_form .app-content-body {
   padding: 20px;
 }
