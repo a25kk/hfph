@@ -20,6 +20,10 @@ body {
 
 // Actionbar including searchbox and meta navigation
 
+.app-header-content {
+    border-top: 5px solid @app-blue;
+}
+
 .site-actionbar {
     border: 1px solid @app-gray;
     ul {
@@ -58,6 +62,7 @@ body {
     padding: @line-height-computed;
     .page-header {
         margin-top: 0;
+        border: none;
     }
 }
 
@@ -70,6 +75,14 @@ body {
         //padding-top: @line-height-computed;
         //border-top: 1px solid @gray-lighter;
     }
+}
+
+// sidebar
+.app-sidebar {
+    border: 0px solid red;
+    display: inline-block;
+    width: 100%;
+    padding: @line-height-computed;
 }
 
 
@@ -91,6 +104,37 @@ body {
 
 .app-content-body {
     padding: @line-height-computed;
+
+    .page-header {
+        margin-top: 0;
+        border: none;
+    }
+
+    #publication-list {
+        padding: 0 @line-height-computed @line-height-computed @line-height-computed;
+
+        .row {
+            border: 0px solid black;
+            background: @gray-lighter;
+            padding: @line-height-computed;
+            border-radius: @border-radius-base;
+            margin-bottom: @line-height-computed; 
+
+            h2 {
+            border: 0px solid red;
+            margin-top: 0;
+            }
+
+            img {
+                margin-top: @line-height-computed * 2;
+                border: 5px solid white;
+                border-radius: @border-radius-base;
+                box-shadow: 0 0 3px rgba(25, 25, 25, 0.30);
+
+            }
+
+        }
+    }
 }
 
 .template-login_form .app-content-body {

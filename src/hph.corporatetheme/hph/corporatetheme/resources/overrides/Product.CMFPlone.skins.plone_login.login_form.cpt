@@ -190,21 +190,13 @@
                         </tal:email>
 
                     </div>
-
-                    <div class="row">
-                        <div class="col-xs-12 col-lg-8">
-                            <div id="login-forgotten-password"
-                                 tal:condition="python:mail_password_url and use_normal">
-                                <p class="text-discreet">
-                                    <a tal:define="mail_password_url python:mail_password_url+test(mail_password_url.find('?')==-1, '?', '&amp;')+ztu.make_query(userid=login_name)"
-                                            tal:attributes="href mail_password_url; target target;"
-                                           i18n:translate="box_forgot_password_option">Forgot your password?</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="formControls">
-
+                    <div class="formControls text-right">
+                        <span tal:condition="python:mail_password_url and use_normal">
+                            <a class="btn btn-link btn-sm" tal:define="mail_password_url python:mail_password_url+test(mail_password_url.find('?')==-1, '?', '&amp;')+ztu.make_query(userid=login_name)"
+                                tal:attributes="href mail_password_url; target target;"
+                                i18n:translate="box_forgot_password_option">Forgot your password?</a>
+                        </span>
+                        <a class="btn btn-link btn-sm" href="http://127.0.0.1:8499/hph/mail_password_form?userid=">Passwort vergessen?</a>
                         <input class="context"
                                type="submit"
                                name="submit"
