@@ -23,7 +23,7 @@
                                         width img/width;
                                         height img/height" />
                 </tal:img>
-                <img class="img-polaroid" 
+                <img class="img-polaroid"
                     tal:condition="not:context/image"
                     tal:define="portal_url context/portal_url" 
                     tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/banner-dummy.jpg'" />
