@@ -4225,7 +4225,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   cursor: pointer;
 }
 .label:empty {
-  display: none;
+
 }
 .label-default {
   background-color: #999999;
