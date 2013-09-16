@@ -1,8 +1,10 @@
 <div id="brandbar-sectionname" class="brandbar-sectionname"
+    tal:condition="viewlet/show_sectionname"
     tal:define="selected viewlet/selected_section;
                 pretty_tab python:viewlet.prettify_section_name(selected)">
     <span tal:content="pretty_tab" />
 </div>
+<pre tal:content="viewlet/selected_section" />
 <div id="sections">
     <ul id="portal-navigation"
         class="nav navbar-nav nav-justified"

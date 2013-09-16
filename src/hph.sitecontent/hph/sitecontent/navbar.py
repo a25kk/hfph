@@ -33,6 +33,12 @@ class NavbarViewlet(grok.Viewlet):
             portal_tabs=self.main_sections())
         self.selected_section = self.selected_tabs['portal']
 
+    def show_sectionname(self):
+        display = False
+        if self.selected_section and self.selected_section != 'index_html':
+            display = True
+        return display
+
     def prettify_section_name(self, name):
         portal = api.portal.get()
         tab = self.selected_section
