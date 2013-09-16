@@ -12,8 +12,8 @@
     margin-right: -(@line-height-computed * 1.5);
     font-size: @font-size-small;
     text-transform: uppercase;
-    border: 6px solid @gray-light;
-    border-width: 6px 0 1px 1px;
+    border: 0px solid @gray-light;
+    border-width: 6px 1px 1px 1px;
     > li > a {
         border-radius: 0;
         padding: (@line-height-computed / 2.5);
@@ -38,9 +38,9 @@
 .app-actionbar-form {
     width: 100%;
     background: @gray-light;
-    padding: (@padding-small-vertical - 1.6)  @line-height-computed;
+    padding: (@padding-small-vertical - 2)  @line-height-computed (@padding-small-vertical - 1);
     border-top: 2px solid @gray-light;
-    border-radius: 0 0 @border-radius-base 0;
+    border-radius: 0;
     .btn-sm {
         background: white;
         border: 0;

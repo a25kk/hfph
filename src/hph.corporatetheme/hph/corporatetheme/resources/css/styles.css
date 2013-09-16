@@ -9035,7 +9035,7 @@ dd.image-caption {
 }
 .app-box-item {
   display: block;
-  padding: 10px 10px 9.523809523809524px 10px;
+  padding: 10px;
   color: #404040;
 }
 .app-box-item:before,
@@ -9084,9 +9084,8 @@ dd.image-caption {
   margin-right: -30px;
   font-size: 12px;
   text-transform: uppercase;
-  border: 6px solid #999999;
-  border-width: 6px 0 1px 1px !important;
-  border-radius: 0 0 0 4px;
+  border: 0px solid #999999;
+  border-width: 6px 1px 1px 1px;
 }
 .app-actionbar-nav > li > a {
   border-radius: 0;
@@ -9109,9 +9108,9 @@ dd.image-caption {
 .app-actionbar-form {
   width: 100%;
   background: #999999;
-  padding: 3.4px 20px;
+  padding: 3px 20px 4px;
   border-top: 2px solid #999999;
-  border-radius: 0 0 4px 0;
+  border-radius: 0;
 }
 .app-actionbar-form .btn-sm {
   background: white;
@@ -9203,16 +9202,13 @@ textarea.app-actionbar-form .input-sm {
   background-color: #003366;
   color: #fff;
 }
-#app-subnavbar a {
-  outline: none;
-}
-#app-subnavbar .nav-pills > li > a:hover,
-#app-subnavbar .nav-pills > li > a:focus {
+.app-subnavbar .app-subnav > li > a:hover,
+.app-subnavbar .app-subnav > li > a:focus {
   border-radius: 0;
 }
-#app-subnavbar .nav-pills > li.active > a,
-#app-subnavbar .nav-pills > li.active > a:hover,
-#app-subnavbar .nav-pills > li.active > a:focus {
+.app-subnavbar .app-subnav > li.active > a,
+.app-subnavbar .app-subnav > li.active > a:hover,
+.app-subnavbar .app-subnav > li.active > a:focus {
   background-color: #003366;
   border-radius: 0;
 }
@@ -9288,17 +9284,17 @@ body {
   margin-top: 0;
   border: none;
 }
-.app-sidebar {
-  border: 0px solid red;
-  display: inline-block;
-  width: 100%;
-  padding: 20px;
-}
 .page-signin {
   max-width: 480px;
 }
 .page-signin .page-content {
   padding-top: 20px;
+}
+.app-sidebar {
+  border: 0px solid red;
+  display: inline-block;
+  width: 100%;
+  padding: 20px;
 }
 .app-content #frontpage-content {
   padding: 0;
