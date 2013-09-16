@@ -27,7 +27,7 @@
                     tal:define="item_obj item/getObject;
                                  scales item_obj/@@images"
                     tal:replace="structure python: scales.tag('image',
-                                 width=140, height=140, direction='down')"
+                                 width=140, height=200, direction='down')"
                 />
             </div>
             <div class="col col-9 col-lg-9">
