@@ -9011,7 +9011,7 @@ dd.image-caption {
 }
 .app-box-item {
   display: block;
-  padding: 10px;
+  padding: 10px 10px 9.523809523809524px 10px;
   color: #404040;
 }
 .app-box-item:before,
