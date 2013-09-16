@@ -4225,7 +4225,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   cursor: pointer;
 }
 .label:empty {
-
+  display: none;
 }
 .label-default {
   background-color: #999999;
@@ -9308,11 +9308,9 @@ body {
   width: 100%;
   padding: 20px;
 }
-.app-content #frontpage-content {
-  padding: 0;
-}
-.app-content #frontpage-content .page-header {
-  display: none;
+.app-content .img-section {
+  border: 5px solid white;
+  width: 100%;
 }
 .app-content .tile-content {
   padding: 1.428571429;
