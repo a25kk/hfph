@@ -77,7 +77,7 @@ class RecentEventsView(grok.View):
                           review_state='published',
                           sort_on='start',
                           sort_order='reverse',
-                          sort_limit=4)[:4]
+                          sort_limit=3)[:3]
         return results
 
     def get_localized_date(self, item):
