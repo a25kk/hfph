@@ -17,7 +17,7 @@
         <div class="col-xs-12 col-lg-9" id="app-col-content">
             <aside class="app-tile" id="page-content">
                 <tal:img tal:condition="context/image">
-                    <img tal:define="img python:view.constructImageTag(item);"
+                    <img tal:define="img view/banner_image"
                         tal:attributes="class string:img-thumbnail;
                                         src img/url;
                                         width img/width;

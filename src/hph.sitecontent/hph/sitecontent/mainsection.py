@@ -34,7 +34,7 @@ class View(grok.View):
     grok.require('zope2.View')
     grok.name('view')
 
-    def constructImageTag(self):
+    def banner_image(self):
         obj = aq_inner(self.context)
         scales = getMultiAdapter((obj, self.request), name='images')
         scale = scales.scale('image', width=870, height=421)
