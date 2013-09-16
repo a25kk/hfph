@@ -9051,18 +9051,24 @@ dd.image-caption {
 .app-box-striped .app-box-item:nth-child(odd) {
   background-color: #f9f9f9;
 }
+.app-actionbar {
+  margin-right: 40px;
+  margin-top: -6px;
+}
 .app-actionbar-nav {
   padding-right: 20px;
   margin-right: -30px;
   font-size: 12px;
   text-transform: uppercase;
-  border: 0px solid #404040;
-  border-width: 1px 0 1px 1px;
+  border: 6px solid #999999;
+  border-width: 6px 0 1px 1px !important;
+  border-radius: 0 0 0 4px;
 }
 .app-actionbar-nav > li > a {
   border-radius: 0;
-  padding: 10px;
+  padding: 8px;
   border: 0;
+  outline: none;
 }
 .app-actionbar-nav > li > a:hover {
   background: none;
@@ -9079,8 +9085,9 @@ dd.image-caption {
 .app-actionbar-form {
   width: 100%;
   background: #999999;
-  padding: 4px 20px;
-  border: none;
+  padding: 3.4px 20px;
+  border-top: 2px solid #999999;
+  border-radius: 0 0 4px 0;
 }
 .app-actionbar-form .btn-sm {
   background: white;
@@ -9206,6 +9213,9 @@ body {
 }
 .app-toolbar + .app-header {
   margin-top: 50px;
+}
+.app-header-content {
+  border-top: 5px solid #003366;
 }
 .site-actionbar {
   border: 1px solid #404040;
