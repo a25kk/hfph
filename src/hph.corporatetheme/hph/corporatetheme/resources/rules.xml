@@ -74,8 +74,8 @@
         <!--<copy attributes="action" css:content="#portal-searchbox form"
             css:theme="#portal-searchbox" />-->
 
-        <replace css:content="#brandbar-section"
-            css:theme="#brandbar-section" />
+        <replace css:content="#brandbar-sectionname"
+            css:theme="#brandbar-sectionname" />
 
         <replace css:content-children="#portal-navigation"
             css:theme-children="#app-sections"
