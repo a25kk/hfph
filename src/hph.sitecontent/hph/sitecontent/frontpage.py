@@ -24,7 +24,10 @@ class FrontpageView(grok.View):
         context = aq_inner(self.context)
         catalog = getToolByName(context, 'portal_catalog')
         results = catalog(object_provides=IEventItem.__identifier__,
-                          review_state='published')
+                          review_state='published',
+                          sort_on='start',
+                          sort_order='reverse',
+                          sort_limit=3)[:3]
         resultlist = IContentListing(results)
         return resultlist
 

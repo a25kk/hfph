@@ -9075,6 +9075,9 @@ dd.image-caption {
 .app-box-striped .app-box-item:nth-child(odd) {
   background-color: #f9f9f9;
 }
+.app-box-newsitem {
+  border: 1px solid red;
+}
 .app-actionbar {
   margin-right: 40px;
   margin-top: -6px;
@@ -9344,9 +9347,6 @@ body {
 }
 .news .app-content-body {
   padding-bottom: 0;
-}
-.news .app-tile {
-  box-shadow: none;
 }
 .news .page {
   padding: 0;

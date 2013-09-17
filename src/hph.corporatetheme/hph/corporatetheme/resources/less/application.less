@@ -103,27 +103,23 @@ body {
 
 .app-content-body {
     padding: @line-height-computed;
-
     .page-header {
         margin-top: 0;
         border: none;
     }
-
+    // REFACTOR ME - this should be removed asap
     #publication-list {
         padding: 0 @line-height-computed @line-height-computed @line-height-computed;
-
         .row {
             border: 0px solid black;
             background: @gray-lighter;
             padding: @line-height-computed;
             border-radius: @border-radius-base;
             margin-bottom: @line-height-computed; 
-
             h2 {
             border: 0px solid red;
             margin-top: 0;
             }
-
             img {
                 margin-top: @line-height-computed * 2;
                 border: 5px solid white;
@@ -140,10 +136,6 @@ body {
 
     .app-content-body {
         padding-bottom: 0;
-    }
-
-    .app-tile {
-        box-shadow: none;
     }
 
     .page {

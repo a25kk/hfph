@@ -57,9 +57,7 @@
         </div>
       </div>
         <div class="app-tile app-tile-news">
-            <section class="app-content-body" id="app-content-body">
-            <section class="page">
-              <article class="page-content">
+            <article class="app-tile-news-content">
                 <div class="row"
                     tal:condition="view/has_news">
                     <tal:block tal:repeat="item view/recent_news">
@@ -92,9 +90,7 @@
                       </div>
                     </tal:block>
                 </div>
-              </article>
-            </section>
-          </section>
+            </article>
         </div>
     </section> <!-- /container app-content -->
   </metal:content-core>
