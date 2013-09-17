@@ -16,7 +16,7 @@
       <div class="row">
         <div class="col-xs-12 col-lg-9" id="app-col-content">
             <aside class="app-tile" id="app-sidebar-fp">
-            <img class="img-polaroid" 
+            <img class="img-section" 
                 tal:define="portal_url context/portal_url" 
                 tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/banner-dummy.jpg'" />
           </aside>
@@ -56,8 +56,13 @@
             </aside>
         </div>
       </div>
+<<<<<<< HEAD
         <div class="app-tile">
             <section class="app-content-body" id="app-content-body">
+=======
+        <div class="app-tile news">
+            <section class="app-tile app-content-body" id="app-content-body">
+>>>>>>> c393525a2b77684a87186141e0d980039d6e574f
             <section class="page">
               <article class="page-content">
                 <div class="row"

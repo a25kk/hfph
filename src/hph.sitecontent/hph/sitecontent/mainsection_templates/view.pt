@@ -18,12 +18,12 @@
             <aside class="app-tile" id="page-content">
                 <tal:img tal:condition="context/image">
                     <img tal:define="img view/banner_image"
-                        tal:attributes="class string:img-thumbnail;
+                        tal:attributes="class string:img-section;
                                         src img/url;
                                         width img/width;
                                         height img/height" />
                 </tal:img>
-                <img class="img-polaroid"
+                <img class="img-section"
                     tal:condition="not:context/image"
                     tal:define="portal_url context/portal_url" 
                     tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/banner-dummy.jpg'" />
