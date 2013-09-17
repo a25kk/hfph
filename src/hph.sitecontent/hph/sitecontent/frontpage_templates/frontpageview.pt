@@ -56,13 +56,8 @@
             </aside>
         </div>
       </div>
-<<<<<<< HEAD
-        <div class="app-tile">
+        <div class="app-tile app-tile-news">
             <section class="app-content-body" id="app-content-body">
-=======
-        <div class="app-tile news">
-            <section class="app-tile app-content-body" id="app-content-body">
->>>>>>> c393525a2b77684a87186141e0d980039d6e574f
             <section class="page">
               <article class="page-content">
                 <div class="row"
