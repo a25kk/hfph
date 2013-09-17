@@ -9,55 +9,67 @@
 
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
-
-    <section class="app-list app-list-publications" id="publication-list">
-      <header class="page-header">
-        <h1 tal:content="context/Title" />
-      </header>
-      <section class="page-content" id="content-core">
-        <div class="alert" tal:condition="not:view/has_publications">
-          <h4>Note:</h4>
-          <p>There are no publications available yet</p>
+    <div class="row">
+        <div class="col-xs-12 col-lg-3">
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="#filter">Neuerscheinungen</a></li>
+                <li><a href="#filter">Filter A</a></li>
+                <li><a href="#filter">Filter B</a></li>
+                <li><a href="#filter">Filter C</a></li>
+                <li><a href="#filter">Filter D</a></li>
+            </ul>
         </div>
-
-        <tal:block tal:condition="view/has_publications">
-          <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
-                           b_size python:int(request.get('b_size', 20));
-                           b_start python:int(request.get('b_start', 0));
-                           results view/publications;
-                           batch python:Batch(results, b_size, b_start);">
-            <div class="app-list-item" tal:repeat="item batch">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-3 col-lg-3">
-                        <img tal:condition="item/image"
-                            tal:define="item_obj item/getObject;
-                                         scales item_obj/@@images"
-                            tal:replace="structure python: scales.tag('image',
-                                         width=200,
-                                         height=200,
-                                         css_class='app-img',
-                                         direction='down')"
-                        />
-                    </div>
-                    <div class="col-xs-12 col-sm-9 col-lg-9">
-                      <h2 class="h2 list-item-heading">
-                        <small>
-                            <span tal:condition="item/authorOne"
-                                tal:replace="item/authorOne" />
-                        </small>
-                        <br />
-                        <span tal:replace="item/Title" />
-                      </h2>
-                      <div tal:condition="item/summary"
-                        tal:content="structure item/summary/output" />
-                    </div>
+        <div class="col-xs-12 col-lg-9">
+            <section class="app-list app-list-publications" id="publication-list">
+              <header class="page-header">
+                <h1 tal:content="context/Title" />
+              </header>
+              <section class="page-content" id="content-core">
+                <div class="alert" tal:condition="not:view/has_publications">
+                  <h4>Note:</h4>
+                  <p>There are no publications available yet</p>
                 </div>
-            </div>
-            <div metal:use-macro="context/batch_macros/macros/navigation" />
-          </div>
-        </tal:block>
-      </section>
-    </section>
+        
+                <tal:block tal:condition="view/has_publications">
+                  <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                                   b_size python:int(request.get('b_size', 20));
+                                   b_start python:int(request.get('b_start', 0));
+                                   results view/publications;
+                                   batch python:Batch(results, b_size, b_start);">
+                    <div class="app-list-item" tal:repeat="item batch">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-3 col-lg-3">
+                                <img tal:condition="item/image"
+                                    tal:define="item_obj item/getObject;
+                                                 scales item_obj/@@images"
+                                    tal:replace="structure python: scales.tag('image',
+                                                 width=200,
+                                                 height=200,
+                                                 css_class='app-img',
+                                                 direction='down')"
+                                />
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-lg-9">
+                              <h2 class="h2 list-item-heading">
+                                <small>
+                                    <span tal:condition="item/authorOne"
+                                        tal:replace="item/authorOne" />
+                                </small>
+                                <br />
+                                <span tal:replace="item/Title" />
+                              </h2>
+                              <div tal:condition="item/summary"
+                                tal:content="structure item/summary/output" />
+                            </div>
+                        </div>
+                    </div>
+                    <div metal:use-macro="context/batch_macros/macros/navigation" />
+                  </div>
+                </tal:block>
+              </section>
+            </section>
+        </div>
+    </div>
    
   </metal:content-core>
 </metal:main>
