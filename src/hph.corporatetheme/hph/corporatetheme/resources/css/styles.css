@@ -9075,8 +9075,8 @@ dd.image-caption {
 .app-box-striped .app-box-item:nth-child(odd) {
   background-color: #f9f9f9;
 }
-.app-box-newsitem {
-  border: 1px solid red;
+.app-box-newsitem > .app-box-footer {
+  padding: 0;
 }
 .app-actionbar {
   margin-right: 40px;
