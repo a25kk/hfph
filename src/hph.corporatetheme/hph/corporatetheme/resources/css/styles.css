@@ -9254,35 +9254,6 @@ textarea.app-actionbar-form .input-sm {
   background: url(../assets/img/donation.gif) no-repeat 0 10px;
   padding-left: 25px;
 }
-.section-pro-philosophia .app-header-content {
-  background: #7F7FB2;
-}
-.section-pro-philosophia .brandbar-brand {
-  display: block;
-  overflow: hidden;
-  background: url(../assets/img/logo-pro-philosophia.jpg) no-repeat 0 0 transparent;
-  text-indent: -999999px;
-  width: 250px;
-  height: 100px;
-}
-.section-pro-philosophia .app-actionbar-nav > li > a {
-  color: white;
-}
-.section-pro-philosophia .app-actionbar-nav > li > a:hover {
-  color: white;
-}
-.section-pro-philosophia .app-footer-content .nav {
-  background: #7F7FB2;
-}
-.section-pro-philosophia .app-footer-content .nav li > a {
-  color: white;
-}
-.section-pro-philosophia .app-footer-content .nav li > a:hover {
-  color: white;
-}
-.section-pro-philosophia .app-footer-content .nav li > a:focus {
-  color: white;
-}
 .subsection-institute-igp .app-navbar {
   background: #ef7d00;
 }
