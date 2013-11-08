@@ -9342,6 +9342,12 @@ body {
   margin-top: 0;
   border: none;
 }
+.app-content-body .page-header h1 {
+  font-size: 28px;
+}
+.app-content-body .lead {
+  font-size: 16.8px;
+}
 .app-content-body .app-list-item {
   background: #eeeeee;
   padding: 20px;
