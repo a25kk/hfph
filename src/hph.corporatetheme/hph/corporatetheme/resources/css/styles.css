@@ -9254,6 +9254,23 @@ textarea.app-actionbar-form .input-sm {
   background: url(../assets/img/donation.gif) no-repeat 0 10px;
   padding-left: 25px;
 }
+.subsection-institute-igp .app-navbar {
+  background: #ef7d00;
+}
+.subsection-institute-igp .app-header-content {
+  border-top: 5px solid #ef7d00;
+}
+.subsection-institute-igp .brandbar-brand {
+  display: block;
+  overflow: hidden;
+  background: url(../assets/img/logo-igp.png) no-repeat 0 0 transparent;
+  text-indent: -999999px;
+  width: 300px;
+  height: 100px;
+}
+.subsection-institute-igp .app-footer-content .nav {
+  border-top: 5px solid #ef7d00;
+}
 body {
   background: #eeeeee;
 }
@@ -9324,6 +9341,12 @@ body {
 .app-content-body .page-header {
   margin-top: 0;
   border: none;
+}
+.app-content-body .page-header h1 {
+  font-size: 28px;
+}
+.app-content-body .lead {
+  font-size: 16.8px;
 }
 .app-content-body .app-list-item {
   background: #eeeeee;
