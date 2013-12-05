@@ -8,17 +8,17 @@
  * Designed and built with all the love in the world
  */
 
-// Core variables and mixins
-@import "../libs/bootstrap/bootstrap.less";
-@import "../libs/font-awesome/less/font-awesome.less";
+// Core Bootstrap Framework
+@import "../bower_components/bootstrap/less/bootstrap.less";
 
-// Application settings and variables
-@import "settings.less";
+// Font Awesome icon font
+@import "../bower_components/font-awesome/less/font-awesome.less";
 
-// Plone specific styles
-@import "../libs/plone/plone.less";
+// Plone Compatibility
+@import "../bower_components/diazo-plone/less/plone.less";
 
 // Project specific
+@import "settings.less";
 @import "apptiles.less";
 @import "boxes.less";
 @import "actionbar.less";
@@ -27,4 +27,5 @@
 @import "footer.less";
 @import "prophilosophia.less";
 @import "igp.less";
+@import "signin.less";
 @import "application.less";

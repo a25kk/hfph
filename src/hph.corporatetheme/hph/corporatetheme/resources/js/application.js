@@ -1,14 +1,11 @@
 /*jslint white:false, onevar:true, undef:true, nomen:true, eqeqeq:true, plusplus:true, bitwise:true, regexp:true, newcap:true, immed:true, strict:false, browser:true */
-/*global jQuery:false, document:false, window:false, location:false */
+/*global jQuery:false, document:false */
+'use strict';
 
 (function ($) {
     $(document).ready(function () {
-        if (jQuery.browser.msie && parseInt(jQuery.browser.version, 10) < 7) {
-            // it's not realistic to think we can deal with all the bugs
-            // of IE 6 and lower. Fortunately, all this is just progressive
-            // enhancement.
-            return;
-        }
+        if ($('body').hasClass('lt-ie7')) {return; }
+        // Application specific javascript code goes here
         if ($(".bs-docs-top").length > 0) {
             setTimeout(function () {
                 $('.bs-docs-top').affix();
@@ -26,7 +23,6 @@
         $('#formfield-form-widgets-series input.checkbox-widget').on('click', function () {
             var input_id = this.id;
             if (input_id === 'form-widgets-series-5') {
-                alert('We have the correct id');
                 if ($(this).is(':checked')) {
                     $('#form-widgets-medium-1').attr('checked', true);
                 }
@@ -70,5 +66,6 @@
                 target_el.html(div_data);
             });
         });
-    });
+    }
+    );
 }(jQuery));

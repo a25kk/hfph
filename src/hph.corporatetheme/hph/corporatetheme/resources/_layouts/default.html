@@ -9,19 +9,16 @@
   </head>
   <body>
     <a class="sr-only" href="#content">Skip navigation</a>
-    {% include toolbar.html %}
-    <!-- Docs master nav -->
-    {% include navbar.html %}
-
-    {% include brandbar.html %}
-
-    <!-- Docs page layout -->
-    <div class="app-header">
-      <div class="container">
-        <h1>{{ page.title }}</h1>
-        <p>{{ page.lead }}</p>
-      </div>
-    </div>
+    <header class="container app-header" id="app-header" role="banner">
+        <div class="app-tile app-header-content" id="app-header-content">
+            <!-- @include "_includes/metanav.html" -->
+            {% include metanav.html %}
+            {% include brandbar.html %}
+            {% include mainnavbar.html %}
+            <!-- @include "_includes/mainnavbar.html" -->
+        </div>
+    </header><!-- /app-header -->
+    {% include subnavbar.html %}
 
     <div class="container">
         <div role="main">
@@ -30,11 +27,7 @@
     </div>
 
     {% include footer.html %}
-    <!-- JS and analytics only. -->
     {% include javascript.html %}
-    <div class="app-js-slot">
-        {% include webfonts.html %}
-    </div>
 
   </body>
 </html>
