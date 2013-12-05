@@ -43,6 +43,9 @@
         <drop theme="/html/head/script" />
         <drop theme="/html/head/link" />
 
+        <!-- Drop scripts from body -->
+        <drop theme="/html/body/script" />
+        
         <!-- Custom favicon implementation -->
         <drop content="link[@type='image/x-icon']" />
         <after theme="/html/head">

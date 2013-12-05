@@ -32,6 +32,59 @@
   </head>
   <body>
     <a class="sr-only" href="#content">Skip navigation</a>
+    <div class="navbar navbar-inverse navbar-fixed-top app-toolbar" id="app-toolbar">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".app-toolbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">CMS</a>
+    </div>
+    <div class="navbar-collapse collapse app-toolbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Inhalte</a></li>
+          <li><a href="#about">Anzeigen</a></li>
+          <li><a href="#contact">Bearbeiten</a></li>
+          <li><a href="#contact">Teilen</a></li>
+          <li><a href="#contact">Regeln</a></li>
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+          <li id="plone-personal-actions" class="dropdown dropdown-userinfo">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="/author/123456789">
+              <span>John Doe</span>
+              <b class="caret">
+            </b></a>
+            <ul class="dropdown-menu"><li id="plone-personal-actions-dashboard">
+                <a href="/dashboard">My workspace</a>
+              </li>
+              <li id="plone-personal-actions-preferences">
+                <a href="/preferences">Settings</a>
+              </li>
+              <li id="plone-personal-actions-plone_setup">
+                <a href="/controlpanel">Configuration</a>
+              </li>
+              <li id="plone-personal-actions-logout">
+                <a href="/logout">Signout</a>
+              </li>
+            </ul></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Add <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Folder</a></li>
+                <li><a href="#">Document</a></li>
+                <li><a href="#">Image</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Settings</li>
+                <li><a href="#">Filter options</a></li>
+                <li><a href="#">Add...</a></li>
+              </ul>
+            </li>
+        </ul>
+    </div><!--/.nav-collapse -->
+</div>
     <header class="container app-header" id="app-header" role="banner">
         <div class="app-tile app-header-content" id="app-header-content">
             <!-- @include "_includes/metanav.html" -->
@@ -128,23 +181,60 @@
     </header><!-- /app-header -->
 
     <div class="container app-main" id="app-main" role="main">
-          <main class="app-tile app-content">
-    <div class="app-page" id="content">
-        <div class="app-page-header">
-            <div class="app-page-headline">
-                <h1>Theme template</h1>
+          <div class="row">
+    <div class="col-xs-12 col-md-9">
+        <main class="app-tile app-content">
+            <div class="app-page" id="content">
+                <div class="app-page-header">
+                    <div class="app-page-headline">
+                        <h1>Theme template</h1>
+                    </div>
+                    <p class="lead">
+                        This is the new default theme
+                    </p>
+                </div>
+                <div class="app-page-content">
+                        <p>Next we will define a custom listing to provide a basic scaffolding
+                            before we intergrate the example API
+                        </p>
+                </div>
             </div>
-            <p class="lead">
-                This is the new default theme
-            </p>
-        </div>
-        <div class="app-page-content">
-                <p>Next we will define a custom listing to provide a basic scaffolding
-                    before we intergrate the example API
-                </p>
-        </div>
+        </main>
     </div>
-</main>
+    <div class="col-xs-12 col-md-3">
+        <aside class="app-tile app-sidebar-left" id="app-sidebar-left">
+            <aside class="app-box app-box-striped app-box-events">
+    <div class="app-box-header">
+        <h4 class="app-box-heading">
+            <a href="#">App Box Title</a>
+        </h4>
+    </div>
+    <div class="app-box-content">
+        <a class="app-box-item">
+            <time class="app-box-date h5">13.13.2013</time>
+            Albert-Keller-Lecture:  Glaube und Freiheit. Kardinal Reinhard Marx.
+            <i class="icon-double-angle-right pull-right"></i>
+        </a>
+        <a class="app-box-item">
+            <time class="app-box-date h5">13.13.2013</time>
+            Albert-Keller-Lecture:  Glaube und Freiheit. Kardinal Reinhard Marx.
+            <i class="icon-double-angle-right pull-right"></i>
+        </a>
+        <a class="app-box-item">
+            <time class="app-box-date h5">13.13.2013</time>
+            Albert-Keller-Lecture:  Glaube und Freiheit. Kardinal Reinhard Marx.
+            <i class="icon-double-angle-right pull-right"></i>
+        </a>
+    </div>
+    <div class="app-box-footer text-right">
+        <a class="btn btn-default btn-sm" href="#">
+            App box more
+        </a>
+    </div>
+</aside>
+        </aside>
+    </div>
+</div>
 
 <div class="app-content-aside">
     <section class="app-tile app-content-body" id="app-content-body">
@@ -168,7 +258,7 @@
             </div>
             <div class="app-box-footer text-right">
                 <a href="#">
-                    <i class="fa fa-double-angle-right"></i>
+                    <i class="fa fa-angle-double-right"></i>
                 </a>
             </div>
         </div>
@@ -190,7 +280,7 @@
             </div>
             <div class="app-box-footer text-right">
                 <a href="#">
-                    <i class="icon-double-angle-right"></i>
+                    <i class="fa fa-angle-double-right"></i>
                 </a>
             </div>
         </div>
@@ -212,7 +302,7 @@
             </div>
             <div class="app-box-footer text-right">
                 <a href="#">
-                    <i class="icon-double-angle-right"></i>
+                    <i class="fa fa-angle-double-right"></i>
                 </a>
             </div>
         </div>
@@ -234,7 +324,7 @@
             </div>
             <div class="app-box-footer text-right">
                 <a href="#">
-                    <i class="icon-double-angle-right"></i>
+                    <i class="fa fa-angle-double-right"></i>
                 </a>
             </div>
         </div>
