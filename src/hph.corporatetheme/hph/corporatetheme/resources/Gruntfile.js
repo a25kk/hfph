@@ -60,7 +60,7 @@ module.exports = function (grunt) {
                     'bower_components/bootstrap/dist/js/bootstrap.js',
                     'js/application.js'
                 ],
-                dest: 'dist/js/application.js'
+                dest: 'dist/js/main.js'
             }
         },
 
@@ -103,7 +103,7 @@ module.exports = function (grunt) {
                 expand: true,
                 flatten: true,
                 cwd: 'bower_components/',
-                src: ['bootstrap/assets/ico/*'],
+                src: ['assets/ico/*'],
                 dest: 'dist/assets/ico/'
             },
             images: {
@@ -159,12 +159,22 @@ module.exports = function (grunt) {
                 pattern: '../dist/js/rms.js',
                 replacement: 'js/rms.min.js',
                 recursive: true
+            },
+            cleanLogo: {
+                path: 'dist/',
+                pattern: '../assets/img/logo.jpg',
+                replacement: 'assets/img/logo.jpg',
+                recursive: true
             }
         },
 
         validation: {
             options: {
-                reset: true
+                reset: true,
+                relaxerror: [
+                    'Bad value X-UA-Compatible for attribute http-equiv on element meta.',
+                    'Element img is missing required attribute src.'
+                ]
             },
             files: {
                 src: ['_site/**/*.html']
@@ -224,6 +234,7 @@ module.exports = function (grunt) {
     grunt.registerTask('copy-templates', '', function () {
         grunt.file.copy('_site/index.html', 'dist/theme.html');
         grunt.file.copy('_site/signin/index.html', 'dist/signin.html');
+        grunt.file.copy('_site/frontpage/index.html', 'dist/frontpage.html');
     });
 
     // Docs HTML validation task

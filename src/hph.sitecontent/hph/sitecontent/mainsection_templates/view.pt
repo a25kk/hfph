@@ -14,7 +14,7 @@
     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                 portal_url context/portal_url">
       <div class="row">
-        <div class="col-xs-12 col-lg-9" id="app-col-content">
+        <div class="col-xs-12 col-md-9" id="app-col-content">
             <aside class="app-tile" id="page-content">
                 <tal:img tal:condition="context/image">
                     <img tal:define="img view/banner_image"
@@ -29,7 +29,7 @@
                     tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/banner-dummy.jpg'" />
           </aside>
         </div>
-        <div class="col-xs-12 col-lg-3" id="app-col-sidebar">
+        <div class="col-xs-12 col-md-3" id="app-col-sidebar">
 
             <aside class="app-tile" id="app-sidebar" >
                 <div class="app-box app-box-striped app-box-events">

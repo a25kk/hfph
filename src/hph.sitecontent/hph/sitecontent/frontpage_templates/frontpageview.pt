@@ -10,7 +10,7 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-    <section class="container app-content app-content-fp" id="app-content"
+    <section class="app-page app-content-fp" id="app-content"
         tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                     portal_url context/portal_url">
       <div class="row">

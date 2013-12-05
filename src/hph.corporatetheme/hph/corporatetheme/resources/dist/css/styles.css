@@ -7139,8 +7139,8 @@ td.visible-print {
   font-family: 'FontAwesome';
   font-style: normal;
   font-weight: normal;
-  src: url('../assets/fonts/fontawesome-webfont.eot?v=4.0.3');
-  src: url('../assets/fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('../assets/fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('../assets/fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('../assets/fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+  src: url('../../assets/fonts/fontawesome-webfont.eot?v=4.0.3');
+  src: url('../../assets/fonts/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('../../assets/fonts/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('../../assets/fonts/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('../../assets/fonts/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
 }
 
 .fa {
@@ -10787,15 +10787,6 @@ textarea.app-actionbar-form .input-sm {
   padding: 50px 25px 25px;
 }
 
-.app-brandbar .brandbar-brand {
-  display: block;
-  width: 250px;
-  height: 100px;
-  overflow: hidden;
-  text-indent: -999999px;
-  background: url(../assets/img/logo.jpg) no-repeat 0 0 transparent;
-}
-
 .app-brandbar .brandbar-label {
   margin-top: 20px;
   font-weight: 600;
@@ -11087,6 +11078,13 @@ body {
 
 .app-content .tile-content {
   padding: 1.428571429;
+}
+
+.img-section {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  border: 5px solid #ffffff;
 }
 
 .app-content-body {

@@ -122,8 +122,8 @@
 
 
         <rules css:if-content="body.template-frontpage-view">
-            <replace css:content-children="#app-content" 
-                css:theme-children="#app-content" />
+            <replace css:content-children="#content" 
+                css:theme-children="#app-main" />
         </rules>
         <rules css:if-content="body.portaltype-hph-sitecontent-mainsection">
             <replace css:content-children="#content" 
