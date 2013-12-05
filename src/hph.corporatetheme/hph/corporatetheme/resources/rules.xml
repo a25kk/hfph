@@ -94,7 +94,7 @@
         <replace css:content-children="#portal-subnavigation"
             css:theme-children="#app-navbar-main" />
 
-        <drop css:theme="#subnavbar"
+        <drop css:theme="#app-subnavbar"
             css:if-not-content="#subsubsections" />
         <replace css:content-children="#portal-subsubnavigation"
             css:theme-children="#app-subnavigation" />
@@ -136,13 +136,13 @@
 
         <!-- Document Content -->
         <replace css:content-children="#content" 
-            css:theme-children="#app-content-body" />
+            css:theme-children="#content" />
 
         <!-- Columns -->
         <rules css:if-not-content="#portal-column-one">
             <drop css:theme="#app-col-sidebar" />
             <before css:theme-children="#app-col-content">
-                <xsl:attribute name="class">col-xs-12 col-lg-12</xsl:attribute>
+                <xsl:attribute name="class">col-xs-12 col-sm-12</xsl:attribute>
             </before>
         </rules>
         

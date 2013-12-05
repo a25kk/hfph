@@ -31,10 +31,12 @@
             padding: ((@navbar-height - @line-height-computed) / 2) (@line-height-computed / 2);
             border-left: 1px solid rgba(255,255,255,.75);
             border-right: 1px solid rgba(0,0,0,.1);
-            box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
             &:hover {
                 background-color: @app-blue;
                 color: #fff;
+            }
+            @media (min-width: @screen-sm) {
+                box-shadow: inset 0 3px 7px rgba(0,0,0,.15);
             }
         }
     

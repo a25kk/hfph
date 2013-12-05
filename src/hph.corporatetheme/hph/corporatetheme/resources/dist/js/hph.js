@@ -12647,23 +12647,14 @@ if (typeof define === "function" && define.amd) {
     $(document).ready(function () {
         if ($('body').hasClass('lt-ie7')) {return; }
         // Application specific javascript code goes here
-        if ($(".bs-docs-top").length > 0) {
+        if ($('.bs-docs-top').length > 0) {
             setTimeout(function () {
                 $('.bs-docs-top').affix();
             }, 100);
         }
-        //$("#ticker-tabs").tabs('#bulletins > div', {
-        //    effect: 'fade',
-        //    fadeOutSpeed: 1000,
-        //    rotate: true
-        //}).slideshow({
-        //    autoplay: true,
-        //    interval: 6000,
-        //    clickable: false
-        //});
         $('#formfield-form-widgets-series input.checkbox-widget').on('click', function () {
-            var input_id = this.id;
-            if (input_id === 'form-widgets-series-5') {
+            var inputId = this.id;
+            if (inputId === 'form-widgets-series-5') {
                 if ($(this).is(':checked')) {
                     $('#form-widgets-medium-1').attr('checked', true);
                 }
@@ -12674,12 +12665,12 @@ if (typeof define === "function" && define.amd) {
                 }
             }
         });
-        if ($("#tickerbar").length > 0) {
+        if ($('#tickerbar').length > 0) {
             $('div[data-appui="tickerfeed"]').each(function () {
-                var source_url = $(this).data('appui-source');
-                $.getJSON(source_url, function (data) {
+                var sourceUrl = $(this).data('appui-source');
+                $.getJSON(sourceUrl, function (data) {
                     $.each(data.items, function (i, item) {
-                        var unique_id = $.gritter.add({
+                        $.gritter.add({
                             // (string | mandatory) the heading of the notification
                             title: '<i class="icon-info-sign"></i> Hinweis',
                             // (string | mandatory) the text inside the notification
@@ -12692,19 +12683,19 @@ if (typeof define === "function" && define.amd) {
             });
         }
         $('div[data-appui="eventbox"]').each(function () {
-            var source_url = $(this).data('source');
-            var target_el = $(this);
-            $.getJSON(source_url, function (data) {
-                var div_data = '';
+            var sourceUrl = $(this).data('source');
+            var targetEl = $(this);
+            $.getJSON(sourceUrl, function (data) {
+                var divData = '';
                 $.each(data.items, function (i, item) {
                     //alert('Item:' + item.title);
-                    div_data += '<a class="app-box-item" href="' + item.url + '">';
-                    div_data += '<time class="app-box-date h5">' + item.date + '</time>';
-                    div_data += '<span>' + item.title + '</span>';
-                    div_data += '<span class="app-box-item-more text-right"><i class="icon-double-angle-right"></i></span>';
-                    div_data += '</a>';
+                    divData += '<a class="app-box-item" href="' + item.url + '">';
+                    divData += '<time class="app-box-date h5">' + item.date + '</time>';
+                    divData += '<span>' + item.title + '</span>';
+                    divData += '<span class="app-box-item-more text-right"><i class="icon-double-angle-right"></i></span>';
+                    divData += '</a>';
                 });
-                target_el.html(div_data);
+                targetEl.html(divData);
             });
         });
     }
