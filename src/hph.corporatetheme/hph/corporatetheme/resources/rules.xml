@@ -7,19 +7,19 @@
     <!-- Add alternativ theme templates -->
     <!-- Example to add minimal theme template for the
          tiles editiong overlays -->
-    <theme href="minimal.html" if-path="@@edit-tile" />
-    <theme href="signin.html" css:if-content="body.template-login_form" />
-    <theme href="signin.html" css:if-content="body.template-logged_out" />
-    <theme href="signin.html" css:if-content="body.template-login_failed" />
+     <theme href="dist/signin.html" css:if-content="body.template-login_form" />
+    <theme href="dist/signin.html" css:if-content="body.template-logged_out" />
+    <theme href="dist/signin.html" css:if-content="body.template-login_failed" />
+    <theme href="dist/signin.html" css:if-content="body.template-mail_password_form" />
     
     <!--<theme href="frontpage.html" css:if-content="body.template-frontpage-view" />-->
-    <theme href="section.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />
+    <!-- <theme href="section.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" /> -->
     
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
 
         <notheme if="$ajax_load" />          
-        <theme href="theme.html" />
+        <theme href="dist/theme.html" />
 
         <replace theme="/htm/head/title" content="/html/head/title" />
         <after css:theme-children="html head" css:content="html head base" />
@@ -107,12 +107,19 @@
             css:content="#tickerbar" />
 
         <!-- Login form rules -->
-        <replace css:content-children="#content-core" 
-                css:theme-children="#page-content"
+        <replace css:content-children="#content-core"
+                css:theme-children="#app-signin-content"
                 css:if-content="body.template-login_form" />
-        <replace css:content-children="#content-core" 
-                css:theme-children="#page-content"
+        <replace css:content-children="#content-core"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-login_failed" />
+        <replace css:content-children="#content-core"
+                css:theme-children="#app-signin-content"
                 css:if-content="body.template-logged_out" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-mail_password_form" />
+
 
         <rules css:if-content="body.template-frontpage-view">
             <replace css:content-children="#app-content" 

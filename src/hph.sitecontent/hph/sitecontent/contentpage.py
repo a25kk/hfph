@@ -19,11 +19,11 @@ class IContentPage(form.Schema, IImageScaleTraversable):
         title=_(u"Content Headline"),
         description=_(u"Optional custom headline to seperate navigation and "
                       u"content title"),
-        reuired=False,
+        required=False,
     )
     text = RichText(
         title=_(u"Text"),
-        required=True
+        required=False
     )
     image = NamedBlobImage(
         title=_(u"Preview Image"),

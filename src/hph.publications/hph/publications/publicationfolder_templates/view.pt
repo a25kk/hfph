@@ -44,7 +44,7 @@
                                                  scales item_obj/@@images"
                                     tal:replace="structure python: scales.tag('image',
                                                  width=200,
-                                                 height=200,
+                                                 height=300,
                                                  css_class='app-img',
                                                  direction='down')"
                                 />
