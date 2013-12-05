@@ -1,4 +1,6 @@
 from five import grok
+from plone import api
+from zope import schema
 from plone.directives import dexterity, form
 
 from plone.namedfile.interfaces import IImageScaleTraversable
@@ -13,6 +15,12 @@ class IContentPage(form.Schema, IImageScaleTraversable):
     """
     A content page type including fulltext and preview image
     """
+    headline = schema.TextLine(
+        title=_(u"Content Headline"),
+        description=_(u"Optional custom headline to seperate navigation and "
+                      u"content title"),
+        reuired=False,
+    )
     text = RichText(
         title=_(u"Text"),
         required=True

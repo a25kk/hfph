@@ -1,0 +1,15 @@
+# Dependencies
+markdown:         rdiscount
+pygments:         true
+
+# Permalinks
+permalink:        pretty
+
+# Server
+destination:      ./_site
+exclude:          [".editorconfig", ".gitignore", ".bowerrc", "jshintrc", "bower.json", "config.json", "Gruntfile.js", "package.json", "manifest.cfg", "rules.xml", "node_modules", "bower_components", "README.md", "assets", "less", "dist", "js", "overrides", "docs", "templates"]
+port:             9001
+
+# Custom vars
+current_version:  1.0.0
+repo:             https://github.com/ade25/
