@@ -12,7 +12,10 @@
 
   <article id="contentpage-view" class="tile-content">
     <header class="page-header">
-      <h1 tal:content="context/Title">Title inserted here</h1>
+        <h1 tal:condition="context/headline"
+            tal:content="context/headline" />
+        <h1 tal:condition="not:context/headline"
+            tal:content="context/Title" />
     </header>
 
     <section>
