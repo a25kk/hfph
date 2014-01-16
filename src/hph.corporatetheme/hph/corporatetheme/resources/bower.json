@@ -16,5 +16,8 @@
   },
   "devDependencies": {
     "chai": "1.7.2"
+  },
+  "resolutions": {
+    "jquery": ">= 1.9.0"
   }
 }
