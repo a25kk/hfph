@@ -46,7 +46,7 @@ body {
         border-bottom: 2px solid @state-danger-border;
         border-radius: 0px;
         #bulletins {
-            padding: @line-height-computed / 2  0 0;
+            padding: (@line-height-computed / 2)  0 0;
         }
     }
 }
@@ -102,7 +102,7 @@ body {
 
 .img-section {
     .img-responsive();
-    border: ceil(@line-height-computed / 4) solid #fff;
+    border: ceil((@line-height-computed / 4)) solid #fff;
 }
 
 // Temporary css fixes - Presentation
@@ -113,11 +113,11 @@ body {
         margin-top: 0;
         border: none;
         h1 {
-            font-size: @font-size-base * 2;
+            font-size: (@font-size-base * 2);
         }
     }
     .lead {
-        font-size: @font-size-base * 1.2;
+        font-size: ceil(@font-size-base * 1.2);
     }
     .app-list-item {
         background: @gray-lighter;
