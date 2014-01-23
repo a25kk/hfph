@@ -1,0 +1,31 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    {% include head.html %}
+  </head>
+  <body>
+    <a class="sr-only" href="#content">Skip navigation</a>
+    {% include toolbar.html %}
+    <header class="container app-header" id="app-header" role="banner">
+        <div class="app-tile app-header-content" id="app-header-content">
+            <!-- @include "_includes/metanav.html" -->
+            {% include metanav.html %}
+            {% include brandbar-pp.html %}
+            {% include mainnavbar.html %}
+        </div>
+        {% include subnavbar.html %}
+    </header><!-- /app-header -->
+
+    <div class="container app-main" id="app-main" role="main">
+          {{ content }}
+    </div>
+
+    {% include footer.html %}
+    {% include javascript.html %}
+
+  </body>
+</html>
