@@ -18,7 +18,7 @@
             tal:content="context/Title" />
     </header>
 
-    <section>
+    <section id="content-core">
       <p class="lead" tal:condition="context/Description"
         tal:content="context/Description" />
 
