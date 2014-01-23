@@ -1,44 +1,35 @@
 ---
-layout: default
+layout: landingpage
 title: Frontpage
 slug: frontpage
 lead: "Frontpage theme template"
 base_url: "../../"
 ---
-
-<div class="row">
-    <div class="col-xs-12 col-md-9">
-        <main class="app-tile app-content">
-            <div class="app-page" id="content">
-                <div class="app-page-header">
-                    <div class="app-page-headline">
-                        <h1>Theme template</h1>
-                    </div>
-                    <p class="lead">
-                        This is the new default theme
-                    </p>
-                </div>
-                <div class="app-page-content">
-                        <p>Next we will define a custom listing to provide a basic scaffolding
-                            before we intergrate the example API
+<section class="app-tile app-content" id="content">
+    <div class="row">
+        <div class="col-xs-12 col-md-9">
+            <main class="app-content">
+                <div class="app-page" id="content">
+                    <div class="app-page-header">
+                        <div class="app-page-headline">
+                            <h1>Theme template</h1>
+                        </div>
+                        <p class="lead">
+                            This is the new default theme
                         </p>
+                    </div>
+                    <div class="app-page-content">
+                            <p>Next we will define a custom listing to provide a basic scaffolding
+                                before we intergrate the example API
+                            </p>
+                    </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <aside class="app-aside" id="app-aside-right">
+                {% include box-event.html %}
+            </aside>
+        </div>
     </div>
-    <div class="col-xs-12 col-md-3">
-        <aside class="app-tile app-sidebar-left" id="app-sidebar-left">
-            {% include box-event.html %}
-        </aside>
-    </div>
-</div>
-
-<div class="app-content-aside">
-    <section class="app-tile app-content-body" id="app-content-body">
-        <section class="page">
-            <article class="page-content">
-                {% include box-news.html %}
-            </article>
-        </section>
-    </section>
-</div>
+</section>

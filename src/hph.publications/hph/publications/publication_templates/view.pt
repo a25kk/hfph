@@ -10,7 +10,7 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-    <article id="publication-view">
+    <article class="app-page" id="publication-view">
       <header class="page-header">
         <p class="muted">
           <span tal:replace="context/authorOne" />

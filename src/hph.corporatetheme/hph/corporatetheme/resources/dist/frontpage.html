@@ -7,7 +7,7 @@
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -18,7 +18,7 @@
 </title>
 
 <!-- Bootstrap core CSS -->
-<link href="../css/styles.css" rel="stylesheet">
+<link href="../../dist/css/hph.css" rel="stylesheet">
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -87,7 +87,6 @@
 </div>
     <header class="container app-header" id="app-header" role="banner">
         <div class="app-tile app-header-content" id="app-header-content">
-            <!-- @include "_includes/metanav.html" -->
             <div class="app-actionbar" id="app-actionbar">
     <div class="row">
         <div class="col-xs-12 col-sm-9">
@@ -181,29 +180,30 @@
     </header><!-- /app-header -->
 
     <div class="container app-main" id="app-main" role="main">
-          <div class="row">
-    <div class="col-xs-12 col-md-9">
-        <main class="app-tile app-content">
-            <div class="app-page" id="content">
-                <div class="app-page-header">
-                    <div class="app-page-headline">
-                        <h1>Theme template</h1>
-                    </div>
-                    <p class="lead">
-                        This is the new default theme
-                    </p>
-                </div>
-                <div class="app-page-content">
-                        <p>Next we will define a custom listing to provide a basic scaffolding
-                            before we intergrate the example API
+          <section class="app-tile app-content" id="content">
+    <div class="row">
+        <div class="col-xs-12 col-md-9">
+            <main class="app-content">
+                <div class="app-page" id="content">
+                    <div class="app-page-header">
+                        <div class="app-page-headline">
+                            <h1>Theme template</h1>
+                        </div>
+                        <p class="lead">
+                            This is the new default theme
                         </p>
+                    </div>
+                    <div class="app-page-content">
+                            <p>Next we will define a custom listing to provide a basic scaffolding
+                                before we intergrate the example API
+                            </p>
+                    </div>
                 </div>
-            </div>
-        </main>
-    </div>
-    <div class="col-xs-12 col-md-3">
-        <aside class="app-tile app-sidebar-left" id="app-sidebar-left">
-            <aside class="app-box app-box-striped app-box-events">
+            </main>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <aside class="app-aside" id="app-aside-right">
+                <aside class="app-box app-box-striped app-box-events">
     <div class="app-box-header">
         <h4 class="app-box-heading">
             <a href="#">App Box Title</a>
@@ -232,15 +232,16 @@
         </a>
     </div>
 </aside>
-        </aside>
+            </aside>
+        </div>
     </div>
-</div>
+</section>
 
-<div class="app-content-aside">
-    <section class="app-tile app-content-body" id="app-content-body">
-        <section class="page">
-            <article class="page-content">
-                <div class="row">
+    </div>
+
+    <div class="container app-aside">
+        <section class="app-tile app-aside-content" id="app-aside-content">
+            <div class="row">
     <div class="col-xs-12 col-sm-6 col-lg-3">
         <div class="app-box app-box-aside app-box-news">
             <div class="app-box-header">
@@ -330,14 +331,11 @@
         </div>
     </div>
 </div>
-            </article>
         </section>
-    </section>
-</div>
     </div>
 
     <footer class="container app-footer" id="app-footer">
-  <div class="app-footer-content" id="app-footer-content">
+  <div class="app-tile app-footer-content" id="app-footer-content">
     <ul class="nav nav-pills">
       <li><a href="#">Login</a></li>
       <li><a href="#">Presse</a></li>
