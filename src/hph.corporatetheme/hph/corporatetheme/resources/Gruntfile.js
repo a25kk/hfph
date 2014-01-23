@@ -201,6 +201,12 @@ module.exports = function (grunt) {
                 pattern: '../assets/img/logo.jpg',
                 replacement: 'assets/img/logo.jpg',
                 recursive: true
+            },
+            cleanLogoIgp: {
+                path: 'dist/',
+                pattern: '../assets/img/logo-igp.png',
+                replacement: 'assets/img/logo-igp.png',
+                recursive: true
             }
         },
 
@@ -277,6 +283,7 @@ module.exports = function (grunt) {
     // Copy jekyll generated templates and rename for diazo
     grunt.registerTask('copy-templates', '', function () {
         grunt.file.copy('_site/index.html', 'dist/theme.html');
+        grunt.file.copy('_site/igp/index.html', 'dist/theme-igp.html');
         grunt.file.copy('_site/overlay/index.html', 'dist/overlay.html');
         grunt.file.copy('_site/signin/index.html', 'dist/signin.html');
         grunt.file.copy('_site/frontpage/index.html', 'dist/frontpage.html');

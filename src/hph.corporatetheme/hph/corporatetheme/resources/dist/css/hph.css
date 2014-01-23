@@ -12252,18 +12252,6 @@ textarea.app-actionbar-form .input-sm
 {
     border-top: 5px solid #ef7d00;
 }
-.subsection-institute-igp .brandbar-brand
-{
-    display: block;
-    overflow: hidden;
-
-    width: 300px;
-    height: 100px;
-
-    text-indent: -999999px;
-
-    background: url(../assets/img/logo-igp.png) no-repeat 0 0 transparent;
-}
 .subsection-institute-igp .app-footer-content .nav
 {
     border-top: 5px solid #ef7d00;
