@@ -16,8 +16,8 @@
     <theme href="dist/theme-igp.html" css:if-content="body.subsection-institute-igp" />
     <theme href="dist/theme-pp.html" css:if-content="body.section-pro-philosophia" />
     
-    <!--<theme href="frontpage.html" css:if-content="body.template-frontpage-view" />-->
-    <!-- <theme href="section.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" /> -->
+    <theme href="dist/frontpage.html" css:if-content="body.template-frontpage-view" />
+    <theme href="dist/frontpage.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />
     
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
@@ -127,18 +127,21 @@
                 css:theme-children="#app-signin-content"
                 css:if-content="body.template-mail_password_form" />
 
+        <rules css:if-content="body.portaltype-hph-sitecontent-mainsection">
+            <replace css:content-children="#app-content" 
+                css:theme-children="#content"
+                css:if-content="#app-content" />
+            <replace css:content-children="#app-aside-content" 
+                css:theme-children="#app-aside-content"
+                css:if-content="#app-aside-content" />
+        </rules>
 
         <rules css:if-content="body.template-frontpage-view">
-            <replace css:content-children="#content" 
-                css:theme-children="#app-main" />
-        </rules>
-        <rules css:if-content="body.portaltype-hph-sitecontent-mainsection">
-            <replace css:content-children="#content" 
-                css:theme-children="#app-content-body"
-                css:if-not-content="#app-content" />
             <replace css:content-children="#app-content" 
-                css:theme-children="#app-content"
-                css:if-content="#app-content" />
+                css:theme-children="#content" />
+            <replace css:content-children="#app-aside-content" 
+                css:theme-children="#app-aside-content"
+                css:if-content="#app-aside-content" />
         </rules>
 
         <!-- Document Content -->

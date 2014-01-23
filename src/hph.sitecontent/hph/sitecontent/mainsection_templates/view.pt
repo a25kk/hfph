@@ -14,8 +14,8 @@
     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                 portal_url context/portal_url">
       <div class="row">
-        <div class="col-xs-12 col-md-9" id="app-col-content">
-            <aside class="app-tile" id="page-content">
+        <div class="col-xs-12 col-md-9" id="app-page-content">
+            <aside class="app-page" id="page-content">
                 <tal:img tal:condition="context/image">
                     <img tal:define="img view/banner_image"
                         tal:attributes="class string:img-section;
@@ -31,7 +31,7 @@
         </div>
         <div class="col-xs-12 col-md-3" id="app-col-sidebar">
 
-            <aside class="app-tile" id="app-sidebar" >
+            <aside class="app-aside" id="app-page-aside" >
                 <div class="app-box app-box-striped app-box-events">
                     <div class="app-box-header">
                         <h4 class="app-box-heading">
@@ -56,26 +56,27 @@
 
         </div>
       </div>
-        <div class="app-tile">
-            <section class="app-tile app-content-body" id="app-content-body">
-            <section class="page">
-              <header class="page-header">
-                <h1 tal:content="context/Title">Title</h1>
-              </header>
-              <article class="page-content"> 
-                <div class="row">
-                  <div class="col-xs-12 col-lg-6">
-                    <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/block-one" />
-                  </div>
-                  <div class="col-xs-12 col-lg-6">
-                    <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/block-two" />
-                  </div>
-                </div>
-              </article>
-            </section>
-          </section>
-        </div>
     </section> <!-- /container app-content -->
+
+    <aside class="app-aside" id="app-aside">
+        <section class="app-tile app-content-body" id="app-aside-content">
+        <section class="page">
+          <header class="page-header">
+            <h1 tal:content="context/Title">Title</h1>
+          </header>
+          <article class="page-content"> 
+            <div class="row">
+              <div class="col-xs-12 col-lg-6">
+                <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/block-one" />
+              </div>
+              <div class="col-xs-12 col-lg-6">
+                <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/block-two" />
+              </div>
+            </div>
+          </article>
+        </section>
+      </section>
+    </aside>
 
     
   </metal:content-core>
