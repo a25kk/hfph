@@ -29,11 +29,32 @@
                     tal:content="context/Description" />
                 
                 <section class="page-content">
-                    <div class="page-content-header">
-                        <div class="row">
-                            
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6">
+                            <img tal:condition="context/image"
+                                tal:define="scales context/@@images"
+                                tal:replace="structure python: scales.tag('image',
+                                             width=200,
+                                             height=200,
+                                             css_class='app-img',
+                                             direction='down')" />
                         </div>
-                    </div>    
+                        <div class="col-xs-12 col-sm-6">
+                            <address>
+                                <span tal:replace="context/street" /><br />
+                                <span tal:replace="context/city" /><br />
+                                <abbr title="Phone">Tel:</abbr> <span tal:replace="context/phone" /><br />
+                                <abbr title="Fax">Fax:</abbr> <span tal:replace="context/fax" /><br />
+                                <a class="text-muted" tal:attributes="href string:mailto:${context/email}"
+                                    tal:content="context/email" />
+                            </address>
+                        </div>
+                    </div>
+                    <p tal:condition="context/sidenote"
+                        tal:content="context/sidenote" />
+                    <div class="page-content-body" tal:condition="context/text">
+                        <div tal:replace="structure context/text/output" />
+                    </div>
                 </section>
             </article>
         </div>
