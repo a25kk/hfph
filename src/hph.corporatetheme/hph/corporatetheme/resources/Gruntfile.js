@@ -207,6 +207,12 @@ module.exports = function (grunt) {
                 pattern: '../assets/img/logo-igp.png',
                 replacement: 'assets/img/logo-igp.png',
                 recursive: true
+            },
+            cleanLogoPp: {
+                path: 'dist/',
+                pattern: '../assets/img/logo-pro-philosophia.jpg',
+                replacement: 'assets/img/logo-pro-philosophia.jpg',
+                recursive: true
             }
         },
 
@@ -279,6 +285,7 @@ module.exports = function (grunt) {
     grunt.registerTask('copy-templates', '', function () {
         grunt.file.copy('_site/index.html', 'dist/theme.html');
         grunt.file.copy('_site/igp/index.html', 'dist/theme-igp.html');
+        grunt.file.copy('_site/pp/index.html', 'dist/theme-pp.html');
         grunt.file.copy('_site/overlay/index.html', 'dist/overlay.html');
         grunt.file.copy('_site/signin/index.html', 'dist/signin.html');
         grunt.file.copy('_site/frontpage/index.html', 'dist/frontpage.html');
