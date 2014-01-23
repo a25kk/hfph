@@ -38,18 +38,21 @@
                                    batch python:Batch(results, b_size, b_start);">
                     <div class="app-list-item" tal:repeat="item batch">
                         <div class="row">
-                            <div class="col-xs-12 col-sm-3 col-lg-3">
+                            <div class="col-xs-12 col-sm-2 col-lg-2">
                                 <img tal:condition="item/image"
                                     tal:define="item_obj item/getObject;
                                                  scales item_obj/@@images"
                                     tal:replace="structure python: scales.tag('image',
-                                                 width=200,
-                                                 height=300,
+                                                 width=90,
+                                                 height=140,
                                                  css_class='app-img',
                                                  direction='down')"
                                 />
+                                <div tal:condition="not:item/image">
+                                  <div class="no-img"><i class="fa fa-camera fa-3x"></i></div>
+                                </div>
                             </div>
-                            <div class="col-xs-12 col-sm-9 col-lg-9">
+                            <div class="col-xs-12 col-sm-10 col-lg-10">
                               <h2 class="h2 list-item-heading">
                                 <small>
                                     <span tal:condition="item/authorOne"

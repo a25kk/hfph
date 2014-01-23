@@ -12161,6 +12161,24 @@ body
     border-top: 4px solid #fc3;
     background-color: #fff;
 }
+.no-img
+{
+    line-height: 1.428571429;
+
+    width: 90px;
+    height: 140px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+
+    -webkit-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+    text-align: center;
+
+    color: #eee;
+    border: 1px solid #ddd;
+    border-top: 4px solid #fc3;
+    background-color: #fff;
+}
 .documentFirstHeading
 {
     font-size: 18px;
