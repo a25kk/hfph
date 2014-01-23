@@ -9,6 +9,7 @@ from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from plone.dexterity.content import Container
 from plone.directives import dexterity, form
 from plone.app.textfield import RichText
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from plone.namedfile.field import NamedImage, NamedFile
 from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 from plone.namedfile.interfaces import IImageScaleTraversable
@@ -16,7 +17,7 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 
 from hph.faculty import MessageFactory as _
 
-display = SimpleVocabulary(
+position = SimpleVocabulary(
     [SimpleTerm(value=u'lecturer', title=_(u'Lecturer')),
      SimpleTerm(value=u'professor', title=_(u'Professor')),
      SimpleTerm(value=u'docent', title=_(u'Docent'))]
@@ -31,6 +32,20 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
         title=_(u"Lastname"),
         description=_(u"Provide last name for better filtering and search"),
         required=True,
+    )
+    form.widget(position=CheckBoxFieldWidget)
+    position = schema.Set(
+        title=_(u"Medium"),
+        value_type=schema.Choice(
+            title=_(u"Accademic Role or Position"),
+            vocabulary=position,
+        ),
+        required=True,
+    )
+    sidenote = schema.TextLine(
+        title=_(u"Sidenote"),
+        description=_(u"Optional additional information/sidenote"),
+        required=False,
     )
     department = schema.TextLine(
         title=_(u"Department"),
@@ -57,7 +72,11 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
         required=True,
     )
     image = NamedBlobImage(
-        title=-(u"Portrait Image"),
+        title=_(u"Portrait Image"),
+        required=False,
+    )
+    text = RichText(
+        title=_(u"Body Text"),
         required=False,
     )
 
