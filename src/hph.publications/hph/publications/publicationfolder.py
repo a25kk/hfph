@@ -32,5 +32,7 @@ class View(grok.View):
     def publications(self):
         context = aq_inner(self.context)
         catalog = getToolByName(context, 'portal_catalog')
-        results = catalog(object_provides=IPublication.__identifier__,)
+        results = catalog(object_provides=IPublication.__identifier__,
+                          sort_on='getObjPositionInParent',
+                          review_state='published')
         return IContentListing(results)

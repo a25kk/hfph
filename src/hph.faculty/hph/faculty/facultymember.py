@@ -16,23 +16,20 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 
 from hph.faculty import MessageFactory as _
 
+display = SimpleVocabulary(
+    [SimpleTerm(value=u'lecturer', title=_(u'Lecturer')),
+     SimpleTerm(value=u'professor', title=_(u'Professor')),
+     SimpleTerm(value=u'docent', title=_(u'Docent'))]
+)
 
-# Interface class; used to define content-type schema.
 
 class IFacultyMember(form.Schema, IImageScaleTraversable):
     """
     A faculty staff member
     """
-    academic_title = schema.TextLine(
-        title=_(u"Title"),
-        required=True,
-    )
-    first_name = schema.TextLine(
-        title=_(u"Firstname"),
-        required=True,
-    )
     last_name = schema.TextLine(
         title=_(u"Lastname"),
+        description=_(u"Provide last name for better filtering and search"),
         required=True,
     )
     department = schema.TextLine(
@@ -58,6 +55,10 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
     email = schema.TextLine(
         title=_(u"E-Mail"),
         required=True,
+    )
+    image = NamedBlobImage(
+        title=-(u"Portrait Image"),
+        required=False,
     )
 
 
