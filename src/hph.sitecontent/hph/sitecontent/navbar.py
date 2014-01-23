@@ -115,7 +115,8 @@ class NavbarViewlet(grok.Viewlet):
         else:
             root_obj = pstate.portal()
         types = ('hph.sitecontent.contentpage',
-                 'hph.publications.publicationfolder')
+                 'hph.publications.publicationfolder',
+                 'hph.faculty.facultydirectory')
         depth = 2
         navtree = self.navStrategy(root_obj, types, depth)
         return navtree
