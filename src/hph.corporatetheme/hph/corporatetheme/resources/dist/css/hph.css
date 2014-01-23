@@ -11600,6 +11600,332 @@ dd.image-caption
 {
     clear: both;
 }
+.app-contentblock,
+.app-contentbanner
+{
+    position: relative;
+
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.app-contentblock .contentblock,
+.app-contentbanner .contentblock
+{
+    padding: 20px 0;
+
+    border-bottom: 0 solid #eee;
+}
+.app-contentblock-default,
+.app-contentbanner-default
+{
+    border-right: 0 solid #eee;
+}
+.app-contentblock-default .contentblock-state,
+.app-contentbanner-default .contentblock-state
+{
+    color: #999;
+}
+.app-contentblock-private,
+.app-contentbanner-private
+{
+    border-right: 5px solid #f2dede;
+}
+.app-contentblock-private .contentblock-state,
+.app-contentbanner-private .contentblock-state
+{
+    color: #a94442;
+}
+.app-contentblock-published,
+.app-contentbanner-published
+{
+    border-right: 5px solid #dff0d8;
+}
+.app-contentblock-published .contentblock-state,
+.app-contentbanner-published .contentblock-state
+{
+    color: #3c763d;
+}
+.app-panelpage
+{
+    margin: 20px 0;
+}
+.app-panelpage.app-panelpage-editable
+{
+    position: relative;
+}
+.app-contentpanel
+{
+    height: 100%;
+    margin: 20px 0;
+    padding: 20px;
+
+    text-align: center;
+
+    color: #036;
+    background: #eee;
+}
+.app-contentpanel.app-contentpanel-muted
+{
+    opacity: .5;
+
+    filter: alpha(opacity=50);
+}
+.contentpanel-content
+{
+    position: relative;
+}
+.contentpanel-header
+{
+    text-align: center;
+    text-transform: uppercase;
+}
+.contentpanel-header > img
+{
+    display: block;
+
+    margin-right: auto;
+    margin-left: auto;
+}
+.contentpanel-header .contentpanel-title
+{
+    font-weight: 500;
+}
+.contentpanel-header .appbox-icon
+{
+    color: #036;
+}
+.contentpanel-header .contentpanel-icon
+{
+    text-align: center;
+
+    color: #404040;
+}
+.contentpanel-body .list-group-item-heading
+{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+
+    margin-bottom: 10px;
+
+    color: #036 !important;
+}
+.contentpanel-body .list-group-item-text
+{
+    font-size: 12px;
+    line-height: 20px;
+}
+.contentpanel-body .app-list
+{
+    padding: 0;
+}
+.contentpanel-body .btn-default
+{
+    text-transform: uppercase;
+
+    color: white;
+    border: 0;
+    background: #036;
+}
+.contentpanel-body .btn-default:hover
+{
+    opacity: .5;
+    background: #001933;
+
+    filter: alpha(opacity=50);
+}
+.contentpanel-footer
+{
+    text-align: center;
+}
+.wf-active .contentpanel-footer
+{
+    margin-top: 50px;
+}
+.contentpanel-link
+{
+    text-transform: uppercase;
+}
+.contentpanel-editbar
+{
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 1px;
+
+    display: none;
+
+    width: 100%;
+    height: 100%;
+    padding: 30px 10px;
+
+    text-align: left;
+
+    color: #333 !important;
+    border-left: 2px solid #080808;
+    background: rgba(255, 255, 255, .5);
+}
+.app-editpanel
+{
+    position: relative;
+
+    display: block;
+    clear: both;
+
+    min-height: 30px;
+
+    color: #222;
+    border-top: 1px solid #222;
+}
+.app-editpanel > .no-data-panel
+{
+    margin-top: 50px;
+}
+.btn-editpanel
+{
+    color: #999;
+    border-color: #080808;
+    background-color: #222;
+}
+.btn-editpanel:hover,
+.btn-editpanel:focus,
+.btn-editpanel:active,
+.btn-editpanel.active,
+.open .dropdown-toggle.btn-editpanel
+{
+    color: #999;
+    border-color: #000;
+    background-color: #0e0e0e;
+}
+.btn-editpanel:active,
+.btn-editpanel.active,
+.open .dropdown-toggle.btn-editpanel
+{
+    background-image: none;
+}
+.btn-editpanel.disabled,
+.btn-editpanel[disabled],
+fieldset[disabled] .btn-editpanel,
+.btn-editpanel.disabled:hover,
+.btn-editpanel[disabled]:hover,
+fieldset[disabled] .btn-editpanel:hover,
+.btn-editpanel.disabled:focus,
+.btn-editpanel[disabled]:focus,
+fieldset[disabled] .btn-editpanel:focus,
+.btn-editpanel.disabled:active,
+.btn-editpanel[disabled]:active,
+fieldset[disabled] .btn-editpanel:active,
+.btn-editpanel.disabled.active,
+.btn-editpanel[disabled].active,
+fieldset[disabled] .btn-editpanel.active
+{
+    border-color: #080808;
+    background-color: #222;
+}
+.btn-editpanel .badge
+{
+    color: #222;
+    background-color: #fff;
+}
+.btn-editpanel.btn-editpanel-boxed
+{
+    position: absolute;
+    bottom: 0;
+}
+.app-editdetails
+{
+    padding: 20px 0;
+}
+.app-create-form
+{
+    padding-top: 50px;
+}
+.app-panelmanager-content
+{
+    padding-top: 50px;
+}
+.no-data-panel
+{
+    margin: 20px 0;
+    padding: 10px;
+
+    text-align: center;
+
+    color: #999;
+    border: 1px solid #eee;
+}
+.no-data-panel .no-data-sign
+{
+    font-size: 25px;
+    line-height: 1;
+
+    display: block;
+
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    padding: 10px;
+
+    text-align: center;
+
+    color: #eee;
+    border: 5px solid #eee;
+    border-radius: 25px;
+}
+.no-data-panel .no-data-title,
+.no-data-panel .no-data-text,
+.no-data-panel .no-data-btn
+{
+    margin-top: 10px;
+}
+.no-data-panel .no-data-text
+{
+    margin-top: 20px;
+}
+@media (min-width: 768px)
+{
+    .no-data-panel
+    {
+        text-align: left;
+    }
+    .no-data-panel .no-data-sign
+    {
+        margin: 0 20px;
+    }
+}
+.no-data-panel.no-data-panel-error
+{
+    background: #f2dede;
+}
+.no-data-panel-lg
+{
+    margin: 20px;
+
+    text-align: center;
+}
+.no-data-panel-lg .no-data-sign
+{
+    font-size: 80px;
+    line-height: 1;
+
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+    padding: 50px;
+
+    text-align: center;
+
+    color: #eee;
+    border: 5px solid #eee;
+    border-radius: 200px;
+}
+@media (min-width: 768px)
+{
+    .no-data-panel-lg
+    {
+        margin: 50px 125px;
+    }
+}
 .app-box
 {
     padding: 10px;

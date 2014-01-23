@@ -37,6 +37,7 @@ def deploy_staging():
         run('bin/buildout -Nc staging.cfg')
     project.site.restart()
 
+
 @task
 def deploy_full():
     """ Deploy current master to production and run buildout """

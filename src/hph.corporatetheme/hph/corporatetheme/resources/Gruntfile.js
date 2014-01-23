@@ -241,7 +241,7 @@ module.exports = function (grunt) {
                 files: '<%= jshint.test.src %>',
                 tasks: ['jshint:test', 'qunit']
             },
-            recess: {
+            less: {
                 files: 'less/*.less',
                 tasks: ['recess']
             }
@@ -281,6 +281,11 @@ module.exports = function (grunt) {
         grunt.file.mkdir('dist/assets/');
     });
 
+    // Prepare distribution
+    grunt.registerTask('copy-animations', '', function () {
+        grunt.file.copy('bower_components/animate.css/animate.css', 'dist/css/animate.css');
+    });
+
     // Copy jekyll generated templates and rename for diazo
     grunt.registerTask('copy-templates', '', function () {
         grunt.file.copy('_site/index.html', 'dist/theme.html');
@@ -306,7 +311,7 @@ module.exports = function (grunt) {
     grunt.registerTask('dist-js', ['concat', 'uglify']);
 
     // CSS distribution task.
-    grunt.registerTask('dist-css', ['less', 'csscomb']);
+    grunt.registerTask('dist-css', ['less', 'csscomb', 'copy-animations']);
 
     // Assets distribution task.
     grunt.registerTask('dist-assets', ['copy']);
