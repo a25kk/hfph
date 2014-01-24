@@ -28,7 +28,7 @@
        <replace css:theme="title" css:content="title" />
         <replace css:theme="base" css:content="base" />
         <!-- Add meta tags -->
-        <drop theme="/html/head/meta" />
+        <!-- <drop theme="/html/head/meta" /> -->
         
         <after content="/html/head/meta" theme-children="/html/head" />
         <!-- Copy style, script and link tags in the order they appear in the content -->
