@@ -15189,7 +15189,7 @@ fieldset[disabled] .btn-editpanel.active
 {
     font-size: 12px;
 
-    margin-right: -30px;
+    margin: 0;
     padding-right: 20px;
 
     text-align: center;
@@ -15211,6 +15211,13 @@ fieldset[disabled] .btn-editpanel.active
     color: #036;
     border: 0;
     background: none;
+}
+@media (min-width: 768px)
+{
+    .app-actionbar-nav
+    {
+        margin-right: -30px;
+    }
 }
 @media (min-width: 992px)
 {
@@ -15351,8 +15358,6 @@ textarea.app-actionbar-form .input-sm
     text-transform: uppercase;
 
     color: #036;
-    border-right: 1px solid rgba(0, 0, 0, .1);
-    border-left: 1px solid rgba(255, 255, 255, .75);
 }
 .app-navbar-main > .navitem a:hover
 {
@@ -15363,6 +15368,8 @@ textarea.app-actionbar-form .input-sm
 {
     .app-navbar-main > .navitem a
     {
+        border-right: 1px solid rgba(0, 0, 0, .1);
+        border-left: 1px solid rgba(255, 255, 255, .75);
         -webkit-box-shadow: inset 0 3px 9px rgba(0, 0, 0, .25);
                 box-shadow: inset 0 3px 9px rgba(0, 0, 0, .25);
     }

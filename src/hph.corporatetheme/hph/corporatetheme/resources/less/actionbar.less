@@ -12,8 +12,8 @@
 }
 
 .app-actionbar-nav {
+    margin: 0;
     padding-right: @line-height-computed;
-    margin-right: -(@line-height-computed * 1.5);
     font-size: @font-size-small;
     text-transform: uppercase;
     border: 0px solid @gray-light;
@@ -29,6 +29,9 @@
         background: none;
         border: 0;
         color: @app-blue;
+    }
+    @media (min-width: @screen-sm) {
+        margin-right: -(@line-height-computed * 1.5);
     }
     @media (min-width: @screen-md) {
         text-align: left;
