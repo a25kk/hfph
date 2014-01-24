@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2012-08-03 14:20+0000\n"
-"PO-Revision-Date: 2012-10-04 10:44+0100\n"
+"PO-Revision-Date: 2014-01-23 17:25+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -16,85 +16,85 @@ msgstr ""
 
 #: ./../profiles/default/types/hph.faculty.facultydirectory.xml
 msgid "A directory of faculty staff members"
-msgstr ""
+msgstr "Eine Liste aller Lehrbeauftragten"
 
 #: ./../profiles/default/types/hph.faculty.facultymember.xml
 msgid "A faculty staff member"
-msgstr ""
+msgstr "Ein Lehrender"
 
 #: ./../facultymember.py:40
 msgid "Accademic Role or Position"
-msgstr ""
+msgstr "Rolle"
 
 #: ./../facultymember.py:79
 msgid "Body Text"
-msgstr ""
+msgstr "Haupttext"
 
 #: ./../facultymember.py:59
 msgid "City"
-msgstr ""
+msgstr "PLZ/Ort"
 
 #: ./../facultymember.py:51
 msgid "Department"
-msgstr ""
+msgstr "Fachbereicht"
 
 #: ./../facultymember.py:23
 msgid "Docent"
-msgstr ""
+msgstr "Dozent"
 
 #: ./../facultymember.py:71
 msgid "E-Mail"
-msgstr ""
+msgstr "E-Mai-Adresse"
 
 #: ./../profiles/default/types/hph.faculty.facultydirectory.xml
 msgid "FacultyDirectory"
-msgstr ""
+msgstr "Index Lehrende"
 
 #: ./../profiles/default/types/hph.faculty.facultymember.xml
 msgid "FacultyMember"
-msgstr ""
+msgstr "Lehrender"
 
 #: ./../facultymember.py:67
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
 #: ./../facultymember.py:32
 msgid "Lastname"
-msgstr ""
+msgstr "Nachname"
 
 #: ./../facultymember.py:21
 msgid "Lecturer"
-msgstr ""
+msgstr "Lehrbeauftragte(r)"
 
 #: ./../facultymember.py:38
 msgid "Medium"
-msgstr ""
+msgstr "Rolle"
 
 #: ./../facultymember.py:47
 msgid "Optional additional information/sidenote"
-msgstr ""
+msgstr "Zusatzinformation"
 
 #: ./../facultymember.py:63
 msgid "Phone"
-msgstr ""
+msgstr "Telefon"
 
 #: ./../facultymember.py:75
 msgid "Portrait Image"
-msgstr ""
+msgstr "Bild"
 
 #: ./../facultymember.py:22
 msgid "Professor"
-msgstr ""
+msgstr "Professor"
 
 #: ./../facultymember.py:33
 msgid "Provide last name for better filtering and search"
-msgstr ""
+msgstr "Der Nachname wird zur besseren Filterung und Findbarkeit in Auflistungen der Lehrenden verwendet"
 
 #: ./../facultymember.py:46
 msgid "Sidenote"
-msgstr ""
+msgstr "Zusatzinfo"
 
 #: ./../facultymember.py:55
 msgid "Street"
-msgstr ""
+msgstr "Strasse"
 

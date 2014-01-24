@@ -131,6 +131,8 @@
             <replace css:content-children="#app-content" 
                 css:theme-children="#content"
                 css:if-content="#app-content" />
+            <drop css:theme="#app-aside-content"
+                css:if-not-content="#app-aside-content" />
             <replace css:content-children="#app-aside-content" 
                 css:theme-children="#app-aside-content"
                 css:if-content="#app-aside-content" />
