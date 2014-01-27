@@ -27,6 +27,9 @@
             
                 <p class="app-page-teaser" tal:condition="context/Description"
                     tal:content="context/Description" />
+
+                <div tal:condition="context/department"
+                    tal:content="context/department" />
                 
                 <section class="page-content">
                     <div class="row">
