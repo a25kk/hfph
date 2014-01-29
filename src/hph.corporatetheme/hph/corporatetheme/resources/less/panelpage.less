@@ -41,8 +41,57 @@
     }
 }
 
-.panelpage-editor {
+.panelpage-label {
+    margin-left: ceil((@line-height-computed * 2));
+}
 
+.panelpage-editor {
+    position:relative;
+    padding: @line-height-computed @line-height-computed @line-height-computed (@line-height-computed * 3);
+    border-top: 1px solid @gray-light;
+    > .panelpage-editbar {
+        display: block;
+        height: @navbar-height;
+    }
+}
+
+.panelpage-marker {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    .size((ceil(@line-height-computed * 2)), 100%);
+    background: @gray-light;
+    &.marker-level-1 {
+        background: @gray;
+    }
+}
+
+.panelpage-slide {
+    position: absolute;
+    top: 0;
+    left: ceil((@line-height-computed * 2));
+    height: 100%;
+    display: none;
+    @media (min-width: @screen-sm) {
+      width: ceil((@container-sm - @navbar-height));
+    }
+    @media (min-width: @screen-md) {
+      width: @container-md;
+    }
+    @media (min-width: @screen-lg-min) {
+      width: ceil((@container-lg - @navbar-height));
+    }
+    padding: 0 @line-height-computed;
+    background: rgba(255, 255, 255, 0.9);
+    &.on {
+        display: block;
+    }
+}
+
+.panelpage-slide-content {
+    position: relative;
+    height: 100%;
+    padding: 0 ceil((@line-height-computed * 2)) @line-height-computed;
 }
 
 // Mockup panel types

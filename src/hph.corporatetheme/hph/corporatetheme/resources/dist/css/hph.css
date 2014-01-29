@@ -14742,6 +14742,84 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 {
     background: #333;
 }
+.panelpage-label
+{
+    margin-left: 40px;
+}
+.panelpage-editor
+{
+    position: relative;
+
+    padding: 20px 20px 20px 60px;
+
+    border-top: 1px solid #999;
+}
+.panelpage-editor > .panelpage-editbar
+{
+    display: block;
+
+    height: 50px;
+}
+.panelpage-marker
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 40px;
+    height: 100%;
+
+    background: #999;
+}
+.panelpage-marker.marker-level-1
+{
+    background: #555;
+}
+.panelpage-slide
+{
+    position: absolute;
+    top: 0;
+    left: 40px;
+
+    display: none;
+
+    height: 100%;
+    padding: 0 20px;
+
+    background: rgba(255, 255, 255, .9);
+}
+@media (min-width: 768px)
+{
+    .panelpage-slide
+    {
+        width: 700px;
+    }
+}
+@media (min-width: 992px)
+{
+    .panelpage-slide
+    {
+        width: 970px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .panelpage-slide
+    {
+        width: 1120px;
+    }
+}
+.panelpage-slide.on
+{
+    display: block;
+}
+.panelpage-slide-content
+{
+    position: relative;
+
+    height: 100%;
+    padding: 0 40px 20px;
+}
 .panelpage-type
 {
     padding: 20px;
