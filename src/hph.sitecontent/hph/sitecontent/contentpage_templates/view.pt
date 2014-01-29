@@ -25,6 +25,9 @@
       <div tal:condition="context/text"
         tal:content="structure context/text/output" />
     </section>
+
+    <div tal:replace="structure provider:plone.belowcontentbody" />
+    
   </article>
 
   </metal:content-core>
