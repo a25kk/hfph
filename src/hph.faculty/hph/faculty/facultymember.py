@@ -20,7 +20,8 @@ from hph.faculty import MessageFactory as _
 position = SimpleVocabulary(
     [SimpleTerm(value=u'lecturer', title=_(u'Lecturer')),
      SimpleTerm(value=u'professor', title=_(u'Professor')),
-     SimpleTerm(value=u'docent', title=_(u'Docent'))]
+     SimpleTerm(value=u'docent', title=_(u'Docent')),
+     SimpleTerm(value=u'emeriti', title=_(u'Emeriti'))]
 )
 
 

@@ -37,9 +37,9 @@
     display: block;
     margin-bottom: floor(@line-height-computed / 2);
     padding: floor(@line-height-computed / 2) @line-height-computed;
-    background: @gray;
-    color: @gray-lighter;
-    &:hover,
+    //background: @gray-lighter;
+    border-bottom: 1px solid @gray-light;
+    color: @text-color;
     &.panelpage-list-item-primary {
         background: @gray-dark;
     }
@@ -50,12 +50,37 @@
 }
 
 .ppe-block {
+    display: block;
+    margin-bottom: floor(@line-height-computed / 2);
+    padding: floor(@line-height-computed / 2) @line-height-computed;
+    //background: @gray-lighter;
+    border-bottom: 1px solid @gray-light;
+    color: @text-color;
     > a {
-        color: @gray-lighter;
+        color: @gray-light;
         &:hover {
-            color: #fff;
+            color: @gray;
         }
     }
+    &.ppe-block-private {
+        border-right: 5px solid @alert-danger-bg;
+        .ppe-block-state {
+            color: @alert-danger-text;
+        }
+    }
+    &.ppe-block-published {
+        border-right: 5px solid @alert-success-bg;
+        .ppe-block-state {
+            color: @alert-success-text;
+        }
+    }
+
+}
+
+.ppe-action {
+    display: block;
+    margin-right: floor((@line-height-computed / 2));
+    line-height: ceil((@line-height-computed * 2));
 }
 
 .panelpage-label,

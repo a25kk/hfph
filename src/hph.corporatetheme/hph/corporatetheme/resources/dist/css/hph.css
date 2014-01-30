@@ -14738,10 +14738,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     margin-bottom: 10px;
     padding: 10px 20px;
 
-    color: #eee;
-    background: #555;
+    color: #333;
+    border-bottom: 1px solid #999;
 }
-.panelpage-list-item:hover,
 .panelpage-list-item.panelpage-list-item-primary
 {
     background: #333;
@@ -14750,13 +14749,47 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 {
     padding: 10px 20px 20px;
 }
+.ppe-block
+{
+    display: block;
+
+    margin-bottom: 10px;
+    padding: 10px 20px;
+
+    color: #333;
+    border-bottom: 1px solid #999;
+}
 .ppe-block > a
 {
-    color: #eee;
+    color: #999;
 }
 .ppe-block > a:hover
 {
-    color: #fff;
+    color: #555;
+}
+.ppe-block.ppe-block-private
+{
+    border-right: 5px solid #f2dede;
+}
+.ppe-block.ppe-block-private .ppe-block-state
+{
+    color: #a94442;
+}
+.ppe-block.ppe-block-published
+{
+    border-right: 5px solid #dff0d8;
+}
+.ppe-block.ppe-block-published .ppe-block-state
+{
+    color: #3c763d;
+}
+.ppe-action
+{
+    line-height: 40px;
+
+    display: block;
+
+    margin-right: 10px;
 }
 .panelpage-label,
 .ppe-close
@@ -15621,6 +15654,57 @@ body
 .app-toolbar + .app-header
 {
     margin-top: 50px;
+}
+.app-sign
+{
+    font-size: 25px;
+    line-height: 1;
+
+    display: inline-block;
+
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+
+    text-align: center;
+
+    color: #333;
+    border: 5px solid #eee;
+    border-radius: 25px;
+}
+.app-sign.app-sign-default
+{
+    color: #333;
+    border-color: #333;
+}
+.app-sign.app-sign-large
+{
+    font-size: 50px;
+
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+
+    border-radius: 50px;
+}
+.app-sign.app-sign-dragable
+{
+    border: none;
+}
+.app-sign .icon-bar
+{
+    display: block;
+
+    width: 22px;
+    height: 2px;
+
+    border-color: #333;
+    border-radius: 1px;
+    background-color: #ccc;
+}
+.app-sign .icon-bar + .icon-bar
+{
+    margin-top: 4px;
 }
 .app-header-content
 {
