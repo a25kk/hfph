@@ -15437,6 +15437,10 @@ textarea.app-actionbar-form .input-sm
 {
     border-top: 5px solid #ef7d00;
 }
+.subsection-institute-igp .app-img
+{
+    border-top: 4px solid #ef7d00;
+}
 .subsection-institute-igp .app-footer-content .nav
 {
     border-top: 5px solid #ef7d00;
@@ -15677,6 +15681,23 @@ body
 
     border: 1px solid #ddd;
     border-top: 4px solid #fc3;
+    background-color: #fff;
+}
+.app-img-inverse
+{
+    line-height: 1.428571429;
+
+    display: inline-block;
+
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+
+    -webkit-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+
+    border: 1px solid #ddd;
+    border-top: 4px solid black;
     background-color: #fff;
 }
 .no-img
