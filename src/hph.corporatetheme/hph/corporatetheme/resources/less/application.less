@@ -113,11 +113,8 @@ body {
         margin-top: 0;
         border: none;
         h1 {
-            font-size: (@font-size-base * 2);
+            font-size: (@font-size-base * 1.5);
         }
-    }
-    .lead {
-        font-size: ceil(@font-size-base * 1.2);
     }
     .app-list-item {
         background: @gray-lighter;
@@ -128,6 +125,11 @@ body {
         }
     }
 }
+
+.app-lead {
+        font-size: @font-size-base;
+        font-weight: bold;
+    }
 
 .template-login_form .app-content-body {
     padding: @line-height-computed;
