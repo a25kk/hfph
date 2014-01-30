@@ -20,8 +20,16 @@
         {% include subnavbar.html %}
     </header><!-- /app-header -->
 
-    <div class="container app-main" id="app-main" role="main">
-          {{ content }}
+    <div class="container app-main" id="app-main">
+        <div class="row">
+            <div class="col-xs-12 col-sm-3" id="app-col-sidebar" role="contentinfo">
+                <aside class="app-tile app-sidebar" id="app-sidebar">
+                </aside>
+            </div>
+            <div class="col-xs-12 col-sm-9" role="main" id="app-col-content">
+                {{ content }}
+            </div>
+        </div>
     </div>
 
     {% include footer.html %}

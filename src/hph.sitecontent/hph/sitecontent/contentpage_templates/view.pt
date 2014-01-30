@@ -19,7 +19,7 @@
     </header>
 
     <section id="content-core">
-      <p class="lead" tal:condition="context/Description"
+      <p class="app-lead" tal:condition="context/Description"
         tal:content="context/Description" />
 
       <div tal:condition="context/text"

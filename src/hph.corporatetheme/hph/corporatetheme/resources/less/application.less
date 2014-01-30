@@ -150,11 +150,8 @@ body {
         margin-top: 0;
         border: none;
         h1 {
-            font-size: (@font-size-base * 2);
+            font-size: (@font-size-base * 1.5);
         }
-    }
-    .lead {
-        font-size: ceil(@font-size-base * 1.2);
     }
     .app-list-item {
         background: @gray-lighter;
@@ -164,6 +161,16 @@ body {
             margin-top: 0;
         }
     }
+}
+
+.app-lead {
+    font-size: @font-size-base;
+    font-weight: bold;
+}
+
+.app-page-department {
+    margin-bottom: @line-height-computed;
+    font-weight: bold;
 }
 
 .template-login_form .app-content-body {
@@ -193,6 +200,16 @@ body {
     background-color: @thumbnail-bg;
     border: 1px solid @thumbnail-border;
     border-top: 4px solid @app-yellow;
+    .transition(all .2s ease-in-out);
+    .img-responsive(inline-block);
+}
+
+.app-img-inverse {
+    margin-bottom: (@line-height-computed / 2);
+    line-height: @line-height-base;
+    background-color: @thumbnail-bg;
+    border: 1px solid @thumbnail-border;
+    border-top: 4px solid black;
     .transition(all .2s ease-in-out);
     .img-responsive(inline-block);
 }

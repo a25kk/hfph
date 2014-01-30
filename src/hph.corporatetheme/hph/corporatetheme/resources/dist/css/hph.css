@@ -515,17 +515,17 @@ h6 .small
 h1,
 .h1
 {
-    font-size: 36px;
+    font-size: 30px;
 }
 h2,
 .h2
 {
-    font-size: 30px;
+    font-size: 28px;
 }
 h3,
 .h3
 {
-    font-size: 24px;
+    font-size: 21px;
 }
 h4,
 .h4
@@ -14802,7 +14802,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 .ppe-close
 {
-    font-size: 28px;
     font-weight: bold;
 }
 .panelpage-editable
@@ -15438,7 +15437,7 @@ textarea.app-actionbar-form .input-sm
 }
 .app-brandbar .brandbar-sectionname
 {
-    font-size: 54px;
+    font-size: 36px;
     line-height: 60px;
 
     text-align: right;
@@ -15573,6 +15572,10 @@ textarea.app-actionbar-form .input-sm
 .subsection-institute-igp .app-header-content
 {
     border-top: 5px solid #ef7d00;
+}
+.subsection-institute-igp .app-img
+{
+    border-top: 4px solid #ef7d00;
 }
 .subsection-institute-igp .app-footer-content .nav
 {
@@ -15805,11 +15808,7 @@ body
 }
 .app-content-body .page-header h1
 {
-    font-size: 28px;
-}
-.app-content-body .lead
-{
-    font-size: 17px;
+    font-size: 21px;
 }
 .app-content-body .app-list-item
 {
@@ -15821,6 +15820,17 @@ body
 .app-content-body .app-list-item .list-item-heading
 {
     margin-top: 0;
+}
+.app-lead
+{
+    font-size: 14px;
+    font-weight: bold;
+}
+.app-page-department
+{
+    font-weight: bold;
+
+    margin-bottom: 20px;
 }
 .template-login_form .app-content-body
 {
@@ -15858,6 +15868,23 @@ body
 
     border: 1px solid #ddd;
     border-top: 4px solid #fc3;
+    background-color: #fff;
+}
+.app-img-inverse
+{
+    line-height: 1.428571429;
+
+    display: inline-block;
+
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+
+    -webkit-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;
+
+    border: 1px solid #ddd;
+    border-top: 4px solid black;
     background-color: #fff;
 }
 .no-img
