@@ -4,7 +4,7 @@
 module.exports = function (grunt) {
 
     // load all grunt tasks
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+    require('load-grunt-tasks')(grunt);
 
     // Project configuration.
     grunt.initConfig({
@@ -71,23 +71,6 @@ module.exports = function (grunt) {
             dist: {
                 src: ['<%= concat.dist.dest %>'],
                 dest: 'dist/js/<%= pkg.name %>.min.js'
-            }
-        },
-
-        recess: {
-            options: {
-                compile: true
-            },
-            theme: {
-                src: ['less/styles.less'],
-                dest: 'dist/css/styles.css'
-            },
-            min: {
-                options: {
-                    compress: true
-                },
-                src: ['less/styles.less'],
-                dest: 'dist/css/styles.min.css'
             }
         },
 
@@ -253,24 +236,6 @@ module.exports = function (grunt) {
         }
     });
 
-
-    // These plugins provide necessary tasks.
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-connect');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-qunit');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-html-validation');
-    grunt.loadNpmTasks('grunt-concurrent');
-    grunt.loadNpmTasks('grunt-newer');
-    grunt.loadNpmTasks('grunt-jekyll');
-    grunt.loadNpmTasks('grunt-recess');
-    grunt.loadNpmTasks('grunt-sed');
-    grunt.loadNpmTasks('grunt-rev');
-
     // -------------------------------------------------
     // These are the available tasks provided
     // Run them in the Terminal like e.g. grunt dist-css
@@ -325,9 +290,12 @@ module.exports = function (grunt) {
     // Concurrent distribution task
     grunt.registerTask('dist-cc', ['test', 'concurrent:cj', 'concurrent:ha']);
 
+    // Development task.
+    grunt.registerTask('dev', ['dist-css', 'dist-js', 'dist-html']);
+
     // Full distribution task.
     grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js', 'dist-html', 'dist-assets']);
 
     // Default task.
-    grunt.registerTask('default', ['dist-cc']);
+    grunt.registerTask('default', ['dev']);
 };

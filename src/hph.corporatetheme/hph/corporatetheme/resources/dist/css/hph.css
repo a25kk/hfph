@@ -14727,6 +14727,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     border-left: 2px solid #080808;
     background: rgba(255, 255, 255, .5);
 }
+.panelpage-list
+{
+    padding-top: 20px;
+}
 .panelpage-list-item
 {
     display: block;
@@ -14742,19 +14746,39 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 {
     background: #333;
 }
+.ppe-header
+{
+    padding: 10px 20px 20px;
+}
+.ppe-block > a
+{
+    color: #eee;
+}
+.ppe-block > a:hover
+{
+    color: #fff;
+}
 .panelpage-label
 {
-    margin-left: 40px;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+
+    opacity: .25;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+
+    filter: alpha(opacity=25);
 }
-.panelpage-editor
+.panelpage-editable
 {
     position: relative;
 
-    padding: 20px 20px 20px 60px;
+    padding: 0 20px 20px 60px;
 
     border-top: 1px solid #999;
 }
-.panelpage-editor > .panelpage-editbar
+.panelpage-editable > .panelpage-editbar
 {
     display: block;
 

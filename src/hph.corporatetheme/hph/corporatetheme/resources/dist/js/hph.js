@@ -12669,23 +12669,6 @@ if (typeof define === "function" && define.amd) {
                 }
             }
         });
-        if ($('#tickerbar').length > 0) {
-            $('div[data-appui="tickerfeed"]').each(function () {
-                var sourceUrl = $(this).data('appui-source');
-                $.getJSON(sourceUrl, function (data) {
-                    $.each(data.items, function (i, item) {
-                        $.gritter.add({
-                            // (string | mandatory) the heading of the notification
-                            title: '<i class="icon-info-sign"></i> Hinweis',
-                            // (string | mandatory) the text inside the notification
-                            text: item.title,
-                            sticky: true,
-                            time: 6000
-                        });
-                    });
-                });
-            });
-        }
         $('div[data-appui="eventbox"]').each(function () {
             var sourceUrl = $(this).data('source');
             var targetEl = $(this);
@@ -12701,6 +12684,24 @@ if (typeof define === "function" && define.amd) {
                 });
                 targetEl.html(divData);
             });
+        });
+        $('a[data-appui="overslide"]').on({
+            click: function (e) {
+                e.preventDefault();
+                var targetBlock = $(this).data('target');
+                // $(this).parent().removeClass('bounceInLeft').addClass('bounceOutRight');
+                if ($(targetBlock).hasClass('fadeOutTop')) {
+                    $(targetBlock).removeClass('fadeOutTop').addClass('slideInRight').show();
+                } else {
+                    $(targetBlock).addClass('slideInRight').show();
+                }
+            }
+        });
+        $('a[data-appui="overslide-close"]').on({
+            click: function (e) {
+                e.preventDefault();
+                $(this).closest('.panelpage-slide').removeClass('slideInRight').addClass('fadeOutTop').hide();
+            }
         });
     }
     );
