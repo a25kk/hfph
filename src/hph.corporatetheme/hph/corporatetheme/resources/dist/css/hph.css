@@ -15635,6 +15635,12 @@ body
     font-size: 14px;
     font-weight: bold;
 }
+.app-page-department
+{
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
 .template-login_form .app-content-body
 {
     padding: 20px;
