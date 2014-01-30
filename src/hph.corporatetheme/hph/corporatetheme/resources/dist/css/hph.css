@@ -14758,17 +14758,18 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 {
     color: #fff;
 }
-.panelpage-label
+.panelpage-label,
+.ppe-close
 {
     font-size: 21px;
-    font-weight: bold;
     line-height: 1;
 
-    opacity: .25;
-    color: #000;
+    color: #333;
     text-shadow: 0 1px 0 #fff;
-
-    filter: alpha(opacity=25);
+}
+.ppe-close
+{
+    font-weight: bold;
 }
 .panelpage-editable
 {
@@ -14956,7 +14957,7 @@ fieldset[disabled] .btn-editpanel.active
 }
 .app-create-form
 {
-    padding-top: 50px;
+    padding-top: 25px;
 }
 .app-panelmanager-content
 {

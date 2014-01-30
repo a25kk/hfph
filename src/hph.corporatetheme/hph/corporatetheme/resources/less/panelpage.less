@@ -58,14 +58,18 @@
     }
 }
 
-.panelpage-label {
+.panelpage-label,
+.ppe-close {
     font-size: (@font-size-base * 1.5);
-    font-weight: @close-font-weight;
     line-height: 1;
-    color: @close-color;
+    color: @text-color;
     text-shadow: @close-text-shadow;
-    .opacity(.25);
 }
+
+.ppe-close {
+    font-weight: @close-font-weight;
+}
+
 
 .panelpage-editable {
     position:relative;
@@ -172,7 +176,7 @@
 }
 
 .app-create-form {
-    padding-top: @navbar-height;
+    padding-top: ceil((@navbar-height / 2));
 }
 
 

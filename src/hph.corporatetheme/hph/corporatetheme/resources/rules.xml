@@ -61,6 +61,10 @@
             css:if-content="#anon-personalbar" />
         <replace css:theme="#app-toolbar" css:content="#app-toolbar" />
 
+        <before css:theme-children="#content"
+            css:content="#content-views"
+            css:if-content="body.template-caching-controlpanel" />
+
         <!-- Logo (link target) -->
         <copy attributes="href" css:content="#portal-logo" css:theme="#brandbar-brand" />
 
