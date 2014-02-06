@@ -15,6 +15,17 @@
             <header class="page-header">
               <h1 tal:content="context/Title">Title</h1>
             </header>
+            <div class="row">
+                <div class="col-xs-12 col-sm-2">
+                    <img tal:condition="context/image"
+                        tal:define="scales context/@@images"
+                        tal:replace="structure python: scales.tag('image',
+                                     width=200,
+                                     height=200,
+                                     css_class='app-img',
+                                     direction='down')" />
+                </div>
+                <div class="col-xs-12 col-sm-10">
             <article class="page-content"> 
                 <div tal:condition="context/text"
                     tal:content="structure context/text/output" />
@@ -26,7 +37,10 @@
                 <div class="alert alert-info">
                   <p>Attachments and Links are inserted here</p>
                 </div>
+
             </article>
+            </div>
+            </div>
         </section>
     </article>
     
