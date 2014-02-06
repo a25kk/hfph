@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+  <section id="news-listing" class="tile-content"
+    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+    <header class="page-header">
+        <h1>Cleanup Files and Images (Archetypes)</h1>
+    </header>
+
+    <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                     b_size python:int(request.get('b_size', 20));
+                     b_start python:int(request.get('b_start', 0));
+                     results view/to_cleanup;
+                     batch python:Batch(results, b_size, b_start);">
+        <article tal:repeat="item batch">
+            <a class="btn btn-primary pull-right" tal:attributes="href string:${item/getURL}/delete_confirmation">
+                delete</a>
+            <a class="btn btn-link pull-right" tal:attributes="href item/getURL">
+                view</a>
+            <h4><a href="" tal:attributes="href item/getURL">
+                    <span tal:condition="item/Title" tal:content="item/Title" />
+                    <span tal:condition="not:item/Title" tal:content="item/getId" />
+                </a>
+            </h4>
+            <p class="muted" tal:content="item/getPath" />
+            <hr>
+        </article>
+        <div metal:use-macro="context/batch_macros/macros/navigation" />
+    </div>
+  </section>
+    
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+
