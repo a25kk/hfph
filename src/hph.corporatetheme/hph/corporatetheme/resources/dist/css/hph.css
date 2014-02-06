@@ -15421,6 +15421,11 @@ body
 {
     padding-left: 30px;
 }
+.app-breadcrumbs
+{
+    border-radius: 0;
+    background: #eee;
+}
 .page
 {
     padding: 20px;
