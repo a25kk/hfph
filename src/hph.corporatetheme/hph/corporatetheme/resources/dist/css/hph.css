@@ -15146,6 +15146,7 @@ select[multiple].app-actionbar-form .input-sm
 {
     z-index: 1000;
 
+    height: 50px;
     margin-right: 0;
     margin-left: 0;
 
