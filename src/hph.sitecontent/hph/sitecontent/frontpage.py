@@ -1,6 +1,7 @@
 import json
 from Acquisition import aq_inner
 from five import grok
+from plone import api
 from zope.component import getMultiAdapter
 from Products.CMFCore.utils import getToolByName
 
@@ -92,3 +93,16 @@ class RecentEventsView(grok.View):
                                     time_only=False,
                                     domain='plonelocales',
                                     request=self.request)
+
+
+class CleanupView(grok.View):
+    grok.context(INavigationRoot)
+    grok.require('zope2.View')
+    grok.name('cleanup-view')
+
+    def to_cleanup(self):
+        catalog = api.portal.get_tool(name='portal_catalog')
+        ptypes = ['Image', 'File']
+        results = catalog(portal_type=ptypes)
+        items = IContentListing(results)
+        return items
