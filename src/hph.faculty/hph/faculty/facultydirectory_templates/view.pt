@@ -11,7 +11,7 @@
   <metal:content-core define-macro="main">
 
     <div class="row">
-        <div class="col-xs-12 col-lg-3">
+        <div class="col-xs-12 col-sm-3">
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="#filter">Additional information / subcontents</a></li>
                 <li><a href="#filter">A</a></li>
@@ -19,7 +19,7 @@
                 <li><a href="#filter">C</a></li>
             </ul>
         </div>
-        <div class="col-xs-12 col-lg-9">
+        <div class="col-xs-12 col-sm-9">
             <article class="tile-content" id="tile-content">
               <header class="page-header">
                 <h1 tal:content="context/Title">Title inserted here</h1>
@@ -33,12 +33,32 @@
                                  batch python:Batch(results, b_size, b_start);">
                     <div class="page-content-list-item"
                         tal:repeat="item results">
-                        <a class="h2" tal:attributes="href item/getURL"
-                            tal:content="item/Title" />
-                        <p class="text-discreet" tal:condition="item/Description" 
-                            tal:content="item/Description" />
-                        <p><a tal:attributes="href string:mailto:${item/email}"
-                                tal:content="item/email" /></p>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-2">
+                                <img tal:condition="item/image"
+                                        tal:define="item_obj item/getObject;
+                                                    scales item_obj/@@images"
+                                        tal:replace="structure python: scales.tag('image',
+                                                     width=128,
+                                                     height=128,
+                                                     css_class='app-img',
+                                                     direction='down')" />
+                            </div>
+                            <div class="col-xs-12 col-sm-10">
+                                <a class="h4" tal:attributes="href item/getURL"
+                                    tal:content="item/Title" />
+                                <p class="text-discreet" tal:condition="item/Description" 
+                                    tal:content="item/Description" />
+                                <p class="app-page-department" tal:condition="item/department"
+                                      tal:content="item/department" />
+                                <p tal:condition="item/sidenote"
+                                      tal:content="item/sidenote" />
+                                <p><a tal:attributes="href string:mailto:${item/email}"
+                                        tal:content="item/email" /></p>
+                            </div>
+
+                        </div>
+                        <hr />
                     </div>
                     <div metal:use-macro="context/batch_macros/macros/navigation" />
                 </div>
