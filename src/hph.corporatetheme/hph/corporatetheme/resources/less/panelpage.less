@@ -49,40 +49,6 @@
     padding: ceil((@line-height-computed / 2)) @line-height-computed @line-height-computed;
 }
 
-.ppe-block {
-    display: block;
-    margin-bottom: floor(@line-height-computed / 2);
-    padding: floor(@line-height-computed / 2) @line-height-computed;
-    //background: @gray-lighter;
-    // border-bottom: 1px solid @gray-light;
-    color: @text-color;
-    > a {
-        color: @gray-light;
-        &:hover {
-            color: @gray;
-        }
-    }
-    &.ppe-block-private {
-        border-right: 5px solid @alert-danger-bg;
-        .ppe-block-state {
-            color: @alert-danger-text;
-        }
-    }
-    &.ppe-block-published {
-        border-right: 5px solid @alert-success-bg;
-        .ppe-block-state {
-            color: @alert-success-text;
-        }
-    }
-
-}
-
-.ppe-action {
-    display: block;
-    margin-right: floor((@line-height-computed / 2));
-    line-height: ceil((@line-height-computed * 2));
-}
-
 .panelpage-label,
 .ppe-close {
     font-size: ceil((@font-size-base * 1.5));

@@ -14749,47 +14749,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 {
     padding: 10px 20px 20px;
 }
-.ppe-block
-{
-    display: block;
-
-    margin-bottom: 10px;
-    padding: 10px 20px;
-
-    color: #333;
-}
-.ppe-block > a
-{
-    color: #999;
-}
-.ppe-block > a:hover
-{
-    color: #555;
-}
-.ppe-block.ppe-block-private
-{
-    border-right: 5px solid #f2dede;
-}
-.ppe-block.ppe-block-private .ppe-block-state
-{
-    color: #a94442;
-}
-.ppe-block.ppe-block-published
-{
-    border-right: 5px solid #dff0d8;
-}
-.ppe-block.ppe-block-published .ppe-block-state
-{
-    color: #3c763d;
-}
-.ppe-action
-{
-    line-height: 40px;
-
-    display: block;
-
-    margin-right: 10px;
-}
 .panelpage-label,
 .ppe-close
 {
