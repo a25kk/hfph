@@ -15429,6 +15429,7 @@ textarea.app-actionbar-form .input-sm
 {
     z-index: 1000;
 
+    height: 50px;
     margin-right: 0;
     margin-left: 0;
 
@@ -15703,6 +15704,10 @@ body
 #subnavigation
 {
     padding-left: 30px;
+}
+.app-breadcrumbs
+{
+    background: #eee;
 }
 .page
 {
