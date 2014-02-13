@@ -8,6 +8,8 @@ from Products.CMFCore.utils import getToolByName
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.app.contentlisting.interfaces import IContentListing
 
+from plone.app.event.dx.interfaces import IDXEvent
+
 from hph.sitecontent.eventitem import IEventItem
 from hph.sitecontent.newsentry import INewsEntry
 
@@ -24,7 +26,7 @@ class FrontpageView(grok.View):
     def eventitems(self):
         context = aq_inner(self.context)
         catalog = getToolByName(context, 'portal_catalog')
-        results = catalog(object_provides=IEventItem.__identifier__,
+        results = catalog(object_provides=IDXEvent.__identifier__,
                           review_state='published',
                           sort_on='start',
                           sort_order='reverse',
@@ -81,7 +83,7 @@ class RecentEventsView(grok.View):
     def eventitems(self):
         context = aq_inner(self.context)
         catalog = getToolByName(context, 'portal_catalog')
-        results = catalog(object_provides=IEventItem.__identifier__,
+        results = catalog(object_provides=IDXEvent.__identifier__,
                           review_state='published',
                           sort_on='start',
                           sort_order='reverse',
