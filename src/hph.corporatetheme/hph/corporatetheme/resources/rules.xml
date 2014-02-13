@@ -21,6 +21,7 @@
     <theme href="dist/landingpage.html" css:if-content="body.section-nachrichten" />
     <theme href="dist/landingpage.html" css:if-content="body.section-termine" />
     <theme href="dist/landingpage.html" css:if-content="body.section-impressum" />
+    <theme href="dist/landingpage.html" css:if-content="body.presse-oeffentlichkeitsarbeit" />
     
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
