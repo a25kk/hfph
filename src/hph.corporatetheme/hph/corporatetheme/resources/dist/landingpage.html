@@ -13,17 +13,17 @@
 
 <title>
   
-    HPfH &middot; HPfH &middot;
+    Landingpage &middot; HPfH &middot;
   
 </title>
 
 <!-- Bootstrap core CSS -->
-<link href="../dist/css/hph.css" rel="stylesheet">
+<link href="../../dist/css/hph.css" rel="stylesheet">
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
-  <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
-  <script src="../bower_components/respond/respond.min.js"></script>
+  <script src="../../bower_components/html5shiv/dist/html5shiv.js"></script>
+  <script src="../../bower_components/respond/respond.min.js"></script>
 <![endif]-->
 
 <!-- Favicons -->
@@ -135,18 +135,18 @@
   </div>
 
     <div class="collapse navbar-collapse" id="app-navbar-collapse-1">
-        <ul class="nav nav-justified app-navbar-main" id="app-navbar-main">
+        <ul class="nav nav-justified app-navbar-main" id="app-static-navbar">
             <li class="navitem" id="tab-hochschule">
-                <a href="http://localhost:8499/hph/hochschule">Hochschule</a>
+                <a href="/hochschule">Hochschule</a>
             </li>
             <li class="navitem" id="tab-studium">
-                <a href="http://localhost:8499/hph/studium">Studium</a>
+                <a href="/studium">Studium</a>
             </li>
             <li class="navitem" id="tab-forschung">
-                <a href="http://localhost:8499/hph/forschung">Forschung</a>
+                <a href="/forschung">Forschung</a>
             </li>
             <li class="navitem" id="tab-impulse">
-                <a href="http://localhost:8499/hph/impulse">Impulse</a>
+                <a href="/impulse">Impulse</a>
             </li>
         </ul>
     </div><!--/.nav-collapse -->
@@ -182,48 +182,64 @@
         </div>
     </div>
 
-    <div class="container app-main" id="app-main">
-        <div class="row">
-            <div class="col-xs-12 col-sm-3" id="app-col-sidebar" role="contentinfo">
-                <aside class="app-tile app-sidebar" id="app-sidebar">
-                </aside>
-            </div>
-            <div class="col-xs-12 col-sm-9" role="main" id="app-col-content">
-                <section class="app-tile app-content" id="content">
+    <div class="container app-main" id="app-main" role="main">
+          <section class="app-tile app-content" id="content">
     <div class="row">
-        <div class="col-xs-12 col-sm-4">
-            <aside class="app-aside">
-                <div class="panel panel-default app-panel">
-                  <div class="panel-heading app-panel-heading">
-                    <h3 class="panel-title">Panel title</h3>
-                  </div>
-                  <div class="panel-body">
-                    Panel content
-                  </div>
-                </div>
-            </aside>
-        </div>
-        <div class="col-xs-12 col-sm-8">
-             <main class="app-page">
-                <div class="app-page-header">
-                    <div class="app-page-headline">
-                        <h1>Theme template</h1>
-                    </div>
-                    <p class="lead app-page-lead">
-                        This is the new default theme
-                    </p>
-                </div>
-                <div class="app-page-content">
-                        <p>Next we will define a custom listing to provide a basic scaffolding
-                            before we intergrate the example API
+        <div class="col-xs-12 col-md-9">
+            <main class="app-content">
+                <div class="app-page" id="content">
+                    <div class="app-page-header">
+                        <div class="app-page-headline">
+                            <h1>Theme template</h1>
+                        </div>
+                        <p class="lead">
+                            This is the new default theme
                         </p>
+                    </div>
+                    <div class="app-page-content">
+                            <p>Next we will define a custom listing to provide a basic scaffolding
+                                before we intergrate the example API
+                            </p>
+                    </div>
                 </div>
             </main>
         </div>
+        <div class="col-xs-12 col-md-3">
+            <aside class="app-aside" id="app-aside">
+                <aside class="app-box app-box-striped app-box-events">
+    <div class="app-box-header">
+        <h4 class="app-box-heading">
+            <a href="#">App Box Title</a>
+        </h4>
+    </div>
+    <div class="app-box-content">
+        <a class="app-box-item">
+            <time class="app-box-date h5">13.13.2013</time>
+            Albert-Keller-Lecture:  Glaube und Freiheit. Kardinal Reinhard Marx.
+            <i class="icon-double-angle-right pull-right"></i>
+        </a>
+        <a class="app-box-item">
+            <time class="app-box-date h5">13.13.2013</time>
+            Albert-Keller-Lecture:  Glaube und Freiheit. Kardinal Reinhard Marx.
+            <i class="icon-double-angle-right pull-right"></i>
+        </a>
+        <a class="app-box-item">
+            <time class="app-box-date h5">13.13.2013</time>
+            Albert-Keller-Lecture:  Glaube und Freiheit. Kardinal Reinhard Marx.
+            <i class="icon-double-angle-right pull-right"></i>
+        </a>
+    </div>
+    <div class="app-box-footer text-right">
+        <a class="btn btn-default btn-sm" href="#">
+            App box more
+        </a>
+    </div>
+</aside>
+            </aside>
+        </div>
     </div>
 </section>
-            </div>
-        </div>
+
     </div>
 
     <footer class="container app-footer" id="app-footer">
@@ -240,11 +256,11 @@
   </div>
 </footer> <!-- /footer -->
 
-    <script src="../bower_components/jquery/jquery.js"></script>
-<script src="../bower_components/modernizr/modernizr.js"></script>
-<script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="../bower_components/holderjs/holder.js"></script>
-<script src="../js/application.js"></script>
+    <script src="../../bower_components/jquery/jquery.js"></script>
+<script src="../../bower_components/modernizr/modernizr.js"></script>
+<script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../../bower_components/holderjs/holder.js"></script>
+<script src="../../js/application.js"></script>
 
   </body>
 </html>

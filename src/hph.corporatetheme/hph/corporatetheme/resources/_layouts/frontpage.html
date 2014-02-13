@@ -14,7 +14,7 @@
         <div class="app-tile app-header-content" id="app-header-content">
             {% include metanav.html %}
             {% include brandbar.html %}
-            {% include static-navbar.html %}
+            {% include mainnavbar.html %}
         </div>
         {% include subnavbar.html %}
     </header><!-- /app-header -->
@@ -22,6 +22,12 @@
 
     <div class="container app-main" id="app-main" role="main">
           {{ content }}
+    </div>
+
+    <div class="container app-aside">
+        <section class="app-tile app-aside-content" id="app-aside-content">
+            {% include box-news.html %}
+        </section>
     </div>
 
     {% include footer.html %}

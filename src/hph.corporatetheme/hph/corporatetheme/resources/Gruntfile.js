@@ -259,6 +259,7 @@ module.exports = function (grunt) {
         grunt.file.copy('_site/overlay/index.html', 'dist/overlay.html');
         grunt.file.copy('_site/signin/index.html', 'dist/signin.html');
         grunt.file.copy('_site/frontpage/index.html', 'dist/frontpage.html');
+        grunt.file.copy('_site/landingpage/index.html', 'dist/landingpage.html');
     });
 
     // Docs HTML validation task
