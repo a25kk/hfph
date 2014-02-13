@@ -45,8 +45,8 @@
                                                      direction='down')" />
                             </div>
                             <div class="col-xs-12 col-sm-10">
-                                <a class="h4" tal:attributes="href item/getURL"
-                                    tal:content="item/Title" />
+                                <h4><a tal:attributes="href item/getURL"
+                                    tal:content="item/Title" /></h4>
                                 <p class="text-discreet" tal:condition="item/Description" 
                                     tal:content="item/Description" />
                                 <p class="app-page-department" tal:condition="item/department"

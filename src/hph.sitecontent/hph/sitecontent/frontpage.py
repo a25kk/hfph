@@ -45,7 +45,7 @@ class FrontpageView(grok.View):
     def constructImageTag(self, brain):
         obj = brain.getObject()
         scales = getMultiAdapter((obj, self.request), name='images')
-        scale = scales.scale('image', width=225, height=225)
+        scale = scales.scale('image', width=220, height=170)
         data = {}
         if scale is not None:
             data['url'] = scale.url

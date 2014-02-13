@@ -358,14 +358,14 @@ a
 {
     text-decoration: none;
 
-    color: #036;
+    color: #999;
 }
 a:hover,
 a:focus
 {
     text-decoration: underline;
 
-    color: #000d1a;
+    color: #737373;
 }
 a:focus
 {
@@ -2806,7 +2806,7 @@ fieldset[disabled] .btn-info.active
 
     cursor: pointer;
 
-    color: #036;
+    color: #999;
     border-radius: 0;
 }
 .btn-link,
@@ -2830,7 +2830,7 @@ fieldset[disabled] .btn-link
 {
     text-decoration: underline;
 
-    color: #000d1a;
+    color: #737373;
     background-color: transparent;
 }
 .btn-link[disabled]:hover,
@@ -4462,7 +4462,7 @@ textarea.input-group-sm > .input-group-btn > .btn
 .nav .open > a:hover,
 .nav .open > a:focus
 {
-    border-color: #036;
+    border-color: #999;
     background-color: #eee;
 }
 .nav .nav-divider
@@ -5686,7 +5686,7 @@ a.badge:focus
 a.list-group-item.active > .badge,
 .nav-pills > .active > a > .badge
 {
-    color: #036;
+    color: #999;
     background-color: #fff;
 }
 .nav-pills > li > a > .badge
@@ -5772,7 +5772,7 @@ a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active
 {
-    border-color: #036;
+    border-color: #999;
 }
 .thumbnail .caption
 {
@@ -10050,7 +10050,7 @@ ul.formTabs .open > a,
 ul.formTabs .open > a:hover,
 ul.formTabs .open > a:focus
 {
-    border-color: #036;
+    border-color: #999;
     background-color: #eee;
 }
 ul.formTabs .nav-divider
@@ -11230,11 +11230,11 @@ table.grid th
     color: #fff;
     border-radius: .5em;
     border-radius: 4px;
-    background: #036;
+    background: #999;
 }
 #category a.link-category:hover
 {
-    background: #000d1a;
+    background: #737373;
 }
 #category .separator
 {
@@ -11506,7 +11506,7 @@ aimg.image-left.active,
 aimg.image-right.active,
 a.captioned img.active
 {
-    border-color: #036;
+    border-color: #999;
 }
 img.image-left .caption,
 img.image-right .caption,
@@ -15456,7 +15456,7 @@ ul.navTree .open > a,
 ul.navTree .open > a:hover,
 ul.navTree .open > a:focus
 {
-    border-color: #036;
+    border-color: #999;
     background-color: #eee;
 }
 ul.navTree .nav-divider
