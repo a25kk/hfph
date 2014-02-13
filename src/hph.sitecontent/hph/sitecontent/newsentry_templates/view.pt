@@ -30,16 +30,7 @@
                 <div tal:condition="context/text"
                     tal:content="structure context/text/output" />
 
-                <hr>
-                <p class="text-right">
-                    <a href="" class="btn btn-primary"
-                        tal:define="portal_url context/portal_url"
-                        tal:attributes="href view/parent_url">
-                        Weitere Nachrichten</a>
-                </p>
-
                 <div tal:condition="view/has_files">
-                    <h5>Attachments</h5>
                     <ul class="list-group">
                         <li class="list-group-item" tal:repeat="item context/@@folderListing">
                             <tal:item
@@ -60,6 +51,15 @@
                         </li>
                     </ul>
                 </div>
+
+                <hr>
+                <p class="text-right">
+                    <a href="" class="btn btn-primary"
+                        tal:define="portal_url context/portal_url"
+                        tal:attributes="href view/parent_url">
+                        Weitere Nachrichten</a>
+                </p>
+
                 <div class="visualClear" tal:condition="view/can_edit">
                     <div class="alert alert-warning">
                         <p i18n:translate="">

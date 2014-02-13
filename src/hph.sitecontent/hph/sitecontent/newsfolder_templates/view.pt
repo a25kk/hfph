@@ -31,14 +31,15 @@
               </div>
               <div class="col-xs-12 col-sm-10">                                 
                   <h4><a href="" tal:content="item/Title"
-                          tal:attributes="href item/getURL" /></h4>          
-                  <p class="muted"
+                          tal:attributes="href item/getURL" /></h4> 
+                  <p tal:condition="item/Description" 
+                                           tal:content="item/Description" />         
+                  <p class="discreet"
                       tal:define="date item/effective">
+                  <span>(Erstellt am</span>
                   <span tal:attributes="datetime date"
-                      tal:content="python:toLocalizedTime(date)" />
+                      tal:content="python:toLocalizedTime(date)" />)
                   </p>
-                  <p class="text-discreet" tal:condition="item/Description" 
-                                           tal:content="item/Description" />
               </div>
             </div>
           <hr />
