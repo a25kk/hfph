@@ -25,13 +25,40 @@ class ILecture(form.Schema, IImageScaleTraversable):
     """
     A single course
     """
-    lectureNumber = schema.TextLine(
+    courseNumber = schema.TextLine(
         title=_(u"Lecure Number"),
         required=True,
     )
     attendanceRequired = schema.Bool(
         title=_(u"Attendance Required"),
         required=False,
+    )
+    lecturer = schema.TextLine(
+        title=_(u"Lecturer"),
+        required=True,
+    )
+    lecturerAdditional = schema.TextLine(
+        title=_(u"Additional Lecturer"),
+        required=False,
+    )
+    courseType = schema.Choice(
+        title=_(u"Course Type"),
+        description=_(u"Please select the course type."),
+        required=False,
+        vocabulary=u'hph.lectures.CourseType',
+    )
+    courseDuration = schema.Choice(
+        title=_(u"Course Duration"),
+        required=False,
+        vocabulary=u'hph.lectures.CourseDuration',
+    )
+    courseDates = schema.TextLine(
+        title=_(u"Course Dates"),
+        required=True,
+    )
+    courseTime = schema.TextLine(
+        title=_(u"Course Time"),
+        required=True,
     )
 
 

@@ -29,6 +29,7 @@ setup(name='hph.lectures',
           'plone.app.dexterity [grok, relations]',
           'plone.app.relationfield',
           'plone.namedfile [blobs]',
+          'collective.z3cform.datagridfield',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
