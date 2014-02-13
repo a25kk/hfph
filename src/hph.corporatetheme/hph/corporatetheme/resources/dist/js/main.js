@@ -5,8 +5,6 @@
 *
 * Designed and built by ade25
 */
-if (typeof jQuery === "undefined") { throw new Error("We require jQuery") }
-
 /*!
  * Bootstrap v3.1.0 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.

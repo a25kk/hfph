@@ -29,15 +29,48 @@
             <article class="page-content"> 
                 <div tal:condition="context/text"
                     tal:content="structure context/text/output" />
-                <a href="" class="btn btn-primary pull-right"
-                  tal:define="portal_url context/portal_url"
-                  tal:attributes="href view/parent_url">
-                  Weitere Nachrichten</a>
-                <h5>Attachments</h5>
-                <div class="alert alert-info">
-                  <p>Attachments and Links are inserted here</p>
-                </div>
 
+                <hr>
+                <p class="text-right">
+                    <a href="" class="btn btn-primary"
+                        tal:define="portal_url context/portal_url"
+                        tal:attributes="href view/parent_url">
+                        Weitere Nachrichten</a>
+                </p>
+
+                <div tal:condition="view/has_files">
+                    <h5>Attachments</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item" tal:repeat="item context/@@folderListing">
+                            <tal:item
+                                tal:define="content_type item/file/contentType|nothing;
+                                            v python:context.restrictedTraverse('contenttype_utils');">
+                                <p>
+                                    <a tal:attributes="href string:${item/absolute_url}/@@download/file/${item/file/filename}">
+                                        <img tal:attributes="src python: v.getMimeTypeIcon(item.file);
+                                                             alt content_type;" border="0"  />
+                                        <tal:name tal:content="item/file/filename" >Filename</tal:name>
+                                    </a>
+                                    <span class="discreet"
+                                          tal:define="size item/file/getSize;
+                                                      kb python:size/1024">
+                                          &mdash; <span tal:replace="kb" /> KB</span>
+                                </p>
+                            </tal:item>
+                        </li>
+                    </ul>
+                </div>
+                <div class="visualClear" tal:condition="view/can_edit">
+                    <div class="alert alert-warning">
+                        <p i18n:translate="">
+                        Since you are signed in as editor you can add file
+                        attachments to this news entry</p>
+                        <a class="btn btn-default"
+                        i18n:translate=""
+                        tal:attributes="href string:${context/absolute_url}/++add++File">
+                        add attachment</a>
+                    </div>
+                </div>
             </article>
             </div>
             </div>
