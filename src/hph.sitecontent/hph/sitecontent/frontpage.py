@@ -34,8 +34,12 @@ class FrontpageView(grok.View):
 
     def recent_news(self):
         context = aq_inner(self.context)
+        portal = api.portal.get()
         catalog = getToolByName(context, 'portal_catalog')
+        container = portal['nachrichten']
         results = catalog(object_provides=INewsEntry.__identifier__,
+                          path=dict(query='/'.join(container.getPhysicalPath()),
+                                    depth=1),
                           review_state='published',
                           sort_on='effective',
                           sort_order='reverse',
