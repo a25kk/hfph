@@ -18,6 +18,9 @@
     
     <theme href="dist/frontpage.html" css:if-content="body.template-frontpage-view" />
     <theme href="dist/frontpage.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />
+    <theme href="dist/landingpage.html" css:if-content="body.section-nachrichten" />
+    <theme href="dist/landingpage.html" css:if-content="body.section-termine" />
+    <theme href="dist/landingpage.html" css:if-content="body.section-impressum" />
     
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
