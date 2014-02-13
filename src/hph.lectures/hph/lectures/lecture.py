@@ -29,6 +29,10 @@ class ILecture(form.Schema, IImageScaleTraversable):
         title=_(u"Lecure Number"),
         required=True,
     )
+    attendanceRequired = schema.Bool(
+        title=_(u"Attendance Required"),
+        required=False,
+    )
 
 
 class Lecture(Container):
