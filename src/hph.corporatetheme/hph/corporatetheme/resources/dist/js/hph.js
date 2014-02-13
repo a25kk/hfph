@@ -5,8 +5,6 @@
 *
 * Designed and built by ade25
 */
-if (typeof jQuery === "undefined") { throw new Error("We require jQuery") }
-
 /*!
  * jQuery JavaScript Library v2.0.3
  * http://jquery.com/
