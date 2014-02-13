@@ -8,4 +8,6 @@
   -->
 <object name="portal_types" meta_type="Plone Types Tool">
   <!-- -*- extra stuff goes here -*- -->
+  <object name="hph.lectures.coursefolder" meta_type="Dexterity FTI" />
+  <object name="hph.lectures.lecture" meta_type="Dexterity FTI" />
 </object>
