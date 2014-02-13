@@ -31,7 +31,7 @@
                     tal:content="structure context/text/output" />
                 <a href="" class="btn btn-primary pull-right"
                   tal:define="portal_url context/portal_url"
-                  tal:attributes="href python:portal_url + '/nachrichten'">
+                  tal:attributes="href view/parent_url">
                   Weitere Nachrichten</a>
                 <h5>Attachments</h5>
                 <div class="alert alert-info">

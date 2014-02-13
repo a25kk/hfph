@@ -1,3 +1,5 @@
+from Acquisition import aq_inner
+from Acquisition import aq_parent
 from five import grok
 from plone.directives import dexterity, form
 
@@ -33,3 +35,7 @@ class View(grok.View):
     grok.context(INewsEntry)
     grok.require('zope2.View')
     grok.name('view')
+
+    def parent_url(self):
+        parent = aq_parent(aq_inner(self.context))
+        return parent.absolute_url()
