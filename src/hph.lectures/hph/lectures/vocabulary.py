@@ -38,3 +38,20 @@ class CourseTypeVocabulary(object):
                                 for title, value
                                 in TYPES.iteritems()])
 grok.global_utility(CourseTypeVocabulary, name=u"hph.lectures.CourseType")
+
+
+class CourseDegreeVocabulary(object):
+    grok.implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        DEGREES = {
+            _(u"BA"): 'ba',
+            _(u"MA Ethics"): 'ma-ethics',
+            _(u"MA kons"): 'ma-kons',
+            _(u"BA"): 'ba',
+            _(u"Mag"): 'magister'
+        }
+        return SimpleVocabulary([SimpleTerm(value, title=title)
+                                for title, value
+                                in DEGREES.iteritems()])
+grok.global_utility(CourseDegreeVocabulary, name=u"hph.lectures.CourseDegree")
