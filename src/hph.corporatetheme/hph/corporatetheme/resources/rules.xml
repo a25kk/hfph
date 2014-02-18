@@ -164,6 +164,25 @@
         <replace css:content-children="#portal-column-one > *"
             css:theme-children="#app-sidebar" />
 
+        <replace css:content=".portletNavigationTree">
+            <div class="app-box app-box-nav">
+                <div class="app-box-header">
+                    <h4 class="app-box-heading">
+                        <xsl:apply-templates css:select=".portletHeader > *"/>
+                    </h4>
+                </div>
+                <div class="app-box-content">
+                    <ul class="nav nav-list navTree navTreeLevel0">
+                        <xsl:if css:test=".portletHeader">
+                            <li class="list-header"></li>
+                            <li class="divider"></li>
+                        </xsl:if>
+                        <xsl:apply-templates select="./dd/ul/*"/>
+                    </ul>
+                </div>
+            </div>
+        </replace>
+
     </rules>
 
 </rules>
