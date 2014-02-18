@@ -4,6 +4,10 @@
 
 body {
     background: @gray-lighter;
+    &.template-theming-controlpanel .row {
+        // Fix theming control panel
+        margin: 0 @line-height-computed;
+    }
 }
 
 // Reset border radius on form elements

@@ -31,19 +31,9 @@
                                 Aktuelle Termine</a>
                         </h4>
                     </div>
-                    <div class="app-box-content" tal:condition="view/has_events">
-                        <tal:block tal:repeat="item view/eventitems">
-                            <a class="app-box-item" tal:attributes="href item/getURL">
-                                <time class="app-box-date h5"
-                                    tal:define="startdate item/start">
-                                    <span tal:replace="python:toLocalizedTime(startdate)" />
-                                </time>
-                                <span tal:replace="item/Title" />
-                                <span class="app-box-item-more text-right">
-                                    <i class="icon-double-angle-right"></i>
-                                </span>
-                            </a>
-                        </tal:block>
+                    <div class="app-box-content" id="app-event-box"
+                        data-appui="eventbox"
+                        tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
                     </div>
                     <div class="app-box-footer text-right">
                         <a class="btn btn-default btn-sm" href="#"

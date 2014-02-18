@@ -14850,6 +14850,10 @@ body
 {
     background: #eee;
 }
+body.template-theming-controlpanel .row
+{
+    margin: 0 20px;
+}
 .btn,
 .form-control
 {
