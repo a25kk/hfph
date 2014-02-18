@@ -17,6 +17,7 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
+from hph.faculty.facultymember import IFacultyMember
 
 from hph.lectures import MessageFactory as _
 
@@ -31,6 +32,18 @@ class ILecture(form.Schema, IImageScaleTraversable):
     )
     attendanceRequired = schema.Bool(
         title=_(u"Attendance Required"),
+        required=False,
+    )
+    lecturer = RelationList(
+        title=u"Lecturers",
+        description=_(u"Please select one or more lecturers for this course"),
+        default=[],
+        value_type=RelationChoice(
+            title=_(u"Related lecturer"),
+            source=ObjPathSourceBinder(
+                object_provides=IFacultyMember.__identifier__,
+            )
+        ),
         required=False,
     )
     lecturer = schema.TextLine(
