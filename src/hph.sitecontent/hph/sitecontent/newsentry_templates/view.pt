@@ -34,10 +34,11 @@
                     <ul class="list-group">
                         <li class="list-group-item" tal:repeat="item context/@@folderListing">
                             <tal:item
-                                tal:define="content_type item/file/contentType|nothing;
+                                tal:define="item_obj item/getObject;
+                                            content_type item/file/contentType|nothing;
                                             v python:context.restrictedTraverse('contenttype_utils');">
                                 <p>
-                                    <a tal:attributes="href string:${item/absolute_url}/@@download/file/${item/file/filename}">
+                                    <a tal:attributes="href string:${item/getURL}/@@download/file/${item/file/filename}">
                                         <img tal:attributes="src python: v.getMimeTypeIcon(item.file);
                                                              alt content_type;" border="0"  />
                                         <tal:name tal:content="item/file/filename" >Filename</tal:name>
