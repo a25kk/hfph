@@ -58,13 +58,27 @@
                                     <span tal:condition="item/authorOne"
                                         tal:replace="item/authorOne" />
                                 </small>
+                                <small>
+                                    <span tal:condition="item/authorTwo"
+                                        tal:replace="item/authorTwo" />
+                                </small>
+                                <small>
+                                    <span tal:condition="item/authorThree"
+                                        tal:replace="item/authorThree" />
+                                </small>
+                                <small>
+                                    <span tal:condition="item/authorPlus"
+                                        tal:replace="item/authorPlus" />
+                                </small>
+
                                 <br />
                                 <span tal:replace="item/Title" />
                               </h2>
                               <div tal:condition="item/summary"
                                 tal:content="structure item/summary/output" />
                             </div>
-                        </div>
+
+                        </div><hr />
                     </div>
                     <div metal:use-macro="context/batch_macros/macros/navigation" />
                   </div>
