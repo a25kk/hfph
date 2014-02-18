@@ -372,14 +372,14 @@ a
 {
     text-decoration: none;
 
-    color: #999;
+    color: #5896c8;
 }
 a:hover,
 a:focus
 {
     text-decoration: underline;
 
-    color: #737373;
+    color: #346f9f;
 }
 a:focus
 {
@@ -2911,7 +2911,7 @@ fieldset[disabled] .btn-danger.active
 
     cursor: pointer;
 
-    color: #999;
+    color: #5896c8;
     border-radius: 0;
 }
 .btn-link,
@@ -2935,7 +2935,7 @@ fieldset[disabled] .btn-link
 {
     text-decoration: underline;
 
-    color: #737373;
+    color: #346f9f;
     background-color: transparent;
 }
 .btn-link[disabled]:hover,
@@ -4539,7 +4539,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn
 .nav .open > a:hover,
 .nav .open > a:focus
 {
-    border-color: #999;
+    border-color: #5896c8;
     background-color: #eee;
 }
 .nav .nav-divider
@@ -5423,7 +5423,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn
 
     text-decoration: none;
 
-    color: #999;
+    color: #5896c8;
     border: 1px solid #ddd;
     background-color: #fff;
 }
@@ -5446,7 +5446,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn
 .pagination > li > a:focus,
 .pagination > li > span:focus
 {
-    color: #737373;
+    color: #346f9f;
     border-color: #ddd;
     background-color: #eee;
 }
@@ -5700,7 +5700,7 @@ a.badge:focus
 a.list-group-item.active > .badge,
 .nav-pills > .active > a > .badge
 {
-    color: #999;
+    color: #5896c8;
     background-color: #fff;
 }
 .nav-pills > li > a > .badge
@@ -5783,7 +5783,7 @@ a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active
 {
-    border-color: #999;
+    border-color: #5896c8;
 }
 .thumbnail .caption
 {
@@ -9820,7 +9820,7 @@ ul.formTabs .open > a,
 ul.formTabs .open > a:hover,
 ul.formTabs .open > a:focus
 {
-    border-color: #999;
+    border-color: #5896c8;
     background-color: #eee;
 }
 ul.formTabs .nav-divider
@@ -10926,11 +10926,11 @@ table.grid th
     color: #fff;
     border-radius: .5em;
     border-radius: 4px;
-    background: #999;
+    background: #5896c8;
 }
 #category a.link-category:hover
 {
-    background: #737373;
+    background: #346f9f;
 }
 #category .separator
 {
@@ -11180,7 +11180,7 @@ aimg.image-left.active,
 aimg.image-right.active,
 a.captioned img.active
 {
-    border-color: #999;
+    border-color: #5896c8;
 }
 img.image-left .caption,
 img.image-right .caption,
@@ -15109,7 +15109,7 @@ ul.navTree .open > a,
 ul.navTree .open > a:hover,
 ul.navTree .open > a:focus
 {
-    border-color: #999;
+    border-color: #5896c8;
     background-color: #eee;
 }
 ul.navTree .nav-divider
