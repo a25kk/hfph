@@ -30,6 +30,8 @@ setup(name='hph.lectures',
           'plone.app.relationfield',
           'plone.namedfile [blobs]',
           'collective.z3cform.datagridfield',
+          'plone.formwidget.contenttree',
+          'plone.formwidget.autocomplete',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
@@ -41,6 +43,5 @@ setup(name='hph.lectures',
       # addcontent support from paster and before you distribute
       # your package.
       setup_requires=["PasteScript"],
-      paster_plugins = ["ZopeSkel"],
-
+      paster_plugins=["ZopeSkel"],
       )
