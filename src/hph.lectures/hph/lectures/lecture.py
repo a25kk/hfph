@@ -14,7 +14,8 @@ from plone.namedfile.field import NamedImage, NamedFile
 from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 from plone.namedfile.interfaces import IImageScaleTraversable
 
-from z3c.relationfield.schema import RelationList, RelationChoice
+from z3c.relationfield.schema import RelationList
+from z3c.relationfield.schema import RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from hph.faculty.facultymember import IFacultyMember
@@ -26,12 +27,24 @@ class ILecture(form.Schema, IImageScaleTraversable):
     """
     A single course
     """
+    subtitle = schema.TextLine(
+        title=_(u"Subtitle"),
+        required=False,
+    )
+    title = schema.TextLine(
+        title=_(u"Title"),
+        required=True,
+    )
     courseNumber = schema.TextLine(
         title=_(u"Lecure Number"),
         required=True,
     )
     attendanceRequired = schema.Bool(
         title=_(u"Attendance Required"),
+        required=False,
+    )
+    description = schema.Text(
+        title=_(u"Additional Information"),
         required=False,
     )
     lecturer = RelationList(
@@ -45,10 +58,6 @@ class ILecture(form.Schema, IImageScaleTraversable):
             )
         ),
         required=False,
-    )
-    lecturer = schema.TextLine(
-        title=_(u"Lecturer"),
-        required=True,
     )
     lecturerAdditional = schema.TextLine(
         title=_(u"Additional Lecturer"),
