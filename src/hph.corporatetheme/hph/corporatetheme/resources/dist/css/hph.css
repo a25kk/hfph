@@ -14782,6 +14782,70 @@ select[multiple].app-actionbar-form .input-sm
 {
     padding: 20px 0;
 }
+.photoAlbumFolder
+{
+    margin-right: 38px !important;
+    margin-bottom: 20px !important;
+
+    background-image: none;
+}
+.photoAlbumEntry
+{
+    float: left;
+
+    height: 185px;
+    margin: 15.38461538px;
+    padding: 20px;
+
+    text-align: center;
+
+    border: 0;
+    background-image: none;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 3px rgba(50, 50, 50, .75);
+}
+.photoAlbumEntry a
+{
+    font-size: 9.23076923px;
+
+    display: block;
+
+    width: 130px;
+    height: 169px;
+    margin: 0 auto 0;
+
+    text-decoration: none;
+}
+.photoAlbumEntryTitle
+{
+    display: block;
+    overflow: hidden;
+
+    width: 128px;
+    height: 3.6em;
+}
+.visualClear:before,
+.visualClear:after
+{
+    display: table;
+
+    content: ' ';
+}
+.visualClear:after
+{
+    clear: both;
+}
+.visualClear:before,
+.visualClear:after
+{
+    display: table;
+
+    content: ' ';
+}
+.visualClear:after
+{
+    clear: both;
+}
 body
 {
     background: #eee;
