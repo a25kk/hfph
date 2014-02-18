@@ -39,7 +39,7 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
         title=_(u"Medium"),
         value_type=schema.Choice(
             title=_(u"Accademic Role or Position"),
-            vocabulary=position,
+            vocabulary=u'hph.faculty.FacultyMemberPositionVocabulary',
         ),
         required=True,
     )
