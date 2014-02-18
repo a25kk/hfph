@@ -12,10 +12,19 @@
 
 .app-box-heading {
     color: @app-blue;
+    margin-top: ceil((@line-height-computed / 2));
 }
+
 .app-box-content {
     border: 1px solid @gray-lighter;
     border-top: 4px solid @app-yellow;
+}
+
+.app-box-nav {
+    > li > a:hover {
+        border-right: 1px solid @gray;
+        border-radius: 0;
+    }
 }
 
 // App box items can be attached to anchor tags for clickable

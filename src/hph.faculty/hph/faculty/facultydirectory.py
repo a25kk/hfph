@@ -36,4 +36,8 @@ class View(grok.View):
     grok.require('zope2.View')
     grok.name('view')
 
-    # Add view methods here
+    def update(self):
+        self.filter = self.request.get('content_filter', '')
+
+    def filtered(self):
+        return self.filter is True
