@@ -23,10 +23,9 @@
                     </div>
                     <div class="app-box-content" id="app-event-box">
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#filter">Additional information / subcontents</a></li>
-                            <li><a href="#filter">A</a></li>
-                            <li><a href="#filter">B</a></li>
-                            <li><a href="#filter">C</a></li>
+                            <li><a href="#filter">Professoren</a></li>
+                            <li><a href="#filter">Dozenten</a></li>
+                            <li><a href="#filter">Lehrbeauftragte</a></li>
                         </ul>
                     </div>
                 </div>
