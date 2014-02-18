@@ -12,12 +12,25 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-3">
-            <ul class="nav nav-pills nav-stacked">
-                <li><a href="#filter">Additional information / subcontents</a></li>
-                <li><a href="#filter">A</a></li>
-                <li><a href="#filter">B</a></li>
-                <li><a href="#filter">C</a></li>
-            </ul>
+            <aside class="app-fp-tile" id="app-sidebar" >
+                <div class="app-box app-box-striped app-box-events">
+                    <div class="app-box-header">
+                        <h4 class="app-box-heading">
+                            <a href="#"
+                                tal:attributes="href string:${context/absolute_url}">
+                                Lehrende</a>
+                        </h4>
+                    </div>
+                    <div class="app-box-content" id="app-event-box">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li><a href="#filter">Additional information / subcontents</a></li>
+                            <li><a href="#filter">A</a></li>
+                            <li><a href="#filter">B</a></li>
+                            <li><a href="#filter">C</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
         </div>
         <div class="col-xs-12 col-sm-9">
             <article class="tile-content" id="tile-content">
