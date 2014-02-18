@@ -16,8 +16,8 @@ class ICourseModules(model.Schema):
     """
     degree = schema.Choice(
         title=_(u"Degree"),
-        description=_(u"Please enter module degree"),
-        vocabulary=u'hph.lectures.CourseDuration',
+        description=_(u"Please select module degree"),
+        vocabulary=u'hph.lectures.CourseDegree',
         required=True,
     )
     info = schema.TextLine(
