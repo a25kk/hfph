@@ -31,7 +31,11 @@
                                 Aktuelle Termine</a>
                         </h4>
                     </div>
-                    <div class="app-box-content" tal:condition="view/has_events">
+                    <div class="app-box-content" id="app-event-box"
+                        data-appui="eventbox"
+                        tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
+                    </div>
+                    <!--<div class="app-box-content" tal:condition="view/has_events">
                         <tal:block tal:repeat="item view/eventitems">
                             <a class="app-box-item" tal:attributes="href item/getURL">
                                 <time class="app-box-date h5"
@@ -44,7 +48,7 @@
                                 </span>
                             </a>
                         </tal:block>
-                    </div>
+                    </div>-->
                     <div class="app-box-footer text-right">
                         <a class="btn btn-default btn-sm" href="#"
                             tal:define="portal_url context/portal_url"
