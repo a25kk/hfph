@@ -196,10 +196,41 @@
                             This is the new default theme
                         </p>
                     </div>
-                    <div class="app-page-content">
-                            <p>Next we will define a custom listing to provide a basic scaffolding
+                    <div class="app-page-content app-font-alt-1">
+                        <h2>Alternative font: Cabin</h2>
+                        <p>Next we will define a custom listing to provide a basic scaffolding
+                            before we intergrate the example API
+                        </p>
+                         <p>Next we will define a custom listing to provide a basic scaffolding
                                 before we intergrate the example API
-                            </p>
+                        </p>
+                         <p>Next we will define a custom listing to provide a basic scaffolding
+                                before we intergrate the example API
+                        </p>
+                    </div>
+                    <div class="app-page-content">
+                        <h2>Base: Trebuchet MS</h2>
+                        <p>Next we will define a custom listing to provide a basic scaffolding
+                            before we intergrate the example API
+                        </p>
+                         <p>Next we will define a custom listing to provide a basic scaffolding
+                                before we intergrate the example API
+                        </p>
+                         <p>Next we will define a custom listing to provide a basic scaffolding
+                                before we intergrate the example API
+                        </p>
+                    </div>
+                    <div class="app-page-content app-font-alt-2">
+                        <h2>Alternative font: Open Sans</h2>
+                        <p>Next we will define a custom listing to provide a basic scaffolding
+                            before we intergrate the example API
+                        </p>
+                         <p>Next we will define a custom listing to provide a basic scaffolding
+                                before we intergrate the example API
+                        </p>
+                         <p>Next we will define a custom listing to provide a basic scaffolding
+                                before we intergrate the example API
+                        </p>
                     </div>
                 </div>
             </main>
@@ -356,6 +387,22 @@
 <script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="../../bower_components/holderjs/holder.js"></script>
 <script src="../../js/application.js"></script>
+    <div class="app-js-slot">
+        <script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Open+Sans:300,400,600:latin', 'Cabin:400,500:latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+    </div>
 
   </body>
 </html>
