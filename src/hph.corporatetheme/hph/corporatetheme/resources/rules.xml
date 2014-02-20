@@ -22,6 +22,7 @@
     <theme href="dist/landingpage.html" css:if-content="body.section-termine" />
     <theme href="dist/landingpage.html" css:if-content="body.section-impressum" />
     <theme href="dist/landingpage.html" css:if-content="body.section-presse-oeffentlichkeitsarbeit" />
+    <theme href="dist/opac.html" css:if-content="body.subsection-bibliotheken-opac-recherche" />
     
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
