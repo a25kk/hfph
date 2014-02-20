@@ -21,4 +21,4 @@ class FacultyMemberPositionVocabulary(object):
                                 for title, value
                                 in TYPES.iteritems()])
 grok.global_utility(FacultyMemberPositionVocabulary,
-                    name=u"hph.faculty.facultyMemberPosition")
+                    name=u"hph.faculty.FacultyMemberPosition")
