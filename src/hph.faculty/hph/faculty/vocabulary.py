@@ -7,7 +7,7 @@ from zope.schema.interfaces import IVocabularyFactory
 from hph.faculty import MessageFactory as _
 
 
-class FacultyMemberPositionVocabulary(object):
+class AcademicRoleVocabulary(object):
     grok.implements(IVocabularyFactory)
 
     def __call__(self, context):
@@ -20,5 +20,5 @@ class FacultyMemberPositionVocabulary(object):
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
                                 in TYPES.iteritems()])
-grok.global_utility(FacultyMemberPositionVocabulary,
-                    name=u"hph.faculty.FacultyMemberPosition")
+grok.global_utility(AcademicRoleVocabulary,
+                    name=u"hph.faculty.academicRole")
