@@ -14772,6 +14772,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 {
     background-color: #f9f9f9;
 }
+.app-box-newsitem > .app-box-header
+{
+    min-height: 50px;
+}
 .app-box-newsitem > .app-box-footer
 {
     padding: 0;
