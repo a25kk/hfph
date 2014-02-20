@@ -25,15 +25,6 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
         description=_(u"Provide last name for better filtering and search"),
         required=True,
     )
-    form.widget(position=CheckBoxFieldWidget)
-    position = schema.Set(
-        title=_(u"Medium"),
-        value_type=schema.Choice(
-            title=_(u"Accademic Role or Position"),
-            vocabulary=u'hph.faculty.academicRole',
-        ),
-        required=True,
-    )
     academicRole = schema.Choice(
         title=_(u"Accademic Role or Position"),
         vocabulary=u'hph.faculty.academicRole',

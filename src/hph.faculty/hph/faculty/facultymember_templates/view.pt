@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-xs-12 col-lg-3">
             <aside class="app-aside" id="app-sidebar"
-                tal:define="subcontents context/@@folderListing">
+                tal:define="subcontents python:context.restrictedTraverse('@@folderListing')(portal_type=['Folder', 'hph.sitecontent.contentpage'])">
 
                 <div class="app-box app-box-faculty">
                     <div class="app-box-header">

@@ -75,7 +75,8 @@ class NavbarView(grok.View):
             'path': path,
             'review_state': 'published',
             'portal_type': ('hph.sitecontent.mainsection',
-                            'hph.sitecontent.contentpage')
+                            'hph.sitecontent.contentpage',
+                            'hph.lectures.coursefolder')
         }
         root_obj = context.unrestrictedTraverse(root)
         strategy = SitemapNavtreeStrategy(obj)
@@ -167,7 +168,8 @@ class NavbarViewlet(grok.Viewlet):
             'path': path,
             'review_state': 'published',
             'portal_type': ('hph.sitecontent.mainsection',
-                            'hph.sitecontent.contentpage'),
+                            'hph.sitecontent.contentpage',
+                            'hph.lectures.coursefolder'),
             'sort_order': 'getObjPositionInParent'
         }
         root_obj = context.unrestrictedTraverse(root)
@@ -259,7 +261,7 @@ class NavbarViewlet(grok.Viewlet):
 
     def get_subsubsections(self):
         context = aq_inner(self.context)
-        types = ('hph.sitecontent.contentpage',)
+        types = ('hph.sitecontent.contentpage', 'hph.lectures.coursefolder')
         depth = 3
         navtree = self.navStrategy(context, types, depth)
         return navtree
@@ -273,6 +275,7 @@ class NavbarViewlet(grok.Viewlet):
             root_obj = pstate.portal()
         types = ('hph.sitecontent.contentpage',
                  'hph.publications.publicationfolder',
+                 'hph.lectures.coursefolder',
                  'hph.faculty.facultydirectory')
         depth = 2
         navtree = self.navStrategy(root_obj, types, depth)
