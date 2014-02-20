@@ -44,14 +44,13 @@ class View(grok.View):
         query = self._base_query()
         if self.filter:
             query['position'] = self.request.get('academicRole', '')
-        results = catalog(query)
+        results = catalog.searchResults(query)
         return results
 
     def _base_query(self):
         context = aq_inner(self.context)
         obj_provides = IFacultyMember.__identifier__
-        query_path = dict(query='/'.join(context.getPhysicalPath()),
-                          depth=1),
+        query_path = '/'.join(context.getPhysicalPath())
         return dict(object_provides=obj_provides,
                     path=query_path,
                     review_state='published')

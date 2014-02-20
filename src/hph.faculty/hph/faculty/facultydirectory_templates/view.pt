@@ -29,7 +29,7 @@
                                  results view/faculty_members;
                                  batch python:Batch(results, b_size, b_start);">
                     <div class="page-content-list-item"
-                        tal:repeat="item results">
+                        tal:repeat="item batch">
                         <div class="row">
                             <div class="col-xs-12 col-sm-2">
                                 <img tal:condition="item/image"
