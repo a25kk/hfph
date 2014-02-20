@@ -75,7 +75,8 @@ class NavbarView(grok.View):
             'path': path,
             'review_state': 'published',
             'portal_type': ('hph.sitecontent.mainsection',
-                            'hph.sitecontent.contentpage')
+                            'hph.sitecontent.contentpage',
+                            'hph.lectures.coursefolder')
         }
         root_obj = context.unrestrictedTraverse(root)
         strategy = SitemapNavtreeStrategy(obj)
