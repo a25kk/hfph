@@ -18,12 +18,12 @@ class ICourseModules(model.Schema):
         title=_(u"Degree"),
         description=_(u"Please select module degree"),
         vocabulary=u'hph.lectures.CourseDegree',
-        required=True,
+        required=False,
     )
     info = schema.TextLine(
         title=_(u"Module Information"),
         description=_(u"Enter corresponding product detail value"),
-        required=True,
+        required=False,
     )
 
 
