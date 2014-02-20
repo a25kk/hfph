@@ -46,7 +46,7 @@
      <plone:behavior
         title="CourseModules"
         description="Course module data grid behavior"
-        provides=".coursemodules.ICourseModules"
+        provides=".coursemodules.ICourseModuleInformation"
         for="plone.dexterity.interfaces.IDexterityContent"
         />
 

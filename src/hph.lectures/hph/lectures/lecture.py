@@ -1,10 +1,11 @@
+from Acquisition import aq_inner
 from five import grok
 
 from z3c.form import group, field
 from zope import schema
 from zope.interface import invariant, Invalid
 from zope.schema.interfaces import IContextSourceBinder
-from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+from zope.schema.vocabulary import getVocabularyRegistry
 
 from plone.dexterity.content import Container
 
@@ -43,6 +44,10 @@ class ILecture(form.Schema, IImageScaleTraversable):
     )
     attendanceRequired = schema.Bool(
         title=_(u"Attendance Required"),
+        required=False,
+    )
+    blockLecture = schema.Bool(
+        title=_(u"Block Lecture"),
         required=False,
     )
     description = schema.Text(
@@ -96,3 +101,17 @@ class View(grok.View):
     grok.context(ILecture)
     grok.require('zope2.View')
     grok.name('view')
+
+    def filter_options(self):
+        context = aq_inner(self.context)
+        vr = getVocabularyRegistry()
+        vocab = vr.get(context, 'hph.lectures.CourseType')
+        return vocab
+
+    def computed_klass(self, value):
+        context = aq_inner(self.context)
+        active_filter = getattr(context, 'courseType', None)
+        klass = 'nav-item-plain'
+        if active_filter == value:
+            klass = 'active'
+        return klass

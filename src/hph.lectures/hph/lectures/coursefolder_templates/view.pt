@@ -15,23 +15,74 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-    
-    <div class="tile-content"
-        tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
-        <header class="page-header">
-            <h1 tal:content="context/Title" />
-        </header>
-    
-        <div tal:content="context/Title">Title inserted here</div>
-    
-        <div class="app-content-core" id="content-core">
-            <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
-                b_size python:int(request.get('b_size', 20));
-                b_start python:int(request.get('b_start', 0));
-                results python:context.restrictedTraverse('@@folderListing')(batch=True, b_size=b_size, b_start=b_start);
-                batch python:Batch(results, b_size, b_start);">
-                <article tal:repeat="item batch">
-                </article>
+    <div class="row">
+        <div class="col-xs-12 col-sm-3">
+            <aside class="app-aside" id="app-sidebar">
+                <div class="app-box app-box-faculty"
+                    tal:define="active_filter request/academicRole | nothing">
+                    <div class="app-box-header">
+                        <h1 class="app-box-heading" i18n:translate="">
+                            Lectures
+                        </h1>
+                    </div>
+                    <div class="app-box-content">
+                        <ul class="nav nav-pills nav-stacked app-box-nav">
+                            <tal:block tal:repeat="filter view/filter_options">
+                                <li tal:define="filter_value filter/value"
+                                    tal:attributes="class python:view.computed_klass(filter_value)">
+                                    <a tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;academicRole=${filter/value}"
+                                        tal:content="filter/title">Filter option</a>
+                                </li>
+                            </tal:block>
+                        </ul>
+                    </div>
+                    <div class="app-box-footer">
+                        <a class="btn btn-danger btn-sm" tal:condition="active_filter"
+                            tal:attributes="href string:${context/absolute_url}">
+                            &times; <span i18n:translate="">remove filter</span></a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+            <div class="tile-content"
+                tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+            
+                <div class="app-content-core" id="content-core">
+                    <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                        b_size python:int(request.get('b_size', 20));
+                        b_start python:int(request.get('b_start', 0));
+                        results python:context.restrictedTraverse('@@folderListing')(batch=True, b_size=b_size, b_start=b_start);
+                        batch python:Batch(results, b_size, b_start);">
+                        <article class="app-contentlisting" tal:repeat="item batch">
+                            <div class="app-list-item">
+                                <h2><small>
+                                        <span tal:replace="item/courseNumber" />
+                                        <span tal:replace="item/subtitle" />
+                                    </small><br>
+                                    <a tal:attributes="href item/getURL"
+                                        tal:content="item/Title" />
+                                </h2>
+                                <p tal:condition="item/lecturerAdditional">
+                                    <span i18n:translate="">Additional Lecturer:</span>
+                                    <span tal:replace="item/lecturerAdditional" />
+                                </p>
+                                <p class="text-muted">
+                                    <span tal:content="item/courseDuration">Duration</span>
+                                    <span tal:replace="item/courseTime" />
+                                </p>
+                                <p>Raum</p>
+                                <p class="text-muted">
+                                    <span i18n:translate="">Dates</span>
+                                    <span tal:replace="item/courseDates" />
+                                <p class="text-discreet text-muted"
+                                    tal:condition="item/Description"
+                                    tal:content="item/Description" />
+                                <hr>
+                            </div>
+                        </article>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
