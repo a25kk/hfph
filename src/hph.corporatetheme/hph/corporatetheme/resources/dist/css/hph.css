@@ -15350,6 +15350,14 @@ body.template-theming-controlpanel .row
 
     border: 5px solid #fff;
 }
+.vevent .timezone
+{
+    display: none;
+}
+.eventDetails
+{
+    margin-top: 20px;
+}
 .app-content-body
 {
     padding: 20px;
