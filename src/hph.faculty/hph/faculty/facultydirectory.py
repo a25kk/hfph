@@ -7,6 +7,7 @@ from zope.schema.vocabulary import getVocabularyRegistry
 from plone.dexterity.content import Container
 from plone.directives import form
 from plone.namedfile.interfaces import IImageScaleTraversable
+from plone.app.contentlisting.interfaces import IContentListing
 
 from hph.faculty.facultymember import IFacultyMember
 
@@ -29,7 +30,7 @@ class View(grok.View):
     grok.name('view')
 
     def update(self):
-        self.filter = self.request.get('content_filter', '')
+        self.filter = self.request.get('content_filter', None)
 
     def filtered(self):
         return self.filter is True
@@ -42,10 +43,10 @@ class View(grok.View):
     def faculty_members(self):
         catalog = api.portal.get_tool(name='portal_catalog')
         query = self._base_query()
-        if self.filter:
-            query['position'] = self.request.get('academicRole', '')
+        if self.filter is not None:
+            query['academicRole'] = self.request.get('academicRole', '')
         results = catalog.searchResults(query)
-        return results
+        return IContentListing(results)
 
     def _base_query(self):
         context = aq_inner(self.context)
@@ -66,3 +67,10 @@ class ContentFilter(grok.View):
         vr = getVocabularyRegistry()
         vocab = vr.get(context, 'hph.faculty.academicRole')
         return vocab
+
+    def computed_klass(self, value):
+        active_filter = self.request.get('academicRole', None)
+        klass = 'nav-item-plain'
+        if active_filter == value:
+            klass = 'active'
+        return klass

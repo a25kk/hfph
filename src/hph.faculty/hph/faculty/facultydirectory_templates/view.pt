@@ -12,8 +12,11 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-3">
-            <aside class="app-aside" id="app-sidebar">
+            <aside class="app-aside" id="app-sidebar"
+                tal:define="subcontents context/@@folderListing">
+                
                 <div tal:replace="structure view/content_filter" />
+
             </aside>
         </div>
         <div class="col-xs-12 col-sm-9">

@@ -1,5 +1,9 @@
+from Acquisition import aq_inner
+from Acquisition import aq_parent
 from five import grok
 from zope import schema
+
+from zope.schema.vocabulary import getVocabularyRegistry
 
 from plone.indexer import indexer
 from plone.directives import form
@@ -30,13 +34,9 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
         ),
         required=True,
     )
-    form.widget(academicRole=CheckBoxFieldWidget)
-    academicRole = schema.Set(
-        title=_(u"Academic Role"),
-        value_type=schema.Choice(
-            title=_(u"Accademic Role or Position"),
-            vocabulary=u'hph.faculty.academicRole',
-        ),
+    academicRole = schema.Choice(
+        title=_(u"Accademic Role or Position"),
+        vocabulary=u'hph.faculty.academicRole',
         required=True,
     )
     sidenote = schema.TextLine(
@@ -90,9 +90,31 @@ class FacultyMember(Container):
 
 class View(grok.View):
     """ Faculty member view """
-
     grok.context(IFacultyMember)
     grok.require('zope2.View')
     grok.name('view')
 
-    # Add view methods here
+    def parent_url(self):
+        context = aq_inner(self.context)
+        parent = aq_parent(context)
+        return parent.absolute_url()
+
+    def content_filter(self):
+        context = aq_inner(self.context)
+        container = aq_parent(context)
+        tmpl = container.restrictedTraverse('@@content-filter-faculty')()
+        return tmpl
+
+    def filter_options(self):
+        context = aq_inner(self.context)
+        vr = getVocabularyRegistry()
+        vocab = vr.get(context, 'hph.faculty.academicRole')
+        return vocab
+
+    def computed_klass(self, value):
+        context = aq_inner(self.context)
+        active_filter = getattr(context, 'academicRole', None)
+        klass = 'nav-item-plain'
+        if active_filter == value:
+            klass = 'active'
+        return klass

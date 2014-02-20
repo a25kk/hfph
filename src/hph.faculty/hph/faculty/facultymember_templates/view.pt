@@ -12,12 +12,47 @@
 
     <div class="row">
         <div class="col-xs-12 col-lg-3">
-            <ul class="nav nav-pills nav-stacked">
-                <li><a href="#filter">Additional information / subcontents</a></li>
-                <li><a href="#filter">A</a></li>
-                <li><a href="#filter">B</a></li>
-                <li><a href="#filter">C</a></li>
-            </ul>
+            <aside class="app-aside" id="app-sidebar"
+                tal:define="subcontents context/@@folderListing">
+
+                <div class="app-box app-box-faculty">
+                    <div class="app-box-header">
+                        <h1 class="app-box-heading" i18n:translate="">
+                            Academic Role
+                        </h1>
+                    </div>
+                    <div class="app-box-content">
+                        <ul class="nav nav-pills nav-stacked app-box-nav">
+                            <tal:block tal:repeat="filter view/filter_options">
+                                <li tal:define="filter_value filter/value"
+                                    tal:attributes="class python:view.computed_klass(filter_value)">
+                                    <a tal:attributes="href string:${view/parent_url}?content_filter=1&amp;academicRole=${filter/value}"
+                                        tal:content="filter/title">Filter option</a>
+                                </li>
+                            </tal:block>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="app-box app-box-faculty"
+                    tal:condition="subcontents">
+                    <div class="app-box-header">
+                        <h3 class="app-box-heading" tal:content="context/last_name">
+                            Additional Information
+                        </h3>
+                    </div>
+                    <div class="app-box-content">
+                        <ul class="nav nav-pills nav-stacked app-box-nav">
+                            <tal:block tal:repeat="item subcontents">
+                                <li>
+                                    <a tal:attributes="href item/getURL"
+                                        tal:content="item/Title">Filter option</a>
+                                </li>
+                            </tal:block>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
         </div>
         <div class="col-xs-12 col-lg-9">
             <article class="tile-content" id="tile-content">

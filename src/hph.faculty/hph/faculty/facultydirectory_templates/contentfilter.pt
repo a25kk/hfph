@@ -1,4 +1,5 @@
-<div class="app-box app-box-faculty">
+<div class="app-box app-box-faculty"
+    tal:define="active_filter request/academicRole | nothing">
     <div class="app-box-header">
         <h1 class="app-box-heading" i18n:translate="">
             Teachers
@@ -8,13 +9,17 @@
         <ul class="nav nav-pills nav-stacked app-box-nav">
             <tal:block tal:repeat="filter view/filter_options">
                 <li tal:define="filter_value filter/value;
-                                active_filter request/academicRole | nothing;
                                 is_active python:active_filter == filter_value"
-                    tal:attributes="class python:is_active and 'active' or 'plain'">
+                    tal:attributes="class python:view.computed_klass(filter_value)">
                     <a tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;academicRole=${filter/value}"
                         tal:content="filter/title">Filter option</a>
                 </li>
             </tal:block>
         </ul>
+    </div>
+    <div class="app-box-footer">
+        <a class="btn btn-danger btn-sm" tal:condition="active_filter"
+            tal:attributes="href string:${context/absolute_url}">
+            &times; <span i18n:translate="">remove filter</span></a>
     </div>
 </div>
