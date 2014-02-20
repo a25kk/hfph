@@ -1,0 +1,458 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>
+  
+    HPfH &middot; HPfH &middot;
+  
+</title>
+
+<!-- Bootstrap core CSS -->
+<link href="../dist/css/hph.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+  <script src="../bower_components/respond/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+                               <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  </head>
+  <body>
+    <a class="sr-only" href="#content">Skip navigation</a>
+    <div class="navbar navbar-inverse navbar-fixed-top app-toolbar" id="app-toolbar">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".app-toolbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">CMS</a>
+    </div>
+    <div class="navbar-collapse collapse app-toolbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Inhalte</a></li>
+          <li><a href="#about">Anzeigen</a></li>
+          <li><a href="#contact">Bearbeiten</a></li>
+          <li><a href="#contact">Teilen</a></li>
+          <li><a href="#contact">Regeln</a></li>
+        </ul>
+        <ul class="nav navbar-nav pull-right">
+          <li id="plone-personal-actions" class="dropdown dropdown-userinfo">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="/author/123456789">
+              <span>John Doe</span>
+              <b class="caret">
+            </b></a>
+            <ul class="dropdown-menu"><li id="plone-personal-actions-dashboard">
+                <a href="/dashboard">My workspace</a>
+              </li>
+              <li id="plone-personal-actions-preferences">
+                <a href="/preferences">Settings</a>
+              </li>
+              <li id="plone-personal-actions-plone_setup">
+                <a href="/controlpanel">Configuration</a>
+              </li>
+              <li id="plone-personal-actions-logout">
+                <a href="/logout">Signout</a>
+              </li>
+            </ul></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Add <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Folder</a></li>
+                <li><a href="#">Document</a></li>
+                <li><a href="#">Image</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Settings</li>
+                <li><a href="#">Filter options</a></li>
+                <li><a href="#">Add...</a></li>
+              </ul>
+            </li>
+        </ul>
+    </div><!--/.nav-collapse -->
+</div>
+    <header class="container app-header" id="app-header" role="banner">
+        <div class="app-tile app-header-content" id="app-header-content">
+            <div class="app-actionbar" id="app-actionbar">
+    <div class="row">
+        <div class="col-xs-12 col-sm-9">
+            <ul class="nav nav-tabs app-actionbar-nav" id="app-sections">
+                <li><a href="/">Deutsch</a></li>
+                <li><a href="/">English</a></li>
+            </ul>
+        </div>
+        <div class="col-xs-12 col-sm-3">
+            <form class="form app-actionbar-form" id="nav-search">
+                <div class="input-group">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default btn-sm" type="button">
+                        <i class="fa fa-search fa-flip-horizontal"></i>
+                    </button>
+                  </span>
+                  <input type="search" class="form-control input-sm">
+                </div><!-- /input-group -->
+            </form>
+        </div>
+    </div>
+</div>
+            <div class="app-brandbar">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-lg-6">
+            <a class="brandbar-brand" id="brandbar-brand" href="#">
+                <img class="img-responsive" src="assets/img/logo.jpg" alt="Hochschule für Philosophie München"/>
+            </a>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-lg-6">
+            <div class="brandbar-sectionname" id="brandbar-sectionname">
+                Hochschule
+            </div>
+        </div>
+    </div>
+</div>
+            <nav class="navbar navbar-default app-navbar" id="app-navbar" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#app-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#"><i class="fa fa-stop"></i></a>
+  </div>
+
+    <div class="collapse navbar-collapse" id="app-navbar-collapse-1">
+        <ul class="nav nav-justified app-navbar-main" id="app-static-navbar">
+            <li class="navitem" id="tab-hochschule">
+                <a href="/hochschule">Hochschule</a>
+            </li>
+            <li class="navitem" id="tab-studium">
+                <a href="/studium">Studium</a>
+            </li>
+            <li class="navitem" id="tab-forschung">
+                <a href="/forschung">Forschung</a>
+            </li>
+            <li class="navitem" id="tab-impulse">
+                <a href="/impulse">Impulse</a>
+            </li>
+        </ul>
+    </div><!--/.nav-collapse -->
+</nav>
+        </div>
+        <nav class="app-tile app-subnavbar" id="app-subnavbar" role="navigation">
+    <ul class="nav nav-pills xnav-justified app-subnav" id="app-subnavigation">
+        <li class="navitem" id="tab-studiengaenge">
+            <a href="http://127.0.0.1:8499/hph/studium/studiengaenge">Studiengänge</a>
+        </li>
+        <li class="navitem" id="tab-lehrveranstaltungen">
+            <a href="http://127.0.0.1:8499/hph/studium/lehrveranstaltungen">Lehrveranstaltungen</a>
+        </li>
+        <li class="navitem" id="tab-bibliotheken">
+            <a href="http://127.0.0.1:8499/hph/studium/bibliotheken">Bibliotheken</a>
+        </li>
+        <li class="navitem" id="tab-einschreibung">
+            <a href="http://127.0.0.1:8499/hph/studium/einschreibung">Einschreibung</a>
+        </li>
+        <li class="navitem" id="tab-foerderung">
+            <a href="http://127.0.0.1:8499/hph/studium/foerderung">Förderung</a>
+        </li>
+        <li class="navitem" id="tab-studentisches-leben">
+            <a href="http://127.0.0.1:8499/hph/studium/studentisches-leben">Studentisches Leben</a>
+        </li>
+    </ul>
+</nav>
+    </header><!-- /app-header -->
+            <div class="container">
+        <div class="breadcrumb app-breadcrumbs app-tile dim-in">
+            <div id="breadcrumbs">
+            </div>
+        </div>
+    </div>
+
+    <div class="container app-main" id="app-main" role="main">
+          <!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+<form action="http://hfph.us7.list-manage2.com/subscribe/post?u=2512012878e030a6c1ada90e0&amp;id=215aa5abf5" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+    <h2>Regelmäßig die neuesten Nachrichten der Hochschule erhalten!</h2>
+<div class="indicates-required"><span class="asterisk">*</span> Pflichfeld</div>
+<div class="mc-field-group">
+    <label for="mce-EMAIL">E-Mail-Adresse  <span class="asterisk">*</span>
+</label>
+    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+</div>
+<div class="mc-field-group">
+    <label for="mce-FNAME">Vorname </label>
+    <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+</div>
+<div class="mc-field-group">
+    <label for="mce-LNAME">Nachname </label>
+    <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+</div>
+<div class="mc-field-group input-group">
+    <strong>E-Mail-Format </strong>
+    <ul><li><input type="radio" value="html" name="EMAILTYPE" id="mce-EMAILTYPE-0"><label for="mce-EMAILTYPE-0">html</label></li>
+<li><input type="radio" value="text" name="EMAILTYPE" id="mce-EMAILTYPE-1"><label for="mce-EMAILTYPE-1">text</label></li>
+</ul>
+</div>
+    <div id="mce-responses" class="clear">
+        <div class="response" id="mce-error-response" style="display:none"></div>
+        <div class="response" id="mce-success-response" style="display:none"></div>
+    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_2512012878e030a6c1ada90e0_215aa5abf5" value=""></div>
+    <div class="clear"><input type="submit" value="Newsletter abonnieren" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+</form>
+</div>
+<script type="text/javascript">
+var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';
+try {
+    var jqueryLoaded=jQuery;
+    jqueryLoaded=true;
+} catch(err) {
+    var jqueryLoaded=false;
+}
+var head= document.getElementsByTagName('head')[0];
+if (!jqueryLoaded) {
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js';
+    head.appendChild(script);
+    if (script.readyState && script.onload!==null){
+        script.onreadystatechange= function () {
+              if (this.readyState == 'complete') mce_preload_check();
+        }    
+    }
+}
+
+var err_style = '';
+try{
+    err_style = mc_custom_error_style;
+} catch(e){
+    err_style = '#mc_embed_signup input.mce_inline_error{border-color:#6B0505;} #mc_embed_signup div.mce_inline_error{margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff;}';
+}
+var head= document.getElementsByTagName('head')[0];
+var style= document.createElement('style');
+style.type= 'text/css';
+if (style.styleSheet) {
+  style.styleSheet.cssText = err_style;
+} else {
+  style.appendChild(document.createTextNode(err_style));
+}
+head.appendChild(style);
+setTimeout('mce_preload_check();', 250);
+
+var mce_preload_checks = 0;
+function mce_preload_check(){
+    if (mce_preload_checks>40) return;
+    mce_preload_checks++;
+    try {
+        var jqueryLoaded=jQuery;
+    } catch(err) {
+        setTimeout('mce_preload_check();', 250);
+        return;
+    }
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'http://downloads.mailchimp.com/js/jquery.form-n-validate.js';
+    head.appendChild(script);
+    try {
+        var validatorLoaded=jQuery("#fake-form").validate({});
+    } catch(err) {
+        setTimeout('mce_preload_check();', 250);
+        return;
+    }
+    mce_init_form();
+}
+function mce_init_form(){
+    jQuery(document).ready( function($) {
+      var options = { errorClass: 'mce_inline_error', errorElement: 'div', onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
+      var mce_validator = $("#mc-embedded-subscribe-form").validate(options);
+      $("#mc-embedded-subscribe-form").unbind('submit');//remove the validator so we can get into beforeSubmit on the ajaxform, which then calls the validator
+      options = { url: 'http://hfph.us7.list-manage1.com/subscribe/post-json?u=2512012878e030a6c1ada90e0&id=215aa5abf5&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
+                    beforeSubmit: function(){
+                        $('#mce_tmp_error_msg').remove();
+                        $('.datefield','#mc_embed_signup').each(
+                            function(){
+                                var txt = 'filled';
+                                var fields = new Array();
+                                var i = 0;
+                                $(':text', this).each(
+                                    function(){
+                                        fields[i] = this;
+                                        i++;
+                                    });
+                                $(':hidden', this).each(
+                                    function(){
+                                        var bday = false;
+                                        if (fields.length == 2){
+                                            bday = true;
+                                            fields[2] = {'value':1970};//trick birthdays into having years
+                                        }
+                                        if ( fields[0].value=='MM' && fields[1].value=='DD' && (fields[2].value=='YYYY' || (bday && fields[2].value==1970) ) ){
+                                            this.value = '';
+                                        } else if ( fields[0].value=='' && fields[1].value=='' && (fields[2].value=='' || (bday && fields[2].value==1970) ) ){
+                                            this.value = '';
+                                        } else {
+                                            if (/\[day\]/.test(fields[0].name)){
+                                                this.value = fields[1].value+'/'+fields[0].value+'/'+fields[2].value;                                           
+                                            } else {
+                                                this.value = fields[0].value+'/'+fields[1].value+'/'+fields[2].value;
+                                            }
+                                        }
+                                    });
+                            });
+                        $('.phonefield-us','#mc_embed_signup').each(
+                            function(){
+                                var fields = new Array();
+                                var i = 0;
+                                $(':text', this).each(
+                                    function(){
+                                        fields[i] = this;
+                                        i++;
+                                    });
+                                $(':hidden', this).each(
+                                    function(){
+                                        if ( fields[0].value.length != 3 || fields[1].value.length!=3 || fields[2].value.length!=4 ){
+                                            this.value = '';
+                                        } else {
+                                            this.value = 'filled';
+                                        }
+                                    });
+                            });
+                        return mce_validator.form();
+                    }, 
+                    success: mce_success_cb
+                };
+      $('#mc-embedded-subscribe-form').ajaxForm(options);
+      /*
+ * Translated default messages for the jQuery validation plugin.
+ * Locale: DE
+ */
+jQuery.extend(jQuery.validator.messages, {
+    required: "Dieses Feld ist ein Pflichtfeld.",
+    maxlength: jQuery.validator.format("Geben Sie bitte maximal {0} Zeichen ein."),
+    minlength: jQuery.validator.format("Geben Sie bitte mindestens {0} Zeichen ein."),
+    rangelength: jQuery.validator.format("Geben Sie bitte mindestens {0} und maximal {1} Zeichen ein."),
+    email: "Geben Sie bitte eine gültige E-Mail Adresse ein.",
+    url: "Geben Sie bitte eine gültige URL ein.",
+    date: "Bitte geben Sie ein gültiges Datum ein.",
+    number: "Geben Sie bitte eine Nummer ein.",
+    digits: "Geben Sie bitte nur Ziffern ein.",
+    equalTo: "Bitte denselben Wert wiederholen.",
+    range: jQuery.validator.format("Geben Sie bitten einen Wert zwischen {0} und {1}."),
+    max: jQuery.validator.format("Geben Sie bitte einen Wert kleiner oder gleich {0} ein."),
+    min: jQuery.validator.format("Geben Sie bitte einen Wert größer oder gleich {0} ein."),
+    creditcard: "Geben Sie bitte ein gültige Kreditkarten-Nummer ein."
+});
+      
+    });
+}
+function mce_success_cb(resp){
+    $('#mce-success-response').hide();
+    $('#mce-error-response').hide();
+    if (resp.result=="success"){
+        $('#mce-'+resp.result+'-response').show();
+        $('#mce-'+resp.result+'-response').html(resp.msg);
+        $('#mc-embedded-subscribe-form').each(function(){
+            this.reset();
+        });
+    } else {
+        var index = -1;
+        var msg;
+        try {
+            var parts = resp.msg.split(' - ',2);
+            if (parts[1]==undefined){
+                msg = resp.msg;
+            } else {
+                i = parseInt(parts[0]);
+                if (i.toString() == parts[0]){
+                    index = parts[0];
+                    msg = parts[1];
+                } else {
+                    index = -1;
+                    msg = resp.msg;
+                }
+            }
+        } catch(e){
+            index = -1;
+            msg = resp.msg;
+        }
+        try{
+            if (index== -1){
+                $('#mce-'+resp.result+'-response').show();
+                $('#mce-'+resp.result+'-response').html(msg);            
+            } else {
+                err_id = 'mce_tmp_error_msg';
+                html = '<div id="'+err_id+'" style="'+err_style+'"> '+msg+'</div>';
+                
+                var input_id = '#mc_embed_signup';
+                var f = $(input_id);
+                if (ftypes[index]=='address'){
+                    input_id = '#mce-'+fnames[index]+'-addr1';
+                    f = $(input_id).parent().parent().get(0);
+                } else if (ftypes[index]=='date'){
+                    input_id = '#mce-'+fnames[index]+'-month';
+                    f = $(input_id).parent().parent().get(0);
+                } else {
+                    input_id = '#mce-'+fnames[index];
+                    f = $().parent(input_id).get(0);
+                }
+                if (f){
+                    $(f).append(html);
+                    $(input_id).focus();
+                } else {
+                    $('#mce-'+resp.result+'-response').show();
+                    $('#mce-'+resp.result+'-response').html(msg);
+                }
+            }
+        } catch(e){
+            $('#mce-'+resp.result+'-response').show();
+            $('#mce-'+resp.result+'-response').html(msg);
+        }
+    }
+}
+
+</script>
+<!--End mc_embed_signup-->
+    </div>
+
+    <footer class="container app-footer" id="app-footer">
+  <div class="app-tile app-footer-content" id="app-footer-content">
+    <ul class="nav nav-pills">
+      <li><a href="http://www.ab-soft.de/hfph/raumplan.php">Raumplan</a></li>
+      <li><a href="/login_form">Login</a></li>
+      <li><a href="/presse-oeffentlichkeitsarbeit">Presse</a></li>
+      <li><a href="/impressum">Impressum</a></li>
+      <li><a href="https://www.jesuiten.org/index.php?id=360"><i class="icon-pencil"></i> Online-Spende</a></li>
+      <li><a href="/pro-philosophia">pro philosophia</a></li>
+      <li><a href="/newsletter"><i class="icon-envelope"></i> Newsletter abonnieren</a></li>
+    </ul>
+  </div>
+</footer> <!-- /footer -->
+
+    <script src="../bower_components/jquery/jquery.js"></script>
+<script src="../bower_components/modernizr/modernizr.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../bower_components/holderjs/holder.js"></script>
+<script src="../js/application.js"></script>
+
+  </body>
+</html>
