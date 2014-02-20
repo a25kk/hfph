@@ -1,13 +1,13 @@
 from five import grok
 from zope import schema
 
-from plone.dexterity.content import Container
+from plone.indexer import indexer
 from plone.directives import form
+from plone.dexterity.content import Container
 from plone.app.textfield import RichText
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
-from plone.namedfile.field import NamedBlobImage, NamedBlobFile
+from plone.namedfile.field import NamedBlobImage
 from plone.namedfile.interfaces import IImageScaleTraversable
-
 
 from hph.faculty import MessageFactory as _
 
@@ -76,6 +76,12 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
         title=_(u"Body Text"),
         required=False,
     )
+
+
+@indexer(IFacultyMember)
+def academicRoleIndexer(obj):
+    return obj.academicRole
+grok.global_adapter(academicRoleIndexer, name="academicRole")
 
 
 class FacultyMember(Container):
