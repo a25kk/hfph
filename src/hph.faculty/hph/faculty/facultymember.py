@@ -30,6 +30,15 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
         ),
         required=True,
     )
+    form.widget(academicRole=CheckBoxFieldWidget)
+    academicRole = schema.Set(
+        title=_(u"Academic Role"),
+        value_type=schema.Choice(
+            title=_(u"Accademic Role or Position"),
+            vocabulary=u'hph.faculty.FacultyMemberPosition',
+        ),
+        required=True,
+    )
     sidenote = schema.TextLine(
         title=_(u"Sidenote"),
         description=_(u"Optional additional information/sidenote"),
