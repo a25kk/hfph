@@ -12,21 +12,8 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-3">
-            <aside class="app-aside" id="app-sidebar" >
-                <div class="app-box app-box-faculty">
-                    <div class="app-box-header">
-                        <h1 class="app-box-heading">
-                            Lehrende
-                        </h1>
-                    </div>
-                    <div class="app-box-content">
-                        <ul class="nav nav-pills nav-stacked app-box-nav">
-                            <li><a tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;position=professor">Professoren</a></li>
-                            <li><a tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;position=professor">Dozenten</a></li>
-                            <li><a tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;position=professor">Lehrbeauftragte</a></li>
-                        </ul>
-                    </div>
-                </div>
+            <aside class="app-aside" id="app-sidebar">
+                <div tal:replace="structure view/content_filter" />
             </aside>
         </div>
         <div class="col-xs-12 col-sm-9">
@@ -39,7 +26,7 @@
                      tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                                  b_size python:int(request.get('b_size', 20));
                                  b_start python:int(request.get('b_start', 0));
-                                 results python:context.restrictedTraverse('@@folderListing')(batch=True, b_size=b_size, b_start=b_start);
+                                 results view/faculty_members;
                                  batch python:Batch(results, b_size, b_start);">
                     <div class="page-content-list-item"
                         tal:repeat="item results">
