@@ -96,14 +96,14 @@
             </ul>
         </div>
         <div class="col-xs-12 col-sm-3">
-            <form class="form app-actionbar-form" id="nav-search">
+            <form class="form app-actionbar-form" id="nav-search" role="form" method="post" action="/hph/@@search">
                 <div class="input-group">
                   <span class="input-group-btn">
                     <button class="btn btn-default btn-sm" type="button">
                         <i class="fa fa-search fa-flip-horizontal"></i>
                     </button>
                   </span>
-                  <input type="search" class="form-control input-sm">
+                  <input type="text" class="form-control input-sm" name ="SearchableText" id="SearchableText" placeholder="Suche">
                 </div><!-- /input-group -->
             </form>
         </div>

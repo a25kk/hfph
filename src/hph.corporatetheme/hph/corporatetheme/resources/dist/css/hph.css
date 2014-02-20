@@ -15238,4 +15238,8 @@ ul.navTree li.navTreeCurrentNode a:focus
 {
     padding: 20px;
 }
+.actionMenu
+{
+    display: none;
+}
 /*# sourceMappingURL=hph.css.map */
