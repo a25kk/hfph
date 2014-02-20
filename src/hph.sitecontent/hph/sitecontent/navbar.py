@@ -168,7 +168,8 @@ class NavbarViewlet(grok.Viewlet):
             'path': path,
             'review_state': 'published',
             'portal_type': ('hph.sitecontent.mainsection',
-                            'hph.sitecontent.contentpage'),
+                            'hph.sitecontent.contentpage',
+                            'hph.lectures.coursefolder'),
             'sort_order': 'getObjPositionInParent'
         }
         root_obj = context.unrestrictedTraverse(root)
@@ -260,7 +261,7 @@ class NavbarViewlet(grok.Viewlet):
 
     def get_subsubsections(self):
         context = aq_inner(self.context)
-        types = ('hph.sitecontent.contentpage',)
+        types = ('hph.sitecontent.contentpage', 'hph.lectures.coursefolder')
         depth = 3
         navtree = self.navStrategy(context, types, depth)
         return navtree
