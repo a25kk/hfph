@@ -63,7 +63,6 @@ class CleanupView(grok.View):
             setattr(i, 'pubMedia', media)
             setattr(i, 'pubSeries', series)
             setattr(i, 'thirdPartyProject', display)
-            import pdb; pdb.set_trace( )
             idx += 1
             modified(i)
             i.reindexObject(idxs='modified')
