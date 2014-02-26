@@ -3,4 +3,7 @@
     <!-- Don't even think about adding indexes here - it is strictly forbidden.
         See add_catalog_indexes in setuphandlers.py instead. -->
     <column value="academicRole" />
+    <column value="pubMedium" />
+    <column value="pubSeries" />
+    
 </object>

@@ -75,6 +75,15 @@ class IPublication(form.Schema, IImageScaleTraversable):
         ),
         required=True,
     )
+    form.widget(medium=CheckBoxFieldWidget)
+    pubMedium = schema.Set(
+        title=_(u"Medium"),
+        value_type=schema.Choice(
+            title=_(u"Media Selection"),
+            vocabulary=u'hph.publications.publicationMedia',
+        ),
+        required=True,
+    )
     form.widget(series=CheckBoxFieldWidget)
     series = schema.Set(
         title=_(u"Series"),
@@ -84,12 +93,30 @@ class IPublication(form.Schema, IImageScaleTraversable):
         ),
         required=True,
     )
+    form.widget(series=CheckBoxFieldWidget)
+    pubSeries = schema.Set(
+        title=_(u"Series"),
+        value_type=schema.Choice(
+            title=_(u"Series Selection"),
+            vocabulary=u'hph.publications.publicationSeries',
+        ),
+        required=True,
+    )
     form.widget(display=CheckBoxFieldWidget)
     display = schema.Set(
         title=_(u"Display"),
         value_type=schema.Choice(
             title=_(u"Display Selection"),
             vocabulary=display,
+        ),
+        required=True,
+    )
+    form.widget(display=CheckBoxFieldWidget)
+    thirdPartyProject = schema.Set(
+        title=_(u"Third Party Project Display"),
+        value_type=schema.Choice(
+            title=_(u"Display Selection"),
+            vocabulary=u'hph.sitecontent.thirdPartyProjects',
         ),
         required=True,
     )
