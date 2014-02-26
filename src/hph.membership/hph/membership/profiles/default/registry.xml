@@ -1,4 +1,3 @@
 <registry>
-    <records interface="hph.membership.interfaces.IHPHMembershipSettings"
-        prefix="hph.membershiptool" />
+    <records interface="hph.membership.interfaces.IHPHMembershipSettings" />
 </registry>

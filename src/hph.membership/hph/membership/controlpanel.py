@@ -14,7 +14,7 @@ class HPHMembershipSettingsEditForm(RegistryEditForm):
     Define form logic
     """
     schema = IHPHMembershipSettings
-    label = u"TypeKit webfont settings"
+    label = u"HPH membership tool settings"
 
 
 class HPHMembershipSettingsView(grok.View):

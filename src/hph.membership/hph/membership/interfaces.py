@@ -1,7 +1,7 @@
 from zope import schema
 from zope.interface import Interface
 
-from xpose.seotool import MessageFactory as _
+from hph.membership import MessageFactory as _
 
 
 class IHPHMembershipTool(Interface):
