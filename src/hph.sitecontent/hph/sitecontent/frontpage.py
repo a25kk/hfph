@@ -82,8 +82,12 @@ class RecentEventsView(grok.View):
 
     def eventitems(self):
         context = aq_inner(self.context)
+        portal = api.portal.get()
+        container = portal['termine']
         catalog = getToolByName(context, 'portal_catalog')
         results = catalog(object_provides=IDXEvent.__identifier__,
+                          path=dict(query='/'.join(container.getPhysicalPath()),
+                                    depth=1),
                           review_state='published',
                           sort_on='start',
                           sort_order='reverse',

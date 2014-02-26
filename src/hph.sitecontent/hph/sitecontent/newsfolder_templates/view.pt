@@ -19,7 +19,7 @@
     <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
         b_size python:int(request.get('b_size', 20));
         b_start python:int(request.get('b_start', 0));
-        results python:context.restrictedTraverse('@@folderListing')(batch=True, b_size=b_size, b_start=b_start, sort_on='effective', sort_order='reverse');
+        results python:context.restrictedTraverse('@@folderListing')(batch=True, b_size=b_size, b_start=b_start, sort_on='effective', sort_order='reverse', review_state='published');
         batch python:Batch(results, b_size, b_start);">
         <article tal:repeat="item batch">
 
