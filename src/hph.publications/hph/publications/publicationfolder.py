@@ -1,5 +1,7 @@
 from Acquisition import aq_inner
 from five import grok
+
+from zope.lifecycleevent import modified
 from plone.directives import dexterity, form
 
 from Products.CMFCore.utils import getToolByName
@@ -61,7 +63,9 @@ class CleanupView(grok.View):
             setattr(i, 'pubMedia', media)
             setattr(i, 'pubSeries', series)
             setattr(i, 'thirdPartyProject', display)
+            import pdb; pdb.set_trace( )
             idx += 1
+            modified(i)
             i.reindexObject(idxs='modified')
         return idx
 
