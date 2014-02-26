@@ -21,7 +21,7 @@
                 tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/hph-muenchen.jpg'" />
           </aside>
         </div>
-        <div class="col-xs-12 col-sm-6col-md-3" id="app-col-sidebar">
+        <div class="col-xs-12 col-sm-6 col-md-3" id="app-col-sidebar">
             <aside class="app-fp-tile" id="app-sidebar" >
                 <div class="app-box app-box-striped app-box-events">
                     <div class="app-box-header">
