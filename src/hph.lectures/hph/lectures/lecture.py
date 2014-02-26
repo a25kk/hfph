@@ -62,8 +62,7 @@ class ILecture(form.Schema, IImageScaleTraversable):
         value_type=RelationChoice(
             title=_(u"Related lecturer"),
             source=ObjPathSourceBinder(
-                object_provides=IFacultyMember.__identifier__,
-            )
+                object_provides=IFacultyMember.__identifier__)
         ),
         required=False,
     )
