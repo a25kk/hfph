@@ -10,7 +10,45 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
     <div class="row">
-        <div class="col-xs-12 col-lg-3">
+        <div class="col-xs-12 col-sm-3">
+            <div class="app-box app-box-publication">
+                <div class="app-box-header">
+                    <h4 class="app-box-heading" i18n:translate="">
+                        Media
+                    </h4>
+                </div>
+                <div class="app-box-content">
+                    <ul class="nav nav-pills nav-stacked app-box-nav">
+                        <tal:block tal:repeat="filter view/media_filter_options">
+                            <li tal:define="filter_value filter/value"
+                                tal:attributes="class python:view.computed_klass('pubMedia', filter_value)">
+                                <a tal:attributes="href string:${view/parent_url}?content_filter=1&amp;pubMedia=${filter/value}"
+                                    tal:content="filter/title">Filter option</a>
+                            </li>
+                        </tal:block>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="app-box app-box-publication">
+                <div class="app-box-header">
+                    <h4 class="app-box-heading" i18n:translate="">
+                        Series
+                    </h4>
+                </div>
+                <div class="app-box-content">
+                    <ul class="nav nav-pills nav-stacked app-box-nav">
+                        <tal:block tal:repeat="filter view/series_filter_options">
+                            <li tal:define="filter_value filter/value"
+                                tal:attributes="class python:view.computed_klass('pubSeries', filter_value)">
+                                <a tal:attributes="href string:${view/parent_url}?content_filter=1&amp;pubSeries=${filter/value}"
+                                    tal:content="filter/title">Filter option</a>
+                            </li>
+                        </tal:block>
+                    </ul>
+                </div>
+            </div>
+
             <ul class="nav nav-pills nav-stacked">
                 <li><a href="#filter">Neuerscheinungen</a></li>
                 <li><a href="#filter">Filter A</a></li>
