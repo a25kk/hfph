@@ -46,6 +46,10 @@ class IPublication(form.Schema, IImageScaleTraversable):
         title=_(u"Year of Publication"),
         required=True,
     )
+    pubYear = schema.TextLine(
+        title=_(u"Year of Publication"),
+        required=True,
+    )
     editor = schema.Bool(
         title=_(u"Editor"),
         required=True,

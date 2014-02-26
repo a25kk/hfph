@@ -2,8 +2,9 @@
 <object name="portal_catalog" meta_type="Plone Catalog Tool">
     <!-- Don't even think about adding indexes here - it is strictly forbidden.
         See add_catalog_indexes in setuphandlers.py instead. -->
+    <column value="thirdPartyProject" />
     <column value="academicRole" />
+    <column value="pubYear" />
     <column value="pubMedium" />
     <column value="pubSeries" />
-    <column value="thirdPartyProject" />
 </object>

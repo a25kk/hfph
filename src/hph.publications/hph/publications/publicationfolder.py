@@ -33,7 +33,7 @@ class View(grok.View):
     grok.name('view')
 
     def update(self):
-        self.has_publications = len(self.publications()) > 0
+        self.has_publications = len(self.all_publications()) > 0
         self.filter = self.request.get('content_filter', None)
 
     def filtered(self):
@@ -67,6 +67,7 @@ class View(grok.View):
         query_path = '/'.join(context.getPhysicalPath())
         return dict(object_provides=obj_provides,
                     path=query_path,
+                    sort_on='getObjPositionInParent',
                     review_state='published')
 
     def media_filter_options(self):
