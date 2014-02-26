@@ -68,12 +68,12 @@ class MemberTool(grok.GlobalUtility):
         return info
 
     def _make_base_query(self):
-        api_uri = self.get_stored_records(token='uri')
+        api_uri = self.get_stored_records(token='ip')
         api_key = self.get_stored_records(token='key')
         base_uri = 'http://{0}:8080/{1}/1.0/json/'.format(api_uri, api_key)
         return base_uri
 
     def get_stored_records(self, token):
-        key_base = 'hph.membershiptool.api_'
+        key_base = 'hph.membership.interfaces.IHPHMembershipSettings.api_'
         key = key_base + token
         return api.portal.get_registry_record(key)
