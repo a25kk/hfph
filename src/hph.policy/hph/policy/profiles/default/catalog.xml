@@ -5,5 +5,5 @@
     <column value="academicRole" />
     <column value="pubMedium" />
     <column value="pubSeries" />
-    
+    <column value="thirdPartyProject" />
 </object>
