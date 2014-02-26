@@ -11,16 +11,16 @@ class PublicationMediaVocabulary(object):
     grok.implements(IVocabularyFactory)
 
     def __call__(self, context):
-        TYPES = {
+        MEDIA = {
             _(u"Book"): 'book',
             _(u"Magazine"): 'magazine',
             _(u"DVD/CD"): 'digital',
         }
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
-                                in TYPES.iteritems()])
+                                in MEDIA.iteritems()])
 grok.global_utility(PublicationMediaVocabulary,
-                    name=u"hph.pubications.publicationMedia")
+                    name=u"hph.publications.publicationMedia")
 
 
 class PublicationSeriesVocabulary(object):
@@ -39,4 +39,4 @@ class PublicationSeriesVocabulary(object):
                                 for title, value
                                 in TYPES.iteritems()])
 grok.global_utility(PublicationSeriesVocabulary,
-                    name=u"hph.pubications.publicationSeries")
+                    name=u"hph.publications.publicationSeries")

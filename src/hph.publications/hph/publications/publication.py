@@ -75,7 +75,7 @@ class IPublication(form.Schema, IImageScaleTraversable):
         ),
         required=True,
     )
-    form.widget(medium=CheckBoxFieldWidget)
+    form.widget(pubMedium=CheckBoxFieldWidget)
     pubMedium = schema.Set(
         title=_(u"Medium"),
         value_type=schema.Choice(
@@ -93,7 +93,7 @@ class IPublication(form.Schema, IImageScaleTraversable):
         ),
         required=True,
     )
-    form.widget(series=CheckBoxFieldWidget)
+    form.widget(pubSeries=CheckBoxFieldWidget)
     pubSeries = schema.Set(
         title=_(u"Series"),
         value_type=schema.Choice(
@@ -111,7 +111,7 @@ class IPublication(form.Schema, IImageScaleTraversable):
         ),
         required=True,
     )
-    form.widget(display=CheckBoxFieldWidget)
+    form.widget(thirdPartyProject=CheckBoxFieldWidget)
     thirdPartyProject = schema.Set(
         title=_(u"Third Party Project Display"),
         value_type=schema.Choice(
