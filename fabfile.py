@@ -7,7 +7,7 @@ from fabric.api import execute
 from ade25.fabfiles import server
 from ade25.fabfiles import project
 
-from ade25.fabfiles import hotfix
+from ade25.fabfiles import setup
 
 env.use_ssh_config = True
 env.forward_agent = True
@@ -58,3 +58,19 @@ def rebuild():
 def get_data():
     """ Copy live database for local development """
     project.db.download_data()
+
+
+@task
+def bootstrap():
+    """ Bootstrap server and setup the webserver automagically """
+    setup.install_system_libs()
+    setup.set_hostname()
+    setup.configure_fs()
+    setup.set_project_user_and_group('www', 'www')
+    setup.configure_egg_cache()
+    with cd('/opt'):
+        setup.install_python()
+        setup.generate_virtualenv(sitename='webserver')
+    with cd('/opt/webserver'):
+        setup.install_webserver()
+    setup.setup_webserver_autostart()
