@@ -2,16 +2,16 @@ from fabric.api import task
 from fabric.api import cd
 from fabric.api import env
 from fabric.api import run
-from fabric.api import execute
+from fabric.api import roles
 
 from ade25.fabfiles import server
 from ade25.fabfiles import project
 
-from ade25.fabfiles import setup
+from ade25.fabfiles.server import setup
 
 env.use_ssh_config = True
 env.forward_agent = True
-env.port = '22222'
+# env.port = '22222'
 env.user = 'root'
 env.hosts = ['z9']
 env.webserver = '/opt/webserver/buildout.webserver'
@@ -21,8 +21,14 @@ env.sitename = 'hph'
 env.code_user = 'root'
 env.prod_user = 'www'
 
+env.roledefs = {
+    'production': ['hph'],
+    'staging': ['z9']
+}
+
 
 @task
+@roles('production')
 def deploy():
     """ Deploy current master to production server """
     project.site.update()
@@ -30,7 +36,8 @@ def deploy():
 
 
 @task
-def deploy_staging():
+@roles('staging')
+def stage():
     """ Deploy current master to staging server """
     project.site.update()
     with cd(env.code_root):
@@ -61,10 +68,17 @@ def get_data():
 
 
 @task
+@roles('production')
+def server_status():
+    server.status.status()
+
+
+@task
+@roles('production')
 def bootstrap():
     """ Bootstrap server and setup the webserver automagically """
     setup.install_system_libs()
-    setup.set_hostname()
+    #setup.set_hostname()
     setup.configure_fs()
     setup.set_project_user_and_group('www', 'www')
     setup.configure_egg_cache()
