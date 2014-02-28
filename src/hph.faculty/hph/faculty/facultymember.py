@@ -1,6 +1,8 @@
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from five import grok
+from plone import api
+
 from zope import schema
 
 from zope.schema.vocabulary import getVocabularyRegistry
@@ -12,6 +14,9 @@ from plone.app.textfield import RichText
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from plone.namedfile.field import NamedBlobImage
 from plone.namedfile.interfaces import IImageScaleTraversable
+
+from plone.app.contentlisting.interfaces import IContentListing
+from hph.publications.publication import IPublication
 
 from hph.faculty import MessageFactory as _
 
@@ -109,3 +114,23 @@ class View(grok.View):
         if active_filter == value:
             klass = 'active'
         return klass
+
+
+class Publications(grok.View):
+    grok.context(IFacultyMember)
+    grok.require('zope2.View')
+    grok.name('publications')
+
+    def update(self):
+        self.has_publications = len(self.publication()) > 0
+
+    def publications(self):
+        context = aq_inner(self.context)
+        catalog = api.portal.get_tool(name='portal_catalog')
+        obj_provides = IPublication.__identifier__
+        author_name = getattr(context, 'last_name')
+        query = dict(object_provides=obj_provides,
+                     authorLastName=author_name,
+                     review_state='published')
+        results = catalog.searchResults(query)
+        return IContentListing(results)
