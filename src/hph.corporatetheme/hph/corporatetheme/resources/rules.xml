@@ -32,7 +32,6 @@
         <theme href="dist/theme.html" />
 
        <replace css:theme="title" css:content="title" />
-        <replace css:theme="base" css:content="base" />
         <!-- Add meta tags -->
         <!-- <drop theme="/html/head/meta" /> -->
         
