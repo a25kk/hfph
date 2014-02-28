@@ -54,6 +54,12 @@ class IPublication(form.Schema, IImageScaleTraversable):
         title=_(u"Editor"),
         required=True,
     )
+    authorLastName = schema.TextLine(
+        title=_(u"Author Lastname"),
+        description=_(u"The entered value will be used to associate this "
+                      u"publication with the corresponding faculty member"),
+        required=True,
+    )
     authorOne = schema.TextLine(
         title=_(u"Author One"),
         required=True,
