@@ -28,10 +28,11 @@
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
 
-        <notheme if="$ajax_load" />          
+        <notheme if="$ajax_load" />    
         <theme href="dist/theme.html" />
 
        <replace css:theme="title" css:content="title" />
+       <after theme="/html/head/title" css:content="base" />
         <!-- Add meta tags -->
         <!-- <drop theme="/html/head/meta" /> -->
         
