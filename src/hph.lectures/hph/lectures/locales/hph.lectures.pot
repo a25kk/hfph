@@ -1,0 +1,206 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2014-02-28 16:27+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: hph.lectures\n"
+
+#: ./../vocabulary.py:15
+msgid "1 hour"
+msgstr ""
+
+#: ./../vocabulary.py:16
+msgid "2 hour"
+msgstr ""
+
+#: ./../vocabulary.py:17
+msgid "3 hour"
+msgstr ""
+
+#: ./../profiles/default/types/hph.lectures.lecture.xml
+msgid "A single course"
+msgstr ""
+
+#: ./../lecture.py:54
+msgid "Additional Information"
+msgstr ""
+
+#: ./../lecture.py:70
+msgid "Additional Lecturer"
+msgstr ""
+
+#: ./../coursefolder_templates/view.pt:67
+msgid "Additional Lecturer:"
+msgstr ""
+
+#: ./../vocabulary.py:31
+msgid "Advanced seminar"
+msgstr ""
+
+#: ./../lecture.py:46
+msgid "Attendance Required"
+msgstr ""
+
+#: ./../vocabulary.py:48
+msgid "BA"
+msgstr ""
+
+#: ./../lecture.py:50
+msgid "Block Lecture"
+msgstr ""
+
+#: ./../vocabulary.py:32
+msgid "Colloquium"
+msgstr ""
+
+#: ./../coursedetails.py:26
+msgid "Course Aims"
+msgstr ""
+
+#: ./../lecture.py:85
+msgid "Course Dates"
+msgstr ""
+
+#: ./../coursedetails.py:15
+msgid "Course Details"
+msgstr ""
+
+#: ./../lecture.py:80
+msgid "Course Duration"
+msgstr ""
+
+#: ./../coursedetails.py:46
+msgid "Course Literature"
+msgstr ""
+
+#: ./../coursedetails.py:30
+msgid "Course Method"
+msgstr ""
+
+#: ./../coursedetails.py:50
+msgid "Course Notes"
+msgstr ""
+
+#: ./../coursedetails.py:34
+msgid "Course Prerequirements"
+msgstr ""
+
+#: ./../coursedetails.py:38
+msgid "Course Qualification"
+msgstr ""
+
+#: ./../coursedetails.py:42
+msgid "Course Target"
+msgstr ""
+
+#: ./../coursedetails.py:22
+msgid "Course Theme"
+msgstr ""
+
+#: ./../lecture.py:89
+msgid "Course Time"
+msgstr ""
+
+#: ./../lecture.py:74
+msgid "Course Type"
+msgstr ""
+
+#: ./../profiles/default/types/hph.lectures.coursefolder.xml
+msgid "CourseFolder"
+msgstr ""
+
+#: ./../coursefolder_templates/view.pt:76
+msgid "Dates"
+msgstr ""
+
+#: ./../coursemodules.py:18
+msgid "Degree"
+msgstr ""
+
+#: ./../coursemodules.py:25
+msgid "Enter corresponding product detail value"
+msgstr ""
+
+#: ./../vocabulary.py:34
+msgid "Exercise"
+msgstr ""
+
+#: ./../vocabulary.py:33
+msgid "Introductory seminar source"
+msgstr ""
+
+#: ./../profiles/default/types/hph.lectures.lecture.xml
+#: ./../vocabulary.py:35
+msgid "Lecture"
+msgstr ""
+
+#: ./../coursefolder_templates/view.pt:24
+#: ./../lecture_templates/view.pt:19
+msgid "Lectures"
+msgstr ""
+
+#: ./../lecture.py:42
+msgid "Lecure Number"
+msgstr ""
+
+#: ./../vocabulary.py:49
+msgid "MA Ethics"
+msgstr ""
+
+#: ./../vocabulary.py:50
+msgid "MA kons"
+msgstr ""
+
+#: ./../vocabulary.py:52
+msgid "Mag"
+msgstr ""
+
+#: ./../profiles/default/types/hph.lectures.coursefolder.xml
+msgid "Manage lectures"
+msgstr ""
+
+#: ./../coursemodules.py:24
+msgid "Module Information"
+msgstr ""
+
+#: ./../coursemodules.py:19
+msgid "Please select module degree"
+msgstr ""
+
+#: ./../lecture.py:60
+msgid "Please select one or more lecturers for this course"
+msgstr ""
+
+#: ./../lecture.py:75
+msgid "Please select the course type."
+msgstr ""
+
+#: ./../lecture.py:63
+msgid "Related lecturer"
+msgstr ""
+
+#: ./../lecture.py:34
+msgid "Subtitle"
+msgstr ""
+
+#: ./../lecture.py:38
+msgid "Title"
+msgstr ""
+
+#: ./../coursefolder_templates/view.pt:42
+#: ./../lecture_templates/view.pt:37
+msgid "remove filter"
+msgstr ""
+

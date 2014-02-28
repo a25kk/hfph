@@ -1,0 +1,201 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2014-02-28 16:27+0000\n"
+"PO-Revision-Date: 2014-02-28 17:53+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+"Language: de\n"
+"X-Generator: Poedit 1.6.4\n"
+
+#: ../vocabulary.py:15
+msgid "1 hour"
+msgstr "1-stündig"
+
+#: ../vocabulary.py:16
+msgid "2 hour"
+msgstr "2-stündig"
+
+#: ../vocabulary.py:17
+msgid "3 hour"
+msgstr "3-stündig"
+
+#: ../profiles/default/types/hph.lectures.lecture.xml
+msgid "A single course"
+msgstr "einzelne Lehrveranstaltung"
+
+#: ../lecture.py:54
+msgid "Additional Information"
+msgstr "Zusatzinformation"
+
+#: ../lecture.py:70
+msgid "Additional Lecturer"
+msgstr "zusammen mit:"
+
+#: ../coursefolder_templates/view.pt:67
+msgid "Additional Lecturer:"
+msgstr "zusammen mit:"
+
+#: ../vocabulary.py:31
+msgid "Advanced seminar"
+msgstr "Hauptseminar"
+
+#: ../lecture.py:46
+msgid "Attendance Required"
+msgstr "Anwesenheitspflicht"
+
+#: ../vocabulary.py:48
+msgid "BA"
+msgstr "BA"
+
+#: ../lecture.py:50
+msgid "Block Lecture"
+msgstr "Blockseminar"
+
+#: ../vocabulary.py:32
+msgid "Colloquium"
+msgstr "Kolloquium"
+
+#: ../coursedetails.py:26
+msgid "Course Aims"
+msgstr "Ziele"
+
+#: ../lecture.py:85
+msgid "Course Dates"
+msgstr "Termine"
+
+#: ../coursedetails.py:15
+msgid "Course Details"
+msgstr "Details"
+
+#: ../lecture.py:80
+msgid "Course Duration"
+msgstr "Dauer"
+
+#: ../coursedetails.py:46
+msgid "Course Literature"
+msgstr "Literatur"
+
+#: ../coursedetails.py:30
+msgid "Course Method"
+msgstr "Methode"
+
+#: ../coursedetails.py:50
+msgid "Course Notes"
+msgstr "Anmerkung der Kanzlerin"
+
+#: ../coursedetails.py:34
+msgid "Course Prerequirements"
+msgstr "Voraussetzungen"
+
+#: ../coursedetails.py:38
+msgid "Course Qualification"
+msgstr "Qualifikation"
+
+#: ../coursedetails.py:42
+msgid "Course Target"
+msgstr "Zielgruppe"
+
+#: ../coursedetails.py:22
+msgid "Course Theme"
+msgstr "Thematik"
+
+#: ../lecture.py:89
+msgid "Course Time"
+msgstr "Uhrzeit"
+
+#: ../lecture.py:74
+msgid "Course Type"
+msgstr "Veranstaltungstyp"
+
+#: ../profiles/default/types/hph.lectures.coursefolder.xml
+msgid "CourseFolder"
+msgstr "Veranstaltungsordner"
+
+#: ../coursefolder_templates/view.pt:76
+msgid "Dates"
+msgstr "Termine"
+
+#: ../coursemodules.py:18
+msgid "Degree"
+msgstr "Abschluss"
+
+#: ../coursemodules.py:25
+msgid "Enter corresponding product detail value"
+msgstr "Tragen Sie hier den korrespondierenden Produktwert ein"
+
+#: ../vocabulary.py:34
+msgid "Exercise"
+msgstr "Übung"
+
+#: ../vocabulary.py:33
+msgid "Introductory seminar source"
+msgstr "Einführungsveranstaltung"
+
+#: ../profiles/default/types/hph.lectures.lecture.xml ../vocabulary.py:35
+msgid "Lecture"
+msgstr "Vorlesung"
+
+#: ../coursefolder_templates/view.pt:24 ../lecture_templates/view.pt:19
+msgid "Lectures"
+msgstr "Vorlesungen"
+
+#: ../lecture.py:42
+msgid "Lecure Number"
+msgstr "Vorlesungsnummer"
+
+#: ../vocabulary.py:49
+msgid "MA Ethics"
+msgstr "MAEthik"
+
+#: ../vocabulary.py:50
+msgid "MA kons"
+msgstr "MAkons"
+
+#: ../vocabulary.py:52
+msgid "Mag"
+msgstr "Mag"
+
+#: ../profiles/default/types/hph.lectures.coursefolder.xml
+msgid "Manage lectures"
+msgstr "Veranstaltungen verwalten"
+
+#: ../coursemodules.py:24
+msgid "Module Information"
+msgstr "Modulinformationen"
+
+#: ../coursemodules.py:19
+msgid "Please select module degree"
+msgstr "Bitte wählen Sie eine Modulgruppe aus"
+
+#: ../lecture.py:60
+msgid "Please select one or more lecturers for this course"
+msgstr "Bitte wählen Sie einen oder mehrere Lehrende für diesen Kurs aus."
+
+#: ../lecture.py:75
+msgid "Please select the course type."
+msgstr "Bitte wählen Sie den Veranstaltungstyp"
+
+#: ../lecture.py:63
+msgid "Related lecturer"
+msgstr "Lehrender"
+
+#: ../lecture.py:34
+msgid "Subtitle"
+msgstr "Subtitel"
+
+#: ../lecture.py:38
+msgid "Title"
+msgstr "Titel"
+
+#: ../coursefolder_templates/view.pt:42 ../lecture_templates/view.pt:37
+msgid "remove filter"
+msgstr "Filter entfernen"
