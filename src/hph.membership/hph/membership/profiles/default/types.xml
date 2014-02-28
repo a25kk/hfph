@@ -8,5 +8,6 @@
   -->
 <object name="portal_types" meta_type="Plone Types Tool">
   <!-- -*- extra stuff goes here -*- -->
+  <object name="hph.membership.memberfolder" meta_type="Dexterity FTI" />
   <object name="hph.membership.workspace" meta_type="Dexterity FTI" />
 </object>

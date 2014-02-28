@@ -52,6 +52,14 @@ def test_suite():
 
         # -*- extra stuff goes here -*-
 
+        # Integration tests for MemberFolder
+        ztc.ZopeDocFileSuite(
+            'MemberFolder.txt',
+            package='hph.membership',
+            optionflags = OPTION_FLAGS,
+            test_class=TestCase),
+
+
         # Integration tests for Workspace
         ztc.ZopeDocFileSuite(
             'Workspace.txt',
