@@ -92,18 +92,18 @@
         <div class="col-xs-12 col-sm-9">
             <ul class="nav nav-tabs app-actionbar-nav" id="app-sections">
                 <li><a href="/">Deutsch</a></li>
-                <li><a href="/">English</a></li>
+                <li><a href="/en">English</a></li>
             </ul>
         </div>
         <div class="col-xs-12 col-sm-3">
-            <form class="form app-actionbar-form" id="nav-search">
+            <form class="form app-actionbar-form" id="nav-search" role="form" method="post" action="/hph/@@search">
                 <div class="input-group">
                   <span class="input-group-btn">
                     <button class="btn btn-default btn-sm" type="button">
                         <i class="fa fa-search fa-flip-horizontal"></i>
                     </button>
                   </span>
-                  <input type="search" class="form-control input-sm">
+                  <input type="text" class="form-control input-sm" name ="SearchableText" id="SearchableText" placeholder="Suche">
                 </div><!-- /input-group -->
             </form>
         </div>
@@ -175,6 +175,12 @@
     </ul>
 </nav>
     </header><!-- /app-header -->
+            <div class="container">
+        <div class="breadcrumb app-breadcrumbs app-tile dim-in">
+            <div id="breadcrumbs">
+            </div>
+        </div>
+    </div>
 
     <div class="container app-main" id="app-main" role="main">
           <section class="app-tile app-content" id="content">
@@ -190,10 +196,41 @@
                             This is the new default theme
                         </p>
                     </div>
-                    <div class="app-page-content">
-                            <p>Next we will define a custom listing to provide a basic scaffolding
+                    <div class="app-page-content app-font-alt-1">
+                        <h2>Alternative font: Cabin</h2>
+                        <p>Next we will define a custom listing to provide a basic scaffolding
+                            before we intergrate the example API
+                        </p>
+                         <p>Next we will define a custom listing to provide a basic scaffolding
                                 before we intergrate the example API
-                            </p>
+                        </p>
+                         <p>Next we will define a custom listing to provide a basic scaffolding
+                                before we intergrate the example API
+                        </p>
+                    </div>
+                    <div class="app-page-content">
+                        <h2>Base: Trebuchet MS</h2>
+                        <p>Next we will define a custom listing to provide a basic scaffolding
+                            before we intergrate the example API
+                        </p>
+                         <p>Next we will define a custom listing to provide a basic scaffolding
+                                before we intergrate the example API
+                        </p>
+                         <p>Next we will define a custom listing to provide a basic scaffolding
+                                before we intergrate the example API
+                        </p>
+                    </div>
+                    <div class="app-page-content app-font-alt-2">
+                        <h2>Alternative font: Open Sans</h2>
+                        <p>Next we will define a custom listing to provide a basic scaffolding
+                            before we intergrate the example API
+                        </p>
+                         <p>Next we will define a custom listing to provide a basic scaffolding
+                                before we intergrate the example API
+                        </p>
+                         <p>Next we will define a custom listing to provide a basic scaffolding
+                                before we intergrate the example API
+                        </p>
                     </div>
                 </div>
             </main>
@@ -334,12 +371,13 @@
     <footer class="container app-footer" id="app-footer">
   <div class="app-tile app-footer-content" id="app-footer-content">
     <ul class="nav nav-pills">
-      <li><a href="#">Login</a></li>
-      <li><a href="#">Presse</a></li>
+      <li><a href="http://www.ab-soft.de/hfph/raumplan.php">Raumplan</a></li>
+      <li><a href="/login_form">Login</a></li>
+      <li><a href="/presse-oeffentlichkeitsarbeit">Presse</a></li>
       <li><a href="/impressum">Impressum</a></li>
-      <li><a href="#"><i class="icon-pencil"></i> Online-Spende</a></li>
+      <li><a href="https://www.jesuiten.org/index.php?id=360"><i class="icon-pencil"></i> Online-Spende</a></li>
       <li><a href="/pro-philosophia">pro philosophia</a></li>
-      <li><a href="#"><i class="icon-envelope"></i> Newsletter abonnieren</a></li>
+      <li><a href="/newsletter"><i class="icon-envelope"></i> Newsletter abonnieren</a></li>
     </ul>
   </div>
 </footer> <!-- /footer -->
@@ -349,6 +387,22 @@
 <script src="../../bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="../../bower_components/holderjs/holder.js"></script>
 <script src="../../js/application.js"></script>
+    <div class="app-js-slot">
+        <script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Open+Sans:300,400,600:latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })();
+</script>
+    </div>
 
   </body>
 </html>

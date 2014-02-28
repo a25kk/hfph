@@ -9,14 +9,14 @@
         </button>
         <a class="navbar-brand visible-xs" href="#">CMS Toolbar</a>
     </div>
+
     <div class="collapse navbar-collapse navbar-toolbar-collapse">
         <ul class="nav navbar-nav">
             <li tal:repeat="item viewlet/actions"
-                tal:attributes="class item/klass|nothing; id item/id|nothing;">
-              <a href="#"
-                tal:attributes="
-                    href item/url|nothing;
-                    target item/link_target|nothing;"
+                 tal:attributes="class item/klass|nothing; id item/id|nothing;">
+               <a href="#"
+                tal:attributes="href item/url|nothing;
+                                target item/link_target|nothing;"
                 tal:content="item/title"
                  i18n:translate="">Link Title</a>
             </li>

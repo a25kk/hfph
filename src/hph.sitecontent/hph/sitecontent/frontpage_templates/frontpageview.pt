@@ -14,14 +14,14 @@
         tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                     portal_url context/portal_url">
       <div class="row">
-        <div class="col-xs-12 col-lg-9" id="app-col-content">
+        <div class="col-xs-12 col-sm-6 col-md-9" id="app-col-content">
             <aside class="app-fp-tile" id="app-sidebar-fp">
             <img class="img-section" 
                 tal:define="portal_url context/portal_url" 
                 tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/hph-muenchen.jpg'" />
           </aside>
         </div>
-        <div class="col-xs-12 col-lg-3" id="app-col-sidebar">
+        <div class="col-xs-12 col-sm-6 col-md-3" id="app-col-sidebar">
             <aside class="app-fp-tile" id="app-sidebar" >
                 <div class="app-box app-box-striped app-box-events">
                     <div class="app-box-header">
@@ -31,19 +31,9 @@
                                 Aktuelle Termine</a>
                         </h4>
                     </div>
-                    <div class="app-box-content" tal:condition="view/has_events">
-                        <tal:block tal:repeat="item view/eventitems">
-                            <a class="app-box-item" tal:attributes="href item/getURL">
-                                <time class="app-box-date h5"
-                                    tal:define="startdate item/start">
-                                    <span tal:replace="python:toLocalizedTime(startdate)" />
-                                </time>
-                                <span tal:replace="item/Title" />
-                                <span class="app-box-item-more text-right">
-                                    <i class="icon-double-angle-right"></i>
-                                </span>
-                            </a>
-                        </tal:block>
+                    <div class="app-box-content" id="app-event-box"
+                        data-appui="eventbox"
+                        tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
                     </div>
                     <div class="app-box-footer text-right">
                         <a class="btn btn-default btn-sm" href="#"

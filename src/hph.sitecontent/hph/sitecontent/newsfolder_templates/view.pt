@@ -15,16 +15,41 @@
     <header class="page-header">
         <h1 tal:content="context/Title" />
     </header>
-    <div tal:define="items context/@@folderListing">
-        <article tal:repeat="item items">
-            <h4><a href="" tal:content="item/Title"
-                    tal:attributes="href item/getURL" /></h4>
-            <p class="muted"
-                tal:define="date item/effective">
-                <span tal:attributes="datetime date"
-                    tal:content="python:toLocalizedTime(date)" />
-            </p>
+
+    <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+        b_size python:int(request.get('b_size', 20));
+        b_start python:int(request.get('b_start', 0));
+        results python:context.restrictedTraverse('@@folderListing')(batch=True, b_size=b_size, b_start=b_start, sort_on='effective', sort_order='reverse', review_state='published');
+        batch python:Batch(results, b_size, b_start);">
+        <article tal:repeat="item batch">
+
+          <div class="row">
+              <div class="col-xs-12 col-sm-2">
+                  <img tal:condition="item/image"
+                       tal:define="item_obj item/getObject;
+                                   scales item_obj/@@images"
+                       tal:replace="structure python: scales.tag('image',
+                                    width=200,
+                                    height=200,
+                                    css_class='app-img',
+                                    direction='down')" />
+              </div>
+              <div class="col-xs-12 col-sm-10">                                 
+                  <h4><a href="" tal:content="item/Title"
+                          tal:attributes="href item/getURL" /></h4> 
+                  <p tal:condition="item/Description" 
+                                           tal:content="item/Description" />         
+                  <p class="discreet"
+                      tal:define="date item/effective">
+                  <span>(Erstellt am</span>
+                  <span tal:attributes="datetime date"
+                      tal:content="python:toLocalizedTime(date)" />)
+                  </p>
+              </div>
+            </div>
+          <hr />
         </article>
+        <div metal:use-macro="context/batch_macros/macros/navigation" />
     </div>
   </section>
     

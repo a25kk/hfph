@@ -13,11 +13,17 @@
     <theme href="dist/signin.html" css:if-content="body.template-logged_out" />
     <theme href="dist/signin.html" css:if-content="body.template-login_failed" />
     <theme href="dist/signin.html" css:if-content="body.template-mail_password_form" />
-    <theme href="dist/theme-igp.html" css:if-content="body.subsection-institute-igp" />
+    <theme href="dist/theme-igp.html" css:if-content="body.subsection-institute-gesellschaftspolitik" />
     <theme href="dist/theme-pp.html" css:if-content="body.section-pro-philosophia" />
     
     <theme href="dist/frontpage.html" css:if-content="body.template-frontpage-view" />
     <theme href="dist/frontpage.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />
+    <theme href="dist/landingpage.html" css:if-content="body.section-nachrichten" />
+    <theme href="dist/landingpage.html" css:if-content="body.section-termine" />
+    <theme href="dist/landingpage.html" css:if-content="body.section-impressum" />
+    <theme href="dist/landingpage.html" css:if-content="body.section-presse-oeffentlichkeitsarbeit" />
+    <theme href="dist/opac.html" css:if-content="body.subsection-bibliotheken-opac-recherche" />
+    <theme href="dist/newsletter.html" css:if-content="body.section-newsletter" />
     
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
@@ -159,6 +165,25 @@
         
         <replace css:content-children="#portal-column-one > *"
             css:theme-children="#app-sidebar" />
+
+        <replace css:content=".portletNavigationTree">
+            <div class="app-box app-box-nav">
+                <div class="app-box-header">
+                    <h4 class="app-box-heading">
+                        <xsl:apply-templates css:select=".portletHeader > *"/>
+                    </h4>
+                </div>
+                <div class="app-box-content">
+                    <ul class="nav nav-list navTree navTreeLevel0">
+                        <xsl:if css:test=".portletHeader">
+                            <li class="list-header"></li>
+                            <li class="divider"></li>
+                        </xsl:if>
+                        <xsl:apply-templates select="./dd/ul/*"/>
+                    </ul>
+                </div>
+            </div>
+        </replace>
 
     </rules>
 

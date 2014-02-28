@@ -19,6 +19,7 @@
         </div>
         {% include subnavbar.html %}
     </header><!-- /app-header -->
+      {% include breadcrumbs.html %}
 
     <div class="container app-main" id="app-main" role="main">
           {{ content }}
@@ -26,7 +27,11 @@
 
     {% include footer.html %}
     {% include javascript.html %}
-    {% include piwik.html %}
+    
+    <div class="app-js-slot">
+        {% include webfonts.html %}
+        {% include piwik.html %}
+    </div>
 
   </body>
 </html>

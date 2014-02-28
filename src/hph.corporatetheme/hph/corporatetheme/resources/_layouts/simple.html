@@ -13,6 +13,11 @@
         {{ content }}
     </div>
     {% include javascript.html %}
-    {% include piwik.html %}
+    
+    <div class="app-js-slot">
+        {% include webfonts.html %}
+        {% include piwik.html %}
+    </div>
+
 </body>
 </html>

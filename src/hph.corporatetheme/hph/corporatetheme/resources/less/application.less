@@ -4,7 +4,21 @@
 
 body {
     background: @gray-lighter;
+    &.template-theming-controlpanel .row {
+        // Fix theming control panel
+        margin: 0 @line-height-computed;
+    }
 }
+
+// Alternative font experiment
+
+.app-font-alt-1 {
+    font-family: 'Cabin', sans-serif;
+}
+.app-font-alt-2 {
+    font-family: 'Open Sans', sans-serif;
+}
+
 
 // Reset border radius on form elements
 .btn,
@@ -92,6 +106,10 @@ body {
     padding-left: @line-height-computed * 1.5;
 }
 
+.app-breadcrumbs {
+    background: @gray-lighter;
+}
+
 
 // Temporary fix for page-header in new app-tile components
 
@@ -137,9 +155,23 @@ body {
     }
 }
 
+.app-page {
+    &.app-page-listing {
+        padding-top: @line-height-computed;
+    }
+}
+
 .img-section {
     .img-responsive();
     border: ceil((@line-height-computed / 4)) solid #fff;
+}
+
+.vevent .timezone {
+    display: none;
+}
+
+.eventDetails {
+    margin-top: @line-height-computed;
 }
 
 // Temporary css fixes - Presentation
@@ -265,5 +297,10 @@ ul.navTree {
 
 .mceContentBody {
     padding: @line-height-computed;
+}
+
+// Search
+.actionMenu {
+    display: none;
 }
 

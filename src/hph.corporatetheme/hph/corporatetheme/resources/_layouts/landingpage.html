@@ -14,24 +14,23 @@
         <div class="app-tile app-header-content" id="app-header-content">
             {% include metanav.html %}
             {% include brandbar.html %}
-            {% include mainnavbar.html %}
+            {% include static-navbar.html %}
         </div>
         {% include subnavbar.html %}
     </header><!-- /app-header -->
+        {% include breadcrumbs.html %}
 
     <div class="container app-main" id="app-main" role="main">
           {{ content }}
     </div>
 
-    <div class="container app-aside">
-        <section class="app-tile app-aside-content" id="app-aside-content">
-            {% include box-news.html %}
-        </section>
-    </div>
-
     {% include footer.html %}
     {% include javascript.html %}
-    {% include piwik.html %}
 
+    <div class="app-js-slot">
+        {% include webfonts.html %}
+        {% include piwik.html %}
+    </div>
+    
   </body>
 </html>

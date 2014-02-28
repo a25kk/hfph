@@ -1,28 +1,19 @@
+from Acquisition import aq_inner
+from Acquisition import aq_parent
 from five import grok
-
-from z3c.form import group, field
 from zope import schema
-from zope.interface import invariant, Invalid
-from zope.schema.interfaces import IContextSourceBinder
-from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 
+from zope.schema.vocabulary import getVocabularyRegistry
+
+from plone.indexer import indexer
+from plone.directives import form
 from plone.dexterity.content import Container
-from plone.directives import dexterity, form
 from plone.app.textfield import RichText
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
-from plone.namedfile.field import NamedImage, NamedFile
-from plone.namedfile.field import NamedBlobImage, NamedBlobFile
+from plone.namedfile.field import NamedBlobImage
 from plone.namedfile.interfaces import IImageScaleTraversable
 
-
 from hph.faculty import MessageFactory as _
-
-position = SimpleVocabulary(
-    [SimpleTerm(value=u'lecturer', title=_(u'Lecturer')),
-     SimpleTerm(value=u'professor', title=_(u'Professor')),
-     SimpleTerm(value=u'docent', title=_(u'Docent')),
-     SimpleTerm(value=u'emeriti', title=_(u'Emeriti'))]
-)
 
 
 class IFacultyMember(form.Schema, IImageScaleTraversable):
@@ -34,13 +25,9 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
         description=_(u"Provide last name for better filtering and search"),
         required=True,
     )
-    form.widget(position=CheckBoxFieldWidget)
-    position = schema.Set(
-        title=_(u"Medium"),
-        value_type=schema.Choice(
-            title=_(u"Accademic Role or Position"),
-            vocabulary=position,
-        ),
+    academicRole = schema.Choice(
+        title=_(u"Accademic Role or Position"),
+        vocabulary=u'hph.faculty.academicRole',
         required=True,
     )
     sidenote = schema.TextLine(
@@ -82,15 +69,43 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
     )
 
 
+@indexer(IFacultyMember)
+def academicRoleIndexer(obj):
+    return obj.academicRole
+grok.global_adapter(academicRoleIndexer, name="academicRole")
+
+
 class FacultyMember(Container):
     grok.implements(IFacultyMember)
 
 
 class View(grok.View):
     """ Faculty member view """
-
     grok.context(IFacultyMember)
     grok.require('zope2.View')
     grok.name('view')
 
-    # Add view methods here
+    def parent_url(self):
+        context = aq_inner(self.context)
+        parent = aq_parent(context)
+        return parent.absolute_url()
+
+    def content_filter(self):
+        context = aq_inner(self.context)
+        container = aq_parent(context)
+        tmpl = container.restrictedTraverse('@@content-filter-faculty')()
+        return tmpl
+
+    def filter_options(self):
+        context = aq_inner(self.context)
+        vr = getVocabularyRegistry()
+        vocab = vr.get(context, 'hph.faculty.academicRole')
+        return vocab
+
+    def computed_klass(self, value):
+        context = aq_inner(self.context)
+        active_filter = getattr(context, 'academicRole', None)
+        klass = 'nav-item-plain'
+        if active_filter == value:
+            klass = 'active'
+        return klass

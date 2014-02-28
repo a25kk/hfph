@@ -1,4 +1,7 @@
+from Acquisition import aq_inner
+from Acquisition import aq_parent
 from five import grok
+from plone import api
 from plone.directives import dexterity, form
 
 from plone.namedfile.interfaces import IImageScaleTraversable
@@ -33,3 +36,13 @@ class View(grok.View):
     grok.context(INewsEntry)
     grok.require('zope2.View')
     grok.name('view')
+
+    def update(self):
+        self.has_files = len(self.context.items()) > 0
+
+    def can_edit(self):
+        return not api.user.is_anonymous()
+
+    def parent_url(self):
+        parent = aq_parent(aq_inner(self.context))
+        return parent.absolute_url()

@@ -52,6 +52,22 @@ def test_suite():
 
         # -*- extra stuff goes here -*-
 
+        # Integration tests for CourseFolder
+        ztc.ZopeDocFileSuite(
+            'CourseFolder.txt',
+            package='hph.lectures',
+            optionflags = OPTION_FLAGS,
+            test_class=TestCase),
+
+
+        # Integration tests for Lecture
+        ztc.ZopeDocFileSuite(
+            'Lecture.txt',
+            package='hph.lectures',
+            optionflags = OPTION_FLAGS,
+            test_class=TestCase),
+
+
         ])
 
 if __name__ == '__main__':
