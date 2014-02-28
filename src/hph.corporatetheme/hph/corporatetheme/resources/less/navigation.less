@@ -26,11 +26,11 @@
     padding-right: 0;
     > .navitem {
         a {
-            font-size: (@font-size-base - 1);
+            // font-size: (@font-size-base - 1);
             font-weight: 700;
             color: @app-blue;
             text-transform: uppercase;
-            padding: ((@navbar-height - @line-height-computed) / 2) (@line-height-computed / 2);
+            padding: ceil((@navbar-height - @line-height-computed) / 2) ceil((@line-height-computed / 3));
             &:hover {
                 background-color: @app-blue;
                 color: #fff;
