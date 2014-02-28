@@ -11,7 +11,7 @@ from ade25.fabfiles.server import setup
 
 env.use_ssh_config = True
 env.forward_agent = True
-# env.port = '22222'
+env.port = '22222'
 env.user = 'root'
 env.hosts = ['z9']
 env.webserver = '/opt/webserver/buildout.webserver'
@@ -20,6 +20,7 @@ env.local_root = '/Users/cb/dev/hph/buildout.hph'
 env.sitename = 'hph'
 env.code_user = 'root'
 env.prod_user = 'www'
+
 
 env.roledefs = {
     'production': ['hph'],
