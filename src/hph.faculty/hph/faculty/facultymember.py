@@ -122,7 +122,26 @@ class Publications(grok.View):
     grok.name('publications')
 
     def update(self):
-        self.has_publications = len(self.publication()) > 0
+        self.has_publications = len(self.publications()) > 0
+
+    def parent_url(self):
+        context = aq_inner(self.context)
+        parent = aq_parent(context)
+        return parent.absolute_url()
+
+    def filter_options(self):
+        context = aq_inner(self.context)
+        vr = getVocabularyRegistry()
+        vocab = vr.get(context, 'hph.faculty.academicRole')
+        return vocab
+
+    def computed_klass(self, value):
+        context = aq_inner(self.context)
+        active_filter = getattr(context, 'academicRole', None)
+        klass = 'nav-item-plain'
+        if active_filter == value:
+            klass = 'active'
+        return klass
 
     def publications(self):
         context = aq_inner(self.context)

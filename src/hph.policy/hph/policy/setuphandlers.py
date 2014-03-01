@@ -51,3 +51,4 @@ def importVarious(context):
     portal = api.portal.get()
 
     setupGroups(portal)
+    setupCatalogIndexes(portal)

@@ -11,7 +11,7 @@
       name="default"
       title="hph.policy"
       directory="profiles/default"
-      description="Installs the hph.policy package"
+      description="HPH site policy for catalog and system setup"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
   <!-- -*- extra stuff goes here -*- -->
