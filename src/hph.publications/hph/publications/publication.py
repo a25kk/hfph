@@ -2,7 +2,9 @@ from five import grok
 from plone.directives import dexterity, form
 
 from zope import schema
-from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
+from plone.indexer import indexer
+from zope.schema.vocabulary import SimpleTerm
+from zope.schema.vocabulary import SimpleVocabulary
 
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 
@@ -139,6 +141,30 @@ class IPublication(form.Schema, IImageScaleTraversable):
         description=_(u"Please upload a cover image"),
         required=False,
     )
+
+
+@indexer(IPublication)
+def authorLastNameIndexer(obj):
+    return obj.authorLastName
+grok.global_adapter(authorLastNameIndexer, name="autorLastName")
+
+
+@indexer(IPublication)
+def pubMediumIndexer(obj):
+    return obj.pubMedium
+grok.global_adapter(pubMediumIndexer, name="pubMedium")
+
+
+@indexer(IPublication)
+def pubSeriesIndexer(obj):
+    return obj.pubSeries
+grok.global_adapter(pubSeriesIndexer, name="pubSeries")
+
+
+@indexer(IPublication)
+def thirdPartyProjectIndexer(obj):
+    return obj.thirdPartyProject
+grok.global_adapter(thirdPartyProjectIndexer, name="thirdPartyProject")
 
 
 class Publication(dexterity.Item):
