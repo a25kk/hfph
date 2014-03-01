@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.policy">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <article class="tile-content" id="tile-content">
+        <header class="page-header">
+            <h1 i18n:translate="">Utility &amp; Cleanup Views</h1>
+        </header>
+        <section class="page-content">
+            <div class="page-content-list">
+                <div class="page-content-list-item">
+                    <h2>Publication Cleanup</h2>
+                    <h3>Cleanup Publication Schema</h3>
+                    <a class="btn btn-default"
+                        tal:attributes="href string:${context/absolute_url}/@@cleanup-publication-schema">
+                        Fix schema</a>
+                    <p>Move already existing field values to the new indexable
+                        fields</p>
+                </div>
+            </div>
+        </section>
+    </article>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+
