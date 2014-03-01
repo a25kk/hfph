@@ -25,6 +25,7 @@ setup(name='hph.policy',
       zip_safe=False,
       install_requires=[
           'setuptools',
+          'five.grok',
           'plone.api',
           # -*- Extra requirements: -*-
       ],
