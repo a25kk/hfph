@@ -18,12 +18,18 @@
             <div class="page-content-list">
                 <div class="page-content-list-item">
                     <h2>Publication Cleanup</h2>
-                    <h3>Cleanup Publication Schema</h3>
-                    <a class="btn btn-default"
-                        tal:attributes="href string:${context/absolute_url}/@@cleanup-publication-schema">
-                        Fix schema</a>
-                    <p>Move already existing field values to the new indexable
-                        fields</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-8">
+                        <h3>Cleanup Publication Schema</h3>
+                        <p>Move already existing field values to the new indexable
+                            fields</p>
+                        </div>
+                        <div class="col-xs-12 col-sm-4">
+                            <a class="btn btn-default"
+                                tal:attributes="href string:${context/absolute_url}/@@cleanup-publications">
+                                Fix schema</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

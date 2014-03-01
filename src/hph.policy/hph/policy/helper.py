@@ -17,7 +17,7 @@ class CleanupView(grok.View):
 
 
 class CleanupPublicationSchema(grok.View):
-    grok.context(IPublicationFolder)
+    grok.context(INavigationRoot)
     grok.require('zope2.View')
     grok.name('cleanup-publications')
 
@@ -33,11 +33,13 @@ class CleanupPublicationSchema(grok.View):
         idx = 0
         for item in items:
             i = item.getObject()
+            author_name = getattr(i, 'authorOne')
             media = getattr(i, 'medium')
             series = getattr(i, 'series')
             display = getattr(i, 'display')
             setattr(i, 'pubMedia', media)
             setattr(i, 'pubSeries', series)
+            setattr(i, 'authorLastName', author_name)
             setattr(i, 'thirdPartyProject', display)
             idx += 1
             modified(i)
@@ -49,30 +51,6 @@ class CleanupPublicationSchema(grok.View):
         results = catalog(object_provides=IPublication.__identifier__,
                           sort_on='getObjPositionInParent')
         return IContentListing(results)
-
-
-class CleanupPublicationAuthor(grok.View):
-    """ The publication Author is used to auto-link
-        publications with faculty members
-    """
-    grok.context(INavigationRoot)
-    grok.require('zope2.View')
-    grok.name('cleanup-publication-author')
-
-    def render(self):
-        idx = 0
-        for item in self.to_cleanup():
-            api.content.delete(obj=item.getObject())
-            idx += 1
-        msg = 'File and images removed: {0}'.format(idx)
-        return msg
-
-    def to_cleanup(self):
-        catalog = api.portal.get_tool(name='portal_catalog')
-        ptypes = ['Image', 'File']
-        results = catalog(portal_type=ptypes)
-        items = IContentListing(results)
-        return items
 
 
 class AutoCleanupFiles(grok.View):
