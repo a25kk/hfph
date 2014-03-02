@@ -49,7 +49,8 @@ class CourseDegreeVocabulary(object):
             _(u"MA Ethics"): 'ma-ethics',
             _(u"MA kons"): 'ma-kons',
             _(u"BA"): 'ba',
-            _(u"Mag"): 'magister'
+            _(u"Mag"): 'magister',
+            _(u"ZEP"): 'zep'
         }
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
