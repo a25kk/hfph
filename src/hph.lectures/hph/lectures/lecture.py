@@ -13,6 +13,7 @@ from plone.directives import dexterity, form
 from plone.app.textfield import RichText
 from plone.namedfile.field import NamedImage, NamedFile
 from plone.namedfile.field import NamedBlobImage, NamedBlobFile
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from plone.namedfile.interfaces import IImageScaleTraversable
 
 from z3c.relationfield.schema import RelationList
@@ -91,6 +92,15 @@ class ILecture(form.Schema, IImageScaleTraversable):
     )
     courseTime = schema.TextLine(
         title=_(u"Course Time"),
+        required=True,
+    )
+    form.widget(thirdPartyProject=CheckBoxFieldWidget)
+    thirdPartyProject = schema.Set(
+        title=_(u"Third Party Project Display"),
+        value_type=schema.Choice(
+            title=_(u"Display Selection"),
+            vocabulary=u'hph.sitecontent.thirdPartyProjects',
+        ),
         required=True,
     )
 
