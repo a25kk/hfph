@@ -7,4 +7,5 @@
     <column value="pubYear" />
     <column value="pubMedium" />
     <column value="pubSeries" />
+    <column value="authorLastName" />
 </object>

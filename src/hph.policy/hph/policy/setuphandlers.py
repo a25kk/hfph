@@ -22,6 +22,7 @@ def setupCatalogIndexes(context, logger=None):
               ('pubYear', 'FieldIndex'),
               ('pubMedium', 'FieldIndex'),
               ('pubSeries', 'FieldIndex'),
+              ('authorLastName', 'FieldIndex'),
               )
 
     indexables = []
