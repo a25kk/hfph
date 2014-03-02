@@ -1,0 +1,174 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2014-03-02 16:47+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ./../profiles/default/types/hph.publications.publicationfolder.xml
+msgid "A  central collection of publications with filter functionality"
+msgstr ""
+
+#: ./../profiles/default/types/hph.publications.publication.xml
+msgid "A single publication like a book, dvd or magazine"
+msgstr ""
+
+#: ./../publication.py:60
+msgid "Author Lastname"
+msgstr ""
+
+#: ./../publication.py:66
+msgid "Author One"
+msgstr ""
+
+#: ./../publication.py:74
+msgid "Author Three"
+msgstr ""
+
+#: ./../publication.py:70
+msgid "Author Two"
+msgstr ""
+
+#: ./../publication.py:19
+#: ./../vocabulary.py:15
+msgid "Book"
+msgstr ""
+
+#: ./../publication.py:27
+#: ./../vocabulary.py:34
+msgid "Contexts"
+msgstr ""
+
+#: ./../publication.py:140
+msgid "Cover Image"
+msgstr ""
+
+#: ./../publication.py:21
+#: ./../vocabulary.py:17
+msgid "DVD/CD"
+msgstr ""
+
+#: ./../publication.py:119
+msgid "Display"
+msgstr ""
+
+#: ./../publication.py:121
+msgid "Display Selection"
+msgstr ""
+
+#: ./../publication.py:56
+msgid "Editor"
+msgstr ""
+
+#: ./../publication.py:24
+#: ./../vocabulary.py:31
+msgid "Global Culture"
+msgstr ""
+
+#: ./../publication.py:36
+msgid "IGP"
+msgstr ""
+
+#: ./../publication.py:20
+#: ./../vocabulary.py:16
+msgid "Magazine"
+msgstr ""
+
+#: ./../publicationfolder_templates/view.pt:16
+msgid "Media"
+msgstr ""
+
+#: ./../publication.py:85
+msgid "Media Selection"
+msgstr ""
+
+#: ./../publication.py:83
+msgid "Medium"
+msgstr ""
+
+#: ./../publication.py:78
+msgid "More Authors"
+msgstr ""
+
+#: ./../publication.py:28
+#: ./../vocabulary.py:35
+msgid "Munich Philosophy"
+msgstr ""
+
+#: ./../publication.py:26
+#: ./../vocabulary.py:33
+msgid "Philosophy"
+msgstr ""
+
+#: ./../publication.py:35
+msgid "Philosophy and Leadership"
+msgstr ""
+
+#: ./../publication.py:34
+msgid "Philosophy and Motivation"
+msgstr ""
+
+#: ./../publication.py:141
+msgid "Please upload a cover image"
+msgstr ""
+
+#: ./../profiles/default/types/hph.publications.publication.xml
+msgid "Publication"
+msgstr ""
+
+#: ./../profiles/default/types/hph.publications.publicationfolder.xml
+msgid "PublicationFolder"
+msgstr ""
+
+#: ./../publication.py:33
+msgid "Rottendorf Project"
+msgstr ""
+
+#: ./../publication.py:101
+#: ./../publicationfolder_templates/view.pt:35
+msgid "Series"
+msgstr ""
+
+#: ./../publication.py:103
+msgid "Series Selection"
+msgstr ""
+
+#: ./../publication.py:25
+#: ./../vocabulary.py:32
+msgid "Solidarity"
+msgstr ""
+
+#: ./../publication.py:136
+msgid "Summary"
+msgstr ""
+
+#: ./../publication.py:61
+msgid "The entered value will be used to associate this publication with the corresponding faculty member"
+msgstr ""
+
+#: ./../publication.py:29
+#: ./../vocabulary.py:36
+msgid "Theology"
+msgstr ""
+
+#: ./../publication.py:128
+msgid "Third Party Project Display"
+msgstr ""
+
+#: ./../publication.py:44
+msgid "Title"
+msgstr ""
+
+#: ./../publication.py:48
+msgid "Year of Publication"
+msgstr ""
+

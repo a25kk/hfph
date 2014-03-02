@@ -104,6 +104,8 @@
                     </span>
 
                     <dl class="actionMenu deactivated"
+                        tal:content="nothing"
+                        tal:omit-tag=""
                         tal:attributes="class python:view.show_advanced_search() and 'actionMenu activated' or 'actionMenu deactivated'">
 
                       <dt class="actionMenuHeader">
@@ -258,7 +260,7 @@
                 </div>
 
                 <div class="visualClear"><!-- --></div>
-
+                <div class="app-content-body">
                 <metal:searchresults define-macro="search_results">
                     <div id="search-results"
                          tal:define="navigation_root_url context/@@plone_portal_state/navigation_root_url;">
@@ -380,7 +382,7 @@
                         </metal:results>
                     </div>
                 </metal:searchresults>
-
+                </div>
             </div>
         </div>
 

@@ -15267,8 +15267,56 @@ ul.navTree li.navTreeCurrentNode a:focus
 {
     padding: 20px;
 }
-.actionMenu
+.datagridwidget-table-view
 {
-    display: none;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.datagridwidget-table-view > thead > tr > th,
+.datagridwidget-table-view > tbody > tr > th,
+.datagridwidget-table-view > tfoot > tr > th,
+.datagridwidget-table-view > thead > tr > td,
+.datagridwidget-table-view > tbody > tr > td,
+.datagridwidget-table-view > tfoot > tr > td
+{
+    line-height: 1.42857143;
+
+    padding: 8px;
+
+    vertical-align: top;
+
+    border-top: 1px solid #ddd;
+}
+.datagridwidget-table-view > thead > tr > th
+{
+    vertical-align: bottom;
+
+    border-bottom: 2px solid #ddd;
+}
+.datagridwidget-table-view > caption + thead > tr:first-child > th,
+.datagridwidget-table-view > colgroup + thead > tr:first-child > th,
+.datagridwidget-table-view > thead:first-child > tr:first-child > th,
+.datagridwidget-table-view > caption + thead > tr:first-child > td,
+.datagridwidget-table-view > colgroup + thead > tr:first-child > td,
+.datagridwidget-table-view > thead:first-child > tr:first-child > td
+{
+    border-top: 0;
+}
+.datagridwidget-table-view > tbody + tbody
+{
+    border-top: 2px solid #ddd;
+}
+.datagridwidget-table-view .table
+{
+    background-color: #fff;
+}
+.datagridwidget-table-view > thead > tr > th,
+.datagridwidget-table-view > tbody > tr > th,
+.datagridwidget-table-view > tfoot > tr > th,
+.datagridwidget-table-view > thead > tr > td,
+.datagridwidget-table-view > tbody > tr > td,
+.datagridwidget-table-view > tfoot > tr > td
+{
+    padding: 5px;
 }
 /*# sourceMappingURL=hph.css.map */
