@@ -42,6 +42,10 @@ class ILecture(form.Schema, IImageScaleTraversable):
         title=_(u"Lecure Number"),
         required=True,
     )
+    attendance = schema.TextLine(
+        title=_(u"Attendance"),
+        required=False,
+    )
     attendanceRequired = schema.Bool(
         title=_(u"Attendance Required"),
         required=False,
