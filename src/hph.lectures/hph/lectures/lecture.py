@@ -21,6 +21,7 @@ from z3c.relationfield.schema import RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from plone.formwidget.autocomplete import AutocompleteMultiFieldWidget
+from collective.z3cform.widgets.token_input_widget import TokenInputFieldWidget
 
 from hph.faculty.facultymember import IFacultyMember
 
@@ -94,9 +95,12 @@ class ILecture(form.Schema, IImageScaleTraversable):
         title=_(u"Course Time"),
         required=True,
     )
+    form.widget(courseRoom=TokenInputFieldWidget)
     courseRoom = schema.List(
         title=_(u"Course Room"),
         required=False,
+        value_type=schema.TextLine(),
+        default=[],
     )
     form.widget(thirdPartyProject=CheckBoxFieldWidget)
     thirdPartyProject = schema.Set(
