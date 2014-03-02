@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2014-02-28 15:07+0000\n"
-"PO-Revision-Date: 2014-02-28 17:23+0100\n"
+"POT-Creation-Date: 2014-03-02 21:04+0000\n"
+"PO-Revision-Date: 2014-03-02 22:06+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -16,100 +16,109 @@ msgstr ""
 "Language: de\n"
 "X-Generator: Poedit 1.6.4\n"
 
-#: ../profiles/default/types/hph.faculty.facultydirectory.xml
+#: ./../profiles/default/types/hph.faculty.facultydirectory.xml
 msgid "A directory of faculty staff members"
 msgstr "Eine Liste aller Lehrbeauftragten"
 
-#: ../profiles/default/types/hph.faculty.facultymember.xml
+#: ./../profiles/default/types/hph.faculty.facultymember.xml
 msgid "A faculty staff member"
 msgstr "Ein Lehrender"
 
-#: ../facultymember_templates/view.pt:20
+#: ./../facultymember_templates/publications.pt:20
+#: ./../facultymember_templates/view.pt:20
 msgid "Academic Role"
 msgstr "Akademische Position"
 
-#: ../facultymember.py:29
+#: ./../facultymember.py:42
 msgid "Accademic Role or Position"
 msgstr "Rolle"
 
-#: ../facultymember.py:67
+#: ./../facultymember.py:80
 msgid "Body Text"
 msgstr "Haupttext"
 
-#: ../facultymember.py:47
+#: ./../facultymember.py:60
 msgid "City"
 msgstr "PLZ/Ort"
 
-#: ../facultymember.py:39
+#: ./../facultymember.py:52
 msgid "Department"
 msgstr "Fachbereich"
 
-#: ../facultymember.py:59
+#: ./../facultymember.py:72
 msgid "E-Mail"
 msgstr "E-Mai-Adresse"
 
-#: ../vocabulary.py:18
+#: ./../vocabulary.py:18
 msgid "Emeriti"
 msgstr "Emeriti"
 
-#: ../profiles/default/types/hph.faculty.facultydirectory.xml
+#: ./../profiles/default/types/hph.faculty.facultydirectory.xml
 msgid "FacultyDirectory"
 msgstr "Index Lehrende"
 
-#: ../profiles/default/types/hph.faculty.facultymember.xml
+#: ./../profiles/default/types/hph.faculty.facultymember.xml
 msgid "FacultyMember"
 msgstr "Lehrender"
 
-#: ../facultymember.py:55
+#: ./../facultymember.py:68
 msgid "Fax"
 msgstr "Fax"
 
-#: ../facultymember.py:24
+#: ./../facultymember.py:32
 msgid "Lastname"
 msgstr "Nachname"
 
-#: ../vocabulary.py:15
+#: ./../vocabulary.py:15
 msgid "Lecturer"
 msgstr "Lehrbeauftragte(r)"
 
-#: ../facultymember.py:35
+#: ./../facultymember.py:48
 msgid "Optional additional information/sidenote"
 msgstr "Zusatzinformation"
 
-#: ../facultymember.py:51
+#: ./../facultymember.py:64
 msgid "Phone"
 msgstr "Telefon"
 
-#: ../facultymember.py:63
+#: ./../facultymember.py:76
 msgid "Portrait Image"
 msgstr "Bild"
 
-#: ../vocabulary.py:16
+#: ./../vocabulary.py:16
 msgid "Professor"
 msgstr "Professor"
 
-#: ../facultymember.py:25
+#: ./../facultymember.py:33
 msgid "Provide last name for better filtering and search"
-msgstr ""
-"Der Nachname wird zur besseren Filterung und Findbarkeit in Auflistungen der "
-"Lehrenden verwendet"
+msgstr "Der Nachname wird zur besseren Filterung und Findbarkeit in Auflistungen der Lehrenden verwendet"
 
-#: ../facultymember.py:34
+#: ./../facultymember.py:87
+msgid "Publication"
+msgstr "Publikation"
+
+#: ./../facultymember_templates/publications.pt:47
+#: ./../facultymember_templates/view.pt:47
+msgid "Publications"
+msgstr "Publikationen"
+
+#: ./../facultymember.py:47
 msgid "Sidenote"
 msgstr "Zusatzinfo"
 
-#: ../facultymember.py:43
+#: ./../facultymember.py:56
 msgid "Street"
 msgstr "Strasse"
 
-#: ../facultydirectory_templates/contentfilter.pt:5
+#: ./../facultydirectory_templates/contentfilter.pt:5
 msgid "Teachers"
 msgstr "Lehrende"
 
-#: ../vocabulary.py:17
+#: ./../vocabulary.py:17
 msgid "docent"
 msgstr "Dozent"
 
-#: ../facultydirectory_templates/contentfilter.pt:24
+#: ./../facultydirectory_templates/contentfilter.pt:24
 msgid "remove filter"
 msgstr "Filter entfernen"
+

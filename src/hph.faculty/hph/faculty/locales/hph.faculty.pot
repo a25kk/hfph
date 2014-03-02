@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-28 15:07+0000\n"
+"POT-Creation-Date: 2014-03-02 21:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,27 +25,28 @@ msgstr ""
 msgid "A faculty staff member"
 msgstr ""
 
+#: ./../facultymember_templates/publications.pt:20
 #: ./../facultymember_templates/view.pt:20
 msgid "Academic Role"
 msgstr ""
 
-#: ./../facultymember.py:29
+#: ./../facultymember.py:42
 msgid "Accademic Role or Position"
 msgstr ""
 
-#: ./../facultymember.py:67
+#: ./../facultymember.py:80
 msgid "Body Text"
 msgstr ""
 
-#: ./../facultymember.py:47
+#: ./../facultymember.py:60
 msgid "City"
 msgstr ""
 
-#: ./../facultymember.py:39
+#: ./../facultymember.py:52
 msgid "Department"
 msgstr ""
 
-#: ./../facultymember.py:59
+#: ./../facultymember.py:72
 msgid "E-Mail"
 msgstr ""
 
@@ -61,11 +62,11 @@ msgstr ""
 msgid "FacultyMember"
 msgstr ""
 
-#: ./../facultymember.py:55
+#: ./../facultymember.py:68
 msgid "Fax"
 msgstr ""
 
-#: ./../facultymember.py:24
+#: ./../facultymember.py:32
 msgid "Lastname"
 msgstr ""
 
@@ -73,15 +74,15 @@ msgstr ""
 msgid "Lecturer"
 msgstr ""
 
-#: ./../facultymember.py:35
+#: ./../facultymember.py:48
 msgid "Optional additional information/sidenote"
 msgstr ""
 
-#: ./../facultymember.py:51
+#: ./../facultymember.py:64
 msgid "Phone"
 msgstr ""
 
-#: ./../facultymember.py:63
+#: ./../facultymember.py:76
 msgid "Portrait Image"
 msgstr ""
 
@@ -89,15 +90,24 @@ msgstr ""
 msgid "Professor"
 msgstr ""
 
-#: ./../facultymember.py:25
+#: ./../facultymember.py:33
 msgid "Provide last name for better filtering and search"
 msgstr ""
 
-#: ./../facultymember.py:34
+#: ./../facultymember.py:87
+msgid "Publication"
+msgstr ""
+
+#: ./../facultymember_templates/publications.pt:47
+#: ./../facultymember_templates/view.pt:47
+msgid "Publications"
+msgstr ""
+
+#: ./../facultymember.py:47
 msgid "Sidenote"
 msgstr ""
 
-#: ./../facultymember.py:43
+#: ./../facultymember.py:56
 msgid "Street"
 msgstr ""
 
