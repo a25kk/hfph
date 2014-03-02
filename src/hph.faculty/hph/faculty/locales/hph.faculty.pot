@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-02-20 14:06+0000\n"
+"POT-Creation-Date: 2014-02-28 15:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,23 +29,23 @@ msgstr ""
 msgid "Academic Role"
 msgstr ""
 
-#: ./../facultymember.py:32
+#: ./../facultymember.py:29
 msgid "Accademic Role or Position"
 msgstr ""
 
-#: ./../facultymember.py:76
+#: ./../facultymember.py:67
 msgid "Body Text"
 msgstr ""
 
-#: ./../facultymember.py:56
+#: ./../facultymember.py:47
 msgid "City"
 msgstr ""
 
-#: ./../facultymember.py:48
+#: ./../facultymember.py:39
 msgid "Department"
 msgstr ""
 
-#: ./../facultymember.py:68
+#: ./../facultymember.py:59
 msgid "E-Mail"
 msgstr ""
 
@@ -61,7 +61,7 @@ msgstr ""
 msgid "FacultyMember"
 msgstr ""
 
-#: ./../facultymember.py:64
+#: ./../facultymember.py:55
 msgid "Fax"
 msgstr ""
 
@@ -73,19 +73,15 @@ msgstr ""
 msgid "Lecturer"
 msgstr ""
 
-#: ./../facultymember.py:30
-msgid "Medium"
-msgstr ""
-
-#: ./../facultymember.py:44
+#: ./../facultymember.py:35
 msgid "Optional additional information/sidenote"
 msgstr ""
 
-#: ./../facultymember.py:60
+#: ./../facultymember.py:51
 msgid "Phone"
 msgstr ""
 
-#: ./../facultymember.py:72
+#: ./../facultymember.py:63
 msgid "Portrait Image"
 msgstr ""
 
@@ -97,11 +93,11 @@ msgstr ""
 msgid "Provide last name for better filtering and search"
 msgstr ""
 
-#: ./../facultymember.py:43
+#: ./../facultymember.py:34
 msgid "Sidenote"
 msgstr ""
 
-#: ./../facultymember.py:52
+#: ./../facultymember.py:43
 msgid "Street"
 msgstr ""
 

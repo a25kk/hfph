@@ -69,7 +69,8 @@
                 </div>
         
                 <tal:block tal:condition="view/has_publications">
-                  <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                  <div class="app-content-body"
+                    tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                                    b_size python:int(request.get('b_size', 20));
                                    b_start python:int(request.get('b_start', 0));
                                    results view/publications;
