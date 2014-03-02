@@ -10,8 +10,11 @@ from zope.schema.vocabulary import getVocabularyRegistry
 from plone.indexer import indexer
 from plone.directives import form
 from plone.dexterity.content import Container
+
+from z3c.relationfield.schema import RelationList
+from z3c.relationfield.schema import RelationChoice
+from plone.formwidget.contenttree import ObjPathSourceBinder
 from plone.app.textfield import RichText
-from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from plone.namedfile.field import NamedBlobImage
 from plone.namedfile.interfaces import IImageScaleTraversable
 
@@ -26,6 +29,11 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
     A faculty staff member
     """
     last_name = schema.TextLine(
+        title=_(u"Lastname"),
+        description=_(u"Provide last name for better filtering and search"),
+        required=True,
+    )
+    lastname = schema.TextLine(
         title=_(u"Lastname"),
         description=_(u"Provide last name for better filtering and search"),
         required=True,
@@ -72,6 +80,20 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
         title=_(u"Body Text"),
         required=False,
     )
+    publications = RelationList(
+        title=u"Related Publication Items",
+        default=[],
+        value_type=RelationChoice(
+            title=_(u"Publication"),
+            source=ObjPathSourceBinder()),
+        required=False,
+    )
+
+
+@indexer(IFacultyMember)
+def lastNameIndexer(obj):
+    return obj.lastname
+grok.global_adapter(lastNameIndexer, name="lastname")
 
 
 @indexer(IFacultyMember)

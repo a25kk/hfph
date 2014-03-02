@@ -17,7 +17,7 @@ def setupCatalogIndexes(context, logger=None):
     indexes = catalog.indexes()
 
     # Specify the indexes you want, with ('index_name', 'index_type')
-    wanted = (('thirdPartyProject', 'FieldIndex'),
+    wanted = (('thirdPartyProject', 'KeywordIndex'),
               ('academicRole', 'FieldIndex'),
               ('pubYear', 'FieldIndex'),
               ('pubMedium', 'FieldIndex'),

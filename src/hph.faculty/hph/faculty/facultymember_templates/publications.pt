@@ -65,7 +65,7 @@
                 </header>
                 
                 <section class="page-content" id="content-core">
-                <div class="alert" tal:condition="not:view/has_publications">
+                <div class="alert alert-warning" tal:condition="not:view/has_publications">
                   <h4>Note:</h4>
                   <p>There are no publications available yet</p>
                 </div>

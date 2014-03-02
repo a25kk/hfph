@@ -150,21 +150,21 @@ grok.global_adapter(authorLastNameIndexer, name="autorLastName")
 
 
 @indexer(IPublication)
-def pubMediumIndexer(obj):
-    return obj.pubMedium
-grok.global_adapter(pubMediumIndexer, name="pubMedium")
-
-
-@indexer(IPublication)
-def pubSeriesIndexer(obj):
-    return obj.pubSeries
-grok.global_adapter(pubSeriesIndexer, name="pubSeries")
-
-
-@indexer(IPublication)
 def thirdPartyProjectIndexer(obj):
     return obj.thirdPartyProject
 grok.global_adapter(thirdPartyProjectIndexer, name="thirdPartyProject")
+
+
+#@indexer(IPublication)
+#def pubMediumIndexer(obj):
+#    return obj.pubMedium
+#grok.global_adapter(pubMediumIndexer, name="pubMedium")
+#
+#
+#@indexer(IPublication)
+#def pubSeriesIndexer(obj):
+#    return obj.pubSeries
+#grok.global_adapter(pubSeriesIndexer, name="pubSeries")
 
 
 class Publication(dexterity.Item):

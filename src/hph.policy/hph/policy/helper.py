@@ -6,6 +6,8 @@ from zope.lifecycleevent import modified
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.app.contentlisting.interfaces import IContentListing
 
+from hph.faculty.facultymember import IFacultyMember
+
 from hph.publications.publicationfolder import IPublicationFolder
 from hph.publications.publication import IPublication
 
@@ -34,11 +36,9 @@ class CleanupPublicationSchema(grok.View):
         for item in items:
             i = item.getObject()
             author_name = getattr(i, 'authorOne')
-            media = getattr(i, 'medium')
-            series = getattr(i, 'series')
             display = getattr(i, 'display')
-            setattr(i, 'pubMedia', media)
-            setattr(i, 'pubSeries', series)
+            #setattr(i, 'pubMedia', media)
+            #setattr(i, 'pubSeries', series)
             setattr(i, 'authorLastName', author_name)
             setattr(i, 'thirdPartyProject', display)
             idx += 1
@@ -49,6 +49,34 @@ class CleanupPublicationSchema(grok.View):
     def publications(self):
         catalog = api.portal.get_tool(name="portal_catalog")
         results = catalog(object_provides=IPublication.__identifier__,
+                          sort_on='getObjPositionInParent')
+        return IContentListing(results)
+
+
+class CleanupFacultyMemberSchema(grok.View):
+    grok.context(INavigationRoot)
+    grok.require('zope2.View')
+    grok.name('cleanup-facultymembers')
+
+    def render(self):
+        idx = self._cleanup_schema()
+        return 'Cleaned up {0} faculty members'.format(idx)
+
+    def _cleanup_schema(self):
+        items = self.publications()
+        idx = 0
+        for item in items:
+            i = item.getObject()
+            author_name = getattr(i, 'last_name')
+            setattr(i, 'lastname', author_name)
+            idx += 1
+            modified(i)
+            i.reindexObject(idxs='modified')
+        return idx
+
+    def items(self):
+        catalog = api.portal.get_tool(name="portal_catalog")
+        results = catalog(object_provides=IFacultyMember.__identifier__,
                           sort_on='getObjPositionInParent')
         return IContentListing(results)
 
