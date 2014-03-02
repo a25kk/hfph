@@ -63,7 +63,7 @@ class CleanupFacultyMemberSchema(grok.View):
         return 'Cleaned up {0} faculty members'.format(idx)
 
     def _cleanup_schema(self):
-        items = self.publications()
+        items = self.items()
         idx = 0
         for item in items:
             i = item.getObject()
