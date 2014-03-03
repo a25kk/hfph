@@ -57,7 +57,7 @@ class View(grok.View):
         query = self._base_query()
         if self.filter is not None:
             for value in self.request.form:
-                query[value] = form[value]
+                query[value] = self.request.form[value]
         results = catalog.searchResults(query)
         return IContentListing(results)
 
