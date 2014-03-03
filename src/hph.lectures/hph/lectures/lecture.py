@@ -1,5 +1,6 @@
 from Acquisition import aq_inner
 from five import grok
+from plone import api
 
 from z3c.form import group, field
 from zope import schema
@@ -122,6 +123,9 @@ class View(grok.View):
     grok.context(ILecture)
     grok.require('zope2.View')
     grok.name('view')
+
+    def can_edit(self):
+        return not api.user.is_anonymous()
 
     def filter_options(self):
         context = aq_inner(self.context)
