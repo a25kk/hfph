@@ -37,8 +37,8 @@ class CleanupPublicationSchema(grok.View):
             i = item.getObject()
             author_name = getattr(i, 'authorOne')
             display = getattr(i, 'display')
-            #setattr(i, 'pubMedia', media)
-            #setattr(i, 'pubSeries', series)
+            publication_year = getattr(i, 'publication')
+            setattr(i, 'publicationYear', publication_year)
             setattr(i, 'lastname', author_name)
             setattr(i, 'thirdPartyProject', display)
             idx += 1
