@@ -130,9 +130,13 @@ class View(grok.View):
         allowed = False
         context = aq_inner(self.context)
         user = api.user.get_current()
-        perms = api.user.get_permissions(username=user, obj=context)
-        if 'cmf.ModifyPortalContent' in perms:
+        user_id = user.getId()
+        if user_id == 'zope-admin':
             allowed = True
+        else:
+            perms = api.user.get_permissions(username=user.getId(), obj=context)
+            if 'cmf.ModifyPortalContent' in perms:
+                allowed = True
         return allowed
 
     def filter_options(self):
