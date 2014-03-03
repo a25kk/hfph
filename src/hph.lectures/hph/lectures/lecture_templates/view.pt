@@ -45,6 +45,17 @@
                     <h1 tal:content="context/Title">Title inserted here</h1>
                 </header>
             </article>
+            <div class="visualClear" tal:condition="view/can_edit">
+                <div class="alert alert-warning">
+                    <p i18n:translate="">
+                    Since you are signed in as editor you can add file
+                    attachments to this news entry</p>
+                    <a class="btn btn-default"
+                        i18n:translate=""
+                        tal:attributes="href string:${context/absolute_url}/++add++File">
+                        add attachment</a>
+                </div>
+            </div>
         </div>
     </div>
 

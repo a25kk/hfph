@@ -1,5 +1,6 @@
 from Acquisition import aq_inner
 from five import grok
+from plone import api
 
 from z3c.form import group, field
 from zope import schema
@@ -122,6 +123,17 @@ class View(grok.View):
     grok.context(ILecture)
     grok.require('zope2.View')
     grok.name('view')
+
+    def can_edit(self):
+        if api.user.is_anonymous():
+            return False
+        allowed = False
+        context = aq_inner(self.context)
+        user = api.user.get_current()
+        perms = api.user.get_permissions(username=user.getId(), obj=context)
+        if 'cmf.ModifyPortalContent' in perms:
+            allowed = True
+        return allowed
 
     def filter_options(self):
         context = aq_inner(self.context)
