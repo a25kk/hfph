@@ -16,7 +16,8 @@
     "html5shiv": "~3.6.2",
     "holderjs": "~2.1.0",
     "animate.css": "~3.0.0",
-    "jquery-pjax": "~1.7.3"
+    "jquery-pjax": "~1.7.3",
+    "JQuery.Marquee": "git@github.com:aamirafridi/jQuery.Marquee.git"
   },
   "devDependencies": {
     "chai": "1.7.2"

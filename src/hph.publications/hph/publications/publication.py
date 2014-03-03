@@ -87,30 +87,12 @@ class IPublication(form.Schema, IImageScaleTraversable):
         ),
         required=True,
     )
-    form.widget(pubMedium=CheckBoxFieldWidget)
-    pubMedium = schema.Set(
-        title=_(u"Medium"),
-        value_type=schema.Choice(
-            title=_(u"Media Selection"),
-            vocabulary=u'hph.publications.publicationMedia',
-        ),
-        required=True,
-    )
     form.widget(series=CheckBoxFieldWidget)
     series = schema.Set(
         title=_(u"Series"),
         value_type=schema.Choice(
             title=_(u"Series Selection"),
             vocabulary=series,
-        ),
-        required=True,
-    )
-    form.widget(pubSeries=CheckBoxFieldWidget)
-    pubSeries = schema.Set(
-        title=_(u"Series"),
-        value_type=schema.Choice(
-            title=_(u"Series Selection"),
-            vocabulary=u'hph.publications.publicationSeries',
         ),
         required=True,
     )
@@ -155,16 +137,16 @@ def thirdPartyProjectIndexer(obj):
 grok.global_adapter(thirdPartyProjectIndexer, name="thirdPartyProject")
 
 
-#@indexer(IPublication)
-#def pubMediumIndexer(obj):
-#    return obj.pubMedium
-#grok.global_adapter(pubMediumIndexer, name="pubMedium")
-#
-#
-#@indexer(IPublication)
-#def pubSeriesIndexer(obj):
-#    return obj.pubSeries
-#grok.global_adapter(pubSeriesIndexer, name="pubSeries")
+@indexer(IPublication)
+def pubMediumIndexer(obj):
+    return obj.medium
+grok.global_adapter(pubMediumIndexer, name="medium")
+
+
+@indexer(IPublication)
+def pubSeriesIndexer(obj):
+    return obj.series
+grok.global_adapter(pubSeriesIndexer, name="series")
 
 
 class Publication(dexterity.Item):
