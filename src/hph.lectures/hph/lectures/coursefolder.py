@@ -42,8 +42,12 @@ class View(grok.View):
         context = aq_inner(self.context)
         vr = getVocabularyRegistry()
         vocab = vr.get(context, 'hph.lectures.CourseDuration')
-        term = vocab[value]
-        return term.title
+        title = _(u"undefined")
+        if value is not None:
+            for term in vocab:
+                if term.value == value:
+                    title = term.title
+        return title
 
     def filter_options(self):
         context = aq_inner(self.context)
