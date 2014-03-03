@@ -134,6 +134,17 @@ class View(grok.View):
     grok.require('zope2.View')
     grok.name('view')
 
+    def prettify_duration(self, value):
+        context = aq_inner(self.context)
+        vr = getVocabularyRegistry()
+        vocab = vr.get(context, 'hph.lectures.CourseDuration')
+        title = _(u"undefined")
+        if value is not None:
+            for term in vocab:
+                if term.value == value:
+                    title = term.title
+        return title
+
     def can_edit(self):
         if api.user.is_anonymous():
             return False

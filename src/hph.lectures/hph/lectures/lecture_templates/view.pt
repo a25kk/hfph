@@ -40,11 +40,29 @@
             </aside>
         </div>
         <div class="col-xs-12 col-sm-9">
-            <article class="tile-content" id="tile-content">
-                <header class="page-header">
-                    <h1 tal:content="context/Title">Title inserted here</h1>
-                </header>
-            </article>
+            <div class="app-list-item">
+                <h2><small><span tal:replace="context/courseNumber" /></small><br>
+                    <span tal:content="context/Title" />
+                </h2>
+                <p tal:content="context/subtitle" />
+                <p tal:condition="context/lecturerAdditional">
+                    <span i18n:translate="">Additional Lecturer:</span>
+                    <span tal:replace="context/lecturerAdditional" />
+                </p>
+                <p class="text-muted"
+                    tal:define="duration context/courseDuration;
+                                pretty_duration python:view.prettify_duration(duration)">
+                    <span tal:content="pretty_duration" i18n:translate="">Duration</span>
+                    <span tal:replace="context/courseTime" />
+                </p>
+                <p>Raum</p>
+                <p class="text-muted">
+                    <span i18n:translate="">Dates</span>
+                    <span tal:replace="context/courseDates" />
+                <p class="text-discreet text-muted"
+                    tal:condition="context/Description"
+                    tal:content="context/Description" />
+            </div>
             <div class="visualClear" tal:condition="view/can_edit">
                 <div class="alert alert-warning">
                     <p i18n:translate="">
