@@ -38,6 +38,13 @@ class View(grok.View):
     grok.require('zope2.View')
     grok.name('view')
 
+    def prettify_duration(self, value):
+        context = aq_inner(self.context)
+        vr = getVocabularyRegistry()
+        vocab = vr.get(context, 'hph.lectures.CourseDuration')
+        term = vocab[value]
+        return term.title
+
     def filter_options(self):
         context = aq_inner(self.context)
         vr = getVocabularyRegistry()

@@ -67,8 +67,10 @@
                                     <span i18n:translate="">Additional Lecturer:</span>
                                     <span tal:replace="item/lecturerAdditional" />
                                 </p>
-                                <p class="text-muted">
-                                    <span tal:content="item/courseDuration">Duration</span>
+                                <p class="text-muted"
+                                    tal:define="duration item/courseDuration;
+                                                pretty_duration python:view.prettify_duration(duration)">
+                                    <span tal:content="pretty_duration" i18n:translate="">Duration</span>
                                     <span tal:replace="item/courseTime" />
                                 </p>
                                 <p>Raum</p>
