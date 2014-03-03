@@ -58,11 +58,11 @@
                             <div class="app-list-item">
                                 <h2><small>
                                         <span tal:replace="item/courseNumber" />
-                                        <span tal:replace="item/subtitle" />
                                     </small><br>
                                     <a tal:attributes="href item/getURL"
                                         tal:content="item/Title" />
                                 </h2>
+                                <p tal:content="item/subtitle" />
                                 <p tal:condition="item/lecturerAdditional">
                                     <span i18n:translate="">Additional Lecturer:</span>
                                     <span tal:replace="item/lecturerAdditional" />
