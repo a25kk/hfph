@@ -96,15 +96,6 @@ class IPublication(form.Schema, IImageScaleTraversable):
         ),
         required=True,
     )
-    form.widget(display=CheckBoxFieldWidget)
-    display = schema.Set(
-        title=_(u"Display"),
-        value_type=schema.Choice(
-            title=_(u"Display Selection"),
-            vocabulary=display,
-        ),
-        required=True,
-    )
     form.widget(thirdPartyProject=CheckBoxFieldWidget)
     thirdPartyProject = schema.Set(
         title=_(u"Third Party Project Display"),
