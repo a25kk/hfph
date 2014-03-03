@@ -130,7 +130,7 @@ class View(grok.View):
         allowed = False
         context = aq_inner(self.context)
         user = api.user.get_current()
-        perms = api.user.get_permissions(username=user.getId(), obj=context)
+        perms = api.user.get_permissions(username=user, obj=context)
         if 'cmf.ModifyPortalContent' in perms:
             allowed = True
         return allowed
