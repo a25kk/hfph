@@ -35,12 +35,8 @@ class CleanupPublicationSchema(grok.View):
         idx = 0
         for item in items:
             i = item.getObject()
-            author_name = getattr(i, 'authorOne')
-            display = getattr(i, 'display')
-            #setattr(i, 'pubMedia', media)
-            #setattr(i, 'pubSeries', series)
-            setattr(i, 'lastname', author_name)
-            setattr(i, 'thirdPartyProject', display)
+            publication_year = getattr(i, 'publication')
+            setattr(i, 'publicationYear', publication_year)
             idx += 1
             modified(i)
             i.reindexObject(idxs='modified')
