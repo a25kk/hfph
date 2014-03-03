@@ -7,6 +7,21 @@ from zope.schema.interfaces import IVocabularyFactory
 from hph.lectures import MessageFactory as _
 
 
+class CourseSemesterVocabulary(object):
+    grok.implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        TYPES = {
+            _(u"Summer Semester"): 'summer-semester',
+            _(u"Winter Semester"): 'winter-semester'
+        }
+        return SimpleVocabulary([SimpleTerm(value, title=title)
+                                for title, value
+                                in TYPES.iteritems()])
+grok.global_utility(CourseSemesterVocabulary,
+                    name=u"hph.lectures.CourseSemester")
+
+
 class CourseDurationVocabulary(object):
     grok.implements(IVocabularyFactory)
 

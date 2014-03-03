@@ -21,8 +21,8 @@
                     <ul class="nav nav-pills nav-stacked app-box-nav">
                         <tal:block tal:repeat="filter view/media_filter_options">
                             <li tal:define="filter_value filter/value"
-                                tal:attributes="class python:view.computed_klass('pubMedia', filter_value)">
-                                <a tal:attributes="href string:${view/parent_url}?content_filter=1&amp;pubMedia=${filter/value}"
+                                tal:attributes="class python:view.computed_klass('media', filter_value)">
+                                <a tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;media=${filter/value}"
                                     tal:content="filter/title">Filter option</a>
                             </li>
                         </tal:block>
@@ -40,22 +40,14 @@
                     <ul class="nav nav-pills nav-stacked app-box-nav">
                         <tal:block tal:repeat="filter view/series_filter_options">
                             <li tal:define="filter_value filter/value"
-                                tal:attributes="class python:view.computed_klass('pubSeries', filter_value)">
-                                <a tal:attributes="href string:${view/parent_url}?content_filter=1&amp;pubSeries=${filter/value}"
+                                tal:attributes="class python:view.computed_klass('series', filter_value)">
+                                <a tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;series=${filter/value}"
                                     tal:content="filter/title">Filter option</a>
                             </li>
                         </tal:block>
                     </ul>
                 </div>
             </div>
-
-            <ul class="nav nav-pills nav-stacked">
-                <li><a href="#filter">Neuerscheinungen</a></li>
-                <li><a href="#filter">Filter A</a></li>
-                <li><a href="#filter">Filter B</a></li>
-                <li><a href="#filter">Filter C</a></li>
-                <li><a href="#filter">Filter D</a></li>
-            </ul>
         </div>
         <div class="col-xs-12 col-sm-9">
             <section class="app-list app-list-publications" id="publication-list">

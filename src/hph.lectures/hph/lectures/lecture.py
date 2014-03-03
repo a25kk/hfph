@@ -96,6 +96,16 @@ class ILecture(form.Schema, IImageScaleTraversable):
         title=_(u"Course Time"),
         required=True,
     )
+    courseSemester = schema.Choice(
+        title=_(u"Course Semester"),
+        description=_(u"Please select the course semester for filtering"),
+        required=True,
+        vocabulary=u'hph.lectures.CourseSemester',
+    )
+    courseYear = schema.TextLine(
+        title=_(u"Course Year"),
+        required=True,
+    )
     form.widget(courseRoom=TokenInputFieldWidget)
     courseRoom = schema.List(
         title=_(u"Course Room"),
