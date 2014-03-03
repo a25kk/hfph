@@ -169,9 +169,9 @@ class Publications(grok.View):
         context = aq_inner(self.context)
         catalog = api.portal.get_tool(name='portal_catalog')
         obj_provides = IPublication.__identifier__
-        author_name = getattr(context, 'last_name')
+        author_name = getattr(context, 'lastname')
         query = dict(object_provides=obj_provides,
-                     authorLastName=author_name,
+                     lastname=author_name,
                      review_state='published')
         results = catalog.searchResults(query)
         return IContentListing(results)

@@ -39,7 +39,7 @@ class CleanupPublicationSchema(grok.View):
             display = getattr(i, 'display')
             #setattr(i, 'pubMedia', media)
             #setattr(i, 'pubSeries', series)
-            setattr(i, 'authorLastName', author_name)
+            setattr(i, 'lastname', author_name)
             setattr(i, 'thirdPartyProject', display)
             idx += 1
             modified(i)
