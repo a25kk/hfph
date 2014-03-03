@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2014-02-28 16:27+0000\n"
-"PO-Revision-Date: 2014-03-02 19:36+0100\n"
+"PO-Revision-Date: 2014-03-03 09:35+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,15 +18,15 @@ msgstr ""
 
 #: ../vocabulary.py:15
 msgid "1 hour"
-msgstr "1-stündig"
+msgstr "1stündig"
 
 #: ../vocabulary.py:16
 msgid "2 hour"
-msgstr "2-stündig"
+msgstr "2stündig"
 
 #: ../vocabulary.py:17
 msgid "3 hour"
-msgstr "3-stündig"
+msgstr "3stündig"
 
 #: ../profiles/default/types/hph.lectures.lecture.xml
 msgid "A single course"
