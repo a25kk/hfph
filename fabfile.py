@@ -13,7 +13,7 @@ from ade25.fabfiles.server import setup
 
 env.use_ssh_config = True
 env.forward_agent = True
-env.port = '22222'
+env.port = '22'
 env.user = 'root'
 env.hosts = ['z9']
 env.webserver = '/opt/sites/hph/buildout.hph'
@@ -34,8 +34,7 @@ env.roledefs = {
 @roles('production')
 def restart():
     """ Restart all """
-    with settings(port=22):
-        project.cluster.restart_clients()
+    project.cluster.restart_clients()
 
 
 @task
@@ -71,9 +70,8 @@ def restart_haproxy():
 @roles('production')
 def ctl(*cmd):
     """Runs an arbitrary supervisorctl command."""
-    with settings(port=22):
-        with cd(env.code_root):
-            run('nice bin/supervisorctl ' + ' '.join(cmd))
+    with cd(env.code_root):
+        run('nice bin/supervisorctl ' + ' '.join(cmd))
 
 
 @task
@@ -90,26 +88,29 @@ def deploy():
 @roles('staging')
 def stage():
     """ Deploy current master to staging server """
-    project.site.update()
-    with cd(env.code_root):
-        run('bin/buildout -Nc staging.cfg')
-    project.site.restart()
+    with settings(port=22222):
+        project.site.update()
+        with cd(env.code_root):
+            run('bin/buildout -Nc staging.cfg')
+        project.site.restart()
 
 
 @task
 def deploy_full():
     """ Deploy current master to production and run buildout """
-    project.site.update()
-    project.site.build()
-    project.site.restart()
+    with settings(port=22222):
+        project.site.update()
+        project.site.build()
+        project.site.restart()
 
 
 @task
 def rebuild():
     """ Deploy current master and run full buildout """
-    project.site.update()
-    project.site.build_full()
-    project.site.restart()
+    with settings(port=22):
+        project.site.update()
+        project.site.build_full()
+        project.site.restart()
 
 
 @task

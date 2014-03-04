@@ -12,10 +12,10 @@ from ade25.fabfiles.server import setup
 
 env.use_ssh_config = True
 env.forward_agent = True
-env.port = '22222'
+env.port = '22'
 env.user = 'root'
 env.hosts = ['${fabric:host}']
-env.webserver = '${fabric:webserver}'
+env.webserver = '${fabric:directory}'
 env.code_root = '${fabric:directory}'
 env.local_root = '${buildout:directory}'
 env.sitename = 'hph'
@@ -29,9 +29,17 @@ env.roledefs = {
 }
 
 
+
 @task
 @roles('production')
 def restart():
+    """ Restart all """
+    project.cluster.restart_clients()
+
+
+@task
+@roles('production')
+def restart_all():
     """ Restart all """
     with cd(env.webserver):
         run('nice bin/supervisorctl restart all')
@@ -62,7 +70,7 @@ def restart_haproxy():
 @roles('production')
 def ctl(*cmd):
     """Runs an arbitrary supervisorctl command."""
-    with cd(env.webserver):
+    with cd(env.code_root):
         run('nice bin/supervisorctl ' + ' '.join(cmd))
 
 
@@ -70,34 +78,39 @@ def ctl(*cmd):
 @roles('production')
 def deploy():
     """ Deploy current master to production server """
-    controls.update()
-    controls.build()
+    with settings(port=22):
+        controls.update()
+        controls.build()
+        project.cluster.restart_clients()
 
 
 @task
 @roles('staging')
 def stage():
     """ Deploy current master to staging server """
-    project.site.update()
-    with cd(env.code_root):
-        run('bin/buildout -Nc staging.cfg')
-    project.site.restart()
+    with settings(port=22222):
+        project.site.update()
+        with cd(env.code_root):
+            run('bin/buildout -Nc staging.cfg')
+        project.site.restart()
 
 
 @task
 def deploy_full():
     """ Deploy current master to production and run buildout """
-    project.site.update()
-    project.site.build()
-    project.site.restart()
+    with settings(port=22222):
+        project.site.update()
+        project.site.build()
+        project.site.restart()
 
 
 @task
 def rebuild():
     """ Deploy current master and run full buildout """
-    project.site.update()
-    project.site.build_full()
-    project.site.restart()
+    with settings(port=22):
+        project.site.update()
+        project.site.build_full()
+        project.site.restart()
 
 
 @task
