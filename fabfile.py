@@ -18,7 +18,7 @@ env.user = 'root'
 env.hosts = ['z9']
 env.webserver = '/opt/sites/hph/buildout.hph'
 env.code_root = '/opt/sites/hph/buildout.hph'
-env.local_root = '/Users/sd/dev/hfph/buildout.hfph'
+env.local_root = '/Users/cb/dev/hph/buildout.hph'
 env.sitename = 'hph'
 env.code_user = 'root'
 env.prod_user = 'www'
@@ -28,6 +28,7 @@ env.roledefs = {
     'production': ['hph'],
     'staging': ['z9']
 }
+
 
 
 @task
@@ -78,10 +79,9 @@ def ctl(*cmd):
 @roles('production')
 def deploy():
     """ Deploy current master to production server """
-    with settings(port=22):
-        controls.update()
-        controls.build()
-        project.cluster.restart_clients()
+    controls.update()
+    controls.build()
+    project.cluster.restart_clients()
 
 
 @task

@@ -3,6 +3,7 @@ from fabric.api import cd
 from fabric.api import env
 from fabric.api import run
 from fabric.api import roles
+from fabric.api import settings
 
 from ade25.fabfiles import server
 from ade25.fabfiles import project
@@ -78,10 +79,9 @@ def ctl(*cmd):
 @roles('production')
 def deploy():
     """ Deploy current master to production server """
-    with settings(port=22):
-        controls.update()
-        controls.build()
-        project.cluster.restart_clients()
+    controls.update()
+    controls.build()
+    project.cluster.restart_clients()
 
 
 @task
@@ -123,20 +123,3 @@ def get_data():
 @roles('production')
 def server_status():
     server.status.status()
-
-
-@task
-@roles('production')
-def bootstrap():
-    """ Bootstrap server and setup the webserver automagically """
-    setup.install_system_libs()
-    #setup.set_hostname()
-    setup.configure_fs()
-    setup.set_project_user_and_group('www', 'www')
-    setup.configure_egg_cache()
-    with cd('/opt'):
-        setup.install_python()
-        setup.generate_virtualenv(sitename='webserver')
-    with cd('/opt/webserver'):
-        setup.install_webserver()
-    setup.setup_webserver_autostart()

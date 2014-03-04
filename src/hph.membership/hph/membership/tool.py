@@ -79,11 +79,23 @@ class MemberTool(grok.GlobalUtility):
 
 
 def api_group_mapper():
-    map = {
+    mapping = {
         'IstGasthoererIn': 'guest',
         'IstDozent': 'lecturer',
         'IstStudent': 'student',
         'IstAlumnus': 'alumni',
         'IstMitgliedProPhilosophia': 'prophil',
     }
-    return map
+    return mapping
+
+
+def user_group_mapper():
+    mapping = {
+        'guest': 'Gasthoerer',
+        'lecturer': 'Lehrende',
+        'student': 'Studierende',
+        'alumni': 'Alumni',
+        'prophil': 'prophil',
+        'media': 'Mediangruppe',
+    }
+    return mapping

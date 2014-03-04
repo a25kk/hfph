@@ -11,21 +11,14 @@
   <metal:content-core define-macro="main">
 
     <div class="tile-content">
-        <header class="page-header">
-            <h1 tal:content="context/Title" />
-        </header>
     
         <section id="content-core">
-          <p class="app-lead" tal:condition="context/Description"
-            tal:content="context/Description" />
-    
-            <div class="alert alert-danger">
-                <h4>The member area contains member workspaces</h4>
-                <p>You should have been redirected to your personal workspace</p>
-                <p>If this error persists please contact the site administrator</p>
-            </div>
+
             <div class="row">
                 <div class="col-xs-12 col-sm-8">
+                    <header class="page-header">
+                        <h4 i18n:translate="">Records</h4>
+                    </header>
                     <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                         b_size python:int(request.get('b_size', 20));
                         b_start python:int(request.get('b_start', 0));
@@ -59,6 +52,30 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-4">
+                    <div class="app-box app-box-workspaces">
+                        <div class="app-box-header">
+                            <h2 class="app-box-heading" i18n:translate="">
+                                Workspaces
+                            </h2>
+                        </div>
+                        <div class="app-box-content">
+                            <div class="alert alert-danger">
+                                <h4>The member area contains member workspaces</h4>
+                                <p>You should have been redirected to your personal workspace except
+                                    when logged in as site administrator</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            User Records
+                        </div>
+                        <div class="panel-body">
+                            <p>Available Userrecords for import:
+                                <strong tal:content="view/records_idx" />
+                            </p>
+                        </div>
+                    </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             Available Groups
