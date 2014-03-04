@@ -3351,410 +3351,397 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 }(jQuery);
 
-/*
+/**
+ * jQuery.marquee - scrolling text like old marquee element
+ * @author Aamir Afridi - aamirafridi(at)gmail(dot)com / http://aamirafridi.com/jquery/jquery-marquee-plugin
+ */
+ 
+;(function ($) {
+    $.fn.marquee = function (options) {
+        return this.each(function () {
+            // Extend the options if any provided
+            var o = $.extend({}, $.fn.marquee.defaults, options),
+                $this = $(this),
+                $marqueeWrapper,
+                containerWidth,
+                animationCss,
+                verticalDir,
+                elWidth,
+                loopCount = 3,
+                playState = 'animation-play-state',
+                css3AnimationIsSupported = false,
 
-Holder - 2.1 - client side image placeholders
-(c) 2012-2013 Ivan Malopinsky / http://imsky.co
+                //Private methods
+                _prefixedEvent = function (element, type, callback) {
+                    var pfx = ["webkit", "moz", "MS", "o", ""];
+                    for (var p = 0; p < pfx.length; p++) {
+                        if (!pfx[p]) type = type.toLowerCase();
+                        element.addEventListener(pfx[p] + type, callback, false);
+                    }
+                },
+                _objToString = function (obj) {
+                    var tabjson = [];
+                    for (var p in obj) {
+                        if (obj.hasOwnProperty(p)) {
+                            tabjson.push(p + ':' + obj[p]);
+                        }
+                    }
+                    tabjson.push();
+                    return '{' + tabjson.join(',') + '}';
+                },
 
-Provided under the MIT License.
-Commercial use requires attribution.
+                _startAnimationWithDelay = function () {
+                    $this.timer = setTimeout(animate, o.delayBeforeStart);
+                },
 
-*/
+                //Public methods
+                methods = {
+                    pause: function () {
+                        if (css3AnimationIsSupported && o.allowCss3Support) {
+                            $marqueeWrapper.css(playState, 'paused');
+                        } else {
+                            //pause using pause plugin
+                            if ($.fn.pause) {
+                                $marqueeWrapper.pause();
+                            }
+                        }
+                        //save the status
+                        $this.data('runningStatus', 'paused');
+                        //fire event
+                        $this.trigger('paused');
+                    },
 
-var Holder = Holder || {};
-(function (app, win) {
+                    resume: function () {
+                        //resume using css3
+                        if (css3AnimationIsSupported && o.allowCss3Support) {
+                            $marqueeWrapper.css(playState, 'running');
+                        } else {
+                            //resume using pause plugin
+                            if ($.fn.resume) {
+                                $marqueeWrapper.resume();
+                            }
+                        }
+                        //save the status
+                        $this.data('runningStatus', 'resumed');
+                        //fire event
+                        $this.trigger('resumed');
+                    },
 
-var preempted = false,
-fallback = false,
-canvas = document.createElement('canvas');
+                    toggle: function () {
+                        methods[$this.data('runningStatus') == 'resumed' ? 'pause' : 'resume']();
+                    },
 
-if (!canvas.getContext) {
-	fallback = true;
-} else {
-	if (canvas.toDataURL("image/png")
-		.indexOf("data:image/png") < 0) {
-		//Android doesn't support data URI
-		fallback = true;
-	} else {
-		var ctx = canvas.getContext("2d");
-	}
-}
+                    destroy: function () {
+                        //Clear timer
+                        clearTimeout($this.timer);
+                        //Just unwrap the elements that has been added using this plugin
+                        $this.css('visibility', 'hidden').html($this.find('.js-marquee:first'));
+                        //This is to prevent the sudden blink
+                        setTimeout(function () {
+                            $this.css('visibility', 'visible');
+                        }, 0);
+                    }
+                };
 
-var dpr = 1, bsr = 1;
-	
-if(!fallback){
-    dpr = window.devicePixelRatio || 1,
-    bsr = ctx.webkitBackingStorePixelRatio || ctx.mozBackingStorePixelRatio || ctx.msBackingStorePixelRatio || ctx.oBackingStorePixelRatio || ctx.backingStorePixelRatio || 1;
-}
+            //Check for methods
+            if (typeof options === 'string') {
+                if ($.isFunction(methods[options])) {
+                    //Following two IF statements to support public methods
+                    if (!$marqueeWrapper) {
+                        $marqueeWrapper = $this.find('.js-marquee-wrapper');
+                    }
+                    if ($this.data('css3AnimationIsSupported') === true) {
+                        css3AnimationIsSupported = true;
+                    }
+                    methods[options]();
+                }
+                return;
+            }
 
-var ratio = dpr / bsr;
+            /* Check if element has data attributes. They have top priority
+               For details https://twitter.com/aamirafridi/status/403848044069679104 - Can't find a better solution :/
+               jQuery 1.3.2 doesn't support $.data().KEY hence writting the following */
+            var dataAttributes = {}, attr;
+            $.each(o, function (key, value) {
+                //Check if element has this data attribute
+                attr = $this.attr('data-' + key);
+                if (typeof attr !== 'undefined') {
+                    //Now check if value is boolean or not
+                    switch (attr) {
+                        case 'true':
+                            attr = true;
+                            break;
+                        case 'false':
+                            attr = false;
+                            break;
+                    }
+                    o[key] = attr;
+                }
+            });
 
-//getElementsByClassName polyfill
-document.getElementsByClassName||(document.getElementsByClassName=function(e){var t=document,n,r,i,s=[];if(t.querySelectorAll)return t.querySelectorAll("."+e);if(t.evaluate){r=".//*[contains(concat(' ', @class, ' '), ' "+e+" ')]",n=t.evaluate(r,t,null,0,null);while(i=n.iterateNext())s.push(i)}else{n=t.getElementsByTagName("*"),r=new RegExp("(^|\\s)"+e+"(\\s|$)");for(i=0;i<n.length;i++)r.test(n[i].className)&&s.push(n[i])}return s})
+            //since speed option is changed to duration, to support speed for those who are already using it
+            o.duration = o.speed || o.duration;
 
-//getComputedStyle polyfill
-window.getComputedStyle||(window.getComputedStyle=function(e){return this.el=e,this.getPropertyValue=function(t){var n=/(\-([a-z]){1})/g;return t=="float"&&(t="styleFloat"),n.test(t)&&(t=t.replace(n,function(){return arguments[2].toUpperCase()})),e.currentStyle[t]?e.currentStyle[t]:null},this})
+            //Shortcut to see if direction is upward or downward
+            verticalDir = o.direction == 'up' || o.direction == 'down';
 
-//http://javascript.nwbox.com/ContentLoaded by Diego Perini with modifications
-function contentLoaded(n,t){var l="complete",s="readystatechange",u=!1,h=u,c=!0,i=n.document,a=i.documentElement,e=i.addEventListener?"addEventListener":"attachEvent",v=i.addEventListener?"removeEventListener":"detachEvent",f=i.addEventListener?"":"on",r=function(e){(e.type!=s||i.readyState==l)&&((e.type=="load"?n:i)[v](f+e.type,r,u),!h&&(h=!0)&&t.call(n,null))},o=function(){try{a.doScroll("left")}catch(n){setTimeout(o,50);return}r("poll")};if(i.readyState==l)t.call(n,"lazy");else{if(i.createEventObject&&a.doScroll){try{c=!n.frameElement}catch(y){}c&&o()}i[e](f+"DOMContentLoaded",r,u),i[e](f+s,r,u),n[e](f+"load",r,u)}}
+            //no gap if not duplicated
+            o.gap = o.duplicated ? o.gap : 0;
 
-//https://gist.github.com/991057 by Jed Schmidt with modifications
-function selector(a){
-	a=a.match(/^(\W)?(.*)/);var b=document["getElement"+(a[1]?a[1]=="#"?"ById":"sByClassName":"sByTagName")](a[2]);
-	var ret=[];	b!==null&&(b.length?ret=b:b.length===0?ret=b:ret=[b]);	return ret;
-}
+            //wrap inner content into a div
+            $this.wrapInner('<div class="js-marquee"></div>');
 
-//shallow object property extend
-function extend(a,b){var c={};for(var d in a)c[d]=a[d];for(var e in b)c[e]=b[e];return c}
+            //Make copy of the element
+            var $el = $this.find('.js-marquee').css({
+                'margin-right': o.gap,
+                    'float': 'left'
+            });
 
-//hasOwnProperty polyfill
-if (!Object.prototype.hasOwnProperty)
-    /*jshint -W001, -W103 */
-    Object.prototype.hasOwnProperty = function(prop) {
-		var proto = this.__proto__ || this.constructor.prototype;
-		return (prop in this) && (!(prop in proto) || proto[prop] !== this[prop]);
-	}
-    /*jshint +W001, +W103 */
+            if (o.duplicated) {
+                $el.clone().appendTo($this);
+            }
 
-function text_size(width, height, template) {
-	height = parseInt(height, 10);
-	width = parseInt(width, 10);
-	var bigSide = Math.max(height, width)
-	var smallSide = Math.min(height, width)
-	var scale = 1 / 12;
-	var newHeight = Math.min(smallSide * 0.75, 0.75 * bigSide * scale);
-	return {
-		height: Math.round(Math.max(template.size, newHeight))
-	}
-}
+            //wrap both inner elements into one div
+            $this.wrapInner('<div style="width:100000px" class="js-marquee-wrapper"></div>');
 
-function draw(ctx, dimensions, template, ratio, literal) {
-	var ts = text_size(dimensions.width, dimensions.height, template);
-	var text_height = ts.height;
-	var width = dimensions.width * ratio,
-		height = dimensions.height * ratio;
-	var font = template.font ? template.font : "sans-serif";
-	canvas.width = width;
-	canvas.height = height;
-	ctx.textAlign = "center";
-	ctx.textBaseline = "middle";
-	ctx.fillStyle = template.background;
-	ctx.fillRect(0, 0, width, height);
-	ctx.fillStyle = template.foreground;
-	ctx.font = "bold " + text_height + "px " + font;
-	var text = template.text ? template.text : (Math.floor(dimensions.width) + "x" + Math.floor(dimensions.height));
-	if (literal) {
-		text = template.literalText;
-	}
-	var text_width = ctx.measureText(text).width;
-	if (text_width / width >= 0.75) {
-		text_height = Math.floor(text_height * 0.75 * (width / text_width));
-	}
-	//Resetting font size if necessary
-	ctx.font = "bold " + (text_height * ratio) + "px " + font;
-	ctx.fillText(text, (width / 2), (height / 2), width);
-	return canvas.toDataURL("image/png");
-}
+            //Save the reference of the wrapper
+            $marqueeWrapper = $this.find('.js-marquee-wrapper');
 
-function render(mode, el, holder, src) {
-	var dimensions = holder.dimensions,
-		theme = holder.theme,
-		text = holder.text ? decodeURIComponent(holder.text) : holder.text;
-	var dimensions_caption = dimensions.width + "x" + dimensions.height;
-	theme = (text ? extend(theme, {
-		text: text
-	}) : theme);
-	theme = (holder.font ? extend(theme, {
-		font: holder.font
-	}) : theme);
-	el.setAttribute("data-src", src);
-	theme.literalText = dimensions_caption;
-	holder.originalTheme = holder.theme;
-	holder.theme = theme;
+            //If direction is up or down, get the height of main element
+            if (verticalDir) {
+                var containerHeight = $this.height();
+                $marqueeWrapper.removeAttr('style');
+                $this.height(containerHeight);
 
-	if (mode == "image") {
-		el.setAttribute("alt", text ? text : theme.text ? theme.text + " [" + dimensions_caption + "]" : dimensions_caption);
-		if (fallback || !holder.auto) {
-			el.style.width = dimensions.width + "px";
-			el.style.height = dimensions.height + "px";
-		}
-		if (fallback) {
-			el.style.backgroundColor = theme.background;
-		} else {
-			el.setAttribute("src", draw(ctx, dimensions, theme, ratio));
-		}
-	} else if (mode == "background") {
-		if (!fallback) {
-			el.style.backgroundImage = "url(" + draw(ctx, dimensions, theme, ratio) + ")";
-			el.style.backgroundSize = dimensions.width + "px " + dimensions.height + "px";
-		}
-	} else if (mode == "fluid") {
-		el.setAttribute("alt", text ? text : theme.text ? theme.text + " [" + dimensions_caption + "]" : dimensions_caption);
-		if (dimensions.height.slice(-1) == "%") {
-			el.style.height = dimensions.height
-		} else {
-			el.style.height = dimensions.height + "px"
-		}
-		if (dimensions.width.slice(-1) == "%") {
-			el.style.width = dimensions.width
-		} else {
-			el.style.width = dimensions.width + "px"
-		}
-		if (el.style.display == "inline" || el.style.display === "") {
-			el.style.display = "block";
-		}
-		if (fallback) {
-			el.style.backgroundColor = theme.background;
-		} else {
-			el.holderData = holder;
-			fluid_images.push(el);
-			fluid_update(el);
-		}
-	}
-}
+                //Change the CSS for js-marquee element
+                $this.find('.js-marquee').css({
+                    'float': 'none',
+                        'margin-bottom': o.gap,
+                        'margin-right': 0
+                });
 
-function fluid_update(element) {
-	var images;
-	if (element.nodeType == null) {
-		images = fluid_images;
-	} else {
-		images = [element]
-	}
-	for (var i in images) {
-		var el = images[i]
-		if (el.holderData) {
-			var holder = el.holderData;
-			el.setAttribute("src", draw(ctx, {
-				height: el.clientHeight,
-				width: el.clientWidth
-			}, holder.theme, ratio, !! holder.literal));
-		}
-	}
-}
+                //Remove bottom margin from 2nd element if duplicated
+                if (o.duplicated) $this.find('.js-marquee:last').css({
+                    'margin-bottom': 0
+                });
 
-function parse_flags(flags, options) {
-	var ret = {
-		theme: settings.themes.gray
-	};
-	var render = false;
-	for (sl = flags.length, j = 0; j < sl; j++) {
-		var flag = flags[j];
-		if (app.flags.dimensions.match(flag)) {
-			render = true;
-			ret.dimensions = app.flags.dimensions.output(flag);
-		} else if (app.flags.fluid.match(flag)) {
-			render = true;
-			ret.dimensions = app.flags.fluid.output(flag);
-			ret.fluid = true;
-		} else if (app.flags.literal.match(flag)) {
-			ret.literal = true;
-		} else if (app.flags.colors.match(flag)) {
-			ret.theme = app.flags.colors.output(flag);
-		} else if (options.themes[flag]) {
-			//If a theme is specified, it will override custom colors
-			ret.theme = options.themes[flag];
-		} else if (app.flags.font.match(flag)) {
-			ret.font = app.flags.font.output(flag);
-		} else if (app.flags.auto.match(flag)) {
-			ret.auto = true;
-		} else if (app.flags.text.match(flag)) {
-			ret.text = app.flags.text.output(flag);
-		}
-	}
-	return render ? ret : false;
-}
-var fluid_images = [];
-var settings = {
-	domain: "holder.js",
-	images: "img",
-	bgnodes: ".holderjs",
-	themes: {
-		"gray": {
-			background: "#eee",
-			foreground: "#aaa",
-			size: 12
-		},
-		"social": {
-			background: "#3a5a97",
-			foreground: "#fff",
-			size: 12
-		},
-		"industrial": {
-			background: "#434A52",
-			foreground: "#C2F200",
-			size: 12
-		}
-	},
-	stylesheet: ""
-};
-app.flags = {
-	dimensions: {
-		regex: /^(\d+)x(\d+)$/,
-		output: function (val) {
-			var exec = this.regex.exec(val);
-			return {
-				width: +exec[1],
-				height: +exec[2]
-			}
-		}
-	},
-	fluid: {
-		regex: /^([0-9%]+)x([0-9%]+)$/,
-		output: function (val) {
-			var exec = this.regex.exec(val);
-			return {
-				width: exec[1],
-				height: exec[2]
-			}
-		}
-	},
-	colors: {
-		regex: /#([0-9a-f]{3,})\:#([0-9a-f]{3,})/i,
-		output: function (val) {
-			var exec = this.regex.exec(val);
-			return {
-				size: settings.themes.gray.size,
-				foreground: "#" + exec[2],
-				background: "#" + exec[1]
-			}
-		}
-	},
-	text: {
-		regex: /text\:(.*)/,
-		output: function (val) {
-			return this.regex.exec(val)[1];
-		}
-	},
-	font: {
-		regex: /font\:(.*)/,
-		output: function (val) {
-			return this.regex.exec(val)[1];
-		}
-	},
-	auto: {
-		regex: /^auto$/
-	},
-	literal: {
-		regex: /^literal$/
-	}
-}
-for (var flag in app.flags) {
-	if (!app.flags.hasOwnProperty(flag)) continue;
-	app.flags[flag].match = function (val) {
-		return val.match(this.regex)
-	}
-}
-app.add_theme = function (name, theme) {
-	name != null && theme != null && (settings.themes[name] = theme);
-	return app;
-};
-app.add_image = function (src, el) {
-	var node = selector(el);
-	if (node.length) {
-		for (var i = 0, l = node.length; i < l; i++) {
-			var img = document.createElement("img")
-			img.setAttribute("data-src", src);
-			node[i].appendChild(img);
-		}
-	}
-	return app;
-};
-app.run = function (o) {
-	var options = extend(settings, o),
-		images = [],
-		imageNodes = [],
-		bgnodes = [];
-	if (typeof (options.images) == "string") {
-		imageNodes = selector(options.images);
-	} else if (window.NodeList && options.images instanceof window.NodeList) {
-		imageNodes = options.images;
-	} else if (window.Node && options.images instanceof window.Node) {
-		imageNodes = [options.images];
-	}
-	if (typeof (options.bgnodes) == "string") {
-		bgnodes = selector(options.bgnodes);
-	} else if (window.NodeList && options.elements instanceof window.NodeList) {
-		bgnodes = options.bgnodes;
-	} else if (window.Node && options.bgnodes instanceof window.Node) {
-		bgnodes = [options.bgnodes];
-	}
-	preempted = true;
-	for (i = 0, l = imageNodes.length; i < l; i++) images.push(imageNodes[i]);
-	var holdercss = document.getElementById("holderjs-style");
-	if (!holdercss) {
-		holdercss = document.createElement("style");
-		holdercss.setAttribute("id", "holderjs-style");
-		holdercss.type = "text/css";
-		document.getElementsByTagName("head")[0].appendChild(holdercss);
-	}
-	if (!options.nocss) {
-		if (holdercss.styleSheet) {
-			holdercss.styleSheet.cssText += options.stylesheet;
-		} else {
-			holdercss.appendChild(document.createTextNode(options.stylesheet));
-		}
-	}
-	var cssregex = new RegExp(options.domain + "\/(.*?)\"?\\)");
-	for (var l = bgnodes.length, i = 0; i < l; i++) {
-		var src = window.getComputedStyle(bgnodes[i], null)
-			.getPropertyValue("background-image");
-		var flags = src.match(cssregex);
-		var bgsrc = bgnodes[i].getAttribute("data-background-src");
-		if (flags) {
-			var holder = parse_flags(flags[1].split("/"), options);
-			if (holder) {
-				render("background", bgnodes[i], holder, src);
-			}
-		} else if (bgsrc != null) {
-			var holder = parse_flags(bgsrc.substr(bgsrc.lastIndexOf(options.domain) + options.domain.length + 1)
-				.split("/"), options);
-			if (holder) {
-				render("background", bgnodes[i], holder, src);
-			}
-		}
-	}
-	for (l = images.length, i = 0; i < l; i++) {
-		var attr_data_src, attr_src;
-		attr_src = attr_data_src = src = null;
-		try {
-			attr_src = images[i].getAttribute("src");
-			attr_datasrc = images[i].getAttribute("data-src");
-		} catch (e) {}
-		if (attr_datasrc == null && !! attr_src && attr_src.indexOf(options.domain) >= 0) {
-			src = attr_src;
-		} else if ( !! attr_datasrc && attr_datasrc.indexOf(options.domain) >= 0) {
-			src = attr_datasrc;
-		}
-		if (src) {
-			var holder = parse_flags(src.substr(src.lastIndexOf(options.domain) + options.domain.length + 1)
-				.split("/"), options);
-			if (holder) {
-				if (holder.fluid) {
-					render("fluid", images[i], holder, src)
-				} else {
-					render("image", images[i], holder, src);
-				}
-			}
-		}
-	}
-	return app;
-};
-contentLoaded(win, function () {
-	if (window.addEventListener) {
-		window.addEventListener("resize", fluid_update, false);
-		window.addEventListener("orientationchange", fluid_update, false);
-	} else {
-		window.attachEvent("onresize", fluid_update)
-	}
-	preempted || app.run();
-});
-if (typeof define === "function" && define.amd) {
-	define([], function () {
-		return app;
-	});
-}
+                var elHeight = $this.find('.js-marquee:first').height() + o.gap;
 
-})(Holder, window);
+                // adjust the animation speed according to the text length
+                // formula is to: (Height of the text node / Height of the main container) * speed;
+                o.duration = ((parseInt(elHeight, 10) + parseInt(containerHeight, 10)) / parseInt(containerHeight, 10)) * o.duration;
+
+            } else {
+                //Save the width of the each element so we can use it in animation
+                elWidth = $this.find('.js-marquee:first').width() + o.gap;
+
+                //container width
+                containerWidth = $this.width();
+
+                // adjust the animation speed according to the text length
+                // formula is to: (Width of the text node / Width of the main container) * speed;
+                o.duration = ((parseInt(elWidth, 10) + parseInt(containerWidth, 10)) / parseInt(containerWidth, 10)) * o.duration;
+            }
+
+            //if duplicated than reduce the speed
+            if (o.duplicated) {
+                o.duration = o.duration / 2;
+            }
+
+            if (o.allowCss3Support) {
+                var
+                elm = document.body || document.createElement('div'),
+                    animationName = 'marqueeAnimation-' + Math.floor(Math.random() * 10000000),
+                    domPrefixes = 'Webkit Moz O ms Khtml'.split(' '),
+                    animationString = 'animation',
+                    animationCss3Str = '',
+                    $styles = $('style'),
+                    keyframeString = '';
+
+                //Check css3 support
+                if (elm.style.animation) {
+                    keyframeString = '@keyframes ' + animationName + ' ';
+                    css3AnimationIsSupported = true;
+                }
+
+                if (css3AnimationIsSupported === false) {
+                    for (var i = 0; i < domPrefixes.length; i++) {
+                        if (elm.style[domPrefixes[i] + 'AnimationName'] !== undefined) {
+                            var prefix = '-' + domPrefixes[i].toLowerCase() + '-';
+                            animationString = prefix + animationString;
+                            playState = prefix + playState;
+                            keyframeString = '@' + prefix + 'keyframes ' + animationName + ' ';
+                            css3AnimationIsSupported = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (css3AnimationIsSupported) {
+                    animationCss3Str = animationName + ' ' + o.duration / 1000 + 's ' + o.delayBeforeStart / 1000 + 's infinite ' + o.css3easing;
+                    $this.data('css3AnimationIsSupported', true);
+                }
+            }
+
+            //if duplicated option is set to true than position the wrapper
+            if (o.duplicated) {
+                if (verticalDir) {
+                    $marqueeWrapper.css('margin-top', o.direction == 'up' ? elHeight : '-' + (elHeight*2) + 'px');
+                }
+                else {
+                    $marqueeWrapper.css('margin-left', o.direction == 'left' ? elWidth + 'px' : '-' + (elWidth*2) + 'px');
+                }
+                loopCount = 1;
+            }
+
+            //Animate recursive method
+            var animate = function () {
+
+                if(o.duplicated) {
+                    //When duplicated, the first loop will be scroll longer so double the duration
+                    if(loopCount === 1) {
+                        o.duration = o.duration * 2;
+                        //Adjust the css3 animation as well
+                        if(animationCss3Str) {
+                            animationCss3Str = animationName + ' ' + o.duration / 1000 + 's ' + o.delayBeforeStart / 1000 + 's ' + o.css3easing;
+                        }
+                        loopCount++;
+                    }
+                    //On 2nd loop things back to normal, normal duration for the rest of animations
+                    else if(loopCount === 2) {
+                        o.duration = o.duration / 2;
+                        //Adjust the css3 animation as well
+                        if(animationCss3Str) {
+                            animationName = animationName + '007';
+                            keyframeString = $.trim(keyframeString) + '007 ';
+                            animationCss3Str = animationName + ' ' + o.duration / 1000 + 's 0s infinite ' + o.css3easing;
+                        }
+                        loopCount++;
+                    }
+                }
+
+                if (verticalDir) {
+                    if (o.duplicated) {
+                        
+                        //Adjust the starting point of animation only when first loops finishes
+                        if(loopCount > 2) {
+                            $marqueeWrapper.css('margin-top', o.direction == 'up' ? 0 : '-' + elHeight + 'px');
+                        }
+
+                        animationCss = {
+                            'margin-top': o.direction == 'up' ? '-' + elHeight + 'px' : 0
+                        };
+                    } else {
+                        $marqueeWrapper.css('margin-top', o.direction == 'up' ? containerHeight + 'px' : '-' + elHeight + 'px');
+                        animationCss = {
+                            'margin-top': o.direction == 'up' ? '-' + ($marqueeWrapper.height()) + 'px' : containerHeight + 'px'
+                        };
+                    }
+                }
+                else {
+                    if (o.duplicated) {
+
+                        //Adjust the starting point of animation only when first loops finishes
+                        if(loopCount > 2) {
+                            $marqueeWrapper.css('margin-left', o.direction == 'left' ? 0 : '-' + elWidth + 'px');
+                        }
+
+                        animationCss = { 'margin-left': o.direction == 'left' ? '-' + elWidth + 'px' : 0 };
+
+                    }
+                    else {
+                        $marqueeWrapper.css('margin-left', o.direction == 'left' ? containerWidth + 'px' : '-' + elWidth + 'px');
+                        animationCss = { 'margin-left': o.direction == 'left' ? '-' + elWidth + 'px' : containerWidth + 'px' };
+                    }
+                }
+
+                //fire event
+                $this.trigger('beforeStarting');
+
+                //If css3 support is available than do it with css3, otherwise use jQuery as fallback
+                if (css3AnimationIsSupported) {
+                    //Add css3 animation to the element
+                    $marqueeWrapper.css(animationString, animationCss3Str);
+                    var keyframeCss = keyframeString + ' { 100%  ' + _objToString(animationCss) + '}';
+
+                    //Now add the keyframe animation to the head
+                    if ($styles.length !== 0) {
+                        //Bug fixed for jQuery 1.3.x - Instead of using .last(), use following
+                        $styles.filter(":last").append(keyframeCss);
+                    } else {
+                        $('head').append('<style>' + keyframeCss + '</style>');
+                    }
+
+                    //Animation iteration event
+                    _prefixedEvent($marqueeWrapper[0], "AnimationIteration", function () {
+                        $this.trigger('finished');
+                    });
+                    //Animation stopped
+                    _prefixedEvent($marqueeWrapper[0], "AnimationEnd", function () {
+                        animate();
+                        $this.trigger('finished');
+                    });
+
+                } else {
+                    //Start animating
+                    $marqueeWrapper.animate(animationCss, o.duration, o.easing, function () {
+                        //fire event
+                        $this.trigger('finished');
+                        //animate again
+                        if (o.pauseOnCycle) {
+                            _startAnimationWithDelay();
+                        } else {
+                            animate();
+                        }
+                    });
+                }
+                //save the status
+                $this.data('runningStatus', 'resumed');
+            };
+
+            //bind pause and resume events
+            $this.bind('pause', methods.pause);
+            $this.bind('resume', methods.resume);
+
+            if (o.pauseOnHover) {
+                $this.bind('mouseenter mouseleave', methods.toggle);
+            }
+
+            //If css3 animation is supported than call animate method at once
+            if (css3AnimationIsSupported && o.allowCss3Support) {
+                animate();
+            } else {
+                //Starts the recursive method
+                _startAnimationWithDelay();
+            }
+
+        });
+    }; //End of Plugin
+
+    // Public: plugin defaults options
+    $.fn.marquee.defaults = {
+        //If you wish to always animate using jQuery
+        allowCss3Support: true,
+        //works when allowCss3Support is set to true - for full list see http://www.w3.org/TR/2013/WD-css3-transitions-20131119/#transition-timing-function
+        css3easing: 'linear',
+        //requires jQuery easing plugin. Default is 'linear'
+        easing: 'linear',
+        //pause time before the next animation turn in milliseconds
+        delayBeforeStart: 1000,
+        //'left', 'right', 'up' or 'down'
+        direction: 'left',
+        //true or false - should the marquee be duplicated to show an effect of continues flow
+        duplicated: false,
+        //speed in milliseconds of the marquee in milliseconds
+        duration: 5000,
+        //gap in pixels between the tickers
+        gap: 20,
+        //on cycle pause the marquee
+        pauseOnCycle: false,
+        //on hover pause the marquee - using jQuery plugin https://github.com/tobia/Pause
+        pauseOnHover: false
+    };
+})(jQuery);
 
 /*jslint white:false, onevar:true, undef:true, nomen:true, eqeqeq:true, plusplus:true, bitwise:true, regexp:true, newcap:true, immed:true, strict:false, browser:true */
 /*global jQuery:false, document:false */
@@ -3769,6 +3756,7 @@ if (typeof define === "function" && define.amd) {
                 $('.bs-docs-top').affix();
             }, 100);
         }
+        var $mq = $('.marquee').marquee();
         $('#formfield-form-widgets-series input.checkbox-widget').on('click', function () {
             var inputId = this.id;
             if (inputId === 'form-widgets-series-5') {

@@ -11,6 +11,7 @@
                 $('.bs-docs-top').affix();
             }, 100);
         }
+        var $mq = $('.marquee').marquee();
         $('#formfield-form-widgets-series input.checkbox-widget').on('click', function () {
             var inputId = this.id;
             if (inputId === 'form-widgets-series-5') {

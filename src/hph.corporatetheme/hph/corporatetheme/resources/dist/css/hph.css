@@ -14960,6 +14960,16 @@ fieldset[disabled] .searchButton.active
 {
     margin-top: 4px;
 }
+.app-tickerbar
+{
+    padding: 20px;
+}
+.app-marquee
+{
+    overflow: hidden;
+
+    border: 1px solid red;
+}
 .app-header-content
 {
     border-top: 5px solid #036;

@@ -26,9 +26,37 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-8">
-                    <tal:block tal:repeat="item view/userrecords">
-                        <pre tal:content="item" />
-                    </tal:block>
+                    <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                        b_size python:int(request.get('b_size', 20));
+                        b_start python:int(request.get('b_start', 0));
+                        results view/userrecords;
+                        batch python:Batch(results, b_size, b_start);">
+                        <article class="app-contentlisting" tal:repeat="item batch">
+                            <div class="app-list-item">
+                                <div class="row">
+                                    <div class="col-xs-1">
+                                        <small class="text-muted" tal:content="repeat/item/number" />
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p class="text-muted" tal:content="item/email" />
+                                        <p class="text-discreet">
+                                            <tal:item tal:repeat="group item/groups">
+                                                <span tal:replace="group" />
+                                            </tal:item>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <p tal:content="item/fullname" />
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <span tal:replace="item/id" />
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                        </article>
+                        <div metal:use-macro="context/batch_macros/macros/navigation" />
+                    </div>
                 </div>
                 <div class="col-xs-12 col-sm-4">
                     <div class="panel panel-default">
@@ -43,17 +71,6 @@
                     </div>
                 </div>
             </div>
-            <tal:block tal:condition="context/importable">
-            <pre tal:content="context/importable" />
-            <table class="table" tal:define="records context/importable">
-                <tbody tal:define="items records/APIData">
-                    <pre tal:content="items" />
-                    <tr tal:repeat="item items">
-                        <td tal:content="item" />
-                    </tr>
-                </tbody>
-            </table>
-            </tal:block>
         </section>
     </div>
 

@@ -47,11 +47,14 @@ class View(grok.View):
         records = []
         if data is not None:
             for item in data:
-                user = {}
-                user['id'] = item['ID']
-                user['email'] = item['EMail']
-                user['groups'] = self.construct_group_list(item)
-                records.append(user)
+                userid = item['EMail']
+                if userid:
+                    user = {}
+                    user['id'] = item['ID']
+                    user['email'] = userid
+                    user['fullname'] = item['VollerName']
+                    user['groups'] = self.construct_group_list(item)
+                    records.append(user)
         return records
 
     def construct_group_list(self, item):
@@ -61,7 +64,7 @@ class View(grok.View):
             stored_value = item[key]
             if stored_value is True:
                 groupname = mapper[key]
-                groups.insert(groupname)
+                groups.append(groupname)
         return groups
 
 

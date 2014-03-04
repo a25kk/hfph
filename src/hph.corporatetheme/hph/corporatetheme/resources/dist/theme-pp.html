@@ -176,12 +176,12 @@
     </ul>
 </nav>
     </header><!-- /app-header -->
-          <div class="container">
-        <div class="breadcrumb app-breadcrumbs app-tile dim-in">
-            <div id="breadcrumbs">
-            </div>
+      <div class="container">
+    <div class="breadcrumb app-breadcrumbs app-tile dim-in">
+        <div id="breadcrumbs">
         </div>
     </div>
+</div>
 
     <div class="container app-main" id="app-main" role="main">
           <main class="app-tile app-content" id="xportal-column-content">
@@ -217,6 +217,12 @@
   </div>
 </footer> <!-- /footer -->
 
+    <script src="../bower_components/jquery/jquery.js"></script>
+<script src="../bower_components/modernizr/modernizr.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="../bower_components/holderjs/holder.js"></script>
+<script src="../js/application.js"></script>
+    
     <div class="app-js-slot">
         <script type="text/javascript">
   WebFontConfig = {
@@ -232,6 +238,21 @@
     s.parentNode.insertBefore(wf, s);
   })();
 </script>
+        <!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://admin.kreativkombinat.de/piwik/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "94"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
     </div>
 
   </body>

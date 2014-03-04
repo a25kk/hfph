@@ -1,15 +1,14 @@
-<div id="tickerbar"
-    class="navbar navbar-static-top"
+<div class="navbar app-tickerbar" id="app-tickerbar"
     tal:condition="viewlet/available"
     tal:define="portal_url context/portal_url">
-    <div class="navbar-inner"
-        id="bulletin-ticker"
+    <div class="app-ticker"
+        id="app-ticker"
         data-appui="tickerfeed"
         data-appui-placeholder="#bulletins"
         tal:attributes="data-appui-source python:portal_url + '/schwarzes-brett/@@bulletins'">
         <div id="bulletins" class="container"
             tal:define="items viewlet/active_bulletins">
-            <p><strong><i class="icon-warning-sign icon-large"></i>
+            <p><strong><i class="fa fa-warning-sign fa-lg"></i>
                 Wichtiger Hinweis:</strong>
                 <tal:block tal:repeat="item items">
                 <span id="bulletin">

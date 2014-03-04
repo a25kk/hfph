@@ -1,10 +1,8 @@
 import DateTime
 from five import grok
-from Acquisition import aq_inner
+from plone import api
 from zope.interface import Interface
 from zope.component import getMultiAdapter
-
-from Products.CMFCore.utils import getToolByName
 
 from plone.app.layout.viewlets.interfaces import IPortalFooter
 
@@ -24,8 +22,7 @@ class TickerViewlet(grok.Viewlet):
         self.available = len(self.active_bulletins()) > 0
 
     def active_bulletins(self):
-        context = aq_inner(self.context)
-        catalog = getToolByName(context, 'portal_catalog')
+        catalog = api.portal.get_tool(name='portal_catalog')
         end = DateTime.DateTime() + 0.1
         start = DateTime.DateTime() - 2
         date_range_query = {'query': (start, end), 'range': 'min: max'}
