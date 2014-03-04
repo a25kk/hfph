@@ -46,10 +46,23 @@ class View(grok.View):
         data = import_data['APIData']
         records = []
         if data is not None:
-            mapper = api_group_mapper()
             for item in data:
-                item = {}
+                user = {}
+                user['id'] = item['id']
+                user['email'] = item['email']
+                user['groups'] = self.contruct_group_list(item)
+                records.append(user)
         return records
+
+    def contruct_group_list(self, item):
+        mapper = api_group_mapper()
+        groups = list()
+        for key in mapper.keys():
+            stored_value = item[key]
+            if stored_value is True:
+                groupname = mapper[key]
+                groups.insert(groupname)
+        return groups
 
 
 class UpdateRecords(grok.View):
