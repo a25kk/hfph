@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2014-03-02 20:29+0000\n"
-"PO-Revision-Date: 2014-03-03 09:30+0100\n"
+"PO-Revision-Date: 2014-03-03 17:35+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -102,7 +102,7 @@ msgstr "Münchner Philosophische Studien"
 
 #: ../publication.py:26 ../vocabulary.py:33
 msgid "Philosophy"
-msgstr "Philosophie"
+msgstr "Grundkurs Philosophie"
 
 #: ../publication.py:35
 msgid "Philosophy and Leadership"
@@ -138,7 +138,7 @@ msgstr "Reihenauswahl"
 
 #: ../publication.py:25 ../vocabulary.py:32
 msgid "Solidarity"
-msgstr "Solidarität"
+msgstr "Fragen einer neuen Weltkultur"
 
 #: ../publication.py:136
 msgid "Summary"
@@ -154,7 +154,7 @@ msgstr ""
 
 #: ../publication.py:29 ../vocabulary.py:36
 msgid "Theology"
-msgstr "Theologie"
+msgstr "Theologie und Philosophie"
 
 #: ../publication.py:128
 msgid "Third Party Project Display"
