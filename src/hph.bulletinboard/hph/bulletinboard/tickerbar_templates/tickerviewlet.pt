@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-xs-2">
                 <div class="app-ticker-title">
-                    <i class="fa fa-exclamation-triangle fa-lg"></i>
+                    <i class="fa fa-exclamation-triangle"></i>
                     Wichtiger Hinweis:
                 </div>
             </div>
@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="col-xs-1">
-                <a class="btn btn-default btn-sm" tal:attributes="href python:portal_url + '/schwarzes-brett'">
+                <a class="btn btn-default btn-xs" tal:attributes="href python:portal_url + '/schwarzes-brett'">
                     mehr&hellip;</a>
             </div>
         </div>
