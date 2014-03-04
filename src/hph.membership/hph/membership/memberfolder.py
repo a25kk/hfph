@@ -41,14 +41,16 @@ class View(grok.View):
         return groups
 
     def userrecords(self):
-        context = aq_inenr(self.context)
-        data = getattr(context, 'importable', None)
+        context = aq_inner(self.context)
+        import_data = getattr(context, 'importable', None)
+        data = import_data['APIData']
         records = []
         if data is not None:
             mapper = api_group_mapper()
             for item in data:
                 item = {}
         return records
+
 
 class UpdateRecords(grok.View):
     grok.context(IMemberFolder)

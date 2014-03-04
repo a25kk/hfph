@@ -9,7 +9,7 @@ from Products.PluggableAuthService.interfaces.events import IUserLoggedInEvent
 logger = logging.getLogger(__name__)
 
 
-@grok.subscribe(IUserLoggedInEvent)
+#@grok.subscribe(IUserLoggedInEvent)
 def logged_in_handler(event):
     """
     Listen to the login event and perform a redirect to the users
