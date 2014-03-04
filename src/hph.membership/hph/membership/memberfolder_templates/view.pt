@@ -24,14 +24,23 @@
                 <p>You should have been redirected to your personal workspace</p>
                 <p>If this error persists please contact the site administrator</p>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Available Groups
+            <div class="row">
+                <div class="col-xs-12 col-sm-8">
+                    <tal:block tal:repeat="item view/userrecords">
+                        <pre tal:content="item" />
+                    </tal:block>
                 </div>
-                <div class="panel-body">
-                    <p tal:repeat="group view/usergroups">
-                        <strong tal:content="group" />
-                    </p>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Available Groups
+                        </div>
+                        <div class="panel-body">
+                            <p tal:repeat="group view/usergroups">
+                                <strong tal:content="group" />
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <tal:block tal:condition="context/importable">

@@ -48,13 +48,13 @@ class View(grok.View):
         if data is not None:
             for item in data:
                 user = {}
-                user['id'] = item['id']
-                user['email'] = item['email']
-                user['groups'] = self.contruct_group_list(item)
+                user['id'] = item['ID']
+                user['email'] = item['EMail']
+                user['groups'] = self.construct_group_list(item)
                 records.append(user)
         return records
 
-    def contruct_group_list(self, item):
+    def construct_group_list(self, item):
         mapper = api_group_mapper()
         groups = list()
         for key in mapper.keys():
