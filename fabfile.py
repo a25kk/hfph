@@ -123,20 +123,3 @@ def get_data():
 @roles('production')
 def server_status():
     server.status.status()
-
-
-@task
-@roles('production')
-def bootstrap():
-    """ Bootstrap server and setup the webserver automagically """
-    setup.install_system_libs()
-    #setup.set_hostname()
-    setup.configure_fs()
-    setup.set_project_user_and_group('www', 'www')
-    setup.configure_egg_cache()
-    with cd('/opt'):
-        setup.install_python()
-        setup.generate_virtualenv(sitename='webserver')
-    with cd('/opt/webserver'):
-        setup.install_webserver()
-    setup.setup_webserver_autostart()
