@@ -56,7 +56,6 @@ class MemberTool(grok.GlobalUtility):
         base_url = self._make_base_query()
         url = '{0}/{1}'.format(base_url, query_type)
         params = kwargs.iteritems()
-        import pdb; pdb.set_trace( )
         with contextlib.closing(requests.get(url), timeout=timeout) as response:
             r = response
             sc = r.status_code
@@ -77,3 +76,14 @@ class MemberTool(grok.GlobalUtility):
         key_base = 'hph.membership.interfaces.IHPHMembershipSettings.api_'
         key = key_base + token
         return api.portal.get_registry_record(key)
+
+
+def api_group_mapper():
+    map = {
+        'IstGasthoererIn': 'guest',
+        'IstDozent': 'lecturer',
+        'IstStudent': 'student',
+        'IstAlumnus': 'alumni',
+        'IstMitgliedProPhilosophia': 'prophil',
+    }
+    return map

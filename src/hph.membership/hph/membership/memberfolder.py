@@ -1,5 +1,6 @@
 from Acquisition import aq_inner
 from five import grok
+from plone import api
 from zope import schema
 from zope.component import getUtility
 from zope.lifecycleevent import modified
@@ -9,6 +10,7 @@ from plone.dexterity.content import Container
 from plone.namedfile.interfaces import IImageScaleTraversable
 from Products.statusmessages.interfaces import IStatusMessage
 
+from hph.membership.tool import api_group_mapper
 from hph.membership.tool import IHPHMemberTool
 
 from hph.membership import MessageFactory as _
@@ -34,6 +36,19 @@ class View(grok.View):
     grok.require('zope2.View')
     grok.name('view')
 
+    def usergroups(self):
+        groups = api.group.get_groups()
+        return groups
+
+    def userrecords(self):
+        context = aq_inenr(self.context)
+        data = getattr(context, 'importable', None)
+        records = []
+        if data is not None:
+            mapper = api_group_mapper()
+            for item in data:
+                item = {}
+        return records
 
 class UpdateRecords(grok.View):
     grok.context(IMemberFolder)

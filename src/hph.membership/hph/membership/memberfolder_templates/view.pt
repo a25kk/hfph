@@ -24,6 +24,16 @@
                 <p>You should have been redirected to your personal workspace</p>
                 <p>If this error persists please contact the site administrator</p>
             </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Available Groups
+                </div>
+                <div class="panel-body">
+                    <p tal:repeat="group view/usergroups">
+                        <strong tal:content="group" />
+                    </p>
+                </div>
+            </div>
             <tal:block tal:condition="context/importable">
             <pre tal:content="context/importable" />
             <table class="table" tal:define="records context/importable">
