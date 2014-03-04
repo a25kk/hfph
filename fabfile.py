@@ -7,6 +7,7 @@ from fabric.api import roles
 from ade25.fabfiles import server
 from ade25.fabfiles import project
 
+from ade25.fabfiles.server import controls
 from ade25.fabfiles.server import setup
 
 env.use_ssh_config = True
@@ -26,6 +27,43 @@ env.roledefs = {
     'production': ['hph'],
     'staging': ['z9']
 }
+
+
+@task
+@roles('production')
+def restart():
+    """ Restart all """
+    with cd(env.webserver):
+        run('nice bin/supervisorctl restart all')
+
+
+@task
+@roles('production')
+def restart_nginx():
+    """ Restart Nginx """
+    controls.restart_nginx()
+
+
+@task
+@roles('production')
+def restart_varnish():
+    """ Restart Varnish """
+    controls.restart_varnish()
+
+
+@task
+@roles('production')
+def restart_haproxy():
+    """ Restart HAProxy """
+    controls.restart_haproxy()
+
+
+@task
+@roles('production')
+def ctl(*cmd):
+    """Runs an arbitrary supervisorctl command."""
+    with cd(env.webserver):
+        run('nice bin/supervisorctl ' + ' '.join(cmd))
 
 
 @task

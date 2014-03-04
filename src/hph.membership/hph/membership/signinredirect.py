@@ -1,8 +1,12 @@
+import logging
 from five import grok
 from plone import api
 
+from ZODB.POSException import ConflictError
 from plone.uuid.interfaces import IUUID
 from Products.PluggableAuthService.interfaces.events import IUserLoggedInEvent
+
+logger = logging.getLogger(__name__)
 
 
 @grok.subscribe(IUserLoggedInEvent)
@@ -22,7 +26,7 @@ def logged_in_handler(event):
     if not request:
         return False
     try:
-        target = portal.unrestrictedTraverse(CUSTOM_USER_FOLDERS)
+        request.response.redirect(ws_url)
     except ConflictError:
         # Transaction retries must be
         # always handled specially in exception handlers
