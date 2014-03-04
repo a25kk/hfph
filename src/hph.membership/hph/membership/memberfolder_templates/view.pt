@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="panel panel-primary">
+                    <div class="panel panel-default">
                         <div class="panel-heading">
                             User Records
                         </div>
@@ -74,6 +74,9 @@
                             <p>Available Userrecords for import:
                                 <strong tal:content="view/records_idx" />
                             </p>
+                            <a class="btn btn-default"
+                                tal:attributes="href string:${context/absolute_url}/@@create-user-records">
+                                Create user records now</a>
                         </div>
                     </div>
                     <div class="panel panel-default">
