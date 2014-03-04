@@ -10,12 +10,14 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-
-    <div tal:content="context/Title">
-    	<h3>Willkommen im neuen Login-Bereich der Hochschule für Philosophie München</h3>
-    	<p>Im Laufe der nächsten Tage werden Sie per E-Mail über Ihren neuen Benutzernamen informiert und erhalten die Möglichkeit, Ihr Passwort neu zu setzen.</p> 
-    	<p>Danach können Sie sich in Ihrem geschützten Bereich genauer umsehen.</p>
-    	<p>Ihre Hochschule für Philosophie</p>
+    <div class="tile-content">
+    
+        <section id="content-core">
+    	   <h3>Willkommen im neuen Login-Bereich der Hochschule für Philosophie München</h3>
+    	   <p>Im Laufe der nächsten Tage werden Sie per E-Mail über Ihren neuen Benutzernamen informiert und erhalten die Möglichkeit, Ihr Passwort neu zu setzen.</p> 
+    	   <p>Danach können Sie sich in Ihrem geschützten Bereich genauer umsehen.</p>
+    	   <p>Ihre Hochschule für Philosophie</p>
+        </section>
     </div>
 
   </metal:content-core>

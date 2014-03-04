@@ -13,6 +13,11 @@
     <theme href="dist/signin.html" css:if-content="body.template-logged_out" />
     <theme href="dist/signin.html" css:if-content="body.template-login_failed" />
     <theme href="dist/signin.html" css:if-content="body.template-mail_password_form" />
+    <theme href="dist/signin.html" css:if-content="body.template-mail_password_response" />
+    <theme href="dist/signin.html" css:if-content="body.template-pwreset_form" />
+    <theme href="dist/signin.html" css:if-content="body.template-pwreset_finish" />
+
+    <!-- Project specific theme files -->
     <theme href="dist/theme-igp.html" css:if-content="body.subsection-institute-gesellschaftspolitik" />
     <theme href="dist/theme-pp.html" css:if-content="body.section-pro-philosophia" />
     
@@ -136,6 +141,15 @@
         <replace css:content-children="#content"
                 css:theme-children="#app-signin-content"
                 css:if-content="body.template-mail_password_form" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-mail_password_response" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-pwreset_form" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-pwreset_finish" />
 
         <rules css:if-content="body.portaltype-hph-sitecontent-mainsection">
             <replace css:content-children="#app-content" 
