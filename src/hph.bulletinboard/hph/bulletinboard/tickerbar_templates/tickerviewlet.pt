@@ -1,34 +1,3 @@
-<div class="navbar app-tickerbar" id="app-tickerbar"
-    tal:condition="viewlet/available"
-    tal:define="portal_url context/portal_url">
-    <div class="app-ticker"
-        id="app-ticker"
-        data-appui="tickerfeed"
-        data-appui-placeholder="#bulletins"
-        tal:attributes="data-appui-source python:portal_url + '/schwarzes-brett/@@bulletins'">
-        <div id="bulletins" class="container"
-            tal:define="items viewlet/active_bulletins">
-            <p><strong><i class="fa fa-warning-sign fa-lg"></i>
-                Wichtiger Hinweis:</strong>
-                <tal:block tal:repeat="item items">
-                <span id="bulletin">
-                        <span tal:replace="item/Title" />
-                </span>
-                </tal:block>
-            <a href=""
-                tal:attributes="href python:portal_url + '/schwarzes-brett'">
-                mehr&hellip;</a>
-            </p>
-        </div>
-        <div id="ticker-tabs">
-            <tal:tabnav tal:repeat="tab viewlet/active_bulletins">
-                <a href="#"
-                    tal:define="tab_id tab/getId;"
-                    tal:attributes="href python:'#' + tab_id"></a>
-            </tal:tabnav>
-        </div>
-    </div>
-</div>
 <div class="container app-tickerbar" id="app-tickerbar"
     tal:condition="viewlet/available"
     tal:define="portal_url context/portal_url">

@@ -14967,13 +14967,11 @@ fieldset[disabled] .searchButton.active
 .app-ticker .app-ticker-title
 {
     color: #036;
-    border-bottom: 4px solid #fc3;
+    border-right: 4px solid #fc3;
 }
 .app-marquee
 {
     overflow: hidden;
-
-    border: 1px solid red;
 }
 .app-header-content
 {
