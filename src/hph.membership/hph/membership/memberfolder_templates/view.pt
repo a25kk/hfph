@@ -24,6 +24,15 @@
                 <p>You should have been redirected to your personal workspace</p>
                 <p>If this error persists please contact the site administrator</p>
             </div>
+            <pre tal:content="context/importable" />
+            <table class="table" tal:define="records context/importable">
+                <tbody tal:define="items records/APIData">
+                    <pre tal:content="items" />
+                    <tr tal:repeat="item items">
+                        <td tal:content="item" />
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </div>
 

@@ -13,9 +13,9 @@ def logged_in_handler(event):
     """
     user = event.object
     portal = api.portal.get()
-    memberfolder = api.content.get(path='/user')
+    memberfolder = api.content.get(path='/ws')
     mfuid = api.content.get_uuid(obj=memberfolder)
-    uuid = user.getProperty('workspace', memberfolder_uid)
+    uuid = user.getProperty('workspace', mfuid)
     workspace = api.content.get(UID=uuid)
     ws_url = workspace.absolute_url()
     request = getattr(portal, "REQUEST", None)
