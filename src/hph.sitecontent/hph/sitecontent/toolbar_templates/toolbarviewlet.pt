@@ -1,5 +1,6 @@
 <div class="navbar navbar-inverse navbar-fixed-top app-toolbar" id="app-toolbar"
     tal:condition="not:viewlet/anonymous" i18n:domain="plone">
+    <div class="container-fluid">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-toolbar-collapse">
           <span class="sr-only">Toggle navigation</span>
@@ -60,6 +61,6 @@
               </ul>
             </li>
         </ul>
-
+    </div>
     </div>
 </div>
