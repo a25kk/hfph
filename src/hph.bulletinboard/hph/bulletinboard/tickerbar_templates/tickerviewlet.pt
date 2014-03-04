@@ -29,3 +29,32 @@
         </div>
     </div>
 </div>
+<div class="container app-tickerbar" id="app-tickerbar"
+    tal:condition="viewlet/available"
+    tal:define="portal_url context/portal_url">
+    <div class="app-tile app-ticker">
+        <div class="row">
+            <div class="col-xs-2">
+                <div class="app-ticker-title">
+                    <i class="fa fa-exclamation-triangle fa-lg"></i>
+                    Wichtiger Hinweis:
+                </div>
+            </div>
+            <div class="col-xs-9">
+                <div class="marquee app-marquee"
+                    data-duplicated="true"
+                    tal:define="items viewlet/active_bulletins">
+                    <tal:block tal:repeat="item items">
+                        <span class="bulletin">
+                            <span tal:replace="item/Title" />
+                        </span>
+                    </tal:block>
+                </div>
+            </div>
+            <div class="col-xs-1">
+                <a class="btn btn-default btn-sm" tal:attributes="href python:portal_url + '/schwarzes-brett'">
+                    mehr&hellip;</a>
+            </div>
+        </div>
+    </div>
+</div>

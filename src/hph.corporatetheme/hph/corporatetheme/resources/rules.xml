@@ -111,6 +111,11 @@
         <replace css:content-children="#portal-subsubnavigation"
             css:theme-children="#app-subnavigation" />
 
+        <drop css:theme="#app-tickerbar"
+            css:if-not-content="#app-tickerbar" />
+        <replace css:theme="#app-tickerbar"
+            css:content="#app-tickerbar"
+            css:if-content="#app-tickerbar" />
 
         <!-- Breadcrumbs -->
         <replace css:content-children='#portal-breadcrumbs'

@@ -63,13 +63,16 @@ body {
     }
 }
 
-.app-tickerbar {
-    padding: @line-height-computed;
+.app-ticker {
+    padding: ceil((@line-height-computed / 2));
+    .app-ticker-title {
+        color: @app-blue;
+        border-bottom: 4px solid @app-yellow;
+    }
 }
 
 .app-marquee {
     overflow: hidden;
-    border: 1px solid red;
 }
 
 // Actionbar including searchbox and meta navigation

@@ -14960,9 +14960,14 @@ fieldset[disabled] .searchButton.active
 {
     margin-top: 4px;
 }
-.app-tickerbar
+.app-ticker
 {
-    padding: 20px;
+    padding: 10px;
+}
+.app-ticker .app-ticker-title
+{
+    color: #036;
+    border-bottom: 4px solid #fc3;
 }
 .app-marquee
 {
