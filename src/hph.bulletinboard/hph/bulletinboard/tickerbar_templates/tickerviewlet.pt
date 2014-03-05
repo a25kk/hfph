@@ -3,13 +3,13 @@
     tal:define="portal_url context/portal_url">
     <div class="app-tile app-ticker">
         <div class="row">
-            <div class="col-xs-2">
+            <div class="col-xs-12 col-sm-2">
                 <div class="app-ticker-title">
                     <i class="fa fa-exclamation-triangle"></i>
                     Wichtiger Hinweis:
                 </div>
             </div>
-            <div class="col-xs-9">
+            <div class="col-xs-12 col-sm-9">
                 <div class="marquee app-marquee"
                     data-duplicated="true"
                     tal:define="items viewlet/active_bulletins">
@@ -20,7 +20,7 @@
                     </tal:block>
                 </div>
             </div>
-            <div class="col-xs-1">
+            <div class="col-xs-12 col-sm-1">
                 <a class="btn btn-default btn-xs" tal:attributes="href python:portal_url + '/schwarzes-brett'">
                     mehr&hellip;</a>
             </div>
