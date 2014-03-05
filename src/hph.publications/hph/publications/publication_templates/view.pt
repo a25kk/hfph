@@ -13,10 +13,9 @@
     <article class="app-page" id="publication-view">
       <header class="page-header">
         <p class="muted">
-          <span tal:replace="context/authorOne" />
-          <span tal:condition="context/authorTwo">,
-            <span tal:replace="context/authorTwo" /></span>
-          <span tal:condition="context/authorThree">,
+            <span tal:replace="context/authorOne" /><span tal:condition="context/authorTwo">,
+                <span tal:replace="context/authorTwo" />
+            </span><span tal:condition="context/authorThree">,
             <span tal:replace="context/authorThree" /></span>
           <span tal:condition="context/authorPlus">u.a.</span>
           <span tal:condition="context/editor">(Hrsg.)</span>:

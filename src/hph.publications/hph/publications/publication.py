@@ -94,7 +94,7 @@ class IPublication(form.Schema, IImageScaleTraversable):
             title=_(u"Series Selection"),
             vocabulary=series,
         ),
-        required=True,
+        required=False,
     )
     form.widget(thirdPartyProject=CheckBoxFieldWidget)
     thirdPartyProject = schema.Set(
