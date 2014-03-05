@@ -4,7 +4,11 @@ import contextlib
 import smtplib
 from five import grok
 from plone import api
+
+from zope.component import getUtility
 from zope.interface import Interface
+
+from plone.uuid.interfaces import IUUIDGenerator
 
 DEFAULT_SERVICE_URI = 'getAllUsers'
 DEFAULT_SERVICE_TIMEOUT = socket.getdefaulttimeout()
@@ -12,6 +16,17 @@ DEFAULT_SERVICE_TIMEOUT = socket.getdefaulttimeout()
 
 class IHPHMemberTool(Interface):
     """ Call processing and optional session data storage entrypoint """
+
+    def create_user(context):
+        """ Create plone user records
+
+        The caller is responsible for passing a valid data dictionary
+        containing the necessary user details.
+
+        Returns a user id
+
+        @param data:        predefined user data dictionary
+        """
 
     def get(context):
         """ Get user records from external api
@@ -31,6 +46,26 @@ class IHPHMemberTool(Interface):
 
 class MemberTool(grok.GlobalUtility):
     grok.provides(IHPHMemberTool)
+
+    def create_user(self, data):
+        generator = getUtility(IUUIDGenerator)
+        uuid = generator()
+        existing = api.user.get(username=data['email'])
+        if not existing:
+            user = api.user.create(
+                username=uuid,
+                email=data['email'],
+                properties=data['properties'],
+            )
+        else:
+            user = existing
+        user_id = user.getId()
+        for group in data['groups']:
+            api.group.add_user(
+                groupname=group,
+                username=user_id
+            )
+        return user_id
 
     def get(self,
             query_type=DEFAULT_SERVICE_URI,
@@ -55,7 +90,6 @@ class MemberTool(grok.GlobalUtility):
         info = {}
         base_url = self._make_base_query()
         url = '{0}/{1}'.format(base_url, query_type)
-        params = kwargs.iteritems()
         with contextlib.closing(requests.get(url), timeout=timeout) as response:
             r = response
             sc = r.status_code
