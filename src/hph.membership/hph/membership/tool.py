@@ -96,6 +96,6 @@ def user_group_mapper():
         'student': 'Studierende',
         'alumni': 'Alumni',
         'prophil': 'prophil',
-        'media': 'Mediangruppe',
+        'media': 'Mediengruppe',
     }
     return mapping
