@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2014-03-03 09:23+0000\n"
-"PO-Revision-Date: 2014-03-03 10:23+0100\n"
+"PO-Revision-Date: 2014-03-05 13:46+0100\n"
 "Last-Translator: Serge Davidov <sd@kreativkombinat.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -16,210 +16,206 @@ msgstr ""
 "Language: de\n"
 "X-Generator: Poedit 1.6.4\n"
 
-#: ./../vocabulary.py:15
+#: ../vocabulary.py:15
 msgid "1 hour"
 msgstr "1stündig"
 
-#: ./../vocabulary.py:16
+#: ../vocabulary.py:16
 msgid "2 hour"
 msgstr "2stündig"
 
-#: ./../vocabulary.py:17
+#: ../vocabulary.py:17
 msgid "3 hour"
 msgstr "3stündig"
 
-#: ./../profiles/default/types/hph.lectures.lecture.xml
+#: ../profiles/default/types/hph.lectures.lecture.xml
 msgid "A single course"
 msgstr "einzelne Lehrveranstaltung"
 
-#: ./../lecture.py:60
+#: ../lecture.py:60
 msgid "Additional Information"
 msgstr "Zusatzinformation"
 
-#: ./../lecture.py:76
+#: ../lecture.py:76
 msgid "Additional Lecturer"
 msgstr "zusammen mit:"
 
-#: ./../coursefolder_templates/view.pt:67
+#: ../coursefolder_templates/view.pt:67
 msgid "Additional Lecturer:"
 msgstr "zusammen mit:"
 
-#: ./../vocabulary.py:31
+#: ../vocabulary.py:31
 msgid "Advanced seminar"
 msgstr "Hauptseminar"
 
-#: ./../lecture.py:48
+#: ../lecture.py:48
 msgid "Attendance"
-msgstr ""
+msgstr "Teilnehmerzahl"
 
-#: ./../lecture.py:52
+#: ../lecture.py:52
 msgid "Attendance Required"
 msgstr "Anwesenheitspflicht"
 
-#: ./../vocabulary.py:48
+#: ../vocabulary.py:48
 msgid "BA"
 msgstr "BA"
 
-#: ./../lecture.py:56
+#: ../lecture.py:56
 msgid "Block Lecture"
 msgstr "Blockseminar"
 
-#: ./../vocabulary.py:32
+#: ../vocabulary.py:32
 msgid "Colloquium"
 msgstr "Kolloquium"
 
-#: ./../coursedetails.py:26
+#: ../coursedetails.py:26
 msgid "Course Aims"
 msgstr "Ziele"
 
-#: ./../lecture.py:91
+#: ../lecture.py:91
 msgid "Course Dates"
 msgstr "Termine"
 
-#: ./../coursedetails.py:15
+#: ../coursedetails.py:15
 msgid "Course Details"
 msgstr "Details"
 
-#: ./../lecture.py:86
+#: ../lecture.py:86
 msgid "Course Duration"
 msgstr "Dauer"
 
-#: ./../coursedetails.py:46
+#: ../coursedetails.py:46
 msgid "Course Literature"
 msgstr "Literatur"
 
-#: ./../coursedetails.py:30
+#: ../coursedetails.py:30
 msgid "Course Method"
 msgstr "Methode"
 
-#: ./../coursedetails.py:50
+#: ../coursedetails.py:50
 msgid "Course Notes"
 msgstr "Anmerkung der Kanzlerin"
 
-#: ./../coursedetails.py:34
+#: ../coursedetails.py:34
 msgid "Course Prerequirements"
 msgstr "Voraussetzungen"
 
-#: ./../coursedetails.py:38
+#: ../coursedetails.py:38
 msgid "Course Qualification"
 msgstr "Qualifikation"
 
-#: ./../lecture.py:100
+#: ../lecture.py:100
 msgid "Course Room"
-msgstr ""
+msgstr "Raum"
 
-#: ./../coursedetails.py:42
+#: ../coursedetails.py:42
 msgid "Course Target"
 msgstr "Zielgruppe"
 
-#: ./../coursedetails.py:22
+#: ../coursedetails.py:22
 msgid "Course Theme"
 msgstr "Thematik"
 
-#: ./../lecture.py:95
+#: ../lecture.py:95
 msgid "Course Time"
 msgstr "Uhrzeit"
 
-#: ./../lecture.py:80
+#: ../lecture.py:80
 msgid "Course Type"
 msgstr "Veranstaltungstyp"
 
-#: ./../profiles/default/types/hph.lectures.coursefolder.xml
+#: ../profiles/default/types/hph.lectures.coursefolder.xml
 msgid "CourseFolder"
 msgstr "Veranstaltungsordner"
 
-#: ./../coursefolder_templates/view.pt:76
+#: ../coursefolder_templates/view.pt:76
 msgid "Dates"
 msgstr "Termine"
 
-#: ./../coursemodules.py:18
+#: ../coursemodules.py:18
 msgid "Degree"
 msgstr "Abschluss"
 
-#: ./../lecture.py:109
+#: ../lecture.py:109
 msgid "Display Selection"
-msgstr ""
+msgstr "Auswahl"
 
-#: ./../coursemodules.py:25
+#: ../coursemodules.py:25
 msgid "Enter corresponding product detail value"
 msgstr "Tragen Sie hier den korrespondierenden Produktwert ein"
 
-#: ./../vocabulary.py:34
+#: ../vocabulary.py:34
 msgid "Exercise"
 msgstr "Übung"
 
-#: ./../vocabulary.py:33
+#: ../vocabulary.py:33
 msgid "Introductory seminar source"
 msgstr "Einführungsveranstaltung"
 
-#: ./../profiles/default/types/hph.lectures.lecture.xml
-#: ./../vocabulary.py:35
+#: ../profiles/default/types/hph.lectures.lecture.xml ../vocabulary.py:35
 msgid "Lecture"
 msgstr "Vorlesung"
 
-#: ./../coursefolder_templates/view.pt:24
-#: ./../lecture_templates/view.pt:19
+#: ../coursefolder_templates/view.pt:24 ../lecture_templates/view.pt:19
 msgid "Lectures"
 msgstr "Vorlesungen"
 
-#: ./../lecture.py:44
+#: ../lecture.py:44
 msgid "Lecure Number"
 msgstr "Vorlesungsnummer"
 
-#: ./../vocabulary.py:49
+#: ../vocabulary.py:49
 msgid "MA Ethics"
 msgstr "MAEthik"
 
-#: ./../vocabulary.py:50
+#: ../vocabulary.py:50
 msgid "MA kons"
 msgstr "MAkons"
 
-#: ./../vocabulary.py:52
+#: ../vocabulary.py:52
 msgid "Mag"
 msgstr "Mag"
 
-#: ./../profiles/default/types/hph.lectures.coursefolder.xml
+#: ../profiles/default/types/hph.lectures.coursefolder.xml
 msgid "Manage lectures"
 msgstr "Veranstaltungen verwalten"
 
-#: ./../coursemodules.py:24
+#: ../coursemodules.py:24
 msgid "Module Information"
 msgstr "Modulinformationen"
 
-#: ./../coursemodules.py:19
+#: ../coursemodules.py:19
 msgid "Please select module degree"
 msgstr "Bitte wählen Sie eine Modulgruppe aus"
 
-#: ./../lecture.py:66
+#: ../lecture.py:66
 msgid "Please select one or more lecturers for this course"
 msgstr "Bitte wählen Sie einen oder mehrere Lehrende für diesen Kurs aus."
 
-#: ./../lecture.py:81
+#: ../lecture.py:81
 msgid "Please select the course type."
 msgstr "Bitte wählen Sie den Veranstaltungstyp"
 
-#: ./../lecture.py:69
+#: ../lecture.py:69
 msgid "Related lecturer"
 msgstr "Lehrender"
 
-#: ./../lecture.py:36
+#: ../lecture.py:36
 msgid "Subtitle"
 msgstr "Subtitel"
 
-#: ./../lecture.py:107
+#: ../lecture.py:107
 msgid "Third Party Project Display"
-msgstr ""
+msgstr "Drittmittelprojekte"
 
-#: ./../lecture.py:40
+#: ../lecture.py:40
 msgid "Title"
 msgstr "Titel"
 
-#: ./../vocabulary.py:53
+#: ../vocabulary.py:53
 msgid "ZEP"
-msgstr ""
+msgstr "ZEP"
 
-#: ./../coursefolder_templates/view.pt:42
-#: ./../lecture_templates/view.pt:37
+#: ../coursefolder_templates/view.pt:42 ../lecture_templates/view.pt:37
 msgid "remove filter"
 msgstr "Filter entfernen"
-
