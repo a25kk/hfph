@@ -55,7 +55,9 @@
                     <span tal:content="pretty_duration" i18n:translate="">Duration</span>
                     <span tal:replace="context/courseTime" />
                 </p>
-                <p>Raum</p>
+                <p class="text-muted">
+                    <span i18n:translate="">Raum</span>
+                    <span tal:replace="context/courseRoom" />
                 <p class="text-muted">
                     <span i18n:translate="">Dates</span>
                     <span tal:replace="context/courseDates" />

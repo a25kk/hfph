@@ -106,12 +106,9 @@ class ILecture(form.Schema, IImageScaleTraversable):
         title=_(u"Course Year"),
         required=True,
     )
-    form.widget(courseRoom=TokenInputFieldWidget)
-    courseRoom = schema.List(
+    courseRoom = schema.TextLine(
         title=_(u"Course Room"),
         required=False,
-        value_type=schema.TextLine(),
-        default=[],
     )
     form.widget(thirdPartyProject=CheckBoxFieldWidget)
     thirdPartyProject = schema.Set(
