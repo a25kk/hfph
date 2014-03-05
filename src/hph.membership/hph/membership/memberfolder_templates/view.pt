@@ -75,7 +75,7 @@
                                 <strong tal:content="view/records_idx" />
                             </p>
                             <a class="btn btn-default"
-                                tal:attributes="href string:${context/absolute_url}/@@create-user-records">
+                                tal:attributes="href string:${context/absolute_url}/@@create-member-records">
                                 Create user records now</a>
                         </div>
                     </div>

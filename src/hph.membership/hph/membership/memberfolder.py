@@ -11,6 +11,7 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 from Products.statusmessages.interfaces import IStatusMessage
 
 from hph.membership.tool import api_group_mapper
+from hph.membership.tool import user_group_mapper
 from hph.membership.tool import IHPHMemberTool
 
 from hph.membership import MessageFactory as _
@@ -65,12 +66,14 @@ class View(grok.View):
         return records
 
     def construct_group_list(self, item):
-        mapper = api_group_mapper()
+        api_mapper = api_group_mapper()
+        group_mapper = user_group_mapper()
         groups = list()
-        for key in mapper.keys():
+        for key in api_mapper.keys():
             stored_value = item[key]
             if stored_value is True:
-                groupname = mapper[key]
+                api_groupname = api_mapper[key]
+                groupname = group_mapper[api_groupname]
                 groups.append(groupname)
         return groups
 
@@ -115,11 +118,11 @@ class CreateRecords(grok.View):
         records = self.userrecords()
         idx = 0
         imported = 0
-        for record in records:
+        for record in records[:5]:
             idx += 1
             properties = dict(
                 fullname=record['fullname'],
-                rid=record['id']
+                record_id=record['id']
             )
             user = api.user.create(
                 email=record['email'],
@@ -155,11 +158,13 @@ class CreateRecords(grok.View):
         return records
 
     def construct_group_list(self, item):
-        mapper = api_group_mapper()
+        api_mapper = api_group_mapper()
+        group_mapper = user_group_mapper()
         groups = list()
-        for key in mapper.keys():
+        for key in api_mapper.keys():
             stored_value = item[key]
             if stored_value is True:
-                groupname = mapper[key]
+                api_groupname = api_mapper[key]
+                groupname = group_mapper[api_groupname]
                 groups.append(groupname)
         return groups
