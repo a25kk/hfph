@@ -120,14 +120,15 @@ class CreateRecords(grok.View):
         imported = 0
         for record in records[:5]:
             idx += 1
-            properties = dict(
+            member_properties = dict(
                 fullname=record['fullname'],
-                record_id=record['id']
+                record_id=str(record['id'])
             )
             user = api.user.create(
                 email=record['email'],
-                properties=properties,
+                properties=member_properties,
             )
+            user.setMemberProperties(member_properties)
             imported += 1
             for group in record['groups']:
                 api.group.add_user(
