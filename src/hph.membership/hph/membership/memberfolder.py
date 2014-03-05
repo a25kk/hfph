@@ -128,7 +128,7 @@ class CreateRecords(grok.View):
                 email=record['email'],
                 properties=member_properties,
             )
-            user.setMemberProperties(member_properties)
+            user.setMemberProperties(mapping=member_properties)
             imported += 1
             for group in record['groups']:
                 api.group.add_user(
