@@ -12,7 +12,7 @@ from Products.statusmessages.interfaces import IStatusMessage
 
 from Products.CMFPlone.utils import safe_unicode
 
-from collective.emaillogin4.patches.pa_users.utils import uuid_userid_generator
+from plone.app.users.utils import uuid_userid_generator
 
 from hph.membership.tool import api_group_mapper
 from hph.membership.tool import user_group_mapper
@@ -40,6 +40,20 @@ class View(grok.View):
     grok.context(IMemberFolder)
     grok.require('zope2.View')
     grok.name('view')
+
+    def update(self):
+        self.has_users = len(self.get_all_members()) > 0
+
+    def get_all_members(self):
+        users = []
+        records = api.user.get_users()
+        for record in records:
+            data = {}
+            user = api.user.get(username=record.getId())
+            data['userid'] = user.getId()
+            data['email'] = user.getProperty('email')
+            users.append(data)
+        return users
 
     def records_idx(self):
         return len(self.userrecords())
@@ -122,7 +136,7 @@ class CreateRecords(grok.View):
         records = self.userrecords()
         idx = 0
         imported = 0
-        for record in records[:5]:
+        for record in records[5:10]:
             idx += 1
             new_id = uuid_userid_generator(record)
             user_email = (record['email']).lower()
