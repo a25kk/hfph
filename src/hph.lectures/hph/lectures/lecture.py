@@ -117,7 +117,7 @@ class ILecture(form.Schema, IImageScaleTraversable):
             title=_(u"Display Selection"),
             vocabulary=u'hph.sitecontent.thirdPartyProjects',
         ),
-        required=True,
+        required=False,
     )
 
 
