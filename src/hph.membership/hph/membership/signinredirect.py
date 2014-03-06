@@ -9,7 +9,7 @@ from Products.PluggableAuthService.interfaces.events import IUserLoggedInEvent
 logger = logging.getLogger(__name__)
 
 
-#@grok.subscribe(IUserLoggedInEvent)
+@grok.subscribe(IUserLoggedInEvent)
 def logged_in_handler(event):
     """
     Listen to the login event and perform a redirect to the users
@@ -18,15 +18,12 @@ def logged_in_handler(event):
     user = event.object
     portal = api.portal.get()
     memberfolder = portal['ws']
-    mfuid = api.content.get_uuid(obj=memberfolder)
-    uuid = user.getProperty('workspace', mfuid)
-    workspace = api.content.get(UID=uuid)
-    ws_url = workspace.absolute_url()
+    mf_url = memberfolder.absolute_url()
     request = getattr(portal, "REQUEST", None)
     if not request:
         return False
     try:
-        request.response.redirect(ws_url)
+        request.response.redirect(mf_url)
     except ConflictError:
         # Transaction retries must be
         # always handled specially in exception handlers
@@ -36,4 +33,4 @@ def logged_in_handler(event):
         # don't make it impossible to login to the site
         logger.exception(e)
         return False
-    return request.response.redirect(ws_url)
+    return request.response.redirect(mf_url)
