@@ -1,3 +1,4 @@
+import json
 from Acquisition import aq_inner
 from five import grok
 from plone import api
@@ -170,14 +171,16 @@ class UpdateRecords(grok.View):
             _(u"External records stored for import"),
             type='info')
         here_url = self.context.absolute_url()
-        next_url = '{0}?imported_records={1}'.format(here_url, len(new_records))
+        next_url = '{0}/@@user-manager?imported_records={1}'.format(
+            here_url, len(new_records))
         return self.request.response.redirect(next_url)
 
     def get_importable_records(self):
         context = aq_inner(self.context)
         tool = getUtility(IHPHMemberTool)
         records = tool.get()
-        setattr(context, 'importable', records)
+        import_data = json.dumps(records)
+        setattr(context, 'importable', import_data)
         modified(context)
         context.reindexObject(idxs='modified')
         return records
