@@ -20,7 +20,7 @@ class INewsEntry(form.Schema, IImageScaleTraversable):
         title=_(u"Preview Image"),
         description=_(u"Upload a preview image that will be used in news "
                       u"teasers."),
-        required=True,
+        required=False,
     )
     text = RichText(
         title=_(u"Main Text"),
