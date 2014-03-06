@@ -52,7 +52,12 @@ class View(grok.View):
     def workspace_url(self):
         context = aq_inner(self.context)
         here_url = context.absolute_url()
-        url = '{0}/@@workspace-missing'.format(here_url)
+        user = api.user.get_current()
+        userid = user.getId()
+        if userid in context.keys():
+            url = '{0}/{1}'.format(here_url, userid)
+        else:
+            url = '{0}/@@workspace-missing'.format(here_url)
         return url
 
     def usermanager_url(self):
@@ -195,7 +200,7 @@ class CreateRecords(grok.View):
         tool = getUtility(IHPHMemberTool)
         idx = 0
         imported = 0
-        for record in records[5:10]:
+        for record in records[10:15]:
             idx += 1
             props = dict(
                 fullname=safe_unicode(record['fullname']),
@@ -206,12 +211,12 @@ class CreateRecords(grok.View):
                 properties=props
             )
             user_id = tool.create_user(data)
-            imported += 1
             for group in record['groups']:
                 api.group.add_user(
                     groupname=group,
                     username=user_id
                 )
+            imported += 1
         return imported
 
     def userdata(self):
