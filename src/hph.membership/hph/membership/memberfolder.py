@@ -40,7 +40,23 @@ class View(grok.View):
     grok.name('view')
 
     def update(self):
+        self.available = self.has_view_permission()
         self.has_users = len(self.get_all_members()) > 0
+
+    def has_view_permission(self):
+        context = aq_inner(self.context)
+        admin_roles = ('Manager', 'Site Administrator', 'StaffMember')
+        is_adm = False
+        if not api.user.is_anonymous():
+            user = api.user.get_current()
+            userid = user.getId()
+            if userid is 'zope-admin':
+                is_adm = True
+            roles = api.user.get_roles(username=userid, obj=context)
+            for role in roles:
+                if role in admin_roles:
+                    is_adm = True
+        return is_adm
 
     def get_all_members(self):
         users = []
@@ -48,8 +64,19 @@ class View(grok.View):
         for record in records:
             data = {}
             user = api.user.get(username=record.getId())
-            data['userid'] = user.getId()
-            data['email'] = user.getProperty('email')
+            userid = user.getId()
+            email = user.getProperty('email')
+            groups = api.group.get_groups(username=userid)
+            user_groups = list()
+            for group in groups:
+                gid = group.getId()
+                if gid != 'AuthenticatedUsers':
+                    user_groups.append(gid)
+            data['userid'] = userid
+            data['email'] = email
+            data['name'] = user.getProperty('fullname', userid)
+            data['groups'] = user_groups
+            data['workspace'] = user.getProperty('workspace')
             users.append(data)
         return users
 
