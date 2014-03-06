@@ -30,34 +30,31 @@
                             </div>
                         </div>
                     </div>
-                    <tal:block  tal:condition="view/available">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                User Records
-                            </div>
-                            <div class="panel-body">
-                                <p>Available Userrecords for import:
-                                    <strong tal:content="view/records_idx" />
-                                </p>
-                                <a class="btn btn-default"
-                                    tal:attributes="href string:${context/absolute_url}/@@create-member-records">
-                                    Create user records now</a>
-                            </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            User Records
                         </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Available Groups
-                            </div>
-                            <div class="panel-body">
-                                <p tal:repeat="group view/usergroups">
-                                    <strong tal:content="group" />
-                                </p>
-                            </div>
+                        <div class="panel-body">
+                            <p>Available Userrecords for import:
+                                <strong tal:content="view/records_idx" />
+                            </p>
+                            <a class="btn btn-default"
+                                tal:attributes="href string:${context/absolute_url}/@@create-member-records">
+                                Create user records now</a>
                         </div>
-                    </tal:block>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Available Groups
+                        </div>
+                        <div class="panel-body">
+                            <p tal:repeat="group view/usergroups">
+                                <strong tal:content="group" />
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-xs-12 col-sm-8">
-                    <tal:block tal:condition="view/available">
                         <tal:users tal:condition="view/has_users">
                             <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                                              b_size python:int(request.get('b_size', 20));
@@ -90,12 +87,6 @@
                                 </table>
                             </div>
                         </tal:users>
-                    </tal:block>
-                    <div tal:condition="not:view/available">
-                        <p class="text-danger" i18n:translate="">
-                            You should have been redirected to you workspace - if this
-                            error persists please contact the site administrator</p>
-                    </div>
                 </div>
             </div>
         </section>

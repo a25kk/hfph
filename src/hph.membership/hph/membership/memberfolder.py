@@ -40,16 +40,25 @@ class View(grok.View):
     grok.name('view')
 
     def update(self):
-        self.has_users = len(self.get_all_members()) > 0
         self.available = self.has_view_permission()
         self.is_anon = api.user.is_anonymous()
+
+    def render(self):
         if self.is_anon and self.available is False:
             return self.request.response.redirect(self.workspace_url())
+        else:
+            return self.request.response.redirect(self.usermanager_url())
 
     def workspace_url(self):
         context = aq_inner(self.context)
         here_url = context.absolute_url()
         url = '{0}/@@workspace-missing'.format(here_url)
+        return url
+
+    def usermanager_url(self):
+        context = aq_inner(self.context)
+        here_url = context.absolute_url()
+        url = '{0}/@@user-manager'.format(here_url)
         return url
 
     def has_view_permission(self):
@@ -66,6 +75,21 @@ class View(grok.View):
                 if role in admin_roles:
                     is_adm = True
         return is_adm
+
+
+class WorkspaceMissing(grok.View):
+    grok.context(IMemberFolder)
+    grok.require('zope2.View')
+    grok.name('workspace-missing')
+
+
+class UserManager(grok.View):
+    grok.context(IMemberFolder)
+    grok.require('cmf.ManagePortal')
+    grok.name('user-manager')
+
+    def update(self):
+        self.has_users = len(self.get_all_members()) > 0
 
     def get_all_members(self):
         users = []
@@ -128,12 +152,6 @@ class View(grok.View):
                 groupname = group_mapper[api_groupname]
                 groups.append(groupname)
         return groups
-
-
-class WorkspaceMissing(grok.View):
-    grok.context(IMemberFolder)
-    grok.require('zope2.View')
-    grok.name('workspace-missing')
 
 
 class UpdateRecords(grok.View):
