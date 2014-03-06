@@ -192,32 +192,25 @@ class CreateRecords(grok.View):
 
     def create_records(self):
         records = self.userrecords()
+        tool = getUtility(IHPHMemberTool)
         idx = 0
         imported = 0
         for record in records[5:10]:
             idx += 1
-            new_id = uuid_userid_generator(record)
-            user_email = (record['email']).lower()
-            existing = api.user.get(username=user_email)
-            if not existing:
-                user = api.user.create(
-                    username=new_id,
-                    email=user_email.lower(),
-                )
-            else:
-                user = existing
-            member_properties = dict(
+            props = dict(
                 fullname=safe_unicode(record['fullname']),
-                record_id=str(record['id'])
+                record_id=str(record['id']),
             )
-            member = api.user.get(username=user.getId())
-            if member:
-                member.setMemberProperties(mapping=member_properties)
+            data = dict(
+                email=record['email'],
+                properties=props
+            )
+            user_id = tool.create_user(data)
             imported += 1
             for group in record['groups']:
                 api.group.add_user(
                     groupname=group,
-                    username=user.getId()
+                    username=user_id
                 )
         return imported
 
@@ -232,12 +225,13 @@ class CreateRecords(grok.View):
         if self.userdata() is not None:
             for item in self.userdata():
                 userid = item['EMail']
+                email = userid.lower()
                 group_list = self.construct_group_list(item)
                 if userid and len(group_list) > 0:
                     user = {}
                     user['id'] = item['ID']
-                    user['email'] = userid
-                    user['fullname'] = item['VollerName']
+                    user['email'] = email
+                    user['fullname'] = safe_unicode(item['VollerName'])
                     user['groups'] = group_list
                     records.append(user)
         return records

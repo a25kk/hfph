@@ -1,12 +1,13 @@
 import socket
 import requests
 import contextlib
-import smtplib
+
 from five import grok
 from plone import api
 
 from zope.component import getUtility
 from zope.interface import Interface
+from plone.keyring import django_random
 
 from plone.uuid.interfaces import IUUIDGenerator
 
@@ -48,23 +49,27 @@ class MemberTool(grok.GlobalUtility):
     grok.provides(IHPHMemberTool)
 
     def create_user(self, data):
+        registration = api.portal.get_tool(name='portal_registration')
+        pas = api.portal.get_tool(name='acl_users')
         generator = getUtility(IUUIDGenerator)
-        uuid = generator()
         existing = api.user.get(username=data['email'])
         if not existing:
-            user = api.user.create(
-                username=uuid,
-                email=data['email'],
-                properties=data['properties'],
+            user_id = generator()
+            password = django_random.get_random_string(8)
+            roles = ('Member', )
+            properties = data['properties']
+            properties['workspace'] = user_id
+            registration.addMember(
+                user_id,
+                password,
+                roles,
+                properties=properties
             )
+            pas.updateLoginName(user_id, data['email'])
+            user = api.user.get(username=user_id)
         else:
             user = existing
-        user_id = user.getId()
-        for group in data['groups']:
-            api.group.add_user(
-                groupname=group,
-                username=user_id
-            )
+            user_id = user.getId()
         return user_id
 
     def get(self,
