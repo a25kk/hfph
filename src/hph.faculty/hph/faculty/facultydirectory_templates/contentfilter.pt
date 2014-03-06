@@ -2,9 +2,6 @@
     i18n:domain="hph.faculty"
     tal:define="active_filter request/academicRole | nothing">
     <div class="app-box-header">
-        <h1 class="app-box-heading" i18n:translate="">
-            Teachers
-        </h1>
     </div>
     <div class="app-box-content">
         <ul class="nav nav-pills nav-stacked app-box-nav">

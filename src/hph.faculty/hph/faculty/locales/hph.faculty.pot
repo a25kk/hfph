@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-03-06 10:34+0000\n"
+"POT-Creation-Date: 2014-03-06 14:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,10 +23,6 @@ msgstr ""
 
 #: ./../profiles/default/types/hph.faculty.facultymember.xml
 msgid "A faculty staff member"
-msgstr ""
-
-#: ./../facultymember_templates/publications.pt:20
-msgid "Academic Role"
 msgstr ""
 
 #: ./../facultymember.py:42
@@ -97,8 +93,8 @@ msgstr ""
 msgid "Publication"
 msgstr ""
 
-#: ./../facultymember_templates/publications.pt:47
-#: ./../facultymember_templates/view.pt:47
+#: ./../facultymember_templates/publications.pt:44
+#: ./../facultymember_templates/view.pt:41
 msgid "Publications"
 msgstr ""
 
@@ -110,16 +106,11 @@ msgstr ""
 msgid "Street"
 msgstr ""
 
-#: ./../facultydirectory_templates/contentfilter.pt:5
-#: ./../facultymember_templates/view.pt:20
-msgid "Teachers"
-msgstr ""
-
 #: ./../vocabulary.py:17
 msgid "docent"
 msgstr ""
 
-#: ./../facultydirectory_templates/contentfilter.pt:24
+#: ./../facultydirectory_templates/contentfilter.pt:21
 msgid "remove filter"
 msgstr ""
 

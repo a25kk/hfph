@@ -17,9 +17,6 @@
 
                 <div class="app-box app-box-faculty">
                     <div class="app-box-header">
-                        <h1 class="app-box-heading" i18n:translate="">
-                            Teachers
-                        </h1>
                     </div>
                     <div class="app-box-content">
                         <ul class="nav nav-pills nav-stacked app-box-nav">
@@ -37,9 +34,6 @@
                 <div class="app-box app-box-faculty"
                     tal:condition="subcontents">
                     <div class="app-box-header">
-                        <h3 class="app-box-heading" tal:content="context/last_name">
-                            Additional Information
-                        </h3>
                     </div>
                     <div class="app-box-content">
                         <ul class="nav nav-pills nav-stacked app-box-nav">

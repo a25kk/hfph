@@ -17,9 +17,6 @@
 
                 <div class="app-box app-box-faculty">
                     <div class="app-box-header">
-                        <h1 class="app-box-heading" i18n:translate="">
-                            Academic Role
-                        </h1>
                     </div>
                     <div class="app-box-content">
                         <ul class="nav nav-pills nav-stacked app-box-nav">
