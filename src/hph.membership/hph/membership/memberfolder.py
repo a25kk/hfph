@@ -128,9 +128,9 @@ class UserManager(grok.View):
 
     def userdata(self):
         context = aq_inner(self.context)
-        import_data = getattr(context, 'importable', None)
-        data = import_data['APIData']
-        return data
+        stored_data = getattr(context, 'importable', None)
+        data = json.loads(stored_data)
+        return data['APIData']
 
     def userrecords(self):
         records = []
