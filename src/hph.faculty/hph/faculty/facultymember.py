@@ -54,23 +54,23 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
     )
     street = schema.TextLine(
         title=_(u"Street"),
-        required=True,
+        required=False,
     )
     city = schema.TextLine(
         title=_(u"City"),
-        required=True,
+        required=False,
     )
     phone = schema.TextLine(
         title=_(u"Phone"),
-        required=True,
+        required=False,
     )
     fax = schema.TextLine(
         title=_(u"Fax"),
-        required=True,
+        required=False,
     )
     email = schema.TextLine(
         title=_(u"E-Mail"),
-        required=True,
+        required=False,
     )
     image = NamedBlobImage(
         title=_(u"Portrait Image"),

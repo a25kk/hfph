@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-03-02 21:04+0000\n"
+"POT-Creation-Date: 2014-03-06 10:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,6 @@ msgid "A faculty staff member"
 msgstr ""
 
 #: ./../facultymember_templates/publications.pt:20
-#: ./../facultymember_templates/view.pt:20
 msgid "Academic Role"
 msgstr ""
 
@@ -112,6 +111,7 @@ msgid "Street"
 msgstr ""
 
 #: ./../facultydirectory_templates/contentfilter.pt:5
+#: ./../facultymember_templates/view.pt:20
 msgid "Teachers"
 msgstr ""
 
