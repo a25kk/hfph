@@ -9,6 +9,7 @@ from ade25.fabfiles import server
 from ade25.fabfiles import project
 
 from ade25.fabfiles.server import controls
+from ade25.fabfiles.server import setup
 
 env.use_ssh_config = True
 env.forward_agent = True
@@ -27,6 +28,7 @@ env.roledefs = {
     'production': ['hph'],
     'staging': ['z9']
 }
+
 
 
 @task

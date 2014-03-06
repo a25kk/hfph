@@ -10,6 +10,10 @@ from plone.dexterity.content import Container
 from plone.namedfile.interfaces import IImageScaleTraversable
 from Products.statusmessages.interfaces import IStatusMessage
 
+from Products.CMFPlone.utils import safe_unicode
+
+from plone.app.users.utils import uuid_userid_generator
+
 from hph.membership.tool import api_group_mapper
 from hph.membership.tool import user_group_mapper
 from hph.membership.tool import IHPHMemberTool
@@ -37,6 +41,20 @@ class View(grok.View):
     grok.require('zope2.View')
     grok.name('view')
 
+    def update(self):
+        self.has_users = len(self.get_all_members()) > 0
+
+    def get_all_members(self):
+        users = []
+        records = api.user.get_users()
+        for record in records:
+            data = {}
+            user = api.user.get(username=record.getId())
+            data['userid'] = user.getId()
+            data['email'] = user.getProperty('email')
+            users.append(data)
+        return users
+
     def records_idx(self):
         return len(self.userrecords())
 
@@ -59,7 +77,7 @@ class View(grok.View):
                 if userid and len(group_list) > 0:
                     user = {}
                     user['id'] = item['ID']
-                    user['email'] = userid
+                    user['email'] = userid.lower()
                     user['fullname'] = item['VollerName']
                     user['groups'] = group_list
                     records.append(user)
@@ -118,17 +136,25 @@ class CreateRecords(grok.View):
         records = self.userrecords()
         idx = 0
         imported = 0
-        for record in records[:5]:
+        for record in records[5:10]:
             idx += 1
+            new_id = uuid_userid_generator(record)
+            user_email = (record['email']).lower()
+            existing = api.user.get(username=user_email)
+            if not existing:
+                user = api.user.create(
+                    username=new_id,
+                    email=user_email.lower(),
+                )
+            else:
+                user = existing
             member_properties = dict(
-                fullname=record['fullname'],
+                fullname=safe_unicode(record['fullname']),
                 record_id=str(record['id'])
             )
-            user = api.user.create(
-                email=record['email'],
-                properties=member_properties,
-            )
-            user.setMemberProperties(mapping=member_properties)
+            member = api.user.get(username=user.getId())
+            if member:
+                member.setMemberProperties(mapping=member_properties)
             imported += 1
             for group in record['groups']:
                 api.group.add_user(
