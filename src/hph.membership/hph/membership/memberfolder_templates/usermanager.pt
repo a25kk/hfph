@@ -38,6 +38,17 @@
                             <p>Available Userrecords for import:
                                 <strong tal:content="view/records_idx" />
                             </p>
+                            <p class="text-muted">Update stored user records from
+                                the external user data API in order to update user
+                                group asignment.
+                                <a tal:attributes="href string:${context/absolute_url}/@@update-member-records">
+                                    Load external user data now</a>
+                                <small>Note: this may take a long time so just grab
+                                    a coffee in the meantime. If the connection
+                                    times out in your browser please allow the
+                                    caller some more time before trying to
+                                    reload again</small>
+                            </p>
                             <a class="btn btn-default"
                                 tal:attributes="href string:${context/absolute_url}/@@create-member-records">
                                 Create user records now</a>
