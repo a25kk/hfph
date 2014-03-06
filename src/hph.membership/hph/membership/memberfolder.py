@@ -224,7 +224,8 @@ class CreateRecords(grok.View):
 
     def userdata(self):
         context = aq_inner(self.context)
-        import_data = getattr(context, 'importable', None)
+        stored_data = getattr(context, 'importable', None)
+        import_data = json.loads(stored_data)
         data = import_data['APIData']
         return data
 
