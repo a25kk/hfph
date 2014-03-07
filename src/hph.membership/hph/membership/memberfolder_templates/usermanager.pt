@@ -38,13 +38,13 @@
                             <p>Available Userrecords for import:
                                 <strong tal:content="view/records_idx" />
                             </p>
-                            <p class="text-muted">Update stored user records from
+                            <p>Update stored user records from
                                 the external user data API in order to update user
                                 group asignment.
-                                <a tal:attributes="href string:${context/absolute_url}/@@update-member-records">
-                                    Load external user data now</a>
                             </p>
-                            <small>Note: this may take a long time so just grab
+                            <a tal:attributes="href string:${context/absolute_url}/@@update-member-records">
+                                    Load external user data now</a><br />
+                            <small class="text-muted">Note: this may take a long time so just grab
                                     a coffee in the meantime. If the connection
                                     times out in your browser please allow the
                                     caller some more time before trying to
@@ -54,16 +54,25 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            User Records Import
+                            User Import
                         </div>
                         <div class="panel-body">
                             <p class="text-muted">Update stored member data with the
                                 downloaded user records. This will also take care of
                                 user/group asignment
                             </p>
-                            <a class="btn btn-default"
-                                tal:attributes="href string:${context/absolute_url}/@@create-member-records">
-                                Import user records</a>
+                            <form method="post"
+                                tal:attributes="action string:${context/absolute_url}/@@create-member-records">
+                                <span tal:replace="structure context/@@authenticator/authenticator"/>
+                                <button class="btn btn-warning" type="submit" name="submit">
+                                    Import users
+                                </button>
+                            </form>
+                            <hr>
+                            <p class="text-danger">
+                            <i class="fa fa-exclamation-triangle"></i>
+                                Warning: this can not be undone easily
+                            </p>
                         </div>
                     </div>
                     <div class="panel panel-default">

@@ -51,6 +51,8 @@ class MemberTool(grok.GlobalUtility):
     def create_user(self, data):
         registration = api.portal.get_tool(name='portal_registration')
         pas = api.portal.get_tool(name='acl_users')
+        portal = api.portal.get()
+        request = getattr(portal, "REQUEST", None)
         generator = getUtility(IUUIDGenerator)
         existing = api.user.get(username=data['email'])
         if not existing:
@@ -62,8 +64,7 @@ class MemberTool(grok.GlobalUtility):
             registration.addMember(
                 user_id,
                 password,
-                roles,
-                properties=properties
+                REQUEST=request
             )
             pas.updateLoginName(user_id, data['email'])
             user = api.user.get(username=user_id)
