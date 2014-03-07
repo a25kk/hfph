@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-03-06 10:28+0000\n"
+"POT-Creation-Date: 2014-03-06 15:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgstr ""
 msgid "Additional Lecturer"
 msgstr ""
 
-#: ./../coursefolder_templates/view.pt:67
+#: ./../coursefolder_templates/view.pt:64
 #: ./../lecture_templates/view.pt:49
 msgid "Additional Lecturer:"
 msgstr ""
@@ -138,7 +138,7 @@ msgstr ""
 msgid "CourseFolder"
 msgstr ""
 
-#: ./../coursefolder_templates/view.pt:80
+#: ./../coursefolder_templates/view.pt:77
 #: ./../lecture_templates/view.pt:62
 msgid "Dates"
 msgstr ""
@@ -168,7 +168,6 @@ msgstr ""
 msgid "Lecture"
 msgstr ""
 
-#: ./../coursefolder_templates/view.pt:24
 #: ./../lecture_templates/view.pt:19
 msgid "Lectures"
 msgstr ""
@@ -213,7 +212,7 @@ msgstr ""
 msgid "Please select the course type."
 msgstr ""
 
-#: ./../coursefolder_templates/view.pt:77
+#: ./../coursefolder_templates/view.pt:74
 #: ./../lecture_templates/view.pt:59
 msgid "Raum"
 msgstr ""
@@ -254,7 +253,7 @@ msgstr ""
 msgid "add attachment"
 msgstr ""
 
-#: ./../coursefolder_templates/view.pt:42
+#: ./../coursefolder_templates/view.pt:39
 #: ./../lecture_templates/view.pt:37
 msgid "remove filter"
 msgstr ""

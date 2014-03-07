@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-03-06 10:28+0000\n"
-"PO-Revision-Date: 2014-03-06 11:31+0100\n"
+"POT-Creation-Date: 2014-03-06 15:07+0000\n"
+"PO-Revision-Date: 2014-03-06 16:09+0100\n"
 "Last-Translator: Serge Davidov <sd@kreativkombinat.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -18,15 +18,15 @@ msgstr ""
 
 #: ../vocabulary.py:30
 msgid "1 hour"
-msgstr "1stündig"
+msgstr "1-stdg."
 
 #: ../vocabulary.py:31
 msgid "2 hour"
-msgstr "2stündig"
+msgstr "2-stdg."
 
 #: ../vocabulary.py:32
 msgid "3 hour"
-msgstr "3stündig"
+msgstr "3-stdg."
 
 #: ../profiles/default/types/hph.lectures.lecture.xml
 msgid "A single course"
@@ -40,7 +40,7 @@ msgstr "Zusatzinformation"
 msgid "Additional Lecturer"
 msgstr "zusammen mit:"
 
-#: ../coursefolder_templates/view.pt:67 ../lecture_templates/view.pt:49
+#: ../coursefolder_templates/view.pt:64 ../lecture_templates/view.pt:49
 msgid "Additional Lecturer:"
 msgstr "zusammen mit:"
 
@@ -74,7 +74,7 @@ msgstr "Ziele"
 
 #: ../lecture.py:92
 msgid "Course Dates"
-msgstr "Termine"
+msgstr "Termine:"
 
 #: ../coursedetails.py:15
 msgid "Course Details"
@@ -106,7 +106,7 @@ msgstr "Qualifikation"
 
 #: ../lecture.py:110
 msgid "Course Room"
-msgstr "Raum"
+msgstr "Raum:"
 
 #: ../lecture.py:100
 msgid "Course Semester"
@@ -136,7 +136,7 @@ msgstr "Jahr"
 msgid "CourseFolder"
 msgstr "Veranstaltungsordner"
 
-#: ../coursefolder_templates/view.pt:80 ../lecture_templates/view.pt:62
+#: ../coursefolder_templates/view.pt:77 ../lecture_templates/view.pt:62
 msgid "Dates"
 msgstr "Termine"
 
@@ -164,7 +164,7 @@ msgstr "Proseminar"
 msgid "Lecture"
 msgstr "Vorlesung"
 
-#: ../coursefolder_templates/view.pt:24 ../lecture_templates/view.pt:19
+#: ../lecture_templates/view.pt:19
 msgid "Lectures"
 msgstr "Vorlesungen"
 
@@ -208,9 +208,9 @@ msgstr "Bitte wählen Sie als Filter ein Semester aus"
 msgid "Please select the course type."
 msgstr "Bitte wählen Sie den Veranstaltungstyp"
 
-#: ../coursefolder_templates/view.pt:77 ../lecture_templates/view.pt:59
+#: ../coursefolder_templates/view.pt:74 ../lecture_templates/view.pt:59
 msgid "Raum"
-msgstr "Raum"
+msgstr "Raum:"
 
 #: ../lecture.py:70
 msgid "Related lecturer"
@@ -252,7 +252,7 @@ msgstr "ZEP"
 msgid "add attachment"
 msgstr "Anhang hinzufügen"
 
-#: ../coursefolder_templates/view.pt:42 ../lecture_templates/view.pt:37
+#: ../coursefolder_templates/view.pt:39 ../lecture_templates/view.pt:37
 msgid "remove filter"
 msgstr "Filter entfernen"
 
