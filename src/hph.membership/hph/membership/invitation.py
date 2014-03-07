@@ -14,7 +14,7 @@ from hph.membership.memberfolder import IMemberFolder
 
 from hph.membership.mailer import create_plaintext_message
 from hph.membership.mailer import prepare_email_message
-from hph.membership.mailer import send_email
+from hph.membership.mailer import send_mail
 
 from hph.membership import MessageFactory as _
 
@@ -43,7 +43,7 @@ class UserInvitation(grok.View):
         mail_tpl = self._build_mail()
         mail_plain = create_plaintext_message(mail_tpl)
         msg = prepare_email_message(mail_tpl, mail_plain)
-        send_email(msg, addresses, subject)
+        send_mail(msg, addresses, subject)
         return 'Done'
 
     def get_addresses(self):
