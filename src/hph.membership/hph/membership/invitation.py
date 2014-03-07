@@ -109,16 +109,13 @@ class InviteNewUser(grok.View):
             else:
                 self._create_panel(form)
 
-    def render(self):
-        return 'Done sending invitation email'
-
     def build_and_send(self):
         addresses = self.get_addresses()
         subject = _(u"Invitation to join the HfPH relaunch")
         mail_tpl = self._build_mail()
         mail_plain = create_plaintext_message(mail_tpl)
         msg = prepare_email_message(mail_tpl, mail_plain)
-        send_email(msg, addresses, subject)
+        send_mail(msg, addresses, subject)
         return 'Done'
 
     def get_addresses(self):
