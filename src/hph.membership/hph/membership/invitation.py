@@ -13,7 +13,7 @@ class UserInvitation(grok.View):
     """ Invite specified user to the portal
     """
     grok.context(IMemberFolder)
-    grok.require('cms.ModifyPortalContent')
+    grok.require('cmf.ModifyPortalContent')
     grok.name('user-invitation')
 
     def open_requests(self):
