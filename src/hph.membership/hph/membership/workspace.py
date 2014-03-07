@@ -1,4 +1,5 @@
 from five import grok
+from plone import api   
 
 from z3c.form import group, field
 from zope import schema
@@ -36,3 +37,11 @@ class View(grok.View):
     grok.context(IWorkspace)
     grok.require('cmf.ModifyPortalContent')
     grok.name('view')
+
+    def user_info(self):
+        info = {}
+        user = api.user.get_current()
+        userid = user.getId()
+        info['fullname'] = user.getProperty('fullname', '') or userid
+        info['email'] = user.getProperty('email', '')
+        return info

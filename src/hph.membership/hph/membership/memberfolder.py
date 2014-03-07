@@ -1,3 +1,4 @@
+import datetime
 import json
 from Acquisition import aq_inner
 from five import grok
@@ -122,15 +123,23 @@ class UserManager(grok.View):
     def records_idx(self):
         return len(self.userrecords())
 
+    def records_timestamp(self):
+        data = self.stored_data()
+        return data['timestamp']
+
     def usergroups(self):
         groups = api.group.get_groups()
         return groups
 
-    def userdata(self):
+    def stored_data(self):
         context = aq_inner(self.context)
         stored_data = getattr(context, 'importable', None)
         data = json.loads(stored_data)
-        return data['APIData']
+        return data
+
+    def userdata(self):
+        data = self.stored_data()
+        return data['items']
 
     def userrecords(self):
         records = []
@@ -179,7 +188,12 @@ class UpdateRecords(grok.View):
         context = aq_inner(self.context)
         tool = getUtility(IHPHMemberTool)
         records = tool.get()
-        import_data = json.dumps(records)
+        timestamp = datetime.datetime.now()
+        data = {
+            'timestamp': timestamp.strftime("%Y-%m-%d %H:%M:%S"),
+            'items': records['APIData']
+        }
+        import_data = json.dumps(data)
         setattr(context, 'importable', import_data)
         modified(context)
         context.reindexObject(idxs='modified')
@@ -203,7 +217,7 @@ class CreateRecords(grok.View):
         tool = getUtility(IHPHMemberTool)
         idx = 0
         imported = 0
-        for record in records[10:15]:
+        for record in records:
             idx += 1
             props = dict(
                 fullname=safe_unicode(record['fullname']),
@@ -226,7 +240,7 @@ class CreateRecords(grok.View):
         context = aq_inner(self.context)
         stored_data = getattr(context, 'importable', None)
         import_data = json.loads(stored_data)
-        data = import_data['APIData']
+        data = import_data['items']
         return data
 
     def userrecords(self):

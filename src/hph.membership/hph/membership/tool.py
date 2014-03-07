@@ -57,17 +57,19 @@ class MemberTool(grok.GlobalUtility):
         existing = api.user.get(username=data['email'])
         if not existing:
             user_id = generator()
+            user_email = data['email']
             password = django_random.get_random_string(8)
-            roles = ('Member', )
             properties = data['properties']
             properties['workspace'] = user_id
+            properties['email'] = user_email
             registration.addMember(
                 user_id,
                 password,
                 REQUEST=request
             )
-            pas.updateLoginName(user_id, data['email'])
+            pas.updateLoginName(user_id, user_email)
             user = api.user.get(username=user_id)
+            user.setMemberProperties(mapping=properties)
         else:
             user = existing
             user_id = user.getId()

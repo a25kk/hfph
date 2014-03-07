@@ -1,4 +1,5 @@
 from five import grok
+from plone import api
 from urllib import unquote
 from Acquisition import aq_inner
 from zope.interface import implements
@@ -7,15 +8,18 @@ from zope.component import getUtility
 from zope.interface import Interface
 from zope.browsermenu.interfaces import IBrowserMenu
 from zope.traversing.interfaces import ITraversable
-from plone.app.layout.viewlets.interfaces import IPortalHeader
+from plone.app.layout.viewlets.interfaces import IPortalFooter
 from plone.memoize.instance import memoize
+
+from hph.membership.interfaces import IHPHMembershipTool
 
 
 class ToolbarViewlet(grok.Viewlet):
     grok.context(Interface)
     grok.require('zope2.View')
-    grok.viewletmanager(IPortalHeader)
-    grok.name('hph.sitecontent.ToolbarViewlet')
+    grok.layer(IHPHMembershipTool)
+    grok.viewletmanager(IPortalFooter)
+    grok.name('hph.membership.ToolbarViewlet')
 
     def update(self):
         self.context = aq_inner(self.context)
@@ -63,7 +67,7 @@ class ToolbarViewlet(grok.Viewlet):
             pass
         return False
 
-    @memoize
+    #@memoize
     def actions(self):
         if 'disable_border' in self.request:
             return []
@@ -205,6 +209,20 @@ class ToolbarViewlet(grok.Viewlet):
     def user_actions(self):
         actions = self.context_state.actions('user')
         return [item for item in actions if item['available']]
+
+    def show_cms_tools(self):
+        context = aq_inner(self.context)
+        admin_roles = ('Manager', 'Site Administrator', 'StaffMember')
+        is_adm = False
+        user = api.user.get_current()
+        userid = user.getId()
+        if userid is 'zope-admin':
+            is_adm = True
+        roles = api.user.get_roles(username=userid, obj=context)
+        for role in roles:
+            if role in admin_roles:
+                is_adm = True
+        return is_adm
 
 
 class UnthemedRequest(object):

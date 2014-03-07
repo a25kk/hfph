@@ -38,6 +38,9 @@
                             <p>Available Userrecords for import:
                                 <strong tal:content="view/records_idx" />
                             </p>
+                            <p class="text-dicreet">
+                                Last updated: <span tal:replace="view/records_timestamp" />
+                            </p>
                             <p>Update stored user records from
                                 the external user data API in order to update user
                                 group asignment.
@@ -104,10 +107,11 @@
                                     <tbody>
                                         <tr class="app-contentlisting" tal:repeat="item batch">
                                             <td class="app-list-item">
-                                                <strong tal:content="item/name" />
+                                                <strong tal:content="item/name" /><br>
+                                                <small class="text-muted" tal:content="item/userid" />
                                             </td>
                                             <td>
-                                                <span tal:content="item/userid" />
+                                                <span tal:content="item/email" />
                                             </td>
                                             <td>
                                                 <tal:items tal:repeat="group item/groups">

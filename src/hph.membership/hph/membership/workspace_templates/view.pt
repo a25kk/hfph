@@ -12,11 +12,35 @@
 
     <div class="tile-content">
     
-        <section id="content-core">
-    	   <h3>Willkommen im neuen Login-Bereich der Hochschule für Philosophie München</h3>
-    	   <p>Im Laufe der nächsten Tage werden Sie per E-Mail über Ihren neuen Benutzernamen informiert und erhalten die Möglichkeit, Ihr Passwort neu zu setzen.</p> 
-    	   <p>Danach können Sie sich in Ihrem geschützten Bereich genauer umsehen.</p>
-    	   <p>Ihre Hochschule für Philosophie</p>
+        <section id="content-core"
+            tal:define="user view/user_info">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="app-box app-box-workspaces">
+                        <div class="app-box-header">
+                            <h1 class="app-box-heading" i18n:translate="">
+                                Workspace
+                            </h1>
+                        </div>
+                        <div class="app-box-content">
+                            <p class="text-muted" i18n:translate="">
+                                No activity recorded yet
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-8">
+                    <div class="app-page-header">
+                        <h2><span tal:replace="user/fullname" />
+                            <small tal:content="user/email" />
+                        </h2>
+                    </div>
+                    <h3>Willkommen im neuen Login-Bereich der Hochschule für Philosophie München</h3>
+                    <p>Im Laufe der nächsten Tage werden Sie per E-Mail über Ihren neuen Benutzernamen informiert und erhalten die Möglichkeit, Ihr Passwort neu zu setzen.</p> 
+                    <p>Danach können Sie sich in Ihrem geschützten Bereich genauer umsehen.</p>
+                    <p>Ihre Hochschule für Philosophie</p>
+                </div>
+            </div>
         </section>
     </div>
 
