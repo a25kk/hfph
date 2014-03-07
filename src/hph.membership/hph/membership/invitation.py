@@ -68,13 +68,13 @@ class UserInvitation(grok.View):
         return template.substitute(template_vars)
 
 
-class InviteNewMember(grok.View):
+class InviteNewUser(grok.View):
     """ Send invitation to new users already added to join and set their
         password and trigger a password reset
     """
     grok.context(INavigationRoot)
     grok.require('zope2.View')
-    grok.name('invite-user')
+    grok.name('invite-new-user')
 
     def update(self):
         context = aq_inner(self.context)
