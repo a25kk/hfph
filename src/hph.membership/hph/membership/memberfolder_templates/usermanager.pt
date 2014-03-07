@@ -90,6 +90,11 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-8">
+                    <a class="btn btn-primary btn-sm pull-right"
+                        tal:attributes="href string:${context/absolute_url}/@@add-new-user">
+                        <i class="fa fa-plus-square-o"></i>
+                        Add user</a>
+                    <h3>Site Users</h3>
                         <tal:users tal:condition="view/has_users">
                             <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                                              b_size python:int(request.get('b_size', 20));
@@ -115,7 +120,7 @@
                                             </td>
                                             <td>
                                                 <tal:items tal:repeat="group item/groups">
-                                                    <small tal:content="group" /><br />
+                                                    <small tal:content="group" /><tal:separator condition="not: repeat/group/end">,</tal:separator>
                                                 </tal:items>
                                             </td>
                                         </tr>

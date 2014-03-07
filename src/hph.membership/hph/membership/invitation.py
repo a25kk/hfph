@@ -7,6 +7,25 @@ from plone import api
 from plone.app.layout.navigation.interfaces import INavigationRoot
 
 
+class UserInvitation(grok.View):
+    """ Invite specified user to the portal
+    """
+    grok.context(INavigationRoot)
+    grok.require('zope2.View')
+    grok.name('user-invitation')
+
+    def open_requests(self):
+        pwrtool = api.portal.get_tool(name='portal_passwordreset')
+        return pwrtool.getStats()
+
+    def request_reset(self):
+        pwrtool = api.portal.get_tool(name='portal_passwordreset')
+        user_id = self.request.get('user_id', None)
+        if user_id:
+            open_reset = pwrtool.requestReset(user_id)
+            return open_reset
+
+
 class InviteNewMember(grok.View):
     """ Send invitation to new users already added to join and set their
         password and trigger a password reset

@@ -6,9 +6,10 @@ from zope.component import getUtility
 
 from plone.directives import form
 from z3c.form import button
+from plone.keyring import django_random
 
 from Products.statusmessages.interfaces import IStatusMessage
-
+from plone.uuid.interfaces import IUUIDGenerator
 from hph.membership.tool import IHPHMemberTool
 from hph.membership.memberfolder import IMemberFolder
 
@@ -69,15 +70,29 @@ class UserCreationForm(form.SchemaEditForm):
 
     def applyChanges(self, data):
         context = aq_inner(self.context)
-        tool = getUtility(IHPHMemberTool)
-        props = dict(
+        registration = api.portal.get_tool(name='portal_registration')
+        pas = api.portal.get_tool(name='acl_users')
+        generator = getUtility(IUUIDGenerator)
+        properties = dict(
             fullname=data['fullname'],
         )
-        userdata = dict(
-            email=data['email'],
-            properties=props
-        )
-        user_id = tool.create_user(userdata)
+        existing = api.user.get(username=data['email'])
+        if not existing:
+            user_id = generator()
+            user_email = data['email']
+            password = django_random.get_random_string(8)
+            properties['workspace'] = user_id
+            properties['email'] = user_email
+            registration.addMember(
+                user_id,
+                password,
+            )
+            pas.updateLoginName(user_id, user_email)
+            user = api.user.get(username=user_id)
+            user.setMemberProperties(mapping=properties)
+        else:
+            user = existing
+        user_id = user.getId()
         for group in data['groups']:
             api.group.add_user(
                 groupname=group,

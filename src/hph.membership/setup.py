@@ -30,6 +30,7 @@ setup(name='hph.membership',
           'plone.app.dexterity [grok, relations]',
           'plone.app.relationfield',
           'plone.namedfile [blobs]',
+          'plone.principalsource',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
