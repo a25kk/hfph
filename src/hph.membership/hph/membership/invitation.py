@@ -20,12 +20,11 @@ class InviteNewMember(grok.View):
 
     def _compose_invitation_message(self):
         template_file = os.path.join(os.path.dirname(__file__),
-                                     'invitationmail.tpl')
+                                     'mail-invitation.html')
         template = Template(open(template_file).read())
-
         template_vars = {
-            'id': self.id(),
-            'options': self._getOptions()
+            'id': '12345678',
+            'email': 'jd@example.tld',
+            'fullname': 'John Doe'
         }
-
         return template.substitute(template_vars)

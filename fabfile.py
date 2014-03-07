@@ -30,7 +30,6 @@ env.roledefs = {
 }
 
 
-
 @task
 @roles('production')
 def restart():
@@ -88,7 +87,7 @@ def deploy():
 @roles('staging')
 def stage():
     """ Deploy current master to staging server """
-    with settings(port=22222):
+    with settings(port=22222, webserver='/opt/webserver/buildout.webserver'):
         project.site.update()
         with cd(env.code_root):
             run('bin/buildout -Nc staging.cfg')

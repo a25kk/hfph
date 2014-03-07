@@ -1,3 +1,5 @@
+import datetime
+import json
 from Acquisition import aq_inner
 from five import grok
 from plone import api
@@ -40,16 +42,30 @@ class View(grok.View):
     grok.name('view')
 
     def update(self):
-        self.has_users = len(self.get_all_members()) > 0
         self.available = self.has_view_permission()
         self.is_anon = api.user.is_anonymous()
-        if self.is_anon and self.available is False:
+
+    def render(self):
+        if self.available:
+            return self.request.response.redirect(self.usermanager_url())
+        else:
             return self.request.response.redirect(self.workspace_url())
 
     def workspace_url(self):
         context = aq_inner(self.context)
         here_url = context.absolute_url()
-        url = '{0}/@@workspace-missing'.format(here_url)
+        user = api.user.get_current()
+        userid = user.getId()
+        if userid in context.keys():
+            url = '{0}/{1}'.format(here_url, userid)
+        else:
+            url = '{0}/@@workspace-missing'.format(here_url)
+        return url
+
+    def usermanager_url(self):
+        context = aq_inner(self.context)
+        here_url = context.absolute_url()
+        url = '{0}/@@user-manager'.format(here_url)
         return url
 
     def has_view_permission(self):
@@ -66,6 +82,21 @@ class View(grok.View):
                 if role in admin_roles:
                     is_adm = True
         return is_adm
+
+
+class WorkspaceMissing(grok.View):
+    grok.context(IMemberFolder)
+    grok.require('zope2.View')
+    grok.name('workspace-missing')
+
+
+class UserManager(grok.View):
+    grok.context(IMemberFolder)
+    grok.require('cmf.ManagePortal')
+    grok.name('user-manager')
+
+    def update(self):
+        self.has_users = len(self.get_all_members()) > 0
 
     def get_all_members(self):
         users = []
@@ -92,15 +123,23 @@ class View(grok.View):
     def records_idx(self):
         return len(self.userrecords())
 
+    def records_timestamp(self):
+        data = self.stored_data()
+        return data['timestamp']
+
     def usergroups(self):
         groups = api.group.get_groups()
         return groups
 
-    def userdata(self):
+    def stored_data(self):
         context = aq_inner(self.context)
-        import_data = getattr(context, 'importable', None)
-        data = import_data['APIData']
+        stored_data = getattr(context, 'importable', None)
+        data = json.loads(stored_data)
         return data
+
+    def userdata(self):
+        data = self.stored_data()
+        return data['items']
 
     def userrecords(self):
         records = []
@@ -130,12 +169,6 @@ class View(grok.View):
         return groups
 
 
-class WorkspaceMissing(grok.View):
-    grok.context(IMemberFolder)
-    grok.require('zope2.View')
-    grok.name('workspace-missing')
-
-
 class UpdateRecords(grok.View):
     grok.context(IMemberFolder)
     grok.require('cmf.ManagePortal')
@@ -147,14 +180,21 @@ class UpdateRecords(grok.View):
             _(u"External records stored for import"),
             type='info')
         here_url = self.context.absolute_url()
-        next_url = '{0}?imported_records={1}'.format(here_url, len(new_records))
+        next_url = '{0}/@@user-manager?imported_records={1}'.format(
+            here_url, len(new_records))
         return self.request.response.redirect(next_url)
 
     def get_importable_records(self):
         context = aq_inner(self.context)
         tool = getUtility(IHPHMemberTool)
         records = tool.get()
-        setattr(context, 'importable', records)
+        timestamp = datetime.datetime.now()
+        data = {
+            'timestamp': timestamp.strftime("%Y-%m-%d %H:%M:%S"),
+            'items': records['APIData']
+        }
+        import_data = json.dumps(data)
+        setattr(context, 'importable', import_data)
         modified(context)
         context.reindexObject(idxs='modified')
         return records
@@ -174,39 +214,33 @@ class CreateRecords(grok.View):
 
     def create_records(self):
         records = self.userrecords()
+        tool = getUtility(IHPHMemberTool)
         idx = 0
         imported = 0
-        for record in records[5:10]:
+        for record in records:
             idx += 1
-            new_id = uuid_userid_generator(record)
-            user_email = (record['email']).lower()
-            existing = api.user.get(username=user_email)
-            if not existing:
-                user = api.user.create(
-                    username=new_id,
-                    email=user_email.lower(),
-                )
-            else:
-                user = existing
-            member_properties = dict(
+            props = dict(
                 fullname=safe_unicode(record['fullname']),
-                record_id=str(record['id'])
+                record_id=str(record['id']),
             )
-            member = api.user.get(username=user.getId())
-            if member:
-                member.setMemberProperties(mapping=member_properties)
-            imported += 1
+            data = dict(
+                email=record['email'],
+                properties=props
+            )
+            user_id = tool.create_user(data)
             for group in record['groups']:
                 api.group.add_user(
                     groupname=group,
-                    username=user.getId()
+                    username=user_id
                 )
+            imported += 1
         return imported
 
     def userdata(self):
         context = aq_inner(self.context)
-        import_data = getattr(context, 'importable', None)
-        data = import_data['APIData']
+        stored_data = getattr(context, 'importable', None)
+        import_data = json.loads(stored_data)
+        data = import_data['items']
         return data
 
     def userrecords(self):
@@ -214,12 +248,13 @@ class CreateRecords(grok.View):
         if self.userdata() is not None:
             for item in self.userdata():
                 userid = item['EMail']
+                email = userid.lower()
                 group_list = self.construct_group_list(item)
                 if userid and len(group_list) > 0:
                     user = {}
                     user['id'] = item['ID']
-                    user['email'] = userid
-                    user['fullname'] = item['VollerName']
+                    user['email'] = email
+                    user['fullname'] = safe_unicode(item['VollerName'])
                     user['groups'] = group_list
                     records.append(user)
         return records

@@ -14321,6 +14321,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     border: 1px solid #eee;
     border-top: 4px solid #fc3;
 }
+.app-box-content > p
+{
+    margin: 10px;
+}
 .app-box-nav > li > a:hover
 {
     border-right: 1px solid #555;
