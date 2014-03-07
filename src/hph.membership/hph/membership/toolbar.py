@@ -67,7 +67,7 @@ class ToolbarViewlet(grok.Viewlet):
             pass
         return False
 
-    #@memoize
+    @memoize
     def actions(self):
         if 'disable_border' in self.request:
             return []
