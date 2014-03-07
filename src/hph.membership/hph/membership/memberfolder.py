@@ -98,6 +98,12 @@ class UserManager(grok.View):
     def update(self):
         self.has_users = len(self.get_all_members()) > 0
 
+    def has_workspace(self, userid):
+        context = aq_inner(self.context)
+        if userid in context.keys():
+            return True
+        return False
+
     def get_all_members(self):
         users = []
         records = api.user.get_users()

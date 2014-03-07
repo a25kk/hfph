@@ -90,11 +90,12 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-8">
-                    <a class="btn btn-primary btn-sm pull-right"
+                    <a class="btn btn-default pull-right"
                         tal:attributes="href string:${context/absolute_url}/@@add-new-user">
                         <i class="fa fa-plus-square-o"></i>
                         Add user</a>
-                    <h3>Site Users</h3>
+                        <h3 i18n:translate="">User Manager</h3>
+                        <hr>
                         <tal:users tal:condition="view/has_users">
                             <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                                              b_size python:int(request.get('b_size', 20));
@@ -111,17 +112,25 @@
                                     </thead>
                                     <tbody>
                                         <tr class="app-contentlisting" tal:repeat="item batch">
-                                            <td class="app-list-item">
-                                                <strong tal:content="item/name" /><br>
-                                                <small class="text-muted" tal:content="item/userid" />
+                                            <td class="app-list-item"
+                                                tal:define="user_id item/userid;
+                                                            has_ws python:view.has_workspace(user_id)">
+                                                <a tal:condition="has_ws"
+                                                    tal:attributes="href string:${context/absolute_url}/${user_id}">
+                                                    <strong tal:content="item/name" />
+                                                </a>
+                                                <strong tal:condition="not:has_ws" tal:content="item/name" /><br>
+                                                <small class="text-muted" tal:content="item/userid" /><br>
+                                                <tal:items tal:repeat="group item/groups">
+                                                    <small tal:content="group" /><tal:separator condition="not: repeat/group/end">,</tal:separator>
+                                                </tal:items>
                                             </td>
                                             <td>
                                                 <span tal:content="item/email" />
                                             </td>
-                                            <td>
-                                                <tal:items tal:repeat="group item/groups">
-                                                    <small tal:content="group" /><tal:separator condition="not: repeat/group/end">,</tal:separator>
-                                                </tal:items>
+                                            <td><a tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${item/userid}">
+                                                    Send invitation
+                                                </a>
                                             </td>
                                         </tr>
                                         <div metal:use-macro="context/batch_macros/macros/navigation" />

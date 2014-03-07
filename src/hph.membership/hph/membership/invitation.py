@@ -8,6 +8,9 @@ from plone.app.layout.navigation.interfaces import INavigationRoot
 
 from hph.membership.memberfolder import IMemberFolder
 
+# from hph.membership.mailer import send_email
+# send_mail(message, addresses, subject)
+
 
 class UserInvitation(grok.View):
     """ Invite specified user to the portal
@@ -17,12 +20,12 @@ class UserInvitation(grok.View):
     grok.name('user-invitation')
 
     def open_requests(self):
-        pwrtool = api.portal.get_tool(name='portal_passwordreset')
+        pwrtool = api.portal.get_tool(name='portal_password_reset')
         return pwrtool.getStats()
 
     def request_reset(self):
-        pwrtool = api.portal.get_tool(name='portal_passwordreset')
-        user_id = self.request.get('user_id', None)
+        pwrtool = api.portal.get_tool(name='portal_password_reset')
+        user_id = self.request.get('userid', None)
         if user_id:
             open_reset = pwrtool.requestReset(user_id)
             return open_reset

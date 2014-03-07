@@ -27,18 +27,35 @@
                                 Current pending user invitations/password reset
                                 requests:
                             </p>
-                            <strong tal:content="view/open_requests" />
+                            <ul class="list-group"
+                                tal:define="info view/open_requests">
+                                <li class="list-group-item" tal:repeat="item info">
+                                    <span tal:content="item" i18n:translate="" />
+                                    <span class="badge badge-default" tal:content="python:info[item]" />
+                                </li>
+                            </ul>
                         </div>
                     </div>
+                    <a class="btn btn-primary btn-block"
+                        tal:attributes="href string:${context/absolute_url}/@@user-manager"
+                        i18n:translate="">
+                        User Manager</a>
                 </div>
                 <div class="col-xs-12 col-sm-8">
                     <div class="app-page-header">
                         <h2>Send invitation</h2>
                     </div>
-                    <div tal:condition="userid">
+                    <div class="app-callout app-callout-danger"
+                        tal:condition="not:request/userid">
+                        Bummer: seems you did not pass a valid user id while
+                        calling this view. Therefore the password reset cannot be
+                        triggered.
+                    </div>
+                    <div tal:condition="request/userid">
                         <p i18n:translate="">Send password reset invitation to
-                            <span tal:replace="userid" />
+                            <span tal:replace="request/userid" />
                         </p>
+                        <code tal:content="view/request_reset" />
                     </div>
                 </div>
             </div>
