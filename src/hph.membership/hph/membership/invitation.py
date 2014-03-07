@@ -6,12 +6,14 @@ from plone import api
 
 from plone.app.layout.navigation.interfaces import INavigationRoot
 
+from hph.membership.memberfolder import IMemberFolder
+
 
 class UserInvitation(grok.View):
     """ Invite specified user to the portal
     """
-    grok.context(INavigationRoot)
-    grok.require('zope2.View')
+    grok.context(IMemberFolder)
+    grok.require('cms.ModifyPortalContent')
     grok.name('user-invitation')
 
     def open_requests(self):
