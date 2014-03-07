@@ -8,8 +8,12 @@ from plone.app.layout.navigation.interfaces import INavigationRoot
 
 from hph.membership.memberfolder import IMemberFolder
 
-# from hph.membership.mailer import send_email
+from hph.membership.mailer import create_plaintext_message
+from hph.membership.mailer import prepare_email_message
+from hph.membership.mailer import send_email
 # send_mail(message, addresses, subject)
+
+from hph.membership import MessageFactory as _
 
 
 class UserInvitation(grok.View):
@@ -29,6 +33,36 @@ class UserInvitation(grok.View):
         if user_id:
             open_reset = pwrtool.requestReset(user_id)
             return open_reset
+
+    def build_and_send(self):
+        addresses = self.get_addresses()
+        subject = _(u"Invitation to join the HfPH relaunch")
+        mail_tpl = self._build_mail()
+        mail_plain = create_plaintext_message(mail_tpl)
+        msg = prepare_email_message(mail_tpl, mail_plain)
+        send_email(msg, addresses, subject)
+        return 'Done'
+
+    def get_addresses(self):
+        recipients = list()
+        return recipients
+
+    def _build_mail(self):
+        user_id = self.request.get('userid', None)
+        template = self._compose_invitation_message(user_id)
+        return template
+
+    def _compose_invitation_message(self, user_id):
+        user = api.user.get(username=user_id)
+        template_file = os.path.join(os.path.dirname(__file__),
+                                     'mail-invitation.html')
+        template = Template(open(template_file).read())
+        template_vars = {
+            'id': user_id,
+            'email': user.getProperty('email'),
+            'fullname': user.getProperty('fullname')
+        }
+        return template.substitute(template_vars)
 
 
 class InviteNewMember(grok.View):
