@@ -31,7 +31,7 @@ class IUserCreation(form.Schema):
             title=u"Group",
             vocabulary="plone.principalsource.Groups"
         ),
-        requierd=False,
+        required=False,
     )
 
 
