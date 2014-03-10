@@ -30,7 +30,6 @@ env.roledefs = {
 }
 
 
-
 @task
 @roles('production')
 def restart():
@@ -96,9 +95,10 @@ def stage():
 
 
 @task
+@roles('staging'):
 def deploy_full():
     """ Deploy current master to production and run buildout """
-    with settings(port=22222):
+    with settings(port=22222, webserver='/opt/webserver/buildout.webserver'):
         project.site.update()
         project.site.build()
         project.site.restart()
