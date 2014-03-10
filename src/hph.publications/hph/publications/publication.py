@@ -3,8 +3,6 @@ from plone.directives import dexterity, form
 
 from zope import schema
 from plone.indexer import indexer
-from zope.schema.vocabulary import SimpleTerm
-from zope.schema.vocabulary import SimpleVocabulary
 
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 
