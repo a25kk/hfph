@@ -19,10 +19,10 @@ def setupCatalogIndexes(context, logger=None):
     # Specify the indexes you want, with ('index_name', 'index_type')
     wanted = (('thirdPartyProject', 'KeywordIndex'),
               ('academicRole', 'FieldIndex'),
-              ('pubYear', 'FieldIndex'),
-              ('pubMedium', 'FieldIndex'),
-              ('pubSeries', 'FieldIndex'),
-              ('authorLastName', 'FieldIndex'),
+              ('publicationYear', 'FieldIndex'),
+              ('medium', 'FieldIndex'),
+              ('series', 'FieldIndex'),
+              ('lastname', 'FieldIndex'),
               )
 
     indexables = []
