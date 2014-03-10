@@ -13,7 +13,7 @@
     <div class="tile-content">
     
         <section id="content-core"
-            tal:define="userid request/user_id | nothing">
+            tal:define="userid request/user_id | context/getId | nothing">
             <div class="row">
                 <div class="col-xs-12 col-sm-4">
                     <div class="app-box app-box-workspaces">
@@ -48,6 +48,10 @@
                         method="post" role="form"
                         tal:attributes="action request/URL">
                         <span tal:replace="structure context/@@authenticator/authenticator"/>
+                        <input class="form-control"
+                            name="title" id="title"
+                            type="text"
+                            tal:attributes="value userid" />
                         <button class="btn btn-danger"
                             name="form.button.Submit"
                             id="form.button.Submit"

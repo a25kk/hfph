@@ -10,11 +10,11 @@ from Products.CMFPlone.utils import safe_unicode
 
 from plone.app.layout.navigation.interfaces import INavigationRoot
 
-from hph.membership.memberfolder import IMemberFolder
-
 from hph.membership.mailer import create_plaintext_message
 from hph.membership.mailer import prepare_email_message
 from hph.membership.mailer import send_mail
+
+from hph.membership.memberfolder import IMemberFolder
 
 from hph.membership import MessageFactory as _
 
@@ -107,7 +107,7 @@ class InviteNewUser(grok.View):
             if errorIdx > 0:
                 self.errors = form_errors
             else:
-                self._create_panel(form)
+                self.build_and_send(form)
 
     def build_and_send(self):
         addresses = self.get_addresses()
@@ -124,6 +124,41 @@ class InviteNewUser(grok.View):
 
     def _build_mail(self):
         user_id = self.request.get('userid', None)
+        template = self._compose_invitation_message(user_id)
+        return template
+
+    def _compose_invitation_message(self, user_id):
+        user = api.user.get(username=user_id)
+        template_file = os.path.join(os.path.dirname(__file__),
+                                     'mail-invitation.html')
+        template = Template(open(template_file).read())
+        template_vars = {
+            'id': user_id,
+            'email': user.getProperty('email'),
+            'fullname': user.getProperty('fullname')
+        }
+        return template.substitute(template_vars)
+
+
+class InvitationEmail(grok.View):
+    """ Return standalone email based on generic template
+    """
+    grok.context(IMemberFolder)
+    grok.require('cmf.ModifyPortalContent')
+    grok.name('invitation-email')
+
+    def render(self):
+        template = self._build_mail()
+        return template
+
+    def get_addresses(self):
+        recipients = list()
+        return recipients
+
+    def _build_mail(self):
+        context = aq_inner(self.context)
+        workspace_id = context.getId()
+        user_id = self.request.get('userid', workspace_id)
         template = self._compose_invitation_message(user_id)
         return template
 
