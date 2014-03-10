@@ -34,12 +34,18 @@ class CleanupPublicationSchema(grok.View):
         items = self.publications()
         idx = 0
         for item in items:
-            i = item.getObject()
-            publication_year = getattr(i, 'publication')
-            setattr(i, 'publicationYear', publication_year)
+            obj = item.getObject()
+            medium = getattr(obj, 'medium')
+            series = getattr(obj, 'series')
+            for i, member in enumerate(medium):
+                if i == 0:
+                    setattr(obj, 'media', member)
+            for i, member in enumerate(series):
+                if i == 0:
+                    setattr(obj, 'bookSeries', member)
             idx += 1
-            modified(i)
-            i.reindexObject(idxs='modified')
+            modified(obj)
+            obj.reindexObject(idxs='modified')
         return idx
 
     def publications(self):
