@@ -15,26 +15,6 @@ from plone.app.textfield import RichText
 
 from hph.publications import MessageFactory as _
 
-media = SimpleVocabulary(
-    [SimpleTerm(value=u'book', title=_(u'Book')),
-     SimpleTerm(value=u'magazine', title=_(u'Magazine')),
-     SimpleTerm(value=u'digital', title=_(u'DVD/CD'))])
-
-series = SimpleVocabulary(
-    [SimpleTerm(value=u'global-culture', title=_(u'Global Culture')),
-     SimpleTerm(value=u'solidarity', title=_(u'Solidarity')),
-     SimpleTerm(value=u'philosophy', title=_(u'Philosophy')),
-     SimpleTerm(value=u'contexts', title=_(u'Contexts')),
-     SimpleTerm(value=u'munich', title=_(u'Munich Philosophy')),
-     SimpleTerm(value=u'theology', title=_(u'Theology')),
-     ])
-
-display = SimpleVocabulary(
-    [SimpleTerm(value=u'rottendorf', title=_(u'Rottendorf Project')),
-     SimpleTerm(value=u'motivation', title=_(u'Philosophy and Motivation')),
-     SimpleTerm(value=u'leadership', title=_(u'Philosophy and Leadership')),
-     SimpleTerm(value=u'igp', title=_(u'IGP'))])
-
 
 class IPublication(form.Schema, IImageScaleTraversable):
     """
@@ -42,10 +22,6 @@ class IPublication(form.Schema, IImageScaleTraversable):
     """
     title = schema.TextLine(
         title=_(u"Title"),
-        required=True,
-    )
-    publication = schema.TextLine(
-        title=_(u"Year of Publication"),
         required=True,
     )
     publicationYear = schema.TextLine(
@@ -78,28 +54,11 @@ class IPublication(form.Schema, IImageScaleTraversable):
         title=_(u"More Authors"),
         required=False,
     )
-    medium = schema.Set(
-        title=_(u"Medium"),
-        value_type=schema.Choice(
-            title=_(u"Media Selection"),
-            vocabulary=media,
-        ),
-        required=True,
-    )
     media = schema.Choice(
         title=_(u"Medium"),
         description=_(u"This is the field publications can be filtered on"),
         vocabulary=u"hph.publications.publicationMedia",
         required=True,
-    )
-    form.widget(series=CheckBoxFieldWidget)
-    series = schema.Set(
-        title=_(u"Series"),
-        value_type=schema.Choice(
-            title=_(u"Series Selection"),
-            vocabulary=series,
-        ),
-        required=False,
     )
     bookSeries = schema.Choice(
         title=_(u"Series"),
