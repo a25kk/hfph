@@ -133,6 +133,18 @@ module.exports = function (grunt) {
                 dest: 'dist/assets/img/'
             }
         },
+
+        imagemin: {
+            dynamic: {
+                files: [{
+                    expand: true,
+                    cwd: 'assets/img/',
+                    src: ['**/*.{png,jpg,gif}'],
+                    dest: 'dist/assets/img/'
+                }]
+            }
+        },
+
         rev: {
             options:  {
                 algorithm: 'sha256',
@@ -277,13 +289,13 @@ module.exports = function (grunt) {
     grunt.registerTask('test', testSubtasks);
 
     // JS distribution task.
-    grunt.registerTask('dist-js', ['concat', 'uglify']);
+    grunt.registerTask('dist-js', ['concat', 'newer:uglify']);
 
     // CSS distribution task.
     grunt.registerTask('dist-css', ['less', 'csscomb', 'copy-animations']);
 
     // Assets distribution task.
-    grunt.registerTask('dist-assets', ['copy']);
+    grunt.registerTask('dist-assets', ['copy', 'newer:imagemin']);
 
     // Cache buster distribution task.
     grunt.registerTask('dist-cb', ['rev']);
