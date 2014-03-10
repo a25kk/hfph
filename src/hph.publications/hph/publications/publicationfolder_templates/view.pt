@@ -40,8 +40,8 @@
                     <ul class="nav nav-pills nav-stacked app-box-nav">
                         <tal:block tal:repeat="filter view/series_filter_options">
                             <li tal:define="filter_value filter/value"
-                                tal:attributes="class python:view.computed_klass('series', filter_value)">
-                                <a tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;series=${filter/value}"
+                                tal:attributes="class python:view.computed_klass('bookSeries', filter_value)">
+                                <a tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;bookSeries=${filter/value}"
                                     tal:content="filter/title">Filter option</a>
                             </li>
                         </tal:block>

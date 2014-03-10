@@ -20,8 +20,8 @@ def setupCatalogIndexes(context, logger=None):
     wanted = (('thirdPartyProject', 'KeywordIndex'),
               ('academicRole', 'FieldIndex'),
               ('publicationYear', 'FieldIndex'),
-              ('medium', 'FieldIndex'),
-              ('series', 'FieldIndex'),
+              ('media', 'FieldIndex'),
+              ('bookSeries', 'FieldIndex'),
               ('lastname', 'FieldIndex'),
               )
 

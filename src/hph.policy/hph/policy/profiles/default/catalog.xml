@@ -5,7 +5,7 @@
     <column value="thirdPartyProject" />
     <column value="academicRole" />
     <column value="publicationYear" />
-    <column value="medium" />
-    <column value="series" />
+    <column value="media" />
+    <column value="bookSeries" />
     <column value="lastname" />
 </object>
