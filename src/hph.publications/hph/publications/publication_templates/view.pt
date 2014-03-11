@@ -29,28 +29,17 @@
       <h3>Metadaten</h3>
       <table class="table">
         <tbody>
-          <tr tal:condition="context/medium">
+          <tr tal:condition="context/meda">
             <td>Medium</td>
-            <td tal:define="items context/medium">
-              <tal:block tal:repeat="item items">
-                <span tal:replace="item" />,
-              </tal:block>
-            </td>
+            <td tal:content="context/media" />
           </tr>
-          <tr tal:condition="context/series">
+          <tr tal:condition="context/bookSeries">
             <td>Reihe</td>
-            <td tal:define="items context/series">
-              <tal:block tal:repeat="item items">
-                <span tal:replace="item" />,
-              </tal:block>
-            </td>
+            <td tal:content="context/bookSeries" />
           </tr>
-          <tr tal:condition="context/display">
+          <tr tal:condition="context/thirdPartyProject">
             <td>anzeigen unter:</td>
-            <td tal:define="items context/display">
-              <tal:block tal:repeat="item items">
-                <span tal:replace="item" />,
-              </tal:block>
+            <td tal:content="context/thirdPartyProject" />
             </td>
           </tr>
         </tbody>
