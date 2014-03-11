@@ -26,24 +26,15 @@
         <div tal:condition="context/summary"
           tal:content="structure context/summary/output" />
       </section>
-      <h3>Metadaten</h3>
-      <table class="table">
-        <tbody>
-          <tr tal:condition="context/meda">
-            <td>Medium</td>
-            <td tal:content="context/media" />
-          </tr>
-          <tr tal:condition="context/bookSeries">
-            <td>Reihe</td>
-            <td tal:content="context/bookSeries" />
-          </tr>
-          <tr tal:condition="context/thirdPartyProject">
-            <td>anzeigen unter:</td>
-            <td tal:content="context/thirdPartyProject" />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <div class="alert alert-info">
+            <h4 i18n:translate="">Heads up:</h4>
+            <p i18n:translate="">A publication will only be displayed inside
+                the filterable listing view and there is therfore no dedicated
+                information available here</p>
+            <a class="btn btn-default"
+                tal:attributes="href string:${context/absolute_url}/edit"
+                i18n:translate="">Edit</a>
+        </div>
     </article>
   </metal:content-core>
 </metal:main>
