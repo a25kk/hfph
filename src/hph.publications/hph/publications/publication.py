@@ -56,13 +56,13 @@ class IPublication(form.Schema, IImageScaleTraversable):
         title=_(u"Medium"),
         description=_(u"This is the field publications can be filtered on"),
         vocabulary=u"hph.publications.publicationMedia",
-        required=True,
+        required=False,
     )
     bookSeries = schema.Choice(
         title=_(u"Series"),
         description=_(u"This is the field publications can be filtered on"),
         vocabulary=u'hph.publications.publicationSeries',
-        required=True,
+        required=False,
     )
     form.widget(thirdPartyProject=CheckBoxFieldWidget)
     thirdPartyProject = schema.Set(
