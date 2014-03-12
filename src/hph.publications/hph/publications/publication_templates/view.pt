@@ -26,10 +26,10 @@
         <div tal:condition="context/summary"
           tal:content="structure context/summary/output" />
       </section>
-        <div class="alert alert-info">
+        <div class="alert alert-warning">
             <h4 i18n:translate="">Heads up:</h4>
             <p i18n:translate="">A publication will only be displayed inside
-                the filterable listing view and there is therfore no dedicated
+                the filterable listing view and therefore no dedicated
                 information available here</p>
             <a class="btn btn-default"
                 tal:attributes="href string:${context/absolute_url}/edit"

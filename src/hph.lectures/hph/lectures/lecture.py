@@ -152,9 +152,11 @@ class View(grok.View):
         if user_id == 'zope-admin':
             allowed = True
         else:
-            perms = api.user.get_permissions(username=user.getId(), obj=context)
-            if 'cmf.ModifyPortalContent' in perms:
-                allowed = True
+            admin_roles = ('Manager', 'Site Administrator', 'StaffMember')
+            roles = api.user.get_roles(username=user_id, obj=context)
+            for role in roles:
+                if role in admin_roles:
+                    allowed = True
         return allowed
 
     def filter_options(self):
