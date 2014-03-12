@@ -49,7 +49,7 @@
                     <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                         b_size python:int(request.get('b_size', 20));
                         b_start python:int(request.get('b_start', 0));
-                        results python:context.restrictedTraverse('@@folderListing')(batch=True, b_size=b_size, b_start=b_start);
+                        results view/contained_items;
                         batch python:Batch(results, b_size, b_start);">
                         <article class="app-contentlisting" tal:repeat="item batch">
                             <div class="app-list-item">
