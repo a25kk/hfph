@@ -42,12 +42,20 @@
                                     i18n:translate="">Publications</a>
                             </li>
                             <tal:block tal:repeat="item subcontents">
-                                <li>
-                                    <a tal:attributes="href item/getURL"
+                                <li tal:define="item_url item/getURL">
+                                    <a data-appui="pjaxed"
+                                        tal:attributes="href item_url;
+                                                        data-source-url string:${item_url}?ajax_load=1#content-core;
+                                                        data-target-container string:#page-content"
                                         tal:content="item/Title">Filter option</a>
                                 </li>
                             </tal:block>
                         </ul>
+                    </div>
+                    <div class="app-box-footer hide" id="app-box-footer">
+                        <a class="btn btn-danger btn-sm"
+                            tal:attributes="href string:${context/absolute_url}">
+                            &times; <span i18n:translate="">remove filter</span></a>
                     </div>
                 </div>
             </aside>
@@ -64,7 +72,7 @@
                 <div class="app-page-department" tal:condition="context/department"
                     tal:content="context/department" />
                 
-                <section class="page-content">
+                <section class="page-content" id="page-content">
                     <div class="row">
                         <div class="col-xs-12 col-sm-4">
                             <img tal:condition="context/image"

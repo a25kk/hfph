@@ -2364,7 +2364,20 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
                 $('.bs-docs-top').affix();
             }, 100);
         }
-        var $mq = $('.marquee').marquee();
+        var $mq = $('.marquee').marquee({
+            speed: 5000
+        });
+        $('a[data-appui="pjaxed"]').on('click', function (e) {
+            e.preventDefault();
+            $(this).parent().addClass('active');
+            $('#app-box-footer').removeClass('hide').addClass('show');
+            console.log('Pjaxified link clicked');
+            var $targetUrl = $(this).attr('href');
+            var $targetDiv = $(this).data('target-container');
+            var $container = $($targetDiv);
+            $.container.addClass('animated fadeIn');
+            $container.load($targetUrl + '?ajax_load=1 #content-core >*');
+        });
         $('#formfield-form-widgets-series input.checkbox-widget').on('click', function () {
             var inputId = this.id;
             if (inputId === 'form-widgets-series-5') {
