@@ -53,14 +53,9 @@
                     <span tal:content="context/Title" />
                 </h2>
                 <p tal:content="context/subtitle" />
-                <div tal:condition="context/lecturer">
-                    <span i18n:translate="">Lecturer:</span>
-                    <tal:items tal:repeat="item context/lecturer">
-                        <span tal:content="item/to_object/Title" /><tal:separator condition="not: repeat/item/end">,</tal:separator>
-                    </tal:items>
-                </div>
                 <p tal:condition="context/lecturerAdditional">
-                    <span i18n:translate="">Additional Lecturers</span>
+                    <span i18n:translate="">Additional Lecturer:</span>
+                    <span tal:replace="context/lecturerAdditional" />
                 </p>
                 <p class="text-muted"
                     tal:define="duration context/courseDuration;

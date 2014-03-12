@@ -62,7 +62,8 @@
                                 </h2>
                                 <p tal:content="item/subtitle" />
                                 <p tal:condition="item/lecturerAdditional">
-                                    <span i18n:translate="">Additional Lecturer: True</span>
+                                    <span i18n:translate="">Additional Lecturer:</span>
+                                    <span tal:replace="item/lecturerAdditional" />
                                 </p>
                                 <p class="text-muted"
                                     tal:define="duration item/courseDuration;

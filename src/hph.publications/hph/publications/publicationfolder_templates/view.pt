@@ -96,7 +96,7 @@
                                     <span tal:replace="item/authorThree" />
                                   </span>
                                     <span tal:condition="item/authorPlus"
-                                        tal:replace="item/authorPlus" />
+                                        i18n:translate="">a.o.</span>
                                 </small>
 
                                 <br />
