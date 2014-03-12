@@ -60,9 +60,7 @@
                     </tal:items>
                 </div>
                 <p tal:condition="context/lecturerAdditional">
-                    <span i18n:translate="">Additional Lecturer:</span>
-                    <span tal:define="value context/lecturerAdditional"
-                        tal:content="python:view.pretty_additional_flag(value)" />
+                    <span i18n:translate="">Additional Lecturer: True</span>
                 </p>
                 <p class="text-muted"
                     tal:define="duration context/courseDuration;
