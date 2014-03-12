@@ -1,5 +1,6 @@
 from Acquisition import aq_inner
 from five import grok
+from plone import api
 
 from z3c.form import group, field
 from zope import schema
@@ -18,6 +19,9 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 
+from plone.app.contentlisting.interfaces import IContentListing
+
+from hph.lectures.lecture import ILecture
 
 from hph.lectures import MessageFactory as _
 
@@ -37,6 +41,9 @@ class View(grok.View):
     grok.context(ICourseFolder)
     grok.require('zope2.View')
     grok.name('view')
+
+    def update(self):
+        self.filter = self.request.get('content_filter', None)
 
     def prettify_duration(self, value):
         context = aq_inner(self.context)
@@ -61,3 +68,20 @@ class View(grok.View):
         if active_filter == value:
             klass = 'active'
         return klass
+
+    def contained_items(self):
+        catalog = api.portal.get_tool(name='portal_catalog')
+        query = self._base_query()
+        if self.filter is not None:
+            query['courseType'] = self.request.get('courseType', '')
+        results = catalog.searchResults(query)
+        return IContentListing(results)
+
+    def _base_query(self):
+        context = aq_inner(self.context)
+        obj_provides = ILecture.__identifier__
+        query_path = '/'.join(context.getPhysicalPath())
+        return dict(object_provides=obj_provides,
+                    path=query_path,
+                    review_state='published',
+                    sort_on='lastname')
