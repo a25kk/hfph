@@ -302,7 +302,7 @@ module.exports = function (grunt) {
     grunt.registerTask('dist-cc', ['test', 'concurrent:cj', 'concurrent:ha']);
 
     // Development task.
-    grunt.registerTask('dev', ['compile-less', 'dist-js', 'dist-html']);
+    grunt.registerTask('dev', ['less-compile', 'dist-js', 'dist-html']);
 
     // Full distribution task.
     grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js', 'dist-html', 'dist-assets']);
