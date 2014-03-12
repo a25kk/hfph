@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-03-12 15:03+0000\n"
+"POT-Creation-Date: 2014-03-12 15:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "A single course"
 msgstr ""
 
-#: ./../lecture_templates/view.pt:131
+#: ./../lecture_templates/view.pt:126
 msgid "Add attachment"
 msgstr ""
 
@@ -46,11 +46,8 @@ msgid "Additional Lecturer"
 msgstr ""
 
 #: ./../coursefolder_templates/view.pt:65
-msgid "Additional Lecturer: True"
-msgstr ""
-
-#: ./../lecture_templates/view.pt:63
-msgid "Additional Lecturers"
+#: ./../lecture_templates/view.pt:57
+msgid "Additional Lecturer:"
 msgstr ""
 
 #: ./../vocabulary.py:46
@@ -78,7 +75,7 @@ msgid "Colloquium"
 msgstr ""
 
 #: ./../coursedetails.py:26
-#: ./../lecture_templates/view.pt:91
+#: ./../lecture_templates/view.pt:86
 msgid "Course Aims"
 msgstr ""
 
@@ -95,27 +92,27 @@ msgid "Course Duration"
 msgstr ""
 
 #: ./../coursedetails.py:46
-#: ./../lecture_templates/view.pt:116
+#: ./../lecture_templates/view.pt:111
 msgid "Course Literature"
 msgstr ""
 
 #: ./../coursedetails.py:30
-#: ./../lecture_templates/view.pt:96
+#: ./../lecture_templates/view.pt:91
 msgid "Course Method"
 msgstr ""
 
 #: ./../coursedetails.py:50
-#: ./../lecture_templates/view.pt:121
+#: ./../lecture_templates/view.pt:116
 msgid "Course Notes"
 msgstr ""
 
 #: ./../coursedetails.py:34
-#: ./../lecture_templates/view.pt:101
+#: ./../lecture_templates/view.pt:96
 msgid "Course Prerequirements"
 msgstr ""
 
 #: ./../coursedetails.py:38
-#: ./../lecture_templates/view.pt:106
+#: ./../lecture_templates/view.pt:101
 msgid "Course Qualification"
 msgstr ""
 
@@ -128,12 +125,12 @@ msgid "Course Semester"
 msgstr ""
 
 #: ./../coursedetails.py:42
-#: ./../lecture_templates/view.pt:111
+#: ./../lecture_templates/view.pt:106
 msgid "Course Target"
 msgstr ""
 
 #: ./../coursedetails.py:22
-#: ./../lecture_templates/view.pt:86
+#: ./../lecture_templates/view.pt:81
 msgid "Course Theme"
 msgstr ""
 
@@ -153,8 +150,8 @@ msgstr ""
 msgid "CourseFolder"
 msgstr ""
 
-#: ./../coursefolder_templates/view.pt:77
-#: ./../lecture_templates/view.pt:75
+#: ./../coursefolder_templates/view.pt:78
+#: ./../lecture_templates/view.pt:70
 msgid "Dates"
 msgstr ""
 
@@ -181,10 +178,6 @@ msgstr ""
 #: ./../profiles/default/types/hph.lectures.lecture.xml
 #: ./../vocabulary.py:50
 msgid "Lecture"
-msgstr ""
-
-#: ./../lecture_templates/view.pt:57
-msgid "Lecturer:"
 msgstr ""
 
 #: ./../lecture_templates/view.pt:19
@@ -231,8 +224,8 @@ msgstr ""
 msgid "Please select the course type."
 msgstr ""
 
-#: ./../coursefolder_templates/view.pt:74
-#: ./../lecture_templates/view.pt:72
+#: ./../coursefolder_templates/view.pt:75
+#: ./../lecture_templates/view.pt:67
 msgid "Raum"
 msgstr ""
 
@@ -240,7 +233,7 @@ msgstr ""
 msgid "Related lecturer"
 msgstr ""
 
-#: ./../lecture_templates/view.pt:128
+#: ./../lecture_templates/view.pt:123
 msgid "Since you are signed in as editor you can add file attachments to this content item"
 msgstr ""
 
