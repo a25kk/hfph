@@ -7,11 +7,6 @@
       i18n:domain="hph.lectures">
 <body>
 
-<tal:comment tal:condition="nothing">
-    This is a sample view template. It will not be used for rendering the
-    content unless activated by creation of a view class with a matching name.
-</tal:comment>
-
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
@@ -53,9 +48,15 @@
                         batch python:Batch(results, b_size, b_start);">
                         <article class="app-contentlisting" tal:repeat="item batch">
                             <div class="app-list-item">
-                                <h2><small>
-                                        <span tal:replace="item/courseNumber" />
-                                    </small><br>
+                                <div class="app-list-item-kicker">
+                                    <span tal:replace="item/courseNumber" />
+                                    <tal:lecturer tal:condition="item/lecturer">
+                                        <tal:items tal:repeat="node item/lecturer">
+                                            <span tal:replace="node/to_object/Title" /><tal:separator condition="not: repeat/node/end">,</tal:separator>
+                                        </tal:items>
+                                    </tal:lecturer>
+                                </div>
+                                <h2>
                                     <a tal:attributes="href item/getURL"
                                         tal:content="item/Title" />
                                 </h2>

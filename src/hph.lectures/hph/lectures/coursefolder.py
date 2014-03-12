@@ -83,5 +83,4 @@ class View(grok.View):
         query_path = '/'.join(context.getPhysicalPath())
         return dict(object_provides=obj_provides,
                     path=query_path,
-                    review_state='published',
-                    sort_on='lastname')
+                    review_state='published')

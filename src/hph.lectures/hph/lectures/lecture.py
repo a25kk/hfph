@@ -8,6 +8,7 @@ from zope.interface import invariant, Invalid
 from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import getVocabularyRegistry
 
+from plone.indexer import indexer
 from plone.dexterity.content import Container
 
 from plone.directives import dexterity, form
@@ -121,6 +122,12 @@ class ILecture(form.Schema, IImageScaleTraversable):
     )
 
 
+@indexer(ILecture)
+def courseTypeIndexer(obj):
+    return obj.courseType
+grok.global_adapter(courseTypeIndexer, name="courseType")
+
+
 class Lecture(Container):
     grok.implements(ILecture)
     pass
@@ -130,6 +137,9 @@ class View(grok.View):
     grok.context(ILecture)
     grok.require('zope2.View')
     grok.name('view')
+
+    def is_anon(self):
+        return api.user.is_anonymous()
 
     def prettify_duration(self, value):
         context = aq_inner(self.context)
