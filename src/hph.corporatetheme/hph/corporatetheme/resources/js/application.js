@@ -11,7 +11,9 @@
                 $('.bs-docs-top').affix();
             }, 100);
         }
-        var $mq = $('.marquee').marquee();
+        var $mq = $('.marquee').marquee({
+            speed: 5000
+        });
         $('#formfield-form-widgets-series input.checkbox-widget').on('click', function () {
             var inputId = this.id;
             if (inputId === 'form-widgets-series-5') {

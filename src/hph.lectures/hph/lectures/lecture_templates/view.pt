@@ -41,7 +41,15 @@
         </div>
         <div class="col-xs-12 col-sm-9">
             <div class="app-list-item">
-                <h2><small><span tal:replace="context/courseNumber" /></small><br>
+                <div class="app-list-item-kicker">
+                    <span tal:replace="context/courseNumber" />
+                    <tal:lecturer tal:condition="context/lecturer">
+                        <tal:items tal:repeat="node context/lecturer">
+                            <span tal:replace="node/to_object/Title" /><tal:separator condition="not: repeat/node/end">,</tal:separator>
+                        </tal:items>
+                    </tal:lecturer>
+                </div>
+                <h2>
                     <span tal:content="context/Title" />
                 </h2>
                 <p tal:content="context/subtitle" />
@@ -53,7 +61,8 @@
                 </div>
                 <p tal:condition="context/lecturerAdditional">
                     <span i18n:translate="">Additional Lecturer:</span>
-                    <span tal:replace="context/lecturerAdditional" />
+                    <span tal:content="context/lecturerAdditional"
+                        i18n:translate="" />
                 </p>
                 <p class="text-muted"
                     tal:define="duration context/courseDuration;
@@ -71,7 +80,7 @@
                     tal:condition="context/Description"
                     tal:content="context/Description" />
             </div>
-            
+
             <div tal:condition="not:view/is_anon">
                 <hr>
                 <div class="app-page-section"
