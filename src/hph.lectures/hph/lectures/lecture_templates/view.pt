@@ -72,7 +72,7 @@
                     <span i18n:translate="">Raum</span>
                     <span tal:replace="context/courseRoom" />
                 <p class="text-muted">
-                    <span i18n:translate="">Dates</span>
+                    <span i18n:translate="">Dates</span>:
                     <span tal:replace="context/courseDates" />
                 <p class="text-discreet text-muted"
                     tal:condition="context/Description"
