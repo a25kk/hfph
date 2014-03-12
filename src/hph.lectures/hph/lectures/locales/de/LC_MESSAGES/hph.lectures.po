@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-03-12 14:51+0000\n"
-"PO-Revision-Date: 2014-03-12 15:52+0100\n"
+"POT-Creation-Date: 2014-03-12 15:03+0000\n"
+"PO-Revision-Date: 2014-03-12 16:03+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr "3-stdg."
 msgid "A single course"
 msgstr "einzelne Lehrveranstaltung"
 
-#: ./../lecture_templates/view.pt:133
+#: ./../lecture_templates/view.pt:131
 msgid "Add attachment"
 msgstr "Neuen Dateianhang erstellen"
 
@@ -44,13 +44,13 @@ msgstr "Zusatzinformation"
 msgid "Additional Lecturer"
 msgstr "zusammen mit:"
 
-#: ./../lecture_templates/view.pt:63
-msgid "Additional Lecturer:"
-msgstr "zusammen mit:"
-
 #: ./../coursefolder_templates/view.pt:65
 msgid "Additional Lecturer: True"
 msgstr "u.a.: ja"
+
+#: ./../lecture_templates/view.pt:63
+msgid "Additional Lecturers"
+msgstr "u.a."
 
 #: ./../vocabulary.py:46
 msgid "Advanced seminar"
@@ -77,7 +77,7 @@ msgid "Colloquium"
 msgstr "Kolloquium"
 
 #: ./../coursedetails.py:26
-#: ./../lecture_templates/view.pt:93
+#: ./../lecture_templates/view.pt:91
 msgid "Course Aims"
 msgstr "Ziele"
 
@@ -94,27 +94,27 @@ msgid "Course Duration"
 msgstr "Dauer"
 
 #: ./../coursedetails.py:46
-#: ./../lecture_templates/view.pt:118
+#: ./../lecture_templates/view.pt:116
 msgid "Course Literature"
 msgstr "Literatur"
 
 #: ./../coursedetails.py:30
-#: ./../lecture_templates/view.pt:98
+#: ./../lecture_templates/view.pt:96
 msgid "Course Method"
 msgstr "Methode"
 
 #: ./../coursedetails.py:50
-#: ./../lecture_templates/view.pt:123
+#: ./../lecture_templates/view.pt:121
 msgid "Course Notes"
 msgstr "Anmerkung der Kanzlerin"
 
 #: ./../coursedetails.py:34
-#: ./../lecture_templates/view.pt:103
+#: ./../lecture_templates/view.pt:101
 msgid "Course Prerequirements"
 msgstr "Voraussetzungen"
 
 #: ./../coursedetails.py:38
-#: ./../lecture_templates/view.pt:108
+#: ./../lecture_templates/view.pt:106
 msgid "Course Qualification"
 msgstr "Qualifikation"
 
@@ -127,12 +127,12 @@ msgid "Course Semester"
 msgstr "Semester"
 
 #: ./../coursedetails.py:42
-#: ./../lecture_templates/view.pt:113
+#: ./../lecture_templates/view.pt:111
 msgid "Course Target"
 msgstr "Zielgruppe"
 
 #: ./../coursedetails.py:22
-#: ./../lecture_templates/view.pt:88
+#: ./../lecture_templates/view.pt:86
 msgid "Course Theme"
 msgstr "Thematik"
 
@@ -153,7 +153,7 @@ msgid "CourseFolder"
 msgstr "Veranstaltungsordner"
 
 #: ./../coursefolder_templates/view.pt:77
-#: ./../lecture_templates/view.pt:77
+#: ./../lecture_templates/view.pt:75
 msgid "Dates"
 msgstr "Termine"
 
@@ -231,7 +231,7 @@ msgid "Please select the course type."
 msgstr "Bitte wählen Sie den Veranstaltungstyp"
 
 #: ./../coursefolder_templates/view.pt:74
-#: ./../lecture_templates/view.pt:74
+#: ./../lecture_templates/view.pt:72
 msgid "Raum"
 msgstr "Raum:"
 
@@ -239,7 +239,7 @@ msgstr "Raum:"
 msgid "Related lecturer"
 msgstr "Lehrender"
 
-#: ./../lecture_templates/view.pt:130
+#: ./../lecture_templates/view.pt:128
 msgid "Since you are signed in as editor you can add file attachments to this content item"
 msgstr "Da Sie als CMS-Redakteur angemeldet sind, können Sie Datein zu diesem Inhalt hochladen."
 

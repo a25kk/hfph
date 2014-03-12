@@ -60,7 +60,7 @@
                     </tal:items>
                 </div>
                 <p tal:condition="context/lecturerAdditional">
-                    <span i18n:translate="">Additional Lecturer: True</span>
+                    <span i18n:translate="">Additional Lecturers</span>
                 </p>
                 <p class="text-muted"
                     tal:define="duration context/courseDuration;
