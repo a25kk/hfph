@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-03-12 15:41+0000\n"
-"PO-Revision-Date: 2014-03-12 16:41+0100\n"
+"POT-Creation-Date: 2014-03-13 08:47+0000\n"
+"PO-Revision-Date: 2014-03-13 09:47+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgstr "zusammen mit:"
 #: ./../coursefolder_templates/view.pt:65
 #: ./../lecture_templates/view.pt:57
 msgid "Additional Lecturer:"
-msgstr "Weitere Dozenten:"
+msgstr "zusammen mit:"
 
 #: ./../vocabulary.py:46
 msgid "Advanced seminar"

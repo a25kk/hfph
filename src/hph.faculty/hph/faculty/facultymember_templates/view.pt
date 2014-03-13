@@ -46,7 +46,7 @@
                                     <a data-appui="pjaxed"
                                         tal:attributes="href item_url;
                                                         data-source-url string:${item_url}?ajax_load=1#content-core;
-                                                        data-target-container string:#page-content"
+                                                        data-appui-hide string:#page-content"
                                         tal:content="item/Title">Filter option</a>
                                 </li>
                             </tal:block>
@@ -100,6 +100,7 @@
                         <div tal:replace="structure context/text/output" />
                     </div>
                 </section>
+                <div class="appui-container-xhr" id="appui-container"></div>
             </article>
         </div>
     </div>

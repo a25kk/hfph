@@ -3758,32 +3758,21 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
                 $('.bs-docs-top').affix();
             }, 100);
         }
-        var $mq = $('.marquee').marquee({
+        $('.marquee').marquee({
             speed: 5000
         });
-        $('a[data-appui="pjaxed"]').on('click', function (e) {
-            e.preventDefault();
-            $(this).parent().addClass('active');
-            $('#app-box-footer').removeClass('hide').addClass('show');
-            console.log('Pjaxified link clicked');
+        var $ajaxContainer = $('#appui-container');
+        $('a[data-appui="pjaxed"]').each(function () {
             var $targetUrl = $(this).attr('href');
-            var $targetDiv = $(this).data('target-container');
-            var $container = $($targetDiv);
-            $.container.addClass('animated fadeIn');
-            $container.load($targetUrl + '?ajax_load=1 #content-core >*');
-        });
-        $('#formfield-form-widgets-series input.checkbox-widget').on('click', function () {
-            var inputId = this.id;
-            if (inputId === 'form-widgets-series-5') {
-                if ($(this).is(':checked')) {
-                    $('#form-widgets-medium-1').attr('checked', true);
-                }
-            }
-            else {
-                if ($(this).is(':checked')) {
-                    $('#form-widgets-medium-0').attr('checked', true);
-                }
-            }
+            var $hideEl = $(this).data('appui-hide');
+            $(this).on('click', function (e) {
+                e.preventDefault();
+                $(this).addClass('selected');
+                $('#app-box-footer').removeClass('hide').addClass('show');
+                $($hideEl).hide();
+                $ajaxContainer.load($targetUrl + '?ajax_load=1 #content-core >*'
+                    ).fadeIn('slow');
+            });
         });
         $('div[data-appui="eventbox"]').each(function () {
             var sourceUrl = $(this).data('source');
