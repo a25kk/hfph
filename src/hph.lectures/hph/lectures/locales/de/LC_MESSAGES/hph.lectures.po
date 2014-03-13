@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-03-13 08:47+0000\n"
-"PO-Revision-Date: 2014-03-13 10:07+0100\n"
+"POT-Creation-Date: 2014-03-13 09:23+0000\n"
+"PO-Revision-Date: 2014-03-13 10:24+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -78,7 +78,7 @@ msgstr "Ziele"
 
 #: ../lecture.py:93
 msgid "Course Dates"
-msgstr "Termine:"
+msgstr "Termine"
 
 #: ../coursedetails.py:15
 msgid "Course Details"
@@ -142,7 +142,7 @@ msgstr "Veranstaltungsordner"
 
 #: ../coursefolder_templates/view.pt:78 ../lecture_templates/view.pt:70
 msgid "Dates"
-msgstr "Termine:"
+msgstr "Termine"
 
 #: ../coursemodules.py:18
 msgid "Degree"
