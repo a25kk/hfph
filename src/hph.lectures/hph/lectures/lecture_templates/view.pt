@@ -54,7 +54,7 @@
                 </h2>
                 <p tal:content="context/subtitle" />
                 <p tal:condition="context/lecturerAdditional">
-                    <span i18n:translate="">Additional Lecturer:</span>
+                    <span i18n:translate="">Additional Lecturer</span>
                     <span tal:replace="context/lecturerAdditional" />
                 </p>
                 <p class="text-muted"
