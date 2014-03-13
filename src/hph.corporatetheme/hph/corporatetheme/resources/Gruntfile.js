@@ -243,7 +243,7 @@ module.exports = function (grunt) {
         },
 
         concurrent: {
-            cj: ['recess', 'copy', 'concat', 'uglify'],
+            cj: ['less', 'copy', 'concat', 'uglify'],
             ha: ['jekyll:theme', 'copy-templates', 'sed']
         }
     });
