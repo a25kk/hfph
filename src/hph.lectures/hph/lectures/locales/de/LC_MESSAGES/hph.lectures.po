@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2014-03-13 10:56+0000\n"
-"PO-Revision-Date: 2014-03-13 12:05+0100\n"
+"PO-Revision-Date: 2014-03-13 12:10+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -166,7 +166,7 @@ msgstr "Proseminare"
 
 #: ../profiles/default/types/hph.lectures.lecture.xml ../vocabulary.py:50
 msgid "Lecture"
-msgstr "Vorlesungen"
+msgstr "Lehrveranstaltung"
 
 #: ../lecture_templates/view.pt:19
 msgid "Lectures"
