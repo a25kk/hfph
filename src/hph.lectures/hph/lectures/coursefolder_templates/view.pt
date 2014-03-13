@@ -75,7 +75,7 @@
                                     <span i18n:translate="">Raum</span>
                                     <span tal:replace="item/courseRoom" />
                                 <p class="text-muted">
-                                    <span i18n:translate="">Dates</span>
+                                    <span i18n:translate="">Dates</span>:
                                     <span tal:replace="item/courseDates" />
                                 <p class="text-discreet text-muted"
                                     tal:condition="item/Description"
