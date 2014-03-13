@@ -43,11 +43,11 @@ class CourseTypeVocabulary(object):
 
     def __call__(self, context):
         TYPES = {
-            _(u"Advanced seminar"): 'advanced',
-            _(u"Colloquium"): 'colloquium',
+            _(u"Lecture"): 'lecture',
             _(u"Introductory seminar source"): 'introductory-seminar-course',
+            _(u"Advanced seminar"): 'advanced',
             _(u"Exercise"): 'exercise',
-            _(u"Lecture"): 'lecture'
+            _(u"Colloquium"): 'colloquium'
         }
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
