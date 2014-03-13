@@ -95,7 +95,7 @@ def stage():
 
 
 @task
-@roles('staging'):
+@roles('staging')
 def deploy_full():
     """ Deploy current master to production and run buildout """
     with settings(port=22222, webserver='/opt/webserver/buildout.webserver'):
