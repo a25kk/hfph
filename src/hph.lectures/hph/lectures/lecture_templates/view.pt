@@ -117,7 +117,8 @@
                     <p tal:content="context/courseNotes" />
                 </div>
             </div>
-            <div tal:condition="view/has_attachments">
+            <div class="app-page-section" tal:condition="view/has_attachments">
+                <h3 i18n:translate="">Attachements</h3>
                 <ul class="list-group">
                     <li class="list-group-item" tal:repeat="item view/attachments">
                         <tal:item
