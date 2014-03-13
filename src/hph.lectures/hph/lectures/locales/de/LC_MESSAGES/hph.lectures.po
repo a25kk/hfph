@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-03-13 09:23+0000\n"
-"PO-Revision-Date: 2014-03-13 10:24+0100\n"
+"POT-Creation-Date: 2014-03-13 10:56+0000\n"
+"PO-Revision-Date: 2014-03-13 12:00+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +50,7 @@ msgstr "zusammen mit:"
 
 #: ../vocabulary.py:46
 msgid "Advanced seminar"
-msgstr "Hauptseminar"
+msgstr "Hauptseminare"
 
 #: ../lecture.py:50
 msgid "Attendance"
@@ -70,7 +70,7 @@ msgstr "Blockveranstaltung"
 
 #: ../vocabulary.py:47
 msgid "Colloquium"
-msgstr "Kolloquium"
+msgstr "Kolloquien"
 
 #: ../coursedetails.py:26 ../lecture_templates/view.pt:86
 msgid "Course Aims"
@@ -158,15 +158,15 @@ msgstr "Tragen Sie hier den korrespondierenden Produktwert ein"
 
 #: ../vocabulary.py:49
 msgid "Exercise"
-msgstr "Übung"
+msgstr "Übungen"
 
 #: ../vocabulary.py:48
 msgid "Introductory seminar source"
-msgstr "Proseminar"
+msgstr "Proseminare"
 
 #: ../profiles/default/types/hph.lectures.lecture.xml ../vocabulary.py:50
 msgid "Lecture"
-msgstr "Vorlesung"
+msgstr "Vorlesungen"
 
 #: ../lecture_templates/view.pt:19
 msgid "Lectures"
