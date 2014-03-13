@@ -12,9 +12,9 @@ class AcademicRoleVocabulary(object):
 
     def __call__(self, context):
         TYPES = {
-            _(u"Lecturer"): 'lecturer',
             _(u"Professor"): 'professor',
             _(u"docent"): 'docent',
+            _(u"Lecturer"): 'lecturer',
             _(u"Emeriti"): 'emeriti'
         }
         return SimpleVocabulary([SimpleTerm(value, title=title)
