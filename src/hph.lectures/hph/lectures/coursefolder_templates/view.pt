@@ -53,7 +53,7 @@
                                     <span tal:replace="item/courseNumber" />
                                     <tal:lecturer tal:condition="item/lecturer">
                                         <tal:items tal:repeat="node item/lecturer">
-                                            <span tal:replace="node/to_object/Title" /><tal:separator condition="not: repeat/node/end">,</tal:separator>
+                                            <a tal:attributes="href node/to_object/absolute_url" tal:content="node/to_object/Title" /><tal:separator condition="not: repeat/node/end">,</tal:separator>
                                         </tal:items>
                                     </tal:lecturer>
                                 </div>
