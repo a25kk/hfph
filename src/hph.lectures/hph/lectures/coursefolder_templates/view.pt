@@ -49,6 +49,7 @@
                         <article class="app-contentlisting" tal:repeat="item batch">
                             <div class="app-list-item">
                                 <div class="app-list-item-kicker">
+                                    <span tal:condition="item/blockLecture">*</span>
                                     <span tal:replace="item/courseNumber" />
                                     <tal:lecturer tal:condition="item/lecturer">
                                         <tal:items tal:repeat="node item/lecturer">
