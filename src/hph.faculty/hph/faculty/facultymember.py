@@ -137,6 +137,13 @@ class View(grok.View):
             klass = 'active'
         return klass
 
+    def show_address(self):
+        context = aq_inner(self.context)
+        display = False
+        if context.street or context.email:
+            display = True
+        return display
+
 
 class Publications(grok.View):
     grok.context(IFacultyMember)

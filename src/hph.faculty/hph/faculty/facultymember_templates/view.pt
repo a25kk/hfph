@@ -74,7 +74,7 @@
                 
                 <section class="page-content" id="page-content">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-4">
+                        <div class="col-xs-12 col-sm-4" tal:condition="context/image">
                             <img tal:condition="context/image"
                                 tal:define="scales context/@@images"
                                 tal:replace="structure python: scales.tag('image',
@@ -87,9 +87,14 @@
                             <address>
                                 <span tal:replace="context/street" /><br />
                                 <span tal:replace="context/city" /><br />
-                                <abbr title="Phone">Tel:</abbr> <span tal:replace="context/phone" /><br />
-                                <abbr title="Fax">Fax:</abbr> <span tal:replace="context/fax" /><br />
-                                <a class="text-muted" tal:attributes="href string:mailto:${context/email}"
+                                <tal:block tal:condition="context/phone">
+                                    <abbr title="Phone">Tel:</abbr> <span tal:replace="context/phone" />
+                                <tal:block><br />
+                                <tal:block tal:condition="context/fax">
+                                    <abbr title="Fax">Fax:</abbr> <span tal:replace="context/fax" /><br />
+                                </tal:block>
+                                <a class="text-muted" tal:condition="context/email"
+                                    tal:attributes="href string:mailto:${context/email}"
                                     tal:content="context/email" />
                             </address>
                         </div>
