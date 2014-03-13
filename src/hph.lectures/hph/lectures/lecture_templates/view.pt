@@ -117,7 +117,28 @@
                     <p tal:content="context/courseNotes" />
                 </div>
             </div>
-
+            <div tal:condition="view/has_attachments">
+                <ul class="list-group">
+                    <li class="list-group-item" tal:repeat="item view/attachments">
+                        <tal:item
+                            tal:define="item_obj item/getObject;
+                                        content_type item/file/contentType|nothing;
+                                        v python:context.restrictedTraverse('contenttype_utils');">
+                            <p>
+                                <a tal:attributes="href string:${item/getURL}/@@download/file/${item/file/filename}">
+                                    <img tal:attributes="src python: v.getMimeTypeIcon(item.file);
+                                                         alt content_type;" border="0"  />
+                                    <tal:name tal:content="item/file/filename" >Filename</tal:name>
+                                </a>
+                                <span class="discreet"
+                                      tal:define="size item/file/getSize;
+                                                  kb python:size/1024">
+                                      &mdash; <span tal:replace="kb" /> KB</span>
+                            </p>
+                        </tal:item>
+                    </li>
+                </ul>
+            </div>
             <div class="visualClear" tal:condition="view/can_edit">
                 <div class="alert alert-warning">
                     <p i18n:translate="">
