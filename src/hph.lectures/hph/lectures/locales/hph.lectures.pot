@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-03-13 09:23+0000\n"
+"POT-Creation-Date: 2014-03-13 13:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,7 +33,7 @@ msgstr ""
 msgid "A single course"
 msgstr ""
 
-#: ./../lecture_templates/view.pt:126
+#: ./../lecture_templates/view.pt:148
 msgid "Add attachment"
 msgstr ""
 
@@ -42,16 +42,20 @@ msgid "Additional Information"
 msgstr ""
 
 #: ./../lecture.py:78
+#: ./../lecture_templates/view.pt:57
 msgid "Additional Lecturer"
 msgstr ""
 
 #: ./../coursefolder_templates/view.pt:65
-#: ./../lecture_templates/view.pt:57
 msgid "Additional Lecturer:"
 msgstr ""
 
-#: ./../vocabulary.py:46
+#: ./../vocabulary.py:48
 msgid "Advanced seminar"
+msgstr ""
+
+#: ./../lecture_templates/view.pt:121
+msgid "Attachements"
 msgstr ""
 
 #: ./../lecture.py:50
@@ -70,7 +74,7 @@ msgstr ""
 msgid "Block Lecture"
 msgstr ""
 
-#: ./../vocabulary.py:47
+#: ./../vocabulary.py:50
 msgid "Colloquium"
 msgstr ""
 
@@ -171,12 +175,12 @@ msgstr ""
 msgid "Exercise"
 msgstr ""
 
-#: ./../vocabulary.py:48
+#: ./../vocabulary.py:47
 msgid "Introductory seminar source"
 msgstr ""
 
 #: ./../profiles/default/types/hph.lectures.lecture.xml
-#: ./../vocabulary.py:50
+#: ./../vocabulary.py:46
 msgid "Lecture"
 msgstr ""
 
@@ -233,7 +237,7 @@ msgstr ""
 msgid "Related lecturer"
 msgstr ""
 
-#: ./../lecture_templates/view.pt:123
+#: ./../lecture_templates/view.pt:145
 msgid "Since you are signed in as editor you can add file attachments to this content item"
 msgstr ""
 
@@ -267,7 +271,7 @@ msgid "remove filter"
 msgstr ""
 
 #: ./../coursefolder.py:52
-#: ./../lecture.py:148
+#: ./../lecture.py:158
 msgid "undefined"
 msgstr ""
 

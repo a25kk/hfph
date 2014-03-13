@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-03-13 09:23+0000\n"
-"PO-Revision-Date: 2014-03-13 10:24+0100\n"
+"POT-Creation-Date: 2014-03-13 13:26+0000\n"
+"PO-Revision-Date: 2014-03-13 14:27+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -32,7 +32,7 @@ msgstr "3-stdg."
 msgid "A single course"
 msgstr "einzelne Lehrveranstaltung"
 
-#: ../lecture_templates/view.pt:126
+#: ../lecture_templates/view.pt:148
 msgid "Add attachment"
 msgstr "Neuen Dateianhang erstellen"
 
@@ -40,17 +40,21 @@ msgstr "Neuen Dateianhang erstellen"
 msgid "Additional Information"
 msgstr "Zusatzinformation"
 
-#: ../lecture.py:78
+#: ../lecture.py:78 ../lecture_templates/view.pt:57
 msgid "Additional Lecturer"
-msgstr "zusammen mit:"
+msgstr "zusammen mit"
 
-#: ../coursefolder_templates/view.pt:65 ../lecture_templates/view.pt:57
+#: ../coursefolder_templates/view.pt:65
 msgid "Additional Lecturer:"
-msgstr "zusammen mit:"
+msgstr "zusammen mit"
 
-#: ../vocabulary.py:46
+#: ../vocabulary.py:48
 msgid "Advanced seminar"
-msgstr "Hauptseminar"
+msgstr "Hauptseminare"
+
+#: ../lecture_templates/view.pt:121
+msgid "Attachements"
+msgstr "Materialien"
 
 #: ../lecture.py:50
 msgid "Attendance"
@@ -68,9 +72,9 @@ msgstr "BA"
 msgid "Block Lecture"
 msgstr "Blockveranstaltung"
 
-#: ../vocabulary.py:47
+#: ../vocabulary.py:50
 msgid "Colloquium"
-msgstr "Kolloquium"
+msgstr "Kolloquien"
 
 #: ../coursedetails.py:26 ../lecture_templates/view.pt:86
 msgid "Course Aims"
@@ -158,15 +162,15 @@ msgstr "Tragen Sie hier den korrespondierenden Produktwert ein"
 
 #: ../vocabulary.py:49
 msgid "Exercise"
-msgstr "Übung"
+msgstr "Übungen"
 
-#: ../vocabulary.py:48
+#: ../vocabulary.py:47
 msgid "Introductory seminar source"
-msgstr "Proseminar"
+msgstr "Proseminare"
 
-#: ../profiles/default/types/hph.lectures.lecture.xml ../vocabulary.py:50
+#: ../profiles/default/types/hph.lectures.lecture.xml ../vocabulary.py:46
 msgid "Lecture"
-msgstr "Vorlesung"
+msgstr "Vorlesungen"
 
 #: ../lecture_templates/view.pt:19
 msgid "Lectures"
@@ -220,7 +224,7 @@ msgstr "Raum:"
 msgid "Related lecturer"
 msgstr "Lehrender"
 
-#: ../lecture_templates/view.pt:123
+#: ../lecture_templates/view.pt:145
 msgid ""
 "Since you are signed in as editor you can add file attachments to this "
 "content item"
@@ -256,6 +260,6 @@ msgstr "ZEP"
 msgid "remove filter"
 msgstr "Filter entfernen"
 
-#: ../coursefolder.py:52 ../lecture.py:148
+#: ../coursefolder.py:52 ../lecture.py:158
 msgid "undefined"
 msgstr "undefiniert"

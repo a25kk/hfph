@@ -138,8 +138,18 @@ class View(grok.View):
     grok.require('zope2.View')
     grok.name('view')
 
+    def update(self):
+        self.anon = self.is_anon()
+        self.has_attachments = len(self.attachments()) > 0
+
     def is_anon(self):
         return api.user.is_anonymous()
+
+    def attachments(self):
+        context = aq_inner(self.context)
+        items = context.restrictedTraverse('@@folderListing')(
+            portal_type=['File'])
+        return items
 
     def prettify_duration(self, value):
         context = aq_inner(self.context)

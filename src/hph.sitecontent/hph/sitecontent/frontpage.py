@@ -90,7 +90,6 @@ class RecentEventsView(grok.View):
                                     depth=1),
                           review_state='published',
                           sort_on='start',
-                          sort_order='reverse',
                           sort_limit=3)[:3]
         return results
 
