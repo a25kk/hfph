@@ -40,6 +40,15 @@ module.exports = function (grunt) {
             }
         },
 
+        jscs: {
+            src: 'js/*.js',
+            options: {
+                config: '.jscs.json',
+                requireCurlyBraces: [ 'if' ]
+            },
+            all: ['Gruntfile.js', 'js/**/*.js', 'tests/**/*.js']
+        },
+
         concat: {
             options: {
                 banner: '<%= banner %>',
@@ -218,8 +227,8 @@ module.exports = function (grunt) {
                 failHard: true,
                 reset: true,
                 relaxerror: [
-                  'Bad value X-UA-Compatible for attribute http-equiv on element meta.',
-                  'Element img is missing required attribute src.'
+                    'Bad value X-UA-Compatible for attribute http-equiv on element meta.',
+                    'Element img is missing required attribute src.'
                 ]
             },
             files: {
@@ -278,6 +287,7 @@ module.exports = function (grunt) {
     grunt.registerTask('unit-test', ['qunit']);
 
     // Test task.
+    grunt.registerTask('test-js', ['jshint', 'jscs']);
     var testSubtasks = ['dist-css', 'jshint', 'validate-html'];
 
     grunt.registerTask('test', testSubtasks);
