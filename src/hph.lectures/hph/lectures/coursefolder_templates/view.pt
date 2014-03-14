@@ -39,7 +39,7 @@
         <div class="col-xs-12 col-sm-9">
             <div class="tile-content"
                 tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
-            
+
                 <div class="app-content-core" id="content-core">
                     <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                         b_size python:int(request.get('b_size', 20));
@@ -49,8 +49,7 @@
                         <article class="app-contentlisting" tal:repeat="item batch">
                             <div class="app-list-item">
                                 <div class="app-list-item-kicker">
-                                    <span tal:condition="item/blockLecture">*</span>
-                                    <span tal:replace="item/courseNumber" />
+                                    <span tal:replace="item/courseNumber" /><span tal:condition="item/blockLecture">*</span>
                                     <tal:lecturer tal:condition="item/lecturer">
                                         <tal:items tal:repeat="node item/lecturer">
                                             <a tal:attributes="href node/to_object/absolute_url" tal:content="node/to_object/Title" /><tal:separator condition="not: repeat/node/end">,</tal:separator>

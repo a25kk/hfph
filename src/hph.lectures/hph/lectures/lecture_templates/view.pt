@@ -42,8 +42,7 @@
         <div class="col-xs-12 col-sm-9">
             <div class="app-list-item">
                 <div class="app-list-item-kicker">
-                    <span tal:condition="context/blockLecture">*</span>
-                    <span tal:replace="context/courseNumber" />
+                    <span tal:replace="context/courseNumber" /><span tal:condition="context/blockLecture">*</span>
                     <tal:lecturer tal:condition="context/lecturer">
                         <tal:items tal:repeat="node context/lecturer">
                             <span tal:replace="node/to_object/Title" /><tal:separator condition="not: repeat/node/end">,</tal:separator>
