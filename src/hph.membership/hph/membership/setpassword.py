@@ -77,10 +77,9 @@ class SetUserPassword(form.SchemaForm):
 
     def applyChanges(self, data):
         context = aq_inner(self.context)
-        key = data['key']
         pwtool = api.portal.get_tool(name='portal_password_reset')
         try:
-            pwtool.verifyKey(key)
+            pwtool.verifyKey(self.key)
         except InvalidRequestError:
             IStatusMessage(self.request).addStatusMessage(
                 _(u"This password request reset is invalid"),
@@ -89,7 +88,6 @@ class SetUserPassword(form.SchemaForm):
             IStatusMessage(self.request).addStatusMessage(
                 _(u"This password request reset is invalid"),
                 type='info')
-        import pdb; pdb.set_trace()
         IStatusMessage(self.request).addStatusMessage(
             _(u"A new password has been set"),
             type='info')
