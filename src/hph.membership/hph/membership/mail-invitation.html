@@ -338,12 +338,12 @@ h1, h2, h3, h4, h5, h6 {
   word-break: normal;
 }
 
-h1 {font-size: 40px;}
-h2 {font-size: 36px;}
-h3 {font-size: 32px;}
-h4 {font-size: 28px;}
-h5 {font-size: 24px;}
-h6 {font-size: 20px;}
+h1 {font-size: 36px;}
+h2 {font-size: 32px;}
+h3 {font-size: 28px;}
+h4 {font-size: 24px;}
+h5 {font-size: 20px;}
+h6 {font-size: 18px;}
 body, table.body, p, td {font-size: 14px;line-height:19px;}
 
 p.lead, p.lede, p.leed {
@@ -360,7 +360,7 @@ small {
 }
 
 a {
-  color: #2ba6cb;
+  color: #5896c8;
   text-decoration: none;
 }
 
@@ -838,7 +838,7 @@ body.outlook p {
                           <td class="expander"></td>
                         </tr>
                       </table>
-
+                      <hr>
                     </td>
                   </tr>
                 </table>
@@ -852,20 +852,23 @@ body.outlook p {
                           <td>
                             <p>Sie erhalten diese Benachrichtigung, um Ihren
                                 Benutzeraccount für http://hfph.de zu aktivieren.
-                                Ihr Benutzername lautet: ${email}
+                                Danach können Sie sich auf der Webseite bequem einloggen und Ihren Bereich erkunden.</p>
+                            <p><b>Ihr Benutzername lautet:</b> ${email}</p>
+                            <p>Bitte verwenden Sie nachfolgenden Link, um ein neues
+                              Passwort zu setzen.
                             </p>
                           </td>
                         </tr>
-                        <tr>
-                          <td class="panel">
-
-                            <p>Einfach <a href="http://www.hfph.de">HIER »</a> klicken</p>
-
-                          </td>
-                          <td class="expander"></td>
-                        </tr>
                       </table>
 
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="xxbutton">
+                  <tr>
+                    <td>
+                      <a href="http://hfph.de/setuserpwd/testsequence">Neues Passwort setzen</a>
                     </td>
                   </tr>
                 </table>
@@ -873,73 +876,38 @@ body.outlook p {
                 <table class="row">
                   <tr>
                     <td class="wrapper last">
-
+                    <hr>
                       <table class="twelve columns">
                         <tr>
                           <td>
-
-                            <h3>F&uuml;r den neuen Login-Bereich</h3>
-                            <p>Klicken Sie einfach auf den unten stehenden Button, um ein neues Passwort zu setzen. Danach k&ouml;nnen Sie sich auf der Webseite bequem einloggen und Ihren Bereich erkunden. (Ihr Login-Name ist Ihre E-Mailadresse.)</p>
                             <p>Bei Problemen wenden Sie sich bitte (wie gewohnt) an folgende E-Mail-Adresse: <a href="mailto:webmaster@hfph.de">webmaster@hfph.de</a>. Wir k&uuml;mmern uns zeitnah um Ihr Anliegen.</p>
-                            <h3>"Freude an der Arbeit l&auml;sst das Werk trefflich geraten." (Aristoteles)</h3>
-                            <h4>Wir hatten bisher viel Spaß und wünschen Ihnen nun dasselbe!</h4>
-                            <p>Ihr Web-Team der Hochschule für Philosophie</p>
-
                           </td>
                           <td class="expander"></td>
                         </tr>
                       </table>
-
-                      <table class="twelve columns">
-                        <tr>
-                          <td class="panel">
-
-                            <p><i>"Freude an der Arbeit l&auml;sst das Werk trefflich geraten."</i><br><b>(Aristoteles)</b></p>
-                          </td>
-                          <td class="expander"></td>
-                        </tr>
-                      </table>
-
-                      <table class="twelve columns">
-                        <tr>
-                          <td>
-                            <p>Wir hatten bisher viel Spaß und wünschen Ihnen nun dasselbe!</p>
-                            <p>Ihr Web-Team der Hochschule für Philosophie</p>
-                          </td>
-                          <td class="expander"></td>
-                        </tr>
-                      </table>
-
                     </td>
                   </tr>
                 </table>
 
-
-                <table class="row">
+                <table class="twelve columns">
                   <tr>
-                    <td class="wrapper last">
-
-                      <table class="three columns">
-                        <tr>
-                          <td>
-
-                            <table class="button">
-                              <tr>
-                                <td>
-                                  <a href="#">Passwortreset!</a>
-                                </td>
-                              </tr>
-                            </table>
-
-                          </td>
-                          <td class="expander"></td>
-                        </tr>
-                      </table>
-
+                    <td>
+                      <hr>
+                            <p><i>"Freude an der Arbeit l&auml;sst das Werk trefflich geraten."</i><br><b>(Aristoteles)</b></p>
                     </td>
+                    <td class="expander"></td>
                   </tr>
                 </table>
 
+                <table class="twelve columns">
+                  <tr>
+                    <td>
+                      <p>Wir hatten bisher viel Spaß und wünschen Ihnen nun dasselbe!</p>
+                      <h5>Ihr Web-Team der Hochschule für Philosophie</h5>
+                    </td>
+                    <td class="expander"></td>
+                  </tr>
+                </table>
 
                 <table class="row footer">
                   <tr>
@@ -949,7 +917,7 @@ body.outlook p {
                         <tr>
                           <td class="left-text-pad">
 
-                            <h5>Kontaktieren Sie uns</h5>
+                            <h6>Kontaktieren Sie uns</h6>
 
                             <table>
                               <tr>
@@ -972,7 +940,7 @@ body.outlook p {
                       <table class="six columns">
                         <tr>
                           <td class="last right-text-pad">
-                            <h5>Kontaktinformationen</h5>
+                            <h6>Kontaktinformationen</h6>
                             <p>Telefon: +49-89-2386-2300</p>
                             <p>E-Mail: <a href="mailto:webmaster@hfph.de">webmaster@hfph.de</a></p>
                           </td>
