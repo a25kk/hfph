@@ -12,8 +12,15 @@
 
     <div class="tile-content">
 
+      <div id="login-warnings">
+        <div class="alert alert-warning" tal:condition="python:request.form.get('error', False)">
+          <h4>Uh oh!</h4>
+          <p>Looks like your username or password was incorrect.<br />
+            Please try again or <a href="@@login-help">get some help remembering here</a>.
+          </p>
+        </div>
+      </div>
       <section id="content-core">
-
         <div class="app-page-header">
           <h1 i18n:translate="">Sign in</h1>
         </div>
