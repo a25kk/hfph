@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <div class="tile-content">
+
+      <section id="content-core">
+
+        <div class="app-page-header">
+          <h1 i18n:translate="">Sign in</h1>
+        </div>
+        <div class="app-page-content">
+          <metal:block use-macro="context/@@ploneform-macros/titlelessform" />
+        </div>
+        <div class="app-page-footer">
+          <p class="trouble">Trouble logging in? <a href="@@login-help">Get help.</a></p>
+        </div>
+
+      </section>
+    </div>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+
