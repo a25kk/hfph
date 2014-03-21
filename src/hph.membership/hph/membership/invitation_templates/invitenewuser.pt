@@ -63,7 +63,6 @@
                                 be able to login after a successful attempt.</p>
                             <p>If this function fails for whatever reason we
                                 will need to issue a <strong>new</strong> invitation</p>
-                            <span tal:replace="structure context/@@authenticator/authenticator"/>
                             <button class="btn btn-danger"
                                 name="form.button.Submit"
                                 id="form.button.Submit"

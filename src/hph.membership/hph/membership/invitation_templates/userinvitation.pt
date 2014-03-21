@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <a class="btn btn-primary btn-block"
-                        tal:attributes="href string:${context/absolute_url}/@@user-manager"
+                        tal:attributes="href string:${context/absolute_url}/ws/@@user-manager"
                         i18n:translate="">
                         User Manager</a>
                 </div>
@@ -46,37 +46,30 @@
                         <h2>Send invitation</h2>
                     </div>
                     <div class="app-callout app-callout-danger"
+                        tal:condition="request/userid">
+                        In order to develop a nice invitation UI/UX we use this
+                        temporary view. Preview the email send to imported users
+                        or move on to the invitation form directly.
+                    </div>
+                    <div class="app-callout app-callout-danger"
                         tal:condition="not:request/userid">
                         Bummer: seems you did not pass a valid user id while
                         calling this view. Therefore the password reset cannot be
                         triggered.
                     </div>
                     <div tal:condition="request/userid">
-                        <form class="app-form"
-                            method="post" role="form"
-                            tal:attributes="action request/URL">
-                            <p i18n:translate="">Send password reset invitation to
-                                <span tal:replace="request/userid" />
-                            </p>
-                            <h4>Preview the constructed reset email now</h4>
-                            <a tal:attributes="href string:${context/absolute_url}/@@invitation-email?userid=${request/userid}">
-                                Show reset mail</a>
-                            <hr>
-                            <div class="alert alert-danger">
-                                <h4>Dangerzone!</h4>
-                                <p>This user account will be disabled as long
-                                    as a password reset is pending and will only
-                                    be able to login after a successful attempt.</p>
-                                <p>If this function fails for whatever reason we
-                                    will need to issue a <strong>new</strong> invitation</p>
-                                <span tal:replace="structure context/@@authenticator/authenticator"/>
-                                <button class="btn btn-danger"
-                                    name="form.button.Submit"
-                                    id="form.button.Submit"
-                                    i18n:translate="">Issue invitation now</button>
-                            </div>
-
-                        </form>
+                        <p i18n:translate="">Send password reset invitation to
+                            <span tal:replace="request/userid" />
+                        </p>
+                       <h4>Open invitation form</h4>
+                        <a class="btn btn-primary"
+                            tal:attributes="href string:${context/portal_url}/@@invite-new-user?userid=${request/userid}">
+                            Add user invitation
+                        </a>
+                         <h4>Preview the constructed reset email now</h4>
+                        <a class="btn btn-default"
+                            tal:attributes="href string:${context/absolute_url}/@@invitation-email?userid=${request/userid}">
+                            Show reset mail</a>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,7 @@ from plone import api
 from zope.component import getMultiAdapter
 from Products.CMFPlone.utils import safe_unicode
 
+from Products.statusmessages.interfaces import IStatusMessage
 from plone.app.layout.navigation.interfaces import INavigationRoot
 
 from hph.membership.mailer import create_plaintext_message
@@ -109,21 +110,29 @@ class InviteNewUser(grok.View):
             else:
                 self.build_and_send(form)
 
-    def build_and_send(self):
-        addresses = self.get_addresses()
+    def build_and_send(self, data):
+        addresses = self.get_addresses(data)
         subject = _(u"Invitation to join the HfPH relaunch")
-        mail_tpl = self._build_mail()
+        mail_tpl = self._build_mail(data)
         mail_plain = create_plaintext_message(mail_tpl)
         msg = prepare_email_message(mail_tpl, mail_plain)
         send_mail(msg, addresses, subject)
-        return 'Done'
+        IStatusMessage(self.request).addStatusMessage(
+            _(u"User invitation email has been sent successfully."),
+            type='info')
+        portal_url = api.portal.get().absolute_url()
+        next_url = '{0}/ws/'.format(portal_url)
+        return self.request.response.redirect(next_url)
 
-    def get_addresses(self):
+    def get_addresses(self, data):
         recipients = list()
+        user_id = data['title']
+        user = api.user.get(username=user_id)
+        recipients.append(user.getProperty('email'))
         return recipients
 
-    def _build_mail(self):
-        user_id = self.request.get('userid', None)
+    def _build_mail(self, data):
+        user_id = self.request.get('userid', data['title'])
         template = self._compose_invitation_message(user_id)
         return template
 
@@ -134,8 +143,8 @@ class InviteNewUser(grok.View):
         template = Template(open(template_file).read())
         template_vars = {
             'id': user_id,
-            'email': user.getProperty('email'),
-            'fullname': user.getProperty('fullname')
+            'email': user.getProperty('email', ''),
+            'fullname': user.getProperty('fullname', '')
         }
         return template.substitute(template_vars)
 

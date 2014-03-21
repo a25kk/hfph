@@ -145,7 +145,7 @@ def prepare_email_message(message, plaintext):
     return email_msg
 
 
-def create_plaintext_message(self, message):
+def create_plaintext_message(message):
         """ Create a plain-text-message by parsing the html
             and attaching links as endnotes
         """
