@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object name="portal_memberdata" meta_type="Plone Memberdata Tool">
+  <property name="workspace" type="string"/>
+  <property name="token" type="string"/>
+  <property name="confirmed" type="boolean"/>
+  <property name="enabled" type="boolean"/>
+</object>

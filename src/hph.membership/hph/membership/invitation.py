@@ -5,6 +5,7 @@ from string import Template
 from five import grok
 from plone import api
 
+from plone.keyring import django_random
 from zope.component import getMultiAdapter
 from Products.CMFPlone.utils import safe_unicode
 
@@ -58,13 +59,18 @@ class UserInvitation(grok.View):
 
     def _compose_invitation_message(self, user_id):
         user = api.user.get(username=user_id)
+        token = django_random.get_random_string(length=12)
+        portal_url = api.portal.get().absolute_url()
+        url = '{0}/set-user-password/{1}-{2}'.format(
+            portal_url, user_id, token)
         template_file = os.path.join(os.path.dirname(__file__),
                                      'mail-invitation.html')
         template = Template(open(template_file).read())
         template_vars = {
             'id': user_id,
             'email': user.getProperty('email'),
-            'fullname': user.getProperty('fullname')
+            'fullname': user.getProperty('fullname'),
+            'url': url
         }
         return template.substitute(template_vars)
 
@@ -138,13 +144,18 @@ class InviteNewUser(grok.View):
 
     def _compose_invitation_message(self, user_id):
         user = api.user.get(username=user_id)
+        token = django_random.get_random_string(length=12)
+        portal_url = api.portal.get().absolute_url()
+        url = '{0}/set-user-password/{1}-{2}'.format(
+            portal_url, user_id, token)
         template_file = os.path.join(os.path.dirname(__file__),
                                      'mail-invitation.html')
         template = Template(open(template_file).read())
         template_vars = {
             'id': user_id,
             'email': user.getProperty('email', ''),
-            'fullname': user.getProperty('fullname', '')
+            'fullname': user.getProperty('fullname', ''),
+            'url': url
         }
         return template.substitute(template_vars)
 
@@ -173,12 +184,17 @@ class InvitationEmail(grok.View):
 
     def _compose_invitation_message(self, user_id):
         user = api.user.get(username=user_id)
+        token = django_random.get_random_string(length=12)
+        portal_url = api.portal.get().absolute_url()
+        url = '{0}/set-user-password/{1}-{2}'.format(
+            portal_url, user_id, token)
         template_file = os.path.join(os.path.dirname(__file__),
                                      'mail-invitation.html')
         template = Template(open(template_file).read())
         template_vars = {
             'id': user_id,
             'email': user.getProperty('email'),
-            'fullname': user.getProperty('fullname')
+            'fullname': user.getProperty('fullname'),
+            'url': url
         }
         return template.substitute(template_vars)
