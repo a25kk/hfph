@@ -11,11 +11,11 @@
   <metal:content-core define-macro="main">
 
     <div class="tile-content">
-    
+
         <section id="content-core">
 
             <div class="row">
-                <div class="col-xs-12 col-sm-4">
+                <div class="col-xs-12 col-sm-3">
                     <div class="app-box app-box-workspaces">
                         <div class="app-box-header">
                             <h2 class="app-box-heading" i18n:translate="">
@@ -89,7 +89,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-8">
+                <div class="col-xs-12 col-sm-9">
                     <a class="btn btn-default pull-right"
                         tal:attributes="href string:${context/absolute_url}/@@add-new-user">
                         <i class="fa fa-plus-square-o"></i>
@@ -102,12 +102,14 @@
                                              b_start python:int(request.get('b_start', 0));
                                              results view/get_all_members;
                                              batch python:Batch(results, b_size, b_start);">
-                                <table class="table table-condensed">
+                                <table class="table table-condensed table-responsive">
                                     <thead>
                                         <tr>
                                             <th>Userrecord</th>
                                             <th>E-Mail</th>
-                                            <th>Group</th>
+                                            <th>Enabled</th>
+                                            <th>Confirmed</th>
+                                            <th>More</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -120,7 +122,6 @@
                                                     <strong tal:content="item/name" />
                                                 </a>
                                                 <strong tal:condition="not:has_ws" tal:content="item/name" /><br>
-                                                <small class="text-muted" tal:content="item/userid" /><br>
                                                 <tal:items tal:repeat="group item/groups">
                                                     <small tal:content="group" /><tal:separator condition="not: repeat/group/end">,</tal:separator>
                                                 </tal:items>
@@ -128,6 +129,9 @@
                                             <td>
                                                 <span tal:content="item/email" />
                                             </td>
+                                            <td>No
+                                            </td>
+                                            <td>No</td>
                                             <td><a tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${item/userid}">
                                                     Send invitation
                                                 </a>

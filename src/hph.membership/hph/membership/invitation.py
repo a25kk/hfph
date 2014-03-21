@@ -137,8 +137,6 @@ class InviteNewUser(grok.View):
         return template
 
     def _compose_invitation_message(self, user_id):
-        pwrtool = api.portal.get_tool(name='portal_password_reset')
-        user_pwreset = pwrtool.requestReset(user_id)
         user = api.user.get(username=user_id)
         template_file = os.path.join(os.path.dirname(__file__),
                                      'mail-invitation.html')
