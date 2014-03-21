@@ -11,9 +11,9 @@
   <metal:content-core define-macro="main">
 
     <div class="tile-content">
-    
+
         <section id="content-core"
-            tal:define="userid request/user_id | context/getId | nothing">
+            tal:define="userid request/userid | context/getId | nothing">
             <div class="row">
                 <div class="col-xs-12 col-sm-4">
                     <div class="app-box app-box-workspaces">
@@ -44,18 +44,31 @@
                             should normally not trigger a mass mailing therefore we
                             use this temporary view to push the initial kickoff mails</p>
                     </div>
+
                     <form class="app-form"
                         method="post" role="form"
                         tal:attributes="action request/URL">
                         <span tal:replace="structure context/@@authenticator/authenticator"/>
-                        <input class="form-control"
-                            name="title" id="title"
-                            type="text"
-                            tal:attributes="value userid" />
-                        <button class="btn btn-danger"
-                            name="form.button.Submit"
-                            id="form.button.Submit"
-                            i18n:translate="">Send password reset mails</button>
+                        <div class="input-group">
+                            <span class="input-group-addon">User ID</span>
+                            <input class="form-control"
+                                name="title" id="title"
+                                type="text"
+                                tal:attributes="value userid" />
+                        </div>
+                        <div class="alert alert-danger">
+                            <h4>Dangerzone!</h4>
+                            <p>This user account will be disabled as long
+                                as a password reset is pending and will only
+                                be able to login after a successful attempt.</p>
+                            <p>If this function fails for whatever reason we
+                                will need to issue a <strong>new</strong> invitation</p>
+                            <span tal:replace="structure context/@@authenticator/authenticator"/>
+                            <button class="btn btn-danger"
+                                name="form.button.Submit"
+                                id="form.button.Submit"
+                                i18n:translate="">Send password reset mails</button>
+                        </div>
                     </form>
                 </div>
             </div>

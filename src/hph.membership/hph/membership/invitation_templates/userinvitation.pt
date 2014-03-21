@@ -11,7 +11,7 @@
   <metal:content-core define-macro="main">
 
     <div class="tile-content">
-    
+
         <section id="content-core"
             tal:define="userid request/user_id | nothing">
             <div class="row">
@@ -52,12 +52,31 @@
                         triggered.
                     </div>
                     <div tal:condition="request/userid">
-                        <p i18n:translate="">Send password reset invitation to
-                            <span tal:replace="request/userid" />
-                        </p>
-                        <h4>Preview the constructed reset email now</h4>
-                        <a tal:attributes="href string:${context/absolute_url}/@@invitation-email?userid=${request/userid}">
-                            Show reset mail</a>
+                        <form class="app-form"
+                            method="post" role="form"
+                            tal:attributes="action request/URL">
+                            <p i18n:translate="">Send password reset invitation to
+                                <span tal:replace="request/userid" />
+                            </p>
+                            <h4>Preview the constructed reset email now</h4>
+                            <a tal:attributes="href string:${context/absolute_url}/@@invitation-email?userid=${request/userid}">
+                                Show reset mail</a>
+                            <hr>
+                            <div class="alert alert-danger">
+                                <h4>Dangerzone!</h4>
+                                <p>This user account will be disabled as long
+                                    as a password reset is pending and will only
+                                    be able to login after a successful attempt.</p>
+                                <p>If this function fails for whatever reason we
+                                    will need to issue a <strong>new</strong> invitation</p>
+                                <span tal:replace="structure context/@@authenticator/authenticator"/>
+                                <button class="btn btn-danger"
+                                    name="form.button.Submit"
+                                    id="form.button.Submit"
+                                    i18n:translate="">Issue invitation now</button>
+                            </div>
+
+                        </form>
                     </div>
                 </div>
             </div>
