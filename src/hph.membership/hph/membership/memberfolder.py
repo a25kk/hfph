@@ -121,6 +121,8 @@ class UserManager(grok.View):
             data['userid'] = userid
             data['email'] = email
             data['name'] = user.getProperty('fullname', userid)
+            data['enabled'] = user.getProperty('enabled')
+            data['confirmed'] = user.getProperty('confirmed')
             data['groups'] = user_groups
             data['workspace'] = user.getProperty('workspace')
             users.append(data)

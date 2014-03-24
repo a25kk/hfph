@@ -111,6 +111,8 @@ class UserAccount(grok.View):
             login_time = DateTime(login_time)
         initial_login = login_time == DateTime('2000/01/01')
         if initial_login:
+            mtool = api.portal.get_tool(name='portal_membership')
+            mtool.createMemberarea(member_id=username)
             next_url = '{0}?welcome_msg=1'.format(base_url)
         else:
             next_url = base_url
