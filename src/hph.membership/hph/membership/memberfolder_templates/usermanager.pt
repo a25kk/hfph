@@ -139,7 +139,7 @@
                                                   </button>
                                                   <ul class="dropdown-menu">
                                                     <li><a tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${item/userid}">Sent confirmation link</a></li>
-                                                    <li><a href="#">Change as adminsitrator</a></li>
+                                                    <li><a href="#">Change as administrator</a></li>
                                                   </ul>
                                                 </div>
                                             </td>
