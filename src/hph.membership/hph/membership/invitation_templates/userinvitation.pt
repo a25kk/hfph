@@ -45,7 +45,6 @@
                     <div class="app-page-header">
                         <h2>Send invitation</h2>
                     </div>
-                    <div tal:content="view/request_reset" />
                     <div class="app-callout app-callout-danger"
                         tal:condition="request/userid">
                         In order to develop a nice invitation UI/UX we use this

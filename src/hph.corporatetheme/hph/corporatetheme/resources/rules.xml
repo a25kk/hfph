@@ -16,11 +16,12 @@
     <theme href="dist/signin.html" css:if-content="body.template-mail_password_response" />
     <theme href="dist/signin.html" css:if-content="body.template-pwreset_form" />
     <theme href="dist/signin.html" css:if-content="body.template-pwreset_finish" />
+    <theme href="dist/signin.html" css:if-content="body.template-useraccount" />
 
     <!-- Project specific theme files -->
     <theme href="dist/theme-igp.html" css:if-content="body.subsection-institute-gesellschaftspolitik" />
     <theme href="dist/theme-pp.html" css:if-content="body.section-pro-philosophia" />
-    
+
     <theme href="dist/frontpage.html" css:if-content="body.template-frontpage-view" />
     <theme href="dist/frontpage.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />
     <theme href="dist/landingpage.html" css:if-content="body.section-nachrichten" />
@@ -29,18 +30,18 @@
     <!--<theme href="dist/landingpage.html" css:if-content="body.section-presse-oeffentlichkeitsarbeit" />-->
     <theme href="dist/opac.html" css:if-content="body.subsection-bibliotheken-opac-recherche" />
     <theme href="dist/newsletter.html" css:if-content="body.section-newsletter" />
-    
+
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
 
-        <notheme if="$ajax_load" />    
+        <notheme if="$ajax_load" />
         <theme href="dist/theme.html" />
 
        <replace css:theme="title" css:content="title" />
        <after theme="/html/head/title" css:content="base" />
         <!-- Add meta tags -->
         <!-- <drop theme="/html/head/meta" /> -->
-        
+
         <after content="/html/head/meta" theme-children="/html/head" />
         <!-- Copy style, script and link tags in the order they appear in the content -->
         <after
@@ -55,7 +56,7 @@
         <!-- Drop scripts from theme footer if present -->
         <drop theme="/html/body/script" />
 
-        
+
         <!-- Custom favicon implementation -->
         <drop content="link[@type='image/x-icon']" />
         <after theme="/html/head">
@@ -150,28 +151,31 @@
         <replace css:content-children="#content"
                 css:theme-children="#app-signin-content"
                 css:if-content="body.template-pwreset_finish" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-useraccount" />
 
         <rules css:if-content="body.portaltype-hph-sitecontent-mainsection">
-            <replace css:content-children="#app-content" 
+            <replace css:content-children="#app-content"
                 css:theme-children="#content"
                 css:if-content="#app-content" />
             <drop css:theme="#app-aside-content"
                 css:if-not-content="#app-aside-content" />
-            <replace css:content-children="#app-aside-content" 
+            <replace css:content-children="#app-aside-content"
                 css:theme-children="#app-aside-content"
                 css:if-content="#app-aside-content" />
         </rules>
 
         <rules css:if-content="body.template-frontpage-view">
-            <replace css:content-children="#app-content" 
+            <replace css:content-children="#app-content"
                 css:theme-children="#content" />
-            <replace css:content-children="#app-aside-content" 
+            <replace css:content-children="#app-aside-content"
                 css:theme-children="#app-aside-content"
                 css:if-content="#app-aside-content" />
         </rules>
 
         <!-- Document Content -->
-        <replace css:content-children="#content" 
+        <replace css:content-children="#content"
             css:theme-children="#content" />
 
         <!-- Columns -->
@@ -181,7 +185,7 @@
                 <xsl:attribute name="class">col-xs-12 col-sm-12</xsl:attribute>
             </before>
         </rules>
-        
+
         <replace css:content-children="#portal-column-one > *"
             css:theme-children="#app-sidebar" />
 

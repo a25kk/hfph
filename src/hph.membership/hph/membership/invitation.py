@@ -32,13 +32,6 @@ class UserInvitation(grok.View):
         pwrtool = api.portal.get_tool(name='portal_password_reset')
         return pwrtool.getStats()
 
-    def request_reset(self):
-        pwrtool = api.portal.get_tool(name='portal_password_reset')
-        user_id = self.request.get('userid', None)
-        if user_id:
-            open_reset = pwrtool.requestReset(user_id)
-            return open_reset
-
     def build_and_send(self):
         addresses = self.get_addresses()
         subject = _(u"Invitation to join the HfPH relaunch")
@@ -59,9 +52,9 @@ class UserInvitation(grok.View):
 
     def _compose_invitation_message(self, user_id):
         user = api.user.get(username=user_id)
-        token = django_random.get_random_string(length=12)
+        token = self._access_token()
         portal_url = api.portal.get().absolute_url()
-        url = '{0}/set-user-password/{1}-{2}'.format(
+        url = '{0}/useraccount/{1}/{2}'.format(
             portal_url, user_id, token)
         template_file = os.path.join(os.path.dirname(__file__),
                                      'mail-invitation.html')
@@ -73,6 +66,11 @@ class UserInvitation(grok.View):
             'url': url
         }
         return template.substitute(template_vars)
+
+    def _access_token(self, user):
+        new_token = django_random.get_random_string(length=12)
+        token = user.getProperty('token', new_token)
+        return token
 
 
 class InviteNewUser(grok.View):
@@ -144,20 +142,25 @@ class InviteNewUser(grok.View):
 
     def _compose_invitation_message(self, user_id):
         user = api.user.get(username=user_id)
-        token = django_random.get_random_string(length=12)
+        token = self._access_token()
         portal_url = api.portal.get().absolute_url()
-        url = '{0}/set-user-password/{1}-{2}'.format(
+        url = '{0}/useraccount/{1}/{2}'.format(
             portal_url, user_id, token)
         template_file = os.path.join(os.path.dirname(__file__),
                                      'mail-invitation.html')
         template = Template(open(template_file).read())
         template_vars = {
             'id': user_id,
-            'email': user.getProperty('email', ''),
-            'fullname': user.getProperty('fullname', ''),
+            'email': user.getProperty('email'),
+            'fullname': user.getProperty('fullname'),
             'url': url
         }
         return template.substitute(template_vars)
+
+    def _access_token(self, user):
+        new_token = django_random.get_random_string(length=12)
+        token = user.getProperty('token', new_token)
+        return token
 
 
 class InvitationEmail(grok.View):
@@ -184,9 +187,9 @@ class InvitationEmail(grok.View):
 
     def _compose_invitation_message(self, user_id):
         user = api.user.get(username=user_id)
-        token = django_random.get_random_string(length=12)
+        token = self._access_token(user)
         portal_url = api.portal.get().absolute_url()
-        url = '{0}/set-user-password/{1}-{2}'.format(
+        url = '{0}/useraccount/{1}/{2}'.format(
             portal_url, user_id, token)
         template_file = os.path.join(os.path.dirname(__file__),
                                      'mail-invitation.html')
@@ -198,3 +201,12 @@ class InvitationEmail(grok.View):
             'url': url
         }
         return template.substitute(template_vars)
+
+    def _access_token(self, user):
+        new_token = django_random.get_random_string(length=12)
+        stored_token = user.getProperty('token', '')
+        if len(stored_token):
+            token = stored_token
+        else:
+            token = new_token
+        return token
