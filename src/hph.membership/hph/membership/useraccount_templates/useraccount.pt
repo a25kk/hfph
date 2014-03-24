@@ -16,6 +16,10 @@
           <p class="text-discreet" i18n:translate="">
             Please chosse a password to access your already created user account.
           </p>
+          <p class="help-block" i18n:translate="">
+            Passwords must have a minimum length of 8 characters
+          </p>
+            <hr>
             <form class="app-form"
                   method="post" role="form"
                   tal:attributes="action request/URL">
@@ -25,17 +29,16 @@
                       <input class="form-control"
                           id="password"
                           name="password"
-                          type="text" />
-                      <span class="help-block" i18n:translate="">
-                        Passwords must have a minimum length of 8 characters
-                      </span>
+                          type="text"
+                          required />
                   </div>
                   <div class="field">
                       <label for="confirm" i18n:translate="">Confirm</label>
                       <input class="form-control"
                           id="confirm"
                           name="confirm"
-                          type="text" />
+                          type="text"
+                          required />
                   </div>
                    <button class="btn btn-danger"
                        name="form.button.Submit"
