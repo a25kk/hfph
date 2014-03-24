@@ -129,12 +129,12 @@
                                             <td>
                                                 <span tal:content="item/email" />
                                             </td>
-                                            <td>No
+                                            <td><span tal:content="item/enabled" i18n:translate="">Yes/No</span>
                                             </td>
                                             <td>
                                                 <div class="btn-group">
                                                   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                                    No
+                                                    <span tal:content="item/confirmed" i18n:translate="">Yes/No</span>
                                                     <span class="caret"></span>
                                                   </button>
                                                   <ul class="dropdown-menu">

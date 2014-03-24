@@ -29,7 +29,7 @@
         <ul class="nav navbar-nav navbar-right" tal:condition="viewlet/show_cms_tools">
             <li tal:repeat="item viewlet/contentmenu"
               tal:attributes="class string:dropdown ${item/klass|nothing}; id item/id|nothing;">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" 
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"
                    tal:attributes="href item/action; target item/link_target|nothing;">
                   <span tal:content="item/title">Link Title</span>
                   <span tal:condition="python:'extra' in item and 'stateTitle' in item['extra']"
@@ -50,7 +50,7 @@
                 </ul>
             </li>
             <li class="dropdown" id="plone-personal-actions">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" 
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#"
                  tal:attributes="href viewlet/user_homeurl">
                 <span tal:content="viewlet/user_displayname">Fullname</span>
                 <b class="caret">
@@ -66,10 +66,10 @@
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right"
-            tal:condition="not:viewlet/show_cms_tools">
-            <li><a href="#">Workspace</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Signout</a></li>
+            tal:condition="not:viewlet/show_cms_tools"
+            tal:define="pstate viewlet/portal_state">
+            <li><a tal:attributes="href string:${pstate/portal_url}/ws" i18n:translate="">Workspace</a></li>
+            <li><a tal:attributes="href string:${pstate/portal_url}/logout" i18n:translate="">Signout</a></li>
         </ul>
     </div>
     </div>
