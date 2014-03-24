@@ -112,6 +112,8 @@ class UserAccount(grok.View):
                                                      password)
 
         # member = api.user.get_current()
+        update_props = {'enabled': True, 'confirmed': True}
+        member.setMemberProperties(mapping=update_props)
         login_time = member.getProperty('login_time', '2000/01/01')
         base_url = '{0}/ws/{1}'.format(api.portal.get().absolute_url(),
                                        username)
