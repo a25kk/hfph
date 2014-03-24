@@ -26,6 +26,9 @@
                           id="password"
                           name="password"
                           type="text" />
+                      <span class="help-block" i18n:translate="">
+                        Passwords must have a minimum length of 8 characters
+                      </span>
                   </div>
                   <div class="field">
                       <label for="confirm" i18n:translate="">Confirm</label>
