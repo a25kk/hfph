@@ -105,7 +105,6 @@ class UserAccount(grok.View):
         member.setSecurityProfile(password=password)
         update_props = {'enabled': True, 'confirmed': True}
         member.setMemberProperties(mapping=update_props)
-
         acl = api.portal.get_tool(name='acl_users')
         authenticated = acl.authenticate(login_name,
                                          password,
@@ -116,10 +115,6 @@ class UserAccount(grok.View):
                                   login_name,
                                   password)
 
-        user = api.user.get_current()
-        import pdb; pdb.set_trace()
-        update_props = {'enabled': True, 'confirmed': True}
-        member.setMemberProperties(mapping=update_props)
         login_time = member.getProperty('login_time', '2000/01/01')
         base_url = '{0}/ws/{1}'.format(api.portal.get().absolute_url(),
                                        username)
