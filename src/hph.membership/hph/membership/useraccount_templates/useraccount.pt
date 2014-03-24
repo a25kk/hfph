@@ -11,13 +11,11 @@
   <metal:content-core define-macro="main">
     <div class="tile-content">
         <section id="content-core">
-          <h2 i18n:translate="">Update user account</h2>
-          <p i18n:translate="">Thank you for varifying your email address.</p>
+          <h2 i18n:translate="">Activate account</h2>
+          <p i18n:translate="">Your user account has already been created.</p>
           <p class="text-discreet" i18n:translate="">
-            Please chosse a password to access your already created user account.
-          </p>
-          <p class="help-block" i18n:translate="">
-            Passwords must have a minimum length of 8 characters
+            Please choose a password with a minimum length of 8 characters to
+            finalize
           </p>
             <hr>
             <form class="app-form"

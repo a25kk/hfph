@@ -105,14 +105,15 @@ class UserAccount(grok.View):
 
         member = api.user.get_current()
         login_time = member.getProperty('login_time', '2000/01/01')
-        next_url = '{0}/ws/{1}'.format(api.portal.get().absolute_url(),
+        base_url = '{0}/ws/{1}'.format(api.portal.get().absolute_url(),
                                        username)
         if not isinstance(login_time, DateTime):
             login_time = DateTime(login_time)
         initial_login = login_time == DateTime('2000/01/01')
         if initial_login:
-            next_url = '{0}?welcome_msg=1'
-            pass
+            next_url = '{0}?welcome_msg=1'.format(base_url)
+        else:
+            next_url = base_url
         IStatusMessage(self.request).addStatusMessage(
             _(u"You are now logged in."), "info")
         self.request.response.redirect(next_url)
