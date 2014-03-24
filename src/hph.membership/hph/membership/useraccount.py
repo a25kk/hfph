@@ -93,7 +93,15 @@ class UserAccount(grok.View):
 
     def _handle_reset(self, data):
         password = str(data.get('password'))
+        confirm = str(data.get('confirm'))
+        if confirm != password:
+            IStatusMessage(self.request).addStatusMessage(
+                _(u"The entered password and confirmation do not match."),
+                "error")
+            return self.request.response.redirect(self.context.absolute_url())
         username = str(self.key)
+        member = api.user.get(username=username)
+        member.setSecurityProfile(password=password)
         authenticated = self.context.acl_users.authenticate(username,
                                                             password,
                                                             self.request)
@@ -103,7 +111,7 @@ class UserAccount(grok.View):
                                                      username,
                                                      password)
 
-        member = api.user.get_current()
+        # member = api.user.get_current()
         login_time = member.getProperty('login_time', '2000/01/01')
         base_url = '{0}/ws/{1}'.format(api.portal.get().absolute_url(),
                                        username)

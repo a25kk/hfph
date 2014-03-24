@@ -12,10 +12,11 @@
     <div class="tile-content">
         <section id="content-core">
           <h2 i18n:translate="">Activate account</h2>
-          <p i18n:translate="">Your user account has already been created.</p>
+          <p i18n:translate="">Your user has already been created.
+            Please set a password to finalize and activate your account.
+          </p>
           <p class="text-discreet" i18n:translate="">
-            Please choose a password with a minimum length of 8 characters to
-            finalize
+            Passwords require a minimum length of 8 characters.
           </p>
             <hr>
             <form class="app-form"
@@ -28,6 +29,8 @@
                           id="password"
                           name="password"
                           type="text"
+                          pattern=".{3,}"
+                          title="8 characters minimum"
                           required />
                   </div>
                   <div class="field">
