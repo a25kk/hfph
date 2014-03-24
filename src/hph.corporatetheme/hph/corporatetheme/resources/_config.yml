@@ -7,7 +7,7 @@ permalink:        pretty
 
 # Server
 destination:      ./_site
-exclude:          [".editorconfig", ".gitignore", ".bowerrc", "jshintrc", "bower.json", "config.json", "Gruntfile.js", "package.json", "manifest.cfg", "rules.xml", "node_modules", "bower_components", "README.md", "assets", "less", "dist", "js", "overrides", "docs", "templates"]
+exclude:          [".editorconfig", ".gitignore", ".bowerrc", "jshintrc", "bower.json", "config.json", "Gruntfile.js", "package.json", "manifest.cfg", "rules.xml", "node_modules", "bower_components", "README.md", "assets", "less", "dist", "js", "overrides", "docs", "templates", "Makefile"]
 port:             9001
 
 # Custom vars
