@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+    <div class="tile-content">
+        <section id="content-core">
+          <h2 i18n:translate="">Update user account</h2>
+          <p i18n:translate="">Thank you for varifying your email address.</p>
+          <p class="text-discreet" i18n:translate="">
+            Please chosse a password to access your already created user account.
+          </p>
+            <form class="app-form"
+                  method="post" role="form"
+                  tal:attributes="action request/URL">
+                  <span tal:replace="structure context/@@authenticator/authenticator"/>
+                  <div class="field">
+                      <label for="password" i18n:translate="">New Password</label>
+                      <input class="form-control"
+                          id="password"
+                          name="password"
+                          type="text" />
+                  </div>
+                  <div class="field">
+                      <label for="confirm" i18n:translate="">Confirm</label>
+                      <input class="form-control"
+                          id="confirm"
+                          name="confirm"
+                          type="text" />
+                  </div>
+                   <button class="btn btn-danger"
+                       name="form.button.Submit"
+                       id="form.button.Submit"
+                       i18n:translate="">Save</button>
+            </form>
+          </section>
+        </div>
+  </metal:content-core>
+</metal:main>
+</body>
+</html>
