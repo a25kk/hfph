@@ -1,5 +1,5 @@
 from five import grok
-from plone import api   
+from plone import api
 
 from z3c.form import group, field
 from zope import schema
@@ -44,4 +44,7 @@ class View(grok.View):
         userid = user.getId()
         info['fullname'] = user.getProperty('fullname', '') or userid
         info['email'] = user.getProperty('email', '')
+        info['login_time'] = user.getProperty('login_time', '')
+        info['enabled'] = user.getProperty('enabled', '')
+        info['confirmed'] = user.getProperty('confirmed', '')
         return info

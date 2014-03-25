@@ -17,7 +17,8 @@
     "holderjs": "~2.1.0",
     "animate.css": "~3.0.0",
     "jquery-pjax": "~1.7.3",
-    "JQuery.Marquee": "git@github.com:aamirafridi/jQuery.Marquee.git"
+    "JQuery.Marquee": "git@github.com:aamirafridi/jQuery.Marquee.git",
+    "datatables": "~1.9.4"
   },
   "devDependencies": {
     "chai": "1.7.2"

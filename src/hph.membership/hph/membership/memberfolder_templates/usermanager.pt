@@ -24,137 +24,86 @@
                         </div>
                         <div class="app-box-content">
                             <div class="alert alert-danger">
-                                <h4>The member area contains member workspaces</h4>
-                                <p>You should have been redirected to your personal workspace except
-                                    when logged in as site administrator</p>
+                                <h4 i18n:translate="">The member area contains member workspaces</h4>
                             </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            User Records
-                        </div>
-                        <div class="panel-body">
-                            <p>Available Userrecords for import:
-                                <strong tal:content="view/records_idx" />
-                            </p>
-                            <p class="text-dicreet">
-                                Last updated: <span tal:replace="view/records_timestamp" />
-                            </p>
-                            <p>Update stored user records from
-                                the external user data API in order to update user
-                                group asignment.
-                            </p>
-                            <a tal:attributes="href string:${context/absolute_url}/@@update-member-records">
-                                    Load external user data now</a><br />
-                            <small class="text-muted">Note: this may take a long time so just grab
-                                    a coffee in the meantime. If the connection
-                                    times out in your browser please allow the
-                                    caller some more time before trying to
-                                    reload again
-                            </small>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            User Import
-                        </div>
-                        <div class="panel-body">
-                            <p class="text-muted">Update stored member data with the
-                                downloaded user records. This will also take care of
-                                user/group asignment
-                            </p>
-                            <form method="post"
-                                tal:attributes="action string:${context/absolute_url}/@@create-member-records">
-                                <span tal:replace="structure context/@@authenticator/authenticator"/>
-                                <button class="btn btn-warning" type="submit" name="submit">
-                                    Import users
-                                </button>
-                            </form>
-                            <hr>
-                            <p class="text-danger">
-                            <i class="fa fa-exclamation-triangle"></i>
-                                Warning: this can not be undone easily
-                            </p>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Available Groups
-                        </div>
-                        <div class="panel-body">
-                            <p tal:repeat="group view/usergroups">
-                                <strong tal:content="group" />
-                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-9">
-                    <a class="btn btn-default pull-right"
+                    <a class="btn btn-primary pull-right"
                         tal:attributes="href string:${context/absolute_url}/@@add-new-user">
                         <i class="fa fa-plus-square-o"></i>
                         Add user</a>
                         <h3 i18n:translate="">User Manager</h3>
                         <hr>
-                        <tal:users tal:condition="view/has_users">
-                            <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
-                                             b_size python:int(request.get('b_size', 20));
-                                             b_start python:int(request.get('b_start', 0));
-                                             results view/get_all_members;
-                                             batch python:Batch(results, b_size, b_start);">
-                                <table class="table table-condensed table-responsive">
-                                    <thead>
-                                        <tr>
-                                            <th>Userrecord</th>
-                                            <th>Groups</th>
-                                            <th>Enabled</th>
-                                            <th>Confirmed</th>
-                                            <th>More</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="app-contentlisting" tal:repeat="item batch">
-                                            <td class="app-list-item"
-                                                tal:define="user_id item/userid;
-                                                            has_ws python:view.has_workspace(user_id)">
-                                                <a tal:condition="has_ws"
-                                                    tal:attributes="href string:${context/absolute_url}/${user_id}">
-                                                    <strong tal:content="item/name" />
-                                                </a>
-                                                <strong tal:condition="not:has_ws" tal:content="item/name" /><br>
-                                                <small tal:content="item/email" />
-                                            </td>
-                                            <td>
-                                                <tal:items tal:repeat="group item/groups">
-                                                    <small tal:content="group" /><tal:separator condition="not: repeat/group/end">,</tal:separator>
-                                                </tal:items>
-                                            </td>
-                                            <td><span tal:content="item/enabled" i18n:translate="">Yes/No</span>
-                                            </td>
-                                            <td>
-                                                <div class="btn-group">
-                                                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                                    <span tal:content="item/confirmed" i18n:translate="">Yes/No</span>
-                                                    <span class="caret"></span>
-                                                  </button>
-                                                  <ul class="dropdown-menu">
-                                                    <li><a tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${item/userid}">Sent confirmation link</a></li>
-                                                    <li><a href="#">Change as administrator</a></li>
-                                                  </ul>
-                                                </div>
-                                            </td>
-                                            <td><a tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${item/userid}">
-                                                    Send invitation
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <div metal:use-macro="context/batch_macros/macros/navigation" />
-                                    </tbody>
-                                </table>
-                            </div>
-                        </tal:users>
+                        <p i18n:translate="">
+                            Users should are redirected to their personal workspace except
+                            when logged in as site administrator
+                        </p>
+                        <p class="text-danger">
+                            <strong>Danger Zone:</strong>
+                            Update stored user records from
+                            the external user data API in order to update user
+                            group asignment.
+                        </p>
+                        <a tal:attributes="href string:${context/absolute_url}/@@update-member-records">
+                                Load external user data now</a>
                 </div>
             </div>
+
+            <tal:users tal:condition="view/has_users">
+                <hr>
+                <div tal:define="results view/get_all_members;">
+                    <table class="table table-condensed table-responsive" id="table-usermanager">
+                        <thead>
+                            <tr>
+                                <th>Userrecord</th>
+                                <th>Groups</th>
+                                <th>Enabled</th>
+                                <th>Confirmed</th>
+                                <th>More</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="app-contentlisting" tal:repeat="item results">
+                                <td class="app-list-item"
+                                    tal:define="user_id item/userid;
+                                                has_ws python:view.has_workspace(user_id)">
+                                    <a tal:condition="has_ws"
+                                        tal:attributes="href string:${context/absolute_url}/${user_id}">
+                                        <strong tal:content="item/name" />
+                                    </a>
+                                    <strong tal:condition="not:has_ws" tal:content="item/name" /><br>
+                                    <small tal:content="item/email" />
+                                </td>
+                                <td>
+                                    <tal:items tal:repeat="group item/groups">
+                                        <small tal:content="group" /><tal:separator condition="not: repeat/group/end">,</tal:separator>
+                                    </tal:items>
+                                </td>
+                                <td><span tal:content="item/enabled" i18n:translate="">Yes/No</span>
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        <span tal:content="item/confirmed" i18n:translate="">Yes/No</span>
+                                        <span class="caret"></span>
+                                      </button>
+                                      <ul class="dropdown-menu">
+                                        <li><a tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${item/userid}">Sent confirmation link</a></li>
+                                        <li><a href="#">Change as administrator</a></li>
+                                      </ul>
+                                    </div>
+                                </td>
+                                <td><a tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${item/userid}">
+                                        Send invitation
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </tal:users>
         </section>
     </div>
 
