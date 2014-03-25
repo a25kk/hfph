@@ -35,10 +35,12 @@
                             <small tal:content="user/email" />
                         </h2>
                     </div>
-                    <h3>Willkommen im neuen Login-Bereich der Hochschule für Philosophie München</h3>
-                    <p>Im Laufe der nächsten Tage werden Sie per E-Mail über Ihren neuen Benutzernamen informiert und erhalten die Möglichkeit, Ihr Passwort neu zu setzen.</p> 
-                    <p>Danach können Sie sich in Ihrem geschützten Bereich genauer umsehen.</p>
-                    <p>Ihre Hochschule für Philosophie</p>
+                    <h3>Erfolgreich eingeloggt!</h3>
+                    <p>Nachdem Sie Ihr Passwort erfolgreich gesetzt haben, sind Sie nun ein vollwertiger Benutzer und können nun die für Sie relevanten Informationen einsehen sowie ggf. die Ihnen zugewiesenen Bereiche editieren.</p> 
+                    <p>Künftig wird Sie hier Ihr ganz individuelles Dashboard begrüßen. Ihr Benutzerordner enthält die für Sie relevanten Informationen und bietet beispielsweise einen Direkteinstieg in Ihre spezifischen Inhaltsbereiche.</p> 
+                    <p>Um es besonders ansprechend und übersichtlich zu gestalten, benötigen wir noch etwas Zeit. Daher bitten wir um Ihre Geduld, wenn Sie nach den ersten Logins noch kein individualisiertes, sondern vorerst ein allgemeingültiges Dashboard zur Verfügung haben.</p>
+                    <p>Ansonsten wünschen wir Ihnen viel Spaß mit der neuen Webseite!</p>
+                    <p>Ihr Entwicklerteam</p>
                 </div>
             </div>
         </section>
