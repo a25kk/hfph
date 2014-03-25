@@ -11,7 +11,7 @@
   <metal:content-core define-macro="main">
 
     <div class="tile-content">
-    
+
         <section id="content-core"
             tal:define="user view/user_info">
             <div class="row">
@@ -23,9 +23,18 @@
                             </h1>
                         </div>
                         <div class="app-box-content">
-                            <p class="text-muted" i18n:translate="">
-                                No activity recorded yet
+                            <p tal:content="user/fullname" />
+                            <p class="text-muted" tal:content="user/email">
+                               E-Mail
                             </p>
+                            <p class="text-discreet">
+                                <span i18n:translate="">Login:</span>
+                                <span tal:replace="user/login_time" />
+                            </p>
+                            <hr>
+                            <a tal:attributes="href string:${context/absolute_url}/logout"
+                                i18n:translate="">Signout</a>
+
                         </div>
                     </div>
                 </div>
@@ -36,7 +45,7 @@
                         </h2>
                     </div>
                     <h3>Willkommen im neuen Login-Bereich der Hochschule für Philosophie München</h3>
-                    <p>Im Laufe der nächsten Tage werden Sie per E-Mail über Ihren neuen Benutzernamen informiert und erhalten die Möglichkeit, Ihr Passwort neu zu setzen.</p> 
+                    <p>Im Laufe der nächsten Tage werden Sie per E-Mail über Ihren neuen Benutzernamen informiert und erhalten die Möglichkeit, Ihr Passwort neu zu setzen.</p>
                     <p>Danach können Sie sich in Ihrem geschützten Bereich genauer umsehen.</p>
                     <p>Ihre Hochschule für Philosophie</p>
                 </div>

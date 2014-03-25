@@ -1,23 +1,11 @@
+from Acquisition import aq_inner
 from five import grok
 from plone import api
 
-from z3c.form import group, field
-from zope import schema
-from zope.interface import invariant, Invalid
-from zope.schema.interfaces import IContextSourceBinder
-from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
-
 from plone.dexterity.content import Container
 
-from plone.directives import dexterity, form
-from plone.app.textfield import RichText
-from plone.namedfile.field import NamedImage, NamedFile
-from plone.namedfile.field import NamedBlobImage, NamedBlobFile
+from plone.directives import form
 from plone.namedfile.interfaces import IImageScaleTraversable
-
-from z3c.relationfield.schema import RelationList, RelationChoice
-from plone.formwidget.contenttree import ObjPathSourceBinder
-
 
 from hph.membership import MessageFactory as _
 
@@ -39,9 +27,17 @@ class View(grok.View):
     grok.name('view')
 
     def user_info(self):
+        context = aq_inner(self.context)
         info = {}
-        user = api.user.get_current()
-        userid = user.getId()
+        workspace_id = context.getId()
+        current_user = api.user.get_current()
+        userid = current_user.getId()
+        user = api.user.get(username=workspace_id)
+        ownership = False
+        if workspace_id == userid:
+            ownership = True
+            user = current_user
+        info['owner'] = ownership
         info['fullname'] = user.getProperty('fullname', '') or userid
         info['email'] = user.getProperty('email', '')
         info['login_time'] = user.getProperty('login_time', '')

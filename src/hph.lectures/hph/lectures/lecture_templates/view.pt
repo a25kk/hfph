@@ -67,7 +67,7 @@
                     <span i18n:translate="">Dates</span>:
                     <span tal:replace="context/courseDates" />
                 <p class="text-muted" tal:condition="context/moduledetails">
-                    <tal:items tal:repeat="node context/lmoduledetails">
+                    <tal:items tal:repeat="node context/moduledetails">
                         <span tal:replace="node/degree" />:
                         <span tal:replace="node/info" />
                         <tal:separator condition="not: repeat/node/end"><br></tal:separator>
