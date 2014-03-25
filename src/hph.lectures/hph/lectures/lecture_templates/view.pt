@@ -68,7 +68,9 @@
                     <span tal:replace="context/courseDates" />
                 <p class="text-muted" tal:condition="context/moduledetails">
                     <tal:items tal:repeat="node context/moduledetails">
-                        <span tal:replace="node/degree" />:
+                        <span tal:define="degree node/degree;
+                                          pretty_degree python:view.prettify_degree(degree)"
+                            tal:replace="pretty_degree" />:
                         <span tal:replace="node/info" />
                         <tal:separator condition="not: repeat/node/end"><br></tal:separator>
                     </tal:items>
