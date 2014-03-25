@@ -53,8 +53,8 @@
 
             <tal:users tal:condition="view/has_users">
                 <hr>
-                <div tal:define="results view/get_all_members;">
-                    <table class="table table-condensed table-responsive" id="table-usermanager">
+                <div class="table-responsive" tal:define="results view/get_all_members;">
+                    <table class="table table-condensed table-hover app-table-usermanager" id="table-usermanager">
                         <thead>
                             <tr>
                                 <th>Userrecord</th>
@@ -66,7 +66,7 @@
                         </thead>
                         <tbody>
                             <tr class="app-contentlisting" tal:repeat="item results">
-                                <td class="app-list-item"
+                                <td class="app-list-item app-td-first"
                                     tal:define="user_id item/userid;
                                                 has_ws python:view.has_workspace(user_id)">
                                     <a tal:condition="has_ws"
