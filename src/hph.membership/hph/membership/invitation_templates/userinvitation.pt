@@ -23,17 +23,10 @@
                             </h1>
                         </div>
                         <div class="app-box-content">
-                            <p class="text-muted" i18n:translate="">
-                                Current pending user invitations/password reset
-                                requests:
-                            </p>
-                            <ul class="list-group"
-                                tal:define="info view/open_requests">
-                                <li class="list-group-item" tal:repeat="item info">
-                                    <span tal:content="item" i18n:translate="" />
-                                    <span class="badge badge-default" tal:content="python:info[item]" />
-                                </li>
-                            </ul>
+                            <div class="alert alert-danger">
+                                Send invitation emails users asking them
+                                to set a password for accessing the site.
+                            </div>
                         </div>
                     </div>
                     <a class="btn btn-primary btn-block"
@@ -46,30 +39,29 @@
                         <h2>Send invitation</h2>
                     </div>
                     <div class="app-callout app-callout-danger"
-                        tal:condition="request/userid">
-                        In order to develop a nice invitation UI/UX we use this
-                        temporary view. Preview the email send to imported users
-                        or move on to the invitation form directly.
+                        tal:condition="not:view/requested_user_id">
+                        You did not pass a valid user id while
+                        calling this view
                     </div>
-                    <div class="app-callout app-callout-danger"
-                        tal:condition="not:request/userid">
-                        Bummer: seems you did not pass a valid user id while
-                        calling this view. Therefore the password reset cannot be
-                        triggered.
-                    </div>
-                    <div tal:condition="request/userid">
-                        <p i18n:translate="">Send password reset invitation to
-                            <span tal:replace="request/userid" />
-                        </p>
-                       <h4>Open invitation form</h4>
+                    <div tal:condition="view/requested_user_id">
+                        <h4>Open invitation form</h4>
                         <a class="btn btn-primary"
                             tal:attributes="href string:${context/portal_url}/@@invite-new-user?userid=${request/userid}">
-                            Add user invitation
+                            Send invitation to <span tal:replace="request/userid" />
                         </a>
                          <h4>Preview the constructed reset email now</h4>
                         <a class="btn btn-default"
                             tal:attributes="href string:${context/absolute_url}/@@invitation-email?userid=${request/userid}">
                             Show reset mail</a>
+                    </div>
+                    <div class="app-callout app-callout-danger">
+                        <h4 i18n:translate="">Danger Zone</h4>
+                        <p i18n:translate="">Send an email to all available user
+                            records asking for a password reset now
+                        </p>
+                        <a class="btn btn-danger" tal:attributes="href string:${context/absolute_url}/@@send-reset-invitations"
+                            i18n:translate="">Sent invitation email to all users
+                        </a>
                     </div>
                 </div>
             </div>

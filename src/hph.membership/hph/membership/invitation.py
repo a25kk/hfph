@@ -28,6 +28,40 @@ class UserInvitation(grok.View):
     grok.require('cmf.ModifyPortalContent')
     grok.name('user-invitation')
 
+    def update(self):
+        context = aq_inner(self.context)
+        self.requested_user_id = self.request.get('userid', None)
+        self.errors = {}
+        unwanted = ('_authenticator', 'form.button.Submit')
+        required = ('title')
+        if 'form.button.Submit' in self.request:
+            authenticator = getMultiAdapter((context, self.request),
+                                            name=u"authenticator")
+            if not authenticator.verify():
+                raise Unauthorized
+            form = self.request.form
+            form_data = {}
+            form_errors = {}
+            errorIdx = 0
+            for value in form:
+                if value not in unwanted:
+                    form_data[value] = safe_unicode(form[value])
+                    if not form[value] and value in required:
+                        error = {}
+                        error['active'] = True
+                        error['msg'] = _(u"This field is required")
+                        form_errors[value] = error
+                        errorIdx += 1
+                    else:
+                        error = {}
+                        error['active'] = False
+                        error['msg'] = form[value]
+                        form_errors[value] = error
+            if errorIdx > 0:
+                self.errors = form_errors
+            else:
+                self.build_and_send(form)
+
     def open_requests(self):
         pwrtool = api.portal.get_tool(name='portal_password_reset')
         return pwrtool.getStats()
@@ -70,6 +104,68 @@ class UserInvitation(grok.View):
     def _access_token(self, user):
         new_token = django_random.get_random_string(length=12)
         token = user.getProperty('token', new_token)
+        return token
+
+
+class SendResetInvitation(grok.View):
+    """ Invite imported users to join the portal
+    """
+    grok.context(IMemberFolder)
+    grok.require('cmf.ModifyPortalContent')
+    grok.name('send-reset-invitations')
+
+    def render(self):
+        idx = self.build_and_send()
+        IStatusMessage(self.request).addStatusMessage(
+            _(u"{0} invitation emails successfully sent.".format(idx)),
+            type='info')
+        url = '{0}/ws'.format(api.portal.get().absolute_url())
+        return self.request.response.redirect(url)
+
+    def build_and_send(self):
+        addresses = self.get_addresses()
+        idx = 0
+        for addr in addresses:
+            user = api.user.get(username=addr.getId())
+            userid = user.getId()
+            subject = _(u"Einladung zur neuen hfph.de Seite")
+            mail_tpl = self._compose_invitation_message(userid)
+            mail_plain = create_plaintext_message(mail_tpl)
+            msg = prepare_email_message(mail_tpl, mail_plain)
+            recipients = list()
+            recipients.append(addr.getProperty('email'))
+            send_mail(msg, recipients, subject)
+            idx += 1
+        return idx
+
+    def get_addresses(self):
+        records = api.user.get_users()
+        return records
+
+    def _compose_invitation_message(self, user_id):
+        user = api.user.get(username=user_id)
+        token = self._access_token(user)
+        portal_url = api.portal.get().absolute_url()
+        url = '{0}/useraccount/{1}/{2}'.format(
+            portal_url, user_id, token)
+        template_file = os.path.join(os.path.dirname(__file__),
+                                     'mail-invitation.html')
+        template = Template(open(template_file).read())
+        template_vars = {
+            'id': user_id,
+            'email': user.getProperty('email'),
+            'fullname': user.getProperty('fullname'),
+            'url': url
+        }
+        return template.substitute(template_vars)
+
+    def _access_token(self, user):
+        new_token = django_random.get_random_string(length=12)
+        stored_token = user.getProperty('token', '')
+        if len(stored_token):
+            token = stored_token
+        else:
+            token = new_token
         return token
 
 
