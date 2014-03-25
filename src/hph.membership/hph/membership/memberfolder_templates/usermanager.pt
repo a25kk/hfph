@@ -106,7 +106,7 @@
                                     <thead>
                                         <tr>
                                             <th>Userrecord</th>
-                                            <th>E-Mail</th>
+                                            <th>Groups</th>
                                             <th>Enabled</th>
                                             <th>Confirmed</th>
                                             <th>More</th>
@@ -122,12 +122,12 @@
                                                     <strong tal:content="item/name" />
                                                 </a>
                                                 <strong tal:condition="not:has_ws" tal:content="item/name" /><br>
+                                                <small tal:content="item/email" />
+                                            </td>
+                                            <td>
                                                 <tal:items tal:repeat="group item/groups">
                                                     <small tal:content="group" /><tal:separator condition="not: repeat/group/end">,</tal:separator>
                                                 </tal:items>
-                                            </td>
-                                            <td>
-                                                <span tal:content="item/email" />
                                             </td>
                                             <td><span tal:content="item/enabled" i18n:translate="">Yes/No</span>
                                             </td>
