@@ -45,14 +45,13 @@
                         </div>
                         <div class="checkbox">
                           <label>
-                            <input id="enabled" name="enabled" type="checkbox"> Enabled
+                            <input id="enabled" name="enabled" type="checkbox" /> Enabled
                           </label>
                         </div>
-                         <button class="btn btn-danger"
+                        <button class="btn btn-danger"
                              name="form.button.Submit"
                              id="form.button.Submit"
                              i18n:translate="">Update user status</button>
-                        </div>
                     </form>
                 </div>
             </div>
