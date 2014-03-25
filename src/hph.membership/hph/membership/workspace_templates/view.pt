@@ -13,7 +13,8 @@
     <div class="tile-content">
 
         <section id="content-core"
-            tal:define="user view/user_info">
+            tal:define="user view/user_info;
+                        toLocalizedTime nocall:context/@@plone/toLocalizedTime">
             <div class="row">
                 <div class="col-xs-12 col-sm-4">
                     <div class="app-box app-box-workspaces">
@@ -27,29 +28,37 @@
                             <p class="text-muted" tal:content="user/email">
                                E-Mail
                             </p>
-                            <p class="text-discreet">
+                            <p class="text-discreet"
+                                tal:define="timestamp user/login_time">
                                 <span i18n:translate="">Login:</span>
-                                <span tal:replace="user/login_time" />
+                                <span tal:replace="python:toLocalizedTime(timestamp, long_format=True)" />
                             </p>
-                            <hr>
-                            <a tal:attributes="href string:${context/absolute_url}/logout"
-                                i18n:translate="">Signout</a>
-
+                            <p>
+                                <a tal:attributes="href string:${context/portal_url}/@@set-user-password"
+                                    i18n:translate="">Change password</a>
+                            </p>
+                            <p>
+                                <a tal:attributes="href string:${context/absolute_url}/logout"
+                                    i18n:translate="">Signout</a>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-8">
-                    <div class="app-page-header">
-                        <h2><span tal:replace="user/fullname" />
-                            <small tal:content="user/email" />
-                        </h2>
-                    </div>
-                    <h3>Erfolgreich eingeloggt!</h3>
-                    <p>Nachdem Sie Ihr Passwort erfolgreich gesetzt haben, sind Sie nun ein vollwertiger Benutzer und können nun die für Sie relevanten Informationen einsehen sowie ggf. die Ihnen zugewiesenen Bereiche editieren.</p>
-                    <p>Künftig wird Sie hier Ihr ganz individuelles Dashboard begrüßen. Ihr Benutzerordner enthält die für Sie relevanten Informationen und bietet beispielsweise einen Direkteinstieg in Ihre spezifischen Inhaltsbereiche.</p>
-                    <p>Um es besonders ansprechend und übersichtlich zu gestalten, benötigen wir noch etwas Zeit. Daher bitten wir um Ihre Geduld, wenn Sie nach den ersten Logins noch kein individualisiertes, sondern vorerst ein allgemeingültiges Dashboard zur Verfügung haben.</p>
-                    <p>Ansonsten wünschen wir Ihnen viel Spaß mit der neuen Webseite!</p>
-                    <p>Ihr Entwicklerteam</p>
+                    <tal:block tal:condition="view/flash_msg">
+                        <div class="app-page-header">
+                            <h2>Willkommen <span tal:replace="user/fullname" />
+                            </h2>
+                        </div>
+                        <div class="app-page-body">
+                            <h3><i class="fa fa-check-circle-o"></i> Erfolgreich eingeloggt!</h3>
+                            <p>Nachdem Sie Ihr Passwort erfolgreich gesetzt haben, sind Sie nun ein vollwertiger Benutzer und können nun die für Sie relevanten Informationen einsehen sowie ggf. die Ihnen zugewiesenen Bereiche editieren.</p>
+                            <p>Künftig wird Sie hier Ihr ganz individuelles Dashboard begrüßen. Ihr Benutzerordner enthält die für Sie relevanten Informationen und bietet beispielsweise einen Direkteinstieg in Ihre spezifischen Inhaltsbereiche.</p>
+                            <p>Um es besonders ansprechend und übersichtlich zu gestalten, benötigen wir noch etwas Zeit. Daher bitten wir um Ihre Geduld, wenn Sie nach den ersten Logins noch kein individualisiertes, sondern vorerst ein allgemeingültiges Dashboard zur Verfügung haben.</p>
+                            <p>Ansonsten wünschen wir Ihnen viel Spaß mit der neuen Webseite!</p>
+                            <p>Ihr Entwicklerteam</p>
+                        </div>
+                    </tal:block>
                 </div>
             </div>
         </section>

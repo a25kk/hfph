@@ -2,22 +2,12 @@ from Acquisition import aq_inner
 from five import grok
 from plone import api
 
-from z3c.form import group, field
-from zope import schema
-from zope.interface import invariant, Invalid
-from zope.schema.interfaces import IContextSourceBinder
 from zope.schema.vocabulary import getVocabularyRegistry
 
 from plone.dexterity.content import Container
 
-from plone.directives import dexterity, form
-from plone.app.textfield import RichText
-from plone.namedfile.field import NamedImage, NamedFile
-from plone.namedfile.field import NamedBlobImage, NamedBlobFile
+from plone.directives import form
 from plone.namedfile.interfaces import IImageScaleTraversable
-
-from z3c.relationfield.schema import RelationList, RelationChoice
-from plone.formwidget.contenttree import ObjPathSourceBinder
 
 from plone.app.contentlisting.interfaces import IContentListing
 
@@ -83,4 +73,5 @@ class View(grok.View):
         query_path = '/'.join(context.getPhysicalPath())
         return dict(object_provides=obj_provides,
                     path=query_path,
-                    review_state='published')
+                    review_state='published',
+                    sort_on='courseNumber')
