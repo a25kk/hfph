@@ -52,11 +52,11 @@
                         </div>
                         <div class="app-page-body">
                             <h3><i class="fa fa-check-circle-o"></i> Erfolgreich eingeloggt!</h3>
-                            <p>Nachdem Sie Ihr Passwort erfolgreich gesetzt haben, sind Sie nun ein vollwertiger Benutzer und können nun die für Sie relevanten Informationen einsehen sowie ggf. die Ihnen zugewiesenen Bereiche editieren.</p>
+                            <p>Nachdem Sie Ihr Passwort erfolgreich gesetzt haben, sind Sie nun ein vollwertiger Benutzer und können die für Sie relevanten Informationen einsehen sowie ggf. die Ihnen zugewiesenen Bereiche editieren.</p>
                             <p>Künftig wird Sie hier Ihr ganz individuelles Dashboard begrüßen. Ihr Benutzerordner enthält die für Sie relevanten Informationen und bietet beispielsweise einen Direkteinstieg in Ihre spezifischen Inhaltsbereiche.</p>
                             <p>Um es besonders ansprechend und übersichtlich zu gestalten, benötigen wir noch etwas Zeit. Daher bitten wir um Ihre Geduld, wenn Sie nach den ersten Logins noch kein individualisiertes, sondern vorerst ein allgemeingültiges Dashboard zur Verfügung haben.</p>
                             <p>Ansonsten wünschen wir Ihnen viel Spaß mit der neuen Webseite!</p>
-                            <p>Ihr Entwicklerteam</p>
+                            <p>Ihr Webseitenteam der Hochschule für Philosophie</p>
                         </div>
                     </tal:block>
                 </div>
