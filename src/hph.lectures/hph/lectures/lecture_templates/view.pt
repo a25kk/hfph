@@ -70,7 +70,8 @@
                     <tal:items tal:repeat="node context/moduledetails">
                         <span tal:define="degree node/degree;
                                           pretty_degree python:view.prettify_degree(degree)"
-                            tal:replace="pretty_degree" />:
+                            tal:content="pretty_degree"
+                            i18n:translate="" />:
                         <span tal:replace="node/info" />
                         <tal:separator condition="not: repeat/node/end"><br></tal:separator>
                     </tal:items>
