@@ -3,6 +3,9 @@ import formatter
 import logging
 import socket
 
+import lxml
+from lxml.html.clean import Cleaner
+
 from email.utils import formataddr
 from email.utils import parseaddr
 from email.MIMEText import MIMEText
@@ -146,15 +149,23 @@ def prepare_email_message(message, plaintext):
 
 
 def create_plaintext_message(message):
-        """ Create a plain-text-message by parsing the html
+        """ Create clean plain text version of email message
+
+            Parse the html and remove style and javacript tags and then
+            create a plain-text-message by parsing the html
             and attaching links as endnotes
         """
+        cleaner = Cleaner()
+        cleaner.javascript = True
+        cleaner.style = True
+        cleaned_msg = lxml.html.tostring(cleaner.clean_html(
+            lxml.html.parse(message)))
         plain_text_maxcols = 72
         textout = cStringIO.StringIO()
         formtext = formatter.AbstractFormatter(formatter.DumbWriter(
                                                textout, plain_text_maxcols))
         parser = HTMLParser(formtext)
-        parser.feed(message)
+        parser.feed(cleaned_msg)
         parser.close()
         # append the anchorlist at the bottom of a message
         # to keep the message readable.
