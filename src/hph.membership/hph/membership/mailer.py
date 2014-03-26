@@ -158,8 +158,10 @@ def create_plaintext_message(message):
         cleaner = Cleaner()
         cleaner.javascript = True
         cleaner.style = True
-        cleaned_msg = lxml.html.tostring(cleaner.clean_html(
-            lxml.html.parse(message)))
+        cleaner.kill_tags = ['style']
+        doc = message.decode('utf-8', 'ignore')
+        to_clean = lxml.html.fromstring(doc)
+        cleaned_msg = lxml.html.tostring(cleaner.clean_html(to_clean))
         plain_text_maxcols = 72
         textout = cStringIO.StringIO()
         formtext = formatter.AbstractFormatter(formatter.DumbWriter(
