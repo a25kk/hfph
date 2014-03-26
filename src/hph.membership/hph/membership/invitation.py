@@ -260,6 +260,7 @@ class InviteNewUser(grok.View):
             token = stored_token
         else:
             token = new_token
+            user.setMemberProperties(mapping={'token': token})
         return token
 
 

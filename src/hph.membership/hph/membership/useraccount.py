@@ -94,6 +94,17 @@ class UserAccount(grok.View):
     def _handle_reset(self, data):
         password = str(data.get('password'))
         confirm = str(data.get('confirm'))
+        if len(password) < 8:
+            errors = {}
+            error = {}
+            error['active'] = True
+            error['msg'] = _(u"This field is required")
+            errors['password'] = error
+            self.errors = errors
+            IStatusMessage(self.request).addStatusMessage(
+                _(u"Passwords must consist of at least 8 characters"),
+                "error")
+            return self.request.response.redirect(self.context.absolute_url())
         if confirm != password:
             IStatusMessage(self.request).addStatusMessage(
                 _(u"The entered password and confirmation do not match."),

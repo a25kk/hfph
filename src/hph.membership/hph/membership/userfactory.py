@@ -10,7 +10,6 @@ from plone.keyring import django_random
 
 from Products.statusmessages.interfaces import IStatusMessage
 from plone.uuid.interfaces import IUUIDGenerator
-from hph.membership.tool import IHPHMemberTool
 from hph.membership.memberfolder import IMemberFolder
 
 from hph.membership import MessageFactory as _
@@ -75,6 +74,7 @@ class UserCreationForm(form.SchemaEditForm):
         generator = getUtility(IUUIDGenerator)
         properties = dict(
             fullname=data['fullname'],
+            token=django_random.get_random_string(length=12)
         )
         existing = api.user.get(username=data['email'])
         if not existing:
