@@ -255,7 +255,11 @@ class InviteNewUser(grok.View):
 
     def _access_token(self, user):
         new_token = django_random.get_random_string(length=12)
-        token = user.getProperty('token', new_token)
+        stored_token = user.getProperty('token', '')
+        if len(stored_token):
+            token = stored_token
+        else:
+            token = new_token
         return token
 
 
