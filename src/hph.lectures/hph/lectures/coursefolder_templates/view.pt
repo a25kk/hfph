@@ -78,7 +78,7 @@
                                     <span i18n:translate="">Dates</span>:
                                     <span tal:replace="item/courseDates" />
                                 <p class="text-muted" tal:condition="item/moduledetails">
-                                    <tal:items tal:repeat="node itemt/moduledetails">
+                                    <tal:items tal:repeat="node item/moduledetails">
                                         <span tal:define="degree node/degree;
                                                           pretty_degree python:view.prettify_degree(degree)"
                                             tal:content="pretty_degree"
