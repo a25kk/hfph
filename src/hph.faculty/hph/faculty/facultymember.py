@@ -28,11 +28,6 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
     """
     A faculty staff member
     """
-    last_name = schema.TextLine(
-        title=_(u"Lastname"),
-        description=_(u"Provide last name for better filtering and search"),
-        required=True,
-    )
     lastname = schema.TextLine(
         title=_(u"Lastname"),
         description=_(u"Provide last name for better filtering and search"),
