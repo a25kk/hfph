@@ -45,6 +45,23 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-8">
+                    <tal:block tal:condition="not:view/flash_msg">
+                        <div class="app-page-header">
+                            <h3>Willkommen auf Ihrem Dashboard</h2>
+                        </div>
+                        <div class="app-page-body">
+                            <p>An dieser Stelle erarbeiten und entwickeln wir gerade Ihren persönlichen Benutzerordner.</p>
+                            <p>Sie können sich die gesamte Webseite betrachten und sogar - je nachdem welche Rolle Sie innehaben - auch noch mehr.</p>
+                            <p>Bitte bedenken Sie, dass Sie - falls Sie ein Lehrender oder Redakteur sind - erst mit Fertigstellung der Benutzerbereiche Ihre individuellen Editierrechte erlangen werden. Bei dringenden Änderungswünschen an der Webseite wenden Sie sich bitte an einen der folgenden Ansprechpartner:</p>
+                            <ul>
+                            <li><a href="mailto:julia.krumme@hfph.de">Julia Krumme</a></li>
+                            <li><a href="mailto:sabine.willner@hfph.de">Sabine Willner</a></li>
+                            <li><a href="mailto:christoph.sachs@hfph.de">Christoph Sachs</a></li>
+                            </ul>
+                            <p>Viel Spaß mit der neuen Webseite!</p>
+                            <p><strong>Ihr Web-Team der Hochschule für Philosophie</strong></p>
+                        </div>
+                    </tal:block>
                     <tal:block tal:condition="view/flash_msg">
                         <div class="app-page-header">
                             <h2>Willkommen <span tal:replace="user/fullname" />
