@@ -46,6 +46,17 @@ class View(grok.View):
                     title = term.title
         return title
 
+    def prettify_degree(self, value):
+        context = aq_inner(self.context)
+        vr = getVocabularyRegistry()
+        vocab = vr.get(context, 'hph.lectures.CourseDegree')
+        title = _(u"undefined")
+        if value is not None:
+            for term in vocab:
+                if term.value == value:
+                    title = term.title
+        return title
+
     def filter_options(self):
         context = aq_inner(self.context)
         vr = getVocabularyRegistry()
