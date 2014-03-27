@@ -81,7 +81,7 @@
                     tal:content="context/Description" />
             </div>
 
-            <div tal:condition="not:view/is_anon">
+            <div tal:condition="not:view/anon">
                 <hr>
                 <div class="app-page-section"
                     tal:condition="context/courseTheme">
