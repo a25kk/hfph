@@ -197,10 +197,10 @@ class ToolbarViewlet(grok.Viewlet):
 
     @memoize
     def user_homeurl(self):
-        member = self.portal_state.member()
+        member = api.user.get_current()
         userid = member.getId()
-        return "%s/author/%s" % (self.portal_state.navigation_root_url(),
-                                 userid)
+        return "%s/ws/%s" % (self.portal_state.navigation_root_url(),
+                             userid)
 
     @memoize
     def user_actions(self):
