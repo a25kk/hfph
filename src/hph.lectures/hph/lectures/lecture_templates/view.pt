@@ -81,49 +81,49 @@
                     tal:content="context/Description" />
             </div>
 
-            <div tal:condition="not:view/anon">
                 <hr>
-                <div class="app-page-section"
-                    tal:condition="context/courseTheme">
-                    <h3 i18n:translate="">Course Theme</h3>
-                    <p tal:content="context/courseTheme" />
-                </div>
-                <div class="app-page-section"
-                    tal:condition="context/courseAims">
-                    <h3 i18n:translate="">Course Aims</h3>
-                    <p tal:content="context/courseAims" />
-                </div>
-                <div class="app-page-section"
-                    tal:condition="context/courseMethod">
-                    <h3 i18n:translate="">Course Method</h3>
-                    <p tal:content="context/courseMethod" />
-                </div>
-                <div class="app-page-section"
-                    tal:condition="context/coursePrereq">
-                    <h3 i18n:translate="">Course Prerequirements</h3>
-                    <p tal:content="context/coursePrereq" />
-                </div>
-                <div class="app-page-section"
-                    tal:condition="context/courseQualification">
-                    <h3 i18n:translate="">Course Qualification</h3>
-                    <p tal:content="context/courseQualification" />
-                </div>
-                <div class="app-page-section"
-                    tal:condition="context/courseTarget">
-                    <h3 i18n:translate="">Course Target</h3>
-                    <p tal:content="context/courseTarget" />
-                </div>
-                <div class="app-page-section"
-                    tal:condition="context/courseLiterature">
-                    <h3 i18n:translate="">Course Literature</h3>
-                    <p tal:content="context/courseLiterature" />
-                </div>
-                <div class="app-page-section"
-                    tal:condition="context/courseNotes">
-                    <h3 i18n:translate="">Course Notes</h3>
-                    <p tal:content="context/courseNotes" />
-                </div>
+
+            <div class="app-page-section"
+                tal:condition="context/courseTheme">
+                <h3 i18n:translate="">Course Theme</h3>
+                <p tal:content="context/courseTheme" />
             </div>
+            <div class="app-page-section"
+                tal:condition="context/courseAims">
+                <h3 i18n:translate="">Course Aims</h3>
+                <p tal:content="context/courseAims" />
+            </div>
+            <div class="app-page-section"
+                tal:condition="context/courseMethod">
+                <h3 i18n:translate="">Course Method</h3>
+                <p tal:content="context/courseMethod" />
+            </div>
+            <div class="app-page-section"
+                tal:condition="context/coursePrereq">
+                <h3 i18n:translate="">Course Prerequirements</h3>
+                <p tal:content="context/coursePrereq" />
+            </div>
+            <div class="app-page-section"
+                tal:condition="context/courseQualification">
+                <h3 i18n:translate="">Course Qualification</h3>
+                <p tal:content="context/courseQualification" />
+            </div>
+            <div class="app-page-section"
+                tal:condition="context/courseTarget">
+                <h3 i18n:translate="">Course Target</h3>
+                <p tal:content="context/courseTarget" />
+            </div>
+            <div class="app-page-section"
+                tal:condition="context/courseLiterature">
+                <h3 i18n:translate="">Course Literature</h3>
+                <p tal:content="context/courseLiterature" />
+            </div>
+            <div class="app-page-section"
+                tal:condition="context/courseNotes">
+                <h3 i18n:translate="">Course Notes</h3>
+                <p tal:content="context/courseNotes" />
+            </div>
+
             <div class="app-page-section" tal:condition="view/has_attachments">
                 <h3 i18n:translate="">Attachements</h3>
                 <ul class="list-group">
