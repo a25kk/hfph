@@ -68,7 +68,7 @@
         <ul class="nav navbar-nav navbar-right"
             tal:condition="not:viewlet/show_cms_tools"
             tal:define="pstate viewlet/portal_state">
-            <li><a tal:attributes="href view/user_homeurl" i18n:translate="">Workspace</a></li>
+            <li><a tal:attributes="href viewlet/user_homeurl" i18n:translate="">Workspace</a></li>
             <li><a tal:attributes="href string:${pstate/portal_url}/logout" i18n:translate="">Signout</a></li>
         </ul>
     </div>

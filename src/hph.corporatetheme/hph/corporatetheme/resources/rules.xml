@@ -17,6 +17,7 @@
     <theme href="dist/signin.html" css:if-content="body.template-pwreset_form" />
     <theme href="dist/signin.html" css:if-content="body.template-pwreset_finish" />
     <theme href="dist/signin.html" css:if-content="body.template-useraccount" />
+    <theme href="dist/signin.html" css:if-content="body.template-signin-form" />
 
     <!-- Project specific theme files -->
     <theme href="dist/theme-igp.html" css:if-content="body.subsection-institute-gesellschaftspolitik" />
@@ -133,6 +134,9 @@
         <replace css:content-children="#content-core"
                 css:theme-children="#app-signin-content"
                 css:if-content="body.template-login_form" />
+        <replace css:content-children="#content-core"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-signin-form" />
         <replace css:content-children="#content-core"
                 css:theme-children="#app-signin-content"
                 css:if-content="body.template-login_failed" />
