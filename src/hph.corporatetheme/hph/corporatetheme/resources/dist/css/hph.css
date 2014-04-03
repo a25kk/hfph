@@ -14857,7 +14857,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 .app-box-footer .app-but-news
 {
-    margin-right: 20px !important;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 .app-box-striped .app-box-item:nth-child(odd)
 {
