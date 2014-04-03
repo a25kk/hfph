@@ -14855,6 +14855,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 {
     padding: 10px 0;
 }
+.app-box-footer .app-but-news
+{
+    margin-right: 20px !important;
+}
 .app-box-striped .app-box-item:nth-child(odd)
 {
     background-color: #f9f9f9;

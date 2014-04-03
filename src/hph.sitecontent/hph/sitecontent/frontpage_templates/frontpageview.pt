@@ -84,6 +84,16 @@
                       </div>
                     </tal:block>
                 </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-lg-12">
+                        <div class="app-box-footer text-right">
+                            <a class="btn btn-default btn-sm app-but-news" href="#"
+                                tal:define="portal_url context/portal_url"
+                                tal:attributes="href python:portal_url + '/nachrichten'">
+                                Weitere Nachrichten
+                        </div>
+                    </div>
+                </div>
             </article>
       </section>
     </aside>
