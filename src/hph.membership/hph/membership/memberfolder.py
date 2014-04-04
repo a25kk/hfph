@@ -92,7 +92,7 @@ class WorkspaceMissing(grok.View):
 
 class UserManager(grok.View):
     grok.context(IMemberFolder)
-    grok.require('cmf.ManagePortal')
+    grok.require('cmf.ModifyPortalContent')
     grok.name('user-manager')
 
     def update(self):
