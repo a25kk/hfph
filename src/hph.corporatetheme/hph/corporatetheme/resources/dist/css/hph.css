@@ -7,7 +7,7 @@
  *
  * Designed and built with all the love in the world
  */
-/*! normalize.css v3.0.0 | MIT License | git.io/normalize */
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html
 {
     font-family: sans-serif;
@@ -2797,6 +2797,7 @@ table th[class*='col-']
 .table-hover > tbody > tr > td.active:hover,
 .table-hover > tbody > tr > th.active:hover,
 .table-hover > tbody > tr.active:hover > td,
+.table-hover > tbody > tr:hover > .active,
 .table-hover > tbody > tr.active:hover > th
 {
     background-color: #e8e8e8;
@@ -2819,6 +2820,7 @@ table th[class*='col-']
 .table-hover > tbody > tr > td.success:hover,
 .table-hover > tbody > tr > th.success:hover,
 .table-hover > tbody > tr.success:hover > td,
+.table-hover > tbody > tr:hover > .success,
 .table-hover > tbody > tr.success:hover > th
 {
     background-color: #d0e9c6;
@@ -2841,6 +2843,7 @@ table th[class*='col-']
 .table-hover > tbody > tr > td.info:hover,
 .table-hover > tbody > tr > th.info:hover,
 .table-hover > tbody > tr.info:hover > td,
+.table-hover > tbody > tr:hover > .info,
 .table-hover > tbody > tr.info:hover > th
 {
     background-color: #c4e3f3;
@@ -2863,6 +2866,7 @@ table th[class*='col-']
 .table-hover > tbody > tr > td.warning:hover,
 .table-hover > tbody > tr > th.warning:hover,
 .table-hover > tbody > tr.warning:hover > td,
+.table-hover > tbody > tr:hover > .warning,
 .table-hover > tbody > tr.warning:hover > th
 {
     background-color: #faf2cc;
@@ -2885,6 +2889,7 @@ table th[class*='col-']
 .table-hover > tbody > tr > td.danger:hover,
 .table-hover > tbody > tr > th.danger:hover,
 .table-hover > tbody > tr.danger:hover > td,
+.table-hover > tbody > tr:hover > .danger,
 .table-hover > tbody > tr.danger:hover > th
 {
     background-color: #ebcccc;
@@ -2976,6 +2981,7 @@ label
 
     display: inline-block;
 
+    max-width: 100%;
     margin-bottom: 5px;
 }
 input[type='search']
@@ -3086,16 +3092,25 @@ input[type='search']
 {
     -webkit-appearance: none;
 }
-input[type='date']
+input[type='date'],
+input[type='time'],
+input[type='datetime-local'],
+input[type='month']
 {
     line-height: 34px;
     line-height: 1.42857143 \0;
 }
-input[type='date'].input-sm
+input[type='date'].input-sm,
+input[type='time'].input-sm,
+input[type='datetime-local'].input-sm,
+input[type='month'].input-sm
 {
     line-height: 30px;
 }
-input[type='date'].input-lg
+input[type='date'].input-lg,
+input[type='time'].input-lg,
+input[type='datetime-local'].input-lg,
+input[type='month'].input-lg
 {
     line-height: 46px;
 }
@@ -3111,14 +3126,14 @@ input[type='date'].input-lg
     min-height: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
-    padding-left: 20px;
 }
 .radio label,
 .checkbox label
 {
     font-weight: normal;
 
-    display: inline;
+    margin-bottom: 0;
+    padding-left: 20px;
 
     cursor: pointer;
 }
@@ -3225,6 +3240,7 @@ select[multiple].input-lg
     line-height: 34px;
 
     position: absolute;
+    z-index: 2;
     top: 25px;
     right: 0;
 
@@ -3527,7 +3543,7 @@ fieldset[disabled] .btn
 .btn-default:focus,
 .btn-default:active,
 .btn-default.active,
-.open .dropdown-toggle.btn-default
+.open > .dropdown-toggle.btn-default
 {
     color: #333;
     border-color: #adadad;
@@ -3535,7 +3551,7 @@ fieldset[disabled] .btn
 }
 .btn-default:active,
 .btn-default.active,
-.open .dropdown-toggle.btn-default
+.open > .dropdown-toggle.btn-default
 {
     background-image: none;
 }
@@ -3573,7 +3589,7 @@ fieldset[disabled] .btn-default.active
 .btn-primary:focus,
 .btn-primary:active,
 .btn-primary.active,
-.open .dropdown-toggle.btn-primary
+.open > .dropdown-toggle.btn-primary
 {
     color: #fff;
     border-color: #285e8e;
@@ -3581,7 +3597,7 @@ fieldset[disabled] .btn-default.active
 }
 .btn-primary:active,
 .btn-primary.active,
-.open .dropdown-toggle.btn-primary
+.open > .dropdown-toggle.btn-primary
 {
     background-image: none;
 }
@@ -3619,7 +3635,7 @@ fieldset[disabled] .btn-primary.active
 .btn-success:focus,
 .btn-success:active,
 .btn-success.active,
-.open .dropdown-toggle.btn-success
+.open > .dropdown-toggle.btn-success
 {
     color: #fff;
     border-color: #398439;
@@ -3627,7 +3643,7 @@ fieldset[disabled] .btn-primary.active
 }
 .btn-success:active,
 .btn-success.active,
-.open .dropdown-toggle.btn-success
+.open > .dropdown-toggle.btn-success
 {
     background-image: none;
 }
@@ -3665,7 +3681,7 @@ fieldset[disabled] .btn-success.active
 .btn-info:focus,
 .btn-info:active,
 .btn-info.active,
-.open .dropdown-toggle.btn-info
+.open > .dropdown-toggle.btn-info
 {
     color: #fff;
     border-color: #269abc;
@@ -3673,7 +3689,7 @@ fieldset[disabled] .btn-success.active
 }
 .btn-info:active,
 .btn-info.active,
-.open .dropdown-toggle.btn-info
+.open > .dropdown-toggle.btn-info
 {
     background-image: none;
 }
@@ -3711,7 +3727,7 @@ fieldset[disabled] .btn-info.active
 .btn-warning:focus,
 .btn-warning:active,
 .btn-warning.active,
-.open .dropdown-toggle.btn-warning
+.open > .dropdown-toggle.btn-warning
 {
     color: #fff;
     border-color: #d58512;
@@ -3719,7 +3735,7 @@ fieldset[disabled] .btn-info.active
 }
 .btn-warning:active,
 .btn-warning.active,
-.open .dropdown-toggle.btn-warning
+.open > .dropdown-toggle.btn-warning
 {
     background-image: none;
 }
@@ -3757,7 +3773,7 @@ fieldset[disabled] .btn-warning.active
 .btn-danger:focus,
 .btn-danger:active,
 .btn-danger.active,
-.open .dropdown-toggle.btn-danger
+.open > .dropdown-toggle.btn-danger
 {
     color: #fff;
     border-color: #ac2925;
@@ -3765,7 +3781,7 @@ fieldset[disabled] .btn-warning.active
 }
 .btn-danger:active,
 .btn-danger.active,
-.open .dropdown-toggle.btn-danger
+.open > .dropdown-toggle.btn-danger
 {
     background-image: none;
 }
@@ -3962,6 +3978,8 @@ tbody.collapse.in
     padding: 5px 0;
 
     list-style: none;
+
+    text-align: left;
 
     border: 1px solid #ccc;
     border: 1px solid rgba(0, 0, 0, .15);
@@ -6935,6 +6953,16 @@ button.close
 {
     margin-left: 0;
 }
+.modal-scrollbar-measure
+{
+    position: absolute;
+    top: -9999px;
+
+    overflow: scroll;
+
+    width: 50px;
+    height: 50px;
+}
 @media (min-width: 768px)
 {
     .modal-dialog
@@ -6965,7 +6993,7 @@ button.close
     line-height: 1.4;
 
     position: absolute;
-    z-index: 1030;
+    z-index: 1070;
 
     display: block;
     visibility: visible;
@@ -7097,7 +7125,7 @@ button.close
 .popover
 {
     position: absolute;
-    z-index: 1010;
+    z-index: 1060;
     top: 0;
     left: 0;
 
@@ -10384,10 +10412,10 @@ input.context.active,
 input.standalone.active,
 input.addreference.active,
 input.submit-widget.active,
-.open .dropdown-toggleinput.context,
-.open .dropdown-toggleinput.standalone,
-.open .dropdown-toggleinput.addreference,
-.open .dropdown-toggleinput.submit-widget
+.open > .dropdown-toggleinput.context,
+.open > .dropdown-toggleinput.standalone,
+.open > .dropdown-toggleinput.addreference,
+.open > .dropdown-toggleinput.submit-widget
 {
     color: #333;
     border-color: #adadad;
@@ -10401,10 +10429,10 @@ input.context.active,
 input.standalone.active,
 input.addreference.active,
 input.submit-widget.active,
-.open .dropdown-toggleinput.context,
-.open .dropdown-toggleinput.standalone,
-.open .dropdown-toggleinput.addreference,
-.open .dropdown-toggleinput.submit-widget
+.open > .dropdown-toggleinput.context,
+.open > .dropdown-toggleinput.standalone,
+.open > .dropdown-toggleinput.addreference,
+.open > .dropdown-toggleinput.submit-widget
 {
     background-image: none;
 }
@@ -10490,7 +10518,7 @@ input.context:hover,
 input.context:focus,
 input.context:active,
 input.context.active,
-.open .dropdown-toggleinput.context
+.open > .dropdown-toggleinput.context
 {
     color: #fff;
     border-color: #285e8e;
@@ -10498,7 +10526,7 @@ input.context.active,
 }
 input.context:active,
 input.context.active,
-.open .dropdown-toggleinput.context
+.open > .dropdown-toggleinput.context
 {
     background-image: none;
 }
@@ -15349,7 +15377,7 @@ fieldset[disabled] .searchButton
 .searchButton:focus,
 .searchButton:active,
 .searchButton.active,
-.open .dropdown-toggle.searchButton
+.open > .dropdown-toggle.searchButton
 {
     color: #333;
     border-color: #adadad;
@@ -15357,7 +15385,7 @@ fieldset[disabled] .searchButton
 }
 .searchButton:active,
 .searchButton.active,
-.open .dropdown-toggle.searchButton
+.open > .dropdown-toggle.searchButton
 {
     background-image: none;
 }
