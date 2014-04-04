@@ -127,15 +127,17 @@ class SendResetInvitation(grok.View):
         idx = 0
         for addr in addresses:
             user = api.user.get(username=addr.getId())
-            userid = user.getId()
-            subject = _(u"Einladung zur neuen hfph.de Seite")
-            mail_tpl = self._compose_invitation_message(userid)
-            mail_plain = create_plaintext_message(mail_tpl)
-            msg = prepare_email_message(mail_tpl, mail_plain)
-            recipients = list()
-            recipients.append(addr.getProperty('email'))
-            send_mail(msg, recipients, subject)
-            idx += 1
+            confirmed = user.getProperty('confirmed', None)
+            if confirmed is False:
+                userid = user.getId()
+                subject = _(u"Einladung zur neuen hfph.de Seite")
+                mail_tpl = self._compose_invitation_message(userid)
+                mail_plain = create_plaintext_message(mail_tpl)
+                msg = prepare_email_message(mail_tpl, mail_plain)
+                recipients = list()
+                recipients.append(addr.getProperty('email'))
+                send_mail(msg, recipients, subject)
+                idx += 1
         return idx
 
     def get_addresses(self):
