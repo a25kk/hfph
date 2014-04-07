@@ -1,6 +1,7 @@
 import cStringIO
 import formatter
 import logging
+import os
 import socket
 
 import lxml
@@ -13,6 +14,8 @@ from email.MIMEMultipart import MIMEMultipart
 
 from htmllib import HTMLParser
 from smtplib import SMTPException
+
+from string import Template
 
 from plone import api
 from zope.component import getMultiAdapter
@@ -104,6 +107,13 @@ def get_mail_from_address():
         # formataddr probably got confused by special characters.
         mfrom = from_address
     return mfrom
+
+
+def get_mail_template(name, data=dict()):
+    template_file = os.path.join(os.path.dirname(__file__), name)
+    template = Template(open(template_file).read())
+    composed = template.substitute(data)
+    return composed
 
 
 def prepare_email_message(message, plaintext):
