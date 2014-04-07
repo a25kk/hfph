@@ -241,6 +241,7 @@ class CreateRecords(grok.View):
                     groupname=group,
                     username=user_id
                 )
+            tool.invite_user(user_id)
             imported += 1
         return imported
 

@@ -37,6 +37,15 @@ class IHPHMemberTool(Interface):
         @param data:        predefined user data dictionary
         """
 
+    def invite_user(context):
+        """ Invite user to join portal and set password
+
+        This will always be triggered by a successful import of new acl_users
+        from an external user data source
+
+        @param userid:      The user id, e.g. user.getId()
+        """
+
     def get_external_users(context):
         """ Get user records from external api
 
@@ -55,7 +64,7 @@ class IHPHMemberTool(Interface):
     def start_password_reset(context):
         """ Trigger password reset process for a specific user records
 
-        @param uid:         unique user_id
+        @param userid:         unique user_id
         """
 
 
@@ -89,6 +98,17 @@ class MemberTool(grok.GlobalUtility):
             user = existing
             user_id = user.getId()
         return user_id
+
+    def invite_user(self, userid):
+        user = self.get_user(userid)
+        subject = _(u"Invitation to join the HfPH portal")
+        mail_tpl = self._compose_message(userid, message_type='invitation')
+        mail_plain = create_plaintext_message(mail_tpl)
+        msg = prepare_email_message(mail_tpl, mail_plain)
+        recipients = list()
+        recipients.append(user.getProperty('email'))
+        send_mail(msg, recipients, subject)
+        return userid
 
     def get_user(self, user_id):
         return api.user.get(username=user_id)
@@ -126,10 +146,10 @@ class MemberTool(grok.GlobalUtility):
                 info['status'] = 'unreachable'
         return info
 
-    def start_password_reset(self, userid):
+    def _start_password_reset(self, userid):
         user = self.get_user(userid)
-        subject = _(u"Einladung zur neuen hfph.de Seite")
-        mail_tpl = self._compose_invitation_message(userid)
+        subject = _(u"Invitation to join the HfPH portal")
+        mail_tpl = self._compose_message(userid, message_type='invitation')
         mail_plain = create_plaintext_message(mail_tpl)
         msg = prepare_email_message(mail_tpl, mail_plain)
         recipients = list()
@@ -137,7 +157,7 @@ class MemberTool(grok.GlobalUtility):
         send_mail(msg, recipients, subject)
         return userid
 
-    def _compose_invitation_message(self, user_id, message_type):
+    def _compose_message(self, user_id, message_type):
         user = self.get_user(user_id)
         token = self._access_token(user)
         portal_url = api.portal.get().absolute_url()
@@ -149,7 +169,7 @@ class MemberTool(grok.GlobalUtility):
             'fullname': user.getProperty('fullname'),
             'url': url
         }
-        template_name = 'mail-{}'.format(message_type)
+        template_name = 'mail-{0}.html'.format(message_type)
         message = get_mail_template(template_name, template_vars)
         return message
 
