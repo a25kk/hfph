@@ -237,14 +237,17 @@ class CreateRecords(grok.View):
                 email=record['email'],
                 properties=props
             )
-            user_id = tool.create_user(data)
-            for group in record['groups']:
-                api.group.add_user(
-                    groupname=group,
-                    username=user_id
-                )
-            tool.invite_user(user_id)
-            imported += 1
+            user_info = tool.create_user(data)
+            user_id = user_info['userid']
+            is_new_user = user_info['created']
+            if is_new_user is True:
+                for group in record['groups']:
+                    api.group.add_user(
+                        groupname=group,
+                        username=user_id
+                    )
+                tool.invite_user(user_id)
+                imported += 1
         return imported
 
     def userdata(self):

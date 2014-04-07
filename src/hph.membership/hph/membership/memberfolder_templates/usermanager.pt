@@ -47,9 +47,9 @@
                             group asignment.
                         </p>
                         <a tal:attributes="href string:${context/absolute_url}/@@update-member-records">
-                                Load user data from external api</a>
+                                Load user data from external api</a><br>
                         <a tal:attributes="href string:${context/absolute_url}/@@create-member-records">
-                                Create user accounts from stored data</a>
+                                Create user accounts from stored data</a><br>
                         <a tal:attributes="href string:${context/absolute_url}/@@send-reset-invitations">
                                 Send invitation email to all unconfirmed user accounts
                         </a>

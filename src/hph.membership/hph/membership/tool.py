@@ -76,6 +76,7 @@ class MemberTool(grok.GlobalUtility):
         pas = api.portal.get_tool(name='acl_users')
         generator = getUtility(IUUIDGenerator)
         existing = api.user.get(username=data['email'])
+        info = {}
         if not existing:
             user_id = generator()
             user_email = data['email']
@@ -91,15 +92,29 @@ class MemberTool(grok.GlobalUtility):
             pas.updateLoginName(user_id, user_email)
             # user = api.user.get(username=user_id)
             user.setMemberProperties(mapping=properties)
+            info['created'] = True
         else:
             user = existing
             user_id = user.getId()
-        return user_id
+            info['created'] = False
+        info['userid'] = user_id
+        return info
 
     def update_user(self, userid, props):
         user = self.get_user(userid)
         props['update_time'] = DateTime()
         user.setMemberProperties(mapping=props)
+        return userid
+
+    def reset_user(self, userid):
+        user = self.get_user(userid)
+        subject = _(u"Please change your account information for HfPH")
+        mail_tpl = self._compose_message(userid, message_type='password')
+        mail_plain = create_plaintext_message(mail_tpl)
+        msg = prepare_email_message(mail_tpl, mail_plain)
+        recipients = list()
+        recipients.append(user.getProperty('email'))
+        send_mail(msg, recipients, subject)
         return userid
 
     def invite_user(self, userid):
