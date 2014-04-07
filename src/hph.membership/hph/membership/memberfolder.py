@@ -10,8 +10,9 @@ from zope.lifecycleevent import modified
 from plone.directives import form
 from plone.dexterity.content import Container
 from plone.namedfile.interfaces import IImageScaleTraversable
-from Products.statusmessages.interfaces import IStatusMessage
+from plone.memoize.view import memoize
 
+from Products.statusmessages.interfaces import IStatusMessage
 from Products.CMFPlone.utils import safe_unicode
 
 from hph.membership.tool import api_group_mapper
@@ -104,6 +105,7 @@ class UserManager(grok.View):
             return True
         return False
 
+    @memoize
     def get_all_members(self):
         users = []
         records = api.user.get_users()

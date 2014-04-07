@@ -84,17 +84,23 @@ class MemberTool(grok.GlobalUtility):
             properties['workspace'] = user_id
             properties['email'] = user_email
             properties['creation_time'] = DateTime()
-            registration.addMember(
+            user = registration.addMember(
                 user_id,
                 password
             )
             pas.updateLoginName(user_id, user_email)
-            user = api.user.get(username=user_id)
+            # user = api.user.get(username=user_id)
             user.setMemberProperties(mapping=properties)
         else:
             user = existing
             user_id = user.getId()
         return user_id
+
+    def update_user(self, userid, props):
+        user = self.get_user(userid)
+        props['update_time'] = DateTime()
+        user.setMemberProperties(mapping=props)
+        return userid
 
     def invite_user(self, userid):
         user = self.get_user(userid)
