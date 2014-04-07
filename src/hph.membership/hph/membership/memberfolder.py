@@ -179,6 +179,49 @@ class UserManager(grok.View):
         return groups
 
 
+class StoredRecords(grok.View):
+    grok.context(IMemberFolder)
+    grok.require('cmf.ManagePortal')
+    grok.name('stored-member-records')
+
+    def render(self):
+        return json.dumps(self.preprocess_data())
+
+    def preprocess_data(self):
+        data = {
+            "iTotalRecords": "50",
+            "iTotalDisplayRecords": "10",
+            "sEcho": "10",
+            "aaData": self.userdata()
+        }
+        return data
+
+    def stored_data(self):
+        context = aq_inner(self.context)
+        stored_data = getattr(context, 'importable', None)
+        data = json.loads(stored_data)
+        return data
+
+    def userdata(self):
+        data = self.stored_data()
+        return data['items']
+
+    def userrecords(self):
+        records = []
+        if self.userdata() is not None:
+            for item in self.userdata():
+                userid = item['EMail']
+                group_list = self.construct_group_list(item)
+                if userid and len(group_list) > 0:
+                    user = {}
+                    user['id'] = item['ID']
+                    user['email'] = userid.lower()
+                    user['fullname'] = item['VollerName']
+                    user['groups'] = group_list
+                    records.append(user)
+        return records
+
+
 class UpdateRecords(grok.View):
     grok.context(IMemberFolder)
     grok.require('cmf.ManagePortal')
