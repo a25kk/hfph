@@ -195,7 +195,7 @@ class UpdateRecords(grok.View):
     def get_importable_records(self):
         context = aq_inner(self.context)
         tool = getUtility(IHPHMemberTool)
-        records = tool.get()
+        records = tool.get_external_users()
         timestamp = datetime.datetime.now()
         data = {
             'timestamp': timestamp.strftime("%Y-%m-%d %H:%M:%S"),

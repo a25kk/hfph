@@ -37,7 +37,7 @@ class IHPHMemberTool(Interface):
         @param data:        predefined user data dictionary
         """
 
-    def get(context):
+    def get_external_users(context):
         """ Get user records from external api
 
         @param timeout:     Set status request timeout
@@ -93,9 +93,9 @@ class MemberTool(grok.GlobalUtility):
     def get_user(self, user_id):
         return api.user.get(username=user_id)
 
-    def get(self,
-            query_type=DEFAULT_SERVICE_URI,
-            **kwargs):
+    def get_external_users(self,
+                           query_type=DEFAULT_SERVICE_URI,
+                           **kwargs):
         base_url = self._make_base_query()
         url = '{0}/{1}'.format(base_url, query_type)
         if query_type == DEFAULT_SERVICE_URI:
