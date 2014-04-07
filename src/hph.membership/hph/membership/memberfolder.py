@@ -99,6 +99,16 @@ class UserManager(grok.View):
     def update(self):
         self.has_users = len(self.get_all_members()) > 0
 
+    @property
+    def traverse_subpath(self):
+        return self.subpath
+
+    def publishTraverse(self, request, name):
+        if not hasattr(self, 'subpath'):
+            self.subpath = []
+        self.subpath.append(name)
+        return self
+
     def has_workspace(self, userid):
         context = aq_inner(self.context)
         if userid in context.keys():
@@ -192,7 +202,7 @@ class StoredRecords(grok.View):
             "iTotalRecords": "50",
             "iTotalDisplayRecords": "10",
             "sEcho": "10",
-            "aaData": self.userdata()
+            "aaData": self.userrecords()
         }
         return data
 
@@ -211,15 +221,28 @@ class StoredRecords(grok.View):
         if self.userdata() is not None:
             for item in self.userdata():
                 userid = item['EMail']
+                email = userid.lower()
                 group_list = self.construct_group_list(item)
                 if userid and len(group_list) > 0:
                     user = {}
                     user['id'] = item['ID']
-                    user['email'] = userid.lower()
-                    user['fullname'] = item['VollerName']
+                    user['email'] = email
+                    user['fullname'] = safe_unicode(item['VollerName'])
                     user['groups'] = group_list
                     records.append(user)
         return records
+
+    def construct_group_list(self, item):
+        api_mapper = api_group_mapper()
+        group_mapper = user_group_mapper()
+        groups = list()
+        for key in api_mapper.keys():
+            stored_value = item[key]
+            if stored_value is True:
+                api_groupname = api_mapper[key]
+                groupname = group_mapper[api_groupname]
+                groups.append(groupname)
+        return groups
 
 
 class UpdateRecords(grok.View):
