@@ -43,3 +43,17 @@ class View(grok.View):
         info['enabled'] = user.getProperty('enabled', '')
         info['confirmed'] = user.getProperty('confirmed', '')
         return info
+
+    def is_staff(self):
+        context = aq_inner(self.context)
+        admin_roles = ('Manager', 'Site Administrator', 'StaffMember')
+        is_adm = False
+        user = api.user.get_current()
+        userid = user.getId()
+        if userid is 'zope-admin':
+            is_adm = True
+        roles = api.user.get_roles(username=userid, obj=context)
+        for role in roles:
+            if role in admin_roles:
+                is_adm = True
+        return is_adm

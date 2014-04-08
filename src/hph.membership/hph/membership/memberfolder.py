@@ -47,10 +47,10 @@ class View(grok.View):
         self.is_anon = api.user.is_anonymous()
 
     def render(self):
-        if self.available:
-            return self.request.response.redirect(self.usermanager_url())
-        else:
-            return self.request.response.redirect(self.workspace_url())
+        #if self.available:
+        #    return self.request.response.redirect(self.usermanager_url())
+        #else:
+        return self.request.response.redirect(self.workspace_url())
 
     def workspace_url(self):
         context = aq_inner(self.context)
