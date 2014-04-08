@@ -61,20 +61,6 @@
                             Users should are redirected to their personal workspace except
                             when logged in as site administrator
                         </p>
-                        <p class="text-danger">
-                            <strong>Danger Zone:</strong>
-                            Update stored user records from
-                            the external user data API in order to update user
-                            group asignment.
-                        </p>
-                        <a tal:attributes="href string:${context/absolute_url}/@@update-member-records">
-                                Load user data from external api</a><br>
-                        <a tal:attributes="href string:${context/absolute_url}/@@create-member-records">
-                                Create user accounts from stored data</a><br>
-                        <a tal:attributes="href string:${context/absolute_url}/@@send-reset-invitations">
-                                Send invitation email to all unconfirmed user accounts
-                        </a>
-
                 </div>
             </div>
 

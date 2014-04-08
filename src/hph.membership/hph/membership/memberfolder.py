@@ -194,6 +194,14 @@ class MemberRecords(grok.View):
     grok.require('cmf.ManagePortal')
     grok.name('member-records')
 
+    def update(self):
+        self.stored_idx = len(self.stored()['aaData'])
+
+    def stored(self):
+        context = aq_inner(self.context)
+        items = context.restrictedTraverse('@@stored-member-records')()
+        return json.loads(items)
+
 
 class StoredRecords(grok.View):
     grok.context(IMemberFolder)

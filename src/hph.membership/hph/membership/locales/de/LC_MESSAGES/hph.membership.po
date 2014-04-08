@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2014-03-06 14:46+0000\n"
-"PO-Revision-Date: 2014-03-25 23:32+0100\n"
+"PO-Revision-Date: 2014-04-08 14:47+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -176,7 +176,7 @@ msgstr "Passwörter sollten eine Länge von mindestens 8 Zeichen aufweisen"
 
 #: ./../profiles/default/types/hph.membership.workspace.xml
 msgid "Personal workspace container for members"
-msgstr "Persönlicher Arbietsbereich für Benutzer"
+msgstr "Persönlicher Arbeitsbereich für Benutzer"
 
 #: ./../setpassword.py:74
 #: ./../userfactory.py:67
@@ -263,7 +263,7 @@ msgstr "Arbeitsplatz"
 
 #: ./../memberfolder_templates/usermanager.pt:21
 msgid "Workspaces"
-msgstr "Arbietsplätze"
+msgstr "Arbeitsplätze"
 
 #: ./../signin.py:133
 #: ./../useraccount.py:131

@@ -16,20 +16,49 @@
                     <div class="app-box app-box-workspaces">
                         <div class="app-box-header">
                             <h2 class="app-box-heading" i18n:translate="">
-                                User Accounts
+                                User Records
                             </h2>
+                        </div>
+                        <div class="app-box-content">
+                            <div class="alert alert-danger">
+                                <h4 i18n:translate="">
+                                    Dangerzone: manage external user database integration
+                                </h4>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-9">
-                    <div class="page-header">
-                        <h1>Welcome</h1>
-                    </div>
+                    <h3 i18n:translate="">Manage users</h3>
                     <div class="page-content">
-                        <p class="lead page-abstract">
-                            It seems that you do not have a personal workspace
-                            setup.
-                        </p
+                        <p class="lead page-abstract" i18n:translate="">
+                            Update and manage user records coming from an external
+                            database and provided via url endpoint
+                        </p>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                      <h3 class="panel-title" i18n:translate="">Stored Records</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                      Content based on external database ready for
+                                      import:
+                                      <span tal:replace="view/stored_idx" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                      <h3 class="panel-title" i18n:translate="">User Accounts</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        Actual user accounts
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
