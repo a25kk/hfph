@@ -59,6 +59,7 @@ class IHPHMemberTool(Interface):
 
         @param timeout: Set status request timeout
         @param query_type:  Select all or specific user
+        @param user_id:     A unique user id
         """
 
     def start_password_reset(context):
