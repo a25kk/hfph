@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2014-03-06 14:46+0000\n"
-"PO-Revision-Date: 2014-04-08 14:47+0100\n"
+"POT-Creation-Date: 2014-04-08 14:51+0000\n"
+"PO-Revision-Date: 2014-04-08 17:06+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -33,11 +33,11 @@ msgid "Add new password"
 msgstr "Neues Passwort hinzufügen"
 
 #: ./../setpassword.py:62
-#: ./../userfactory.py:55
+#: ./../userfactory.py:54
 msgid "Add new user"
 msgstr "Neuen Benutzer hinzufügen"
 
-#: ./../userfactory.py:48
+#: ./../userfactory.py:47
 msgid "Add new user account"
 msgstr "Neues Benutzerkonto erstellen"
 
@@ -69,11 +69,15 @@ msgstr "Ordner für Benutzerbereiche"
 msgid "Danger Zone"
 msgstr "Danger Zone"
 
-#: ./../userfactory.py:22
+#: ./../memberfolder_templates/memberrecords.pt:24
+msgid "Dangerzone: manage external user database integration"
+msgstr "Dangerzone: benutzerverwaltung über Schnittstelle zur Hochschuldatenbank"
+
+#: ./../userfactory.py:21
 msgid "E-Mail"
 msgstr "E-Mail-Adresse"
 
-#: ./../invitation.py:131
+#: ./../invitation.py:133
 msgid "Einladung zur neuen hfph.de Seite"
 msgstr "Einladung zur neuen hfph Seite"
 
@@ -81,11 +85,11 @@ msgstr "Einladung zur neuen hfph Seite"
 msgid "Enable/Disable User"
 msgstr "Zugang aktiveren/deaktivieren"
 
-#: ./../memberfolder.py:188
+#: ./../memberfolder.py:270
 msgid "External records stored for import"
 msgstr "Externe Daten für den Import"
 
-#: ./../userfactory.py:26
+#: ./../userfactory.py:25
 msgid "Fullname"
 msgstr "Vollständiger Name"
 
@@ -93,9 +97,13 @@ msgstr "Vollständiger Name"
 msgid "HPH Membership Tool"
 msgstr "HPH Membership Tool"
 
-#: ./../memberfolder.py:29
+#: ./../memberfolder.py:30
 msgid "Importable API Records"
 msgstr "Importierbare DAten aus der API"
+
+#: ./../tool.py:122
+msgid "Invitation to join the HfPH portal"
+msgstr "Hochschule für Philosophie München: Einladung zur Webseite"
 
 #: ./../invitation.py:71
 msgid "Invitation to join the HfPH relaunch"
@@ -133,6 +141,10 @@ msgstr "Lange nicht mehr gesehen"
 msgid "Manage user workspaces and user accounts"
 msgstr "Verwalten Sie Benutzerkonten und Arbeitsplätze"
 
+#: ./../memberfolder_templates/memberrecords.pt:32
+msgid "Manage users"
+msgstr "Verwalten der Benutzerzugänge"
+
 #: ./../profiles/default/types/hph.membership.memberfolder.xml
 msgid "MemberFolder"
 msgstr "Benutzerordner"
@@ -158,7 +170,7 @@ msgstr "Neues Passwort"
 msgid "No activity recorded yet"
 msgstr "Er wurde bis dato noch keine Aktivität aufgezeichnet."
 
-#: ./../workspace.py:41
+#: ./../workspace.py:42
 msgid "No email provided"
 msgstr "Es wurde keine E-Mail-Addresse übermittelt"
 
@@ -170,6 +182,10 @@ msgstr "Es konnte kein gültiger Access Token gefunden werden"
 msgid "Password"
 msgstr "Passwort"
 
+#: ./../useraccount.py:105
+msgid "Passwords must consist of at least 8 characters"
+msgstr "Passwörter müssen mindestens 8 Zeichen lang sein"
+
 #: ./../useraccount_templates/useraccount.pt:18
 msgid "Passwords require a minimum length of 8 characters."
 msgstr "Passwörter sollten eine Länge von mindestens 8 Zeichen aufweisen"
@@ -178,8 +194,16 @@ msgstr "Passwörter sollten eine Länge von mindestens 8 Zeichen aufweisen"
 msgid "Personal workspace container for members"
 msgstr "Persönlicher Arbeitsbereich für Benutzer"
 
+#: ./../tool.py:111
+msgid "Please change your account information for HfPH"
+msgstr "Bitte aktualisieren Sie Ihre Benutzerinformationen für HfPH"
+
+#: ./../useraccount_templates/useraccount.pt:15
+msgid "Please set a password to finalize and activate your account."
+msgstr "Bitte geben Sie ein Passwort ein, um Ihr Benutzerkonto zu vervollständigen"
+
 #: ./../setpassword.py:74
-#: ./../userfactory.py:67
+#: ./../userfactory.py:66
 msgid "Process has been cancelled."
 msgstr "Der Prozess wurde abgebrochen"
 
@@ -211,7 +235,11 @@ msgstr "Anmelden"
 msgid "Signout"
 msgstr "Abmelden"
 
-#: ./../useraccount.py:99
+#: ./../memberfolder_templates/memberrecords.pt:42
+msgid "Stored Records"
+msgstr "Gespeicherte Benutzerdaten"
+
+#: ./../useraccount.py:110
 msgid "The entered password and confirmation do not match."
 msgstr "Die angegeben Passwörter stimmen nicht überein. Bitte versuchen Sie es erneut."
 
@@ -232,9 +260,17 @@ msgstr "Die Anfrage zum Setzen eines neuen Passworts ist ungültig"
 msgid "Unable to send request."
 msgstr "Die Anfrage konnte nicht versandt werden"
 
+#: ./../memberfolder_templates/memberrecords.pt:34
+msgid "Update and manage user records coming from an external database and provided via url endpoint"
+msgstr "Aktualisierung und Verwaltung der Benutzerdaten, die von der externen Datenbank der Hochschule geladen werden"
+
 #: ./../memberinfo_templates/enableuseraccount.pt:51
 msgid "Update user status"
 msgstr "Benutzerstatus ändern"
+
+#: ./../memberfolder_templates/memberrecords.pt:54
+msgid "User Accounts"
+msgstr "Benutzerkonten"
 
 #: ./../invitation_templates/invitenewuser.pt:21
 #: ./../invitation_templates/userinvitation.pt:21
@@ -242,16 +278,20 @@ msgid "User Invitations"
 msgstr "Benutzer Einladungen"
 
 #: ./../invitation_templates/userinvitation.pt:32
-#: ./../memberfolder_templates/usermanager.pt:37
+#: ./../memberfolder_templates/usermanager.pt:58
 #: ./../memberinfo_templates/enableuseraccount.pt:18
 msgid "User Manager"
 msgstr "Benutzerverwaltung"
 
-#: ./../invitation.py:221
+#: ./../memberfolder_templates/memberrecords.pt:18
+msgid "User Records"
+msgstr "Benutzerdaten"
+
+#: ./../invitation.py:223
 msgid "User invitation email has been sent successfully."
 msgstr "Eine E-Mail mit Informationen zur Teilnahme an der neuen Webseite wurde verschickt"
 
-#: ./../memberfolder_templates/usermanager.pt:39
+#: ./../memberfolder_templates/usermanager.pt:60
 msgid "Users should are redirected to their personal workspace except when logged in as site administrator"
 msgstr "Benutzer sollten direkt zu ihren jeweiligen Arbietsplätzen weitergeleitet werden mit Ausnahme von Benutzern mit Administrationsrechten."
 
@@ -266,16 +306,12 @@ msgid "Workspaces"
 msgstr "Arbeitsplätze"
 
 #: ./../signin.py:133
-#: ./../useraccount.py:131
+#: ./../useraccount.py:142
 msgid "You are now logged in."
 msgstr "Sie sind nun angemeldet"
 
-#: ./../useraccount_templates/useraccount.pt:15
-msgid "Your user has already been created. Please set a password to finalize and activate your account."
-msgstr "Ihr Benutzerkonto wurde bereits erstellt. Bitte wählen Sie ein Passwort, um das Konto zu vervollständigen."
-
 #: ./../setpassword.py:70
-#: ./../userfactory.py:63
+#: ./../userfactory.py:62
 msgid "cancel"
 msgstr "abbrechen"
 
