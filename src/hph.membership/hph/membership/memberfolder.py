@@ -189,6 +189,12 @@ class UserManager(grok.View):
         return groups
 
 
+class MemberRecords(grok.View):
+    grok.context(IMemberFolder)
+    grok.require('cmf.ManagePortal')
+    grok.name('member-records')
+
+
 class StoredRecords(grok.View):
     grok.context(IMemberFolder)
     grok.require('cmf.ManagePortal')
@@ -199,7 +205,7 @@ class StoredRecords(grok.View):
 
     def preprocess_data(self):
         data = {
-            "iTotalRecords": "50",
+            "iTotalRecords": len(self.userdata()),
             "iTotalDisplayRecords": "10",
             "sEcho": "10",
             "aaData": self.userrecords()
