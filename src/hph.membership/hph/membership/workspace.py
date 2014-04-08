@@ -65,7 +65,7 @@ class View(grok.View):
         user = api.user.get(username=user_id)
         token = self._access_token(user)
         portal_url = api.portal.get().absolute_url()
-        url = '{0}/set-user-password/{1}/{2}'.format(
+        url = '{0}/useraccount/{1}/{2}'.format(
             portal_url, user_id, token)
         return url
 
