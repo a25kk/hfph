@@ -50,9 +50,9 @@
                             item_id item/getId;
                             item_title item/Title;
                             item_url item/getURL;
-                            selected python:viewlet.isActiveItem(item_id)"
+                            selected tab/marker"
                 tal:attributes="id string:tab-${item_id};
-                                class selected">
+                                class python:selected and 'navitem active' or 'navitem'">
                 <a href=""
                     tal:attributes="href item_url"
                     tal:content="item_title" />
