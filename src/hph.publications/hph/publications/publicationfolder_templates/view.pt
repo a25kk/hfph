@@ -53,9 +53,6 @@
             <section class="app-list app-list-publications" id="publication-list">
               <header class="page-header">
                 <h1><span tal:replace="context/Title" />
-                    <small tal:condition="view/filter">
-                        Filter: <span tal:replace="view/filter" />
-                    </small>
                 </h1>
               </header>
               <section class="page-content" id="content-core">
@@ -63,7 +60,7 @@
                   <h4>Note:</h4>
                   <p>There are no publications available yet</p>
                 </div>
-        
+
                 <tal:block tal:condition="view/has_publications">
                   <div class="app-content-body"
                     tal:define="Batch python:modules['Products.CMFPlone'].Batch;
@@ -92,7 +89,7 @@
                                 <small>
                                     <span tal:condition="item/authorOne"
                                         tal:replace="item/authorOne" /><span tal:condition="item/authorTwo">,
-                                    <span tal:replace="item/authorTwo" /></span><span tal:condition="item/authorThree">, 
+                                    <span tal:replace="item/authorTwo" /></span><span tal:condition="item/authorThree">,
                                     <span tal:replace="item/authorThree" />
                                   </span>
                                     <span tal:condition="item/authorPlus"
@@ -115,7 +112,7 @@
             </section>
         </div>
     </div>
-   
+
   </metal:content-core>
 </metal:main>
 
