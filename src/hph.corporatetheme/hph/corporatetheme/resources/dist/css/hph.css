@@ -7562,8 +7562,8 @@ ul.formTabs:before,
 ul.formTabs:after,
 .listingBar:before,
 .listingBar:after,
-ul.navTree:before,
-ul.navTree:after
+.navTree:before,
+.navTree:after
 {
     display: table;
 
@@ -7586,7 +7586,7 @@ ul.navTree:after
 .modal-footer:after,
 ul.formTabs:after,
 .listingBar:after,
-ul.navTree:after
+.navTree:after
 {
     clear: both;
 }
@@ -15092,6 +15092,87 @@ select[multiple].app-actionbar-form .input-sm
     border-radius: 0;
     background-color: #036;
 }
+.navTree
+{
+    margin-bottom: 0;
+    padding-left: 0;
+
+    list-style: none;
+}
+.navTree > li
+{
+    position: relative;
+
+    display: block;
+}
+.navTree > li > a
+{
+    position: relative;
+
+    display: block;
+
+    padding: 10px 15px;
+}
+.navTree > li > a:hover,
+.navTree > li > a:focus
+{
+    text-decoration: none;
+
+    background-color: #eee;
+}
+.navTree > li.disabled > a
+{
+    color: #999;
+}
+.navTree > li.disabled > a:hover,
+.navTree > li.disabled > a:focus
+{
+    cursor: not-allowed;
+    text-decoration: none;
+
+    color: #999;
+    background-color: transparent;
+}
+.navTree .open > a,
+.navTree .open > a:hover,
+.navTree .open > a:focus
+{
+    border-color: #5896c8;
+    background-color: #eee;
+}
+.navTree .nav-divider
+{
+    overflow: hidden;
+
+    height: 1px;
+    margin: 9px 0;
+
+    background-color: #e5e5e5;
+}
+.navTree > li > a > img
+{
+    max-width: none;
+}
+.navTree .navTreeCurrentNode a,
+.navTree .navTreeItemInPath a,
+.navTree .navTreeCurrentNode a:hover,
+.navTree .navTreeItemInPath a:hover,
+.navTree .navTreeCurrentNode a:focus,
+.navTree .navTreeItemInPath a:focus
+{
+    text-decoration: none;
+
+    background-color: #eee;
+}
+.navTree.navTreeLevel1 li.navTreeCurrentNode a,
+.navTree.navTreeLevel1 li.navTreeCurrentNode a:hover,
+.navTree.navTreeLevel1 li.navTreeCurrentNode a:focus
+{
+    font-size: 12px;
+
+    border-right: 1px solid #555;
+    background-color: transparent;
+}
 .app-footer
 {
     margin-top: 5px;
@@ -15710,75 +15791,6 @@ a.link-more
 a.link-more:hover
 {
     color: black;
-}
-ul.navTree
-{
-    margin-bottom: 0;
-    padding-left: 0;
-
-    list-style: none;
-}
-ul.navTree > li
-{
-    position: relative;
-
-    display: block;
-}
-ul.navTree > li > a
-{
-    position: relative;
-
-    display: block;
-
-    padding: 10px 15px;
-}
-ul.navTree > li > a:hover,
-ul.navTree > li > a:focus
-{
-    text-decoration: none;
-
-    background-color: #eee;
-}
-ul.navTree > li.disabled > a
-{
-    color: #999;
-}
-ul.navTree > li.disabled > a:hover,
-ul.navTree > li.disabled > a:focus
-{
-    cursor: not-allowed;
-    text-decoration: none;
-
-    color: #999;
-    background-color: transparent;
-}
-ul.navTree .open > a,
-ul.navTree .open > a:hover,
-ul.navTree .open > a:focus
-{
-    border-color: #5896c8;
-    background-color: #eee;
-}
-ul.navTree .nav-divider
-{
-    overflow: hidden;
-
-    height: 1px;
-    margin: 9px 0;
-
-    background-color: #e5e5e5;
-}
-ul.navTree > li > a > img
-{
-    max-width: none;
-}
-ul.navTree li.navTreeCurrentNode a,
-ul.navTree li.navTreeCurrentNode a:hover,
-ul.navTree li.navTreeCurrentNode a:focus
-{
-    text-decoration: none;
-
-    background-color: #eee;
 }
 #login-forgotten-password
 {
