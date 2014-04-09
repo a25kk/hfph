@@ -64,7 +64,6 @@ class NavbarView(grok.View):
 
     def siteNavStrategy(self):
         context = aq_inner(self.context)
-        root = getNavigationRoot(context)
         selected_tab = self.selected_portal_tab
         obj = api.portal.get()[selected_tab]
         path = {'query': '/'.join(obj.getPhysicalPath()),
@@ -78,7 +77,6 @@ class NavbarView(grok.View):
                             'hph.sitecontent.contentpage',
                             'hph.lectures.coursefolder')
         }
-        root_obj = context.unrestrictedTraverse(root)
         strategy = SitemapNavtreeStrategy(obj)
         strategy.rootPath = '/'.join(obj.getPhysicalPath())
         strategy.showAllParents = True
