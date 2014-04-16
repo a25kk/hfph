@@ -38,7 +38,7 @@
                                     i18n:translate="">Change password</a>
                             </p>
                             <p>
-                                <a tal:attributes="href string:${context/absolute_url}/logout"
+                                <a tal:attributes="href string:${context/portal_url}/logout"
                                     i18n:translate="">Signout</a>
                             </p>
                         </div>
