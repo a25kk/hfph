@@ -11404,14 +11404,14 @@ body > .portalMessage
 }
 .listingBar a
 {
-    font-size: 12px;
+    font-size: 11px;
 
     display: inline-block;
 
-    padding: 6px 12px;
+    padding: 5px 14px;
 
-    border: 1px solid #ddd;
-    border-radius: 0;
+    border: 1px solid #999;
+    border-radius: 4px;
     background-color: #fff;
 }
 .listingBar a.next
