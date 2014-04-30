@@ -24,7 +24,7 @@ class TickerViewlet(grok.Viewlet):
     def active_bulletins(self):
         catalog = api.portal.get_tool(name='portal_catalog')
         end = DateTime.DateTime() + 0.1
-        start = DateTime.DateTime() - 2
+        start = DateTime.DateTime() - 14
         date_range_query = {'query': (start, end), 'range': 'min: max'}
         results = catalog(object_provides=IBulletin.__identifier__,
                           effective=date_range_query,

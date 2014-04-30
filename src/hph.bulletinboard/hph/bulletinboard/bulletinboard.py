@@ -66,7 +66,7 @@ class BulletinView(grok.View):
         context = aq_inner(self.context)
         catalog = getToolByName(context, 'portal_catalog')
         end = DateTime.DateTime() + 0.1
-        start = DateTime.DateTime() - 2
+        start = DateTime.DateTime() - 14
         date_range_query = {'query': (start, end), 'range': 'min: max'}
         results = catalog(object_provides=IBulletin.__identifier__,
                           path=dict(query='/'.join(context.getPhysicalPath()),

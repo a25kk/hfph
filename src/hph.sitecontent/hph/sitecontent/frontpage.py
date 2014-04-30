@@ -1,5 +1,6 @@
 import json
 from Acquisition import aq_inner
+from DateTime import DateTime
 from five import grok
 from plone import api
 from zope.component import getMultiAdapter
@@ -10,7 +11,6 @@ from plone.app.contentlisting.interfaces import IContentListing
 
 from plone.app.event.dx.interfaces import IDXEvent
 
-from hph.sitecontent.eventitem import IEventItem
 from hph.sitecontent.newsentry import INewsEntry
 
 
@@ -40,8 +40,9 @@ class FrontpageView(grok.View):
         catalog = getToolByName(context, 'portal_catalog')
         container = portal['nachrichten']
         results = catalog(object_provides=INewsEntry.__identifier__,
-                          path=dict(query='/'.join(container.getPhysicalPath()),
-                                    depth=1),
+                          path=dict(
+                              query='/'.join(container.getPhysicalPath()),
+                              depth=1),
                           review_state='published',
                           sort_on='effective',
                           sort_order='reverse',
@@ -86,9 +87,11 @@ class RecentEventsView(grok.View):
         container = portal['termine']
         catalog = getToolByName(context, 'portal_catalog')
         results = catalog(object_provides=IDXEvent.__identifier__,
-                          path=dict(query='/'.join(container.getPhysicalPath()),
-                                    depth=1),
+                          path=dict(
+                              query='/'.join(container.getPhysicalPath()),
+                              depth=1),
                           review_state='published',
+                          end={'query': DateTime.DateTime(), 'range': 'min'},
                           sort_on='start',
                           sort_limit=3)[:3]
         return results
