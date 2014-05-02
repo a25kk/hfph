@@ -91,7 +91,7 @@ class RecentEventsView(grok.View):
                               query='/'.join(container.getPhysicalPath()),
                               depth=1),
                           review_state='published',
-                          start={'query': DateTime.DateTime(), 'range': 'max'},
+                          end={'query': DateTime.DateTime(), 'range': 'max'},
                           sort_on='start',
                           sort_limit=3)[:3]
         return results
