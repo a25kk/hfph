@@ -1,4 +1,4 @@
-<div class="container app-tickerbar" id="app-tickerbar"
+<div class="container app-tickerbar hidden-print" id="app-tickerbar"
     tal:condition="viewlet/available"
     tal:define="portal_url context/portal_url">
     <div class="app-tile app-ticker">

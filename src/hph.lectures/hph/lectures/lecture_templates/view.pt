@@ -12,7 +12,7 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-3">
-            <aside class="app-aside" id="app-sidebar">
+            <aside class="app-aside hidden-print" id="app-sidebar">
                 <div class="app-box app-box-faculty"
                     tal:define="active_filter request/academicRole | nothing">
                     <div class="app-box-header">
