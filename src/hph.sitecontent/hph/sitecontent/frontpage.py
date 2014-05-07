@@ -9,6 +9,9 @@ from Products.CMFCore.utils import getToolByName
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.app.contentlisting.interfaces import IContentListing
 
+from plone.app.event.base import RET_MODE_ACCESSORS
+from plone.app.event.base import get_events
+from plone.app.event.base import localized_now
 from plone.app.event.dx.interfaces import IDXEvent
 
 from hph.sitecontent.newsentry import INewsEntry
@@ -70,7 +73,7 @@ class RecentEventsView(grok.View):
         return json.dumps(self.event_data())
 
     def event_data(self):
-        events = self.eventitems()
+        events = self.events()
         items = list()
         for brain in events:
             item = {}
@@ -80,6 +83,21 @@ class RecentEventsView(grok.View):
             items.append(item)
         data = {'items': items}
         return data
+
+    def events(self):
+        context = aq_inner(self.context)
+        portal = api.portal.get()
+        container = portal['termine']
+        kw = {}
+        search_base_path = self.search_base_path()
+        if search_base_path:
+            kw['path'] = dict(query='/'.join(container.getPhysicalPath()),
+                              depth=1)
+        kw['review_state'] = 'published'
+
+        return get_events(context, start=localized_now(context),
+                          ret_mode=RET_MODE_ACCESSORS,
+                          expand=True, limit=3, **kw)
 
     def eventitems(self):
         context = aq_inner(self.context)
@@ -91,7 +109,7 @@ class RecentEventsView(grok.View):
                               query='/'.join(container.getPhysicalPath()),
                               depth=1),
                           review_state='published',
-                          start={'query': DateTime.DateTime(), 'range': 'min'},
+                          start={'query': DateTime.DateTime(), 'range': 'max'},
                           sort_on='start',
                           sort_limit=3)[:3]
         return results
