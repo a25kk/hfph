@@ -77,8 +77,8 @@ class RecentEventsView(grok.View):
         items = list()
         for brain in events:
             item = {}
-            item['title'] = brain.Title
-            item['url'] = brain.getURL()
+            item['title'] = brain.title
+            item['url'] = brain.url
             item['date'] = self.get_localized_date(brain)
             items.append(item)
         data = {'items': items}
@@ -89,15 +89,13 @@ class RecentEventsView(grok.View):
         portal = api.portal.get()
         container = portal['termine']
         kw = {}
-        search_base_path = self.search_base_path()
-        if search_base_path:
-            kw['path'] = dict(query='/'.join(container.getPhysicalPath()),
-                              depth=1)
+        kw['path'] = dict(query='/'.join(container.getPhysicalPath()),
+                          depth=1)
         kw['review_state'] = 'published'
-
-        return get_events(context, start=localized_now(context),
-                          ret_mode=RET_MODE_ACCESSORS,
-                          expand=True, limit=3, **kw)
+        items = get_events(context, start=localized_now(context),
+                           ret_mode=RET_MODE_ACCESSORS,
+                           expand=True, limit=3, **kw)
+        return items
 
     def eventitems(self):
         context = aq_inner(self.context)
