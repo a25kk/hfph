@@ -1,6 +1,5 @@
 import datetime
 import json
-from Acquisition import aq_inner
 from five import grok
 from plone import api
 from zope.component import getUtility
@@ -34,8 +33,12 @@ class MemberRecords(grok.View):
         self.subpath.append(name)
         return self
 
+    def memberfolder(self):
+        portal = api.portal.get()
+        return portal['ws']
+
     def userdata(self):
-        context = aq_inner(self.context)
+        context = self.memberfolder()
         stored_data = getattr(context, 'importable', None)
         import_data = json.loads(stored_data)
         data = import_data['items']
@@ -70,7 +73,7 @@ class MemberRecords(grok.View):
         return records
 
     def _process_api_update(self):
-        context = aq_inner(self.context)
+        context = self.memberfolder()
         tool = getUtility(IHPHMemberTool)
         records = tool.get_external_users()
         timestamp = datetime.datetime.now()
