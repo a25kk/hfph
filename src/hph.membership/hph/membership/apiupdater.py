@@ -43,7 +43,7 @@ class MemberRecords(grok.View):
         self.subpath.append(name)
         return self
 
-    def is_equal(a, b):
+    def is_equal(self, a, b):
         """ Constant time comparison """
         if len(a) != len(b):
             return False
@@ -115,7 +115,8 @@ class MemberRecords(grok.View):
         setattr(context, 'importable', import_data)
         modified(context)
         context.reindexObject(idxs='modified')
-        process_state = '{0} user records imported'.format(records)
+        idx = len(records['APIData'])
+        process_state = '{0} user records imported'.format(idx)
         return process_state
 
     def _process_user_import(self):
