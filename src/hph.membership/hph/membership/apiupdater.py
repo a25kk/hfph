@@ -1,5 +1,6 @@
 import datetime
 import json
+import time
 from five import grok
 from plone import api
 from zope.component import getUtility
@@ -23,15 +24,31 @@ class MemberRecords(grok.View):
         msg = 'Member Records: {0}'.format(status)
         return msg
 
-    @property
-    def traverse_subpath(self):
-        return self.subpath
-
     def publishTraverse(self, request, name):
         if not hasattr(self, 'subpath'):
             self.subpath = []
         self.subpath.append(name)
         return self
+
+    def is_equal(a, b):
+        """ Constant time comparison """
+        if len(a) != len(b):
+            return False
+        result = 0
+        for x, y in zip(a, b):
+            result |= ord(x) ^ ord(y)
+        return result == 0
+
+    def get_access_token(self):
+        key = 'hph.membership.interfaces.IHPHMembershipSettings.api_token'
+        return api.portal.get_registry_record(key)
+
+    def has_valid_token(self):
+        token = self.subpath[1]
+        stored_token = self.get_access_token()
+        if stored_token is None:
+            return False
+        return self.is_equal(stored_token, token)
 
     def memberfolder(self):
         portal = api.portal.get()
@@ -85,7 +102,8 @@ class MemberRecords(grok.View):
         setattr(context, 'importable', import_data)
         modified(context)
         context.reindexObject(idxs='modified')
-        return records
+        process_state = '{0} user records imported'.format(records)
+        return process_state
 
     def _process_user_import(self):
         records = self.userrecords()
@@ -113,11 +131,17 @@ class MemberRecords(grok.View):
                     )
                 tool.invite_user(user_id)
                 imported += 1
-        return imported
+        process_state = '{0} user accounts created'.format(imported)
+        return process_state
 
     def _process_update(self):
-        if self.subpath[0] == 'update':
-            process_state = self._process_api_update()
-        else:
-            process_state = self._process_user_import()
-        return process_state
+        process_state = 'Puhuhu: aborted due to some unknown error...'
+        start_time = time.time()
+        if self.has_valid_token():
+            request_type = self.subpath[0]
+            if request_type == 'update':
+                process_state = self._process_api_update()
+            elif request_type == 'create':
+                process_state = self._process_user_import()
+        processing_time = time.time() - start_time
+        return '{0} in {1} seconds'.format(process_state, processing_time)
