@@ -15,6 +15,19 @@ from hph.membership.tool import IHPHMemberTool
 
 
 class MemberRecords(grok.View):
+    """ Create plone user records from external data
+
+        The caller is responsible for passing a valid token maching a
+        predefined value in @@hph-membershiptool-settings.
+
+        Construct an URI like this:
+        http://localhost:8404/hph/member-record-updater/{action}/{token}
+
+        Returns a status message
+
+        @param action:       Desired action: update or create
+        @param token:        predefined api token
+    """
     grok.context(INavigationRoot)
     grok.require('cmf.ManagePortal')
     grok.name('member-record-updater')
