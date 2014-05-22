@@ -44,8 +44,7 @@
                         calling this view
                     </div>
                     <div tal:condition="view/requested_user_id">
-                        <h4>Open invitation form</h4>
-                        <a class="btn btn-primary"
+                        <a class="btn btn-danger"
                             tal:attributes="href string:${context/portal_url}/@@invite-new-user?userid=${request/userid}">
                             Send invitation to <span tal:replace="request/userid" />
                         </a>
@@ -53,15 +52,6 @@
                         <a class="btn btn-default"
                             tal:attributes="href string:${context/absolute_url}/@@invitation-email?userid=${request/userid}">
                             Show reset mail</a>
-                    </div>
-                    <div class="app-callout app-callout-danger">
-                        <h4 i18n:translate="">Danger Zone</h4>
-                        <p i18n:translate="">Send an email to all available user
-                            records asking for a password reset now
-                        </p>
-                        <a class="btn btn-danger" tal:attributes="href string:${context/absolute_url}/@@send-reset-invitations"
-                            i18n:translate="">Sent invitation email to all users
-                        </a>
                     </div>
                 </div>
             </div>
