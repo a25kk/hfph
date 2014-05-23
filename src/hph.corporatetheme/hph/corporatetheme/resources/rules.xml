@@ -206,7 +206,7 @@
                             <li class="list-header"></li>
                             <li class="divider"></li>
                         </xsl:if>
-                        <xsl:apply-templates select="./dd/ul/*"/>
+                        <xsl:apply-templates css:select=".portletContent > *"/>
                     </ul>
                 </div>
             </div>
