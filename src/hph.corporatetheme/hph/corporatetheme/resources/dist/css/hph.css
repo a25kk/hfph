@@ -11404,14 +11404,14 @@ body > .portalMessage
 }
 .listingBar a
 {
-    font-size: 11px;
+    font-size: 12px;
 
     display: inline-block;
 
-    padding: 5px 14px;
+    padding: 6px 12px;
 
-    border: 1px solid #999;
-    border-radius: 4px;
+    border: 1px solid #ddd;
+    border-radius: 0;
     background-color: #fff;
 }
 .listingBar a.next
@@ -15368,9 +15368,14 @@ body.template-theming-controlpanel .row
 {
     margin: 0 20px;
 }
-.label:empty
+.template-navigation-controlpanel .label:empty
 {
     display: inline;
+}
+.hiddenStructure
+{
+    display: none !important;
+    visibility: hidden !important;
 }
 .app-table-usermanager > tbody > td:first-child
 {
