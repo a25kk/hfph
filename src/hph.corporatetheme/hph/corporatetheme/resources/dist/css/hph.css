@@ -11404,14 +11404,14 @@ body > .portalMessage
 }
 .listingBar a
 {
-    font-size: 12px;
+    font-size: 11px;
 
     display: inline-block;
 
-    padding: 6px 12px;
+    padding: 5px 14px;
 
-    border: 1px solid #ddd;
-    border-radius: 0;
+    border: 1px solid #999;
+    border-radius: 4px;
     background-color: #fff;
 }
 .listingBar a.next
@@ -15359,6 +15359,33 @@ select[multiple].app-actionbar-form .input-sm
 .visualClear:after
 {
     clear: both;
+}
+.event.summary
+{
+    float: left;
+    clear: both;
+
+    margin-top: 20px;
+    margin-right: 20px;
+
+    border: 1px solid #ddd;
+}
+.event.summary dt
+{
+    padding: 10px;
+
+    border-top: 1px solid #ddd;
+    background: #eee;
+}
+.event.summary dd
+{
+    padding: 10px;
+
+    border-top: 1px solid #ddd;
+}
+.event.summary .timezone
+{
+    display: none;
 }
 body
 {
