@@ -88,10 +88,13 @@
                               <h2 class="h2 list-item-heading">
                                 <small>
                                     <span tal:condition="item/authorOne"
-                                        tal:replace="item/authorOne" /><span tal:condition="item/authorTwo">,
-                                    <span tal:replace="item/authorTwo" /></span><span tal:condition="item/authorThree">,
-                                    <span tal:replace="item/authorThree" />
-                                  </span>
+                                        tal:replace="item/authorOne" />
+                                    <span tal:condition="item/authorTwo">,
+                                      <span tal:replace="item/authorTwo" />
+                                    </span>
+                                    <span tal:condition="item/authorThree">,
+                                      <span tal:replace="item/authorThree" />
+                                    </span>
                                     <span tal:condition="item/authorPlus"
                                         i18n:translate="">a.o.</span>
                                 </small>

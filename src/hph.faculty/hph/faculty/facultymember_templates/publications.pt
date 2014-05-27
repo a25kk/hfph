@@ -94,18 +94,18 @@
                                 <small>
                                     <span tal:condition="item/authorOne"
                                         tal:replace="item/authorOne" />
-                                </small>
-                                <small>
-                                    <span tal:condition="item/authorTwo"
-                                        tal:replace="item/authorTwo" />
-                                </small>
-                                <small>
-                                    <span tal:condition="item/authorThree"
-                                        tal:replace="item/authorThree" />
-                                </small>
-                                <small>
-                                    <span tal:condition="item/authorPlus"
-                                        tal:replace="item/authorPlus" />
+
+                                    <span tal:condition="item/authorTwo">,
+                                        <span tal:replace="item/authorTwo" />
+                                        </span>
+
+                                    <span tal:condition="item/authorThree">,
+                                        <span tal:replace="item/authorThree" />
+                                        </span>
+
+                                    <span tal:condition="item/authorPlus">,
+                                        <span tal:replace="item/authorPlus" />
+                                        </span>
                                 </small>
 
                                 <br />
