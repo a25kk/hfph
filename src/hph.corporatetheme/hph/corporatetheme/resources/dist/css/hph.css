@@ -15360,30 +15360,33 @@ select[multiple].app-actionbar-form .input-sm
 {
     clear: both;
 }
-.event.summary
+div.event
+{
+    margin-top: 20px;
+}
+dl.event.summary
 {
     float: left;
     clear: both;
 
-    margin-top: 20px;
     margin-right: 20px;
 
     border: 1px solid #ddd;
 }
-.event.summary dt
+dl.event.summary dt
 {
     padding: 10px;
 
     border-top: 1px solid #ddd;
     background: #eee;
 }
-.event.summary dd
+dl.event.summary dd
 {
     padding: 10px;
 
     border-top: 1px solid #ddd;
 }
-.event.summary .timezone
+dl.event.summary .timezone
 {
     display: none;
 }
