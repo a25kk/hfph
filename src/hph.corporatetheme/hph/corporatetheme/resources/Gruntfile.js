@@ -67,7 +67,7 @@ module.exports = function (grunt) {
             theme: {
                 src: [
                     'bower_components/bootstrap/dist/js/bootstrap.js',
-                    'bower_components/datatables/media/js/jquery.dataTables.js',
+                    //'bower_components/datatables/media/js/jquery.dataTables.js',
                     'bower_components/JQuery.Marquee/jquery.marquee.js',
                     'js/application.js'
                 ],
