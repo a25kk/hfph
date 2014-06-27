@@ -1,5 +1,7 @@
 vcl 4.0;
 
+import std;
+
 # Configure balancer server as back end
 backend balancer {
     .host = "${hosts:varnish-backend}";
@@ -14,8 +16,36 @@ acl purge {
     "${hosts:allow-purge}";
 }
 
+sub vcl_hit {
+  if (obj.ttl >= 0s) {
+    # normal hit
+    return (deliver);
+  }
+  # We have no fresh fish. Lets look at the stale ones.
+  if (std.healthy(req.backend_hint)) {
+    # Backend is healthy. Limit age to 10s.
+    if (obj.ttl + 10s > 0s) {
+      set req.http.grace = "normal(limited)";
+      return (deliver);
+    } else {
+      # No candidate for grace. Fetch a fresh object.
+      return(fetch);
+   }
+  } else {
+    # backend is sick - use full grace
+    if (obj.ttl + obj.grace > 0s) {
+      set req.http.grace = "full";
+      return (deliver);
+    } else {
+     # no graced object.
+    return (fetch);
+   }
+  }
+}
+
 sub vcl_recv {
     set req.backend_hint = balancer;
+    set req.http.grace = "none";
 
     if (req.method == "PURGE") {
         if (!client.ip ~ purge) {
@@ -39,7 +69,8 @@ sub vcl_recv {
 }
 
 sub vcl_backend_response {
-    set beresp.grace = 30m;
+    set beresp.ttl = 10s;
+    set beresp.grace = 1h;
     if (!beresp.ttl > 0s) {
         set beresp.http.X-Varnish-Action = "FETCH (pass - not cacheable)";
         set beresp.uncacheable = true;
@@ -76,6 +107,7 @@ sub vcl_backend_response {
 
 sub vcl_deliver {
     call rewrite_age;
+    set resp.http.grace = req.http.grace;
 }
 
 ##########################
