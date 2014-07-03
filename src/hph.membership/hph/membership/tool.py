@@ -179,7 +179,11 @@ class MemberTool(grok.GlobalUtility):
     def _compose_message(self, user_id, message_type):
         user = self.get_user(user_id)
         token = self._access_token(user)
-        portal_url = api.portal.get().absolute_url()
+        dev_mode = api.env.debug_mode()
+        if dev_mode:
+            portal_url = api.portal.get().absolute_url()
+        else:
+            portal_url = 'http://www.hfph.de'
         url = '{0}/useraccount/{1}/{2}'.format(
             portal_url, user_id, token)
         template_vars = {
