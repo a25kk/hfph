@@ -59,6 +59,13 @@ class View(grok.View):
                 is_adm = True
         return is_adm
 
+    def group_actions(self):
+        context = aq_inner(self.context)
+        userid = context.getId()
+        groups = api.group.get_groups(username=userid)
+        actions = []
+        return actions
+
     def compose_pwreset_link(self):
         context = aq_inner(self.context)
         user_id = context.getId()
