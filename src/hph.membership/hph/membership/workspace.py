@@ -8,6 +8,8 @@ from plone.directives import form
 from plone.keyring import django_random
 from plone.namedfile.interfaces import IImageScaleTraversable
 
+from hph.membership.tool import user_group_mapper
+
 from hph.membership import MessageFactory as _
 
 
@@ -64,7 +66,25 @@ class View(grok.View):
         userid = context.getId()
         groups = api.group.get_groups(username=userid)
         actions = []
+        for group in groups:
+            info = {}
+            info['group'] = group
+            info['title'] = user_group_mapper()[group]
+            info['action'] = self._get_action(group)
+            actions.append(info)
         return actions
+
+    def _get_action(self, group):
+        portal_url = api.portal.get().absolute_url()
+        if group in ('guest', 'student'):
+            url = '{0}/studium/lehrveranstaltungen'.format(portal_url)
+        if group == 'alumni':
+            url = '{0}/studium/studentisches-leben/alumni'.format(portal_url)
+        if group == 'prophil':
+            url = '{0}/pro-philosophia'.format(portal_url)
+        if group == 'lecturer':
+            url = '{0}/hochschule/lehrende/'.format(portal_url)
+        return url
 
     def compose_pwreset_link(self):
         context = aq_inner(self.context)
