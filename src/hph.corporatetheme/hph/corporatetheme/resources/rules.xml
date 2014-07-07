@@ -41,25 +41,47 @@
        <replace css:theme="title" css:content="title" />
        <after theme="/html/head/title" css:content="base" />
         <!-- Add meta tags -->
-        <!-- <drop theme="/html/head/meta" /> -->
+        <drop theme="/html/head/meta" />
 
-        <after content="/html/head/meta" theme-children="/html/head" />
+        <before content="/html/head/meta" theme="/html/head/title" />
+
         <!-- Copy style, script and link tags in the order they appear in the content -->
-        <after
-            content="/html/head/style | /html/head/script | /html/head/link"
-            theme-children="/html/head"
-            />
 
-        <drop theme="/html/head/style" />
-        <drop theme="/html/head/script" />
-        <drop theme="/html/head/link" />
+        <rules css:if-content="body.userrole-authenticated">
+            <!-- Copy style, script and link tags in the order they appear in the content -->
+            <after
+                content="/html/head/style | /html/head/script | /html/head/link"
+                theme-children="/html/head"
+                />
+
+            <drop theme="/html/head/style" />
+            <drop theme="/html/head/script" />
+            <drop theme="/html/head/link" />
+
+
+        </rules>
 
         <!-- Drop scripts from theme footer if present -->
-        <drop theme="/html/body/script" />
+            <drop theme="/html/body/script" />
+        <after theme-children="/html/body" css:if-content="body.userrole-anonymous">
+            <script type="text/javascript">
+function downloadJSAtOnload() {
+var element = document.createElement("script");
+element.src = "/++theme++hph.corporatetheme/dist/js/hph.min.js";
+document.body.appendChild(element);
+}
+if (window.addEventListener)
+window.addEventListener("load", downloadJSAtOnload, false);
+else if (window.attachEvent)
+window.attachEvent("onload", downloadJSAtOnload);
+else window.onload = downloadJSAtOnload;
+</script>
+        </after>
 
 
         <!-- Custom favicon implementation -->
-        <drop content="link[@type='image/x-icon']" />
+        <drop css:content="head link[rel='apple-touch-icon']" />
+        <drop css:content="head link[rel='shortcut icon']" />
         <after theme="/html/head">
             <link rel="shortcut icon" href="/++theme++hph.corporatetheme/assets/img/favicon.ico" type="images/x-icon" />
         </after>
@@ -67,7 +89,7 @@
         <!-- Copy over the id/class attributes on the body tag.
              This is important for per-section styling -->
         <merge attributes="class" css:content="body" css:theme="body" />
-        <copy attributes="id dir" css:content="body" css:theme="body" />
+        <copy attributes="*" css:content="body" css:theme="body" />
 
         <!-- CMSUI Editbar replacements -->
         <drop css:theme="#app-toolbar"

@@ -189,16 +189,28 @@ module.exports = function (grunt) {
                 replacement: '../assets/',
                 recursive: true
             },
-            'clean-source-css': {
+            cleanCSS: {
                 path: 'dist/',
-                pattern: '../dist/css/styles.css',
-                replacement: 'css/styles.css',
+                pattern: '../../dist/css/hph.css',
+                replacement: 'dist/css/hph.min.css',
                 recursive: true
             },
-            'clean-source-js': {
+            cleanCSSFrontpage: {
                 path: 'dist/',
-                pattern: '../dist/js/rms.js',
-                replacement: 'js/rms.min.js',
+                pattern: '../dist/css/hph.css',
+                replacement: 'dist/css/hph.min.css',
+                recursive: true
+            },
+            cleanJS: {
+                path: 'dist/',
+                pattern: '../../dist/js/hph.min.js',
+                replacement: 'dist/js/hph.min.js',
+                recursive: true
+            },
+            cleanJSFrontpage: {
+                path: 'dist/',
+                pattern: '../dist/js/hph.min.js',
+                replacement: 'dist/js/hph.min.js',
                 recursive: true
             },
             cleanLogo: {

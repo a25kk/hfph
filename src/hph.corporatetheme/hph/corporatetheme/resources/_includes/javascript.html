@@ -1,5 +1,12 @@
-<script src="{{ page.base_url }}bower_components/jquery/jquery.js"></script>
-<script src="{{ page.base_url }}bower_components/modernizr/modernizr.js"></script>
-<script src="{{ page.base_url }}bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="{{ page.base_url }}bower_components/holderjs/holder.js"></script>
-<script src="{{ page.base_url }}js/application.js"></script>
+<script type="text/javascript">
+function downloadJSAtOnload() {
+var element = document.createElement("script");
+element.src = "{{ page.base_url }}dist/js/hph.min.js";
+document.body.appendChild(element);
+}
+if (window.addEventListener)
+window.addEventListener("load", downloadJSAtOnload, false);
+else if (window.attachEvent)
+window.attachEvent("onload", downloadJSAtOnload);
+else window.onload = downloadJSAtOnload;
+</script>
