@@ -55,7 +55,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 src: [
-                    'bower_components/jquery/jquery.js',
+                    'bower_components/jquery/dist//jquery.js',
                     'bower_components/modernizr/modernizr.js',
                     'bower_components/bootstrap/dist/js/bootstrap.js',
                     'bower_components/JQuery.Marquee/jquery.marquee.js',
