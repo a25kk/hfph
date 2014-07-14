@@ -81,8 +81,8 @@ class View(grok.View):
     def _base_query(self):
         context = aq_inner(self.context)
         obj_provides = ILecture.__identifier__
-        query_path = '/'.join(context.getPhysicalPath())
         return dict(object_provides=obj_provides,
-                    path=query_path,
+                    path=dict(query='/'.join(context.getPhysicalPath()),
+                              depth=1),
                     review_state='published',
                     sort_on='courseNumber')
