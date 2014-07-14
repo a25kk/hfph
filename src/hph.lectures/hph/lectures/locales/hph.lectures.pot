@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-03-13 13:26+0000\n"
+"POT-Creation-Date: 2014-07-14 20:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,20 +33,20 @@ msgstr ""
 msgid "A single course"
 msgstr ""
 
-#: ./../lecture_templates/view.pt:148
+#: ./../lecture_templates/view.pt:156
 msgid "Add attachment"
 msgstr ""
 
-#: ./../lecture.py:62
+#: ./../lecture.py:55
 msgid "Additional Information"
 msgstr ""
 
-#: ./../lecture.py:78
-#: ./../lecture_templates/view.pt:57
+#: ./../lecture.py:71
+#: ./../lecture_templates/view.pt:54
 msgid "Additional Lecturer"
 msgstr ""
 
-#: ./../coursefolder_templates/view.pt:65
+#: ./../coursefolder_templates/view.pt:81
 msgid "Additional Lecturer:"
 msgstr ""
 
@@ -54,15 +54,19 @@ msgstr ""
 msgid "Advanced seminar"
 msgstr ""
 
-#: ./../lecture_templates/view.pt:121
+#: ./../coursefolder_templates/view.pt:40
+msgid "Archive"
+msgstr ""
+
+#: ./../lecture_templates/view.pt:129
 msgid "Attachements"
 msgstr ""
 
-#: ./../lecture.py:50
+#: ./../lecture.py:43
 msgid "Attendance"
 msgstr ""
 
-#: ./../lecture.py:54
+#: ./../lecture.py:47
 msgid "Attendance Required"
 msgstr ""
 
@@ -70,7 +74,7 @@ msgstr ""
 msgid "BA"
 msgstr ""
 
-#: ./../lecture.py:58
+#: ./../lecture.py:51
 msgid "Block Lecture"
 msgstr ""
 
@@ -79,11 +83,11 @@ msgid "Colloquium"
 msgstr ""
 
 #: ./../coursedetails.py:26
-#: ./../lecture_templates/view.pt:86
+#: ./../lecture_templates/view.pt:93
 msgid "Course Aims"
 msgstr ""
 
-#: ./../lecture.py:93
+#: ./../lecture.py:86
 msgid "Course Dates"
 msgstr ""
 
@@ -91,62 +95,62 @@ msgstr ""
 msgid "Course Details"
 msgstr ""
 
-#: ./../lecture.py:88
+#: ./../lecture.py:81
 msgid "Course Duration"
 msgstr ""
 
 #: ./../coursedetails.py:46
-#: ./../lecture_templates/view.pt:111
+#: ./../lecture_templates/view.pt:118
 msgid "Course Literature"
 msgstr ""
 
 #: ./../coursedetails.py:30
-#: ./../lecture_templates/view.pt:91
+#: ./../lecture_templates/view.pt:98
 msgid "Course Method"
 msgstr ""
 
 #: ./../coursedetails.py:50
-#: ./../lecture_templates/view.pt:116
+#: ./../lecture_templates/view.pt:123
 msgid "Course Notes"
 msgstr ""
 
 #: ./../coursedetails.py:34
-#: ./../lecture_templates/view.pt:96
+#: ./../lecture_templates/view.pt:103
 msgid "Course Prerequirements"
 msgstr ""
 
 #: ./../coursedetails.py:38
-#: ./../lecture_templates/view.pt:101
+#: ./../lecture_templates/view.pt:108
 msgid "Course Qualification"
 msgstr ""
 
-#: ./../lecture.py:111
+#: ./../lecture.py:104
 msgid "Course Room"
 msgstr ""
 
-#: ./../lecture.py:101
+#: ./../lecture.py:94
 msgid "Course Semester"
 msgstr ""
 
 #: ./../coursedetails.py:42
-#: ./../lecture_templates/view.pt:106
+#: ./../lecture_templates/view.pt:113
 msgid "Course Target"
 msgstr ""
 
 #: ./../coursedetails.py:22
-#: ./../lecture_templates/view.pt:81
+#: ./../lecture_templates/view.pt:88
 msgid "Course Theme"
 msgstr ""
 
-#: ./../lecture.py:97
+#: ./../lecture.py:90
 msgid "Course Time"
 msgstr ""
 
-#: ./../lecture.py:82
+#: ./../lecture.py:75
 msgid "Course Type"
 msgstr ""
 
-#: ./../lecture.py:107
+#: ./../lecture.py:100
 msgid "Course Year"
 msgstr ""
 
@@ -154,8 +158,8 @@ msgstr ""
 msgid "CourseFolder"
 msgstr ""
 
-#: ./../coursefolder_templates/view.pt:78
-#: ./../lecture_templates/view.pt:70
+#: ./../coursefolder_templates/view.pt:94
+#: ./../lecture_templates/view.pt:67
 msgid "Dates"
 msgstr ""
 
@@ -163,7 +167,7 @@ msgstr ""
 msgid "Degree"
 msgstr ""
 
-#: ./../lecture.py:118
+#: ./../lecture.py:111
 msgid "Display Selection"
 msgstr ""
 
@@ -184,11 +188,7 @@ msgstr ""
 msgid "Lecture"
 msgstr ""
 
-#: ./../lecture_templates/view.pt:19
-msgid "Lectures"
-msgstr ""
-
-#: ./../lecture.py:46
+#: ./../lecture.py:39
 msgid "Lecure Number"
 msgstr ""
 
@@ -216,32 +216,32 @@ msgstr ""
 msgid "Please select module degree"
 msgstr ""
 
-#: ./../lecture.py:68
+#: ./../lecture.py:61
 msgid "Please select one or more lecturers for this course"
 msgstr ""
 
-#: ./../lecture.py:102
+#: ./../lecture.py:95
 msgid "Please select the course semester for filtering"
 msgstr ""
 
-#: ./../lecture.py:83
+#: ./../lecture.py:76
 msgid "Please select the course type."
 msgstr ""
 
-#: ./../coursefolder_templates/view.pt:75
-#: ./../lecture_templates/view.pt:67
+#: ./../coursefolder_templates/view.pt:91
+#: ./../lecture_templates/view.pt:64
 msgid "Raum"
 msgstr ""
 
-#: ./../lecture.py:71
+#: ./../lecture.py:64
 msgid "Related lecturer"
 msgstr ""
 
-#: ./../lecture_templates/view.pt:145
+#: ./../lecture_templates/view.pt:153
 msgid "Since you are signed in as editor you can add file attachments to this content item"
 msgstr ""
 
-#: ./../lecture.py:38
+#: ./../lecture.py:31
 msgid "Subtitle"
 msgstr ""
 
@@ -249,11 +249,11 @@ msgstr ""
 msgid "Summer Semester"
 msgstr ""
 
-#: ./../lecture.py:116
+#: ./../lecture.py:109
 msgid "Third Party Project Display"
 msgstr ""
 
-#: ./../lecture.py:42
+#: ./../lecture.py:35
 msgid "Title"
 msgstr ""
 
@@ -266,12 +266,12 @@ msgid "ZEP"
 msgstr ""
 
 #: ./../coursefolder_templates/view.pt:34
-#: ./../lecture_templates/view.pt:37
+#: ./../lecture_templates/view.pt:34
 msgid "remove filter"
 msgstr ""
 
-#: ./../coursefolder.py:52
-#: ./../lecture.py:158
+#: ./../coursefolder.py:43
+#: ./../lecture.py:151
 msgid "undefined"
 msgstr ""
 
