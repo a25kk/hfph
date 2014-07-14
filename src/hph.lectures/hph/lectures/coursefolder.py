@@ -91,5 +91,13 @@ class View(grok.View):
     def subfolders(self):
         context = aq_inner(self.context)
         folders = context.restrictedTraverse('@@folderListing')(
-            portal_type="hph.lectures.coursefolder")
+            portal_type='hph.lectures.coursefolder',
+            review_state='published')
         return folders
+
+    def is_active_folder(self, folder):
+        context = aq_inner(self.context)
+        active = False
+        if folder.getId() == context.getId():
+            active = True
+        return active

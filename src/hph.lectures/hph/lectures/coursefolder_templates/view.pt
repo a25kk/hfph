@@ -34,14 +34,15 @@
                             &times; <span i18n:translate="">remove filter</span></a>
                     </div>
                 </div>
-                <div class="app-box app-box-faculty">
-                    <div class="app-box-header" i18n:translate="">
-                        Archive
+                <div class="app-box app-box-faculty"
+                    tal:condition="view/has_archives">
+                    <div class="app-box-header">
+                        <div class="app-box-heading" i18n:translate="">Archive</div>
                     </div>
                     <div class="app-box-content">
                         <ul class="nav nav-pills nav-stacked app-box-nav">
                             <tal:block tal:repeat="folder view/subfolders">
-                                <li tal:define="filter_active python:context.is_active_folder(folder)">
+                                <li tal:define="filter_active python:view.is_active_folder(folder)">
                                     <a tal:attributes="href folder/getURL"
                                         tal:content="folder/Title">Archive folder</a>
                                 </li>
