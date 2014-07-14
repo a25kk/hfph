@@ -34,6 +34,21 @@
                             &times; <span i18n:translate="">remove filter</span></a>
                     </div>
                 </div>
+                <div class="app-box app-box-faculty">
+                    <div class="app-box-header" i18n:translate="">
+                        Archive
+                    </div>
+                    <div class="app-box-content">
+                        <ul class="nav nav-pills nav-stacked app-box-nav">
+                            <tal:block tal:repeat="folder view/subfolders">
+                                <li tal:define="filter_active python:context.is_active_folder(folder)">
+                                    <a tal:attributes="href folder/getURL"
+                                        tal:content="folder/Title">Archive folder</a>
+                                </li>
+                            </tal:block>
+                        </ul>
+                    </div>
+                </div>
             </aside>
         </div>
         <div class="col-xs-12 col-sm-9">

@@ -34,6 +34,7 @@ class View(grok.View):
 
     def update(self):
         self.filter = self.request.get('content_filter', None)
+        self.has_archives = len(self.subfolders()) > 0
 
     def prettify_duration(self, value):
         context = aq_inner(self.context)
@@ -86,3 +87,9 @@ class View(grok.View):
                               depth=1),
                     review_state='published',
                     sort_on='courseNumber')
+
+    def subfolders(self):
+        context = aq_inner(self.context)
+        folders = context.restrictedTraverse('@@folderListing')(
+            portal_type="hph.lectures.coursefolder")
+        return folders
