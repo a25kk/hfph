@@ -10,6 +10,29 @@ body {
     }
 }
 
+// Set font weights if webfont is active
+.ws-active {
+    // Default twbs weight for headings 500 not provided by Open Sans
+    @headings-font-weight: 600;
+    b,
+    strong {
+        font-weight: 600;
+    }
+}
+
+// prevent fake bolds
+b,
+strong {
+    font-weight: 600;
+    .ws-active & {
+        font-weight: 600;
+    }
+}
+
+a {
+    outline: 0;
+}
+
 // Reenable tpye selection in navigation control panel
 .template-navigation-controlpanel .label:empty {
     display: inline;
@@ -19,6 +42,21 @@ body {
 .hiddenStructure {
     .hidden();
 }
+
+// Reset widget styling
+.mce-edit-area,
+#content .field textarea,
+#content .field input[type="text"] {
+    background: #fff;
+    background-image: none;
+}
+
+// Fix recurrence widget overlay styling
+div.riform .label {
+    float: none;
+}
+
+
 
 .app-table-usermanager {
     > tbody > td:first-child {
@@ -226,7 +264,7 @@ body {
 
 .app-lead {
     font-size: @font-size-base;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .app-page-department {

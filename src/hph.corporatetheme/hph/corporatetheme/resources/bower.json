@@ -8,7 +8,7 @@
     "underscore": "1.4.4",
     "backbone": "1.0.0",
     "bootstrap": "git@github.com:twbs/bootstrap.git#master",
-    "font-awesome": "4.0.3",
+    "font-awesome": "4.1.0",
     "diazo-plone": "git@github.com:ade25/diazo-plone.git#master",
     "momentjs": "~2.2.1",
     "livestampjs": "~1.1.2",
