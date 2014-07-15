@@ -15695,6 +15695,10 @@ select[multiple].app-actionbar-form .input-sm
     border-right: 1px solid #555;
     background-color: transparent;
 }
+.navbar-default .navbar-toggle .icon-bar
+{
+    color: #777;
+}
 .app-footer
 {
     margin-top: 5px;

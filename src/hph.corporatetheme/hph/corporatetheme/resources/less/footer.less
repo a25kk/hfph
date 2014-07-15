@@ -4,7 +4,7 @@
 
 
 .app-footer {
-    margin-top: @line-height-computed / 4;
+    margin-top: ceil((@line-height-computed / 4));
     margin-bottom: @line-height-computed;
 
 }
@@ -13,11 +13,11 @@
     padding: 0;
     .nav {
         padding: @line-height-computed;
-        margin: -@padding-small-vertical auto;
+        margin: -(@padding-small-vertical) auto;
         text-transform: uppercase;
         border-top: 5px solid @app-blue;
         background: white;
-        font-size: @font-size-base - 2;
+        font-size: (@font-size-base - 2);
         .box-shadow(0 0 5px 5px rgba(0,0,0,.05));
         li > a:hover {
             background-color: transparent;
