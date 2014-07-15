@@ -29,6 +29,7 @@
             // font-size: (@font-size-base - 1);
             font-weight: 700;
             color: @app-blue;
+            .transition(background .25s linear);
             text-transform: uppercase;
             padding: ceil((@navbar-height - @line-height-computed) / 2) ceil((@line-height-computed / 3));
             &:hover {
@@ -50,7 +51,6 @@
 
     }
 }
-
 // Subnavigation
 
 .app-subnavbar {

@@ -15577,6 +15577,9 @@ select[multiple].app-actionbar-form .input-sm
 
     padding: 15px 7px;
 
+    -webkit-transition: background .25s linear;
+         -o-transition: background .25s linear;
+            transition: background .25s linear;
     text-transform: uppercase;
 
     color: #036;
@@ -15942,6 +15945,12 @@ strong
 a
 {
     outline: 0;
+}
+a:hover
+{
+    -webkit-transition: color .5s linear;
+         -o-transition: color .5s linear;
+            transition: color .5s linear;
 }
 .template-navigation-controlpanel .label:empty
 {
