@@ -1,9 +1,8 @@
 from Acquisition import aq_inner
 from five import grok
 from plone import api
-
+from plone.app.contentlisting.interfaces import IContentListing
 from plone.dexterity.content import Container
-
 from plone.directives import form
 from plone.keyring import django_random
 from plone.namedfile.interfaces import IImageScaleTraversable
@@ -88,6 +87,13 @@ class View(grok.View):
         if group == 'Lehrende':
             url = '{0}/hochschule/lehrende/'.format(portal_url)
         return url
+
+    def personal_contents(self):
+        context = aq_inner(self.context)
+        catalog = api.portal.get_tool(name='portal_catalog')
+        userid = context.getId()
+        brains = catalog(Creator=userid)
+        return IContentListing(brains)
 
     def compose_pwreset_link(self):
         context = aq_inner(self.context)
