@@ -174,6 +174,7 @@ class Publications(grok.View):
         author_name = getattr(context, 'lastname')
         query = dict(object_provides=obj_provides,
                      lastname=author_name,
-                     review_state='published')
+                     review_state='published',
+                     sort_on='publicationYear')
         results = catalog.searchResults(query)
         return IContentListing(results)
