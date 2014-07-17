@@ -83,6 +83,31 @@
                                 </div>
                             </div>
                         </tal:actions>
+                        <tal:block tal:condition="view/has_personel_contents">
+                            <div class="app-page-header">
+                                <h2 i18n:translate="">Personal Contents</h2>
+                            </div>
+                            <p class="app-page-abstract" i18n:translate="">
+                                The following content is owned by your user.
+                            </p>
+                            <div class="app-page-body">
+                                <div class="list-group">
+                                    <tal:block tal:repeat="item view/personel_contents">
+                                        <a href="#" class="list-group-item"
+                                            tal:attributes="href item/getURL">
+                                          <h4 class="list-group-item-heading"
+                                            tal:content="item/Title">
+                                            List group item heading
+                                          </h4>
+                                          <p class="list-group-item-text"
+                                            tal:content="item/Description">
+                                              Kurzer Beschreibungstext zu diesem Teilbereich
+                                          </p>
+                                        </a>
+                                    </tal:block>
+                                </div>
+                            </div>
+                        </tal:block>
                     </tal:block>
                     <tal:block tal:condition="view/flash_msg">
                         <div class="app-page-header">

@@ -28,6 +28,7 @@ class View(grok.View):
 
     def update(self):
         self.flash_msg = self.display_welcome_msg()
+        self.has_personel_contents = len(self.personal_contents()) > 0
 
     def display_welcome_msg(self):
         return self.request.get('welcome_msg', False)
