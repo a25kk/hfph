@@ -1,24 +1,20 @@
+# -*- coding: UTF-8 -*-
 from Acquisition import aq_inner
 from five import grok
+from hph.faculty.facultymember import IFacultyMember
 from plone import api
-
+from plone.app.widgets.dx import RelatedItemsWidget
+from plone.dexterity.content import Container
+from plone.directives import form
+from plone.formwidget.autocomplete import AutocompleteMultiFieldWidget
+from plone.formwidget.contenttree import ObjPathSourceBinder
+from plone.indexer import indexer
+from plone.namedfile.interfaces import IImageScaleTraversable
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
+from z3c.relationfield.schema import RelationChoice
+from z3c.relationfield.schema import RelationList
 from zope import schema
 from zope.schema.vocabulary import getVocabularyRegistry
-
-from plone.indexer import indexer
-from plone.dexterity.content import Container
-
-from plone.directives import form
-from z3c.form.browser.checkbox import CheckBoxFieldWidget
-from plone.namedfile.interfaces import IImageScaleTraversable
-
-from z3c.relationfield.schema import RelationList
-from z3c.relationfield.schema import RelationChoice
-from plone.formwidget.contenttree import ObjPathSourceBinder
-
-from plone.formwidget.autocomplete import AutocompleteMultiFieldWidget
-
-from hph.faculty.facultymember import IFacultyMember
 
 from hph.lectures import MessageFactory as _
 
@@ -55,7 +51,7 @@ class ILecture(form.Schema, IImageScaleTraversable):
         title=_(u"Additional Information"),
         required=False,
     )
-    form.widget('lecturer', AutocompleteMultiFieldWidget)
+    form.widget('lecturer', RelatedItemsWidget)
     lecturer = RelationList(
         title=u"Lecturers",
         description=_(u"Please select one or more lecturers for this course"),
