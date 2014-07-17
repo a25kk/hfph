@@ -1,25 +1,23 @@
+# -*- coding: UTF-8 -*-
+
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from five import grok
+from hph.publications.publication import IPublication
 from plone import api
-
-from zope import schema
-
-from zope.schema.vocabulary import getVocabularyRegistry
-
-from plone.indexer import indexer
-from plone.directives import form
-from plone.dexterity.content import Container
-
-from z3c.relationfield.schema import RelationList
-from z3c.relationfield.schema import RelationChoice
-from plone.formwidget.contenttree import ObjPathSourceBinder
+from plone.app.contentlisting.interfaces import IContentListing
 from plone.app.textfield import RichText
+from plone.app.widgets.dx import RelatedItemsWidget
+from plone.dexterity.content import Container
+from plone.directives import form
+from plone.formwidget.contenttree import ObjPathSourceBinder
+from plone.indexer import indexer
 from plone.namedfile.field import NamedBlobImage
 from plone.namedfile.interfaces import IImageScaleTraversable
-
-from plone.app.contentlisting.interfaces import IContentListing
-from hph.publications.publication import IPublication
+from z3c.relationfield.schema import RelationChoice
+from z3c.relationfield.schema import RelationList
+from zope import schema
+from zope.schema.vocabulary import getVocabularyRegistry
 
 from hph.faculty import MessageFactory as _
 
@@ -75,6 +73,7 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
         title=_(u"Body Text"),
         required=False,
     )
+    form.widget('publications', RelatedItemsWidget)
     publications = RelationList(
         title=u"Related Publication Items",
         default=[],

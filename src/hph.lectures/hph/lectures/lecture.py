@@ -6,7 +6,6 @@ from plone import api
 from plone.app.widgets.dx import RelatedItemsWidget
 from plone.dexterity.content import Container
 from plone.directives import form
-from plone.formwidget.autocomplete import AutocompleteMultiFieldWidget
 from plone.formwidget.contenttree import ObjPathSourceBinder
 from plone.indexer import indexer
 from plone.namedfile.interfaces import IImageScaleTraversable
