@@ -60,6 +60,8 @@ module.exports = function (grunt) {
                     'bower_components/bootstrap/dist/js/bootstrap.js',
                     'bower_components/JQuery.Marquee/jquery.marquee.js',
                     'bower_components/datatables/media/js/jquery.dataTables.js',
+                    'bower_components/headroom.js/dist/headroom.js',
+                    'bower_components/headroom.js/dist/jQuery.headroom.js',
                     'js/application.js'
                 ],
                 dest: 'dist/js/<%= pkg.name %>.js'
@@ -67,8 +69,10 @@ module.exports = function (grunt) {
             theme: {
                 src: [
                     'bower_components/bootstrap/dist/js/bootstrap.js',
-                    //'bower_components/datatables/media/js/jquery.dataTables.js',
+                    'bower_components/datatables/media/js/jquery.dataTables.js',
                     'bower_components/JQuery.Marquee/jquery.marquee.js',
+                    'bower_components/headroom.js/dist/headroom.js',
+                    'bower_components/headroom.js/dist/jQuery.headroom.js',
                     'js/application.js'
                 ],
                 dest: 'dist/js/main.js'

@@ -11,6 +11,7 @@
                 $('.bs-docs-top').affix();
             }, 100);
         }
+        $('#app-toolbar').headroom();
         $('.marquee').marquee({
             speed: 5000
         });

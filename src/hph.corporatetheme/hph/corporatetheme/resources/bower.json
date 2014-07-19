@@ -19,7 +19,8 @@
     "jquery-pjax": "~1.7.3",
     "JQuery.Marquee": "git@github.com:aamirafridi/jQuery.Marquee.git",
     "datatables": "~1.9.4",
-    "normalize-opentype.css": "~0.1.2"
+    "normalize-opentype.css": "~0.1.2",
+    "headroom.js": "~0.6.0"
   },
   "devDependencies": {
     "chai": "1.7.2"

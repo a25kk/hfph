@@ -60,7 +60,18 @@ div.riform .label {
     float: none;
 }
 
+// Headroom.js to hide the toolbar on scroll
+.headroom {
+    .transition(transform 200ms linear);
+}
+.headroom--pinned {
+    .translate(0%, 0%);
+}
+.headroom--unpinned {
+    .translate(0, -100%);
+}
 
+// dataTables stylings used in the user manager
 .app-table-usermanager {
     > tbody > td:first-child {
         max-width: @screen-xs;

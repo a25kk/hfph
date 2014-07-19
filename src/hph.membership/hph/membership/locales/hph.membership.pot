@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-04-08 14:51+0000\n"
+"POT-Creation-Date: 2014-07-19 20:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,10 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: hph.membership\n"
+
+#: ./../workspace_templates/view.pt:114
+msgid "A list of content items you are asigned as a contributor"
+msgstr ""
 
 #: ./../setpassword.py:92
 msgid "A new password has been set"
@@ -66,10 +70,6 @@ msgstr ""
 msgid "Container for member workspaces"
 msgstr ""
 
-#: ./../invitation_templates/userinvitation.pt:58
-msgid "Danger Zone"
-msgstr ""
-
 #: ./../memberfolder_templates/memberrecords.pt:24
 msgid "Dangerzone: manage external user database integration"
 msgstr ""
@@ -102,7 +102,11 @@ msgstr ""
 msgid "Importable API Records"
 msgstr ""
 
-#: ./../tool.py:122
+#: ./../workspace_templates/view.pt:102
+msgid "Informationen zur Person unter <code>/Hochschule/Lehrende</code>"
+msgstr ""
+
+#: ./../tool.py:123
 msgid "Invitation to join the HfPH portal"
 msgstr ""
 
@@ -112,6 +116,10 @@ msgstr ""
 
 #: ./../invitation_templates/invitenewuser.pt:26
 msgid "Invite new users by passing a list of email addresses"
+msgstr ""
+
+#: ./../workspace_templates/view.pt:112
+msgid "Lectures"
 msgstr ""
 
 #: ./../signin.py:54
@@ -150,6 +158,10 @@ msgstr ""
 msgid "MemberFolder"
 msgstr ""
 
+#: ./../interfaces.py:24
+msgid "Membership Tool API Token"
+msgstr ""
+
 #: ./../interfaces.py:21
 msgid "MembershipTool API Key"
 msgstr ""
@@ -171,7 +183,7 @@ msgstr ""
 msgid "No activity recorded yet"
 msgstr ""
 
-#: ./../workspace.py:42
+#: ./../workspace.py:45
 msgid "No email provided"
 msgstr ""
 
@@ -191,11 +203,15 @@ msgstr ""
 msgid "Passwords require a minimum length of 8 characters."
 msgstr ""
 
+#: ./../workspace_templates/view.pt:88
+msgid "Personal Contents"
+msgstr ""
+
 #: ./../profiles/default/types/hph.membership.workspace.xml
 msgid "Personal workspace container for members"
 msgstr ""
 
-#: ./../tool.py:111
+#: ./../tool.py:112
 msgid "Please change your account information for HfPH"
 msgstr ""
 
@@ -216,16 +232,8 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: ./../invitation_templates/userinvitation.pt:59
-msgid "Send an email to all available user records asking for a password reset now"
-msgstr ""
-
 #: ./../invitation_templates/invitenewuser.pt:66
 msgid "Send password reset mails"
-msgstr ""
-
-#: ./../invitation_templates/userinvitation.pt:62
-msgid "Sent invitation email to all users"
 msgstr ""
 
 #: ./../signin_templates/signinform.pt:25
@@ -244,8 +252,16 @@ msgstr ""
 msgid "The entered password and confirmation do not match."
 msgstr ""
 
+#: ./../workspace_templates/view.pt:90
+msgid "The following content is owned by your user."
+msgstr ""
+
 #: ./../memberfolder_templates/usermanager.pt:27
 msgid "The member area contains member workspaces"
+msgstr ""
+
+#: ./../interfaces.py:25
+msgid "This API token can be used to authenticate with the portal e.g. when calling the member updater via external cronjob"
 msgstr ""
 
 #: ./../invitation.py:52

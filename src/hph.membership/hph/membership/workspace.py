@@ -1,5 +1,7 @@
+# -*- coding: UTF-8 -*-
 from Acquisition import aq_inner
 from five import grok
+from hph.lectures.lecture import ILecture
 from plone import api
 from plone.app.contentlisting.interfaces import IContentListing
 from plone.dexterity.content import Container
@@ -29,6 +31,7 @@ class View(grok.View):
     def update(self):
         self.flash_msg = self.display_welcome_msg()
         self.has_personel_contents = len(self.personal_contents()) > 0
+        self.has_contributing_content = len(self.contributing()) > 0
 
     def display_welcome_msg(self):
         return self.request.get('welcome_msg', False)
@@ -95,6 +98,24 @@ class View(grok.View):
         userid = context.getId()
         brains = catalog(Creator=userid)
         return IContentListing(brains)
+
+    def _lectures(self):
+        container = api.content.get(UID='66f5d7ff29ae45779726e640d5a57e55')
+        catalog = api.portal.get_tool(name='portal_catalog')
+        items = catalog(object_provides=ILecture.__identifier__,
+                        path=dict(query='/'.join(container.getPhysicalPath()),
+                                  depth=1),
+                        review_state='published',
+                        sort_on='courseNumber')
+        return items
+
+    def contributing(self):
+        context = aq_inner(self.context)
+        results = []
+        for item in self._lectures():
+            if context.getId() in item.getObject().listContributors():
+                results.append(item)
+        return results
 
     def compose_pwreset_link(self):
         context = aq_inner(self.context)

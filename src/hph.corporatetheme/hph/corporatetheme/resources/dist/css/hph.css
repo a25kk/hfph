@@ -1378,7 +1378,6 @@ img.image-right a > img,
 {
     display: block;
 
-    width: 100% \9;
     max-width: 100%;
     height: auto;
 }
@@ -1392,7 +1391,6 @@ img.image-right a > img,
 
     display: inline-block;
 
-    width: 100% \9;
     max-width: 100%;
     height: auto;
     padding: 4px;
@@ -2848,6 +2846,15 @@ table
 {
     background-color: transparent;
 }
+caption
+{
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    text-align: left;
+
+    color: #777;
+}
 th
 {
     text-align: left;
@@ -3232,15 +3239,15 @@ output
 .form-control::-moz-placeholder
 {
     opacity: 1;
-    color: #777;
+    color: #999;
 }
 .form-control:-ms-input-placeholder
 {
-    color: #777;
+    color: #999;
 }
 .form-control::-webkit-input-placeholder
 {
-    color: #777;
+    color: #999;
 }
 .form-control[disabled],
 .form-control[readonly],
@@ -3448,6 +3455,7 @@ select[multiple].form-group-lg .form-control
     height: 34px;
 
     text-align: center;
+    pointer-events: none;
 }
 .input-lg + .form-control-feedback
 {
@@ -7966,9 +7974,6 @@ ul.formTabs:after,
 .affix
 {
     position: fixed;
-
-    -webkit-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
 }
 @-ms-viewport {
     width: device-width;
@@ -11301,7 +11306,7 @@ input[type='tel']::-moz-placeholder,
 input[type='color']::-moz-placeholder
 {
     opacity: 1;
-    color: #777;
+    color: #999;
 }
 select:-ms-input-placeholder,
 textarea:-ms-input-placeholder,
@@ -11320,7 +11325,7 @@ input[type='search']:-ms-input-placeholder,
 input[type='tel']:-ms-input-placeholder,
 input[type='color']:-ms-input-placeholder
 {
-    color: #777;
+    color: #999;
 }
 select::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder,
@@ -11339,7 +11344,7 @@ input[type='search']::-webkit-input-placeholder,
 input[type='tel']::-webkit-input-placeholder,
 input[type='color']::-webkit-input-placeholder
 {
-    color: #777;
+    color: #999;
 }
 select[disabled],
 textarea[disabled],
@@ -16116,118 +16121,25 @@ div.riform .label
 {
     float: none;
 }
-#form-widgets-image-input
+.headroom
 {
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 1.42857143;
-
-    display: inline-block;
-
-    margin-bottom: 0;
-    padding: 6px 12px;
-
-    cursor: pointer;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
-
-    color: #333;
-    border: 1px solid transparent;
-    border-color: #ccc;
-    border-radius: 0;
-    background-color: #fff;
-    background-image: none;
-
-    touch-action: manipulation;
+    -webkit-transition: transform 200ms linear;
+         -o-transition: transform 200ms linear;
+            transition: transform 200ms linear;
 }
-#form-widgets-image-input:focus,
-#form-widgets-image-input:active:focus,
-#form-widgets-image-input.active:focus,
-#form-widgets-image-input.focus,
-#form-widgets-image-input:active.focus,
-#form-widgets-image-input.active.focus
+.headroom--pinned
 {
-    outline: thin dotted;
-    outline: 5px auto -webkit-focus-ring-color;
-    outline-offset: -2px;
+    -webkit-transform: translate(0%, 0%);
+        -ms-transform: translate(0%, 0%);
+         -o-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
 }
-#form-widgets-image-input:hover,
-#form-widgets-image-input:focus,
-#form-widgets-image-input.focus
+.headroom--unpinned
 {
-    text-decoration: none;
-
-    color: #333;
-}
-#form-widgets-image-input:active,
-#form-widgets-image-input.active
-{
-    outline: 0;
-    background-image: none;
-    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
-            box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
-}
-#form-widgets-image-input.disabled,
-#form-widgets-image-input[disabled],
-fieldset[disabled] #form-widgets-image-input
-{
-    cursor: not-allowed;
-    pointer-events: none;
-
-    opacity: .65;
-    -webkit-box-shadow: none;
-            box-shadow: none;
-
-    filter: alpha(opacity=65);
-}
-#form-widgets-image-input:hover,
-#form-widgets-image-input:focus,
-#form-widgets-image-input.focus,
-#form-widgets-image-input:active,
-#form-widgets-image-input.active,
-.open > .dropdown-toggle#form-widgets-image-input
-{
-    color: #333;
-    border-color: #adadad;
-    background-color: #e6e6e6;
-}
-#form-widgets-image-input:active,
-#form-widgets-image-input.active,
-.open > .dropdown-toggle#form-widgets-image-input
-{
-    background-image: none;
-}
-#form-widgets-image-input.disabled,
-#form-widgets-image-input[disabled],
-fieldset[disabled] #form-widgets-image-input,
-#form-widgets-image-input.disabled:hover,
-#form-widgets-image-input[disabled]:hover,
-fieldset[disabled] #form-widgets-image-input:hover,
-#form-widgets-image-input.disabled:focus,
-#form-widgets-image-input[disabled]:focus,
-fieldset[disabled] #form-widgets-image-input:focus,
-#form-widgets-image-input.disabled.focus,
-#form-widgets-image-input[disabled].focus,
-fieldset[disabled] #form-widgets-image-input.focus,
-#form-widgets-image-input.disabled:active,
-#form-widgets-image-input[disabled]:active,
-fieldset[disabled] #form-widgets-image-input:active,
-#form-widgets-image-input.disabled.active,
-#form-widgets-image-input[disabled].active,
-fieldset[disabled] #form-widgets-image-input.active
-{
-    border-color: #ccc;
-    background-color: #fff;
-}
-#form-widgets-image-input .badge
-{
-    color: #fff;
-    background-color: #333;
+    -webkit-transform: translate(0, -100%);
+        -ms-transform: translate(0, -100%);
+         -o-transform: translate(0, -100%);
+            transform: translate(0, -100%);
 }
 .app-table-usermanager > tbody > td:first-child
 {
@@ -16518,7 +16430,6 @@ fieldset[disabled] .searchButton.active
 {
     display: block;
 
-    width: 100% \9;
     max-width: 100%;
     height: auto;
 
@@ -16592,7 +16503,6 @@ fieldset[disabled] .searchButton.active
 
     display: inline-block;
 
-    width: 100% \9;
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
@@ -16611,7 +16521,6 @@ fieldset[disabled] .searchButton.active
 
     display: inline-block;
 
-    width: 100% \9;
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;

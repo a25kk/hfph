@@ -85,28 +85,51 @@
                         </tal:actions>
                         <tal:block tal:condition="view/has_personel_contents">
                             <div class="app-page-header">
-                                <h2 i18n:translate="">Personal Contents</h2>
+                                <h3 i18n:translate="">Personal Contents</h3>
                             </div>
                             <p class="app-page-abstract" i18n:translate="">
                                 The following content is owned by your user.
                             </p>
                             <div class="app-page-body">
                                 <div class="list-group">
-                                    <tal:block tal:repeat="item view/personel_contents">
+                                    <tal:block tal:repeat="item view/personal_contents">
                                         <a href="#" class="list-group-item"
                                             tal:attributes="href item/getURL">
                                           <h4 class="list-group-item-heading"
                                             tal:content="item/Title">
                                             List group item heading
                                           </h4>
-                                          <p class="list-group-item-text"
-                                            tal:content="item/Description">
-                                              Kurzer Beschreibungstext zu diesem Teilbereich
+                                          <p class="list-group-item-text" i18n:translate="">
+                                              Informationen zur Person unter <code>/Hochschule/Lehrende</code>
                                           </p>
                                         </a>
                                     </tal:block>
                                 </div>
                             </div>
+
+                            <tal:contrib tal:condition="view/has_contributing_content">
+                                <div class="app-page-header">
+                                    <h3 i18n:translate="">Lectures</h3>
+                                </div>
+                                <p class="app-page-abstract" i18n:translate="">
+                                    A list of content items you are asigned as a
+                                    contributor
+                                </p>
+                                 <div class="app-page-body">
+                                    <div class="list-group">
+                                        <tal:block tal:repeat="item view/contributing">
+                                            <a href="#" class="list-group-item"
+                                                tal:attributes="href item/getURL">
+                                              <h4 class="list-group-item-heading"
+                                                tal:content="item/Title">
+                                                List group item heading
+                                              </h4>
+                                            </a>
+                                        </tal:block>
+                                    </div>
+                                </div>
+                            </tal:contrib>
+
                         </tal:block>
                     </tal:block>
                     <tal:block tal:condition="view/flash_msg">

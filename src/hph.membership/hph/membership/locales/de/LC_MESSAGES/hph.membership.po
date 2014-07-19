@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2014-04-08 14:51+0000\n"
-"PO-Revision-Date: 2014-04-08 17:06+0100\n"
+"POT-Creation-Date: 2014-07-19 20:37+0000\n"
+"PO-Revision-Date: 2014-07-19 22:41+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -15,6 +15,10 @@ msgstr ""
 "Domain: hph.membership\n"
 "Language: de\n"
 "X-Generator: Poedit 1.6.4\n"
+
+#: ./../workspace_templates/view.pt:114
+msgid "A list of content items you are asigned as a contributor"
+msgstr "Eine Liste von Inhalten, zu denen Sie beitragen."
 
 #: ./../setpassword.py:92
 msgid "A new password has been set"
@@ -65,10 +69,6 @@ msgstr "Wiederholen"
 msgid "Container for member workspaces"
 msgstr "Ordner für Benutzerbereiche"
 
-#: ./../invitation_templates/userinvitation.pt:58
-msgid "Danger Zone"
-msgstr "Danger Zone"
-
 #: ./../memberfolder_templates/memberrecords.pt:24
 msgid "Dangerzone: manage external user database integration"
 msgstr "Dangerzone: benutzerverwaltung über Schnittstelle zur Hochschuldatenbank"
@@ -101,7 +101,11 @@ msgstr "HPH Membership Tool"
 msgid "Importable API Records"
 msgstr "Importierbare DAten aus der API"
 
-#: ./../tool.py:122
+#: ./../workspace_templates/view.pt:102
+msgid "Informationen zur Person unter <code>/Hochschule/Lehrende</code>"
+msgstr "Informationen zur Person unter <code>/Hochschule/Lehrende</code>"
+
+#: ./../tool.py:123
 msgid "Invitation to join the HfPH portal"
 msgstr "Hochschule für Philosophie München: Einladung zur Webseite"
 
@@ -112,6 +116,10 @@ msgstr "Einladung zur neugestalteten HfPH Seite"
 #: ./../invitation_templates/invitenewuser.pt:26
 msgid "Invite new users by passing a list of email addresses"
 msgstr "Laden Sie neue Benutzer zur Teilnahme ein, indem Sie eine Liste von E-Mail-Adressen bereitstellen"
+
+#: ./../workspace_templates/view.pt:112
+msgid "Lectures"
+msgstr "Lehrveranstaltungen"
 
 #: ./../signin.py:54
 msgid "Log in"
@@ -149,6 +157,10 @@ msgstr "Verwalten der Benutzerzugänge"
 msgid "MemberFolder"
 msgstr "Benutzerordner"
 
+#: ./../interfaces.py:24
+msgid "Membership Tool API Token"
+msgstr "Member Tool API Token"
+
 #: ./../interfaces.py:21
 msgid "MembershipTool API Key"
 msgstr "API Schlüssel für die Benutzerverwaltung"
@@ -170,7 +182,7 @@ msgstr "Neues Passwort"
 msgid "No activity recorded yet"
 msgstr "Er wurde bis dato noch keine Aktivität aufgezeichnet."
 
-#: ./../workspace.py:42
+#: ./../workspace.py:45
 msgid "No email provided"
 msgstr "Es wurde keine E-Mail-Addresse übermittelt"
 
@@ -190,11 +202,15 @@ msgstr "Passwörter müssen mindestens 8 Zeichen lang sein"
 msgid "Passwords require a minimum length of 8 characters."
 msgstr "Passwörter sollten eine Länge von mindestens 8 Zeichen aufweisen"
 
+#: ./../workspace_templates/view.pt:88
+msgid "Personal Contents"
+msgstr "Persönliche Inhalte"
+
 #: ./../profiles/default/types/hph.membership.workspace.xml
 msgid "Personal workspace container for members"
 msgstr "Persönlicher Arbeitsbereich für Benutzer"
 
-#: ./../tool.py:111
+#: ./../tool.py:112
 msgid "Please change your account information for HfPH"
 msgstr "Bitte aktualisieren Sie Ihre Benutzerinformationen für HfPH"
 
@@ -215,17 +231,9 @@ msgstr "Die Anfrage wurde versandt"
 msgid "Save"
 msgstr "Speichern"
 
-#: ./../invitation_templates/userinvitation.pt:59
-msgid "Send an email to all available user records asking for a password reset now"
-msgstr "Senden Sie eine E-Mail an alle Benutzerzugänge, mit der Aufforderung ein neues Passwort zu setzen"
-
 #: ./../invitation_templates/invitenewuser.pt:66
 msgid "Send password reset mails"
 msgstr "Passwort senden"
-
-#: ./../invitation_templates/userinvitation.pt:62
-msgid "Sent invitation email to all users"
-msgstr "Einladungn an alle Benutzerkonten schicken"
 
 #: ./../signin_templates/signinform.pt:25
 msgid "Sign in"
@@ -243,9 +251,17 @@ msgstr "Gespeicherte Benutzerdaten"
 msgid "The entered password and confirmation do not match."
 msgstr "Die angegeben Passwörter stimmen nicht überein. Bitte versuchen Sie es erneut."
 
+#: ./../workspace_templates/view.pt:90
+msgid "The following content is owned by your user."
+msgstr "Für folgende Inhalte sind Sie als Hauptverantwortlicher hinterlegt."
+
 #: ./../memberfolder_templates/usermanager.pt:27
 msgid "The member area contains member workspaces"
 msgstr "Der benutzerbereich beinhaltet Arbietsplätze für angemeldete Benutzer"
+
+#: ./../interfaces.py:25
+msgid "This API token can be used to authenticate with the portal e.g. when calling the member updater via external cronjob"
+msgstr "Dieser Token kann verwendet werden, um sich am Portal anzumelden, z.B. bei Aufrufen über externe Dienste"
 
 #: ./../invitation.py:52
 #: ./../useraccount.py:42
