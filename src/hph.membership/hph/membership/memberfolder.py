@@ -1,23 +1,22 @@
-import datetime
-import json
+# -*- coding: UTF-8 -*-
 from Acquisition import aq_inner
+from Products.CMFPlone.utils import safe_unicode
+from Products.statusmessages.interfaces import IStatusMessage
 from five import grok
+from hph.membership.tool import IHPHMemberTool
+from hph.membership.tool import api_group_mapper
+from hph.membership.tool import user_group_mapper
 from plone import api
+from plone.dexterity.content import Container
+from plone.directives import form
+from plone.memoize import ram
+from plone.namedfile.interfaces import IImageScaleTraversable
+from time import time
 from zope import schema
 from zope.component import getUtility
 from zope.lifecycleevent import modified
-
-from plone.directives import form
-from plone.dexterity.content import Container
-from plone.namedfile.interfaces import IImageScaleTraversable
-from plone.memoize.view import memoize
-
-from Products.statusmessages.interfaces import IStatusMessage
-from Products.CMFPlone.utils import safe_unicode
-
-from hph.membership.tool import api_group_mapper
-from hph.membership.tool import user_group_mapper
-from hph.membership.tool import IHPHMemberTool
+import datetime
+import json
 
 from hph.membership import MessageFactory as _
 
@@ -115,7 +114,7 @@ class UserManager(grok.View):
             return True
         return False
 
-    @memoize
+    @ram.cache(lambda *args: time() // (60 * 60))
     def get_all_members(self):
         users = []
         records = api.user.get_users()
