@@ -8,7 +8,7 @@ from plone.dexterity.content import Container
 from plone.directives import form
 from plone.keyring import django_random
 from plone.namedfile.interfaces import IImageScaleTraversable
-from plone.memoize import memoize
+from plone.memoize.view import memoize
 
 from hph.membership import MessageFactory as _
 
