@@ -68,7 +68,7 @@ class View(grok.View):
         return dict(object_provides=obj_provides,
                     path=query_path,
                     sort_on='publicationYear',
-                    sort_order='reverse'
+                    sort_order='reverse',
                     review_state='published')
 
     def media_filter_options(self):
