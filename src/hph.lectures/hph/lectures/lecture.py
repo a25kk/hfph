@@ -57,8 +57,7 @@ class ILecture(form.Schema, IImageScaleTraversable):
         default=[],
         value_type=RelationChoice(
             title=_(u"Related lecturer"),
-            source=ObjPathSourceBinder(
-                object_provides=IFacultyMember.__identifier__)
+            vocabulary="plone.app.vocabularies.Catalog",
         ),
         required=False,
     )
