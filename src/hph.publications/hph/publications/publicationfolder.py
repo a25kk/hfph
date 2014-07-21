@@ -67,7 +67,8 @@ class View(grok.View):
         query_path = '/'.join(context.getPhysicalPath())
         return dict(object_provides=obj_provides,
                     path=query_path,
-                    sort_on='getObjPositionInParent',
+                    sort_on='publicationYear',
+                    sort_order='reverse'
                     review_state='published')
 
     def media_filter_options(self):
