@@ -3,6 +3,7 @@ from Acquisition import aq_inner
 from five import grok
 from hph.faculty.facultymember import IFacultyMember
 from plone import api
+from plone.app.vocabularies.catalog import CatalogSource
 from plone.app.widgets.dx import RelatedItemsWidget
 from plone.dexterity.content import Container
 from plone.directives import form
@@ -57,7 +58,7 @@ class ILecture(form.Schema, IImageScaleTraversable):
         default=[],
         value_type=RelationChoice(
             title=_(u"Related lecturer"),
-            vocabulary="plone.app.vocabularies.Catalog",
+            source=CatalogSource(portal_type='hph.faculty.facultymember'),
         ),
         required=False,
     )

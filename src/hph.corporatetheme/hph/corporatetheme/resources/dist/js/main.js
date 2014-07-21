@@ -17624,23 +17624,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
                 $(this).closest('.panelpage-slide').removeClass('slideInRight').addClass('fadeOutTop').hide();
             }
         });
-        $('#table-usermanager').dataTable();
-        //$('#table-usermanager').dataTable({
-        //    'bPaginate': true,
-        //    'bRetrieve': true,
-        //    'sDom': '<"row row-dt-filter"<"col-sm-6"l><"col-sm-6"f>r>t<"row"<"col-sm-3"i><"col-sm-9"p>>',
-        //    // 'sPaginationType': 'bootstrap',
-        //    //'iDisplayLength': 50,
-        //    //'oLanguage': {
-        //    //    'sLengthMenu': '_MENU_ pro Seite',
-        //    //    'sInfo': '_START_ bis _END_ von _TOTAL_',
-        //    //    'oPaginate': {
-        //    //        'sPrevious': '&larr; letzte Seite',
-        //    //        'sNext': 'nchste Seite &rarr;'
-        //    //    },
-        //        //'sSearch': 'Filter:'
-        //    //}
-        //});
     }
     );
 }(jQuery));
