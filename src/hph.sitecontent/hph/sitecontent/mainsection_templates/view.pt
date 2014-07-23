@@ -65,14 +65,6 @@
             <h1 tal:content="context/Title">Title</h1>
           </header>
           <article class="page-content">
-            <div class="row">
-              <div class="col-xs-12 col-lg-6">
-                <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/block-one" />
-              </div>
-              <div class="col-xs-12 col-lg-6">
-                <div tal:attributes="data-tile string:${context/absolute_url}/@@kk.tiles.richtext/block-two" />
-              </div>
-            </div>
             <div tal:replace="structure provider:plone.belowcontentbody" />
           </article>
         </section>
