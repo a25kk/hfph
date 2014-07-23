@@ -2,13 +2,21 @@ div.event {
     margin-top: @line-height-computed;
 }
 
+article.vevent {
+    border-radius: 0;
+    background: @gray-lighter;
+}
+
+.vevent div.cal_date {
+    border-radius: 0;
+}
 
 dl.event.summary {
     clear: both;
     float: left;
     border: 1px solid #dddddd;
     margin-right: @line-height-computed;
-    
+
 
     dt {
         background: #eeeeee;
@@ -24,4 +32,8 @@ dl.event.summary {
     .timezone {
         display: none;
     }
+}
+
+.hCalendar-hidden {
+    .hidden();
 }
