@@ -7755,7 +7755,11 @@ ul.formTabs:after,
 .listingBar:before,
 .listingBar:after,
 .navTree:before,
-.navTree:after
+.navTree:after,
+.event_listing .mode_selector:before,
+.event_listing .mode_selector:after,
+.event_listing .sub_nav:before,
+.event_listing .sub_nav:after
 {
     display: table;
 
@@ -7778,7 +7782,9 @@ ul.formTabs:after,
 .modal-footer:after,
 ul.formTabs:after,
 .listingBar:after,
-.navTree:after
+.navTree:after,
+.event_listing .mode_selector:after,
+.event_listing .sub_nav:after
 {
     clear: both;
 }
@@ -15894,16 +15900,384 @@ div.event
 {
     margin-top: 20px;
 }
-article.vevent
+/* BEGIN COMMON EVENT STYLES */
+.vevent
+{
+    margin-top: 20px;
+    padding: 20px;
+
+    border-radius: 0;
+    background-color: #eee;
+}
+.vevent .cal_date
+{
+    float: left;
+
+    min-width: 100px;
+    margin: 0 20px 10px 0;
+    padding: 10px;
+
+    vertical-align: top;
+
+    border: none;
+    border-radius: 0;
+    background-color: white;
+    box-shadow: .25em .25em .2em black;
+}
+.vevent .cal_wkday
+{
+    font-size: 2.3em;
+    font-weight: bold;
+
+    display: block;
+
+    padding-bottom: .3em;
+
+    border-bottom: 2px solid black;
+}
+.vevent .cal_day
+{
+    font-size: 1.7em;
+
+    display: inline-block;
+
+    padding-top: .3em;
+}
+.vevent .cal_month
+{
+    font-size: 1.3em;
+    line-height: 1.3em;
+
+    display: inline-block;
+}
+.vevent .cal_info
+{
+    margin-left: 8em;
+}
+.vevent .documentByLine
+{
+    font-size: 1em !important;
+    font-weight: bold;
+
+    padding: 0;
+
+    color: black !important;
+    background: none repeat scroll 0 0 transparent;
+}
+.event_listing .mode_selector
+{
+    margin-bottom: 0;
+    padding-left: 0;
+
+    list-style: none;
+
+    border-bottom: 1px solid #ddd;
+}
+.event_listing .mode_selector > li
+{
+    position: relative;
+
+    display: block;
+}
+.event_listing .mode_selector > li > a
+{
+    position: relative;
+
+    display: block;
+
+    padding: 10px 15px;
+}
+.event_listing .mode_selector > li > a:hover,
+.event_listing .mode_selector > li > a:focus
+{
+    text-decoration: none;
+
+    background-color: #eee;
+}
+.event_listing .mode_selector > li.disabled > a
+{
+    color: #777;
+}
+.event_listing .mode_selector > li.disabled > a:hover,
+.event_listing .mode_selector > li.disabled > a:focus
+{
+    cursor: not-allowed;
+    text-decoration: none;
+
+    color: #777;
+    background-color: transparent;
+}
+.event_listing .mode_selector .open > a,
+.event_listing .mode_selector .open > a:hover,
+.event_listing .mode_selector .open > a:focus
+{
+    border-color: #5896c8;
+    background-color: #eee;
+}
+.event_listing .mode_selector .nav-divider
+{
+    overflow: hidden;
+
+    height: 1px;
+    margin: 9px 0;
+
+    background-color: #e5e5e5;
+}
+.event_listing .mode_selector > li > a > img
+{
+    max-width: none;
+}
+.event_listing .mode_selector > li
+{
+    float: left;
+
+    margin-bottom: -1px;
+}
+.event_listing .mode_selector > li > a
+{
+    line-height: 1.42857143;
+
+    margin-right: 2px;
+
+    border: 1px solid transparent;
+    border-radius: 0 0 0 0;
+}
+.event_listing .mode_selector > li > a:hover
+{
+    border-color: #eee #eee #ddd;
+}
+.event_listing .mode_selector > li.active > a,
+.event_listing .mode_selector > li.active > a:hover,
+.event_listing .mode_selector > li.active > a:focus
+{
+    cursor: default;
+
+    color: #555;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    background-color: #fff;
+}
+.event_listing .mode_selector.nav-justified
+{
+    width: 100%;
+
+    border-bottom: 0;
+}
+.event_listing .mode_selector.nav-justified > li
+{
+    float: none;
+}
+.event_listing .mode_selector.nav-justified > li > a
+{
+    margin-bottom: 5px;
+
+    text-align: center;
+}
+.event_listing .mode_selector.nav-justified > .dropdown .dropdown-menu
+{
+    top: auto;
+    left: auto;
+}
+@media (min-width: 768px)
+{
+    .event_listing .mode_selector.nav-justified > li
+    {
+        display: table-cell;
+
+        width: 1%;
+    }
+    .event_listing .mode_selector.nav-justified > li > a
+    {
+        margin-bottom: 0;
+    }
+}
+.event_listing .mode_selector.nav-justified > li > a
+{
+    margin-right: 0;
+
+    border-radius: 0;
+}
+.event_listing .mode_selector.nav-justified > .active > a,
+.event_listing .mode_selector.nav-justified > .active > a:hover,
+.event_listing .mode_selector.nav-justified > .active > a:focus
+{
+    border: 1px solid #ddd;
+}
+@media (min-width: 768px)
+{
+    .event_listing .mode_selector.nav-justified > li > a
+    {
+        border-bottom: 1px solid #ddd;
+        border-radius: 0 0 0 0;
+    }
+    .event_listing .mode_selector.nav-justified > .active > a,
+  .event_listing .mode_selector.nav-justified > .active > a:hover,
+  .event_listing .mode_selector.nav-justified > .active > a:focus
+    {
+        border-bottom-color: #fff;
+    }
+}
+.event_listing .mode_selector .selected > a,
+.event_listing .mode_selector .selected > a:hover,
+.event_listing .mode_selector .selected > a:focus
+{
+    cursor: default;
+
+    color: #555;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    background-color: #fff;
+}
+.event_listing .sub_nav
+{
+    float: right !important;
+    float: right;
+
+    margin-bottom: 0;
+    padding-left: 0;
+
+    list-style: none;
+}
+.event_listing .sub_nav > li
+{
+    position: relative;
+
+    display: block;
+}
+.event_listing .sub_nav > li > a
+{
+    position: relative;
+
+    display: block;
+
+    padding: 10px 15px;
+}
+.event_listing .sub_nav > li > a:hover,
+.event_listing .sub_nav > li > a:focus
+{
+    text-decoration: none;
+
+    background-color: #eee;
+}
+.event_listing .sub_nav > li.disabled > a
+{
+    color: #777;
+}
+.event_listing .sub_nav > li.disabled > a:hover,
+.event_listing .sub_nav > li.disabled > a:focus
+{
+    cursor: not-allowed;
+    text-decoration: none;
+
+    color: #777;
+    background-color: transparent;
+}
+.event_listing .sub_nav .open > a,
+.event_listing .sub_nav .open > a:hover,
+.event_listing .sub_nav .open > a:focus
+{
+    border-color: #5896c8;
+    background-color: #eee;
+}
+.event_listing .sub_nav .nav-divider
+{
+    overflow: hidden;
+
+    height: 1px;
+    margin: 9px 0;
+
+    background-color: #e5e5e5;
+}
+.event_listing .sub_nav > li > a > img
+{
+    max-width: none;
+}
+.event_listing .sub_nav > li
+{
+    float: left;
+}
+.event_listing .sub_nav > li > a
 {
     border-radius: 0;
-    background: #eee;
 }
-.vevent div.cal_date
+.event_listing .sub_nav > li + li
 {
-    border-radius: 0;
+    margin-left: 2px;
 }
-dl.event.summary
+.event_listing .sub_nav > li.active > a,
+.event_listing .sub_nav > li.active > a:hover,
+.event_listing .sub_nav > li.active > a:focus
+{
+    color: #fff;
+    background-color: #428bca;
+}
+/* horizontal event metadata */
+#content .vevent ul.metadata
+{
+    margin: .8em 0;
+}
+#content .vevent ul.horizontal
+{
+    padding: 0;
+}
+#content .vevent ul.horizontal li
+{
+    line-height: 1.5em;
+
+    display: inline-block;
+
+    list-style-type: none;
+    list-style-image: none;
+}
+.vevent .horizontal.metadata li:after
+{
+    content: ' \2014 ';
+}
+.vevent .horizontal.metadata li:last-child:after
+{
+    content: '';
+}
+.vevent .horizontal.metadata .category span:after
+{
+    content: ',';
+}
+.vevent .horizontal.metadata .category span:last-child:after
+{
+    content: '';
+}
+.vevent .timezone
+{
+    display: block;
+
+    width: 100%;
+    margin-top: .5em;
+    padding: .2em 0;
+
+    color: #354;
+    background-color: #ffe;
+}
+.vevent .timerange,
+.vevent .timezone
+{
+    font-size: 85%;
+    line-height: 1em;
+
+    white-space: nowrap;
+}
+.vevent .datedisplay
+{
+    font-size: 100%;
+    font-weight: bold;
+    line-height: 1.5em;
+
+    margin-bottom: .2em;
+}
+.vevent abbr.dtstart
+{
+    font-weight: bold;
+}
+/* END COMMON EVENT STYLES */
+.event.summary
 {
     float: left;
     clear: both;
@@ -15912,20 +16286,20 @@ dl.event.summary
 
     border: 1px solid #ddd;
 }
-dl.event.summary dt
+.event.summary dt
 {
     padding: 10px;
 
     border-top: 1px solid #ddd;
     background: #eee;
 }
-dl.event.summary dd
+.event.summary dd
 {
     padding: 10px;
 
     border-top: 1px solid #ddd;
 }
-dl.event.summary .timezone
+.event.summary .timezone
 {
     display: none;
 }
