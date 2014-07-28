@@ -111,6 +111,16 @@ class View(grok.View):
         parent = aq_parent(context)
         return parent.absolute_url()
 
+    def item_owner(self):
+        if api.user.is_anonymous():
+            return False
+        context = aq_inner(self.context)
+        is_owner = False
+        user = api.user.get_current()
+        if user.getId() in context.listCreators():
+            is_owner = True
+        return is_owner
+
     def content_filter(self):
         context = aq_inner(self.context)
         container = aq_parent(context)

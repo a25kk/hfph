@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-07-14 20:29+0000\n"
+"POT-Creation-Date: 2014-07-28 18:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,6 +29,10 @@ msgstr ""
 msgid "3 hour"
 msgstr ""
 
+#: ./../vocabulary.py:33
+msgid "4 hour"
+msgstr ""
+
 #: ./../profiles/default/types/hph.lectures.lecture.xml
 msgid "A single course"
 msgstr ""
@@ -37,11 +41,11 @@ msgstr ""
 msgid "Add attachment"
 msgstr ""
 
-#: ./../lecture.py:55
+#: ./../lecture.py:51
 msgid "Additional Information"
 msgstr ""
 
-#: ./../lecture.py:71
+#: ./../lecture.py:66
 #: ./../lecture_templates/view.pt:54
 msgid "Additional Lecturer"
 msgstr ""
@@ -50,7 +54,7 @@ msgstr ""
 msgid "Additional Lecturer:"
 msgstr ""
 
-#: ./../vocabulary.py:48
+#: ./../vocabulary.py:49
 msgid "Advanced seminar"
 msgstr ""
 
@@ -62,23 +66,23 @@ msgstr ""
 msgid "Attachements"
 msgstr ""
 
-#: ./../lecture.py:43
+#: ./../lecture.py:39
 msgid "Attendance"
 msgstr ""
 
-#: ./../lecture.py:47
+#: ./../lecture.py:43
 msgid "Attendance Required"
 msgstr ""
 
-#: ./../vocabulary.py:63
+#: ./../vocabulary.py:64
 msgid "BA"
 msgstr ""
 
-#: ./../lecture.py:51
+#: ./../lecture.py:47
 msgid "Block Lecture"
 msgstr ""
 
-#: ./../vocabulary.py:50
+#: ./../vocabulary.py:51
 msgid "Colloquium"
 msgstr ""
 
@@ -87,7 +91,7 @@ msgstr ""
 msgid "Course Aims"
 msgstr ""
 
-#: ./../lecture.py:86
+#: ./../lecture.py:81
 msgid "Course Dates"
 msgstr ""
 
@@ -95,7 +99,7 @@ msgstr ""
 msgid "Course Details"
 msgstr ""
 
-#: ./../lecture.py:81
+#: ./../lecture.py:76
 msgid "Course Duration"
 msgstr ""
 
@@ -124,11 +128,11 @@ msgstr ""
 msgid "Course Qualification"
 msgstr ""
 
-#: ./../lecture.py:104
+#: ./../lecture.py:99
 msgid "Course Room"
 msgstr ""
 
-#: ./../lecture.py:94
+#: ./../lecture.py:89
 msgid "Course Semester"
 msgstr ""
 
@@ -142,15 +146,15 @@ msgstr ""
 msgid "Course Theme"
 msgstr ""
 
-#: ./../lecture.py:90
+#: ./../lecture.py:85
 msgid "Course Time"
 msgstr ""
 
-#: ./../lecture.py:75
+#: ./../lecture.py:70
 msgid "Course Type"
 msgstr ""
 
-#: ./../lecture.py:100
+#: ./../lecture.py:95
 msgid "Course Year"
 msgstr ""
 
@@ -167,7 +171,7 @@ msgstr ""
 msgid "Degree"
 msgstr ""
 
-#: ./../lecture.py:111
+#: ./../lecture.py:106
 msgid "Display Selection"
 msgstr ""
 
@@ -175,32 +179,32 @@ msgstr ""
 msgid "Enter corresponding product detail value"
 msgstr ""
 
-#: ./../vocabulary.py:49
+#: ./../vocabulary.py:50
 msgid "Exercise"
 msgstr ""
 
-#: ./../vocabulary.py:47
+#: ./../vocabulary.py:48
 msgid "Introductory seminar source"
 msgstr ""
 
 #: ./../profiles/default/types/hph.lectures.lecture.xml
-#: ./../vocabulary.py:46
+#: ./../vocabulary.py:47
 msgid "Lecture"
 msgstr ""
 
-#: ./../lecture.py:39
+#: ./../lecture.py:35
 msgid "Lecure Number"
 msgstr ""
 
-#: ./../vocabulary.py:64
+#: ./../vocabulary.py:65
 msgid "MA Ethics"
 msgstr ""
 
-#: ./../vocabulary.py:65
+#: ./../vocabulary.py:66
 msgid "MA kons"
 msgstr ""
 
-#: ./../vocabulary.py:67
+#: ./../vocabulary.py:68
 msgid "Mag"
 msgstr ""
 
@@ -216,15 +220,15 @@ msgstr ""
 msgid "Please select module degree"
 msgstr ""
 
-#: ./../lecture.py:61
+#: ./../lecture.py:57
 msgid "Please select one or more lecturers for this course"
 msgstr ""
 
-#: ./../lecture.py:95
+#: ./../lecture.py:90
 msgid "Please select the course semester for filtering"
 msgstr ""
 
-#: ./../lecture.py:76
+#: ./../lecture.py:71
 msgid "Please select the course type."
 msgstr ""
 
@@ -233,7 +237,7 @@ msgstr ""
 msgid "Raum"
 msgstr ""
 
-#: ./../lecture.py:64
+#: ./../lecture.py:60
 msgid "Related lecturer"
 msgstr ""
 
@@ -241,7 +245,7 @@ msgstr ""
 msgid "Since you are signed in as editor you can add file attachments to this content item"
 msgstr ""
 
-#: ./../lecture.py:31
+#: ./../lecture.py:27
 msgid "Subtitle"
 msgstr ""
 
@@ -249,11 +253,11 @@ msgstr ""
 msgid "Summer Semester"
 msgstr ""
 
-#: ./../lecture.py:109
+#: ./../lecture.py:104
 msgid "Third Party Project Display"
 msgstr ""
 
-#: ./../lecture.py:35
+#: ./../lecture.py:31
 msgid "Title"
 msgstr ""
 
@@ -261,7 +265,7 @@ msgstr ""
 msgid "Winter Semester"
 msgstr ""
 
-#: ./../vocabulary.py:68
+#: ./../vocabulary.py:69
 msgid "ZEP"
 msgstr ""
 
@@ -271,7 +275,7 @@ msgid "remove filter"
 msgstr ""
 
 #: ./../coursefolder.py:43
-#: ./../lecture.py:151
+#: ./../lecture.py:146
 msgid "undefined"
 msgstr ""
 

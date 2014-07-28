@@ -29,7 +29,8 @@ class CourseDurationVocabulary(object):
         TYPES = {
             _(u"1 hour"): '1-hour',
             _(u"2 hour"): '2-hour',
-            _(u"3 hour"): '3-hour'
+            _(u"3 hour"): '3-hour',
+            _(u"4 hour"): '4-hour'
         }
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
