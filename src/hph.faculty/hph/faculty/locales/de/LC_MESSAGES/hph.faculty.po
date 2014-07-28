@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2014-07-28 19:20+0000\n"
-"PO-Revision-Date: 2014-03-06 15:49+0100\n"
+"PO-Revision-Date: 2014-07-28 21:23+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -46,7 +46,7 @@ msgstr "E-Mail-Adresse"
 
 #: ./../facultymember_templates/view.pt:67
 msgid "Edit"
-msgstr ""
+msgstr "Bearbeiten"
 
 #: ./../vocabulary.py:18
 msgid "Emeriti"
@@ -66,7 +66,7 @@ msgstr "Fax"
 
 #: ./../facultymember_templates/view.pt:72
 msgid "It appears that you are the owner in this context and you are therefore allowed to change this content item"
-msgstr ""
+msgstr "Sie sind als Eigentümer dieses Seiteninhalts gelistet und können an dieser Stelle Änderungen vornehmen"
 
 #: ./../facultymember.py:30
 msgid "Lastname"
@@ -78,7 +78,7 @@ msgstr "Lehrbeauftragte"
 
 #: ./../facultymember_templates/view.pt:71
 msgid "Note:"
-msgstr ""
+msgstr "Hinweis:"
 
 #: ./../facultymember.py:41
 msgid "Optional additional information/sidenote"

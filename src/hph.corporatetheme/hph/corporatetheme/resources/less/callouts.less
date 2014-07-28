@@ -9,7 +9,7 @@
 .app-callout {
   padding: @line-height-computed;
   margin: @line-height-computed 0;
-  border-left: 6px solid #eee;
+  border-left: ceil((@line-height-computed / 4)) solid #eee;
 }
 .app-callout h4 {
   margin-top: 0;
@@ -34,5 +34,4 @@
 }
 .app-callout-warning {
   .alert-variant(@alert-warning-bg; @alert-warning-border; @alert-warning-text);
-  border-left: 6px solid @alert-warning-border;
 }
