@@ -76,6 +76,7 @@ class View(grok.View):
                 info = {}
                 info['group'] = group
                 info['title'] = gid
+                info['description'] = self._get_description(gid)
                 info['action'] = self._get_action(gid)
                 actions.append(info)
         return actions
@@ -92,6 +93,18 @@ class View(grok.View):
         if group == 'Lehrende':
             url = '{0}/hochschule/lehrende/'.format(portal_url)
         return url
+
+    def _get_description(self, group):
+        desc = _(u'Standard description for workspace links')
+        if group in ('Gasthoerer', 'Studierende'):
+            desc = _(u'Students and guests description')
+        if group == 'Alumni':
+            desc = _(u'Alumni description')
+        if group == 'prophil':
+            desc = _(u'Prophil description')
+        if group == 'Lehrende':
+            desc = _(u'Lectures description')
+        return desc
 
     def personal_contents(self):
         context = aq_inner(self.context)
