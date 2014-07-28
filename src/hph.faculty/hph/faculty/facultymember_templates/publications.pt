@@ -60,15 +60,16 @@
                 <header class="page-header">
                     <h1 tal:content="context/Title">Title inserted here</h1>
                 </header>
-                
+
                 <section class="page-content" id="content-core">
                 <div class="alert alert-warning" tal:condition="not:view/has_publications">
                   <h4>Note:</h4>
                   <p>There are no publications available yet</p>
                 </div>
-        
+
                 <tal:block tal:condition="view/has_publications">
-                  <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                  <div class="app-content-body"
+                    tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                                    b_size python:int(request.get('b_size', 20));
                                    b_start python:int(request.get('b_start', 0));
                                    results view/publications;
@@ -94,18 +95,14 @@
                                 <small>
                                     <span tal:condition="item/authorOne"
                                         tal:replace="item/authorOne" />
-
                                     <span tal:condition="item/authorTwo">,
-                                        <span tal:replace="item/authorTwo" />
-                                        </span>
-
+                                      <span tal:replace="item/authorTwo" />
+                                    </span>
                                     <span tal:condition="item/authorThree">,
-                                        <span tal:replace="item/authorThree" />
-                                        </span>
-
-                                    <span tal:condition="item/authorPlus">,
-                                        <span tal:replace="item/authorPlus" />
-                                        </span>
+                                      <span tal:replace="item/authorThree" />
+                                    </span>
+                                    <span tal:condition="item/authorPlus"
+                                        i18n:translate="">a.o.</span>
                                 </small>
 
                                 <br />
