@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-03-12 15:23+0000\n"
-"PO-Revision-Date: 2014-03-12 16:30+0100\n"
+"POT-Creation-Date: 2014-07-28 19:39+0000\n"
+"PO-Revision-Date: 2014-07-28 21:42+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "A  central collection of publications with filter functionality"
 msgstr "Eine zentrale Sammlung von Publikationen mit Filterfunktion"
 
-#: ./../publication_templates/view.pt:31
+#: ./../publication_templates/view.pt:45
 msgid "A publication will only be displayed inside the filterable listing view and therefore no dedicated information available here"
 msgstr "Eine Publikation wird nur in der übergeordnetetn Liste angezeigt und benötigt deshalb keine dedizierte Einzelansicht"
 
@@ -28,19 +28,19 @@ msgstr "Eine Publikation wird nur in der übergeordnetetn Liste angezeigt und be
 msgid "A single publication like a book, dvd or magazine"
 msgstr "Eine einzelne Publikation wie ein Buch, eine DVD oder ein Magazin"
 
-#: ./../publication.py:34
+#: ./../publication.py:33
 msgid "Author Lastname"
 msgstr "Nachname Autor"
 
-#: ./../publication.py:40
+#: ./../publication.py:39
 msgid "Author One"
 msgstr "Autor 1"
 
-#: ./../publication.py:48
+#: ./../publication.py:47
 msgid "Author Three"
 msgstr "Autor 3"
 
-#: ./../publication.py:44
+#: ./../publication.py:43
 msgid "Author Two"
 msgstr "Autor 2"
 
@@ -52,7 +52,7 @@ msgstr "Buch"
 msgid "Contexts"
 msgstr "Kontexte"
 
-#: ./../publication.py:81
+#: ./../publication.py:80
 msgid "Cover Image"
 msgstr "Coverbild"
 
@@ -60,15 +60,15 @@ msgstr "Coverbild"
 msgid "DVD/CD"
 msgstr "DVD/CD"
 
-#: ./../publication.py:71
+#: ./../publication.py:70
 msgid "Display Selection"
 msgstr "Anzeigeauswahl"
 
-#: ./../publication_templates/view.pt:34
+#: ./../publication_templates/view.pt:17
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: ./../publication.py:30
+#: ./../publication.py:29
 msgid "Editor"
 msgstr "Herausgeber"
 
@@ -76,9 +76,13 @@ msgstr "Herausgeber"
 msgid "Global Culture"
 msgstr "Globale Solidarität"
 
-#: ./../publication_templates/view.pt:30
+#: ./../publication_templates/view.pt:44
 msgid "Heads up:"
 msgstr "Hinweis:"
+
+#: ./../publication_templates/view.pt:22
+msgid "It appears that you are a contributor to this content item"
+msgstr "Sie sind für diesen Inhalt als Beitragender gelistet und können Änderungen vornehmen"
 
 #: ./../vocabulary.py:16
 msgid "Magazine"
@@ -88,11 +92,11 @@ msgstr "Zeitschrift"
 msgid "Media"
 msgstr "Medium"
 
-#: ./../publication.py:56
+#: ./../publication.py:55
 msgid "Medium"
 msgstr "Medium"
 
-#: ./../publication.py:52
+#: ./../publication.py:51
 msgid "More Authors"
 msgstr "u.a. "
 
@@ -100,11 +104,15 @@ msgstr "u.a. "
 msgid "Munich Philosophy"
 msgstr "Münchner Philosophische Studien"
 
+#: ./../publication_templates/view.pt:21
+msgid "Note:"
+msgstr "Hinweis:"
+
 #: ./../vocabulary.py:33
 msgid "Philosophy"
 msgstr "Grundkurs Philosophie"
 
-#: ./../publication.py:82
+#: ./../publication.py:81
 msgid "Please upload a cover image"
 msgstr "Bitte laden Sie ein Coverbild hoch"
 
@@ -116,7 +124,7 @@ msgstr "Publikation"
 msgid "PublicationFolder"
 msgstr "Publikationsordner"
 
-#: ./../publication.py:62
+#: ./../publication.py:61
 #: ./../publicationfolder_templates/view.pt:35
 msgid "Series"
 msgstr "Reihen"
@@ -125,11 +133,11 @@ msgstr "Reihen"
 msgid "Solidarity"
 msgstr "Fragen einer neuen Weltkultur"
 
-#: ./../publication.py:77
+#: ./../publication.py:76
 msgid "Summary"
 msgstr "Zusatzinformationen"
 
-#: ./../publication.py:35
+#: ./../publication.py:34
 msgid "The entered value will be used to associate this publication with the corresponding faculty member"
 msgstr "Der eingegebene Wert wird benötigt, um eine Referenz dieser Publikation mit dem korrespondierenden Lehrenden herzustellen"
 
@@ -137,19 +145,19 @@ msgstr "Der eingegebene Wert wird benötigt, um eine Referenz dieser Publikation
 msgid "Theology"
 msgstr "Theologie und Philosophie"
 
-#: ./../publication.py:69
+#: ./../publication.py:68
 msgid "Third Party Project Display"
 msgstr "Drittmittelprojektanzeige"
 
-#: ./../publication.py:57
+#: ./../publication.py:56
 msgid "This is the field publications can be filtered on"
 msgstr "Dieses Feld ist ein gültiger Filterparameter"
 
-#: ./../publication.py:22
+#: ./../publication.py:21
 msgid "Title"
 msgstr "Titel"
 
-#: ./../publication.py:26
+#: ./../publication.py:25
 msgid "Year of Publication"
 msgstr "Publikationsjahr"
 
