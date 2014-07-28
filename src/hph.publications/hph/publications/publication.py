@@ -1,15 +1,14 @@
+# -*- coding: UTF-8 -*-
+from Acquisition import aq_inner
 from five import grok
-from plone.directives import dexterity, form
-
-from zope import schema
-from plone.indexer import indexer
-
-from z3c.form.browser.checkbox import CheckBoxFieldWidget
-
-from plone.namedfile.interfaces import IImageScaleTraversable
-from plone.namedfile.field import NamedBlobImage
-
+from plone import api
 from plone.app.textfield import RichText
+from plone.directives import dexterity, form
+from plone.indexer import indexer
+from plone.namedfile.field import NamedBlobImage
+from plone.namedfile.interfaces import IImageScaleTraversable
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
+from zope import schema
 
 from hph.publications import MessageFactory as _
 
@@ -116,3 +115,13 @@ class View(grok.View):
     grok.context(IPublication)
     grok.require('zope2.View')
     grok.name('view')
+
+    def item_contributor(self):
+        if api.user.is_anonymous():
+            return False
+        context = aq_inner(self.context)
+        is_owner = False
+        user = api.user.get_current()
+        if user.getId() in context.listContributors():
+            is_owner = True
+        return is_owner

@@ -11,6 +11,20 @@
   <metal:content-core define-macro="main">
 
     <article class="app-page" id="publication-view">
+
+      <tal:can_edit tal:condition="view/item_contributor">
+          <div class="app-callout app-callout-warning">
+              <a class="btn btn-warning pull-right"
+                  tal:attributes="href string:${context/absolute_url}/@@edit"
+                  i18n:translate="">
+                  Edit</a>
+              <h4 i18n:translate="">Note:</h4>
+              <p i18n:translate="">
+                  It appears that you are a contributor to this content item
+              </p>
+          </div>
+      </tal:can_edit>
+
       <header class="page-header">
         <p class="muted">
             <span tal:replace="context/authorOne" /><span tal:condition="context/authorTwo">,
