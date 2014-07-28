@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-03-06 14:46+0000\n"
+"POT-Creation-Date: 2014-07-28 19:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,24 +25,28 @@ msgstr ""
 msgid "A faculty staff member"
 msgstr ""
 
-#: ./../facultymember.py:42
+#: ./../facultymember.py:35
 msgid "Accademic Role or Position"
 msgstr ""
 
-#: ./../facultymember.py:80
+#: ./../facultymember.py:73
 msgid "Body Text"
 msgstr ""
 
-#: ./../facultymember.py:60
+#: ./../facultymember.py:53
 msgid "City"
 msgstr ""
 
-#: ./../facultymember.py:52
+#: ./../facultymember.py:45
 msgid "Department"
 msgstr ""
 
-#: ./../facultymember.py:72
+#: ./../facultymember.py:65
 msgid "E-Mail"
+msgstr ""
+
+#: ./../facultymember_templates/view.pt:67
+msgid "Edit"
 msgstr ""
 
 #: ./../vocabulary.py:18
@@ -57,39 +61,47 @@ msgstr ""
 msgid "FacultyMember"
 msgstr ""
 
-#: ./../facultymember.py:68
+#: ./../facultymember.py:61
 msgid "Fax"
 msgstr ""
 
-#: ./../facultymember.py:32
+#: ./../facultymember_templates/view.pt:72
+msgid "It appears that you are the owner in this context and you are therefore allowed to change this content item"
+msgstr ""
+
+#: ./../facultymember.py:30
 msgid "Lastname"
 msgstr ""
 
-#: ./../vocabulary.py:15
+#: ./../vocabulary.py:17
 msgid "Lecturer"
 msgstr ""
 
-#: ./../facultymember.py:48
+#: ./../facultymember_templates/view.pt:71
+msgid "Note:"
+msgstr ""
+
+#: ./../facultymember.py:41
 msgid "Optional additional information/sidenote"
 msgstr ""
 
-#: ./../facultymember.py:64
+#: ./../facultymember.py:57
 msgid "Phone"
 msgstr ""
 
-#: ./../facultymember.py:76
+#: ./../facultymember.py:69
 msgid "Portrait Image"
 msgstr ""
 
-#: ./../vocabulary.py:16
+#: ./../vocabulary.py:15
 msgid "Professor"
 msgstr ""
 
-#: ./../facultymember.py:33
+#: ./../facultymember.py:31
 msgid "Provide last name for better filtering and search"
 msgstr ""
 
-#: ./../facultymember.py:87
+#: ./../facultymember.py:81
 msgid "Publication"
 msgstr ""
 
@@ -98,19 +110,20 @@ msgstr ""
 msgid "Publications"
 msgstr ""
 
-#: ./../facultymember.py:47
+#: ./../facultymember.py:40
 msgid "Sidenote"
 msgstr ""
 
-#: ./../facultymember.py:56
+#: ./../facultymember.py:49
 msgid "Street"
 msgstr ""
 
-#: ./../vocabulary.py:17
+#: ./../vocabulary.py:16
 msgid "docent"
 msgstr ""
 
 #: ./../facultydirectory_templates/contentfilter.pt:21
+#: ./../facultymember_templates/view.pt:58
 msgid "remove filter"
 msgstr ""
 
