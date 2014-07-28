@@ -1,18 +1,15 @@
+# -*- coding: UTF-8 -*-
+
 from Acquisition import aq_inner
 from Acquisition import aq_parent
+from Products.CMFCore.utils import getToolByName
 from five import grok
+from hph.publications.publication import IPublication
 from plone import api
-
+from plone.app.contentlisting.interfaces import IContentListing
+from plone.directives import dexterity, form
 from zope.lifecycleevent import modified
 from zope.schema.vocabulary import getVocabularyRegistry
-
-from plone.directives import dexterity, form
-
-from Products.CMFCore.utils import getToolByName
-
-from plone.app.contentlisting.interfaces import IContentListing
-
-from hph.publications.publication import IPublication
 
 from hph.publications import MessageFactory as _
 
@@ -82,6 +79,13 @@ class View(grok.View):
         vr = getVocabularyRegistry()
         vocab = vr.get(context, 'hph.publications.publicationSeries')
         return vocab
+
+    def has_active_filter(self):
+        req = self.request
+        filtered = False
+        if req.get('media') or req.get('bookSeries'):
+            filtered = True
+        return filtered
 
     def computed_klass(self, fieldname, value):
         context = aq_inner(self.context)
