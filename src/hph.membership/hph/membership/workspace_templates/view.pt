@@ -75,16 +75,17 @@
                                             tal:content="action/title">
                                             List group item heading
                                           </h4>
-                                          <p class="list-group-item-text">
+                                          <p class="list-group-item-text"
+                                            tal:content="action/description">
                                               Kurzer Beschreibungstext zu diesem Teilbereich
                                           </p>
                                         </a>
                                     </tal:block>
                                 </div>
-                                <p class="text-muted">
+                                <p class="text-discreet">
                                     Wichtige Information bezüglich der Publikationen auf den Lehrenden-Seiten:
                                 </p>
-                                <ul class="text-muted">
+                                <ul class="text-discreet">
                                   <li>Buchpublikationen werden auf der Homepage zentral gepflegt – die Darstellung der Bücher unter der Subnavigation „Publikationen“ auf Ihrer Seite erfolgt automatisiert durch die Zuordnung des Autorennamens (d.h. diese Seite können Sie nicht direkt bearbeiten).</li>
                                   <li>Artikel/Beiträge/Rezensionen werden, wie gewohnt, innerhalb einer Standard- Inhaltsseite angelegt. Diese Listen können von Ihnen gepflegt und auf dem aktuellsten Stand gehalten werden.</li>
                                 </ul>
@@ -109,10 +110,6 @@
                                           </h4>
                                           <p class="list-group-item-text" i18n:translate="">
                                               Informationen zur Person unter <code>/Hochschule/Lehrende</code>
-                                          </p>
-                                          <p class="list-group-item-text">
-                                            Über diesen Link können Sie direkt auf die Profilseiten aller Mitglieder des
-                                            Lehrkörpers an der Hochschule für Philosophie zugreifen. Wenn Sie selbst Lehrender bzw. Lehrende sind, können Sie Ihre persönliche Seite (inkl. Unterseiten) dort bearbeiten.
                                           </p>
                                         </a>
                                     </tal:block>

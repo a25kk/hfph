@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-07-19 20:37+0000\n"
+"POT-Creation-Date: 2014-07-28 20:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: hph.membership\n"
 
-#: ./../workspace_templates/view.pt:114
+#: ./../workspace_templates/view.pt:127
 msgid "A list of content items you are asigned as a contributor"
 msgstr ""
 
@@ -48,6 +48,10 @@ msgstr ""
 
 #: ./../setpassword.py:25
 msgid "Again for confirmation"
+msgstr ""
+
+#: ./../workspace.py:102
+msgid "Alumni description"
 msgstr ""
 
 #: ./../invitation_templates/invitenewuser.pt:31
@@ -86,7 +90,7 @@ msgstr ""
 msgid "Enable/Disable User"
 msgstr ""
 
-#: ./../memberfolder.py:270
+#: ./../memberfolder.py:269
 msgid "External records stored for import"
 msgstr ""
 
@@ -98,11 +102,11 @@ msgstr ""
 msgid "HPH Membership Tool"
 msgstr ""
 
-#: ./../memberfolder.py:30
+#: ./../memberfolder.py:29
 msgid "Importable API Records"
 msgstr ""
 
-#: ./../workspace_templates/view.pt:102
+#: ./../workspace_templates/view.pt:111
 msgid "Informationen zur Person unter <code>/Hochschule/Lehrende</code>"
 msgstr ""
 
@@ -118,8 +122,12 @@ msgstr ""
 msgid "Invite new users by passing a list of email addresses"
 msgstr ""
 
-#: ./../workspace_templates/view.pt:112
+#: ./../workspace_templates/view.pt:125
 msgid "Lectures"
+msgstr ""
+
+#: ./../workspace.py:106
+msgid "Lectures description"
 msgstr ""
 
 #: ./../signin.py:54
@@ -183,7 +191,7 @@ msgstr ""
 msgid "No activity recorded yet"
 msgstr ""
 
-#: ./../workspace.py:45
+#: ./../workspace.py:46
 msgid "No email provided"
 msgstr ""
 
@@ -203,7 +211,7 @@ msgstr ""
 msgid "Passwords require a minimum length of 8 characters."
 msgstr ""
 
-#: ./../workspace_templates/view.pt:88
+#: ./../workspace_templates/view.pt:97
 msgid "Personal Contents"
 msgstr ""
 
@@ -222,6 +230,10 @@ msgstr ""
 #: ./../setpassword.py:74
 #: ./../userfactory.py:66
 msgid "Process has been cancelled."
+msgstr ""
+
+#: ./../workspace.py:104
+msgid "Prophil description"
 msgstr ""
 
 #: ./../signin.py:185
@@ -244,15 +256,23 @@ msgstr ""
 msgid "Signout"
 msgstr ""
 
+#: ./../workspace.py:98
+msgid "Standard description for workspace links"
+msgstr ""
+
 #: ./../memberfolder_templates/memberrecords.pt:42
 msgid "Stored Records"
+msgstr ""
+
+#: ./../workspace.py:100
+msgid "Students and guests description"
 msgstr ""
 
 #: ./../useraccount.py:110
 msgid "The entered password and confirmation do not match."
 msgstr ""
 
-#: ./../workspace_templates/view.pt:90
+#: ./../workspace_templates/view.pt:99
 msgid "The following content is owned by your user."
 msgstr ""
 
