@@ -20,6 +20,16 @@ class LectureFactory(grok.View):
     grok.require('cmf.ModifyPortalContent')
     grok.name('lecture-factory')
 
+    @property
+    def traverse_subpath(self):
+        return self.subpath
+
+    def publishTraverse(self, request, name):
+        if not hasattr(self, 'subpath'):
+            self.subpath = []
+        self.subpath.append(name)
+        return self
+
 
 class PanelHeadingEditForm(form.SchemaEditForm):
     grok.context(IWorkspace)

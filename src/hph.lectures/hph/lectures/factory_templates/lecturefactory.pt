@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.lectures">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-3">
+            <aside class="app-aside hidden-print" id="app-sidebar">
+                <div class="app-box app-box-faculty">
+                    <div class="app-box-header">
+                        <h2 i8n:translate="">Lecture Factory</h2>
+                    </div>
+                    <div class="app-box-content">
+                        <ul class="nav nav-pills nav-stacked app-box-nav">
+                            <li>
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${context/@@uuid}/base"
+                                    ti18n:translate="">ACtion option</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="app-box-footer">
+                        <a class="btn btn-danger btn-sm"
+                            tal:attributes="href string:${context/absolute_url}">
+                            &times; <span i18n:translate="">Quit editor</span></a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+            <div class="app-list-item">
+                <div class="app-list-item-kicker">
+                    <span tal:replace="context/courseNumber" /><span tal:condition="context/blockLecture">*</span>
+                    <tal:lecturer tal:condition="context/lecturer">
+                        <tal:items tal:repeat="node context/lecturer">
+                            <span tal:replace="node/to_object/Title" /><tal:separator condition="not: repeat/node/end">,</tal:separator>
+                        </tal:items>
+                    </tal:lecturer>
+                </div>
+                <h2>
+                    <span tal:content="context/Title" />
+                </h2>
+                <p tal:content="context/subtitle" />
+                <p tal:condition="context/lecturerAdditional">
+                    <span i18n:translate="">Additional Lecturer</span>
+                    <span tal:replace="context/lecturerAdditional" />
+                </p>
+                <p class="text-muted"
+                    tal:define="duration context/courseDuration;
+                                pretty_duration python:view.prettify_duration(duration)">
+                    <span tal:content="pretty_duration" i18n:translate="">Duration</span>
+                    <span tal:replace="context/courseTime" />
+                </p>
+                <p class="text-muted">
+                    <span i18n:translate="">Raum</span>
+                    <span tal:replace="context/courseRoom" />
+                <p class="text-muted">
+                    <span i18n:translate="">Dates</span>:
+                    <span tal:replace="context/courseDates" />
+                <p class="text-muted" tal:condition="context/moduledetails">
+                    <tal:items tal:repeat="node context/moduledetails">
+                        <span tal:define="degree node/degree;
+                                          pretty_degree python:view.prettify_degree(degree)"
+                            tal:content="pretty_degree"
+                            i18n:translate="" />:
+                        <span tal:replace="node/info" />
+                        <tal:separator condition="not: repeat/node/end"><br></tal:separator>
+                    </tal:items>
+                </p>
+                <p class="text-discreet text-muted"
+                    tal:condition="context/Description"
+                    tal:content="context/Description" />
+            </div>
+        </div>
+    </div>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+
