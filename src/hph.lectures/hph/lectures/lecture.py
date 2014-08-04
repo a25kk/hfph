@@ -1,13 +1,11 @@
 # -*- coding: UTF-8 -*-
 from Acquisition import aq_inner
 from five import grok
-from hph.faculty.facultymember import IFacultyMember
 from plone import api
 from plone.app.vocabularies.catalog import CatalogSource
 from plone.app.widgets.dx import RelatedItemsWidget
 from plone.dexterity.content import Container
 from plone.directives import form
-from plone.formwidget.contenttree import ObjPathSourceBinder
 from plone.indexer import indexer
 from plone.namedfile.interfaces import IImageScaleTraversable
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
@@ -177,6 +175,16 @@ class View(grok.View):
                 if role in admin_roles:
                     allowed = True
         return allowed
+
+    def display_edit_notification(self):
+        if api.user.is_anonymous():
+            return False
+        context = aq_inner(self.context)
+        is_owner = False
+        user = api.user.get_current()
+        if user.getId() in context.listContributors():
+            is_owner = True
+        return is_owner
 
     def filter_options(self):
         context = aq_inner(self.context)

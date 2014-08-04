@@ -34,7 +34,7 @@
             </aside>
         </div>
         <div class="col-xs-12 col-sm-9">
-            <div class="app-list-item">
+            <div class="app-list-item" tal:content="nothing">
                 <div class="app-list-item-kicker">
                     <span tal:replace="context/courseNumber" /><span tal:condition="context/blockLecture">*</span>
                     <tal:lecturer tal:condition="context/lecturer">
