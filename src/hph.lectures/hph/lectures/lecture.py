@@ -169,7 +169,8 @@ class View(grok.View):
         if user_id == 'zope-admin':
             allowed = True
         else:
-            admin_roles = ('Manager', 'Site Administrator', 'StaffMember')
+            admin_roles = ('Manager', 'Site Administrator',
+                           'StaffMember', 'Owner')
             roles = api.user.get_roles(username=user_id, obj=context)
             for role in roles:
                 if role in admin_roles:
