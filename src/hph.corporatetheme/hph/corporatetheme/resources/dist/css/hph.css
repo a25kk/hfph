@@ -15601,9 +15601,7 @@ select[multiple].app-actionbar-form .input-sm
     .app-navbar-main > .navitem a
     {
         border-right: 1px solid rgba(0, 0, 0, .1);
-        border-left: 1px solid rgba(255, 255, 255, .75);
-        -webkit-box-shadow: inset 0 3px 9px rgba(0, 0, 0, .25);
-                box-shadow: inset 0 3px 9px rgba(0, 0, 0, .25);
+        border-left: 2px solid rgba(255, 255, 255, .75);
     }
 }
 .app-navbar-main > .navitem.active a,
