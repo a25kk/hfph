@@ -82,7 +82,7 @@ else window.onload = downloadJSAtOnload;
         <!-- Custom favicon implementation -->
         <drop css:content="head link[rel='apple-touch-icon']" />
         <drop css:content="head link[rel='shortcut icon']" />
-        <after theme="/html/head">
+        <after theme-children="/html/head">
             <link rel="shortcut icon" href="/++theme++hph.corporatetheme/assets/img/favicon.ico" type="images/x-icon" />
         </after>
 
