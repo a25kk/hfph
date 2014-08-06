@@ -18,7 +18,8 @@
             <aside class="app-fp-tile" id="app-sidebar-fp">
             <img class="img-section"
                 tal:define="portal_url context/portal_url"
-                tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/hph-muenchen.jpg'" />
+                tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/hph-muenchen.jpg';
+                                alt context/Description" />
           </aside>
         </div>
         <div class="col-xs-12 col-sm-6 col-md-3" id="app-col-sidebar">
@@ -70,7 +71,8 @@
                                             tal:attributes="class string:app-img;
                                                             src img/url;
                                                             width img/width;
-                                                            height img/height" />
+                                                            height img/height;
+                                                            alt item/Title" />
                                     </a>
                                     <p class="text-discreet" tal:content="item/Description" />
                                 </div>
