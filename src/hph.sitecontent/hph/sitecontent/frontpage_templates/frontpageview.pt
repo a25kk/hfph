@@ -51,8 +51,8 @@
 
 
      <aside class="app-aside" id="app-aside">
-        <section class="app-tile app-content-body" id="app-aside-content">
-             <article class="app-tile-news-content">
+        <div class="app-tile app-content-body" id="app-aside-content">
+             <div class="app-tile-news-content">
                 <div class="row"
                     tal:condition="view/has_news">
                     <tal:block tal:repeat="item view/recent_news">
@@ -87,8 +87,8 @@
                         tal:attributes="href python:portal_url + '/nachrichten'">
                         Weitere Nachrichten</a>
                 </div>
-            </article>
-      </section>
+            </div>
+      </div>
     </aside>
 
   </metal:content-core>
