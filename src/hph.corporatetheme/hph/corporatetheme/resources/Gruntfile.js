@@ -186,6 +186,26 @@ module.exports = function (grunt) {
             theme: {}
         },
 
+        htmlmin: {
+          dist: {
+            options: {
+              removeComments: true,
+              collapseWhitespace: true
+            },
+            files: {
+              'dist/theme.html': '_site/index.html',
+              'dist/theme-igp.html': '_site/igp/index.html',
+              'dist/theme-pp.html': '_site/pp/index.html',
+              'dist/overlay.html': '_site/overlay/index.html',
+              'dist/signin.html': '_site/signin/index.html',
+              'dist/frontpage.html': '_site/frontpage/index.html',
+              'dist/landingpage.html': '_site/landingpage/index.html',
+              'dist/opac.html': '_site/opac/index.html',
+              'dist/newsletter.html': '_site/newsletter/index.html'
+            }
+          },
+        },
+
         sed: {
             'clean-source-assets': {
                 path: 'dist/',
@@ -323,7 +343,7 @@ module.exports = function (grunt) {
     grunt.registerTask('dist-cb', ['rev']);
 
     // Template distribution task.
-    grunt.registerTask('dist-html', ['jekyll:theme', 'copy-templates', 'sed']);
+    grunt.registerTask('dist-html', ['jekyll:theme', 'htmlmin', 'sed']);
 
     // Concurrent distribution task
     grunt.registerTask('dist-cc', ['test', 'concurrent:cj', 'concurrent:ha']);
