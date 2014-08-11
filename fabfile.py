@@ -25,7 +25,7 @@ env.local_root = '/Users/cb/dev/hph/buildout.hph'
 env.sitename = 'hph'
 env.code_user = 'root'
 env.prod_user = 'www'
-env.actor = 'Christoph Boehner'
+# env.actor = 'Christoph Boehner'
 
 
 env.roledefs = {
