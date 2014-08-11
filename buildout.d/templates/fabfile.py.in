@@ -1,3 +1,4 @@
+import getpass
 from fabric.api import task
 from fabric.api import cd
 from fabric.api import env
@@ -9,7 +10,9 @@ from ade25.fabfiles import server
 from ade25.fabfiles import project
 
 from ade25.fabfiles.server import controls
-from ade25.fabfiles.server import setup
+
+from slacker import Slacker
+slack = Slacker('xoxp-2440800772-2440800774-2520374751-468e84')
 
 env.use_ssh_config = True
 env.forward_agent = True
@@ -76,22 +79,36 @@ def ctl(*cmd):
 
 @task
 @roles('production')
-def deploy():
+def deploy(actor=None):
     """ Deploy current master to production server """
+    opts = dict(
+        username=actor or env.get('actor') or getpass.getuser(),
+    )
     controls.update()
     controls.build()
     project.cluster.restart_clients()
+    msg = '[hph] %(username)s deployed tp production' % opts
+    user = 'fabric:'
+    icon = ':shipit:'
+    slack.chat.post_message('#general', msg, username=user, icon_emoji=icon)
 
 
 @task
 @roles('staging')
-def stage():
+def stage(actor=None):
     """ Deploy current master to staging server """
+    opts = dict(
+        username=actor or env.get('actor') or getpass.getuser(),
+    )
     with settings(port=22222, webserver='/opt/webserver/buildout.webserver'):
         project.site.update()
         with cd(env.code_root):
             run('bin/buildout -Nc staging.cfg')
         project.site.restart()
+    msg = ('[z9] %(username)s deployed hph' % opts)
+    user = 'fabric:'
+    icon = ':shipit:'
+    slack.chat.post_message('#general', msg, username=user, icon_emoji=icon)
 
 
 @task
