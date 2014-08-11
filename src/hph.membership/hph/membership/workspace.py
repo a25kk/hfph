@@ -1,7 +1,6 @@
 # -*- coding: UTF-8 -*-
 from Acquisition import aq_inner
 from five import grok
-from hph.lectures.lecture import ILecture
 from plone import api
 from plone.app.contentlisting.interfaces import IContentListing
 from plone.dexterity.content import Container
@@ -9,6 +8,9 @@ from plone.directives import form
 from plone.keyring import django_random
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.memoize.view import memoize
+from zope.component import getMultiAdapter
+
+from hph.lectures.lecture import ILecture
 
 from hph.membership import MessageFactory as _
 
@@ -131,6 +133,20 @@ class View(grok.View):
             if context.getId() in item.getObject().listContributors():
                 results.append(item)
         return results
+
+    def breadcrumbs(self, item):
+        obj = item.getObject()
+        view = getMultiAdapter((obj, self.request), name='breadcrumbs_view')
+        # cut off the item itself
+        breadcrumbs = list(view.breadcrumbs())[:-1]
+        if len(breadcrumbs) == 0:
+            # don't show breadcrumbs if we only have a single element
+            return None
+        if len(breadcrumbs) > 3:
+            # if we have too long breadcrumbs, emit the middle elements
+            empty = {'absolute_url': '', 'Title': unicode('…', 'utf-8')}
+            breadcrumbs = [breadcrumbs[0], empty] + breadcrumbs[-2:]
+        return breadcrumbs
 
     def compose_pwreset_link(self):
         context = aq_inner(self.context)

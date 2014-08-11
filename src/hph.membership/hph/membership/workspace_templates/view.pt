@@ -87,7 +87,7 @@
                                 </p>
                                 <ul class="text-discreet">
                                   <li>Buchpublikationen werden auf der Homepage zentral gepflegt – die Darstellung der Bücher unter der Subnavigation „Publikationen“ auf Ihrer Seite erfolgt automatisiert durch die Zuordnung des Autorennamens (d.h. diese Seite können Sie nicht direkt bearbeiten).</li>
-                                  <li>Artikel/Beiträge/Rezensionen werden, wie gewohnt, innerhalb einer Standard- Inhaltsseite angelegt. Diese Listen können von Ihnen gepflegt und auf dem aktuellsten Stand gehalten werden.</li>
+                                  <li>Artikel/Beiträge/Rezensionen werden, wie gewohnt, innerhalb einer Standard- Inhaltsseite angelegt. Diese Listen können von Ihnen gepflegt und auf dem aktuellsten Stand gehalten werden.</li>
                                 </ul>
                             </div>
                             <hr>
@@ -108,8 +108,33 @@
                                             tal:content="item/Title">
                                             List group item heading
                                           </h4>
-                                          <p class="list-group-item-text" i18n:translate="">
-                                              Informationen zur Person unter <code>/Hochschule/Lehrende</code>
+                                          <p class="list-group-item-text">
+                                              <cite class="documentLocation link-location"
+                                                    tal:define="breadcrumbs python: view.breadcrumbs(item);
+                                                                is_rtl context/@@plone_portal_state/is_rtl;"
+                                                    tal:condition='breadcrumbs'>
+                                                  <span i18n:translate="text_searchitem_location">
+                                                      Located in
+                                                  </span>
+                                                  <span tal:repeat="crumb breadcrumbs"
+                                                        tal:attributes="dir python:is_rtl and 'rtl' or 'ltr';">
+                                                      <tal:item tal:define="is_last repeat/crumb/end;
+                                                                            url crumb/absolute_url;
+                                                                            title crumb/Title">
+                                                          <a href="#"
+                                                             tal:omit-tag="not: url"
+                                                             tal:attributes="href url"
+                                                             tal:content="title">
+                                                              crumb
+                                                          </a>
+                                                          <span class="breadcrumbSeparator" tal:condition="not: is_last">
+                                                              <tal:ltr condition="not: is_rtl">/</tal:ltr>
+                                                              <tal:rtl condition="is_rtl">/</tal:rtl>
+                                                          </span>
+                                                       </tal:item>
+                                                  </span>
+
+                                              </cite>
                                           </p>
                                         </a>
                                     </tal:block>
