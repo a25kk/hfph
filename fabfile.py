@@ -25,7 +25,7 @@ env.local_root = '/Users/cb/dev/hph/buildout.hph'
 env.sitename = 'hph'
 env.code_user = 'root'
 env.prod_user = 'www'
-# env.actor = 'Christoph Boehner'
+env.actor = 'Christoph Boehner'
 
 
 env.roledefs = {
@@ -83,12 +83,12 @@ def ctl(*cmd):
 def deploy(actor=None):
     """ Deploy current master to production server """
     opts = dict(
-        username=actor or env.get('actor') or getpass.getuser(),
+        actor=actor or env.get('actor') or getpass.getuser(),
     )
     controls.update()
     controls.build()
     project.cluster.restart_clients()
-    msg = ('[hph] %(username)s deployed tp production' % opts)
+    msg = ('[hph] hph deployed by %(actor)s' % opts)
     user = 'fabric'
     icon = ':shipit:'
     slack.chat.post_message('#general', msg, username=user, icon_emoji=icon)
@@ -99,14 +99,14 @@ def deploy(actor=None):
 def stage(actor=None):
     """ Deploy current master to staging server """
     opts = dict(
-        username=actor or env.get('actor') or getpass.getuser(),
+        actor=actor or env.get('actor') or getpass.getuser(),
     )
     with settings(port=22222, webserver='/opt/webserver/buildout.webserver'):
         project.site.update()
         with cd(env.code_root):
             run('bin/buildout -Nc staging.cfg')
         project.site.restart()
-    msg = ('[z9] Christoph Boehner deployed hph' % opts)
+    msg = ('[z9] hph deployed by %(actor)s' % opts)
     user = 'fabric'
     icon = ':shipit:'
     slack.chat.post_message('#general', msg, username=user, icon_emoji=icon)
