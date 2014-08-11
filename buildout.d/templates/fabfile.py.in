@@ -84,13 +84,14 @@ def ctl(*cmd):
 def deploy(actor=None):
     """ Deploy current master to production server """
     opts = dict(
+        sitename=env.get('sitename'),
         actor=actor or env.get('actor') or getpass.getuser(),
     )
     controls.update()
     controls.build()
     project.cluster.restart_clients()
-    msg = '[hph] hph deployed by %(actor)s' % opts
-    user = 'fabric:'
+    msg = '[hph] *%(sitename)s* deployed by %(actor)s' % opts
+    user = 'fabric'
     icon = ':shipit:'
     slack.chat.post_message('#general', msg, username=user, icon_emoji=icon)
 
@@ -100,6 +101,7 @@ def deploy(actor=None):
 def stage(actor=None):
     """ Deploy current master to staging server """
     opts = dict(
+        sitename=env.get('sitename'),
         actor=actor or env.get('actor') or getpass.getuser(),
     )
     with settings(port=22222, webserver='/opt/webserver/buildout.webserver'):
@@ -107,8 +109,8 @@ def stage(actor=None):
         with cd(env.code_root):
             run('bin/buildout -Nc staging.cfg')
         project.site.restart()
-    msg = ('[z9] hph deployed by %(actor)s deployed hph' % opts)
-    user = 'fabric:'
+    msg = ('[z9] *%(sitename)s* deployed by %(actor)s' % opts)
+    user = 'fabric'
     icon = ':shipit:'
     slack.chat.post_message('#general', msg, username=user, icon_emoji=icon)
 
