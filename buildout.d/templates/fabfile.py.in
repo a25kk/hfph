@@ -25,6 +25,8 @@ env.local_root = '${buildout:directory}'
 env.sitename = 'hph'
 env.code_user = 'root'
 env.prod_user = 'www'
+# Uncomment and add your name here
+# env.actor = 'John Doe'
 
 
 env.roledefs = {
