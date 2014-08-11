@@ -18,7 +18,7 @@
             <aside class="app-page" id="page-content">
                 <tal:img tal:condition="context/image">
                     <img tal:define="img view/banner_image"
-                        tal:attributes="class string:img-section;
+                        tal:attributes="class string:app-img app-img-section;
                                         src img/url;
                                         width img/width;
                                         height img/height" />

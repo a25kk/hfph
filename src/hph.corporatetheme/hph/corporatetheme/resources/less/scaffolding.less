@@ -1,0 +1,115 @@
+//
+// Basic scaffolding and resets
+//
+
+body {
+    background: @gray-lighter;
+    &.template-theming-controlpanel .row {
+        // Fix theming control panel
+        margin: 0 @line-height-computed;
+    }
+}
+
+// Set font weights if webfont is active
+.ws-active {
+    // Default twbs weight for headings 500 not provided by Open Sans
+    @headings-font-weight: 600;
+    b,
+    strong {
+        font-weight: 600;
+    }
+}
+
+// prevent fake bolds
+b,
+strong {
+    font-weight: 600;
+    .ws-active & {
+        font-weight: 600;
+    }
+}
+
+a {
+    outline: 0;
+}
+
+a:hover {
+  .transition(color .5s linear);
+}
+
+// Reenable tpye selection in navigation control panel
+.template-navigation-controlpanel .label:empty {
+    display: inline;
+}
+
+// Combat plone hidden element class via mixin
+.hiddenStructure {
+    .hidden();
+}
+
+// Reset widget styling
+.mce-edit-area,
+#content .field textarea,
+#content .field input[type="text"] {
+    background: #fff;
+    background-image: none;
+}
+
+// Fix recurrence widget overlay styling
+div.riform .label {
+    float: none;
+}
+// Fix datepicker header year + month select
+.pattern-pickadate-wrapper .picker__select--month,
+.pattern-pickadate-wrapper .picker__select--year {
+    display: inline-block;
+}
+
+// Headroom.js to hide the toolbar on scroll
+.headroom {
+    .transition(transform 200ms linear);
+}
+.headroom--pinned {
+    .translate(0%, 0%);
+}
+.headroom--unpinned {
+    .translate(0, -100%);
+}
+
+// dataTables stylings used in the user manager
+.app-table-usermanager {
+    > tbody > td:first-child {
+        max-width: @screen-xs;
+    }
+}
+
+.row-dt-filter {
+    margin: @line-height-computed 0;
+}
+
+.dataTables_paginate > a {
+    display: inline-block;
+    margin-right: @line-height-computed;
+}
+
+// Reset border radius on form elements
+.btn,
+.form-control {
+    border-radius: 0;
+}
+
+.searchButton {
+    .btn();
+    .btn-default();
+}
+
+// Reset tiny mce content body styling for better readability
+
+.mceContentBody {
+    padding: @line-height-computed;
+}
+
+.datagridwidget-table-view {
+    .table();
+    .table-condensed();
+}

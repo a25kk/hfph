@@ -1,108 +1,6 @@
 // Custom application specific styles
 //--------------------------------------
 
-
-body {
-    background: @gray-lighter;
-    &.template-theming-controlpanel .row {
-        // Fix theming control panel
-        margin: 0 @line-height-computed;
-    }
-}
-
-// Set font weights if webfont is active
-.ws-active {
-    // Default twbs weight for headings 500 not provided by Open Sans
-    @headings-font-weight: 600;
-    b,
-    strong {
-        font-weight: 600;
-    }
-}
-
-// prevent fake bolds
-b,
-strong {
-    font-weight: 600;
-    .ws-active & {
-        font-weight: 600;
-    }
-}
-
-a {
-    outline: 0;
-}
-
-a:hover {
-  .transition(color .5s linear);
-}
-
-// Reenable tpye selection in navigation control panel
-.template-navigation-controlpanel .label:empty {
-    display: inline;
-}
-
-// Combat plone hidden element class via mixin
-.hiddenStructure {
-    .hidden();
-}
-
-// Reset widget styling
-.mce-edit-area,
-#content .field textarea,
-#content .field input[type="text"] {
-    background: #fff;
-    background-image: none;
-}
-
-// Fix recurrence widget overlay styling
-div.riform .label {
-    float: none;
-}
-// Fix datepicker header year + month select
-.pattern-pickadate-wrapper .picker__select--month,
-.pattern-pickadate-wrapper .picker__select--year {
-    display: inline-block;
-}
-
-// Headroom.js to hide the toolbar on scroll
-.headroom {
-    .transition(transform 200ms linear);
-}
-.headroom--pinned {
-    .translate(0%, 0%);
-}
-.headroom--unpinned {
-    .translate(0, -100%);
-}
-
-// dataTables stylings used in the user manager
-.app-table-usermanager {
-    > tbody > td:first-child {
-        max-width: @screen-xs;
-    }
-}
-
-.row-dt-filter {
-    margin: @line-height-computed 0;
-}
-
-.dataTables_paginate > a {
-    display: inline-block;
-    margin-right: @line-height-computed;
-}
-
-// Reset border radius on form elements
-.btn,
-.form-control {
-    border-radius: 0;
-}
-
-.searchButton {
-    .btn();
-    .btn-default();
-}
-
 // Adjust header for cms toolbar height
 
 .app-toolbar + .app-header {
@@ -163,37 +61,6 @@ div.riform .label {
     border-top: 5px solid @app-blue;
 }
 
-.site-actionbar {
-    border: 1px solid @app-gray;
-    ul {
-        font-size: @font-size-small;
-        text-transform: uppercase;
-    }
-}
-
-#portal-subsubnavigation > li.active > a,
-    #portal-subsubnavigation > li.active > a:hover,
-    #portal-subsubnavigation > li.active > a:focus {
-        background: @app-gray;
-        border-radius: 0px;
-}
-
-#tickerbar {
-    .navbar-inner {
-        color: @state-danger-text;
-        background: @state-danger-bg;
-        border-bottom: 2px solid @state-danger-border;
-        border-radius: 0px;
-        #bulletins {
-            padding: (@line-height-computed / 2)  0 0;
-        }
-    }
-}
-
-#subnavigation {
-    padding-left: @line-height-computed * 1.5;
-}
-
 .app-breadcrumbs {
     background: @gray-lighter;
 }
@@ -206,17 +73,6 @@ div.riform .label {
     .page-header {
         margin-top: 0;
         border: none;
-    }
-}
-
-.page-signin {
-    max-width: 480px;
-    .page-content {
-        padding-top: @line-height-computed;
-    }
-    .page-footer {
-        //padding-top: @line-height-computed;
-        //border-top: 1px solid @gray-lighter;
     }
 }
 
@@ -249,19 +105,6 @@ div.riform .label {
     }
 }
 
-.img-section {
-    .img-responsive();
-    border: ceil((@line-height-computed / 4)) solid #fff;
-}
-
-.vevent .timezone {
-    display: none;
-}
-
-.eventDetails {
-    margin-top: @line-height-computed;
-}
-
 // Temporary css fixes - Presentation
 
 .app-content-body {
@@ -278,6 +121,21 @@ div.riform .label {
         .list-item-heading {
             margin-top: 0;
         }
+    }
+}
+
+.documentFirstHeading {
+    font-size: @font-size-large;
+    color: @app-blue;
+}
+
+.link-more {
+    font-size: ceil((@font-size-base * 1.5));
+    text-decoration: none;
+    line-height: floor((@line-height-base / 4));
+    margin-bottom: 9px;
+    &:hover {
+        color: black;
     }
 }
 
@@ -299,82 +157,5 @@ div.riform .label {
 .app-content-hero {
     max-width: 480px;
     margin: (@navbar-height * 2) auto;
-}
-
-.signin-brand {
-    display: block;
-    overflow: hidden;
-    background:url(../assets/img/logo.jpg)  no-repeat 0 0 transparent;
-    text-indent: -999999px;
-    .size(250px, 100px);
-}
-
-
-// App image styling
-
-.app-img {
-    margin-bottom: (@line-height-computed / 2);
-    line-height: @line-height-base;
-    background-color: @thumbnail-bg;
-    border: 1px solid @thumbnail-border;
-    border-top: 4px solid @app-yellow;
-    .transition(all .2s ease-in-out);
-    .img-responsive(inline-block);
-}
-
-.app-img-inverse {
-    margin-bottom: (@line-height-computed / 2);
-    line-height: @line-height-base;
-    background-color: @thumbnail-bg;
-    border: 1px solid @thumbnail-border;
-    border-top: 4px solid black;
-    .transition(all .2s ease-in-out);
-    .img-responsive(inline-block);
-}
-
-.no-img {
-    margin-bottom: (@line-height-computed / 2);
-    line-height: @line-height-base;
-    background-color: @thumbnail-bg;
-    border: 1px solid @thumbnail-border;
-    border-top: 4px solid @app-yellow;
-    width: 90px;
-    height: 140px;
-    text-align: center;
-    padding-top: @line-height-computed;
-    color: @gray-lighter;
-    .transition(all .2s ease-in-out);
-}
-
-.documentFirstHeading {
-    font-size: @font-size-large;
-    color: @app-blue;
-}
-
-a.link-more {
-    font-size: @font-size-base * 1.5;
-    text-decoration: none;
-    line-height: @line-height-base / 4;
-    margin-bottom: 9px;
-    &:hover {
-        color: black;
-    }
-}
-
-// Spacing for login/signin page
-
-#login-forgotten-password {
-    margin: @navbar-height 0 @line-height-computed;
-}
-
-// Reset tiny mce content body styling for better readability
-
-.mceContentBody {
-    padding: @line-height-computed;
-}
-
-.datagridwidget-table-view {
-    .table();
-    .table-condensed();
 }
 
