@@ -2,11 +2,18 @@
 // Actionbar including meta nav and search box
 // -------------------------------------------------
 
-.app-actionbar { 
+
+// Add border to wrapper div
+.app-header-content {
+    border-top: ceil((@line-height-computed / 4)) solid @app-blue;
+}
+
+// Adjust top margin to compensate for border
+.app-actionbar {
+    margin-top: ceil(-(@line-height-computed / 4));
     margin-right: 0;
-    margin-top: -(@line-height-computed * 0.3);
     @media (min-width: @screen-md) {
-        margin-right: @line-height-computed * 2;
+        margin-right: ceil((@line-height-computed * 2));
     }
 
 }
