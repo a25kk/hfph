@@ -9,7 +9,7 @@ develop-eggs
 coverage
 downloads
 eggs
-# fabfile.py
+fabfile.py
 fake-eggs
 parts
 dist
