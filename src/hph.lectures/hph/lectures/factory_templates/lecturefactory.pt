@@ -10,18 +10,19 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-    <div class="row">
+    <div class="row"
+        tal:define="item view/content_item">
         <div class="col-xs-12 col-sm-3">
             <aside class="app-aside hidden-print" id="app-sidebar">
                 <div class="app-box app-box-faculty">
                     <div class="app-box-header">
-                        <h2 i8n:translate="">Lecture Factory</h2>
+                        <h2 i18n:translate="">Lecture Factory</h2>
                     </div>
                     <div class="app-box-content">
                         <ul class="nav nav-pills nav-stacked app-box-nav">
                             <li>
-                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${context/@@uuid}/base"
-                                    ti18n:translate="">ACtion option</a>
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-base/${item/@@uuid}"
+                                    i18n:translate="">Base information</a>
                             </li>
                         </ul>
                     </div>

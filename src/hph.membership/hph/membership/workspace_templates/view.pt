@@ -152,7 +152,7 @@
                                     <div class="list-group">
                                         <tal:block tal:repeat="item view/contributing">
                                             <a href="#" class="list-group-item"
-                                                tal:attributes="href item/getURL">
+                                                tal:attributes="href string:${context/absolute_url}/@@lecture-factory/${item/UID}">
                                               <h4 class="list-group-item-heading"
                                                 tal:content="item/Title">
                                                 List group item heading

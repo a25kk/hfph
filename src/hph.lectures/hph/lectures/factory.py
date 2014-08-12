@@ -34,6 +34,11 @@ class LectureFactory(grok.View):
         self.subpath.append(name)
         return self
 
+    def content_item(self):
+        uid = self.traverse_subpath[0]
+        item = api.content.get(UID=uid)
+        return item
+
 
 class LectureBaseEditForm(form.SchemaEditForm):
     grok.context(IWorkspace)
@@ -63,7 +68,7 @@ class LectureBaseEditForm(form.SchemaEditForm):
         return url
 
     def content_item(self):
-        uid = self.traverse_subpath[2]
+        uid = self.traverse_subpath[0]
         item = api.content.get(UID=uid)
         return item
 
