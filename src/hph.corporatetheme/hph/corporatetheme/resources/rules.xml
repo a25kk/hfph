@@ -228,7 +228,9 @@ else window.onload = downloadJSAtOnload;
                             <li class="list-header"></li>
                             <li class="divider"></li>
                         </xsl:if>
-                        <xsl:apply-templates css:select=".portletItem > *"/>
+                        <li>
+                            <xsl:apply-templates css:select=".portletItem > *"/>
+                        </li>
                     </ul>
                 </div>
             </div>
