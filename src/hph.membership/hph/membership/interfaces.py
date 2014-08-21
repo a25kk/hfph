@@ -26,3 +26,10 @@ class IHPHMembershipSettings(Interface):
                       u"portal e.g. when calling the member updater via "
                       u"external cronjob"),
     )
+    discourse_url = schema.TextLine(
+        title=_(u"Discourse Base URL"),
+        description=_(u"Enter the URL of the discourse installation"),
+    )
+    discourse_sso_secret = schema.TextLine(
+        title=_(u"Discourse SSO Secret"),
+    )
