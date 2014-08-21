@@ -1,12 +1,10 @@
 # -*- coding: UTF-8 -*-
 """Module providing sso token consumer for external discourse installation"""
+
 import base64
 import hmac
 import hashlib
-
-from five import grok
-
-from plone.app.layout.navigation.interfaces import INavigationRoot
+import urlparse
 
 try:  # py3
     from urllib.parse import unquote, urlencode
@@ -15,91 +13,120 @@ except ImportError:
 
 from requests.exceptions import HTTPError
 
-DISCOURSE_BASE_URL = 'http://your-discourse-site.com'
-DISCOURSE_SSO_SECRET = 'paste_your_secret_here'
+from five import grok
+from plone import api
+from plone.app.layout.navigation.interfaces import INavigationRoot
 
 
 class DiscourseError(HTTPError):
     """ A generic error while attempting to communicate with Discourse """
 
 
-class DiscourseSSOConsumer(grok.View):
+class DiscourseSSOHandler(grok.View):
+    """ Discourse SSO endpoint that handles user login
+        and secret validation and digestion
+    """
     grok.context(INavigationRoot)
     grok.require('zope2.View')
-    grok.name('dc-sso-consumner')
+    grok.name('discourse-sso')
 
-    def discourse_sso_view(self):
+    def render(self):
         payload = self.request.get('sso')
         signature = self.request.get('sig')
+        discourse_url = self.get_stored_records(token='discourse_url')
+        sso_secret = self.get_stored_records(token='discourse_sso_secret')
+        if api.is_anonymous():
+            login_url = api.portal.get().absolute_url()
+            return self.request.response.redirect(login_url)
+
         try:
-            nonce = sso_validate(payload, signature, DISCOURSE_SSO_SECRET)
+            nonce = self.sso_validate(payload, signature, sso_secret)
         except DiscourseError as e:
             return 'HTTP400 Error {}'.format(e)  # Todo: implement handler
 
-        url = sso_redirect_url(nonce,
-                               DISCOURSE_SSO_SECRET,
-                               self.request.user.email,
-                               self.request.user.id,
-                               self.request.user.username)
-        return self.request.response.redirect(
-            'http://discuss.example.com' + url)
+        user = api.user.get_current()
+        url = self.sso_redirect_url(nonce,
+                                    sso_secret,
+                                    user.getProperty('email'),
+                                    user.getId(),
+                                    user.getProperty('fullname'))
+        return self.request.response.redirect(discourse_url + url)
 
+    def is_equal(self, a, b):
+        """ Constant time comparison """
+        if len(a) != len(b):
+            return False
+        result = 0
+        for x, y in zip(a, b):
+            result |= ord(x) ^ ord(y)
+        return result == 0
 
-def sso_validate(payload, signature, secret):
-    """
-        payload: provided by Discourse HTTP call to your SSO endpoint as sso
-                 GET param
-        signature: provided by Discourse HTTP call to your SSO endpoint as sig
-                   GET param
-        secret: the secret key you entered into Discourse sso secret
+    def get_stored_records(self, token):
+        key_base = 'hph.membership.interfaces.IHPHMembershipSettings'
+        key = key_base + '.' + token
+        return api.portal.get_registry_record(key)
 
-        return value: The nonce used by discourse to validate the redirect URL
-    """
-    if None in [payload, signature]:
-        raise DiscourseError('No SSO payload or signature.')
+    def sso_validate(self, payload, signature, secret):
+        """
+            payload: provided by Discourse HTTP call as sso GET param
+            signature: provided by Discourse HTTP call as sig GET param
+            secret: the secret key you entered into Discourse sso secret
 
-    if not secret:
-        raise DiscourseError('Invalid secret..')
+            return value: The nonce intended to validate the redirect URL
+        """
+        if None in [payload, signature]:
+            raise DiscourseError('No SSO payload or signature.')
 
-    payload = unquote(payload)
-    if not payload:
-        raise DiscourseError('Invalid payload..')
+        if not secret:
+            raise DiscourseError('Invalid secret..')
 
-    decoded = base64.decodestring(payload)
-    if 'nonce' not in decoded:
-        raise DiscourseError('Invalid payload..')
+        payload = unquote(payload)
+        if not payload:
+            raise DiscourseError('Invalid payload..')
 
-    h = hmac.new(secret, payload, digestmod=hashlib.sha256)
-    this_signature = h.hexdigest()
+        decoded = base64.decodestring(payload)
+        if 'nonce' not in decoded:
+            raise DiscourseError('Invalid payload..')
 
-    if this_signature != signature:
-        raise DiscourseError('Payload does not match signature.')
+        h = hmac.new(secret, payload, digestmod=hashlib.sha256)
+        this_signature = h.hexdigest()
 
-    nonce = decoded.split('=')[1]
+        if not self.is_equal(this_signature, signature):
+            raise DiscourseError('Payload does not match signature.')
 
-    return nonce
+        # nonce = decoded.split('=')[1]
 
+        sso = urlparse.parse_qs(payload.decode('base64'))
+        nonce = sso['nonce'][0]
 
-def sso_redirect_url(nonce, secret, email, external_id, username, **kwargs):
-    """
-        nonce: returned by sso_validate()
-        secret: the secret key you entered into Discourse sso secret
-        user_email: email address of the user who logged in
-        user_id: the internal id of the logged in user
-        user_username: username of the logged in user
+        return nonce
 
-        return value: URL to redirect users back to discourse, now logged in as
-        user_username
-    """
-    kwargs.update({
-        'nonce': nonce,
-        'email': email,
-        'external_id': external_id,
-        'username': username
-    })
+    def sso_redirect_url(self,
+                         nonce,
+                         secret,
+                         email,
+                         external_id,
+                         username,
+                         **kwargs):
+        """
+            nonce: returned by sso_validate()
+            secret: the secret key you entered into Discourse sso secret
+            user_email: email address of the user who logged in
+            user_id: the internal id of the logged in user
+            user_username: username of the logged in user (an email address)
 
-    return_payload = base64.encodestring(urlencode(kwargs))
-    h = hmac.new(secret, return_payload, digestmod=hashlib.sha256)
-    query_string = urlencode({'sso': return_payload, 'sig': h.hexdigest()})
+            return value:
+            URL to redirect users back to discourse, now logged in as username
+        """
+        kwargs.update({
+            'nonce': nonce,
+            'email': email,
+            'external_id': external_id,
+            'username': username
+        })
 
-    return '/session/sso_login?%s' % query_string
+        return_payload = base64.encodestring(urlencode(kwargs))
+        h = hmac.new(secret, return_payload, digestmod=hashlib.sha256)
+        query_string = urlencode({'sso': return_payload, 'sig': h.hexdigest()})
+
+        return '/session/sso_login?%s' % query_string
