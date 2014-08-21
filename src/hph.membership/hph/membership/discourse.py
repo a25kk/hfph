@@ -13,6 +13,7 @@ except ImportError:
 
 from requests.exceptions import HTTPError
 
+from Acquisition import aq_inner
 from five import grok
 from plone import api
 from plone.app.layout.navigation.interfaces import INavigationRoot
@@ -36,7 +37,14 @@ class DiscourseSSOHandler(grok.View):
         discourse_url = self.get_stored_records(token='discourse_url')
         sso_secret = self.get_stored_records(token='discourse_sso_secret')
         if api.is_anonymous():
-            login_url = api.portal.get().absolute_url()
+            context = aq_inner(self.context)
+            portal_url = api.portal.get().absolute_url()
+            query_string = urlencode({
+                'came_from': context.absolute_url() + '/@@discourse-sso',
+                'sso': payload,
+                'sig': signature,
+            })
+            login_url = '{0}/@@signin?{1}'.format(portal_url, query_string)
             return self.request.response.redirect(login_url)
 
         try:
