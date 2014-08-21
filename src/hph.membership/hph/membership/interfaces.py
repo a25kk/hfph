@@ -1,3 +1,6 @@
+# -*- coding: UTF-8 -*-
+"""Membership tool interfaces"""
+
 from zope import schema
 from zope.interface import Interface
 
