@@ -1,20 +1,21 @@
+# -*- coding: UTF-8 -*-
+""" Module providing utility functions for composing and sending
+    html and plaintext messages
+"""
 import cStringIO
 import formatter
 import logging
+import lxml
 import os
 import socket
 
-import lxml
-from lxml.html.clean import Cleaner
-
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEText import MIMEText
 from email.utils import formataddr
 from email.utils import parseaddr
-from email.MIMEText import MIMEText
-from email.MIMEMultipart import MIMEMultipart
-
 from htmllib import HTMLParser
+from lxml.html.clean import Cleaner
 from smtplib import SMTPException
-
 from string import Template
 
 from plone import api
