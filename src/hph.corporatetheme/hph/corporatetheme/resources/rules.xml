@@ -19,7 +19,9 @@
     <theme href="dist/signin.html" css:if-content="body.template-useraccount" />
     <theme href="dist/signin.html" css:if-content="body.template-signin-form" />
 
-    <!-- Discourse error page -->
+
+    <!-- Discourse signin and error page -->
+    <theme href="dist/signin.html" css:if-content="body.template-discourse-signin" />
     <theme href="dist/signin.html" css:if-content="body.template-discourse-sso-error" />
 
     <!-- Project specific theme files -->
@@ -186,6 +188,9 @@ else window.onload = downloadJSAtOnload;
 
         <!-- Discourse error -->
         <!-- Login form rules -->
+        <replace css:content-children="#content-core"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-discourse-signin" />
         <replace css:content-children="#content-core"
                 css:theme-children="#app-signin-content"
                 css:if-content="body.template-discourse-sso-error" />

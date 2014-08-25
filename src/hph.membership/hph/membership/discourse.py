@@ -163,6 +163,12 @@ class DiscourseSSOHandler(grok.View):
             return self.request.response.redirect(error_page)
         payload = self.request.get('sso')
         signature = self.request.get('sig')
+        if payload is None:
+            msg = _(u"Required parameters for SSO credential verification are "
+                    u"missing in the request")
+            api.portal.show_message(msg, self.request, type='error')
+            error_page = '{0}/@@discourse-sso-error'.format(portal_url)
+            return self.request.response.redirect(error_page)
         discourse_url = self.get_stored_records(token='discourse_url')
         sso_secret = self.get_stored_records(token='discourse_sso_secret')
         if api.user.is_anonymous():
