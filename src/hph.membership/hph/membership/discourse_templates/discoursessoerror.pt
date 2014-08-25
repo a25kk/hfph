@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <div class="tile-content">
+      <section id="content-core">
+        <div class="app-page-header">
+          <h1 i18n:translate="">Signin error</h1>
+        </div>
+        <div class="app-page-content">
+          <p i18n:translate="">
+            Authentication with our discussion forum located at
+            http://discourse.hfph.de is provided via single sign on (SSO).
+          </p>
+          <p i18n:translate="">
+            If you see this page than either
+            the url you were trying to open does not exist or an error happened
+            when trying to authenticate your credentials.
+          </p>
+          <p i18n:translate="">
+            This incident will be reported to our technical staff. No further
+            action is required on your part.
+          </p>
+          <hr>
+          <p i18n:translate="">Where do you want to go next?</p>
+          <p>
+            <a i18n:translate="" tal:attributes="href string:${context/absolute_url}">
+              Site frontpage</a> or
+            <a i18n:translate="" href="http://forum.hfph.de">
+              Back to discussion forum</a>
+          </p>
+        </div>
+        <hr>
+        <div class="app-page-footer">
+          <p class="app-signin-help">
+            Trouble getting authorized with discourse?
+            <a href="mailto:info@hfph.de">Get help.</a>
+          </p>
+        </div>
+
+      </section>
+    </div>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

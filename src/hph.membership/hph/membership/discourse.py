@@ -46,7 +46,7 @@ class DiscourseSSOHandler(grok.View):
             return self.request.response.redirect(error_page)
         discourse_url = self.get_stored_records(token='discourse_url')
         sso_secret = self.get_stored_records(token='discourse_sso_secret')
-        if not discourse_url:
+        if not discourse_url or not sso_secret:
             msg = _(u"The Discourse SSO endpoint has not been configured yet")
             api.portal.show_message(msg, self.request, type='info')
             error_page = '{0}/@@discourse-sso-error'.format(portal_url)
