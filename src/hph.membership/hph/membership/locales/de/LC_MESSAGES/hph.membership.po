@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2014-07-28 20:30+0000\n"
-"PO-Revision-Date: 2014-07-28 22:33+0100\n"
+"POT-Creation-Date: 2014-08-25 20:06+0000\n"
+"PO-Revision-Date: 2014-08-25 22:25+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Language: de\n"
 "X-Generator: Poedit 1.6.4\n"
 
-#: ./../workspace_templates/view.pt:127
+#: ./../workspace_templates/view.pt:147
 msgid "A list of content items you are asigned as a contributor"
 msgstr "Eine Liste von Inhalten, zu denen Sie beitragen."
 
@@ -49,9 +49,17 @@ msgstr "Neues Benutzerkonto erstellen"
 msgid "Again for confirmation"
 msgstr "Bitte zur Bestätigung wiederholen"
 
-#: ./../workspace.py:102
+#: ./../workspace.py:104
 msgid "Alumni description"
 msgstr "Sie haben ein Studium an der Hochschule abgeschlossen und wollen gerne auf dem Laufenden bleiben darüber, was die Hochschule bewegt? Dann sind Sie im Bereich der Alumnae und Alumni genau richtig. Dieser Link führt Sie direkt dorthin. "
+
+#: ./../discourse_templates/discoursessoerror.pt:19
+msgid "Authentication with our discussion forum located at http://discourse.hfph.de is provided via single sign on (SSO)."
+msgstr "Die Anmeldung zu unserem Diskussionsforum unter http://forum.hfph.de wird über Single Sign On (SSO) bereitgestellt."
+
+#: ./../discourse_templates/discoursessoerror.pt:37
+msgid "Back to discussion forum"
+msgstr "Zum Diskussionsforum"
 
 #: ./../invitation_templates/invitenewuser.pt:31
 msgid "Back to user manager"
@@ -77,6 +85,14 @@ msgstr "Ordner für Benutzerbereiche"
 msgid "Dangerzone: manage external user database integration"
 msgstr "Dangerzone: benutzerverwaltung über Schnittstelle zur Hochschuldatenbank"
 
+#: ./../interfaces.py:33
+msgid "Discourse Base URL"
+msgstr "Discourse URL"
+
+#: ./../interfaces.py:37
+msgid "Discourse SSO Secret"
+msgstr "Discourse SSO Secret"
+
 #: ./../userfactory.py:21
 msgid "E-Mail"
 msgstr "E-Mail-Adresse"
@@ -88,6 +104,10 @@ msgstr "Einladung zur neuen hfph Seite"
 #: ./../memberinfo_templates/enableuseraccount.pt:32
 msgid "Enable/Disable User"
 msgstr "Zugang aktiveren/deaktivieren"
+
+#: ./../interfaces.py:34
+msgid "Enter the URL of the discourse installation"
+msgstr "Geben Sie hier die vollständige URL der Discourse Installation ein"
 
 #: ./../memberfolder.py:269
 msgid "External records stored for import"
@@ -101,13 +121,13 @@ msgstr "Vollständiger Name"
 msgid "HPH Membership Tool"
 msgstr "HPH Membership Tool"
 
+#: ./../discourse_templates/discoursessoerror.pt:23
+msgid "If you see this page than either the url you were trying to open does not exist or an error happened when trying to authenticate your credentials."
+msgstr "Diese Seite wird angezeigt, weil die aufgerufene URL nicht korrekt ist oder ein Fehler in der Freigabe der Zugangsdaten augetreten ist."
+
 #: ./../memberfolder.py:29
 msgid "Importable API Records"
 msgstr "Importierbare DAten aus der API"
-
-#: ./../workspace_templates/view.pt:111
-msgid "Informationen zur Person unter <code>/Hochschule/Lehrende</code>"
-msgstr "Informationen zur Person unter <code>/Hochschule/Lehrende</code>"
 
 #: ./../tool.py:123
 msgid "Invitation to join the HfPH portal"
@@ -121,26 +141,30 @@ msgstr "Einladung zur neugestalteten HfPH Seite"
 msgid "Invite new users by passing a list of email addresses"
 msgstr "Laden Sie neue Benutzer zur Teilnahme ein, indem Sie eine Liste von E-Mail-Adressen bereitstellen"
 
-#: ./../workspace_templates/view.pt:125
+#: ./../workspace_templates/view.pt:145
 msgid "Lectures"
 msgstr "Lehrveranstaltungen"
 
-#: ./../workspace.py:106
+#: ./../workspace.py:108
 msgid "Lectures description"
 msgstr "Über diesen Link können Sie direkt auf die Profilseiten aller Mitglieder des Lehrkörpers an der Hochschule für Philosophie zugreifen. Wenn Sie selbst Lehrender bzw. Lehrende sind, können Sie Ihre persönliche Seite (inkl. Unterseiten) dort bearbeiten."
 
+#: ./../discourse.py:59
 #: ./../signin.py:54
 msgid "Log in"
 msgstr "Login"
 
+#: ./../discourse.py:33
 #: ./../signin.py:30
 msgid "Login Name"
 msgstr "Anmeldename"
 
+#: ./../discourse.py:109
 #: ./../signin.py:105
 msgid "Login failed. Both email address and password are case sensitive, check that caps lock is not enabled."
 msgstr "Die Anmeldung ist fehlgeschlagen. Sowohl bei der E-Mail-Adresse als auch beim Passwort ist die Gross-/Kleinschreibung zu beachten"
 
+#: ./../discourse.py:115
 #: ./../signin.py:110
 msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled."
 msgstr "Die Anmeldung ist fehlgeschlagen. Sowohl bei der E-Mail-Adresse als auch beim Passwort ist die Gross-/Kleinschreibung zu beachten"
@@ -165,19 +189,19 @@ msgstr "Verwalten der Benutzerzugänge"
 msgid "MemberFolder"
 msgstr "Benutzerordner"
 
-#: ./../interfaces.py:24
+#: ./../interfaces.py:27
 msgid "Membership Tool API Token"
 msgstr "Member Tool API Token"
 
-#: ./../interfaces.py:21
+#: ./../interfaces.py:24
 msgid "MembershipTool API Key"
 msgstr "API Schlüssel für die Benutzerverwaltung"
 
-#: ./../interfaces.py:18
+#: ./../interfaces.py:21
 msgid "MembershipTool API Version"
 msgstr "API Version der externen Benutzerdatenbank"
 
-#: ./../interfaces.py:15
+#: ./../interfaces.py:18
 msgid "MembershipTool IP"
 msgstr "IP Adresse der Benutzerdatenbank"
 
@@ -190,7 +214,7 @@ msgstr "Neues Passwort"
 msgid "No activity recorded yet"
 msgstr "Er wurde bis dato noch keine Aktivität aufgezeichnet."
 
-#: ./../workspace.py:46
+#: ./../workspace.py:48
 msgid "No email provided"
 msgstr "Es wurde keine E-Mail-Addresse übermittelt"
 
@@ -198,6 +222,7 @@ msgstr "Es wurde keine E-Mail-Addresse übermittelt"
 msgid "No stored acces token found"
 msgstr "Es konnte kein gültiger Access Token gefunden werden"
 
+#: ./../discourse.py:37
 #: ./../signin.py:35
 msgid "Password"
 msgstr "Passwort"
@@ -222,6 +247,10 @@ msgstr "Persönlicher Arbeitsbereich für Benutzer"
 msgid "Please change your account information for HfPH"
 msgstr "Bitte aktualisieren Sie Ihre Benutzerinformationen für HfPH"
 
+#: ./../discourse.py:60
+msgid "Please enter your credentials to verify SSO login"
+msgstr "Um Ihre Zugangsdaten zur Teilnahme an unserem Diskussionsforum zu verwenden, geben Sie diese bitte zur Bestätigung hier ein."
+
 #: ./../useraccount_templates/useraccount.pt:15
 msgid "Please set a password to finalize and activate your account."
 msgstr "Bitte geben Sie ein Passwort ein, um Ihr Benutzerkonto zu vervollständigen"
@@ -231,13 +260,25 @@ msgstr "Bitte geben Sie ein Passwort ein, um Ihr Benutzerkonto zu vervollständi
 msgid "Process has been cancelled."
 msgstr "Der Prozess wurde abgebrochen"
 
-#: ./../workspace.py:104
+#: ./../workspace.py:106
 msgid "Prophil description"
 msgstr "Als Mitglied von pro philosophia e.V. haben Sie hier direkten Zugriff auf alle wichtigen Informationen rund um den Förderverein der Freunde und Alumni der Hochschule für Philosophie. "
 
 #: ./../signin.py:185
 msgid "Request sent."
 msgstr "Die Anfrage wurde versandt"
+
+#: ./../discourse.py:167
+msgid "Required parameters for SSO credential verification are missing in the request"
+msgstr "Die notwendigen Parameter, um Ihre Anmeldedaten für die Verwendung zur Anmeldung am Diskussionsforum zu verwenden, fehlen in dieser Anfrage"
+
+#: ./../discourse.py:45
+msgid "SSO Signature"
+msgstr "SSO Signatur"
+
+#: ./../discourse.py:41
+msgid "SSO payload"
+msgstr "SSO Payload"
 
 #: ./../useraccount_templates/useraccount.pt:44
 msgid "Save"
@@ -247,15 +288,24 @@ msgstr "Speichern"
 msgid "Send password reset mails"
 msgstr "Passwort senden"
 
+#: ./../discourse_templates/discoursesigninform.pt:25
 #: ./../signin_templates/signinform.pt:25
 msgid "Sign in"
 msgstr "Anmelden"
+
+#: ./../discourse_templates/discoursessoerror.pt:16
+msgid "Signin error"
+msgstr "Fehler bei der Anmeldung"
 
 #: ./../workspace_templates/view.pt:41
 msgid "Signout"
 msgstr "Abmelden"
 
-#: ./../workspace.py:98
+#: ./../discourse_templates/discoursessoerror.pt:35
+msgid "Site frontpage"
+msgstr "Startseite"
+
+#: ./../workspace.py:100
 msgid "Standard description for workspace links"
 msgstr "Standard Beschreibung"
 
@@ -263,9 +313,17 @@ msgstr "Standard Beschreibung"
 msgid "Stored Records"
 msgstr "Gespeicherte Benutzerdaten"
 
-#: ./../workspace.py:100
+#: ./../workspace.py:102
 msgid "Students and guests description"
 msgstr "Sie haben nun – neben den Standard-Features der Homepage – zusätzlich die Möglichkeit, auf bestimmte geschützte Bereiche zuzugreifen (unter anderem auf die Seiten der studentischen Initiativen). Über diesen Quicklink gelangen Sie direkt zu den Lehrveranstaltungen des laufenden Semesters, wo Sie die zugehörigen Materialien herunterladen können. "
+
+#: ./../discourse.py:151
+msgid "The Discourse SSO endpoint can only be accessed via SSL since we do not support transfer of authentication tokens via unencrypted connections."
+msgstr "Die Seite zur Freigabe von Benutzerdaten für die Anmeldung am Diskussionsforum kann nur über eine gesicherte Verbindung aufgerufen werden. Die Übertragung von Freigabedaten über eine unverschlüsselte Verbindung wird nicht unterstützt"
+
+#: ./../discourse.py:160
+msgid "The Discourse SSO endpoint has not been configured yet"
+msgstr "SSO für das Diskussionsforum wurde noch nicht konfiguriert"
 
 #: ./../useraccount.py:110
 msgid "The entered password and confirmation do not match."
@@ -279,7 +337,7 @@ msgstr "Für folgende Inhalte sind Sie als Hauptverantwortlicher hinterlegt."
 msgid "The member area contains member workspaces"
 msgstr "Der benutzerbereich beinhaltet Arbietsplätze für angemeldete Benutzer"
 
-#: ./../interfaces.py:25
+#: ./../interfaces.py:28
 msgid "This API token can be used to authenticate with the portal e.g. when calling the member updater via external cronjob"
 msgstr "Dieser Token kann verwendet werden, um sich am Portal anzumelden, z.B. bei Aufrufen über externe Dienste"
 
@@ -287,6 +345,10 @@ msgstr "Dieser Token kann verwendet werden, um sich am Portal anzumelden, z.B. b
 #: ./../useraccount.py:42
 msgid "This field is required"
 msgstr "Dieses Feld ist ein Pflichtfeld"
+
+#: ./../discourse_templates/discoursessoerror.pt:28
+msgid "This incident will be reported to our technical staff. No further action is required on your part."
+msgstr "Dieses Problem wird im System aufgezeichnet"
 
 #: ./../setpassword.py:85
 msgid "This password request reset is invalid"
@@ -331,6 +393,10 @@ msgstr "Eine E-Mail mit Informationen zur Teilnahme an der neuen Webseite wurde 
 msgid "Users should are redirected to their personal workspace except when logged in as site administrator"
 msgstr "Benutzer sollten direkt zu ihren jeweiligen Arbietsplätzen weitergeleitet werden mit Ausnahme von Benutzern mit Administrationsrechten."
 
+#: ./../discourse_templates/discoursessoerror.pt:33
+msgid "Where do you want to go next?"
+msgstr "Weiterführende Verweise:"
+
 #: ./../memberfolder_templates/workspacemissing.pt:18
 #: ./../profiles/default/types/hph.membership.workspace.xml
 #: ./../userfactory_templates/usercreationform.pt:20
@@ -341,6 +407,7 @@ msgstr "Arbeitsplatz"
 msgid "Workspaces"
 msgstr "Arbeitsplätze"
 
+#: ./../discourse.py:129
 #: ./../signin.py:133
 #: ./../useraccount.py:142
 msgid "You are now logged in."
@@ -350,6 +417,11 @@ msgstr "Sie sind nun angemeldet"
 #: ./../userfactory.py:62
 msgid "cancel"
 msgstr "abbrechen"
+
+#. Default: "Abgelegt unter"
+#: ./../workspace_templates/view.pt:116
+msgid "text_searchitem_location"
+msgstr "Ort in der Seite"
 
 #: ./../invitation.py:120
 msgid "{0} invitation emails successfully sent."
