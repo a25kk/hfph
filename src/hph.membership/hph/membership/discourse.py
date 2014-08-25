@@ -14,11 +14,144 @@ except ImportError:
 from requests.exceptions import HTTPError
 
 from Acquisition import aq_inner
+from DateTime import DateTime
 from five import grok
 from plone import api
 from plone.app.layout.navigation.interfaces import INavigationRoot
+from plone.directives import form
+from zope import schema
+from zope.interface import Interface
+from z3c.form import button
+from z3c.form.interfaces import HIDDEN_MODE
 
 from hph.membership import MessageFactory as _
+
+
+class IDiscourseSigninForm(Interface):
+    """ Login form schema """
+
+    ac_name = schema.TextLine(
+        title=_(u'Login Name'),
+        required=True,
+    )
+
+    ac_password = schema.Password(
+        title=_(u'Password'),
+        required=True,
+    )
+
+    came_from = schema.TextLine(
+        title=_(u'Came From'),
+        required=False,
+    )
+    sso = schema.TextLine(
+        title=_(u'SSO payload'),
+        required=False,
+    )
+    sig = schema.TextLine(
+        title=_(u'SSO Signature'),
+        required=False,
+    )
+
+
+class DiscourseSigninForm(form.SchemaForm):
+    """ Implementation of the login form """
+    grok.context(INavigationRoot)
+    grok.require('zope2.View')
+    grok.name('signin-form')
+
+    schema = IDiscourseSigninForm
+
+    id = "LoginForm"
+    label = _(u"Log in")
+    description = _(u"Please enter your credentials to verify SSO login")
+
+    ignoreContext = True
+
+    # render = ViewPageTemplateFile('templates/login.pt')
+
+    prefix = ""
+
+    def update(self):
+        self.request.set('disable_border', True)
+        super(DiscourseSigninForm, self).update()
+
+    def updateActions(self):
+        super(DiscourseSigninForm, self).updateActions()
+        self.actions['signin'].addClass("btn btn-primary")
+
+    def updateWidgets(self):
+        try:
+            auth = self.context.acl_users.credentials_cookie_auth
+        except:
+            try:
+                auth = self.context.cookie_authentication
+            except:
+                auth = None
+        if auth:
+            self.fields['ac_name'].__name__ = auth.get('name_cookie',
+                                                       '__ac_name')
+            self.fields['ac_password'].__name__ = auth.get('pw_cookie',
+                                                           '__ac_password')
+        else:
+            self.fields['ac_name'].__name__ = '__ac_name'
+            self.fields['ac_password'].__name__ = '__ac_password'
+
+        super(DiscourseSigninForm, self).updateWidgets(prefix="")
+        self.widgets['came_from'].mode = HIDDEN_MODE
+        self.widgets['sso'].mode = HIDDEN_MODE
+        self.widgets['sig'].mode = HIDDEN_MODE
+
+    @button.buttonAndHandler(_('Log in'), name='signin')
+    def handleLogin(self, action):
+        data, errors = self.extractData()
+        if errors:
+            self.status = self.formErrorsMessage
+            return
+
+        membership_tool = api.portal.get_tool(name='portal_membership')
+        if membership_tool.isAnonymousUser():
+            self.request.response.expireCookie('__ac', path='/')
+            email_login = api.portal.get_tool(name='portal_properties') \
+                .site_properties.getProperty('use_email_as_login')
+            if email_login:
+                api.portal.show_message(
+                    _(u'Login failed. Both email address and password are case'
+                      u' sensitive, check that caps lock is not enabled.'),
+                    self.request,
+                    type='error')
+            else:
+                api.portal.show_message(
+                    _(u'Login failed. Both login name and password are case '
+                      u'sensitive, check that caps lock is not enabled.'),
+                    self.request,
+                    type='error')
+            return
+
+        member = membership_tool.getAuthenticatedMember()
+        login_time = member.getProperty('login_time', '2000/01/01')
+        if not isinstance(login_time, DateTime):
+            login_time = DateTime(login_time)
+        initial_login = login_time == DateTime('2000/01/01')
+        if initial_login:
+            # TODO: Redirect if this is initial login
+            pass
+
+        must_change_password = member.getProperty('must_change_password', 0)
+
+        if must_change_password:
+            # TODO: This user needs to change his password
+            pass
+
+        membership_tool.loginUser(self.request)
+
+        api.portal.show_message(
+            _(u"You are now logged in."), self.request, type="info")
+        if data['came_from']:
+            came_from = data['came_from']
+        else:
+            came_from = self.context.portal_url()
+        self.request.response.redirect(came_from)
 
 
 class DiscourseError(HTTPError):

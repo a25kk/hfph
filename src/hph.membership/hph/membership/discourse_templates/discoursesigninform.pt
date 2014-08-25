@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <div class="tile-content">
+
+      <div id="login-warnings">
+        <div class="alert alert-warning" tal:condition="python:request.form.get('error', False)">
+          <h4>Uh oh!</h4>
+          <p>Looks like your username or password was incorrect.<br />
+            Please try again or <a href="@@login-help">get some help remembering here</a>.
+          </p>
+        </div>
+      </div>
+      <section class="app-page" id="content-core">
+        <div class="app-page-header">
+          <h1 i18n:translate="">Sign in</h1>
+        </div>
+        <div class="app-page-content">
+          <metal:block use-macro="context/@@ploneform-macros/titlelessform" />
+        </div>
+
+      </section>
+    </div>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+
