@@ -55,13 +55,13 @@ class DiscourseSSOHandler(grok.View):
         signature = self.request.get('sig')
         discourse_url = self.get_stored_records(token='discourse_url')
         sso_secret = self.get_stored_records(token='discourse_sso_secret')
-        if api.is_anonymous():
-            query_string = urlencode({
-                'came_from': context.absolute_url() + '/@@discourse-sso',
-                'sso': payload,
-                'sig': signature,
-            })
-            login_url = '{0}/@@signin?{1}'.format(portal_url, query_string)
+        if api.user.is_anonymous():
+            here_url = context.absolute_url() + '/@@discourse-sso'
+            came_from = '{0}?sso={1}&sig={2}'.format(here_url,
+                                                     payload,
+                                                     signature)
+            login_url = '{0}/@@signin-form?came_from={1}'.format(
+                portal_url, came_from)
             return self.request.response.redirect(login_url)
 
         try:
