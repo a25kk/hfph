@@ -19,6 +19,9 @@
     <theme href="dist/signin.html" css:if-content="body.template-useraccount" />
     <theme href="dist/signin.html" css:if-content="body.template-signin-form" />
 
+    <!-- Discourse error page -->
+    <theme href="dist/signin.html" css:if-content="body.template-discourse-sso-error" />
+
     <!-- Project specific theme files -->
     <theme href="dist/theme-igp.html" css:if-content="body.subsection-institute-gesellschaftspolitik" />
     <theme href="dist/theme-pp.html" css:if-content="body.section-pro-philosophia" />
@@ -180,6 +183,12 @@ else window.onload = downloadJSAtOnload;
         <replace css:content-children="#content"
                 css:theme-children="#app-signin-content"
                 css:if-content="body.template-useraccount" />
+
+        <!-- Discourse error -->
+        <!-- Login form rules -->
+        <replace css:content-children="#content-core"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-discourse-sso-error" />
 
         <rules css:if-content="body.portaltype-hph-sitecontent-mainsection">
             <replace css:content-children="#app-content"

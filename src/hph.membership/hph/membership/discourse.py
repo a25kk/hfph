@@ -18,6 +18,8 @@ from five import grok
 from plone import api
 from plone.app.layout.navigation.interfaces import INavigationRoot
 
+from hph.membership import MessageFactory as _
+
 
 class DiscourseError(HTTPError):
     """ A generic error while attempting to communicate with Discourse """
@@ -32,13 +34,28 @@ class DiscourseSSOHandler(grok.View):
     grok.name('discourse-sso')
 
     def render(self):
+        context = aq_inner(self.context)
+        portal_url = api.portal.get().absolute_url()
+        actual_url = self.request.get('ACTUAL_URL')
+        if not actual_url.startswith('http://'):
+            msg = _(u"The Discourse SSO endpoint can only be accessed via "
+                    u"SSL since we do not support transfer of authentication "
+                    u"tokens via unencrypted connections.")
+            api.portal.show_message(msg, self.request, type='info')
+            error_page = '{0}/@@discourse-sso-error'.format(portal_url)
+            return self.request.response.redirect(error_page)
+        discourse_url = self.get_stored_records(token='discourse_url')
+        sso_secret = self.get_stored_records(token='discourse_sso_secret')
+        if not discourse_url:
+            msg = _(u"The Discourse SSO endpoint has not been configured yet")
+            api.portal.show_message(msg, self.request, type='info')
+            error_page = '{0}/@@discourse-sso-error'.format(portal_url)
+            return self.request.response.redirect(error_page)
         payload = self.request.get('sso')
         signature = self.request.get('sig')
         discourse_url = self.get_stored_records(token='discourse_url')
         sso_secret = self.get_stored_records(token='discourse_sso_secret')
         if api.is_anonymous():
-            context = aq_inner(self.context)
-            portal_url = api.portal.get().absolute_url()
             query_string = urlencode({
                 'came_from': context.absolute_url() + '/@@discourse-sso',
                 'sso': payload,
@@ -51,7 +68,6 @@ class DiscourseSSOHandler(grok.View):
             nonce = self.sso_validate(payload, signature, sso_secret)
         except DiscourseError as e:
             return 'HTTP400 Error {}'.format(e)  # Todo: implement handler
-
         user = api.user.get_current()
         url = self.sso_redirect_url(nonce,
                                     sso_secret,
@@ -138,3 +154,10 @@ class DiscourseSSOHandler(grok.View):
         query_string = urlencode({'sso': return_payload, 'sig': h.hexdigest()})
 
         return '/session/sso_login?%s' % query_string
+
+
+class DiscourseSSOError(grok.View):
+    """ Discourse SSO endpoint error page """
+    grok.context(INavigationRoot)
+    grok.require('zope2.View')
+    grok.name('discourse-sso-error')
