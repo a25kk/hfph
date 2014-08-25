@@ -13,7 +13,6 @@ except ImportError:
 
 from requests.exceptions import HTTPError
 
-from Acquisition import aq_inner
 from DateTime import DateTime
 from five import grok
 from plone import api
@@ -52,7 +51,7 @@ class DiscourseSigninForm(form.SchemaForm):
     """ Implementation of the login form """
     grok.context(INavigationRoot)
     grok.require('zope2.View')
-    grok.name('signin-form')
+    grok.name('discourse-signin')
 
     schema = IDiscourseSigninForm
 
@@ -146,7 +145,6 @@ class DiscourseSSOHandler(grok.View):
     grok.name('discourse-sso')
 
     def render(self):
-        context = aq_inner(self.context)
         portal_url = api.portal.get().absolute_url()
         actual_url = self.request.get('ACTUAL_URL')
         if not actual_url.startswith('http://'):
@@ -168,13 +166,10 @@ class DiscourseSSOHandler(grok.View):
         discourse_url = self.get_stored_records(token='discourse_url')
         sso_secret = self.get_stored_records(token='discourse_sso_secret')
         if api.user.is_anonymous():
-            here_url = context.absolute_url() + '/@@discourse-sso'
-            came_from = '{0}?sso={1}&sig={2}'.format(here_url,
-                                                     payload,
-                                                     signature)
-            login_url = '{0}/@@signin-form?came_from={1}'.format(
-                portal_url, came_from)
-            return self.request.response.redirect(login_url)
+            url = '{0}/@@discourse-signin?sso={1}&sig={2}'.format(portal_url,
+                                                                  payload,
+                                                                  signature)
+            return self.request.response.redirect(url)
 
         try:
             nonce = self.sso_validate(payload, signature, sso_secret)
