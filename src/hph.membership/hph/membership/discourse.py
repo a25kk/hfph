@@ -34,15 +34,9 @@ class IDiscourseSigninForm(Interface):
         title=_(u'Login Name'),
         required=True,
     )
-
     ac_password = schema.Password(
         title=_(u'Password'),
         required=True,
-    )
-
-    came_from = schema.TextLine(
-        title=_(u'Came From'),
-        required=False,
     )
     sso = schema.TextLine(
         title=_(u'SSO payload'),
@@ -67,8 +61,6 @@ class DiscourseSigninForm(form.SchemaForm):
     description = _(u"Please enter your credentials to verify SSO login")
 
     ignoreContext = True
-
-    # render = ViewPageTemplateFile('templates/login.pt')
 
     prefix = ""
 
@@ -98,7 +90,6 @@ class DiscourseSigninForm(form.SchemaForm):
             self.fields['ac_password'].__name__ = '__ac_password'
 
         super(DiscourseSigninForm, self).updateWidgets(prefix="")
-        self.widgets['came_from'].mode = HIDDEN_MODE
         self.widgets['sso'].mode = HIDDEN_MODE
         self.widgets['sig'].mode = HIDDEN_MODE
 
@@ -132,26 +123,14 @@ class DiscourseSigninForm(form.SchemaForm):
         login_time = member.getProperty('login_time', '2000/01/01')
         if not isinstance(login_time, DateTime):
             login_time = DateTime(login_time)
-        initial_login = login_time == DateTime('2000/01/01')
-        if initial_login:
-            # TODO: Redirect if this is initial login
-            pass
-
-        must_change_password = member.getProperty('must_change_password', 0)
-
-        if must_change_password:
-            # TODO: This user needs to change his password
-            pass
 
         membership_tool.loginUser(self.request)
 
         api.portal.show_message(
             _(u"You are now logged in."), self.request, type="info")
-        if data['came_from']:
-            came_from = data['came_from']
-        else:
-            came_from = self.context.portal_url()
-        self.request.response.redirect(came_from)
+        url = '{0}/@@discourse-sso?sso={1}&sig={2}'.format(
+            self.context.portal_url(), data['sso'], data['sig'])
+        self.request.response.redirect(url)
 
 
 class DiscourseError(HTTPError):
