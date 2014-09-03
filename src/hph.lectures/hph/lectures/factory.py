@@ -142,17 +142,17 @@ class LectureBaseEditForm(form.SchemaEditForm):
         self.subpath.append(name)
         return self
 
-    def next_url(self):
-        context = aq_inner(self.context)
-        row = self.traverse_subpath[0]
-        url = '{0}/@@panelblock-editor/{1}'.format(
-            context.absolute_url(), row)
-        return url
-
     def content_item(self):
         uid = self.traverse_subpath[0]
         item = api.content.get(UID=uid)
         return item
+
+    def next_url(self):
+        context = aq_inner(self.context)
+        item = self.traverse_subpath[0]
+        url = '{0}/@@lecture-factory/{1}'.format(
+            context.absolute_url(), item)
+        return url
 
     @button.buttonAndHandler(_(u"Save"), name="save")
     def handleApply(self, action):
