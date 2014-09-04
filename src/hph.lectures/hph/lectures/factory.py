@@ -4,10 +4,8 @@
 from Acquisition import aq_inner
 from five import grok
 from plone import api
-from plone.dexterity.interfaces import IDexterityFTI
 from plone.directives import form
 from z3c.form import button
-from zope.component import getUtility
 from zope.lifecycleevent import modified
 from zope.schema import getFieldsInOrder
 
