@@ -44,7 +44,7 @@ class LectureBaseEditForm(form.SchemaEditForm):
     grok.name('lecture-base')
 
     schema = ILectureBase
-    ignoreContext = True
+    ignoreContext = False
     css_class = 'app-form'
     label = _(u"Edit course base information")
 
