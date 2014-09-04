@@ -1,346 +1,504 @@
 /* jshint node: true */
-'use strict';
 
 module.exports = function (grunt) {
 
-    // load all grunt tasks
-    require('load-grunt-tasks')(grunt);
+  'use strict';
 
-    // Project configuration.
-    grunt.initConfig({
+  // load all grunt tasks
+  require('load-grunt-tasks')(grunt);
 
-        // Metadata.
-        pkg: grunt.file.readJSON('package.json'),
-        banner: '/*!\n' +
-                  '* HPH v<%= pkg.version %> by Ade25\n' +
-                  '* Copyright <%= pkg.author %>\n' +
-                  '* Licensed under <%= pkg.licenses %>.\n' +
-                  '*\n' +
-                  '* Designed and built by ade25\n' +
-                  '*/\n',
-        jqueryCheck: 'if (typeof jQuery === "undefined") { throw new Error(\"We require jQuery\") }\n\n',
+  // Time how long tasks take. Can help when optimizing build times
+  require('time-grunt')(grunt);
 
-        // Task configuration.
-        clean: {
-            dist: ['dist']
+  // Configurable paths
+  var appconfig = {
+    app: 'app',
+    dev: '_site',
+    dist: 'dist'
+  };
+
+  // Project configuration.
+  grunt.initConfig({
+
+    // Project settings
+    appconfig: appconfig,
+
+    // Metadata.
+    pkg: grunt.file.readJSON('package.json'),
+    banner: '/*!\n' +
+              '* <%= pkg.name %> v<%= pkg.version %> by Ade25\n' +
+              '* Copyright <%= pkg.author %>\n' +
+              '* Licensed under <%= pkg.licenses %>.\n' +
+              '*\n' +
+              '* Designed and built by ade25\n' +
+              '*/\n',
+    jqueryCheck: 'if (typeof jQuery === "undefined") { throw new Error(\"We require jQuery\") }\n\n',
+
+      // Task configuration.
+    clean: {
+      dist: ['<%= appconfig.dist %>']
+    },
+
+    jshint: {
+      options: {
+        jshintrc: 'js/.jshintrc'
+      },
+      grunt: {
+        src: 'Gruntfile.js'
+      },
+      src: {
+        src: ['js/*.js']
+      }
+    },
+
+    jscs: {
+      options: {
+        config: 'js/.jscsrc'
+      },
+      grunt: {
+        src: '<%= jshint.grunt.src %>'
+      },
+      src: {
+        src: '<%= jshint.src.src %>'
+      }
+    },
+
+    concat: {
+      options: {
+        banner: '<%= banner %>',
+        stripBanners: false
+      },
+      dist: {
+        src: [
+          'bower_components/jquery/dist//jquery.js',
+          'bower_components/modernizr/modernizr.js',
+          'bower_components/bootstrap/dist/js/bootstrap.js',
+          'bower_components/JQuery.Marquee/jquery.marquee.js',
+          'bower_components/datatables/media/js/jquery.dataTables.js',
+          'bower_components/headroom.js/dist/headroom.js',
+          'bower_components/headroom.js/dist/jQuery.headroom.js',
+          'js/application.js'
+        ],
+        dest: '<%= appconfig.dist %>/js/<%= pkg.name %>.js'
+      },
+      theme: {
+        src: [
+          'bower_components/bootstrap/dist/js/bootstrap.js',
+          'bower_components/JQuery.Marquee/jquery.marquee.js',
+          'bower_components/datatables/media/js/jquery.dataTables.js',
+          'bower_components/headroom.js/dist/headroom.js',
+          'bower_components/headroom.js/dist/jQuery.headroom.js',
+          'js/application.js'
+        ],
+        dest: '<%= appconfig.dist %>/js/main.js'
+      }
+    },
+
+    uglify: {
+      options: {
+        banner: '<%= banner %>'
+      },
+      dist: {
+        src: ['<%= concat.dist.dest %>'],
+        dest: '<%= appconfig.dist %>/js/<%= pkg.name %>.min.js'
+      }
+    },
+
+    less: {
+      compileTheme: {
+        options: {
+          strictMath: false,
+          sourceMap: true,
+          outputSourceFiles: true,
+          sourceMapURL: '<%= pkg.name %>.css.map',
+          sourceMapFilename: '<%= appconfig.dist %>/css/<%= pkg.name %>.css.map'
         },
-
-        jshint: {
-            options: {
-                jshintrc: 'js/.jshintrc'
-            },
-            gruntfile: {
-                src: 'Gruntfile.js'
-            },
-            src: {
-                src: ['js/*.js']
-            },
-            test: {
-                src: ['js/tests/unit/*.js']
-            }
-        },
-
-        jscs: {
-            options: {
-                config: '.jscs.json',
-                requireCurlyBraces: [ 'if' ]
-            },
-            all: ['Gruntfile.js', 'js/**/*.js', 'tests/**/*.js']
-        },
-
-        concat: {
-            options: {
-                banner: '<%= banner %>',
-                stripBanners: false
-            },
-            dist: {
-                src: [
-                    'bower_components/jquery/dist//jquery.js',
-                    'bower_components/modernizr/modernizr.js',
-                    'bower_components/bootstrap/dist/js/bootstrap.js',
-                    'bower_components/JQuery.Marquee/jquery.marquee.js',
-                    'bower_components/datatables/media/js/jquery.dataTables.js',
-                    'bower_components/headroom.js/dist/headroom.js',
-                    'bower_components/headroom.js/dist/jQuery.headroom.js',
-                    'js/application.js'
-                ],
-                dest: 'dist/js/<%= pkg.name %>.js'
-            },
-            theme: {
-                src: [
-                    'bower_components/bootstrap/dist/js/bootstrap.js',
-                    'bower_components/datatables/media/js/jquery.dataTables.js',
-                    'bower_components/JQuery.Marquee/jquery.marquee.js',
-                    'bower_components/headroom.js/dist/headroom.js',
-                    'bower_components/headroom.js/dist/jQuery.headroom.js',
-                    'js/application.js'
-                ],
-                dest: 'dist/js/main.js'
-            }
-        },
-
-        uglify: {
-            options: {
-                banner: '<%= banner %>'
-            },
-            dist: {
-                src: ['<%= concat.dist.dest %>'],
-                dest: 'dist/js/<%= pkg.name %>.min.js'
-            }
-        },
-
-        less: {
-            compileTheme: {
-                options: {
-                    strictMath: false,
-                    sourceMap: true,
-                    outputSourceFiles: true,
-                    sourceMapURL: '<%= pkg.name %>.css.map',
-                    sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
-                },
-                files: {
-                    'dist/css/<%= pkg.name %>.css': 'less/styles.less'
-                }
-            },
-            minify: {
-                options: {
-                    cleancss: true,
-                    report: 'min'
-                },
-                files: {
-                    'dist/css/<%= pkg.name %>.min.css': 'dist/css/<%= pkg.name %>.css'
-                }
-            }
-        },
-
-        csscomb: {
-            sort: {
-                options: {
-                    config: 'less/.csscomb.json'
-                },
-                files: {
-                    'dist/css/<%= pkg.name %>.css': ['dist/css/<%= pkg.name %>.css']
-                }
-            }
-        },
-
-        copy: {
-            fonts: {
-                expand: true,
-                flatten: true,
-                cwd: 'bower_components/',
-                src: ['font-awesome/fonts/*'],
-                dest: 'dist/assets/fonts/'
-            },
-            ico: {
-                expand: true,
-                flatten: true,
-                cwd: 'bower_components/',
-                src: ['assets/ico/*'],
-                dest: 'dist/assets/ico/'
-            },
-            images: {
-                expand: true,
-                flatten: true,
-                src: ['assets/img/*'],
-                dest: 'dist/assets/img/'
-            }
-        },
-
-        imagemin: {
-            dynamic: {
-                files: [{
-                    expand: true,
-                    cwd: 'assets/img/',
-                    src: ['**/*.{png,jpg,gif}'],
-                    dest: 'dist/assets/img/'
-                }]
-            }
-        },
-
-        rev: {
-            options:  {
-                algorithm: 'sha256',
-                length: 8
-            },
-            files: {
-                src: ['dist/**/*.{js,css,png,jpg}']
-            }
-        },
-        qunit: {
-            options: {
-                inject: 'js/tests/unit/phantom.js'
-            },
-            files: ['js/tests/*.html']
-        },
-
-        connect: {
-            server: {
-                options: {
-                    port: 3000,
-                    base: '.'
-                }
-            }
-        },
-        jekyll: {
-            theme: {}
-        },
-
-        htmlmin: {
-          dist: {
-            options: {
-              removeComments: true,
-              collapseWhitespace: true
-            },
-            files: {
-              'dist/theme.html': '_site/index.html',
-              'dist/theme-igp.html': '_site/igp/index.html',
-              'dist/theme-pp.html': '_site/pp/index.html',
-              'dist/overlay.html': '_site/overlay/index.html',
-              'dist/signin.html': '_site/signin/index.html',
-              'dist/frontpage.html': '_site/frontpage/index.html',
-              'dist/landingpage.html': '_site/landingpage/index.html',
-              'dist/opac.html': '_site/opac/index.html',
-              'dist/newsletter.html': '_site/newsletter/index.html'
-            }
-          },
-        },
-
-        sed: {
-            'clean-source-assets': {
-                path: 'dist/',
-                pattern: '../../assets/',
-                replacement: '../assets/',
-                recursive: true
-            },
-            cleanCSS: {
-                path: 'dist/',
-                pattern: '../../dist/css/hph.css',
-                replacement: 'dist/css/hph.min.css',
-                recursive: true
-            },
-            cleanCSSFrontpage: {
-                path: 'dist/',
-                pattern: '../dist/css/hph.css',
-                replacement: 'dist/css/hph.min.css',
-                recursive: true
-            },
-            cleanJS: {
-                path: 'dist/',
-                pattern: '../../dist/js/hph.min.js',
-                replacement: 'dist/js/hph.min.js',
-                recursive: true
-            },
-            cleanJSFrontpage: {
-                path: 'dist/',
-                pattern: '../dist/js/hph.min.js',
-                replacement: 'dist/js/hph.min.js',
-                recursive: true
-            },
-            cleanLogo: {
-                path: 'dist/',
-                pattern: '../assets/img/logo.jpg',
-                replacement: 'assets/img/logo.jpg',
-                recursive: true
-            },
-            cleanLogoIgp: {
-                path: 'dist/',
-                pattern: '../assets/img/logo-igp.png',
-                replacement: 'assets/img/logo-igp.png',
-                recursive: true
-            },
-            cleanLogoPp: {
-                path: 'dist/',
-                pattern: '../assets/img/logo-pro-philosophia.jpg',
-                replacement: 'assets/img/logo-pro-philosophia.jpg',
-                recursive: true
-            }
-        },
-
-        validation: {
-            options: {
-                charset: 'utf-8',
-                doctype: 'HTML5',
-                failHard: true,
-                reset: true,
-                relaxerror: [
-                    'Bad value X-UA-Compatible for attribute http-equiv on element meta.',
-                    'Element img is missing required attribute src.'
-                ]
-            },
-            files: {
-                src: ['_site/**/*.html']
-            }
-        },
-
-        watch: {
-            src: {
-                files: '<%= jshint.src.src %>',
-                tasks: ['jshint:src', 'qunit']
-            },
-            test: {
-                files: '<%= jshint.test.src %>',
-                tasks: ['jshint:test', 'qunit']
-            },
-            less: {
-                files: 'less/*.less',
-                tasks: ['less']
-            }
-        },
-
-        concurrent: {
-            cj: ['less', 'copy', 'concat', 'uglify'],
-            ha: ['jekyll:theme', 'copy-templates', 'sed']
+        files: {
+          '<%= appconfig.dist %>/css/<%= pkg.name %>.css': 'less/styles.less'
         }
-    });
+      }
+    },
 
-    // -------------------------------------------------
-    // These are the available tasks provided
-    // Run them in the Terminal like e.g. grunt dist-css
-    // -------------------------------------------------
+    autoprefixer: {
+      options: {
+        browsers: [
+          'Android 2.3',
+          'Android >= 4',
+          'Chrome >= 20',
+          'Firefox >= 24', // Firefox 24 is the latest ESR
+          'Explorer >= 8',
+          'iOS >= 6',
+          'Opera >= 12',
+          'Safari >= 6'
+        ]
+      },
+      core: {
+        options: {
+          map: true
+        },
+        src: '<%= appconfig.dist %>/css/<%= pkg.name %>.css'
+      }
+    },
 
-    // Prepare distrubution
-    grunt.registerTask('dist-init', '', function () {
-        grunt.file.mkdir('dist/assets/');
-    });
+    csslint: {
+      options: {
+        csslintrc: 'less/.csslintrc'
+      },
+      src: '<%= appconfig.dist %>/css/<%= pkg.name %>.css'
+    },
 
-    // Docs HTML validation task
-    grunt.registerTask('validate-html', ['jekyll', 'validation']);
+    cssmin: {
+      options: {
+        compatibility: 'ie8',
+        keepSpecialComments: '*',
+        noAdvanced: true
+      },
+      core: {
+        files: {
+          '<%= appconfig.dist %>/css/<%= pkg.name %>.min.css': 'dist/css/<%= pkg.name %>.css'
+        }
+      }
+    },
 
-    // Javascript Unittests
-    grunt.registerTask('unit-test', ['qunit']);
+    csscomb: {
+      sort: {
+        options: {
+          config: 'less/.csscomb.json'
+        },
+        files: {
+          '<%= appconfig.dist %>/css/<%= pkg.name %>.css': ['dist/css/<%= pkg.name %>.css']
+        }
+      }
+    },
 
-    // Test task.
-    grunt.registerTask('test-js', ['jshint', 'jscs']);
-    var testSubtasks = ['dist-css', 'jshint', 'validate-html'];
+    criticalcss: {
+        frontpage: {
+            options: {
+                url: 'localhost:8499',
+                width: 1200,
+                height: 900,
+                outputfile: '<%= appconfig.dist %>/css/critical.css',
+                filename: '<%= pkg.name %>.min.css'
+            }
+        }
+    },
 
-    grunt.registerTask('test', testSubtasks);
+    copy: {
+      fontawesome: {
+        expand: true,
+        flatten: true,
+        cwd: 'bower_components/',
+        src: ['font-awesome/fonts/*'],
+        dest: '<%= appconfig.dist %>/assets/fonts/'
+      },
+      //fonts: {
+      //  expand: true,
+      //  flatten: true,
+      //  src: ['assets/font/*'],
+      //  dest: '<%= appconfig.dist %>/assets/fonts/'
+      //},
+      //css: {
+      //  expand: true,
+      //  flatten: true,
+      //  src: ['assets/css/*'],
+      //  dest: '<%= appconfig.dist %>/assets/css/'
+      //},
+      images: {
+        expand: true,
+        flatten: true,
+        src: ['assets/img/*'],
+        dest: '<%= appconfig.dev %>/assets/img/'
+      },
+      ico: {
+        expand: true,
+        flatten: true,
+        src: ['assets/ico/*'],
+        dest: '<%= appconfig.dev %>/assets/ico/'
+      }
+    },
 
-    // JS distribution task.
-    grunt.registerTask('dist-js', ['concat', 'newer:uglify']);
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          cwd: 'assets/img/',
+          src: ['**/*.{png,jpg,gif}'],
+          dest: '<%= appconfig.dist %>/assets/img/'
+        }]
+      }
+    },
 
-    // CSS distribution task.
-    grunt.registerTask('less-compile', ['less:compileTheme']);
-    grunt.registerTask('dist-css', ['less-compile', 'csscomb', 'less:minify']);
+    filerev: {
+      options: {
+        encoding: 'utf8',
+        algorithm: 'md5',
+        length: 8
+      },
+      assets: {
+          src: [
+            '<%= appconfig.dist %>/js/{,*/}*.js',
+            '<%= appconfig.dist %>/css/{,*/}*.css'
+          ],
+          dest: '<%= appconfig.dist %>/assets'
+      },
+      files: {
+          src: [
+            '<%= appconfig.dist %>/assets/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+            '<%= appconfig.dist %>/assets/fonts/*'
+          ]
+      }
+    },
 
-    // Assets distribution task.
-    grunt.registerTask('dist-assets', ['newer:copy', 'newer:imagemin']);
+    filerev_replace: {
+      options: {
+        assets_root: '<%= appconfig.dist %>'
+      },
+      views: {
+        src: '<%= appconfig.dist %>/**/*.html'
+      }
+    },
 
-    // Cache buster distribution task.
-    grunt.registerTask('dist-cb', ['rev']);
+    qunit: {
+      options: {
+        inject: 'js/tests/unit/phantom.js'
+      },
+      files: ['js/tests/*.html']
+    },
 
-    // Template distribution task.
-    grunt.registerTask('dist-html', ['jekyll:theme', 'htmlmin', 'sed']);
+    jekyll: {
+      theme: {
+        options: {
+          config: '_config.yml',
+        }
+      },
+      server: {
+        options: {
+          serve: true,
+          server_port: 8000,
+          auto: true
+        }
+      }
+    },
 
-    // Concurrent distribution task
-    grunt.registerTask('dist-cc', ['test', 'concurrent:cj', 'concurrent:ha']);
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true,
+          removeOptionalTags: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= appconfig.dev %>',
+          src: ['*.html', '{,*/}*.html'],
+          dest: '<%= appconfig.dist %>'
+        }]
+        //files: {
+        //  '<%= appconfig.dist %>/index.html': '_site/index.html',
+        //  '<%= appconfig.dist %>/theme.html': '_site/theme/index.html',
+        //  '<%= appconfig.dist %>/signin.html': '_site/signin/index.html',
+        //  '<%= appconfig.dist %>/signup.html': '_site/signup/index.html',
+        //}
+      },
+    },
 
-    // Development task.
-    grunt.registerTask('dev', ['less-compile', 'dist-js', 'dist-html']);
+    sed: {
+      cleanAssetsPath: {
+        path: '<%= appconfig.dist %>/',
+        pattern: '../../assets/',
+        replacement: '../assets/',
+        recursive: true
+      },
+      cleanCSS: {
+        path: '<%= appconfig.dist %>/',
+        pattern: '../../<%= appconfig.dist %>/css/<%= pkg.name %>.css',
+        replacement: '<%= appconfig.dist %>/css/<%= pkg.name %>.min.css',
+        recursive: true
+      },
+      cleanCSSFrontpage: {
+        path: '<%= appconfig.dist %>/',
+        pattern: '../<%= appconfig.dist %>/css/<%= pkg.name %>.css',
+        replacement: '<%= appconfig.dist %>/css/<%= pkg.name %>.min.css',
+        recursive: true
+      },
+      cleanJSFrontpage: {
+        path: '<%= appconfig.dist %>/',
+        pattern: '../<%= appconfig.dist %>/js/<%= pkg.name %>.min.js',
+        replacement: 'dist/js/<%= pkg.name %>.min.js',
+        recursive: true
+      },
+      cleanJS: {
+        path: '<%= appconfig.dist %>/',
+        pattern: '../../<%= appconfig.dist %>/js/<%= pkg.name %>.min.js',
+        replacement: 'dist/js/<%= pkg.name %>.min.js',
+        recursive: true
+      },
+      cleanImgPath: {
+        path: '<%= appconfig.dist %>',
+        pattern: '../assets/img/',
+        replacement: 'assets/img/',
+        recursive: true
+      },
+    },
 
-    // Full distribution task.
-    grunt.registerTask('dist', ['clean', 'dist-css', 'dist-js', 'dist-html', 'dist-assets']);
+    validation: {
+      options: {
+        charset: 'utf-8',
+        doctype: 'HTML5',
+        failHard: true,
+        reset: true,
+        relaxerror: [
+          'Bad value X-UA-Compatible for attribute http-equiv on element meta.',
+          'Element img is missing required attribute src.'
+        ]
+      },
+      files: {
+        src: ['<%= appconfig.dev %>/**/*.html']
+      }
+    },
 
-    // Default task.
-    grunt.registerTask('default', ['dev']);
+    // Watches files for changes and runs tasks based on the changed files
+    watch: {
+      js: {
+        files: ['js/{,*/}*.js'],
+        tasks: ['newer:jshint:all'],
+        options: {
+          livereload: true
+        }
+      },
+      styles: {
+        files: ['<%= appconfig.dev %>/styles/{,*/}*.css'],
+        tasks: ['newer:copy:styles', 'autoprefixer']
+      },
+      less: {
+        files: 'less/*.less',
+        tasks: ['less'],
+        options: {
+          spawn: false
+        }
+      },
+      gruntfile: {
+        files: ['Gruntfile.js']
+      },
+      livereload: {
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        },
+        files: [
+          '<%= appconfig.dev %>/{,*/}*.html',
+          '<%= appconfig.dist %>/css/{,*/}*.css'
+        ]
+      }
+    },
+    // The actual grunt server settings
+    connect: {
+      options: {
+        port: 9000,
+        // Change this to '0.0.0.0' to access the server from outside.
+        hostname: 'localhost',
+        livereload: 35729,
+        base: '<%= appconfig.dev %>'
+      },
+      livereload: {
+        options: {
+          open: true,
+          base: [
+            '.tmp',
+            '<%= appconfig.dist %>'
+          ]
+        }
+      },
+      dist: {
+        options: {
+          base: '<%= appconfig.dist %>'
+        }
+      }
+    },
+
+    concurrent: {
+      cj: ['less', 'copy', 'concat', 'uglify'],
+      ha: ['jekyll:theme', 'copy-templates', 'sed'],
+      dev: ['less:compileTheme', 'jekyll:theme', 'concat:dist']
+    }
+
+  });
+
+
+  // -------------------------------------------------
+  // These are the available tasks provided
+  // Run them in the Terminal like e.g. grunt dist-css
+  // -------------------------------------------------
+
+  // Prepare distrubution
+  grunt.registerTask('dist-init', '', function () {
+    grunt.file.mkdir('<%= appconfig.dist %>/assets/');
+  });
+
+  grunt.registerTask('serve', function (target) {
+    if (target === 'dist') {
+      return grunt.task.run(['build', 'connect:dist:keepalive']);
+    }
+
+    grunt.task.run([
+      //'clean:server',
+      //'bower-install',
+      //'concurrent:server',
+      'autoprefixer',
+      'connect:livereload',
+      'watch'
+    ]);
+  });
+
+  // Docs HTML validation task
+  grunt.registerTask('validate-html', ['jekyll', 'validation']);
+
+  // Javascript Unittests
+  grunt.registerTask('unit-test', ['qunit']);
+
+  // Test task.
+  var testSubtasks = ['dist-css', 'jshint', 'validate-html'];
+
+  grunt.registerTask('test', testSubtasks);
+
+  // JS distribution task.
+  grunt.registerTask('dist-js', ['concat', 'uglify']);
+
+  // CSS distribution task.
+  grunt.registerTask('less-compile', ['less:compileTheme']);
+  grunt.registerTask('dist-css', ['less-compile', 'autoprefixer', 'csscomb', 'cssmin']);
+
+  // Assets distribution task.
+  grunt.registerTask('dist-assets', ['newer:copy', 'newer:imagemin']);
+
+  // Cache buster distribution task.
+  grunt.registerTask('dist-cb', ['filerev', 'filerev_replace']);
+
+  // Template distribution task.
+  grunt.registerTask('dist-html', ['jekyll:theme', 'htmlmin', 'sed']);
+
+  // Concurrent distribution task
+  grunt.registerTask('dist-cc', ['test', 'concurrent:cj', 'concurrent:ha']);
+
+  // Development task.
+  grunt.registerTask('dev', [
+    'jekyll:theme',
+    'less:compileTheme',
+    'concat:dist'
+  ]);
+
+  // Full distribution task.
+  grunt.registerTask('dist', [
+    'clean',
+    'dist-css',
+    'dist-js',
+    'dist-html',
+    'dist-assets'
+  ]);
+
+  // Shim theme compilation alias
+  grunt.registerTask('compile-theme', ['dist']);
+
+  // Default task.
+  grunt.registerTask('default', ['dev']);
+
 };

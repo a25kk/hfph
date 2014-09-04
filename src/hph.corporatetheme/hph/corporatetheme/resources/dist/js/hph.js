@@ -1,5 +1,5 @@
 /*!
-* HPH v1.0.0 by Ade25
+* hph v1.0.0 by Ade25
 * Copyright Ade25
 * Licensed under [object Object].
 *

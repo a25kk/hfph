@@ -7,8 +7,9 @@
     <!-- Add alternativ theme templates -->
     <!-- Example to add minimal theme template for the
          tiles editiong overlays -->
-    <theme href="dist/overlay.html" if-path="@@edit-tile" />
+    <theme href="dist/overlay/index.html" if-path="@@edit-tile" />
 
+    <!-- Signin and registration forms
     <theme href="dist/signin.html" css:if-content="body.template-login_form" />
     <theme href="dist/signin.html" css:if-content="body.template-logged_out" />
     <theme href="dist/signin.html" css:if-content="body.template-login_failed" />
@@ -17,31 +18,35 @@
     <theme href="dist/signin.html" css:if-content="body.template-pwreset_form" />
     <theme href="dist/signin.html" css:if-content="body.template-pwreset_finish" />
     <theme href="dist/signin.html" css:if-content="body.template-useraccount" />
-    <theme href="dist/signin.html" css:if-content="body.template-signin-form" />
+    <theme href="dist/signin.html" css:if-content="body.template-signin-form" />-->
 
 
-    <!-- Discourse signin and error page -->
+    <!-- Discourse signin and error page
     <theme href="dist/signin.html" css:if-content="body.template-discourse-signin" />
-    <theme href="dist/signin.html" css:if-content="body.template-discourse-sso-error" />
-
-    <!-- Project specific theme files -->
+    <theme href="dist/signin.html" css:if-content="body.template-discourse-sso-error" />-->
+    <!-- Project specific theme files
     <theme href="dist/theme-igp.html" css:if-content="body.subsection-institute-gesellschaftspolitik" />
     <theme href="dist/theme-pp.html" css:if-content="body.section-pro-philosophia" />
+    -->
 
-    <theme href="dist/frontpage.html" css:if-content="body.template-frontpage-view" />
-    <theme href="dist/frontpage.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />
-    <theme href="dist/landingpage.html" css:if-content="body.section-nachrichten" />
-    <theme href="dist/landingpage.html" css:if-content="body.section-termine" />
-    <theme href="dist/landingpage.html" css:if-content="body.section-impressum" />
+    <!-- Landingpages -->
+    <theme href="dist/frontpage/index.html" css:if-content="body.template-frontpage-view" />
+    <theme href="dist/frontpage/index.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />
+    <theme href="dist/landingpage/index.html" css:if-content="body.section-nachrichten" />
+    <theme href="dist/landingpage/index.html" css:if-content="body.section-termine" />
+    <theme href="dist/landingpage/index.html" css:if-content="body.section-impressum" />
+
     <!--<theme href="dist/landingpage.html" css:if-content="body.section-presse-oeffentlichkeitsarbeit" />-->
+
+    <!-- Opac und newsletter templates
     <theme href="dist/opac.html" css:if-content="body.subsection-bibliotheken-opac-recherche" />
-    <theme href="dist/newsletter.html" css:if-content="body.section-newsletter" />
+    <theme href="dist/newsletter.html" css:if-content="body.section-newsletter" />-->
 
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
 
         <notheme if="$ajax_load" />
-        <theme href="dist/theme.html" />
+        <theme href="dist/index.html" />
 
        <replace css:theme="title" css:content="title" />
        <after theme="/html/head/title" css:content="base" />

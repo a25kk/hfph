@@ -93,9 +93,7 @@ class LectureBaseEditForm(form.SchemaEditForm):
 
     def getContent(self):
         item = self.content_item()
-        fti = getUtility(IDexterityFTI,
-                         name='hph.lectures.lecture')
-        schema = fti.lookupSchema()
+        schema = ILectureBase
         fields = getFieldsInOrder(schema)
         data = {}
         for key, value in fields:
