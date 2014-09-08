@@ -6306,8 +6306,8 @@ ul.formTabs:after,
   font-style: normal;
   font-weight: normal;
 
-  src: url('../assets/fonts/fontawesome-webfont.eot?v=4.1.0');
-  src: url('../assets/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') format('embedded-opentype'), url('../assets/fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'), url('../assets/fonts/fontawesome-webfont.ttf?v=4.1.0') format('truetype'), url('../assets/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format('svg');
+  src: url('../../assets/fonts/fontawesome-webfont.eot?v=4.1.0');
+  src: url('../../assets/fonts/fontawesome-webfont.eot?#iefix&v=4.1.0') format('embedded-opentype'), url('../../assets/fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'), url('../../assets/fonts/fontawesome-webfont.ttf?v=4.1.0') format('truetype'), url('../../assets/fonts/fontawesome-webfont.svg?v=4.1.0#fontawesomeregular') format('svg');
 }
 .fa {
   display: inline-block;
@@ -14446,7 +14446,7 @@ div.event {
 }
 .app-footer-content .link-donation {
   padding-left: 25px;
-  background: url(assets/img/donation.gif) no-repeat 0 10px;
+  background: url(../assets/img/donation.gif) no-repeat 0 10px;
 }
 .app-toolbar + .app-header {
   margin-top: 50px;

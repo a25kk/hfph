@@ -4,11 +4,12 @@ module.exports = function (grunt) {
 
   'use strict';
 
-  // load all grunt tasks
-  require('load-grunt-tasks')(grunt);
-
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+
+  // load all grunt tasks
+  // require('load-grunt-tasks')(grunt);
+  require('jit-grunt')(grunt);
 
   // Configurable paths
   var appconfig = {
@@ -203,12 +204,12 @@ module.exports = function (grunt) {
       //  src: ['assets/css/*'],
       //  dest: '<%= appconfig.dist %>/assets/css/'
       //},
-      images: {
-        expand: true,
-        flatten: true,
-        src: ['assets/img/*'],
-        dest: '<%= appconfig.dev %>/assets/img/'
-      },
+      //images: {
+      //  expand: true,
+      //  flatten: true,
+      //  src: ['assets/img/*'],
+      //  dest: '<%= appconfig.dev %>/assets/img/'
+      //},
       ico: {
         expand: true,
         flatten: true,
@@ -461,7 +462,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test', testSubtasks);
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['concat', 'uglify']);
+  grunt.registerTask('dist-js', ['newer:concat', 'newer:uglify']);
 
   // CSS distribution task.
   grunt.registerTask('less-compile', ['less:compileTheme']);
@@ -474,7 +475,7 @@ module.exports = function (grunt) {
   grunt.registerTask('dist-cb', ['filerev', 'filerev_replace']);
 
   // Template distribution task.
-  grunt.registerTask('dist-html', ['jekyll:theme', 'htmlmin', 'sed']);
+  grunt.registerTask('dist-html', ['jekyll:theme', 'newer:htmlmin', 'newer:sed']);
 
   // Concurrent distribution task
   grunt.registerTask('dist-cc', ['test', 'concurrent:cj', 'concurrent:ha']);
@@ -482,8 +483,8 @@ module.exports = function (grunt) {
   // Development task.
   grunt.registerTask('dev', [
     'jekyll:theme',
-    'less:compileTheme',
-    'concat:dist'
+    'newer:less:compileTheme',
+    'newer:concat:dist'
   ]);
 
   // Full distribution task.
