@@ -75,7 +75,14 @@ class LectureBaseEditForm(form.SchemaEditForm):
             self.status = self.formErrorsMessage
             return
         item = self.content_item()
-        setattr(item, 'textline', data['textline'])
+        schema = ILectureBase
+        fields = getFieldsInOrder(schema)
+        for key, value in fields:
+            try:
+                new_value = data[key]
+                setattr(item, key, new_value)
+            except KeyError:
+                continue
         modified(item)
         item.reindexObject(idxs='modified')
         api.portal.show_message(_(u"The item has successfully been updated"),

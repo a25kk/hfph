@@ -475,7 +475,7 @@ module.exports = function (grunt) {
   grunt.registerTask('dist-cb', ['filerev', 'filerev_replace']);
 
   // Template distribution task.
-  grunt.registerTask('dist-html', ['jekyll:theme', 'newer:htmlmin', 'newer:sed']);
+  grunt.registerTask('dist-html', ['jekyll:theme', 'newer:htmlmin', 'sed']);
 
   // Concurrent distribution task
   grunt.registerTask('dist-cc', ['test', 'concurrent:cj', 'concurrent:ha']);
