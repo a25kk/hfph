@@ -104,3 +104,36 @@ class LectureBaseEditForm(form.SchemaEditForm):
         for key, value in fields:
             data[key] = getattr(item, key, value)
         return data
+
+
+class LectureEditor(grok.View):
+    grok.context(IWorkspace)
+    grok.require('cmf.ModifyPortalContent')
+    grok.name('lecture-editor')
+
+    @property
+    def traverse_subpath(self):
+        return self.subpath
+
+    def publishTraverse(self, request, name):
+        if not hasattr(self, 'subpath'):
+            self.subpath = []
+        self.subpath.append(name)
+        return self
+
+    def content_item(self):
+        uid = self.traverse_subpath[0]
+        item = api.content.get(UID=uid)
+        return item
+
+    def next_url(self):
+        context = aq_inner(self.context)
+        item = self.traverse_subpath[0]
+        url = '{0}/@@lecture-factory/{1}'.format(
+            context.absolute_url(), item)
+        return url
+
+    def getFieldData(self):
+        context = self.content_item()
+        fieldname = self.traverse_subpath[1]
+        return getattr(context, fieldname, '')

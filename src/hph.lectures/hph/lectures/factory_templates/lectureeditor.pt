@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.lectures">
+
+<head>
+    <metal:block metal:fill-slot="head_slot">
+        <link rel="stylesheet"
+            tal:attributes="href string:${context/@@plone_portal_state/portal_url}/++resource++hph.lectures/medium-editor.css" />
+        <script type="text/javascript" src="test.js"
+            tal:attributes="src string:${context/@@plone_portal_state/portal_url}/++resource++hph.lectures/medium-editor.js"></script>
+    </metal:block>
+</head>
+
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <div class="row"
+        tal:define="item view/content_item">
+        <div class="col-xs-12 col-sm-3">
+            <aside class="app-aside hidden-print" id="app-sidebar">
+                <div class="app-box app-box-faculty">
+                    <div class="app-box-header">
+                        <h2 i18n:translate="">Lecture Factory</h2>
+                    </div>
+                    <div class="app-box-content">
+                        <ul class="nav nav-pills nav-stacked app-box-nav">
+                            <li>
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-base/${item/@@uuid}"
+                                    i18n:translate="">Base information</a>
+                            </li>
+                            <li><a i18n:translate="">Fieldname here</a></li>
+                        </ul>
+                    </div>
+                    <div class="app-box-footer">
+                        <a class="btn btn-danger btn-sm"
+                            tal:attributes="href string:${context/absolute_url}">
+                            &times; <span i18n:translate="">Quit editor</span></a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+            <div class="app-item-editable">
+                <h1 i18n:translate="">Edit field content</h1>
+
+                <div class="app-field-editable">
+                    <div class="editable" data-appui="content-editable"
+                        tal:content="view/getFieldData">
+                        Editable Content Section
+                    </div>
+                </div>
+                <script>
+            var editor = new MediumEditor('.editable', {
+                anchorInputPlaceholder: 'Type a link',
+                buttons: ['bold', 'italic', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist']
+            });
+        </script>
+                <div class="app-item-editable-actions">
+                    <a class="btn btn-primary" href="#save"
+                        data-appui="content-eitable-save"
+                        <a tal:attributes="href string:${context/absolute_url}/lecture-factory/">
+                        Save changes</a>
+                    <p>Note: Storage ajax handler not implemented yet</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

@@ -14534,4 +14534,14 @@ div.event {
   max-width: 480px;
   margin: 100px auto;
 }
+.app-field-editable {
+  margin-bottom: 20px;
+}
+.app-field-editable > .editable {
+  min-height: 200px;
+  padding: 20px;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 16px;
+  border: 2px solid #faebcc;
+}
 /*# sourceMappingURL=hph.css.map */
