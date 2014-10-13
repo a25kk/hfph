@@ -36,12 +36,17 @@
                 $targetEl.html(divData);
             });
         });
+        // Medium editor
+        var $editor = new MediumEditor('.editable', {
+            anchorInputPlaceholder: 'Type a link',
+            buttons: ['bold', 'italic', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist']
+        });
         $('a[data-appui="ajax-submit"]').on('click', function (e) {
             e.preventDefault();
             var $targetURL = $(this).data('appui-target-url');
             $.ajax({
                 url: $targetURL,
-                data: $(this).serializeArray(),
+                data: $editor.serialize();,
                 success: function (res) {
                     if (res.result === 'ok') {
                         $console.text('Data saved');

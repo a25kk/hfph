@@ -56,11 +56,11 @@
                     </div>
                 </div>
                 <script>
-            var editor = new MediumEditor('.editable', {
-                anchorInputPlaceholder: 'Type a link',
-                buttons: ['bold', 'italic', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist']
-            });
-        </script>
+                    var editor = new MediumEditor('.editable', {
+                        anchorInputPlaceholder: 'Type a link',
+                        buttons: ['bold', 'italic', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist']
+                    });
+                </script>
                 <div class="app-item-editable-actions">
                     <a class="btn btn-primary" href="#save"
                         data-appui="content-eitable-save"

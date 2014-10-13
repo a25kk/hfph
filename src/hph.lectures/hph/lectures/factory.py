@@ -1,6 +1,8 @@
 # -*- coding: UTF-8 -*-
 """Module to allow contributions on lecture content"""
 
+import json
+import datetime
 from Acquisition import aq_inner
 from five import grok
 from plone import api
@@ -137,3 +139,21 @@ class LectureEditor(grok.View):
         context = self.content_item()
         fieldname = self.traverse_subpath[1]
         return getattr(context, fieldname, '')
+
+
+class LectureEditorSaveData(grok.View):
+    grok.context(IWorkspace)
+    grok.require('cmf.ModifyPortalContent')
+    grok.name('lecture-editor-save')
+
+    def render(self):
+        timestamp = datetime.datetime.now()
+        msg = _(u"Serialized data stored successful.")
+        results = {
+            'success': True,
+            'message': msg,
+            'timestamp': timestamp
+        }
+        self.request.response.setHeader('Content-Type',
+                                        'application/json; charset=utf-8')
+        return json.dumps(results)
