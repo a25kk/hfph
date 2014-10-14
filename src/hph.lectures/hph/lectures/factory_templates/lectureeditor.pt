@@ -65,7 +65,7 @@
                         </textarea>
                         <input class="form-control" id="field-name"
                             type="text" name="field-name"
-                            placeholder="Please enter panel name">
+                            tal:attribute="value view/getFieldname">
                         <span tal:replace="structure context/@@authenticator/authenticator"/>
                         <a class="btn btn-primary" href="#save"
                             data-appui="content-editable-save"

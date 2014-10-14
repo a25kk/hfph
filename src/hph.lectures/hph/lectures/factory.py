@@ -3,11 +3,14 @@
 
 import json
 import datetime
+from AccessControl import Unauthorized
 from Acquisition import aq_inner
+from Products.CMFPlone.utils import safe_unicode
 from five import grok
 from plone import api
 from plone.directives import form
 from z3c.form import button
+from zope.component import getMultiAdapter
 from zope.lifecycleevent import modified
 from zope.schema import getFieldsInOrder
 
@@ -113,6 +116,39 @@ class LectureEditor(grok.View):
     grok.require('cmf.ModifyPortalContent')
     grok.name('lecture-editor')
 
+    def update(self):
+        context = aq_inner(self.context)
+        self.errors = {}
+        unwanted = ('_authenticator', 'form.button.Submit')
+        required = ('field-name')
+        if 'form.button.Submit' in self.request:
+            authenticator = getMultiAdapter((context, self.request),
+                                            name=u"authenticator")
+            if not authenticator.verify():
+                raise Unauthorized
+            form = self.request.form
+            form_data = {}
+            form_errors = {}
+            errorIdx = 0
+            for value in form:
+                if value not in unwanted:
+                    form_data[value] = safe_unicode(form[value])
+                    if not form[value] and value in required:
+                        error = {}
+                        error['active'] = True
+                        error['msg'] = _(u"This field is required")
+                        form_errors[value] = error
+                        errorIdx += 1
+                    else:
+                        error = {}
+                        error['active'] = False
+                        error['msg'] = form[value]
+                        form_errors[value] = error
+            if errorIdx > 0:
+                self.errors = form_errors
+            else:
+                self._store_data(form)
+
     @property
     def traverse_subpath(self):
         return self.subpath
@@ -135,10 +171,25 @@ class LectureEditor(grok.View):
             context.absolute_url(), item)
         return url
 
+    def getFieldname(self):
+        return self.traverse_subpath[1]
+
     def getFieldData(self):
         context = self.content_item()
         fieldname = self.traverse_subpath[1]
         return getattr(context, fieldname, '')
+
+    def _store_data(self, data):
+        item = self.content_item()
+        fieldname = self.getFieldname()
+        new_value = data['content-editable-form-body']
+        setattr(item, fieldname, new_value)
+        modified(item)
+        item.reindexObject(idxs='modified')
+        api.portal.show_message(_(u"The item has successfully been updated"),
+                                self.request,
+                                type='info')
+        return self.request.response.redirect(self.next_url())
 
 
 class LectureEditorSaveData(grok.View):
@@ -154,7 +205,6 @@ class LectureEditorSaveData(grok.View):
             'message': msg,
             'timestamp': timestamp
         }
-        import pdb; pdb.set_trace()
         self.request.response.setHeader('Content-Type',
                                         'application/json; charset=utf-8')
         return json.dumps(results)
