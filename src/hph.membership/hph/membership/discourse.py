@@ -178,8 +178,8 @@ class DiscourseSSOHandler(grok.View):
             return self.request.response.redirect(url)
 
         try:
-            nonce = self.sso_validate(str(payload),
-                                      str(signature),
+            nonce = self.sso_validate(payload,
+                                      signature,
                                       str(sso_secret))
         except DiscourseError as e:
             return 'HTTP400 Error {}'.format(e)  # Todo: implement handler
