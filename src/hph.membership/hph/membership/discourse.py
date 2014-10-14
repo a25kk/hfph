@@ -146,8 +146,9 @@ class DiscourseSSOHandler(grok.View):
 
     def render(self):
         portal_url = api.portal.get().absolute_url()
+        in_debug_mode = api.env.debug_mode()
         actual_url = self.request.get('ACTUAL_URL')
-        if not actual_url.startswith('http://'):
+        if not in_debug_mode and not actual_url.startswith('https://'):
             msg = _(u"The Discourse SSO endpoint can only be accessed via "
                     u"SSL since we do not support transfer of authentication "
                     u"tokens via unencrypted connections.")

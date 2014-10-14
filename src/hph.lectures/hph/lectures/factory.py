@@ -198,6 +198,7 @@ class LectureEditorSaveData(grok.View):
     grok.name('lecture-editor-save')
 
     def render(self):
+        form = self.request.form
         timestamp = datetime.datetime.now()
         msg = _(u"Serialized data stored successful.")
         results = {

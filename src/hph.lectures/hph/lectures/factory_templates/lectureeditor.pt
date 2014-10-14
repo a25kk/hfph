@@ -56,8 +56,9 @@
                     </div>
                 </div>
                 <div class="app-item-editable-actions">
-                    <form class="app-form"
+                    <form class="app-form js-form js-form-hidden"
                         method="post" role="form"
+                        data-appui="content-editable-form"
                         tal:attributes="action request/URL">
                         <textarea class="form-control" id="content-editable-form-body"
                             name="content-editable-form-body">
@@ -65,8 +66,12 @@
                         </textarea>
                         <input class="form-control" id="field-name"
                             type="text" name="field-name"
-                            tal:attribute="value view/getFieldname">
+                            tal:attributes="value view/getFieldname">
                         <span tal:replace="structure context/@@authenticator/authenticator"/>
+                        <button class="btn btn-primary"
+                                name="form.button.Submit"
+                                id="form.button.Submit"
+                                i18n:translate="">Save changes</button>
                         <a class="btn btn-primary" href="#save"
                             data-appui="content-editable-save"
                             <a tal:attributes="href string:${context/absolute_url}/lecture-editor-save;
