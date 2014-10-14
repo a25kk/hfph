@@ -154,6 +154,7 @@ class LectureEditorSaveData(grok.View):
             'message': msg,
             'timestamp': timestamp
         }
+        import pdb; pdb.set_trace()
         self.request.response.setHeader('Content-Type',
                                         'application/json; charset=utf-8')
         return json.dumps(results)

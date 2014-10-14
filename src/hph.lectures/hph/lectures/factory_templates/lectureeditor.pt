@@ -55,18 +55,24 @@
                         Editable Content Section
                     </div>
                 </div>
-                <script>
-                    var editor = new MediumEditor('.editable', {
-                        anchorInputPlaceholder: 'Type a link',
-                        buttons: ['bold', 'italic', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist']
-                    });
-                </script>
                 <div class="app-item-editable-actions">
-                    <a class="btn btn-primary" href="#save"
-                        data-appui="content-eitable-save"
-                        <a tal:attributes="href string:${context/absolute_url}/lecture-factory/">
-                        Save changes</a>
-                    <p>Note: Storage ajax handler not implemented yet</p>
+                    <form class="app-form"
+                        method="post" role="form"
+                        tal:attributes="action request/URL">
+                        <textarea class="form-control" id="content-editable-form-body"
+                            name="content-editable-form-body">
+                            {{ text area }}
+                        </textarea>
+                        <input class="form-control" id="field-name"
+                            type="text" name="field-name"
+                            placeholder="Please enter panel name">
+                        <span tal:replace="structure context/@@authenticator/authenticator"/>
+                        <a class="btn btn-primary" href="#save"
+                            data-appui="content-editable-save"
+                            <a tal:attributes="href string:${context/absolute_url}/lecture-editor-save;
+                                            data-appui-target-url string:${context/absolute_url}/lecture-editor-save">
+                            Save changes</a>
+                    </form>
                 </div>
             </div>
         </div>
