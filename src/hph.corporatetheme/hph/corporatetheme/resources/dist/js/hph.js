@@ -13586,7 +13586,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
                 $('.bs-docs-top').affix();
             }, 100);
         }
-        $('#app-toolbar').headroom();
+        //$('#app-toolbar').headroom();
         $('.marquee').marquee({ speed: 5000 });
         var $ajaxContainer = $('#appui-container');
         $('a[data-appui="pjaxed"]').each(function () {

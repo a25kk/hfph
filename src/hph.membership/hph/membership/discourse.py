@@ -266,7 +266,7 @@ class DiscourseSSOHandler(grok.View):
         })
 
         return_payload = base64.encodestring(urlencode(kwargs))
-        h = hmac.new(secret, return_payload, digestmod=hashlib.sha256)
+        h = hmac.new(secret.encode(), return_payload, digestmod=hashlib.sha256)
         query_string = urlencode({'sso': return_payload, 'sig': h.hexdigest()})
 
         return '/session/sso_login?%s' % query_string
