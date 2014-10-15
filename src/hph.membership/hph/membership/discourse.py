@@ -181,7 +181,7 @@ class DiscourseSSOHandler(grok.View):
         try:
             nonce = self.sso_validate(payload,
                                       signature,
-                                      str(sso_secret))
+                                      sso_secret)
         except DiscourseError as e:
             return 'HTTP400 Error {}'.format(e)  # Todo: implement handler
         user = api.user.get_current()
@@ -228,7 +228,9 @@ class DiscourseSSOHandler(grok.View):
         if 'nonce' not in decoded:
             raise DiscourseError('Invalid payload..')
 
-        h = hmac.new(secret, payload, digestmod=hashlib.sha256)
+        h = hmac.new(secret.encode(),
+                     payload.encode(),
+                     digestmod=hashlib.sha256)
         this_signature = h.hexdigest()
 
         if not self.is_equal(this_signature, signature):
