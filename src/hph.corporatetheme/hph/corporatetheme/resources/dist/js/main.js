@@ -4579,17 +4579,7 @@ if (typeof module === 'object') {
                 $targetEl.html(divData);
             });
         });
-        // Medium editor
-        var $editor = new MediumEditor('.editable', {
-            anchorInputPlaceholder: 'Type a link',
-            buttons: ['bold', 'italic', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist']
-        });
-        $('form[data-appui="content-editable-form"]').on('submit', function (e) {
-            e.preventDefault();
-            var $contentObj = $editor.serialize();
-            $("#content-editable-form-body").val($contentObj['element-0'].value);
-            this.submit();
-        });
+
         $('a[data-appui="content-editable-save"]').on('click', function (e) {
             e.preventDefault();
             var $targetURL = $(this).data('appui-target-url');
