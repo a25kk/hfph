@@ -34,7 +34,7 @@ module.exports = function (grunt) {
                     'bower_components/modernizr/modernizr.js',
                     'bower_components/bootstrap/dist/js/bootstrap.js',
                     'bower_components/JQuery.Marquee/jquery.marquee.js',
-                    'bower_components/medium-editor/dist/js/medium-editor.js',
+                    //'bower_components/medium-editor/dist/js/medium-editor.js',
                     'bower_components/headroom.js/dist/headroom.js',
                     'bower_components/headroom.js/dist/jQuery.headroom.js',
                     'js/application.js'
@@ -45,7 +45,7 @@ module.exports = function (grunt) {
                 src: [
                     'bower_components/bootstrap/dist/js/bootstrap.js',
                     'bower_components/JQuery.Marquee/jquery.marquee.js',
-                    'bower_components/medium-editor/dist/js/medium-editor.js',
+                    //'bower_components/medium-editor/dist/js/medium-editor.js',
                     'bower_components/headroom.js/dist/headroom.js',
                     'bower_components/headroom.js/dist/jQuery.headroom.js',
                     'js/application.js'
