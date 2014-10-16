@@ -54,17 +54,6 @@
 
         <before content="/html/head/meta" theme="/html/head/title" />
 
-        <!-- Copy style, script and link tags in the order they appear in the content -->
-
-        <after
-            content="/html/head/style | /html/head/script | /html/head/link"
-            theme-children="/html/head"
-            />
-
-        <drop theme="/html/head/style" />
-        <drop theme="/html/head/script" />
-        <drop theme="/html/head/link" />
-
         <rules css:if-content="body.userrole-authenticated">
             <!-- Copy style, script and link tags in the order they appear in the content -->
             <after
