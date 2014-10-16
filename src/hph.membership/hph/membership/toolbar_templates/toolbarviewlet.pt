@@ -36,7 +36,7 @@
                         tal:attributes="class item/extra/class"
                         tal:content="item/extra/stateTitle"
                          i18n:translate="">Private</span>
-                  <b class="caret">
+                  <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu" tal:condition="item/submenu">
                   <li tal:repeat="subitem item/submenu"
@@ -54,7 +54,7 @@
               <a class="dropdown-toggle" data-toggle="dropdown" href="#"
                  tal:attributes="href viewlet/user_homeurl">
                 <span tal:content="viewlet/user_displayname">Fullname</span>
-                <b class="caret">
+                <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
                 <li tal:repeat="subitem viewlet/user_actions"
