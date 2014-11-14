@@ -14068,6 +14068,9 @@ div.event {
 .app-page.app-page-listing {
   padding-top: 20px;
 }
+.app-contentlisting h2 {
+  font-size: 21px;
+}
 .app-content-body {
   padding: 20px;
 }
