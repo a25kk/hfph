@@ -37,6 +37,14 @@ env.roledefs = {
 
 @task
 @roles('production')
+def develop():
+    """ Restart all """
+    with cd(env.code_root):
+        run('nice bin/develop up')
+
+
+@task
+@roles('production')
 def restart():
     """ Restart all """
     project.cluster.restart_clients()
