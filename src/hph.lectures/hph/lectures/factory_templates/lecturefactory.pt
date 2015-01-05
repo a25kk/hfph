@@ -21,10 +21,6 @@
                     <div class="app-box-content">
                         <ul class="nav nav-pills nav-stacked app-box-nav">
                             <li>
-                                <a tal:attributes="href string:${context/absolute_url}/lecture-base/${item/@@uuid}"
-                                    i18n:translate="">Base information</a>
-                            </li>
-                            <li>
                                 <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseTheme"
                                     i18n:translate="">Course Theme</a>
                             </li>

@@ -34,10 +34,6 @@
                     <div class="app-box-content">
                         <ul class="nav nav-pills nav-stacked app-box-nav"
                             tal:define="current view/getFieldname">
-                            <li>
-                                <a tal:attributes="href string:${context/absolute_url}/lecture-base/${item/@@uuid}"
-                                    i18n:translate="">Base information</a>
-                            </li>
                             <li tal:define="fieldname string:courseTheme"
                                 tal:attributes="class python:fieldname == current and 'nav-item active' or 'nav-item'">
                                 <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseTheme"

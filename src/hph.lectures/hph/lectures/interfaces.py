@@ -4,6 +4,7 @@
 from plone.directives import form
 from zope import schema
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
+from plone.namedfile.field import NamedBlobFile
 
 from hph.lectures import MessageFactory as _
 
@@ -84,5 +85,22 @@ class ILectureBase(form.Schema):
             title=_(u"Display Selection"),
             vocabulary=u'hph.sitecontent.thirdPartyProjects',
         ),
+        required=False,
+    )
+
+
+class ILectureAttachement(form.Schema):
+
+    title = schema.TextLine(
+        title=_(u"Title"),
+        required=True
+    )
+    description = schema.Text(
+        title=_(u"Description"),
+        required=False
+    )
+    image = NamedBlobFile(
+        title=_(u"File Attachment"),
+        description=_(u"Select file to upload to this lecture object"),
         required=False,
     )

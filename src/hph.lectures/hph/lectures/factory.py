@@ -1,8 +1,6 @@
 # -*- coding: UTF-8 -*-
 """Module to allow contributions on lecture content"""
 
-import json
-import datetime
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
 from Products.CMFPlone.utils import safe_unicode
@@ -14,6 +12,7 @@ from zope.component import getMultiAdapter
 from zope.lifecycleevent import modified
 from zope.schema import getFieldsInOrder
 
+from hph.lectures.interfaces import ILectureAttachment
 from hph.lectures.interfaces import ILectureBase
 from hph.membership.workspace import IWorkspace
 
@@ -192,20 +191,63 @@ class LectureEditor(grok.View):
         return self.request.response.redirect(self.next_url())
 
 
-class LectureEditorSaveData(grok.View):
+class LectureAttachment(form.SchemaEditForm):
     grok.context(IWorkspace)
     grok.require('cmf.ModifyPortalContent')
-    grok.name('lecture-editor-save')
+    grok.name('lecture-attachment-editor')
 
-    def render(self):
-        form = self.request.form
-        timestamp = datetime.datetime.now()
-        msg = _(u"Serialized data stored successful.")
-        results = {
-            'success': True,
-            'message': msg,
-            'timestamp': timestamp
-        }
-        self.request.response.setHeader('Content-Type',
-                                        'application/json; charset=utf-8')
-        return json.dumps(results)
+    schema = ILectureAttachment
+    ignoreContext = False
+    css_class = 'app-form'
+    label = _(u"Add file attachment")
+
+    @property
+    def traverse_subpath(self):
+        return self.subpath
+
+    def publishTraverse(self, request, name):
+        if not hasattr(self, 'subpath'):
+            self.subpath = []
+        self.subpath.append(name)
+        return self
+
+    def content_item(self):
+        uid = self.traverse_subpath[0]
+        item = api.content.get(UID=uid)
+        return item
+
+    def next_url(self):
+        context = aq_inner(self.context)
+        item = self.traverse_subpath[0]
+        url = '{0}/@@lecture-factory/{1}'.format(
+            context.absolute_url(), item)
+        return url
+
+    @button.buttonAndHandler(_(u"Save"), name="save")
+    def handleApply(self, action):
+        data, errors = self.extractData()
+        if errors:
+            self.status = self.formErrorsMessage
+            return
+        self.applyChanges(data)
+
+    class applyChanges(self, data):
+        container = self.content_item()
+        item = api.content.create(
+            type='File',
+            title=data['title'],
+            container=container
+        )
+        setattr(item, 'description', data['description'])
+        setattr(item, 'image', data['image'])
+        modified(item)
+        item.reindexObject(idxs='modified')
+        msg = _(u"The attachment has successfully been added"),
+        api.portal.show_message(message=msg, request=self.request)
+        return self.request.response.redirect(self.next_url())
+
+    @button.buttonAndHandler(_(u"cancel"))
+    def handleCancel(self, action):
+        msg = _(u"Attachement edit has been cancelled.")
+        api.portal.show_message(message=msg, request=self.request)
+        return self.request.response.redirect(self.next_url())
