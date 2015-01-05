@@ -231,7 +231,13 @@ class LectureAttachment(form.SchemaEditForm):
             return
         self.applyChanges(data)
 
-    class applyChanges(self, data):
+    @button.buttonAndHandler(_(u"cancel"))
+    def handleCancel(self, action):
+        msg = _(u"Attachement edit has been cancelled.")
+        api.portal.show_message(message=msg, request=self.request)
+        return self.request.response.redirect(self.next_url())
+
+    def applyChanges(self, data):
         container = self.content_item()
         item = api.content.create(
             type='File',
@@ -243,11 +249,5 @@ class LectureAttachment(form.SchemaEditForm):
         modified(item)
         item.reindexObject(idxs='modified')
         msg = _(u"The attachment has successfully been added"),
-        api.portal.show_message(message=msg, request=self.request)
-        return self.request.response.redirect(self.next_url())
-
-    @button.buttonAndHandler(_(u"cancel"))
-    def handleCancel(self, action):
-        msg = _(u"Attachement edit has been cancelled.")
         api.portal.show_message(message=msg, request=self.request)
         return self.request.response.redirect(self.next_url())
