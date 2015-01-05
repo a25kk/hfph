@@ -8,6 +8,9 @@
 
 <head>
     <metal:block metal:fill-slot="head_slot">
+        <!--[if lt IE 9]>
+            <script src="//cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js"></script>
+        <![endif]-->
         <link rel="stylesheet"
             tal:attributes="href string:${context/@@plone_portal_state/portal_url}/++resource++hph.lectures/medium-editor.css" />
         <script type="text/javascript" src="test.js"
@@ -50,13 +53,14 @@
                 <h1 i18n:translate="">Edit field content</h1>
 
                 <div class="app-field-editable">
-                    <div class="editable" data-appui="content-editable"
+                    <div class="editable" id="editable-text" data-appui="content-editable"
                         tal:content="view/getFieldData">
                         Editable Content Section
                     </div>
                 </div>
                 <div class="app-item-editable-actions">
                     <form class="app-form js-form js-form-hidden"
+                        id="js-form"
                         method="post" role="form"
                         data-appui="content-editable-form"
                         tal:attributes="action request/URL">
@@ -85,11 +89,11 @@
                         anchorInputPlaceholder: 'Type a link',
                         buttons: ['bold', 'italic', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist']
                     });
-                    $('form[data-appui="content-editable-form"]').on('submit', function (e) {
-                        e.preventDefault();
-                        var $contentObj = $editor.serialize();
-                        $("#content-editable-form-body").val($contentObj['element-0'].value);
-                        this.submit();
+                    $('#js-form').submit(function (e) {
+                        // e.preventDefault();
+                        var contentObj = $('#editable-text').html();
+                        $("#content-editable-form-body").val(contentObj);
+                        // this.submit();
                     });
                 </script>
             </div>

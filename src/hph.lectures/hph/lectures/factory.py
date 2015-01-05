@@ -184,6 +184,7 @@ class LectureEditor(grok.View):
         fieldname = self.getFieldname()
         new_value = data['content-editable-form-body']
         setattr(item, fieldname, new_value)
+        import pdb; pdb.set_trace()
         modified(item)
         item.reindexObject(idxs='modified')
         api.portal.show_message(_(u"The item has successfully been updated"),
