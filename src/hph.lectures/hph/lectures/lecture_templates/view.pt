@@ -100,42 +100,42 @@
             <div class="app-page-section"
                 tal:condition="context/courseTheme">
                 <h3 i18n:translate="">Course Theme</h3>
-                <p tal:content="context/courseTheme" />
+                <p tal:content="structure context/courseTheme" />
             </div>
             <div class="app-page-section"
                 tal:condition="context/courseAims">
                 <h3 i18n:translate="">Course Aims</h3>
-                <p tal:content="context/courseAims" />
+                <p tal:content="structure context/courseAims" />
             </div>
             <div class="app-page-section"
                 tal:condition="context/courseMethod">
                 <h3 i18n:translate="">Course Method</h3>
-                <p tal:content="context/courseMethod" />
+                <p tal:content="structure context/courseMethod" />
             </div>
             <div class="app-page-section"
                 tal:condition="context/coursePrereq">
                 <h3 i18n:translate="">Course Prerequirements</h3>
-                <p tal:content="context/coursePrereq" />
+                <p tal:content="structure context/coursePrereq" />
             </div>
             <div class="app-page-section"
                 tal:condition="context/courseQualification">
                 <h3 i18n:translate="">Course Qualification</h3>
-                <p tal:content="context/courseQualification" />
+                <p tal:content="structure context/courseQualification" />
             </div>
             <div class="app-page-section"
                 tal:condition="context/courseTarget">
                 <h3 i18n:translate="">Course Target</h3>
-                <p tal:content="context/courseTarget" />
+                <p tal:content="structure context/courseTarget" />
             </div>
             <div class="app-page-section"
                 tal:condition="context/courseLiterature">
                 <h3 i18n:translate="">Course Literature</h3>
-                <p tal:content="context/courseLiterature" />
+                <p tal:content="structure context/courseLiterature" />
             </div>
             <div class="app-page-section"
                 tal:condition="context/courseNotes">
                 <h3 i18n:translate="">Course Notes</h3>
-                <p tal:content="context/courseNotes" />
+                <p tal:content="structure context/courseNotes" />
             </div>
 
             <tal:authenticated tal:condition="not:view/is_anon">
