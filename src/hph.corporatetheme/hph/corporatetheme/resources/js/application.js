@@ -4,11 +4,6 @@
         if ($('body').hasClass('lt-ie7')) {
             return;
         }
-        if ($('.bs-docs-top').length > 0) {
-            setTimeout(function () {
-                $('.bs-docs-top').affix();
-            }, 100);
-        }
         //$('#app-toolbar').headroom();
         $('.marquee').marquee({ speed: 5000 });
         var $ajaxContainer = $('#appui-container');
@@ -34,22 +29,6 @@
                     divData += '</a>';
                 });
                 $targetEl.html(divData);
-            });
-        });
-
-        $('a[data-appui="content-editable-save"]').on('click', function (e) {
-            e.preventDefault();
-            var $targetURL = $(this).data('appui-target-url');
-            $.ajax({
-                url: $targetURL,
-                data: $editor.serialize(),
-                success: function (res) {
-                    if (res.result === 'ok') {
-                        $console.text('Data saved');
-                    } else {
-                        $console.text('Save error');
-                    }
-                }
             });
         });
         $('a[data-appui="overslide"]').on({
