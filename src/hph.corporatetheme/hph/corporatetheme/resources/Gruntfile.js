@@ -260,11 +260,11 @@ module.exports = function (grunt) {
                 options: {
                     patterns: [
                         {
-                            match: '../../assets/',
+                            match: '../../<%= config.dist %>/assets/',
                             replacement: '../assets/'
                         },
                         {
-                            match: '../assets/',
+                            match: '../<%= config.dist %>/assets/',
                             replacement: 'assets/'
                         },
                         {
@@ -282,47 +282,6 @@ module.exports = function (grunt) {
                         {
                             match: '../<%= config.dist %>/js/<%= pkg.name %>.min.js',
                             replacement: 'js/<%= pkg.name %>.min.js'
-                        }
-                    ],
-                    usePrefix: false,
-                    preserveOrder: true
-                },
-                files: [{
-                        expand: true,
-                        cwd: '<%= config.dev %>',
-                        src: [
-                            '*.html',
-                            '{,*/}*.html'
-                        ],
-                        dest: '<%= config.dev %>'
-                    }]
-            },
-            diazo: {
-                options: {
-                    patterns: [
-                        {
-                            match: '../../assets/',
-                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/assets/'
-                        },
-                        {
-                            match: '../assets/',
-                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/assets/'
-                        },
-                        {
-                            match: '../../<%= config.dist %>/css/<%= pkg.name %>.min.css',
-                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/css/<%= pkg.name %>.min.css'
-                        },
-                        {
-                            match: '../<%= config.dist %>/css/<%= pkg.name %>.min.css',
-                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/css/<%= pkg.name %>.min.css'
-                        },
-                        {
-                            match: '../../<%= config.dist %>/js/<%= pkg.name %>.min.js',
-                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/js/<%= pkg.name %>.min.js'
-                        },
-                        {
-                            match: '../<%= config.dist %>/js/<%= pkg.name %>.min.js',
-                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/js/<%= pkg.name %>.min.js'
                         }
                     ],
                     usePrefix: false,
