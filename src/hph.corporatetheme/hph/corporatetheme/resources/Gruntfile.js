@@ -297,11 +297,11 @@ module.exports = function (grunt) {
                         dest: '<%= config.dev %>'
                     }]
             },
-            dist: {
+            diazo: {
                 options: {
                     patterns: [
                         {
-                            match: 'assets/',
+                            match: '../../assets/',
                             replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/assets/'
                         },
                         {
@@ -309,19 +309,60 @@ module.exports = function (grunt) {
                             replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/assets/'
                         },
                         {
+                            match: '../../<%= config.dist %>/css/<%= pkg.name %>.min.css',
+                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/css/<%= pkg.name %>.min.css'
+                        },
+                        {
+                            match: '../<%= config.dist %>/css/<%= pkg.name %>.min.css',
+                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/css/<%= pkg.name %>.min.css'
+                        },
+                        {
+                            match: '../../<%= config.dist %>/js/<%= pkg.name %>.min.js',
+                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/js/<%= pkg.name %>.min.js'
+                        },
+                        {
+                            match: '../<%= config.dist %>/js/<%= pkg.name %>.min.js',
+                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/js/<%= pkg.name %>.min.js'
+                        }
+                    ],
+                    usePrefix: false,
+                    preserveOrder: true
+                },
+                files: [{
+                        expand: true,
+                        cwd: '<%= config.dev %>',
+                        src: [
+                            '*.html',
+                            '{,*/}*.html'
+                        ],
+                        dest: '<%= config.dev %>'
+                    }]
+            },
+            dist: {
+                options: {
+                    patterns: [
+                        {
+                            match: '../assets/',
+                            replacement: 'assets/'
+                        },
+                        {
+                            match: 'assets/',
+                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/assets/'
+                        },
+                        {
+                            match: '../css/',
+                            replacement: 'css/'
+                        },
+                        {
                             match: 'css/',
                             replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/css/'
                         },
                         {
-                            match: '../css/',
-                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/css/'
-                        },
-                        {
-                            match: 'js/',
+                            match: '../js/',
                             replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/js/<%= pkg.name %>'
                         },
                         {
-                            match: '../js/',
+                            match: 'js/',
                             replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/js/<%= pkg.name %>'
                         }
                     ],
@@ -529,7 +570,7 @@ module.exports = function (grunt) {
     ]);
     grunt.registerTask('html-dist', [
         'templates',
-        'replace:dist',
+        'replace:diazo',
         'htmlmin'
     ]);
     grunt.registerTask('dist-cc', [
