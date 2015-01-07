@@ -260,11 +260,11 @@ module.exports = function (grunt) {
                 options: {
                     patterns: [
                         {
-                            match: '../../<%= config.dist %>/assets/',
+                            match: '../../assets/',
                             replacement: '../assets/'
                         },
                         {
-                            match: '../<%= config.dist %>/assets/',
+                            match: '../assets/',
                             replacement: 'assets/'
                         },
                         {
