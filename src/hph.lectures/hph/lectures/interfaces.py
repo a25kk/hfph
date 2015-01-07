@@ -89,7 +89,8 @@ class ILectureBase(form.Schema):
     )
 
 
-class ILectureAttachement(form.Schema):
+class ILectureAttachment(form.Schema):
+    """Schema for attachment handling"""
 
     title = schema.TextLine(
         title=_(u"Title"),
