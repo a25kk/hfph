@@ -317,11 +317,11 @@ module.exports = function (grunt) {
                             replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/css/'
                         },
                         {
-                            match: '../js/',
-                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/js/<%= pkg.name %>'
+                            match: '../js/<%= pkg.name %>',
+                            replacement: 'js/<%= pkg.name %>'
                         },
                         {
-                            match: 'js/',
+                            match: 'js/<%= pkg.name %>',
                             replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/js/<%= pkg.name %>'
                         }
                     ],
