@@ -6,7 +6,7 @@ module.exports = function (grunt) {
             app: 'app',
             dev: '_site',
             dist: 'dist',
-            diazoPrefix: '/++theme++<%= pkg.name %>.sitetheme'
+            diazoPrefix: '/++theme++<%= pkg.name %>.corporatetheme'
         };
     grunt.initConfig({
         config: config,
@@ -260,12 +260,12 @@ module.exports = function (grunt) {
                 options: {
                     patterns: [
                         {
-                            match: '../assets/',
-                            replacement: 'assets/'
-                        },
-                        {
                             match: '../../assets/',
                             replacement: '../assets/'
+                        },
+                        {
+                            match: '../assets/',
+                            replacement: 'assets/'
                         },
                         {
                             match: '../../<%= config.dist %>/css/<%= pkg.name %>.min.css',
@@ -318,11 +318,11 @@ module.exports = function (grunt) {
                         },
                         {
                             match: 'js/',
-                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/js/'
+                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/js/<%= pkg.name %>'
                         },
                         {
                             match: '../js/',
-                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/js/'
+                            replacement: '<%= config.diazoPrefix %>/<%= config.dist %>/js/<%= pkg.name %>'
                         }
                     ],
                     usePrefix: false,
