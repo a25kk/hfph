@@ -48,27 +48,27 @@
         <theme href="dist/index.html" />
 
        <replace css:theme="title" css:content="title" />
-       <after theme="/html/head/title" css:content="base" />
+        <after theme="/html/head/title" css:content="base" />
         <!-- Add meta tags -->
-        <drop theme="/html/head/meta" />
-
+        <!-- <drop theme="/html/head/meta" />-->
+        <drop css:content="meta[name='viewport']" />
         <before content="/html/head/meta" theme="/html/head/title" />
 
         <rules css:if-content="body.userrole-authenticated">
-            <!-- Copy style, script and link tags in the order they appear in the content -->
-            <after
-                content="/html/head/style | /html/head/script | /html/head/link"
-                theme-children="/html/head"
-                />
+             <!-- Copy style, script and link tags in the order they appear in the content -->
+             <after
+                 content="/html/head/style | /html/head/script | /html/head/link"
+                 theme-children="/html/head"
+                 />
 
-            <drop theme="/html/head/style" />
-            <drop theme="/html/head/script" />
-            <drop theme="/html/head/link" />
+             <drop theme="/html/head/style" />
+             <drop theme="/html/head/link" />
 
+             <!-- Drop scripts from theme footer if present -->
+             <drop theme="/html/body/script" />
+         </rules>
 
-        </rules>
-
-        <!-- Drop scripts from theme footer if present -->
+        <!-- Drop scripts from theme footer if present
             <drop theme="/html/body/script" />
         <after theme-children="/html/body" css:if-content="body.userrole-anonymous">
             <script type="text/javascript">
@@ -83,7 +83,7 @@ else if (window.attachEvent)
 window.attachEvent("onload", downloadJSAtOnload);
 else window.onload = downloadJSAtOnload;
 </script>
-        </after>
+        </after>-->
 
 
         <!-- Custom favicon implementation -->
