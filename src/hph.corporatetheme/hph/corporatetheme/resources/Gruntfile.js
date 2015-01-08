@@ -466,8 +466,8 @@ module.exports = function (grunt) {
             },
             dist: {
                 options: {
-                    url: 'http://rms.kreativkombinat.de',
-                    paths: ['/itemview', '/signin'],
+                    url: 'http://www.hfph.de',
+                    paths: ['/', '/hochschule'],
                     locale: 'de_DE',
                     strategy: 'desktop',
                     threshold: 80
