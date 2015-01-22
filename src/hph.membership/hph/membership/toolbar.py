@@ -209,7 +209,8 @@ class ToolbarViewlet(grok.Viewlet):
 
     def show_cms_tools(self):
         context = aq_inner(self.context)
-        admin_roles = ('Manager', 'Site Administrator', 'StaffMember')
+        admin_roles = ('Manager', 'Site Administrator', 'StaffMember',
+                       'Contributor', 'Editor')
         admin_groups = ('Administrators', 'Site Administrators',
                         'staff', 'Staff')
         is_adm = False
