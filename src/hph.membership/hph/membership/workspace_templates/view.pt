@@ -93,6 +93,30 @@
                             <hr>
                         </tal:actions>
                         <tal:block tal:condition="view/has_personel_contents">
+
+                          <tal:contrib tal:condition="view/has_contributing_content">
+                                <div class="app-page-header">
+                                    <h3 i18n:translate="">Lectures</h3>
+                                </div>
+                                <p class="app-page-abstract" i18n:translate="">
+                                    A list of content items you are asigned as a
+                                    contributor
+                                </p>
+                                 <div class="app-page-body">
+                                    <div class="list-group">
+                                        <tal:block tal:repeat="item view/contributing">
+                                            <a href="#" class="list-group-item"
+                                                tal:attributes="href string:${context/absolute_url}/@@lecture-factory/${item/UID}">
+                                              <h4 class="list-group-item-heading"
+                                                tal:content="item/Title">
+                                                List group item heading
+                                              </h4>
+                                            </a>
+                                        </tal:block>
+                                    </div>
+                                </div>
+                            </tal:contrib>
+
                             <div class="app-page-header">
                                 <h3 i18n:translate="">Personal Contents</h3>
                             </div>
@@ -139,29 +163,6 @@
                                     </tal:block>
                                 </div>
                             </div>
-
-                            <tal:contrib tal:condition="view/has_contributing_content">
-                                <div class="app-page-header">
-                                    <h3 i18n:translate="">Lectures</h3>
-                                </div>
-                                <p class="app-page-abstract" i18n:translate="">
-                                    A list of content items you are asigned as a
-                                    contributor
-                                </p>
-                                 <div class="app-page-body">
-                                    <div class="list-group">
-                                        <tal:block tal:repeat="item view/contributing">
-                                            <a href="#" class="list-group-item"
-                                                tal:attributes="href string:${context/absolute_url}/@@lecture-factory/${item/UID}">
-                                              <h4 class="list-group-item-heading"
-                                                tal:content="item/Title">
-                                                List group item heading
-                                              </h4>
-                                            </a>
-                                        </tal:block>
-                                    </div>
-                                </div>
-                            </tal:contrib>
 
                         </tal:block>
                     </tal:block>
