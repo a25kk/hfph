@@ -231,6 +231,15 @@ else window.onload = downloadJSAtOnload;
         <replace css:content-children="#portal-column-one > *"
             css:theme-children="#app-sidebar" />
 
+        <!-- Fix table styles -->
+        <replace css:content="table.listing">
+          <table>
+            <xsl:copy-of select="@*"/>
+            <xsl:attribute name="class">table table-hover</xsl:attribute>
+            <xsl:apply-templates />
+          </table>
+        </replace>
+
         <replace css:content=".portletNavigationTree">
             <div class="app-box app-box-nav">
                 <div class="app-box-header">
