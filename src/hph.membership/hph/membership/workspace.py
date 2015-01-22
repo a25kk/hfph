@@ -113,7 +113,7 @@ class View(grok.View):
         catalog = api.portal.get_tool(name='portal_catalog')
         userid = context.getId()
         brains = catalog(Creator=userid)
-        return IContentListing(brains)
+        return IContentListing(brains[:10])
 
     @memoize
     def _lectures(self):
