@@ -15,12 +15,13 @@
           <div class="app-box app-box-workspaces">
               <div class="app-box-header">
                   <h2 class="app-box-heading" i18n:translate="">
-                      Asignment - Group Selection
+                      Asignment - User Selection
                   </h2>
               </div>
               <div class="app-box-content">
                   <p class="lead" i18n:translate="">
-                    Please select the user group to display for user selection
+                    Please select the user to select as reponsible for the given
+                    context
                   </p>
                   <p i18n:translate="">Enumerating all registered users would have
                     certain performance implications and therefore a user group
@@ -32,9 +33,10 @@
       <div class="app-page-section-main">
         <div class="app-page-body">
             <div class="list-group">
-                <tal:block tal:repeat="item view/selectable_groups">
+                <tal:block tal:repeat="item view/selectable_users">
                     <a href="#" class="list-group-item"
-                        tal:attributes="href string:${context/absolute_url}/@@asignment-user/${item}">
+                        tal:define="user_id item/getId"
+                        tal:attributes="href string:${context/absolute_url}/@@asignment/${user_id}">
                       <h4 class="list-group-item-heading"
                         tal:content="item">
                         List group item heading
