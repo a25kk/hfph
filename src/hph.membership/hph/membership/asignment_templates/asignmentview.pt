@@ -32,11 +32,12 @@
       <div class="app-page-section-main">
         <div class="app-page-body">
             <div class="list-group">
-                <tal:block tal:repeat="item view/selectable_groups">
+                <tal:block tal:repeat="item view/groups">
                     <a href="#" class="list-group-item"
-                        tal:attributes="href string:${context/absolute_url}/@@asignment-users/${item}">
+                        tal:attributes="href string:${context/absolute_url}/@@asignment-users/${item/name}">
+                      <span class="badge" tal:content="item/users">index</span>
                       <h4 class="list-group-item-heading"
-                        tal:content="item">
+                        tal:content="item/name">
                         List group item heading
                       </h4>
                     </a>

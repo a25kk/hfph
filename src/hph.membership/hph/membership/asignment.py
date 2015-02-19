@@ -25,6 +25,20 @@ class AsignmentView(grok.View):
         ]
         return groups
 
+    def available_groups(self):
+        return api.group.get_groups()
+
+    def groups(self):
+        groups = []
+        for g in self.available_groups():
+            group_id = g.id
+            if group_id in self.selectable_groups():
+                group = {}
+                group['name'] = g
+                group['users'] = len(api.user.get_users(groupname=group_id))
+                groups.append(group)
+        return groups
+
 
 class AsignmentUsers(grok.View):
     """ User selection from preselected group """
@@ -106,7 +120,7 @@ class Asignment(grok.View):
                 roles=user_roles,
                 obj=context
             )
-        next_url = '{0}/@asignment-view?updated=true'.format(
+        next_url = '{0}/@@asignment-view?updated=true'.format(
             context.absolute_url())
         api.portal.show_message(
             message=_(u"Responsible user asignment successfully updated"),
