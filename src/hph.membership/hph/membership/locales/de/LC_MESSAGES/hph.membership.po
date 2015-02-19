@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2014-08-25 20:06+0000\n"
-"PO-Revision-Date: 2014-08-25 22:25+0100\n"
+"POT-Creation-Date: 2015-02-19 14:27+0000\n"
+"PO-Revision-Date: 2015-02-19 15:35+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Language: de\n"
 "X-Generator: Poedit 1.6.4\n"
 
-#: ./../workspace_templates/view.pt:147
+#: ./../workspace_templates/view.pt:101
 msgid "A list of content items you are asigned as a contributor"
 msgstr "Eine Liste von Inhalten, zu denen Sie beitragen."
 
@@ -49,9 +49,21 @@ msgstr "Neues Benutzerkonto erstellen"
 msgid "Again for confirmation"
 msgstr "Bitte zur Bestätigung wiederholen"
 
+#: ./../asignment_templates/asignmentusers.pt:49
+msgid "Allow user to contribute in this context"
+msgstr "Benutzer zur Mitarbeit an diesem Inhalt aktivieren"
+
 #: ./../workspace.py:104
 msgid "Alumni description"
 msgstr "Sie haben ein Studium an der Hochschule abgeschlossen und wollen gerne auf dem Laufenden bleiben darüber, was die Hochschule bewegt? Dann sind Sie im Bereich der Alumnae und Alumni genau richtig. Dieser Link führt Sie direkt dorthin. "
+
+#: ./../asignment_templates/asignmentview.pt:17
+msgid "Asignment - Group Selection"
+msgstr "Asignment - Gruppenauswahl"
+
+#: ./../asignment_templates/asignmentusers.pt:17
+msgid "Asignment - User Selection"
+msgstr "Asignment - Benutzerauswahl"
 
 #: ./../discourse_templates/discoursessoerror.pt:19
 msgid "Authentication with our discussion forum located at http://discourse.hfph.de is provided via single sign on (SSO)."
@@ -109,6 +121,10 @@ msgstr "Zugang aktiveren/deaktivieren"
 msgid "Enter the URL of the discourse installation"
 msgstr "Geben Sie hier die vollständige URL der Discourse Installation ein"
 
+#: ./../asignment_templates/asignmentview.pt:25
+msgid "Enumerating all registered users would have certain performance implications and therefore a user group must be selected"
+msgstr "Da die Auflistung aller Benutzerkonten sich negativ auf die Performance der Seite auswirkt, muss zur Auswahl einer Benutzers zunächst eine Benutzergruppe selektiert werden"
+
 #: ./../memberfolder.py:269
 msgid "External records stored for import"
 msgstr "Externe Daten für den Import"
@@ -141,7 +157,11 @@ msgstr "Einladung zur neugestalteten HfPH Seite"
 msgid "Invite new users by passing a list of email addresses"
 msgstr "Laden Sie neue Benutzer zur Teilnahme ein, indem Sie eine Liste von E-Mail-Adressen bereitstellen"
 
-#: ./../workspace_templates/view.pt:145
+#: ./../asignment_templates/asignmentusers.pt:59
+msgid "Klick to remove user asignment"
+msgstr "Anklicken, um die ZUweisung zu diesem Inhalt zu entfernen"
+
+#: ./../workspace_templates/view.pt:99
 msgid "Lectures"
 msgstr "Lehrveranstaltungen"
 
@@ -214,6 +234,7 @@ msgstr "Neues Passwort"
 msgid "No activity recorded yet"
 msgstr "Er wurde bis dato noch keine Aktivität aufgezeichnet."
 
+#: ./../asignment.py:77
 #: ./../workspace.py:48
 msgid "No email provided"
 msgstr "Es wurde keine E-Mail-Addresse übermittelt"
@@ -221,6 +242,10 @@ msgstr "Es wurde keine E-Mail-Addresse übermittelt"
 #: ./../useraccount.py:71
 msgid "No stored acces token found"
 msgstr "Es konnte kein gültiger Access Token gefunden werden"
+
+#: ./../asignment_templates/asignmentusers.pt:25
+msgid "Only one action can be performed due to security reindexing taking place. Please be patient."
+msgstr "Leider kann aufgrund der im Hintergrund durchgeführten Aktualisierung der Security Settings in der Datenbank nur jeweils eine Aktion ausgeführt werden. Eine Mehrfachauswahl ist deswegen leider nicht möglich."
 
 #: ./../discourse.py:37
 #: ./../signin.py:35
@@ -235,7 +260,7 @@ msgstr "Passwörter müssen mindestens 8 Zeichen lang sein"
 msgid "Passwords require a minimum length of 8 characters."
 msgstr "Passwörter sollten eine Länge von mindestens 8 Zeichen aufweisen"
 
-#: ./../workspace_templates/view.pt:97
+#: ./../workspace_templates/view.pt:121
 msgid "Personal Contents"
 msgstr "Persönliche Inhalte"
 
@@ -251,6 +276,14 @@ msgstr "Bitte aktualisieren Sie Ihre Benutzerinformationen für HfPH"
 msgid "Please enter your credentials to verify SSO login"
 msgstr "Um Ihre Zugangsdaten zur Teilnahme an unserem Diskussionsforum zu verwenden, geben Sie diese bitte zur Bestätigung hier ein."
 
+#: ./../asignment_templates/asignmentview.pt:22
+msgid "Please select the user group to display for user selection"
+msgstr "Bitte wählen Sie die Gruppe aus, deren Mitgleider zur Zuweisung angezeigt werden sollen"
+
+#: ./../asignment_templates/asignmentusers.pt:22
+msgid "Please select the user to update from the list"
+msgstr "Bitte Benutzerkonto auswählen, um die Zugriffsberechtigungen zu aktualisieren"
+
 #: ./../useraccount_templates/useraccount.pt:15
 msgid "Please set a password to finalize and activate your account."
 msgstr "Bitte geben Sie ein Passwort ein, um Ihr Benutzerkonto zu vervollständigen"
@@ -264,13 +297,21 @@ msgstr "Der Prozess wurde abgebrochen"
 msgid "Prophil description"
 msgstr "Als Mitglied von pro philosophia e.V. haben Sie hier direkten Zugriff auf alle wichtigen Informationen rund um den Förderverein der Freunde und Alumni der Hochschule für Philosophie. "
 
+#: ./../asignment_templates/asignmentusers.pt:32
+msgid "Quit user selection"
+msgstr "Benutzerauswahl abbrechen"
+
 #: ./../signin.py:185
 msgid "Request sent."
 msgstr "Die Anfrage wurde versandt"
 
-#: ./../discourse.py:167
+#: ./../discourse.py:168
 msgid "Required parameters for SSO credential verification are missing in the request"
 msgstr "Die notwendigen Parameter, um Ihre Anmeldedaten für die Verwendung zur Anmeldung am Diskussionsforum zu verwenden, fehlen in dieser Anfrage"
+
+#: ./../asignment.py:126
+msgid "Responsible user asignment successfully updated"
+msgstr "Der für diesen Inhalt zugewiesene verantwortliche User wurde aktualisiert"
 
 #: ./../discourse.py:45
 msgid "SSO Signature"
@@ -317,11 +358,11 @@ msgstr "Gespeicherte Benutzerdaten"
 msgid "Students and guests description"
 msgstr "Sie haben nun – neben den Standard-Features der Homepage – zusätzlich die Möglichkeit, auf bestimmte geschützte Bereiche zuzugreifen (unter anderem auf die Seiten der studentischen Initiativen). Über diesen Quicklink gelangen Sie direkt zu den Lehrveranstaltungen des laufenden Semesters, wo Sie die zugehörigen Materialien herunterladen können. "
 
-#: ./../discourse.py:151
+#: ./../discourse.py:152
 msgid "The Discourse SSO endpoint can only be accessed via SSL since we do not support transfer of authentication tokens via unencrypted connections."
 msgstr "Die Seite zur Freigabe von Benutzerdaten für die Anmeldung am Diskussionsforum kann nur über eine gesicherte Verbindung aufgerufen werden. Die Übertragung von Freigabedaten über eine unverschlüsselte Verbindung wird nicht unterstützt"
 
-#: ./../discourse.py:160
+#: ./../discourse.py:161
 msgid "The Discourse SSO endpoint has not been configured yet"
 msgstr "SSO für das Diskussionsforum wurde noch nicht konfiguriert"
 
@@ -329,7 +370,7 @@ msgstr "SSO für das Diskussionsforum wurde noch nicht konfiguriert"
 msgid "The entered password and confirmation do not match."
 msgstr "Die angegeben Passwörter stimmen nicht überein. Bitte versuchen Sie es erneut."
 
-#: ./../workspace_templates/view.pt:99
+#: ./../workspace_templates/view.pt:123
 msgid "The following content is owned by your user."
 msgstr "Für folgende Inhalte sind Sie als Hauptverantwortlicher hinterlegt."
 
@@ -413,13 +454,17 @@ msgstr "Arbeitsplätze"
 msgid "You are now logged in."
 msgstr "Sie sind nun angemeldet"
 
+#: ./../asignment_templates/asignmentusers.pt:54
+msgid "asigned"
+msgstr "zugewiesen"
+
 #: ./../setpassword.py:70
 #: ./../userfactory.py:62
 msgid "cancel"
 msgstr "abbrechen"
 
 #. Default: "Abgelegt unter"
-#: ./../workspace_templates/view.pt:116
+#: ./../workspace_templates/view.pt:140
 msgid "text_searchitem_location"
 msgstr "Ort in der Seite"
 

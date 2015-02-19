@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-08-25 20:06+0000\n"
+"POT-Creation-Date: 2015-02-19 14:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: hph.membership\n"
 
-#: ./../workspace_templates/view.pt:147
+#: ./../workspace_templates/view.pt:101
 msgid "A list of content items you are asigned as a contributor"
 msgstr ""
 
@@ -50,8 +50,20 @@ msgstr ""
 msgid "Again for confirmation"
 msgstr ""
 
+#: ./../asignment_templates/asignmentusers.pt:49
+msgid "Allow user to contribute in this context"
+msgstr ""
+
 #: ./../workspace.py:104
 msgid "Alumni description"
+msgstr ""
+
+#: ./../asignment_templates/asignmentview.pt:17
+msgid "Asignment - Group Selection"
+msgstr ""
+
+#: ./../asignment_templates/asignmentusers.pt:17
+msgid "Asignment - User Selection"
 msgstr ""
 
 #: ./../discourse_templates/discoursessoerror.pt:19
@@ -110,6 +122,10 @@ msgstr ""
 msgid "Enter the URL of the discourse installation"
 msgstr ""
 
+#: ./../asignment_templates/asignmentview.pt:25
+msgid "Enumerating all registered users would have certain performance implications and therefore a user group must be selected"
+msgstr ""
+
 #: ./../memberfolder.py:269
 msgid "External records stored for import"
 msgstr ""
@@ -142,7 +158,11 @@ msgstr ""
 msgid "Invite new users by passing a list of email addresses"
 msgstr ""
 
-#: ./../workspace_templates/view.pt:145
+#: ./../asignment_templates/asignmentusers.pt:59
+msgid "Klick to remove user asignment"
+msgstr ""
+
+#: ./../workspace_templates/view.pt:99
 msgid "Lectures"
 msgstr ""
 
@@ -215,12 +235,17 @@ msgstr ""
 msgid "No activity recorded yet"
 msgstr ""
 
+#: ./../asignment.py:77
 #: ./../workspace.py:48
 msgid "No email provided"
 msgstr ""
 
 #: ./../useraccount.py:71
 msgid "No stored acces token found"
+msgstr ""
+
+#: ./../asignment_templates/asignmentusers.pt:25
+msgid "Only one action can be performed due to security reindexing taking place. Please be patient."
 msgstr ""
 
 #: ./../discourse.py:37
@@ -236,7 +261,7 @@ msgstr ""
 msgid "Passwords require a minimum length of 8 characters."
 msgstr ""
 
-#: ./../workspace_templates/view.pt:97
+#: ./../workspace_templates/view.pt:121
 msgid "Personal Contents"
 msgstr ""
 
@@ -252,6 +277,14 @@ msgstr ""
 msgid "Please enter your credentials to verify SSO login"
 msgstr ""
 
+#: ./../asignment_templates/asignmentview.pt:22
+msgid "Please select the user group to display for user selection"
+msgstr ""
+
+#: ./../asignment_templates/asignmentusers.pt:22
+msgid "Please select the user to update from the list"
+msgstr ""
+
 #: ./../useraccount_templates/useraccount.pt:15
 msgid "Please set a password to finalize and activate your account."
 msgstr ""
@@ -265,12 +298,20 @@ msgstr ""
 msgid "Prophil description"
 msgstr ""
 
+#: ./../asignment_templates/asignmentusers.pt:32
+msgid "Quit user selection"
+msgstr ""
+
 #: ./../signin.py:185
 msgid "Request sent."
 msgstr ""
 
-#: ./../discourse.py:167
+#: ./../discourse.py:168
 msgid "Required parameters for SSO credential verification are missing in the request"
+msgstr ""
+
+#: ./../asignment.py:126
+msgid "Responsible user asignment successfully updated"
 msgstr ""
 
 #: ./../discourse.py:45
@@ -318,11 +359,11 @@ msgstr ""
 msgid "Students and guests description"
 msgstr ""
 
-#: ./../discourse.py:151
+#: ./../discourse.py:152
 msgid "The Discourse SSO endpoint can only be accessed via SSL since we do not support transfer of authentication tokens via unencrypted connections."
 msgstr ""
 
-#: ./../discourse.py:160
+#: ./../discourse.py:161
 msgid "The Discourse SSO endpoint has not been configured yet"
 msgstr ""
 
@@ -330,7 +371,7 @@ msgstr ""
 msgid "The entered password and confirmation do not match."
 msgstr ""
 
-#: ./../workspace_templates/view.pt:99
+#: ./../workspace_templates/view.pt:123
 msgid "The following content is owned by your user."
 msgstr ""
 
@@ -414,13 +455,17 @@ msgstr ""
 msgid "You are now logged in."
 msgstr ""
 
+#: ./../asignment_templates/asignmentusers.pt:54
+msgid "asigned"
+msgstr ""
+
 #: ./../setpassword.py:70
 #: ./../userfactory.py:62
 msgid "cancel"
 msgstr ""
 
 #. Default: "Abgelegt unter"
-#: ./../workspace_templates/view.pt:116
+#: ./../workspace_templates/view.pt:140
 msgid "text_searchitem_location"
 msgstr ""
 
