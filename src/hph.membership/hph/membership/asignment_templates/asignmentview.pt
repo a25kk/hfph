@@ -34,7 +34,7 @@
             <div class="list-group">
                 <tal:block tal:repeat="item view/selectable_groups">
                     <a href="#" class="list-group-item"
-                        tal:attributes="href string:${context/absolute_url}/@@asignment-user/${item}">
+                        tal:attributes="href string:${context/absolute_url}/@@asignment-users/${item}">
                       <h4 class="list-group-item-heading"
                         tal:content="item">
                         List group item heading

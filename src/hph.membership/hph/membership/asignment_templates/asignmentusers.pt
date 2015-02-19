@@ -34,14 +34,28 @@
         <div class="app-page-body">
             <div class="list-group">
                 <tal:block tal:repeat="item view/selectable_users">
+                  <tal:item tal:define="user_id item/userid;
+                                        active python:view.get_asignment(user_id)">
                     <a href="#" class="list-group-item"
-                        tal:define="user_id item/getId"
-                        tal:attributes="href string:${context/absolute_url}/@@asignment/${user_id}">
+                        tal:condition="not:active"
+                        tal:attributes="href string:${context/absolute_url}/@@asignment/${user_id}/asign">
                       <h4 class="list-group-item-heading"
-                        tal:content="item">
+                        tal:content="item/fullname">
                         List group item heading
                       </h4>
+                      <p i18n:translate="">Allow user to contribute in this context</p>
                     </a>
+                    <a href="#" class="list-group-item active"
+                        tal:condition="active"
+                        tal:attributes="href string:${context/absolute_url}/@@asignment/${user_id}/revoke">
+                      <span class="badge" i18n:translate="">asigned</span>
+                      <h4 class="list-group-item-heading"
+                        tal:content="item/fullname">
+                        List group item heading
+                      </h4>
+                      <p i18n:translate="">Klick to remove user asignment</p>
+                    </a>
+                  </tal:item>
                 </tal:block>
             </div>
         </div>
