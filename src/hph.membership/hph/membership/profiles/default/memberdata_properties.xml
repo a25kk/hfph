@@ -6,4 +6,5 @@
   <property name="enabled" type="boolean"/>
   <property name="creation_time" type="date">2000/01/01 00:00:00</property>
   <property name="update_time" type="date">2000/01/01 00:00:00</property>
+  <property name="worklist" type="lines"></property>
 </object>
