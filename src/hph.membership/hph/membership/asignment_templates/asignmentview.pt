@@ -15,7 +15,7 @@
           <div class="app-box app-box-workspaces">
               <div class="app-box-header">
                   <h2 class="app-box-heading" i18n:translate="">
-                      Asignment - Group Selection
+                      Asignment
                   </h2>
               </div>
               <div class="app-box-content">
@@ -30,6 +30,10 @@
           </div>
       </div>
       <div class="app-page-section-main">
+        <div class="app-page-header">
+            <h1 i18n:translate="">Group Selection</h1>
+            <p class="lead" tal:content="context/Title">Available groups:</p>
+        </div>
         <div class="app-page-body">
             <div class="list-group">
                 <tal:block tal:repeat="item view/groups">
