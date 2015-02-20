@@ -96,7 +96,7 @@
 
                           <tal:contrib tal:condition="view/has_contributing_content">
                                 <div class="app-page-header">
-                                    <h3 i18n:translate="">Lectures</h3>
+                                    <h3 i18n:translate="">Asignments</h3>
                                 </div>
                                 <p class="app-page-abstract" i18n:translate="">
                                     A list of content items you are asigned as a
