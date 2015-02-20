@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 """Module providing responsible user selection and asignment"""
 
+from DateTime import DateTime
 from Acquisition import aq_inner
 from five import grok
 from plone import api
 from Products.CMFCore.interfaces import IContentish
+from zope.compontent import getUtility
 
+from hph.membership.tool import IHPHMemberTool
 from hph.membership import MessageFactory as _
 
 
@@ -108,18 +111,28 @@ class Asignment(grok.View):
         user_roles = ['Reader', 'Editor', 'Contributor']
         userid = self.traverse_subpath[0]
         action = self.traverse_subpath[1]
+        user = api.user.get(username=userid)
+        worklist = user.getProperty('worklist', list())
+        uuid = api.content.get_uuid(obj=context)
         if action == 'revoke':
             api.user.revoke_roles(
                 username=userid,
                 roles=user_roles,
                 obj=context,
             )
+            worklist.remove(uuid)
         else:
             api.user.grant_roles(
                 username=userid,
                 roles=user_roles,
                 obj=context
             )
+            worklist.append(uuid)
+        tool = getUtility(IHPHMemberTool)
+        tool.update_user(userid, dict(
+            login_time=DateTime(),
+            worklist=worklist
+        ))
         next_url = '{0}/@@asignment-view?updated=true'.format(
             context.absolute_url())
         api.portal.show_message(
