@@ -35,6 +35,7 @@ class View(grok.View):
         self.flash_msg = self.display_welcome_msg()
         self.has_personel_contents = len(self.personal_contents()) > 0
         self.has_contributing_content = len(self.contributing()) > 0
+        self.has_worklist = len(self.worklist()) > 0
 
     def display_welcome_msg(self):
         return self.request.get('welcome_msg', False)
@@ -49,6 +50,7 @@ class View(grok.View):
         info['login_time'] = user.getProperty('last_login_time', '')
         info['enabled'] = user.getProperty('enabled', '')
         info['confirmed'] = user.getProperty('confirmed', '')
+        info['worklist'] = user.getProperty('worklist', list())
         return info
 
     def is_staff(self):
@@ -129,10 +131,29 @@ class View(grok.View):
     def contributing(self):
         context = aq_inner(self.context)
         results = []
-        for item in self._lectures():
-            if context.getId() in item.getObject().listContributors():
-                results.append(item)
+        if self.has_worklist():
+            results = self.worklist()
+        else:
+            for item in self._lectures():
+                if context.getId() in item.getObject().listContributors():
+                    info = {}
+                    info['uid'] = api.content.get_uuid(obj=item)
+                    info['title'] = item.Title()
+                    info['url'] = item.getURL()
+                    results.append(item)
         return results
+
+    def worklist(self):
+        userinfo = self.user_info()
+        worklist = []
+        for item_uid in userinfo['worklist']:
+            item = api.content.get(UID=item_uid)
+            info = {}
+            info['uid'] = item_uid
+            info['title'] = item.Title()
+            info['url'] = item.getURL()
+            worklist.append(info)
+        return worklist
 
     def breadcrumbs(self, item):
         obj = item.getObject()

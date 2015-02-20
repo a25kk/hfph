@@ -6,7 +6,7 @@ from Acquisition import aq_inner
 from five import grok
 from plone import api
 from Products.CMFCore.interfaces import IContentish
-from zope.compontent import getUtility
+from zope.component import getUtility
 
 from hph.membership.tool import IHPHMemberTool
 from hph.membership import MessageFactory as _
