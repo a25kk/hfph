@@ -137,7 +137,7 @@ class View(grok.View):
             for item in self._lectures():
                 if context.getId() in item.getObject().listContributors():
                     info = {}
-                    info['uid'] = api.content.get_uuid(obj=item)
+                    info['uid'] = api.content.get_uuid(obj=item.getObject())
                     info['title'] = item.Title()
                     info['url'] = item.getURL()
                     results.append(item)
