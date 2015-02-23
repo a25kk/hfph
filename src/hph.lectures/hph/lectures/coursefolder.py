@@ -104,6 +104,23 @@ class View(grok.View):
             active = True
         return active
 
+    def can_edit(self):
+        if api.user.is_anonymous():
+            return False
+        allowed = False
+        context = aq_inner(self.context)
+        user = api.user.get_current()
+        user_id = user.getId()
+        if user_id == 'zope-admin':
+            allowed = True
+        else:
+            admin_roles = ('Manager', 'Site Administrator', 'StaffMember')
+            roles = api.user.get_roles(username=user_id, obj=context)
+            for role in roles:
+                if role in admin_roles:
+                    allowed = True
+        return allowed
+
 
 class XHRIntegration(grok.View):
     grok.context(ICourseFolder)

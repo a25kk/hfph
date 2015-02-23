@@ -15,7 +15,7 @@
           <div class="app-box app-box-workspaces">
               <div class="app-box-header">
                   <h2 class="app-box-heading" i18n:translate="">
-                      XHR Integrations
+                      Integrations
                   </h2>
               </div>
               <div class="app-box-content">
@@ -29,6 +29,11 @@
                     and the script is loaded defered, it might take a moment for
                     the caller to run.
                   </p>
+              </div>
+              <div class="app-box-footer">
+                  <a class="btn btn-danger btn-sm"
+                      tal:attributes="href string:${context/absolute_url}">
+                      &times; <span i18n:translate="">Quit xhr integrations</span></a>
               </div>
           </div>
       </div>
@@ -44,8 +49,15 @@
                         ${filter/title}
                       </h4>
                       <p class="list-group-item-text" i18n:translate="">
-                          Filter course listing based on ${filter/value}
+                          Filter course listing on <code>${filter/value}</code>:
+                          <a href="${context/absolute_url}?content_filter=1&amp;project=${filter/value}">Preview</a>
                       </p>
+                    <pre>
+&lt;div data-appui="ajaxified"
+    data-appui-target="${context/absolute_url}?content_filter=1&amp;project=${filter/value}"&gt;
+    &lt;a href="${context/absolute_url}?content_filter=1&amp;project=${filter/value}"&gt;${filter/title} Listing&lt;/a&gt;
+&lt;/div&gt;
+                    </pre>
                     </div>
                 </tal:block>
             </div>

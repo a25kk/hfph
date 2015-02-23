@@ -114,6 +114,12 @@ def courseTypeIndexer(obj):
 grok.global_adapter(courseTypeIndexer, name="courseType")
 
 
+@indexer(ILecture)
+def projectIndexer(obj):
+    return obj.thirdPartyProject
+grok.global_adapter(projectIndexer, name="thirdPartyProject")
+
+
 class Lecture(Container):
     grok.implements(ILecture)
     pass
