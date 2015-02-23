@@ -39,11 +39,13 @@
         <div class="app-page-body">
             <div class="list-group">
                 <tal:block tal:repeat="filter view/filter_options">
-                    <div class="list-group-item"
-                        tal:attributes="href string:${context/absolute_url}/@@asignment-users/${item/name}">
+                    <div class="list-group-item">
                       <h4 class="list-group-item-heading">
                         ${filter/title}
                       </h4>
+                      <p class="list-group-item-text" i18n:translate="">
+                          Filter course listing based on ${filter/value}
+                      </p>
                     </div>
                 </tal:block>
             </div>

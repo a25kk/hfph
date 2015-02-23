@@ -46,13 +46,16 @@ class AsignmentView(grok.View):
         context = aq_inner(self.context)
         asigned = list()
         for user_id, roles in context.get_local_roles():
-            user = api.user.get(username=user_id)
-            wl = user.getProperty('worklist')
-            userinfo = {}
-            userinfo['userid'] = user_id
-            userinfo['worklist'] = wl
-            userinfo['name'] = user.getProperty('fullname', user_id)
-            asigned.append(userinfo)
+            try:
+                user = api.user.get(username=user_id)
+                wl = user.getProperty('worklist')
+                userinfo = {}
+                userinfo['userid'] = user_id
+                userinfo['worklist'] = wl
+                userinfo['name'] = user.getProperty('fullname', user_id)
+                asigned.append(userinfo)
+            except AttributeError:
+                pass
         return asigned
 
 
