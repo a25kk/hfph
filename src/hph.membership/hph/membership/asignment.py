@@ -44,13 +44,10 @@ class AsignmentView(grok.View):
 
     def active_asignments(self):
         context = aq_inner(self.context)
-        context_uid = api.content.get_uuid(obj=context)
         asigned = list()
         for user_id, roles in context.get_local_roles():
             user = api.user.get(username=user_id)
             wl = user.getProperty('worklist')
-            #if context_uid in wl:
-            #    api.user.get_roles(username='jane', obj=portal['blog'])
             userinfo = {}
             userinfo['userid'] = user_id
             userinfo['worklist'] = wl
