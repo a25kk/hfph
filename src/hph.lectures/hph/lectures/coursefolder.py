@@ -76,6 +76,8 @@ class View(grok.View):
         query = self._base_query()
         if self.filter is not None:
             query['courseType'] = self.request.get('courseType', '')
+            if 'project' in self.filter:
+                query['thirdPartyProject'] = self.request.get('project', '')
         results = catalog.searchResults(query)
         return IContentListing(results)
 
@@ -101,3 +103,15 @@ class View(grok.View):
         if folder.getId() == context.getId():
             active = True
         return active
+
+
+class XHRIntegration(grok.View):
+    grok.context(ICourseFolder)
+    grok.require('zope2.View')
+    grok.name('xhr-integration')
+
+    def filter_options(self):
+        context = aq_inner(self.context)
+        vr = getVocabularyRegistry()
+        vocab = vr.get(context, 'hph.sitecontent.thirdPartyProjects')
+        return vocab

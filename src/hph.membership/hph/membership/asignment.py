@@ -15,7 +15,7 @@ from hph.membership import MessageFactory as _
 class AsignmentView(grok.View):
     """ Group selection to provide prefiltering of userers """
     grok.context(IContentish)
-    grok.require('cmf.ManagePortal')
+    grok.require('cmf.ModifyPortalContent')
     grok.name('asignment-view')
 
     def selectable_groups(self):
@@ -59,7 +59,7 @@ class AsignmentView(grok.View):
 class AsignmentUsers(grok.View):
     """ User selection from preselected group """
     grok.context(IContentish)
-    grok.require('cmf.ManagePortal')
+    grok.require('cmf.ModifyPortalContent')
     grok.name('asignment-users')
 
     @property
@@ -106,7 +106,7 @@ class AsignmentUsers(grok.View):
 class Asignment(grok.View):
     """ Process user asignment """
     grok.context(IContentish)
-    grok.require('cmf.ManagePortal')
+    grok.require('cmf.ModifyPortalContent')
     grok.name('asignment')
 
     @property
