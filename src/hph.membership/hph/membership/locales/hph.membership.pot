@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-02-19 14:27+0000\n"
+"POT-Creation-Date: 2015-02-23 19:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: hph.membership\n"
 
-#: ./../workspace_templates/view.pt:101
+#: ./../workspace_templates/view.pt:102
 msgid "A list of content items you are asigned as a contributor"
 msgstr ""
 
@@ -31,6 +31,10 @@ msgstr ""
 
 #: ./../useraccount_templates/useraccount.pt:14
 msgid "Activate account"
+msgstr ""
+
+#: ./../asignment_templates/asignmentview.pt:60
+msgid "Active Asignments"
 msgstr ""
 
 #: ./../setpassword.py:40
@@ -50,20 +54,21 @@ msgstr ""
 msgid "Again for confirmation"
 msgstr ""
 
-#: ./../asignment_templates/asignmentusers.pt:49
+#: ./../asignment_templates/asignmentusers.pt:53
 msgid "Allow user to contribute in this context"
 msgstr ""
 
-#: ./../workspace.py:104
+#: ./../workspace.py:106
 msgid "Alumni description"
 msgstr ""
 
+#: ./../asignment_templates/asignmentusers.pt:17
 #: ./../asignment_templates/asignmentview.pt:17
-msgid "Asignment - Group Selection"
+msgid "Asignment"
 msgstr ""
 
-#: ./../asignment_templates/asignmentusers.pt:17
-msgid "Asignment - User Selection"
+#: ./../workspace_templates/view.pt:100
+msgid "Asignments"
 msgstr ""
 
 #: ./../discourse_templates/discoursessoerror.pt:19
@@ -134,6 +139,10 @@ msgstr ""
 msgid "Fullname"
 msgstr ""
 
+#: ./../asignment_templates/asignmentview.pt:42
+msgid "Group Selection"
+msgstr ""
+
 #: ./../profiles/default/controlpanel.xml
 msgid "HPH Membership Tool"
 msgstr ""
@@ -158,15 +167,11 @@ msgstr ""
 msgid "Invite new users by passing a list of email addresses"
 msgstr ""
 
-#: ./../asignment_templates/asignmentusers.pt:59
+#: ./../asignment_templates/asignmentusers.pt:63
 msgid "Klick to remove user asignment"
 msgstr ""
 
-#: ./../workspace_templates/view.pt:99
-msgid "Lectures"
-msgstr ""
-
-#: ./../workspace.py:108
+#: ./../workspace.py:110
 msgid "Lectures description"
 msgstr ""
 
@@ -235,8 +240,8 @@ msgstr ""
 msgid "No activity recorded yet"
 msgstr ""
 
-#: ./../asignment.py:77
-#: ./../workspace.py:48
+#: ./../asignment.py:96
+#: ./../workspace.py:49
 msgid "No email provided"
 msgstr ""
 
@@ -261,7 +266,7 @@ msgstr ""
 msgid "Passwords require a minimum length of 8 characters."
 msgstr ""
 
-#: ./../workspace_templates/view.pt:121
+#: ./../workspace_templates/view.pt:124
 msgid "Personal Contents"
 msgstr ""
 
@@ -294,7 +299,7 @@ msgstr ""
 msgid "Process has been cancelled."
 msgstr ""
 
-#: ./../workspace.py:106
+#: ./../workspace.py:108
 msgid "Prophil description"
 msgstr ""
 
@@ -310,7 +315,7 @@ msgstr ""
 msgid "Required parameters for SSO credential verification are missing in the request"
 msgstr ""
 
-#: ./../asignment.py:126
+#: ./../asignment.py:160
 msgid "Responsible user asignment successfully updated"
 msgstr ""
 
@@ -330,6 +335,10 @@ msgstr ""
 msgid "Send password reset mails"
 msgstr ""
 
+#: ./../asignment_templates/asignmentview.pt:29
+msgid "Setting and revoking user roles and permissions is a highly critical task and will always have certain performance implications. Therefore lists of user roles are most likely cached heavily by any larger application server and might appear to be out of date. Please be patient and check back later."
+msgstr ""
+
 #: ./../discourse_templates/discoursesigninform.pt:25
 #: ./../signin_templates/signinform.pt:25
 msgid "Sign in"
@@ -347,7 +356,7 @@ msgstr ""
 msgid "Site frontpage"
 msgstr ""
 
-#: ./../workspace.py:100
+#: ./../workspace.py:102
 msgid "Standard description for workspace links"
 msgstr ""
 
@@ -355,7 +364,7 @@ msgstr ""
 msgid "Stored Records"
 msgstr ""
 
-#: ./../workspace.py:102
+#: ./../workspace.py:104
 msgid "Students and guests description"
 msgstr ""
 
@@ -371,7 +380,7 @@ msgstr ""
 msgid "The entered password and confirmation do not match."
 msgstr ""
 
-#: ./../workspace_templates/view.pt:123
+#: ./../workspace_templates/view.pt:126
 msgid "The following content is owned by your user."
 msgstr ""
 
@@ -427,6 +436,10 @@ msgstr ""
 msgid "User Records"
 msgstr ""
 
+#: ./../asignment_templates/asignmentusers.pt:38
+msgid "User Selection"
+msgstr ""
+
 #: ./../invitation.py:223
 msgid "User invitation email has been sent successfully."
 msgstr ""
@@ -455,7 +468,7 @@ msgstr ""
 msgid "You are now logged in."
 msgstr ""
 
-#: ./../asignment_templates/asignmentusers.pt:54
+#: ./../asignment_templates/asignmentusers.pt:58
 msgid "asigned"
 msgstr ""
 
@@ -465,7 +478,7 @@ msgid "cancel"
 msgstr ""
 
 #. Default: "Abgelegt unter"
-#: ./../workspace_templates/view.pt:140
+#: ./../workspace_templates/view.pt:143
 msgid "text_searchitem_location"
 msgstr ""
 

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2015-02-19 14:27+0000\n"
-"PO-Revision-Date: 2015-02-19 15:35+0100\n"
+"POT-Creation-Date: 2015-02-23 19:58+0000\n"
+"PO-Revision-Date: 2015-02-23 21:35+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Language: de\n"
 "X-Generator: Poedit 1.6.4\n"
 
-#: ./../workspace_templates/view.pt:101
+#: ./../workspace_templates/view.pt:102
 msgid "A list of content items you are asigned as a contributor"
 msgstr "Eine Liste von Inhalten, zu denen Sie beitragen."
 
@@ -31,6 +31,10 @@ msgstr "Der neue Benutzerzugang wurde erstellt"
 #: ./../useraccount_templates/useraccount.pt:14
 msgid "Activate account"
 msgstr "Zugang aktivieren"
+
+#: ./../asignment_templates/asignmentview.pt:60
+msgid "Active Asignments"
+msgstr "Aktive Zuweisungen"
 
 #: ./../setpassword.py:40
 msgid "Add new password"
@@ -49,21 +53,22 @@ msgstr "Neues Benutzerkonto erstellen"
 msgid "Again for confirmation"
 msgstr "Bitte zur Bestätigung wiederholen"
 
-#: ./../asignment_templates/asignmentusers.pt:49
+#: ./../asignment_templates/asignmentusers.pt:53
 msgid "Allow user to contribute in this context"
 msgstr "Benutzer zur Mitarbeit an diesem Inhalt aktivieren"
 
-#: ./../workspace.py:104
+#: ./../workspace.py:106
 msgid "Alumni description"
 msgstr "Sie haben ein Studium an der Hochschule abgeschlossen und wollen gerne auf dem Laufenden bleiben darüber, was die Hochschule bewegt? Dann sind Sie im Bereich der Alumnae und Alumni genau richtig. Dieser Link führt Sie direkt dorthin. "
 
-#: ./../asignment_templates/asignmentview.pt:17
-msgid "Asignment - Group Selection"
-msgstr "Asignment - Gruppenauswahl"
-
 #: ./../asignment_templates/asignmentusers.pt:17
-msgid "Asignment - User Selection"
-msgstr "Asignment - Benutzerauswahl"
+#: ./../asignment_templates/asignmentview.pt:17
+msgid "Asignment"
+msgstr "Zuweisung"
+
+#: ./../workspace_templates/view.pt:100
+msgid "Asignments"
+msgstr "Zuständigkeiten"
 
 #: ./../discourse_templates/discoursessoerror.pt:19
 msgid "Authentication with our discussion forum located at http://discourse.hfph.de is provided via single sign on (SSO)."
@@ -133,6 +138,10 @@ msgstr "Externe Daten für den Import"
 msgid "Fullname"
 msgstr "Vollständiger Name"
 
+#: ./../asignment_templates/asignmentview.pt:42
+msgid "Group Selection"
+msgstr "Gruppenauswahl"
+
 #: ./../profiles/default/controlpanel.xml
 msgid "HPH Membership Tool"
 msgstr "HPH Membership Tool"
@@ -157,15 +166,11 @@ msgstr "Einladung zur neugestalteten HfPH Seite"
 msgid "Invite new users by passing a list of email addresses"
 msgstr "Laden Sie neue Benutzer zur Teilnahme ein, indem Sie eine Liste von E-Mail-Adressen bereitstellen"
 
-#: ./../asignment_templates/asignmentusers.pt:59
+#: ./../asignment_templates/asignmentusers.pt:63
 msgid "Klick to remove user asignment"
 msgstr "Anklicken, um die ZUweisung zu diesem Inhalt zu entfernen"
 
-#: ./../workspace_templates/view.pt:99
-msgid "Lectures"
-msgstr "Lehrveranstaltungen"
-
-#: ./../workspace.py:108
+#: ./../workspace.py:110
 msgid "Lectures description"
 msgstr "Über diesen Link können Sie direkt auf die Profilseiten aller Mitglieder des Lehrkörpers an der Hochschule für Philosophie zugreifen. Wenn Sie selbst Lehrender bzw. Lehrende sind, können Sie Ihre persönliche Seite (inkl. Unterseiten) dort bearbeiten."
 
@@ -234,8 +239,8 @@ msgstr "Neues Passwort"
 msgid "No activity recorded yet"
 msgstr "Er wurde bis dato noch keine Aktivität aufgezeichnet."
 
-#: ./../asignment.py:77
-#: ./../workspace.py:48
+#: ./../asignment.py:96
+#: ./../workspace.py:49
 msgid "No email provided"
 msgstr "Es wurde keine E-Mail-Addresse übermittelt"
 
@@ -260,7 +265,7 @@ msgstr "Passwörter müssen mindestens 8 Zeichen lang sein"
 msgid "Passwords require a minimum length of 8 characters."
 msgstr "Passwörter sollten eine Länge von mindestens 8 Zeichen aufweisen"
 
-#: ./../workspace_templates/view.pt:121
+#: ./../workspace_templates/view.pt:124
 msgid "Personal Contents"
 msgstr "Persönliche Inhalte"
 
@@ -293,7 +298,7 @@ msgstr "Bitte geben Sie ein Passwort ein, um Ihr Benutzerkonto zu vervollständi
 msgid "Process has been cancelled."
 msgstr "Der Prozess wurde abgebrochen"
 
-#: ./../workspace.py:106
+#: ./../workspace.py:108
 msgid "Prophil description"
 msgstr "Als Mitglied von pro philosophia e.V. haben Sie hier direkten Zugriff auf alle wichtigen Informationen rund um den Förderverein der Freunde und Alumni der Hochschule für Philosophie. "
 
@@ -309,7 +314,7 @@ msgstr "Die Anfrage wurde versandt"
 msgid "Required parameters for SSO credential verification are missing in the request"
 msgstr "Die notwendigen Parameter, um Ihre Anmeldedaten für die Verwendung zur Anmeldung am Diskussionsforum zu verwenden, fehlen in dieser Anfrage"
 
-#: ./../asignment.py:126
+#: ./../asignment.py:160
 msgid "Responsible user asignment successfully updated"
 msgstr "Der für diesen Inhalt zugewiesene verantwortliche User wurde aktualisiert"
 
@@ -329,6 +334,10 @@ msgstr "Speichern"
 msgid "Send password reset mails"
 msgstr "Passwort senden"
 
+#: ./../asignment_templates/asignmentview.pt:29
+msgid "Setting and revoking user roles and permissions is a highly critical task and will always have certain performance implications. Therefore lists of user roles are most likely cached heavily by any larger application server and might appear to be out of date. Please be patient and check back later."
+msgstr "Das Zuweisen von Rollen und Rechten ist ein systemkritischer Vorgang und wird deshalb immer zu Lasten der Performance gehen. Aus diesem Grund ist z.B. auch die Liste der aktiven Rollen in einem Kontext in der Regel bei grosseren Applikationen stark gecached und kann deshalb unter Umständen nicht aktuell angezeigt werden."
+
 #: ./../discourse_templates/discoursesigninform.pt:25
 #: ./../signin_templates/signinform.pt:25
 msgid "Sign in"
@@ -346,7 +355,7 @@ msgstr "Abmelden"
 msgid "Site frontpage"
 msgstr "Startseite"
 
-#: ./../workspace.py:100
+#: ./../workspace.py:102
 msgid "Standard description for workspace links"
 msgstr "Standard Beschreibung"
 
@@ -354,7 +363,7 @@ msgstr "Standard Beschreibung"
 msgid "Stored Records"
 msgstr "Gespeicherte Benutzerdaten"
 
-#: ./../workspace.py:102
+#: ./../workspace.py:104
 msgid "Students and guests description"
 msgstr "Sie haben nun – neben den Standard-Features der Homepage – zusätzlich die Möglichkeit, auf bestimmte geschützte Bereiche zuzugreifen (unter anderem auf die Seiten der studentischen Initiativen). Über diesen Quicklink gelangen Sie direkt zu den Lehrveranstaltungen des laufenden Semesters, wo Sie die zugehörigen Materialien herunterladen können. "
 
@@ -370,7 +379,7 @@ msgstr "SSO für das Diskussionsforum wurde noch nicht konfiguriert"
 msgid "The entered password and confirmation do not match."
 msgstr "Die angegeben Passwörter stimmen nicht überein. Bitte versuchen Sie es erneut."
 
-#: ./../workspace_templates/view.pt:123
+#: ./../workspace_templates/view.pt:126
 msgid "The following content is owned by your user."
 msgstr "Für folgende Inhalte sind Sie als Hauptverantwortlicher hinterlegt."
 
@@ -426,6 +435,10 @@ msgstr "Benutzerverwaltung"
 msgid "User Records"
 msgstr "Benutzerdaten"
 
+#: ./../asignment_templates/asignmentusers.pt:38
+msgid "User Selection"
+msgstr ""
+
 #: ./../invitation.py:223
 msgid "User invitation email has been sent successfully."
 msgstr "Eine E-Mail mit Informationen zur Teilnahme an der neuen Webseite wurde verschickt"
@@ -454,7 +467,7 @@ msgstr "Arbeitsplätze"
 msgid "You are now logged in."
 msgstr "Sie sind nun angemeldet"
 
-#: ./../asignment_templates/asignmentusers.pt:54
+#: ./../asignment_templates/asignmentusers.pt:58
 msgid "asigned"
 msgstr "zugewiesen"
 
@@ -464,7 +477,7 @@ msgid "cancel"
 msgstr "abbrechen"
 
 #. Default: "Abgelegt unter"
-#: ./../workspace_templates/view.pt:140
+#: ./../workspace_templates/view.pt:143
 msgid "text_searchitem_location"
 msgstr "Ort in der Seite"
 

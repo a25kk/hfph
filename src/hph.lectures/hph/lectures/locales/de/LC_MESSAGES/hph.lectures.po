@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2014-07-28 18:33+0000\n"
-"PO-Revision-Date: 2014-07-28 20:41+0100\n"
+"POT-Creation-Date: 2015-02-23 19:59+0000\n"
+"PO-Revision-Date: 2015-02-23 22:03+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -28,6 +28,10 @@ msgstr "2-stdg."
 msgid "3 hour"
 msgstr "3-stdg."
 
+#: ./../coursefolder_templates/xhrintegration.pt:42
+msgid "3rd party projects"
+msgstr "Drittmittelprojekte"
+
 #: ./../vocabulary.py:33
 msgid "4 hour"
 msgstr "4-stdg."
@@ -36,20 +40,26 @@ msgstr "4-stdg."
 msgid "A single course"
 msgstr "einzelne Lehrveranstaltung"
 
-#: ./../lecture_templates/view.pt:156
+#: ./../lecture_templates/view.pt:170
 msgid "Add attachment"
 msgstr "Neuen Dateianhang erstellen"
 
-#: ./../lecture.py:51
+#: ./../factory.py:202
+msgid "Add file attachment"
+msgstr "Dateianhang anlegen"
+
+#: ./../interfaces.py:41
+#: ./../lecture.py:49
 msgid "Additional Information"
 msgstr "Zusatzinformation"
 
-#: ./../lecture.py:66
-#: ./../lecture_templates/view.pt:54
+#: ./../factory_templates/lecturefactory.pt:81
+#: ./../interfaces.py:45
+#: ./../lecture.py:64
 msgid "Additional Lecturer"
 msgstr "zusammen mit"
 
-#: ./../coursefolder_templates/view.pt:81
+#: ./../coursefolder_templates/view.pt:97
 msgid "Additional Lecturer:"
 msgstr "zusammen mit"
 
@@ -61,15 +71,21 @@ msgstr "Hauptseminare"
 msgid "Archive"
 msgstr "Archiv"
 
-#: ./../lecture_templates/view.pt:129
+#: ./../factory.py:236
+msgid "Attachement edit has been cancelled."
+msgstr "Die Bearbeitung der Datei wurde abgebrochen"
+
+#: ./../lecture_templates/view.pt:143
 msgid "Attachements"
 msgstr "Materialien"
 
-#: ./../lecture.py:39
+#: ./../interfaces.py:29
+#: ./../lecture.py:37
 msgid "Attendance"
 msgstr "Teilnehmerzahl"
 
-#: ./../lecture.py:43
+#: ./../interfaces.py:33
+#: ./../lecture.py:41
 msgid "Attendance Required"
 msgstr "Anwesenheitspflicht"
 
@@ -77,20 +93,31 @@ msgstr "Anwesenheitspflicht"
 msgid "BA"
 msgstr "BA"
 
-#: ./../lecture.py:47
+#: ./../interfaces.py:37
+#: ./../lecture.py:45
 msgid "Block Lecture"
 msgstr "Blockveranstaltung"
+
+#: ./../factory_templates/lectureeditor.pt:111
+msgid "Cancel"
+msgstr "Abbrechen"
 
 #: ./../vocabulary.py:51
 msgid "Colloquium"
 msgstr "Kolloquien"
 
+#: ./../factory.py:99
+msgid "Content item factory has been cancelled."
+msgstr "Das Erstellen neuer Inhalte wurde abgebrochen"
+
 #: ./../coursedetails.py:26
-#: ./../lecture_templates/view.pt:93
+#: ./../factory_templates/lectureeditor.pt:44
+#: ./../factory_templates/lecturefactory.pt:28
 msgid "Course Aims"
 msgstr "Ziele"
 
-#: ./../lecture.py:81
+#: ./../interfaces.py:60
+#: ./../lecture.py:79
 msgid "Course Dates"
 msgstr "Termine"
 
@@ -98,62 +125,75 @@ msgstr "Termine"
 msgid "Course Details"
 msgstr "Details"
 
-#: ./../lecture.py:76
+#: ./../interfaces.py:55
+#: ./../lecture.py:74
 msgid "Course Duration"
 msgstr "Dauer"
 
 #: ./../coursedetails.py:46
-#: ./../lecture_templates/view.pt:118
+#: ./../factory_templates/lectureeditor.pt:69
+#: ./../factory_templates/lecturefactory.pt:48
 msgid "Course Literature"
 msgstr "Literatur"
 
 #: ./../coursedetails.py:30
-#: ./../lecture_templates/view.pt:98
+#: ./../factory_templates/lectureeditor.pt:49
+#: ./../factory_templates/lecturefactory.pt:32
 msgid "Course Method"
 msgstr "Methode"
 
 #: ./../coursedetails.py:50
-#: ./../lecture_templates/view.pt:123
+#: ./../factory_templates/lectureeditor.pt:74
+#: ./../factory_templates/lecturefactory.pt:52
 msgid "Course Notes"
 msgstr "Anmerkung der Kanzlerin"
 
 #: ./../coursedetails.py:34
-#: ./../lecture_templates/view.pt:103
+#: ./../factory_templates/lectureeditor.pt:54
+#: ./../factory_templates/lecturefactory.pt:36
 msgid "Course Prerequirements"
 msgstr "Voraussetzungen"
 
 #: ./../coursedetails.py:38
-#: ./../lecture_templates/view.pt:108
+#: ./../factory_templates/lectureeditor.pt:59
+#: ./../factory_templates/lecturefactory.pt:40
 msgid "Course Qualification"
 msgstr "Qualifikation"
 
-#: ./../lecture.py:99
+#: ./../interfaces.py:78
+#: ./../lecture.py:97
 msgid "Course Room"
 msgstr "Raum:"
 
-#: ./../lecture.py:89
+#: ./../interfaces.py:68
+#: ./../lecture.py:87
 msgid "Course Semester"
 msgstr "Semester"
 
 #: ./../coursedetails.py:42
-#: ./../lecture_templates/view.pt:113
+#: ./../factory_templates/lectureeditor.pt:64
+#: ./../factory_templates/lecturefactory.pt:44
 msgid "Course Target"
 msgstr "Zielgruppe"
 
 #: ./../coursedetails.py:22
-#: ./../lecture_templates/view.pt:88
+#: ./../factory_templates/lectureeditor.pt:39
+#: ./../factory_templates/lecturefactory.pt:24
 msgid "Course Theme"
 msgstr "Thematik"
 
-#: ./../lecture.py:85
+#: ./../interfaces.py:64
+#: ./../lecture.py:83
 msgid "Course Time"
 msgstr "Uhrzeit"
 
-#: ./../lecture.py:70
+#: ./../interfaces.py:49
+#: ./../lecture.py:68
 msgid "Course Type"
 msgstr "Veranstaltungstyp"
 
-#: ./../lecture.py:95
+#: ./../interfaces.py:74
+#: ./../lecture.py:93
 msgid "Course Year"
 msgstr "Jahr"
 
@@ -161,8 +201,8 @@ msgstr "Jahr"
 msgid "CourseFolder"
 msgstr "Veranstaltungsordner"
 
-#: ./../coursefolder_templates/view.pt:94
-#: ./../lecture_templates/view.pt:67
+#: ./../coursefolder_templates/view.pt:110
+#: ./../lecture_templates/view.pt:81
 msgid "Dates"
 msgstr "Termine"
 
@@ -170,9 +210,26 @@ msgstr "Termine"
 msgid "Degree"
 msgstr "Abschluss"
 
-#: ./../lecture.py:106
+#: ./../interfaces.py:100
+msgid "Description"
+msgstr "Beschreibung"
+
+#: ./../interfaces.py:85
+#: ./../lecture.py:104
 msgid "Display Selection"
 msgstr "Auswahl"
+
+#: ./../lecture_templates/view.pt:42
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: ./../factory.py:51
+msgid "Edit course base information"
+msgstr "Kursbasisinformationen bearbeiten"
+
+#: ./../factory_templates/lectureeditor.pt:84
+msgid "Edit field content"
+msgstr "Feldinhalt bearbteiten"
 
 #: ./../coursemodules.py:25
 msgid "Enter corresponding product detail value"
@@ -182,16 +239,42 @@ msgstr "Tragen Sie hier den korrespondierenden Produktwert ein"
 msgid "Exercise"
 msgstr "Übungen"
 
+#: ./../interfaces.py:104
+msgid "File Attachment"
+msgstr "Datei"
+
+#: ./../coursefolder_templates/xhrintegration.pt:51
+msgid "Filter course listing on <code>${filter/value}</code>: <a href=\"${context/absolute_url}?content_filter=1&amp;project=${filter/value}\">Preview</a>"
+msgstr "Liste filtern nach <code>${filter/value}</code>: <a href=\"${context/absolute_url}?content_filter=1&amp;project=${filter/value}\">Vorschau</a>"
+
+#: ./../coursefolder_templates/xhrintegration.pt:17
+msgid "Integrations"
+msgstr "Integrationen"
+
 #: ./../vocabulary.py:48
 msgid "Introductory seminar source"
 msgstr "Proseminare"
+
+#: ./../lecture_templates/view.pt:47
+msgid "It appears that you are listed as constributor on this content item"
+msgstr "Sie werden für diesen Bereich als inhaltlich verantwortlich gelistet."
+
+#: ./../coursefolder_templates/view.pt:66
+msgid "It appears that you are logged in as staff member. Use the link <em>XHR integrations</em> to open an overview of code snippets that can be used to integrate 3rd party project course listings via ajax"
+msgstr "Sie sind mit administrativen Zugriffsrechten angemeldet. Verwenden Sie die Schaltfläche <em>XHR Integration</em>, um eine Übersicht der verfügbaren Code Schnipsel zu erhalten, die an einer beliebigen Stelle der Seite im Quelltext eingefügt werden können und eine asynchron geladene Liste anzeigen."
 
 #: ./../profiles/default/types/hph.lectures.lecture.xml
 #: ./../vocabulary.py:47
 msgid "Lecture"
 msgstr "Vorlesungen"
 
-#: ./../lecture.py:35
+#: ./../factory_templates/lectureeditor.pt:32
+#: ./../factory_templates/lecturefactory.pt:19
+msgid "Lecture Factory"
+msgstr "Lehrveranstaltung Editor"
+
+#: ./../interfaces.py:25
+#: ./../lecture.py:33
 msgid "Lecure Number"
 msgstr "Vorlesungsnummer"
 
@@ -215,36 +298,72 @@ msgstr "Veranstaltungen verwalten"
 msgid "Module Information"
 msgstr "Modulinformationen"
 
+#: ./../coursefolder_templates/view.pt:65
+#: ./../lecture_templates/view.pt:46
+msgid "Note:"
+msgstr "Hinweis"
+
 #: ./../coursemodules.py:19
 msgid "Please select module degree"
 msgstr "Bitte wählen Sie eine Modulgruppe aus"
 
-#: ./../lecture.py:57
+#: ./../lecture.py:55
 msgid "Please select one or more lecturers for this course"
 msgstr "Bitte wählen Sie einen oder mehrere Lehrende für diesen Kurs aus."
 
-#: ./../lecture.py:90
+#: ./../coursefolder_templates/xhrintegration.pt:22
+msgid "Please select the 3rd party project and copy the integration code"
+msgstr "Bitte wählen Sie das Drittmittelprojekt aus, das an anderer Stelle gelistet werden soll"
+
+#: ./../interfaces.py:69
+#: ./../lecture.py:88
 msgid "Please select the course semester for filtering"
 msgstr "Bitte wählen Sie als Filter ein Semester aus"
 
-#: ./../lecture.py:71
+#: ./../interfaces.py:50
+#: ./../lecture.py:69
 msgid "Please select the course type."
 msgstr "Bitte wählen Sie den Veranstaltungstyp"
 
-#: ./../coursefolder_templates/view.pt:91
-#: ./../lecture_templates/view.pt:64
+#: ./../factory_templates/lecturefactory.pt:60
+msgid "Quit editor"
+msgstr "Editor beenden"
+
+#: ./../coursefolder_templates/xhrintegration.pt:36
+msgid "Quit xhr integrations"
+msgstr "Integrationsauswahl beenden"
+
+#: ./../coursefolder_templates/view.pt:107
+#: ./../lecture_templates/view.pt:78
 msgid "Raum"
 msgstr "Raum:"
 
-#: ./../lecture.py:60
+#: ./../lecture.py:58
 msgid "Related lecturer"
 msgstr "Lehrender"
 
-#: ./../lecture_templates/view.pt:153
+#: ./../factory.py:75
+msgid "Save"
+msgstr "Speichern"
+
+#: ./../factory_templates/lectureeditor.pt:107
+msgid "Save changes"
+msgstr "Änderungen speichern"
+
+#: ./../interfaces.py:105
+msgid "Select file to upload to this lecture object"
+msgstr "Datei zum Hochladen auswählen"
+
+#: ./../coursefolder_templates/view.pt:61
+msgid "Show integration options"
+msgstr "Optionen zur aynchronen Integration anzeigen"
+
+#: ./../lecture_templates/view.pt:167
 msgid "Since you are signed in as editor you can add file attachments to this content item"
 msgstr "Da Sie als CMS-Redakteur angemeldet sind, können Sie Datein zu diesem Inhalt hochladen."
 
-#: ./../lecture.py:27
+#: ./../interfaces.py:17
+#: ./../lecture.py:25
 msgid "Subtitle"
 msgstr "Subtitel"
 
@@ -252,11 +371,29 @@ msgstr "Subtitel"
 msgid "Summer Semester"
 msgstr "SoSe"
 
-#: ./../lecture.py:104
+#: ./../factory.py:251
+msgid "The attachment has successfully been added"
+msgstr "Die Datei wurde erfolgreich hochgeladen"
+
+#: ./../coursefolder_templates/xhrintegration.pt:26
+msgid "The code must be copy and pasted as displayed here in order to trigger the ajax call. Note: since the load is asynchronous and the script is loaded defered, it might take a moment for the caller to run."
+msgstr "Das angezeigte Code Schnipsel muss genau wie angezeigt kopiert und an der gewünschten Stelle in den Quelltext eingefügt werden. Hinweis: da das Laden der verknüpften Liste asynchron durchgeführt wird und das ausführende Script verzögert geladen wird, kann es einen Moment dauern, bis der Aufruf ausgeführt wurde"
+
+#: ./../factory.py:92
+msgid "The item has successfully been updated"
+msgstr "Der Inhalt wurde erfolgrich aktualisiert"
+
+#: ./../interfaces.py:83
+#: ./../lecture.py:102
 msgid "Third Party Project Display"
 msgstr "Drittmittelprojekte"
 
-#: ./../lecture.py:31
+#: ./../factory.py:138
+msgid "This field is required"
+msgstr "Dieses Feld ist ein Pflichtfeld"
+
+#: ./../interfaces.py:21
+#: ./../lecture.py:29
 msgid "Title"
 msgstr "Titel"
 
@@ -268,13 +405,17 @@ msgstr "WiSe"
 msgid "ZEP"
 msgstr "ZEP"
 
+#: ./../factory.py:97
+msgid "cancel"
+msgstr "Abbrechen"
+
 #: ./../coursefolder_templates/view.pt:34
 #: ./../lecture_templates/view.pt:34
 msgid "remove filter"
 msgstr "Filter entfernen"
 
 #: ./../coursefolder.py:43
-#: ./../lecture.py:146
+#: ./../lecture.py:150
 msgid "undefined"
 msgstr "undefiniert"
 

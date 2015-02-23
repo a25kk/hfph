@@ -26,6 +26,14 @@
                     certain performance implications and therefore a user group
                     must be selected
                   </p>
+                  <p class="app-callout app-callout-warning" i18n:translate="">
+                    Setting and revoking user roles and permissions is a highly
+                    critical task and will always have certain performance
+                    implications. Therefore lists of user roles are most likely
+                    cached heavily by any larger application server and might
+                    appear to be out of date. Please be patient and
+                    check back later.
+                  </p>
               </div>
           </div>
       </div>
