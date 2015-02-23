@@ -48,6 +48,16 @@
                 </tal:block>
             </div>
         </div>
+        <div class="app-page-body">
+          <h2 i18n:translate="">Active Asignments</h2>
+          <ul>
+            <li tal:repeat="item view/active_asignments">
+              <a href="${context/portal_url}/ws/${item/userid}">
+                ${item/name}
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </metal:content-core>

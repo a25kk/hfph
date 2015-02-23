@@ -131,7 +131,7 @@ class View(grok.View):
     def contributing(self):
         context = aq_inner(self.context)
         results = []
-        if self.has_worklist():
+        if len(self.worklist()):
             results = self.worklist()
         else:
             for item in self._lectures():
@@ -151,7 +151,7 @@ class View(grok.View):
             info = {}
             info['uid'] = item_uid
             info['title'] = item.Title()
-            info['url'] = item.getURL()
+            info['url'] = item.absolute_url()
             worklist.append(info)
         return worklist
 

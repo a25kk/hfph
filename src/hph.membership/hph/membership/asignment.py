@@ -13,7 +13,7 @@ from hph.membership import MessageFactory as _
 
 
 class AsignmentView(grok.View):
-    """ Group selection to provide prefiltering of users """
+    """ Group selection to provide prefiltering of userers """
     grok.context(IContentish)
     grok.require('cmf.ManagePortal')
     grok.name('asignment-view')
@@ -41,6 +41,22 @@ class AsignmentView(grok.View):
                 group['users'] = len(api.user.get_users(groupname=group_id))
                 groups.append(group)
         return groups
+
+    def active_asignments(self):
+        context = aq_inner(self.context)
+        context_uid = api.content.get_uuid(obj=context)
+        asigned = list()
+        for user_id, roles in context.get_local_roles():
+            user = api.user.get(username=user_id)
+            wl = user.getProperty('worklist')
+            #if context_uid in wl:
+            #    api.user.get_roles(username='jane', obj=portal['blog'])
+            userinfo = {}
+            userinfo['userid'] = user_id
+            userinfo['worklist'] = wl
+            userinfo['name'] = user.getProperty('fullname', user_id)
+            asigned.append(userinfo)
+        return asigned
 
 
 class AsignmentUsers(grok.View):
@@ -113,6 +129,7 @@ class Asignment(grok.View):
         action = self.traverse_subpath[1]
         user = api.user.get(username=userid)
         worklist = user.getProperty('worklist', list())
+        wl = list(worklist)
         uuid = api.content.get_uuid(obj=context)
         if action == 'revoke':
             api.user.revoke_roles(
@@ -120,18 +137,19 @@ class Asignment(grok.View):
                 roles=user_roles,
                 obj=context,
             )
-            worklist.remove(uuid)
+            if uuid in wl:
+                wl.remove(uuid)
         else:
             api.user.grant_roles(
                 username=userid,
                 roles=user_roles,
                 obj=context
             )
-            worklist.append(uuid)
+            wl.append(uuid)
         tool = getUtility(IHPHMemberTool)
         tool.update_user(userid, dict(
             login_time=DateTime(),
-            worklist=worklist
+            worklist=tuple(wl)
         ))
         next_url = '{0}/@@asignment-view?updated=true'.format(
             context.absolute_url())
