@@ -132,11 +132,14 @@ class Asignment(grok.View):
         wl = list(worklist)
         uuid = api.content.get_uuid(obj=context)
         if action == 'revoke':
-            api.user.revoke_roles(
-                username=userid,
-                roles=user_roles,
-                obj=context,
-            )
+            # Disable due to issues in plone.api and unmerged pull request
+            # ref: https://github.com/plone/plone.api
+            # api.user.revoke_roles(
+            #     username=userid,
+            #     roles=user_roles,
+            #     obj=context,
+            # )
+            context.manage_delLocalRoles([userid])
             if uuid in wl:
                 wl.remove(uuid)
         else:
