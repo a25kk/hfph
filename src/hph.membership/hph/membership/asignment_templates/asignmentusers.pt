@@ -42,7 +42,8 @@
             <div class="list-group">
                 <tal:block tal:repeat="item view/selectable_users">
                   <tal:item tal:define="user_id item/userid;
-                                        active python:view.get_asignment(user_id)">
+                                        worklist item/worklist;
+                                        active python:view.get_asignment(user_id, worklist)">
                     <a href="#" class="list-group-item"
                         tal:condition="not:active"
                         tal:attributes="href string:${context/absolute_url}/@@asignment/${user_id}/asign">

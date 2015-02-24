@@ -93,16 +93,19 @@ class AsignmentUsers(grok.View):
             info['idx'] = idx
             info['userid'] = userid
             info['fullname'] = user.getProperty('fullname', '') or userid
+            info['worklist'] = user.getProeprty('worklist', list())
             info['email'] = user.getProperty('email', _(u"No email provided"))
             info['roles'] = api.user.get_roles(username=userid, obj=context)
             users.append(info)
         return users
 
-    def get_asignment(self, userid):
+    def get_asignment(self, userid, worklist):
         context = aq_inner(self.context)
         roles = api.user.get_roles(username=userid, obj=context)
         if 'Contributor' in roles:
-            return True
+            context_uid = api.content.get_uuid(obj=context)
+            if context_uid in worklist:
+                return True
         return False
 
 
