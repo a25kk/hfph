@@ -93,7 +93,7 @@ class AsignmentUsers(grok.View):
             info['idx'] = idx
             info['userid'] = userid
             info['fullname'] = user.getProperty('fullname', '') or userid
-            info['worklist'] = user.getProeprty('worklist', list())
+            info['worklist'] = user.getProperty('worklist', list())
             info['email'] = user.getProperty('email', _(u"No email provided"))
             info['roles'] = api.user.get_roles(username=userid, obj=context)
             users.append(info)
