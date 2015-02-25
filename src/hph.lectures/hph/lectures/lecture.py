@@ -1,4 +1,5 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
+"""Module providing lecture content"""
 from Acquisition import aq_inner
 from five import grok
 from plone import api
@@ -115,9 +116,9 @@ grok.global_adapter(courseTypeIndexer, name="courseType")
 
 
 @indexer(ILecture)
-def projectIndexer(obj):
+def thirdPartyProjectIndexer(obj):
     return obj.thirdPartyProject
-grok.global_adapter(projectIndexer, name="thirdPartyProject")
+grok.global_adapter(thirdPartyProjectIndexer, name="thirdPartyProject")
 
 
 class Lecture(Container):
