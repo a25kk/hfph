@@ -74,10 +74,11 @@ class View(grok.View):
     def contained_items(self):
         catalog = api.portal.get_tool(name='portal_catalog')
         query = self._base_query()
+        project_filter = self.request.get('project', None)
         if self.filter is not None:
             query['courseType'] = self.request.get('courseType', '')
-            if 'project' in self.filter:
-                query['thirdPartyProject'] = self.request.get('project', '')
+            if project_filter:
+                query['thirdPartyProject'] = project_filter
         results = catalog.searchResults(query)
         return IContentListing(results)
 
