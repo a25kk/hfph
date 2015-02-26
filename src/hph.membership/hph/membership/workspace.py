@@ -146,6 +146,7 @@ class View(grok.View):
         return results
 
     def worklist(self):
+        context = aq_inner(self.context)
         userinfo = self.user_info()
         worklist = []
         for item_uid in userinfo['worklist']:
@@ -155,7 +156,7 @@ class View(grok.View):
             info['title'] = item.Title()
             if ILecture.providedBy(item):
                 next_url = '{0}/@@lecture-factory/{1}'.format(
-                    item.absolute_url(), item_uid)
+                    context.absolute_url(), item_uid)
                 info['url'] = next_url
             else:
                 info['url'] = item.absolute_url()
