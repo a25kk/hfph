@@ -142,6 +142,7 @@ class View(grok.View):
                     info['url'] = '{0}/@@lecture-factory/{1}'.format(
                         item.getURL(),
                         api.content.get_uuid(obj=item.getObject()))
+                    info['path'] = self.breadcrumbs(item)
                     results.append(info)
         return results
 
@@ -160,6 +161,7 @@ class View(grok.View):
                 info['url'] = next_url
             else:
                 info['url'] = item.absolute_url()
+            info['path'] = self.breadcrumbs(item)
             worklist.append(info)
         return worklist
 

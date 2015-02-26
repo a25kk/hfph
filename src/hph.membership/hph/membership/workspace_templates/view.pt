@@ -113,6 +113,31 @@
                                             tal:content="item/title">
                                             List group item heading
                                           </h4>
+                                          <p class="list-group-item-text">
+                                              <cite class="documentLocation link-location"
+                                                    tal:define="breadcrumbs item/path;
+                                                                is_rtl context/@@plone_portal_state/is_rtl;"
+                                                    tal:condition='breadcrumbs'>
+                                                  <span i18n:translate="text_searchitem_location">
+                                                      Abgelegt unter
+                                                  </span>
+                                                  <small tal:repeat="crumb breadcrumbs">
+                                                      <tal:item tal:define="is_last repeat/crumb/end;
+                                                                            url crumb/absolute_url;
+                                                                            title crumb/Title">
+                                                          <span href="#"
+                                                             tal:omit-tag="not: url"
+                                                             tal:content="title">
+                                                              crumb
+                                                          </span>
+                                                          <span class="breadcrumbSeparator" tal:condition="not: is_last">
+                                                              /
+                                                          </span>
+                                                       </tal:item>
+                                                  </small>
+
+                                              </cite>
+                                          </p>
                                         </a>
                                     </tal:block>
                                 </div>
