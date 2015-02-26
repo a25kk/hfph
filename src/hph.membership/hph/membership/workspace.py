@@ -151,7 +151,12 @@ class View(grok.View):
             info = {}
             info['uid'] = item_uid
             info['title'] = item.Title()
-            info['url'] = item.absolute_url()
+            if ILecture.providedBy(item):
+                next_url = '{0}/@@lecture-factory/{1}'.format(
+                    item.absolute_url(), item_uid)
+                info['url'] = next_url
+            else:
+                info['url'] = item.absolute_url()
             worklist.append(info)
         return worklist
 
