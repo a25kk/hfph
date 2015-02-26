@@ -93,6 +93,13 @@
                 <p class="text-discreet text-muted"
                     tal:condition="context/Description"
                     tal:content="context/Description" />
+                <p tal:condition="context/moodle">
+                    <a class="btn btn-default"
+                        href="${context/moodle}"
+                        i18n:translate="">
+                        View lecture in moodle
+                    </a>
+                </p>
             </div>
 
                 <hr>
