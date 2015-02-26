@@ -98,6 +98,11 @@ class ILecture(form.Schema, IImageScaleTraversable):
         title=_(u"Course Room"),
         required=False,
     )
+    moodle = schema.TextLine(
+        title=_(u"Moodle Link"),
+        description=_(u"Please enter absolute link to moodle representation"),
+        required=False,
+    )
     form.widget(thirdPartyProject=CheckBoxFieldWidget)
     thirdPartyProject = schema.Set(
         title=_(u"Third Party Project Display"),

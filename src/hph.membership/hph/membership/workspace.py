@@ -140,7 +140,7 @@ class View(grok.View):
                     info['uid'] = api.content.get_uuid(obj=item.getObject())
                     info['title'] = item.Title
                     info['url'] = '{0}/@@lecture-factory/{1}'.format(
-                        item.getURL(),
+                        context.absolute_url(),
                         api.content.get_uuid(obj=item.getObject()))
                     info['path'] = self.breadcrumbs(item)
                     results.append(info)
