@@ -138,9 +138,11 @@ class View(grok.View):
                 if context.getId() in item.getObject().listContributors():
                     info = {}
                     info['uid'] = api.content.get_uuid(obj=item.getObject())
-                    info['title'] = item.Title()
-                    info['url'] = item.getURL()
-                    results.append(item)
+                    info['title'] = item.Title
+                    info['url'] = '{0}/@@lecture-factory/{1}'.format(
+                        item.getURL(),
+                        api.content.get_uuid(obj=item.getObject()))
+                    results.append(info)
         return results
 
     def worklist(self):

@@ -108,7 +108,7 @@
                                 <div class="list-group">
                                     <tal:block tal:repeat="item view/contributing">
                                         <a href="#" class="list-group-item"
-                                            tal:attributes="href ${item/url}">
+                                            tal:attributes="href item/url">
                                           <h4 class="list-group-item-heading"
                                             tal:content="item/title">
                                             List group item heading
