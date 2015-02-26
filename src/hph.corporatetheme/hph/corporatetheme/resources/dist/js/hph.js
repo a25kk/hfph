@@ -13727,7 +13727,7 @@ if (typeof jQuery === 'undefined') {
         $('div[data-appui="ajaxified"]').each(function () {
             var $wrapper = $(this).parent(),
                 $sourceUrl = $(this).data('appui-target');
-            $(this).load($sourceUrl + '?ajax_load=1 #content-core >*');
+            $(this).load($sourceUrl + '&ajax_load=1 #content-core >*');
         });
         $('a[data-appui="pjaxed"]').each(function () {
             var $targetUrl = $(this).attr('href'), $hideEl = $(this).data('appui-hide');
