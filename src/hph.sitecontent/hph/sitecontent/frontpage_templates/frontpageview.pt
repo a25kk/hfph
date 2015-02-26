@@ -36,12 +36,15 @@
                         data-appui="eventbox"
                         tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
                     </div>
-                    <div class="app-box-footer text-right">
+                    <div class="app-box-footer text-right"
+                        tal:define="portal_url context/portal_url">
                         <a class="btn btn-default btn-sm" href="#"
-                            tal:define="portal_url context/portal_url"
                             tal:attributes="href python:portal_url + '/termine'">
                             Weitere Termine
                         </a>
+                        <a class="btn btn-default btn-sm"
+                            href="${portal_url}/studium/studiengaenge/termine">
+                            Studientermine</a>
                     </div>
                 </div>
             </aside>
