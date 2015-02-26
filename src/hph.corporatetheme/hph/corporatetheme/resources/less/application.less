@@ -1,8 +1,19 @@
+//
 // Custom application specific styles
 //--------------------------------------
 
-// Adjust header for cms toolbar height
 
+//== Folder table view fix
+//
+//## The folder table view has list items attached. Since we asume
+//## a javascript generated issues or a Plone specific issue (a tag
+//## not properly closes or the likes) we fix the display
+#content-core > li {
+    display: none;
+}
+
+
+// Adjust header for cms toolbar height
 .app-toolbar + .app-header {
     margin-top: @navbar-height;
 }
