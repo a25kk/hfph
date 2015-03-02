@@ -166,7 +166,11 @@ class View(grok.View):
         return worklist
 
     def breadcrumbs(self, item):
-        obj = item.getObject()
+        """ Compute nice breadcrumb for object location in site """
+        try:
+            obj = item.getObject()
+        except AttributeError:
+            obj = item
         view = getMultiAdapter((obj, self.request), name='breadcrumbs_view')
         # cut off the item itself
         breadcrumbs = list(view.breadcrumbs())[:-1]
