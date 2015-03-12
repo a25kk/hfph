@@ -58,22 +58,6 @@
             transform: matrix(1, 0, 0, 1, 0, 0);
     opacity: 1; } }
 
-.btn {
-  display: inline-block;
-  margin-bottom: 0;
-  font-weight: normal;
-  text-align: center;
-  vertical-align: middle;
-  background: #efefef;
-  border: 1px solid #ccc;
-  white-space: nowrap;
-  padding: 6px 12px;
-  border-radius: 4px;
-  color: #333;
-  text-decoration: none; }
-  .btn:hover {
-    text-decoration: underline; }
-
 .medium-toolbar-arrow-under:after, .medium-toolbar-arrow-over:before {
   position: absolute;
   left: 50%;
@@ -115,8 +99,7 @@
       font-size: 14px;
       line-height: 1.33;
       text-decoration: none;
-      -moz-box-sizing: border-box;
-           box-sizing: border-box; }
+      box-sizing: border-box; }
     .medium-editor-toolbar li .medium-editor-action-underline, .medium-editor-anchor-preview li .medium-editor-action-underline {
       text-decoration: underline; }
     .medium-editor-toolbar li .medium-editor-action-pre, .medium-editor-anchor-preview li .medium-editor-action-pre {
@@ -133,7 +116,13 @@
   cursor: pointer; }
 
 .medium-editor-toolbar-active, .medium-editor-anchor-preview-active {
-  visibility: visible;
+  visibility: visible; }
+
+.sticky-toolbar {
+  position: fixed;
+  top: 1px; }
+
+.stalker-toolbar {
   -webkit-animation: pop-upwards 160ms forwards linear;
   -ms-animation: pop-upwards 160ms forwards linear;
   animation: pop-upwards 160ms forwards linear;
@@ -146,27 +135,26 @@
 .medium-editor-action-italic {
   font-style: italic; }
 
-.medium-editor-toolbar-form-anchor {
+.medium-editor-toolbar-form {
   display: none; }
-  .medium-editor-toolbar-form-anchor input, .medium-editor-toolbar-form-anchor a {
+  .medium-editor-toolbar-form input, .medium-editor-toolbar-form a {
     font-family: HelveticaNeue, Helvetica, Arial, sans-serif; }
-  .medium-editor-toolbar-form-anchor .medium-editor-toolbar-anchor-input, .medium-editor-toolbar-form-anchor label {
+  .medium-editor-toolbar-form .medium-editor-toolbar-input, .medium-editor-toolbar-form label {
     margin: 0;
     padding: 6px;
     width: 316px;
     border: none;
     font-size: 14px;
-    -moz-box-sizing: border-box;
-         box-sizing: border-box; }
-    .medium-editor-toolbar-form-anchor .medium-editor-toolbar-anchor-input:focus, .medium-editor-toolbar-form-anchor label:focus {
+    box-sizing: border-box; }
+    .medium-editor-toolbar-form .medium-editor-toolbar-input:focus, .medium-editor-toolbar-form label:focus {
       outline: 0;
       border: none;
       box-shadow: none;
       -webkit-appearance: none;
       -moz-appearance: none; }
-  .medium-editor-toolbar-form-anchor label {
+  .medium-editor-toolbar-form label {
     display: block; }
-  .medium-editor-toolbar-form-anchor a {
+  .medium-editor-toolbar-form a {
     display: inline-block;
     margin: 0 10px;
     text-decoration: none;
@@ -180,9 +168,8 @@
     top: 0;
     left: 0;
     content: attr(data-placeholder) !important;
-    font-style: italic; }
-
-// Bootstrap styles
+    font-style: italic;
+    white-space: pre; }
 
 .medium-toolbar-arrow-under:after {
   top: 50px;
@@ -230,17 +217,16 @@
     background: -webkit-linear-gradient(bottom, #242424, rgba(0, 0, 0, 0.89));
     background: linear-gradient(bottom, #242424, rgba(0, 0, 0, 0.89)); }
 
-.medium-editor-toolbar-form-anchor {
+.medium-editor-toolbar-form {
   background: #242424;
   color: #999;
   border-radius: 5px; }
-  .medium-editor-toolbar-form-anchor .medium-editor-toolbar-anchor-input {
+  .medium-editor-toolbar-form .medium-editor-toolbar-input {
     height: 50px;
     background: #242424;
     color: #ccc;
-    -moz-box-sizing: border-box;
-         box-sizing: border-box; }
-  .medium-editor-toolbar-form-anchor a {
+    box-sizing: border-box; }
+  .medium-editor-toolbar-form a {
     color: #fff; }
 
 .medium-editor-toolbar-anchor-preview {

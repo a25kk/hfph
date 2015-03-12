@@ -84,8 +84,9 @@
                 <h1 i18n:translate="">Edit field content</h1>
 
                 <div class="app-field-editable">
-                    <div class="editable" id="editable-text" data-appui="content-editable"
-                        tal:content="view/getFieldData">
+                    <div class="editable" id="editable-text"
+                        data-appui="content-editable"
+                        tal:content="structure view/getFieldData">
                         Editable Content Section
                     </div>
                 </div>
