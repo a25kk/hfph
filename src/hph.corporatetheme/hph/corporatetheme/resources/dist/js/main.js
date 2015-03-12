@@ -6,10 +6,10 @@
 * Designed and built by ade25
 */
 /* ========================================================================
- * Bootstrap: transition.js v3.3.1
+ * Bootstrap: transition.js v3.1.1
  * http://getbootstrap.com/javascript/#transitions
  * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
+ * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -41,9 +41,8 @@
 
   // http://blog.alexmaccaw.com/css-transitions
   $.fn.emulateTransitionEnd = function (duration) {
-    var called = false
-    var $el = this
-    $(this).one('bsTransitionEnd', function () { called = true })
+    var called = false, $el = this
+    $(this).one($.support.transition.end, function () { called = true })
     var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
     setTimeout(callback, duration)
     return this
@@ -51,25 +50,15 @@
 
   $(function () {
     $.support.transition = transitionEnd()
-
-    if (!$.support.transition) return
-
-    $.event.special.bsTransitionEnd = {
-      bindType: $.support.transition.end,
-      delegateType: $.support.transition.end,
-      handle: function (e) {
-        if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
-      }
-    }
   })
 
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: collapse.js v3.3.1
+ * Bootstrap: collapse.js v3.1.1
  * http://getbootstrap.com/javascript/#collapse
  * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
+ * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -83,25 +72,14 @@
   var Collapse = function (element, options) {
     this.$element      = $(element)
     this.options       = $.extend({}, Collapse.DEFAULTS, options)
-    this.$trigger      = $(this.options.trigger).filter('[href="#' + element.id + '"], [data-target="#' + element.id + '"]')
     this.transitioning = null
 
-    if (this.options.parent) {
-      this.$parent = this.getParent()
-    } else {
-      this.addAriaAndCollapsedClass(this.$element, this.$trigger)
-    }
-
+    if (this.options.parent) this.$parent = $(this.options.parent)
     if (this.options.toggle) this.toggle()
   }
 
-  Collapse.VERSION  = '3.3.1'
-
-  Collapse.TRANSITION_DURATION = 350
-
   Collapse.DEFAULTS = {
-    toggle: true,
-    trigger: '[data-toggle="collapse"]'
+    toggle: true
   }
 
   Collapse.prototype.dimension = function () {
@@ -112,21 +90,17 @@
   Collapse.prototype.show = function () {
     if (this.transitioning || this.$element.hasClass('in')) return
 
-    var activesData
-    var actives = this.$parent && this.$parent.children('.panel').children('.in, .collapsing')
-
-    if (actives && actives.length) {
-      activesData = actives.data('bs.collapse')
-      if (activesData && activesData.transitioning) return
-    }
-
     var startEvent = $.Event('show.bs.collapse')
     this.$element.trigger(startEvent)
     if (startEvent.isDefaultPrevented()) return
 
+    var actives = this.$parent && this.$parent.find('> .panel > .in')
+
     if (actives && actives.length) {
-      Plugin.call(actives, 'hide')
-      activesData || actives.data('bs.collapse', null)
+      var hasData = actives.data('bs.collapse')
+      if (hasData && hasData.transitioning) return
+      actives.collapse('hide')
+      hasData || actives.data('bs.collapse', null)
     }
 
     var dimension = this.dimension()
@@ -134,21 +108,16 @@
     this.$element
       .removeClass('collapse')
       .addClass('collapsing')[dimension](0)
-      .attr('aria-expanded', true)
-
-    this.$trigger
-      .removeClass('collapsed')
-      .attr('aria-expanded', true)
 
     this.transitioning = 1
 
-    var complete = function () {
+    var complete = function (e) {
+      if (e && e.target != this.$element[0]) return
       this.$element
         .removeClass('collapsing')
-        .addClass('collapse in')[dimension]('')
+        .addClass('collapse in')[dimension]('auto')
       this.transitioning = 0
-      this.$element
-        .trigger('shown.bs.collapse')
+      this.$element.trigger('shown.bs.collapse')
     }
 
     if (!$.support.transition) return complete.call(this)
@@ -156,8 +125,8 @@
     var scrollSize = $.camelCase(['scroll', dimension].join('-'))
 
     this.$element
-      .one('bsTransitionEnd', $.proxy(complete, this))
-      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize])
+      .one($.support.transition.end, $.proxy(complete, this))
+      .emulateTransitionEnd(350)[dimension](this.$element[0][scrollSize])
   }
 
   Collapse.prototype.hide = function () {
@@ -173,81 +142,50 @@
 
     this.$element
       .addClass('collapsing')
-      .removeClass('collapse in')
-      .attr('aria-expanded', false)
-
-    this.$trigger
-      .addClass('collapsed')
-      .attr('aria-expanded', false)
+      .removeClass('collapse')
+      .removeClass('in')
 
     this.transitioning = 1
 
-    var complete = function () {
+    var complete = function (e) {
+      if (e && e.target != this.$element[0]) return
       this.transitioning = 0
       this.$element
+        .trigger('hidden.bs.collapse')
         .removeClass('collapsing')
         .addClass('collapse')
-        .trigger('hidden.bs.collapse')
     }
 
     if (!$.support.transition) return complete.call(this)
 
     this.$element
       [dimension](0)
-      .one('bsTransitionEnd', $.proxy(complete, this))
-      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)
+      .one($.support.transition.end, $.proxy(complete, this))
+      .emulateTransitionEnd(350)
   }
 
   Collapse.prototype.toggle = function () {
     this[this.$element.hasClass('in') ? 'hide' : 'show']()
   }
 
-  Collapse.prototype.getParent = function () {
-    return $(this.options.parent)
-      .find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]')
-      .each($.proxy(function (i, element) {
-        var $element = $(element)
-        this.addAriaAndCollapsedClass(getTargetFromTrigger($element), $element)
-      }, this))
-      .end()
-  }
-
-  Collapse.prototype.addAriaAndCollapsedClass = function ($element, $trigger) {
-    var isOpen = $element.hasClass('in')
-
-    $element.attr('aria-expanded', isOpen)
-    $trigger
-      .toggleClass('collapsed', !isOpen)
-      .attr('aria-expanded', isOpen)
-  }
-
-  function getTargetFromTrigger($trigger) {
-    var href
-    var target = $trigger.attr('data-target')
-      || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
-
-    return $(target)
-  }
-
 
   // COLLAPSE PLUGIN DEFINITION
   // ==========================
 
-  function Plugin(option) {
+  var old = $.fn.collapse
+
+  $.fn.collapse = function (option) {
     return this.each(function () {
       var $this   = $(this)
       var data    = $this.data('bs.collapse')
       var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
-      if (!data && options.toggle && option == 'show') options.toggle = false
+      if (!data && options.toggle && option == 'show') option = !option
       if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
 
-  var old = $.fn.collapse
-
-  $.fn.collapse             = Plugin
   $.fn.collapse.Constructor = Collapse
 
 
@@ -264,24 +202,31 @@
   // =================
 
   $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
-    var $this   = $(this)
-
-    if (!$this.attr('data-target')) e.preventDefault()
-
-    var $target = getTargetFromTrigger($this)
+    var $this   = $(this), href
+    var target  = $this.attr('data-target')
+        || e.preventDefault()
+        || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
+    var $target = $(target)
     var data    = $target.data('bs.collapse')
-    var option  = data ? 'toggle' : $.extend({}, $this.data(), { trigger: this })
+    var option  = data ? 'toggle' : $this.data()
+    var parent  = $this.attr('data-parent')
+    var $parent = parent && $(parent)
 
-    Plugin.call($target, option)
+    if (!data || !data.transitioning) {
+      if ($parent) $parent.find('[data-toggle="collapse"][data-parent="' + parent + '"]').not($this).addClass('collapsed')
+      $this[$target.hasClass('in') ? 'addClass' : 'removeClass']('collapsed')
+    }
+
+    $target.collapse(option)
   })
 
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: dropdown.js v3.3.1
+ * Bootstrap: dropdown.js v3.1.1
  * http://getbootstrap.com/javascript/#dropdowns
  * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
+ * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -297,8 +242,6 @@
   var Dropdown = function (element) {
     $(element).on('click.bs.dropdown', this.toggle)
   }
-
-  Dropdown.VERSION = '3.3.1'
 
   Dropdown.prototype.toggle = function (e) {
     var $this = $(this)
@@ -321,20 +264,18 @@
 
       if (e.isDefaultPrevented()) return
 
-      $this
-        .trigger('focus')
-        .attr('aria-expanded', 'true')
-
       $parent
         .toggleClass('open')
         .trigger('shown.bs.dropdown', relatedTarget)
+
+      $this.trigger('focus')
     }
 
     return false
   }
 
   Dropdown.prototype.keydown = function (e) {
-    if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return
+    if (!/(38|40|27)/.test(e.keyCode)) return
 
     var $this = $(this)
 
@@ -346,7 +287,7 @@
     var $parent  = getParent($this)
     var isActive = $parent.hasClass('open')
 
-    if ((!isActive && e.which != 27) || (isActive && e.which == 27)) {
+    if (!isActive || (isActive && e.keyCode == 27)) {
       if (e.which == 27) $parent.find(toggle).trigger('focus')
       return $this.trigger('click')
     }
@@ -356,30 +297,23 @@
 
     if (!$items.length) return
 
-    var index = $items.index(e.target)
+    var index = $items.index($items.filter(':focus'))
 
-    if (e.which == 38 && index > 0)                 index--                        // up
-    if (e.which == 40 && index < $items.length - 1) index++                        // down
+    if (e.keyCode == 38 && index > 0)                 index--                        // up
+    if (e.keyCode == 40 && index < $items.length - 1) index++                        // down
     if (!~index)                                      index = 0
 
     $items.eq(index).trigger('focus')
   }
 
   function clearMenus(e) {
-    if (e && e.which === 3) return
     $(backdrop).remove()
     $(toggle).each(function () {
-      var $this         = $(this)
-      var $parent       = getParent($this)
+      var $parent = getParent($(this))
       var relatedTarget = { relatedTarget: this }
-
       if (!$parent.hasClass('open')) return
-
       $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
-
       if (e.isDefaultPrevented()) return
-
-      $this.attr('aria-expanded', 'false')
       $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)
     })
   }
@@ -389,7 +323,7 @@
 
     if (!selector) {
       selector = $this.attr('href')
-      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
     }
 
     var $parent = selector && $(selector)
@@ -401,7 +335,9 @@
   // DROPDOWN PLUGIN DEFINITION
   // ==========================
 
-  function Plugin(option) {
+  var old = $.fn.dropdown
+
+  $.fn.dropdown = function (option) {
     return this.each(function () {
       var $this = $(this)
       var data  = $this.data('bs.dropdown')
@@ -411,9 +347,6 @@
     })
   }
 
-  var old = $.fn.dropdown
-
-  $.fn.dropdown             = Plugin
   $.fn.dropdown.Constructor = Dropdown
 
 
@@ -433,9 +366,7 @@
     .on('click.bs.dropdown.data-api', clearMenus)
     .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
     .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
-    .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
-    .on('keydown.bs.dropdown.data-api', '[role="menu"]', Dropdown.prototype.keydown)
-    .on('keydown.bs.dropdown.data-api', '[role="listbox"]', Dropdown.prototype.keydown)
+    .on('keydown.bs.dropdown.data-api', toggle + ', [role="menu"], [role="listbox"]', Dropdown.prototype.keydown)
 
 }(jQuery);
 
@@ -845,404 +776,6 @@
     };
 })(jQuery);
 
-/*!
- * headroom.js v0.6.0 - Give your page some headroom. Hide your header until you need it
- * Copyright (c) 2014 Nick Williams - http://wicky.nillia.ms/headroom.js
- * License: MIT
- */
-
-(function(window, document) {
-
-  'use strict';
-
-  /* exported features */
-  
-  var features = {
-    bind : !!(function(){}.bind),
-    classList : 'classList' in document.documentElement,
-    rAF : !!(window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame)
-  };
-  window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
-  
-  /**
-   * Handles debouncing of events via requestAnimationFrame
-   * @see http://www.html5rocks.com/en/tutorials/speed/animations/
-   * @param {Function} callback The callback to handle whichever event
-   */
-  function Debouncer (callback) {
-    this.callback = callback;
-    this.ticking = false;
-  }
-  Debouncer.prototype = {
-    constructor : Debouncer,
-  
-    /**
-     * dispatches the event to the supplied callback
-     * @private
-     */
-    update : function() {
-      this.callback && this.callback();
-      this.ticking = false;
-    },
-  
-    /**
-     * ensures events don't get stacked
-     * @private
-     */
-    requestTick : function() {
-      if(!this.ticking) {
-        requestAnimationFrame(this.rafCallback || (this.rafCallback = this.update.bind(this)));
-        this.ticking = true;
-      }
-    },
-  
-    /**
-     * Attach this as the event listeners
-     */
-    handleEvent : function() {
-      this.requestTick();
-    }
-  };
-  /**
-   * Helper function for extending objects
-   */
-  function extend (object /*, objectN ... */) {
-    if(arguments.length <= 0) {
-      throw new Error('Missing arguments in extend function');
-    }
-  
-    var result = object || {},
-        key,
-        i;
-  
-    for (i = 1; i < arguments.length; i++) {
-      var replacement = arguments[i] || {};
-  
-      for (key in replacement) {
-        if(typeof result[key] === 'object') {
-          result[key] = extend(result[key], replacement[key]);
-        }
-        else {
-          result[key] = result[key] || replacement[key];
-        }
-      }
-    }
-  
-    return result;
-  }
-  
-  /**
-   * Helper function for normalizing tolerance option to object format
-   */
-  function normalizeTolerance (t) {
-    return t === Object(t) ? t : { down : t, up : t };
-  }
-  
-  /**
-   * UI enhancement for fixed headers.
-   * Hides header when scrolling down
-   * Shows header when scrolling up
-   * @constructor
-   * @param {DOMElement} elem the header element
-   * @param {Object} options options for the widget
-   */
-  function Headroom (elem, options) {
-    options = extend(options, Headroom.options);
-  
-    this.lastKnownScrollY = 0;
-    this.elem             = elem;
-    this.debouncer        = new Debouncer(this.update.bind(this));
-    this.tolerance        = normalizeTolerance(options.tolerance);
-    this.classes          = options.classes;
-    this.offset           = options.offset;
-    this.initialised      = false;
-    this.onPin            = options.onPin;
-    this.onUnpin          = options.onUnpin;
-    this.onTop            = options.onTop;
-    this.onNotTop         = options.onNotTop;
-  }
-  Headroom.prototype = {
-    constructor : Headroom,
-  
-    /**
-     * Initialises the widget
-     */
-    init : function() {
-      if(!Headroom.cutsTheMustard) {
-        return;
-      }
-  
-      this.elem.classList.add(this.classes.initial);
-  
-      // defer event registration to handle browser 
-      // potentially restoring previous scroll position
-      setTimeout(this.attachEvent.bind(this), 100);
-  
-      return this;
-    },
-  
-    /**
-     * Unattaches events and removes any classes that were added
-     */
-    destroy : function() {
-      var classes = this.classes;
-  
-      this.initialised = false;
-      window.removeEventListener('scroll', this.debouncer, false);
-      this.elem.classList.remove(classes.unpinned, classes.pinned, classes.top, classes.initial);
-    },
-  
-    /**
-     * Attaches the scroll event
-     * @private
-     */
-    attachEvent : function() {
-      if(!this.initialised){
-        this.lastKnownScrollY = this.getScrollY();
-        this.initialised = true;
-        window.addEventListener('scroll', this.debouncer, false);
-  
-        this.debouncer.handleEvent();
-      }
-    },
-    
-    /**
-     * Unpins the header if it's currently pinned
-     */
-    unpin : function() {
-      var classList = this.elem.classList,
-        classes = this.classes;
-      
-      if(classList.contains(classes.pinned) || !classList.contains(classes.unpinned)) {
-        classList.add(classes.unpinned);
-        classList.remove(classes.pinned);
-        this.onUnpin && this.onUnpin.call(this);
-      }
-    },
-  
-    /**
-     * Pins the header if it's currently unpinned
-     */
-    pin : function() {
-      var classList = this.elem.classList,
-        classes = this.classes;
-      
-      if(classList.contains(classes.unpinned)) {
-        classList.remove(classes.unpinned);
-        classList.add(classes.pinned);
-        this.onPin && this.onPin.call(this);
-      }
-    },
-  
-    /**
-     * Handles the top states
-     */
-    top : function() {
-      var classList = this.elem.classList,
-        classes = this.classes;
-      
-      if(!classList.contains(classes.top)) {
-        classList.add(classes.top);
-        classList.remove(classes.notTop);
-        this.onTop && this.onTop.call(this);
-      }
-    },
-  
-    /**
-     * Handles the not top state
-     */
-    notTop : function() {
-      var classList = this.elem.classList,
-        classes = this.classes;
-      
-      if(!classList.contains(classes.notTop)) {
-        classList.add(classes.notTop);
-        classList.remove(classes.top);
-        this.onNotTop && this.onNotTop.call(this);
-      }
-    },
-  
-    /**
-     * Gets the Y scroll position
-     * @see https://developer.mozilla.org/en-US/docs/Web/API/Window.scrollY
-     * @return {Number} pixels the page has scrolled along the Y-axis
-     */
-    getScrollY : function() {
-      return (window.pageYOffset !== undefined)
-        ? window.pageYOffset
-        : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-    },
-  
-    /**
-     * Gets the height of the viewport
-     * @see http://andylangton.co.uk/blog/development/get-viewport-size-width-and-height-javascript
-     * @return {int} the height of the viewport in pixels
-     */
-    getViewportHeight : function () {
-      return window.innerHeight
-        || document.documentElement.clientHeight
-        || document.body.clientHeight;
-    },
-  
-    /**
-     * Gets the height of the document
-     * @see http://james.padolsey.com/javascript/get-document-height-cross-browser/
-     * @return {int} the height of the document in pixels
-     */
-    getDocumentHeight : function () {
-      var body = document.body,
-        documentElement = document.documentElement;
-  
-      return Math.max(
-          body.scrollHeight, documentElement.scrollHeight,
-          body.offsetHeight, documentElement.offsetHeight,
-          body.clientHeight, documentElement.clientHeight
-      );
-    },
-  
-    /**
-     * determines if the scroll position is outside of document boundaries
-     * @param  {int}  currentScrollY the current y scroll position
-     * @return {bool} true if out of bounds, false otherwise
-     */
-    isOutOfBounds : function (currentScrollY) {
-      var pastTop  = currentScrollY < 0,
-        pastBottom = currentScrollY + this.getViewportHeight() > this.getDocumentHeight();
-      
-      return pastTop || pastBottom;
-    },
-  
-    /**
-     * determines if the tolerance has been exceeded
-     * @param  {int} currentScrollY the current scroll y position
-     * @return {bool} true if tolerance exceeded, false otherwise
-     */
-    toleranceExceeded : function (currentScrollY, direction) {
-      return Math.abs(currentScrollY-this.lastKnownScrollY) >= this.tolerance[direction];
-    },
-  
-    /**
-     * determine if it is appropriate to unpin
-     * @param  {int} currentScrollY the current y scroll position
-     * @param  {bool} toleranceExceeded has the tolerance been exceeded?
-     * @return {bool} true if should unpin, false otherwise
-     */
-    shouldUnpin : function (currentScrollY, toleranceExceeded) {
-      var scrollingDown = currentScrollY > this.lastKnownScrollY,
-        pastOffset = currentScrollY >= this.offset;
-  
-      return scrollingDown && pastOffset && toleranceExceeded;
-    },
-  
-    /**
-     * determine if it is appropriate to pin
-     * @param  {int} currentScrollY the current y scroll position
-     * @param  {bool} toleranceExceeded has the tolerance been exceeded?
-     * @return {bool} true if should pin, false otherwise
-     */
-    shouldPin : function (currentScrollY, toleranceExceeded) {
-      var scrollingUp  = currentScrollY < this.lastKnownScrollY,
-        pastOffset = currentScrollY <= this.offset;
-  
-      return (scrollingUp && toleranceExceeded) || pastOffset;
-    },
-  
-    /**
-     * Handles updating the state of the widget
-     */
-    update : function() {
-      var currentScrollY  = this.getScrollY(),
-        scrollDirection = currentScrollY > this.lastKnownScrollY ? 'down' : 'up',
-        toleranceExceeded = this.toleranceExceeded(currentScrollY, scrollDirection);
-  
-      if(this.isOutOfBounds(currentScrollY)) { // Ignore bouncy scrolling in OSX
-        return;
-      }
-  
-      if (currentScrollY <= this.offset ) {
-        this.top();
-      } else {
-        this.notTop();
-      }
-  
-      if(this.shouldUnpin(currentScrollY, toleranceExceeded)) {
-        this.unpin();
-      }
-      else if(this.shouldPin(currentScrollY, toleranceExceeded)) {
-        this.pin();
-      }
-  
-      this.lastKnownScrollY = currentScrollY;
-    }
-  };
-  /**
-   * Default options
-   * @type {Object}
-   */
-  Headroom.options = {
-    tolerance : {
-      up : 0,
-      down : 0
-    },
-    offset : 0,
-    classes : {
-      pinned : 'headroom--pinned',
-      unpinned : 'headroom--unpinned',
-      top : 'headroom--top',
-      notTop : 'headroom--not-top',
-      initial : 'headroom'
-    }
-  };
-  Headroom.cutsTheMustard = typeof features !== 'undefined' && features.rAF && features.bind && features.classList;
-
-  window.Headroom = Headroom;
-
-}(window, document));
-/*!
- * headroom.js v0.6.0 - Give your page some headroom. Hide your header until you need it
- * Copyright (c) 2014 Nick Williams - http://wicky.nillia.ms/headroom.js
- * License: MIT
- */
-
-(function($) {
-
-  if(!$) {
-    return;
-  }
-
-  ////////////
-  // Plugin //
-  ////////////
-
-  $.fn.headroom = function(option) {
-    return this.each(function() {
-      var $this   = $(this),
-        data      = $this.data('headroom'),
-        options   = typeof option === 'object' && option;
-
-      options = $.extend(true, {}, Headroom.options, options);
-
-      if (!data) {
-        data = new Headroom(this, options);
-        data.init();
-        $this.data('headroom', data);
-      }
-      if (typeof option === 'string') {
-        data[option]();
-      }
-    });
-  };
-
-  //////////////
-  // Data API //
-  //////////////
-
-  $('[data-headroom]').each(function() {
-    var $this = $(this);
-    $this.headroom($this.data());
-  });
-
-}(window.Zepto || window.jQuery));
 'use strict';
 (function ($) {
     $(document).ready(function () {
