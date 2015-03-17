@@ -301,6 +301,10 @@ module.exports = function (grunt) {
                 options: {
                     patterns: [
                         {
+                            match: '../../assets/',
+                            replacement: 'assets/'
+                        },
+                        {
                             match: '../assets/',
                             replacement: 'assets/'
                         },
