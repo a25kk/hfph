@@ -32,11 +32,13 @@ module.exports = function (grunt) {
                 src: [
                     'bower_components/jquery/dist/jquery.js',
                     'bower_components/modernizr/modernizr.js',
-                    'bower_components/bootstrap/dist/js/bootstrap.js',
+                    'bower_components/bootstrap/js/transition.js',
+                    'bower_components/bootstrap/js/collapse.js',
+                    'bower_components/bootstrap/js/dropdown.js',
                     'bower_components/JQuery.Marquee/jquery.marquee.js',
-                    'bower_components/headroom.js/dist/headroom.js',
-                    'bower_components/headroom.js/dist/jQuery.headroom.js',
-                    'js/application.js'
+                    'bower_components/hideShowPassword/hideShowPassword.js',
+                    //'bower_components/blazy/blazy.js',
+                    'js/main.js'
                 ],
                 dest: '<%= config.dist %>/js/<%= pkg.name %>.js'
             },
@@ -46,9 +48,9 @@ module.exports = function (grunt) {
                     'bower_components/bootstrap/js/collapse.js',
                     'bower_components/bootstrap/js/dropdown.js',
                     'bower_components/JQuery.Marquee/jquery.marquee.js',
-                    'bower_components/headroom.js/dist/headroom.js',
-                    'bower_components/headroom.js/dist/jQuery.headroom.js',
-                    'js/application.js'
+                    'bower_components/hideShowPassword/hideShowPassword.js',
+                    //'bower_components/blazy/blazy.js',
+                    'js/main.js'
                 ],
                 dest: '<%= config.dist %>/js/main.js'
             }
@@ -111,11 +113,20 @@ module.exports = function (grunt) {
         criticalcss: {
             frontpage: {
                 options: {
-                    url: 'http://<%= pkg.name %>.kreativkombinat.de',
+                    url: 'http://localhost:8499/hph',
                     width: 1200,
                     height: 900,
-                    outputfile: '<%= config.dist %>/css/critical.css',
-                    filename: '<%= pkg.name %>.min.css'
+                    outputfile: 'assets/css/critical-lp.css',
+                    filename: '<%= config.dist %>/css/<%= pkg.name %>.css'
+                }
+            },
+            theme: {
+                options: {
+                    url: 'http://localhost:8499/hph/hochschule/profil',
+                    width: 1200,
+                    height: 900,
+                    outputfile: 'assets/css/critical.css',
+                    filename: '<%= config.dist %>/css/<%= pkg.name %>.css'
                 }
             }
         },
@@ -126,6 +137,13 @@ module.exports = function (grunt) {
                 cwd: 'bower_components/',
                 src: ['font-awesome/fonts/*'],
                 dest: '<%= config.dist %>/assets/fonts/'
+            },
+            showPassword: {
+                expand: true,
+                flatten: true,
+                cwd: 'bower_components/',
+                src: ['hideShowPassword/images/*'],
+                dest: '<%= config.dist %>/assets/img/'
             },
             ico: {
                 expand: true,
@@ -194,7 +212,7 @@ module.exports = function (grunt) {
         },
         usemin: {
             html: ['<%= config.dist %>/{,*/}*.html'],
-            htmlcustom: ['<%= config.dist %>/*.html'],
+            htmlcustom: ['<%= config.dist %>/{,*/}*.html'],
             css: ['<%= config.dist %>/css/*.css'],
             options: {
                 assetsDirs: [
@@ -207,6 +225,10 @@ module.exports = function (grunt) {
                         [
                             /(?:src=|url\(\s*)['"]?([^'"\)(\?|#)]+)['"]?\s*\)?/gm,
                             'Replacing src references in inline javascript'
+                        ],
+                        [
+                            /(?:loadCSS\(|url\(\s*)['"]?([^'"\)(\?|#)]+)['"]?\s*\)?/gm,
+                            'Update the load css source with the new img filenames'
                         ],
                         [
                             /(?:data-src=|url\(\s*)['"]?([^'"\)(\?|#)]+)['"]?\s*\)?/gm,
@@ -470,8 +492,8 @@ module.exports = function (grunt) {
             },
             dist: {
                 options: {
-                    url: 'http://www.hfph.de',
-                    paths: ['/', '/hochschule'],
+                    url: 'http://d2.ade25.de',
+                    paths: ['/', '/stellplatz-am-segler-verein/'],
                     locale: 'de_DE',
                     strategy: 'desktop',
                     threshold: 80

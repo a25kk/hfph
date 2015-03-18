@@ -1,14 +1,16 @@
 {
-  "name": "xposeo",
+  "name": "hph",
   "version": "1.0.0",
   "dependencies": {
     "JQuery.Marquee": "git@github.com:aamirafridi/jQuery.Marquee.git",
     "animate.css": "~3.2.0",
     "bootstrap": "git@github.com:twbs/bootstrap.git#master",
+    "bootstrap-without-jquery": "~0.6.1",
     "datatables": "~1.10.1",
     "diazo-plone": "git@github.com:ade25/diazo-plone.git#master",
     "font-awesome": "4.2.0",
     "headroom.js": "~0.6.0",
+    "hideShowPassword": "~2.0.3",
     "holderjs": "~2.1.0",
     "jquery": ">= 2.1.0",
     "jquery-pjax": "~1.7.3",

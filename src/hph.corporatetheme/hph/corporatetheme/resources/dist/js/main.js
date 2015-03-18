@@ -6,10 +6,10 @@
 * Designed and built by ade25
 */
 /* ========================================================================
- * Bootstrap: transition.js v3.1.1
+ * Bootstrap: transition.js v3.3.4
  * http://getbootstrap.com/javascript/#transitions
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -41,8 +41,9 @@
 
   // http://blog.alexmaccaw.com/css-transitions
   $.fn.emulateTransitionEnd = function (duration) {
-    var called = false, $el = this
-    $(this).one($.support.transition.end, function () { called = true })
+    var called = false
+    var $el = this
+    $(this).one('bsTransitionEnd', function () { called = true })
     var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
     setTimeout(callback, duration)
     return this
@@ -50,15 +51,25 @@
 
   $(function () {
     $.support.transition = transitionEnd()
+
+    if (!$.support.transition) return
+
+    $.event.special.bsTransitionEnd = {
+      bindType: $.support.transition.end,
+      delegateType: $.support.transition.end,
+      handle: function (e) {
+        if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
+      }
+    }
   })
 
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: collapse.js v3.1.1
+ * Bootstrap: collapse.js v3.3.4
  * http://getbootstrap.com/javascript/#collapse
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -72,11 +83,22 @@
   var Collapse = function (element, options) {
     this.$element      = $(element)
     this.options       = $.extend({}, Collapse.DEFAULTS, options)
+    this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
+                           '[data-toggle="collapse"][data-target="#' + element.id + '"]')
     this.transitioning = null
 
-    if (this.options.parent) this.$parent = $(this.options.parent)
+    if (this.options.parent) {
+      this.$parent = this.getParent()
+    } else {
+      this.addAriaAndCollapsedClass(this.$element, this.$trigger)
+    }
+
     if (this.options.toggle) this.toggle()
   }
+
+  Collapse.VERSION  = '3.3.4'
+
+  Collapse.TRANSITION_DURATION = 350
 
   Collapse.DEFAULTS = {
     toggle: true
@@ -90,17 +112,21 @@
   Collapse.prototype.show = function () {
     if (this.transitioning || this.$element.hasClass('in')) return
 
+    var activesData
+    var actives = this.$parent && this.$parent.children('.panel').children('.in, .collapsing')
+
+    if (actives && actives.length) {
+      activesData = actives.data('bs.collapse')
+      if (activesData && activesData.transitioning) return
+    }
+
     var startEvent = $.Event('show.bs.collapse')
     this.$element.trigger(startEvent)
     if (startEvent.isDefaultPrevented()) return
 
-    var actives = this.$parent && this.$parent.find('> .panel > .in')
-
     if (actives && actives.length) {
-      var hasData = actives.data('bs.collapse')
-      if (hasData && hasData.transitioning) return
-      actives.collapse('hide')
-      hasData || actives.data('bs.collapse', null)
+      Plugin.call(actives, 'hide')
+      activesData || actives.data('bs.collapse', null)
     }
 
     var dimension = this.dimension()
@@ -108,16 +134,21 @@
     this.$element
       .removeClass('collapse')
       .addClass('collapsing')[dimension](0)
+      .attr('aria-expanded', true)
+
+    this.$trigger
+      .removeClass('collapsed')
+      .attr('aria-expanded', true)
 
     this.transitioning = 1
 
-    var complete = function (e) {
-      if (e && e.target != this.$element[0]) return
+    var complete = function () {
       this.$element
         .removeClass('collapsing')
-        .addClass('collapse in')[dimension]('auto')
+        .addClass('collapse in')[dimension]('')
       this.transitioning = 0
-      this.$element.trigger('shown.bs.collapse')
+      this.$element
+        .trigger('shown.bs.collapse')
     }
 
     if (!$.support.transition) return complete.call(this)
@@ -125,8 +156,8 @@
     var scrollSize = $.camelCase(['scroll', dimension].join('-'))
 
     this.$element
-      .one($.support.transition.end, $.proxy(complete, this))
-      .emulateTransitionEnd(350)[dimension](this.$element[0][scrollSize])
+      .one('bsTransitionEnd', $.proxy(complete, this))
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize])
   }
 
   Collapse.prototype.hide = function () {
@@ -142,50 +173,81 @@
 
     this.$element
       .addClass('collapsing')
-      .removeClass('collapse')
-      .removeClass('in')
+      .removeClass('collapse in')
+      .attr('aria-expanded', false)
+
+    this.$trigger
+      .addClass('collapsed')
+      .attr('aria-expanded', false)
 
     this.transitioning = 1
 
-    var complete = function (e) {
-      if (e && e.target != this.$element[0]) return
+    var complete = function () {
       this.transitioning = 0
       this.$element
-        .trigger('hidden.bs.collapse')
         .removeClass('collapsing')
         .addClass('collapse')
+        .trigger('hidden.bs.collapse')
     }
 
     if (!$.support.transition) return complete.call(this)
 
     this.$element
       [dimension](0)
-      .one($.support.transition.end, $.proxy(complete, this))
-      .emulateTransitionEnd(350)
+      .one('bsTransitionEnd', $.proxy(complete, this))
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)
   }
 
   Collapse.prototype.toggle = function () {
     this[this.$element.hasClass('in') ? 'hide' : 'show']()
   }
 
+  Collapse.prototype.getParent = function () {
+    return $(this.options.parent)
+      .find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]')
+      .each($.proxy(function (i, element) {
+        var $element = $(element)
+        this.addAriaAndCollapsedClass(getTargetFromTrigger($element), $element)
+      }, this))
+      .end()
+  }
+
+  Collapse.prototype.addAriaAndCollapsedClass = function ($element, $trigger) {
+    var isOpen = $element.hasClass('in')
+
+    $element.attr('aria-expanded', isOpen)
+    $trigger
+      .toggleClass('collapsed', !isOpen)
+      .attr('aria-expanded', isOpen)
+  }
+
+  function getTargetFromTrigger($trigger) {
+    var href
+    var target = $trigger.attr('data-target')
+      || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
+
+    return $(target)
+  }
+
 
   // COLLAPSE PLUGIN DEFINITION
   // ==========================
 
-  var old = $.fn.collapse
-
-  $.fn.collapse = function (option) {
+  function Plugin(option) {
     return this.each(function () {
       var $this   = $(this)
       var data    = $this.data('bs.collapse')
       var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
-      if (!data && options.toggle && option == 'show') option = !option
+      if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false
       if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
 
+  var old = $.fn.collapse
+
+  $.fn.collapse             = Plugin
   $.fn.collapse.Constructor = Collapse
 
 
@@ -202,31 +264,24 @@
   // =================
 
   $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
-    var $this   = $(this), href
-    var target  = $this.attr('data-target')
-        || e.preventDefault()
-        || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
-    var $target = $(target)
+    var $this   = $(this)
+
+    if (!$this.attr('data-target')) e.preventDefault()
+
+    var $target = getTargetFromTrigger($this)
     var data    = $target.data('bs.collapse')
     var option  = data ? 'toggle' : $this.data()
-    var parent  = $this.attr('data-parent')
-    var $parent = parent && $(parent)
 
-    if (!data || !data.transitioning) {
-      if ($parent) $parent.find('[data-toggle="collapse"][data-parent="' + parent + '"]').not($this).addClass('collapsed')
-      $this[$target.hasClass('in') ? 'addClass' : 'removeClass']('collapsed')
-    }
-
-    $target.collapse(option)
+    Plugin.call($target, option)
   })
 
 }(jQuery);
 
 /* ========================================================================
- * Bootstrap: dropdown.js v3.1.1
+ * Bootstrap: dropdown.js v3.3.4
  * http://getbootstrap.com/javascript/#dropdowns
  * ========================================================================
- * Copyright 2011-2014 Twitter, Inc.
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
@@ -242,6 +297,8 @@
   var Dropdown = function (element) {
     $(element).on('click.bs.dropdown', this.toggle)
   }
+
+  Dropdown.VERSION = '3.3.4'
 
   Dropdown.prototype.toggle = function (e) {
     var $this = $(this)
@@ -264,18 +321,20 @@
 
       if (e.isDefaultPrevented()) return
 
+      $this
+        .trigger('focus')
+        .attr('aria-expanded', 'true')
+
       $parent
         .toggleClass('open')
         .trigger('shown.bs.dropdown', relatedTarget)
-
-      $this.trigger('focus')
     }
 
     return false
   }
 
   Dropdown.prototype.keydown = function (e) {
-    if (!/(38|40|27)/.test(e.keyCode)) return
+    if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return
 
     var $this = $(this)
 
@@ -287,33 +346,40 @@
     var $parent  = getParent($this)
     var isActive = $parent.hasClass('open')
 
-    if (!isActive || (isActive && e.keyCode == 27)) {
+    if ((!isActive && e.which != 27) || (isActive && e.which == 27)) {
       if (e.which == 27) $parent.find(toggle).trigger('focus')
       return $this.trigger('click')
     }
 
-    var desc = ' li:not(.divider):visible a'
+    var desc = ' li:not(.disabled):visible a'
     var $items = $parent.find('[role="menu"]' + desc + ', [role="listbox"]' + desc)
 
     if (!$items.length) return
 
-    var index = $items.index($items.filter(':focus'))
+    var index = $items.index(e.target)
 
-    if (e.keyCode == 38 && index > 0)                 index--                        // up
-    if (e.keyCode == 40 && index < $items.length - 1) index++                        // down
+    if (e.which == 38 && index > 0)                 index--                        // up
+    if (e.which == 40 && index < $items.length - 1) index++                        // down
     if (!~index)                                      index = 0
 
     $items.eq(index).trigger('focus')
   }
 
   function clearMenus(e) {
+    if (e && e.which === 3) return
     $(backdrop).remove()
     $(toggle).each(function () {
-      var $parent = getParent($(this))
+      var $this         = $(this)
+      var $parent       = getParent($this)
       var relatedTarget = { relatedTarget: this }
+
       if (!$parent.hasClass('open')) return
+
       $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
+
       if (e.isDefaultPrevented()) return
+
+      $this.attr('aria-expanded', 'false')
       $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)
     })
   }
@@ -323,7 +389,7 @@
 
     if (!selector) {
       selector = $this.attr('href')
-      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
+      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
     }
 
     var $parent = selector && $(selector)
@@ -335,9 +401,7 @@
   // DROPDOWN PLUGIN DEFINITION
   // ==========================
 
-  var old = $.fn.dropdown
-
-  $.fn.dropdown = function (option) {
+  function Plugin(option) {
     return this.each(function () {
       var $this = $(this)
       var data  = $this.data('bs.dropdown')
@@ -347,6 +411,9 @@
     })
   }
 
+  var old = $.fn.dropdown
+
+  $.fn.dropdown             = Plugin
   $.fn.dropdown.Constructor = Dropdown
 
 
@@ -366,27 +433,29 @@
     .on('click.bs.dropdown.data-api', clearMenus)
     .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
     .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
-    .on('keydown.bs.dropdown.data-api', toggle + ', [role="menu"], [role="listbox"]', Dropdown.prototype.keydown)
+    .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
+    .on('keydown.bs.dropdown.data-api', '[role="menu"]', Dropdown.prototype.keydown)
+    .on('keydown.bs.dropdown.data-api', '[role="listbox"]', Dropdown.prototype.keydown)
 
 }(jQuery);
 
 /**
  * jQuery.marquee - scrolling text like old marquee element
  * @author Aamir Afridi - aamirafridi(at)gmail(dot)com / http://aamirafridi.com/jquery/jquery-marquee-plugin
- */
-;
-(function ($) {
-    $.fn.marquee = function (options) {
-        return this.each(function () {
+ */;
+(function($) {
+    $.fn.marquee = function(options) {
+        return this.each(function() {
             // Extend the options if any provided
             var o = $.extend({}, $.fn.marquee.defaults, options),
                 $this = $(this),
-                $marqueeWrapper, containerWidth, animationCss, verticalDir, elWidth, loopCount = 3,
+                $marqueeWrapper, containerWidth, animationCss, verticalDir, elWidth,
+                loopCount = 3,
                 playState = 'animation-play-state',
                 css3AnimationIsSupported = false,
 
                 //Private methods
-                _prefixedEvent = function (element, type, callback) {
+                _prefixedEvent = function(element, type, callback) {
                     var pfx = ["webkit", "moz", "MS", "o", ""];
                     for (var p = 0; p < pfx.length; p++) {
                         if (!pfx[p]) type = type.toLowerCase();
@@ -394,7 +463,7 @@
                     }
                 },
 
-                _objToString = function (obj) {
+                _objToString = function(obj) {
                     var tabjson = [];
                     for (var p in obj) {
                         if (obj.hasOwnProperty(p)) {
@@ -405,13 +474,13 @@
                     return '{' + tabjson.join(',') + '}';
                 },
 
-                _startAnimationWithDelay = function () {
+                _startAnimationWithDelay = function() {
                     $this.timer = setTimeout(animate, o.delayBeforeStart);
                 },
 
                 //Public methods
                 methods = {
-                    pause: function () {
+                    pause: function() {
                         if (css3AnimationIsSupported && o.allowCss3Support) {
                             $marqueeWrapper.css(playState, 'paused');
                         } else {
@@ -426,7 +495,7 @@
                         $this.trigger('paused');
                     },
 
-                    resume: function () {
+                    resume: function() {
                         //resume using css3
                         if (css3AnimationIsSupported && o.allowCss3Support) {
                             $marqueeWrapper.css(playState, 'running');
@@ -442,19 +511,17 @@
                         $this.trigger('resumed');
                     },
 
-                    toggle: function () {
+                    toggle: function() {
                         methods[$this.data('runningStatus') == 'resumed' ? 'pause' : 'resume']();
                     },
 
-                    destroy: function () {
+                    destroy: function() {
                         //Clear timer
                         clearTimeout($this.timer);
+                        //Unbind all events
+                        $this.find("*").andSelf().unbind();
                         //Just unwrap the elements that has been added using this plugin
-                        $this.css('visibility', 'hidden').html($this.find('.js-marquee:first'));
-                        //This is to prevent the sudden blink
-                        setTimeout(function () {
-                            $this.css('visibility', 'visible');
-                        }, 0);
+                        $this.html($this.find('.js-marquee:first').html());
                     }
                 };
 
@@ -473,23 +540,23 @@
                 return;
             }
 
-/* Check if element has data attributes. They have top priority
+            /* Check if element has data attributes. They have top priority
                For details https://twitter.com/aamirafridi/status/403848044069679104 - Can't find a better solution :/
                jQuery 1.3.2 doesn't support $.data().KEY hence writting the following */
             var dataAttributes = {},
-                attr;
-            $.each(o, function (key, value) {
+            attr;
+            $.each(o, function(key, value) {
                 //Check if element has this data attribute
                 attr = $this.attr('data-' + key);
                 if (typeof attr !== 'undefined') {
                     //Now check if value is boolean or not
                     switch (attr) {
-                    case 'true':
-                        attr = true;
-                        break;
-                    case 'false':
-                        attr = false;
-                        break;
+                        case 'true':
+                            attr = true;
+                            break;
+                        case 'false':
+                            attr = false;
+                            break;
                     }
                     o[key] = attr;
                 }
@@ -502,7 +569,7 @@
             verticalDir = o.direction == 'up' || o.direction == 'down';
 
             //no gap if not duplicated
-            o.gap = o.duplicated ? o.gap : 0;
+            o.gap = o.duplicated ? parseInt(o.gap) : 0;
 
             //wrap inner content into a div
             $this.wrapInner('<div class="js-marquee"></div>');
@@ -598,17 +665,17 @@
                 }
             }
 
-            var _rePositionVertically = function () {
-                    $marqueeWrapper.css('margin-top', o.direction == 'up' ? containerHeight + 'px' : '-' + elHeight + 'px');
-                },
-                _rePositionHorizontally = function () {
-                    $marqueeWrapper.css('margin-left', o.direction == 'left' ? containerWidth + 'px' : '-' + elWidth + 'px');
-                };
+            var _rePositionVertically = function() {
+                $marqueeWrapper.css('margin-top', o.direction == 'up' ? containerHeight + 'px' : '-' + elHeight + 'px');
+            },
+            _rePositionHorizontally = function() {
+                $marqueeWrapper.css('margin-left', o.direction == 'left' ? containerWidth + 'px' : '-' + elWidth + 'px');
+            };
 
             //if duplicated option is set to true than position the wrapper
             if (o.duplicated) {
                 if (verticalDir) {
-                    $marqueeWrapper.css('margin-top', o.direction == 'up' ? containerHeight : '-' + ((elHeight * 2) - o.gap) + 'px');
+                    $marqueeWrapper.css('margin-top', o.direction == 'up' ? containerHeight + 'px' : '-' + ((elHeight * 2) - o.gap) + 'px');
                 } else {
                     $marqueeWrapper.css('margin-left', o.direction == 'left' ? containerWidth + 'px' : '-' + ((elWidth * 2) - o.gap) + 'px');
                 }
@@ -622,116 +689,116 @@
             }
 
             //Animate recursive method
-            var animate = function () {
+            var animate = function() {
+                if (o.duplicated) {
+                    //When duplicated, the first loop will be scroll longer so double the duration
+                    if (loopCount === 1) {
+                        o._originalDuration = o.duration;
+                        if (verticalDir) {
+                            o.duration = o.direction == 'up' ? o.duration + (containerHeight / ((elHeight) / o.duration)) : o.duration * 2;
+                        } else {
+                            o.duration = o.direction == 'left' ? o.duration + (containerWidth / ((elWidth) / o.duration)) : o.duration * 2;
+                        }
+                        //Adjust the css3 animation as well
+                        if (animationCss3Str) {
+                            animationCss3Str = animationName + ' ' + o.duration / 1000 + 's ' + o.delayBeforeStart / 1000 + 's ' + o.css3easing;
+                        }
+                        loopCount++;
+                    }
+                    //On 2nd loop things back to normal, normal duration for the rest of animations
+                    else if (loopCount === 2) {
+                        o.duration = o._originalDuration;
+                        //Adjust the css3 animation as well
+                        if (animationCss3Str) {
+                            animationName = animationName + '0';
+                            keyframeString = $.trim(keyframeString) + '0 ';
+                            animationCss3Str = animationName + ' ' + o.duration / 1000 + 's 0s infinite ' + o.css3easing;
+                        }
+                        loopCount++;
+                    }
+                }
+
+                if (verticalDir) {
                     if (o.duplicated) {
-                        //When duplicated, the first loop will be scroll longer so double the duration
-                        if (loopCount === 1) {
-                            o._originalDuration = o.duration;
-                            if (verticalDir) {
-                                o.duration = o.direction == 'up' ? o.duration + (containerHeight / ((elHeight) / o.duration)) : o.duration * 2;
-                            } else {
-                                o.duration = o.direction == 'left' ? o.duration + (containerWidth / ((elWidth) / o.duration)) : o.duration * 2;
-                            }
-                            //Adjust the css3 animation as well
-                            if (animationCss3Str) {
-                                animationCss3Str = animationName + ' ' + o.duration / 1000 + 's ' + o.delayBeforeStart / 1000 + 's ' + o.css3easing;
-                            }
-                            loopCount++;
-                        }
-                        //On 2nd loop things back to normal, normal duration for the rest of animations
-                        else if (loopCount === 2) {
-                            o.duration = o._originalDuration;
-                            //Adjust the css3 animation as well
-                            if (animationCss3Str) {
-                                animationName = animationName + '0';
-                                keyframeString = $.trim(keyframeString) + '0 ';
-                                animationCss3Str = animationName + ' ' + o.duration / 1000 + 's 0s infinite ' + o.css3easing;
-                            }
-                            loopCount++;
-                        }
-                    }
 
-                    if (verticalDir) {
-                        if (o.duplicated) {
-
-                            //Adjust the starting point of animation only when first loops finishes
-                            if (loopCount > 2) {
-                                $marqueeWrapper.css('margin-top', o.direction == 'up' ? 0 : '-' + elHeight + 'px');
-                            }
-
-                            animationCss = {
-                                'margin-top': o.direction == 'up' ? '-' + elHeight + 'px' : 0
-                            };
-                        } else {
-                            _rePositionVertically();
-                            animationCss = {
-                                'margin-top': o.direction == 'up' ? '-' + ($marqueeWrapper.height()) + 'px' : containerHeight + 'px'
-                            };
+                        //Adjust the starting point of animation only when first loops finishes
+                        if (loopCount > 2) {
+                            $marqueeWrapper.css('margin-top', o.direction == 'up' ? 0 : '-' + elHeight + 'px');
                         }
+
+                        animationCss = {
+                            'margin-top': o.direction == 'up' ? '-' + elHeight + 'px' : 0
+                        };
                     } else {
-                        if (o.duplicated) {
+                        _rePositionVertically();
+                        animationCss = {
+                            'margin-top': o.direction == 'up' ? '-' + ($marqueeWrapper.height()) + 'px' : containerHeight + 'px'
+                        };
+                    }
+                } else {
+                    if (o.duplicated) {
 
-                            //Adjust the starting point of animation only when first loops finishes
-                            if (loopCount > 2) {
-                                $marqueeWrapper.css('margin-left', o.direction == 'left' ? 0 : '-' + elWidth + 'px');
-                            }
-
-                            animationCss = {
-                                'margin-left': o.direction == 'left' ? '-' + elWidth + 'px' : 0
-                            };
-
-                        } else {
-                            _rePositionHorizontally();
-                            animationCss = {
-                                'margin-left': o.direction == 'left' ? '-' + elWidth + 'px' : containerWidth + 'px'
-                            };
+                        //Adjust the starting point of animation only when first loops finishes
+                        if (loopCount > 2) {
+                            $marqueeWrapper.css('margin-left', o.direction == 'left' ? 0 : '-' + elWidth + 'px');
                         }
+
+                        animationCss = {
+                            'margin-left': o.direction == 'left' ? '-' + elWidth + 'px' : 0
+                        };
+
+                    } else {
+                        _rePositionHorizontally();
+                        animationCss = {
+                            'margin-left': o.direction == 'left' ? '-' + elWidth + 'px' : containerWidth + 'px'
+                        };
+                    }
+                }
+
+                //fire event
+                $this.trigger('beforeStarting');
+
+                //If css3 support is available than do it with css3, otherwise use jQuery as fallback
+                if (css3AnimationIsSupported) {
+                    //Add css3 animation to the element
+                    $marqueeWrapper.css(animationString, animationCss3Str);
+                    var keyframeCss = keyframeString + ' { 100%  ' + _objToString(animationCss) + '}',
+                        $styles = $('style');
+
+                    //Now add the keyframe animation to the head
+                    if ($styles.length !== 0) {
+                        //Bug fixed for jQuery 1.3.x - Instead of using .last(), use following
+                        $styles.filter(":last").append(keyframeCss);
+                    } else {
+                        $('head').append('<style>' + keyframeCss + '</style>');
                     }
 
-                    //fire event
-                    $this.trigger('beforeStarting');
+                    //Animation iteration event
+                    _prefixedEvent($marqueeWrapper[0], "AnimationIteration", function() {
+                        $this.trigger('finished');
+                    });
+                    //Animation stopped
+                    _prefixedEvent($marqueeWrapper[0], "AnimationEnd", function() {
+                        animate();
+                        $this.trigger('finished');
+                    });
 
-                    //If css3 support is available than do it with css3, otherwise use jQuery as fallback
-                    if (css3AnimationIsSupported) {
-                        //Add css3 animation to the element
-                        $marqueeWrapper.css(animationString, animationCss3Str);
-                        var keyframeCss = keyframeString + ' { 100%  ' + _objToString(animationCss) + '}',
-                            $styles = $('style');
-
-                        //Now add the keyframe animation to the head
-                        if ($styles.length !== 0) {
-                            //Bug fixed for jQuery 1.3.x - Instead of using .last(), use following
-                            $styles.filter(":last").append(keyframeCss);
+                } else {
+                    //Start animating
+                    $marqueeWrapper.animate(animationCss, o.duration, o.easing, function() {
+                        //fire event
+                        $this.trigger('finished');
+                        //animate again
+                        if (o.pauseOnCycle) {
+                            _startAnimationWithDelay();
                         } else {
-                            $('head').append('<style>' + keyframeCss + '</style>');
-                        }
-
-                        //Animation iteration event
-                        _prefixedEvent($marqueeWrapper[0], "AnimationIteration", function () {
-                            $this.trigger('finished');
-                        });
-                        //Animation stopped
-                        _prefixedEvent($marqueeWrapper[0], "AnimationEnd", function () {
                             animate();
-                            $this.trigger('finished');
-                        });
-
-                    } else {
-                        //Start animating
-                        $marqueeWrapper.animate(animationCss, o.duration, o.easing, function () {
-                            //fire event
-                            $this.trigger('finished');
-                            //animate again
-                            if (o.pauseOnCycle) {
-                                _startAnimationWithDelay();
-                            } else {
-                                animate();
-                            }
-                        });
-                    }
-                    //save the status
-                    $this.data('runningStatus', 'resumed');
-                };
+                        }
+                    });
+                }
+                //save the status
+                $this.data('runningStatus', 'resumed');
+            };
 
             //bind pause and resume events
             $this.bind('pause', methods.pause);
@@ -776,60 +843,448 @@
     };
 })(jQuery);
 
-'use strict';
-(function ($) {
-    $(document).ready(function () {
-        if ($('body').hasClass('lt-ie7')) {
-            return;
+(function (factory, global) {
+
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['jquery'], factory);
+  } else {
+    // Browser globals.
+    factory(global.jQuery);
+  }
+
+}(function ($, undef) {
+
+  var dataKey = 'plugin_hideShowPassword'
+    , shorthandArgs = ['show', 'innerToggle']
+    , SPACE = 32
+    , ENTER = 13;
+
+  var canSetInputAttribute = (function(){
+    var body = document.body
+      , input = document.createElement('input')
+      , result = true;
+    if (! body) {
+      body = document.createElement('body');
+    }
+    input = body.appendChild(input);
+    try {
+      input.setAttribute('type', 'text');
+    } catch (e) {
+      result = false;
+    }
+    body.removeChild(input);
+    return result;
+  }());
+
+  var defaults = {
+    // Visibility of the password text. Can be true, false, 'toggle'
+    // or 'infer'. If 'toggle', it will be the opposite of whatever
+    // it currently is. If 'infer', it will be based on the input
+    // type (false if 'password', otherwise true).
+    show: 'infer',
+
+    // Set to true to create an inner toggle for this input. Can
+    // also be sent to an event name to delay visibility of toggle
+    // until that event is triggered on the input element.
+    innerToggle: false,
+
+    // If false, the plugin will be disabled entirely. Set to
+    // the outcome of a test to insure input attributes can be
+    // set after input has been inserted into the DOM.
+    enable: canSetInputAttribute,
+
+    // Class to add to input element when the plugin is enabled.
+    className: 'hideShowPassword-field',
+
+    // Event to trigger when the plugin is initialized and enabled.
+    initEvent: 'hideShowPasswordInit',
+
+    // Event to trigger whenever the visibility changes.
+    changeEvent: 'passwordVisibilityChange',
+
+    // Properties to add to the input element.
+    props: {
+      autocapitalize: 'off',
+      autocomplete: 'off',
+      autocorrect: 'off',
+      spellcheck: 'false'
+    },
+
+    // Options specific to the inner toggle.
+    toggle: {
+      // The element to create.
+      element: '<button type="button">',
+      // Class name of element.
+      className: 'hideShowPassword-toggle',
+      // Whether or not to support touch-specific enhancements.
+      // Defaults to the value of Modernizr.touch if available,
+      // otherwise false.
+      touchSupport: (typeof Modernizr === 'undefined') ? false : Modernizr.touch,
+      // Non-touch event to bind to.
+      attachToEvent: 'click',
+      // Event to bind to when touchSupport is true.
+      attachToTouchEvent: 'touchstart mousedown',
+      // Key event to bind to if attachToKeyCodes is an array
+      // of at least one keycode.
+      attachToKeyEvent: 'keyup',
+      // Key codes to bind the toggle event to for accessibility.
+      // If false, this feature is disabled entirely.
+      // If true, the array of key codes will be determined based
+      // on the value of the element option.
+      attachToKeyCodes: true,
+      // Styles to add to the toggle element. Does not include
+      // positioning styles.
+      styles: { position: 'absolute' },
+      // Styles to add only when touchSupport is true.
+      touchStyles: { pointerEvents: 'none' },
+      // Where to position the inner toggle relative to the
+      // input element. Can be 'right', 'left' or 'infer'. If
+      // 'infer', it will be based on the text-direction of the
+      // input element.
+      position: 'infer',
+      // Where to position the inner toggle on the y-axis
+      // relative to the input element. Can be 'top', 'bottom'
+      // or 'middle'.
+      verticalAlign: 'middle',
+      // Amount by which to "offset" the toggle from the edge
+      // of the input element.
+      offset: 0,
+      // Attributes to add to the toggle element.
+      attr: {
+        role: 'button',
+        'aria-label': 'Show Password',
+        tabIndex: 0
+      }
+    },
+
+    // Options specific to the wrapper element, created
+    // when the innerToggle is initialized to help with
+    // positioning of that element.
+    wrapper: {
+      // The element to create.
+      element: '<div>',
+      // Class name of element.
+      className: 'hideShowPassword-wrapper',
+      // If true, the width of the wrapper will be set
+      // unless it is already the same width as the inner
+      // element. If false, the width will never be set. Any
+      // other value will be used as the width.
+      enforceWidth: true,
+      // Styles to add to the wrapper element. Does not
+      // include inherited styles or width if enforceWidth
+      // is not false.
+      styles: { position: 'relative' },
+      // Styles to "inherit" from the input element, allowing
+      // the wrapper to avoid disrupting page styles.
+      inheritStyles: [
+        'display',
+        'verticalAlign',
+        'marginTop',
+        'marginRight',
+        'marginBottom',
+        'marginLeft'
+      ],
+      // Styles for the input element when wrapped.
+      innerElementStyles: {
+        marginTop: 0,
+        marginRight: 0,
+        marginBottom: 0,
+        marginLeft: 0
+      }
+    },
+
+    // Options specific to the 'shown' or 'hidden'
+    // states of the input element.
+    states: {
+      shown: {
+        className: 'hideShowPassword-shown',
+        changeEvent: 'passwordShown',
+        props: { type: 'text' },
+        toggle: {
+          className: 'hideShowPassword-toggle-hide',
+          content: 'Hide',
+          attr: { 'aria-pressed': 'true' }
         }
-        //$('#app-toolbar').headroom();
-        $('.marquee').marquee({ speed: 5000 });
-        var $ajaxContainer = $('#appui-container');
-        $('div[data-appui="ajaxified"]').each(function () {
-            var $wrapper = $(this).parent(),
-                $sourceUrl = $(this).data('appui-target');
-            $(this).load($sourceUrl + '&ajax_load=1 #content-core >*');
-        });
-        $('a[data-appui="pjaxed"]').each(function () {
-            var $targetUrl = $(this).attr('href'), $hideEl = $(this).data('appui-hide');
-            $(this).on('click', function (e) {
-                e.preventDefault();
-                $(this).addClass('selected');
-                $('#app-box-footer').removeClass('hide').addClass('show');
-                $($hideEl).hide();
-                $ajaxContainer.load($targetUrl + '?ajax_load=1 #content-core >*').fadeIn('slow');
-            });
-        });
-        $('div[data-appui="eventbox"]').each(function () {
-            var $sourceUrl = $(this).data('source'), $targetEl = $(this);
-            $.getJSON($sourceUrl, function (data) {
-                var divData = '';
-                $.each(data.items, function (i, item) {
-                    divData += '<a class="app-box-item" href="' + item.url + '">';
-                    divData += '<time class="app-box-date h5">' + item.date + '</time>';
-                    divData += '<span>' + item.title + '</span>';
-                    divData += '<span class="app-box-item-more text-right"><i class="icon-double-angle-right"></i></span>';
-                    divData += '</a>';
-                });
-                $targetEl.html(divData);
-            });
-        });
-        $('a[data-appui="overslide"]').on({
-            click: function (e) {
-                e.preventDefault();
-                var targetBlock = $(this).data('target');
-                if ($(targetBlock).hasClass('fadeOutTop')) {
-                    $(targetBlock).removeClass('fadeOutTop').addClass('slideInRight').show();
-                } else {
-                    $(targetBlock).addClass('slideInRight').show();
+      },
+      hidden: {
+        className: 'hideShowPassword-hidden',
+        changeEvent: 'passwordHidden',
+        props: { type: 'password' },
+        toggle: {
+          className: 'hideShowPassword-toggle-show',
+          content: 'Show',
+          attr: { 'aria-pressed': 'false' }
+        }
+      }
+    }
+
+  };
+
+  function HideShowPassword (element, options) {
+    this.element = $(element);
+    this.wrapperElement = $();
+    this.toggleElement = $();
+    this.init(options);
+  }
+
+  HideShowPassword.prototype = {
+
+    init: function (options) {
+      if (this.update(options, defaults)) {
+        this.element.addClass(this.options.className);
+        if (this.options.innerToggle) {
+          this.wrapElement(this.options.wrapper);
+          this.initToggle(this.options.toggle);
+          if (typeof this.options.innerToggle === 'string') {
+            this.toggleElement.hide();
+            this.element.one(this.options.innerToggle, $.proxy(function(){
+              this.toggleElement.show();
+            }, this));
+          }
+        }
+        this.element.trigger(this.options.initEvent, [ this ]);
+      }
+    },
+
+    update: function (options, base) {
+      this.options = this.prepareOptions(options, base);
+      if (this.updateElement()) {
+        this.element
+          .trigger(this.options.changeEvent, [ this ])
+          .trigger(this.state().changeEvent, [ this ]);
+      }
+      return this.options.enable;
+    },
+
+    toggle: function (showVal) {
+      showVal = showVal || 'toggle';
+      return this.update({ show: showVal });
+    },
+
+    prepareOptions: function (options, base) {
+      var keyCodes = []
+        , testElement;
+      base = base || this.options;
+      options = $.extend(true, {}, base, options);
+      if (options.enable) {
+        if (options.show === 'toggle') {
+          options.show = this.isType('hidden', options.states);
+        } else if (options.show === 'infer') {
+          options.show = this.isType('shown', options.states);
+        }
+        if (options.toggle.position === 'infer') {
+          options.toggle.position = (this.element.css('text-direction') === 'rtl') ? 'left' : 'right';
+        }
+        if (! $.isArray(options.toggle.attachToKeyCodes)) {
+          if (options.toggle.attachToKeyCodes === true) {
+            testElement = $(options.toggle.element);
+            switch(testElement.prop('tagName').toLowerCase()) {
+              case 'button':
+              case 'input':
+                break;
+              case 'a':
+                if (testElement.filter('[href]').length) {
+                  keyCodes.push(SPACE);
+                  break;
                 }
+              default:
+                keyCodes.push(SPACE, ENTER);
+                break;
             }
-        });
-        $('a[data-appui="overslide-close"]').on({
-            click: function (e) {
-                e.preventDefault();
-                $(this).closest('.panelpage-slide').removeClass('slideInRight').addClass('fadeOutTop').hide();
-            }
-        });
+          }
+          options.toggle.attachToKeyCodes = keyCodes;
+        }
+      }
+      return options;
+    },
+
+    updateElement: function () {
+      if (! this.options.enable || this.isType()) return false;
+      this.element
+        .prop($.extend({}, this.options.props, this.state().props))
+        .addClass(this.state().className)
+        .removeClass(this.otherState().className);
+      this.updateToggle();
+      return true;
+    },
+
+    isType: function (comparison, states) {
+      states = states || this.options.states;
+      comparison = comparison || this.state(undef, undef, states).props.type;
+      if (states[comparison]) {
+        comparison = states[comparison].props.type;
+      }
+      return this.element.prop('type') === comparison;
+    },
+
+    state: function (key, invert, states) {
+      states = states || this.options.states;
+      if (key === undef) {
+        key = this.options.show;
+      }
+      if (typeof key === 'boolean') {
+        key = key ? 'shown' : 'hidden';
+      }
+      if (invert) {
+        key = (key === 'shown') ? 'hidden' : 'shown';
+      }
+      return states[key];
+    },
+
+    otherState: function (key) {
+      return this.state(key, true);
+    },
+
+    wrapElement: function (options) {
+      var enforceWidth = options.enforceWidth
+        , targetWidth;
+      if (! this.wrapperElement.length) {
+        targetWidth = this.element.outerWidth();
+        $.each(options.inheritStyles, $.proxy(function (index, prop) {
+          options.styles[prop] = this.element.css(prop);
+        }, this));
+        this.element.css(options.innerElementStyles).wrap(
+          $(options.element).addClass(options.className).css(options.styles)
+        );
+        this.wrapperElement = this.element.parent();
+        if (enforceWidth === true) {
+          enforceWidth = (this.wrapperElement.outerWidth() === targetWidth) ? false : targetWidth;
+        }
+        if (enforceWidth !== false) {
+          this.wrapperElement.css('width', enforceWidth);
+        }
+      }
+      return this.wrapperElement;
+    },
+
+    initToggle: function (options) {
+      if (! this.toggleElement.length) {
+        // Create element
+        this.toggleElement = $(options.element)
+          .attr(options.attr)
+          .addClass(options.className)
+          .css(options.styles)
+          .appendTo(this.wrapperElement);
+        // Update content/attributes
+        this.updateToggle();
+        // Position
+        this.positionToggle(options.position, options.verticalAlign, options.offset);
+        // Events
+        if (options.touchSupport) {
+          this.toggleElement.css(options.touchStyles);
+          this.element.on(options.attachToTouchEvent, $.proxy(this.toggleTouchEvent, this));
+        } else {
+          this.toggleElement.on(options.attachToEvent, $.proxy(this.toggleEvent, this));
+        }
+        if (options.attachToKeyCodes.length) {
+          this.toggleElement.on(options.attachToKeyEvent, $.proxy(this.toggleKeyEvent, this));
+        }
+      }
+      return this.toggleElement;
+    },
+
+    positionToggle: function (position, verticalAlign, offset) {
+      var styles = {};
+      styles[position] = offset;
+      switch (verticalAlign) {
+        case 'top':
+        case 'bottom':
+          styles[verticalAlign] = offset;
+          break;
+        case 'middle':
+          styles['top'] = '50%';
+          styles['marginTop'] = this.toggleElement.outerHeight() / -2;
+          break;
+      }
+      return this.toggleElement.css(styles);
+    },
+
+    updateToggle: function (state, otherState) {
+      var paddingProp
+        , targetPadding;
+      if (this.toggleElement.length) {
+        paddingProp = 'padding-' + this.options.toggle.position;
+        state = state || this.state().toggle;
+        otherState = otherState || this.otherState().toggle;
+        this.toggleElement
+          .attr(state.attr)
+          .addClass(state.className)
+          .removeClass(otherState.className)
+          .html(state.content);
+        targetPadding = this.toggleElement.outerWidth() + (this.options.toggle.offset * 2);
+        if (this.element.css(paddingProp) !== targetPadding) {
+          this.element.css(paddingProp, targetPadding);
+        }
+      }
+      return this.toggleElement;
+    },
+
+    toggleEvent: function (event) {
+      event.preventDefault();
+      this.toggle();
+    },
+
+    toggleKeyEvent: function (event) {
+      $.each(this.options.toggle.attachToKeyCodes, $.proxy(function(index, keyCode) {
+        if (event.which === keyCode) {
+          this.toggleEvent(event);
+          return false;
+        }
+      }, this));
+    },
+
+    toggleTouchEvent: function (event) {
+      var toggleX = this.toggleElement.offset().left
+        , eventX
+        , lesser
+        , greater;
+      if (toggleX) {
+        eventX = event.pageX || event.originalEvent.pageX;
+        if (this.options.toggle.position === 'left') {
+          toggleX+= this.toggleElement.outerWidth();
+          lesser = eventX;
+          greater = toggleX;
+        } else {
+          lesser = toggleX;
+          greater = eventX;
+        }
+        if (greater >= lesser) {
+          this.toggleEvent(event);
+        }
+      }
+    }
+
+  };
+
+  $.fn.hideShowPassword = function () {
+    var options = {};
+    $.each(arguments, function (index, value) {
+      var newOptions = {};
+      if (typeof value === 'object') {
+        newOptions = value;
+      } else if (shorthandArgs[index]) {
+        newOptions[shorthandArgs[index]] = value;
+      } else {
+        return false;
+      }
+      $.extend(true, options, newOptions);
     });
-}(jQuery));
+    return this.each(function(){
+      var $this = $(this)
+        , data = $this.data(dataKey);
+      if (data) {
+        data.update(options);
+      } else {
+        $this.data(dataKey, new HideShowPassword(this, options));
+      }
+    });
+  };
+
+  $.each({ 'show':true, 'hide':false, 'toggle':'toggle' }, function (verb, showVal) {
+    $.fn[verb + 'Password'] = function (innerToggle, options) {
+      return this.hideShowPassword(showVal, innerToggle, options);
+    };
+  });
+
+}, this));
