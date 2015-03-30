@@ -1,7 +1,9 @@
 'use strict';
 (function ($) {
     $(document).ready(function () {
-        $('input[type="password"]').showPassword();
+        $('input[type="password"]').showPassword('focus', {
+            // toggle: { className: 'my-toggle' }
+        });
         $('.marquee').marquee({ speed: 5000 });
         var $ajaxContainer = $('#appui-container');
         $('div[data-appui="ajaxified"]').each(function () {
