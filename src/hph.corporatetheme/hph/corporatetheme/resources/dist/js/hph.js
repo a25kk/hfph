@@ -11903,7 +11903,7 @@ window.Modernizr = (function( window, document, undefined ) {
         if ($('body').hasClass('lt-ie7')) {
             return;
         }
-        $('input[type="password"]').showPassword(true);
+        $('input[type="password"]').hideShowPassword(true);
         $('.marquee').marquee({ speed: 5000 });
         var $ajaxContainer = $('#appui-container');
         $('div[data-appui="ajaxified"]').each(function () {
