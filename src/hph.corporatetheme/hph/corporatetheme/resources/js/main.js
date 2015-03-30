@@ -1,10 +1,7 @@
 'use strict';
 (function ($) {
     $(document).ready(function () {
-        if ($('body').hasClass('lt-ie7')) {
-            return;
-        }
-        $('input[type="password"]').hideShowPassword(true);
+        $('input[type="password"]').showPassword();
         $('.marquee').marquee({ speed: 5000 });
         var $ajaxContainer = $('#appui-container');
         $('div[data-appui="ajaxified"]').each(function () {
