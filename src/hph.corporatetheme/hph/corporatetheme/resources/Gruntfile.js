@@ -24,13 +24,11 @@ module.exports = function (grunt) {
             src: { src: '<%= jshint.src.src %>' }
         },
         concat: {
-            options: {
-                //banner: '<%= banner %>',
-                banner: "require(['jquery',], function($, Registry) {",
-                footer: "});",
-                stripBanners: true
-            },
             dist: {
+                options: {
+                    banner: '<%= banner %>',
+                    stripBanners: false
+                },
                 src: [
                     'bower_components/jquery/dist/jquery.js',
                     'bower_components/modernizr/modernizr.js',
@@ -45,6 +43,11 @@ module.exports = function (grunt) {
                 dest: '<%= config.dist %>/js/<%= pkg.name %>.js'
             },
             theme: {
+                options: {
+                    banner: "require(['jquery',], function($, Registry) {",
+                    footer: "});",
+                    stripBanners: true
+                },
                 src: [
                     'bower_components/bootstrap/js/transition.js',
                     'bower_components/bootstrap/js/collapse.js',
