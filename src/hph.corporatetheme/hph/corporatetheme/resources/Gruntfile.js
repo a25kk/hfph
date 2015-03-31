@@ -55,6 +55,7 @@ module.exports = function (grunt) {
                     'bower_components/JQuery.Marquee/jquery.marquee.js',
                     'bower_components/hideShowPassword/hideShowPassword.js',
                     'bower_components/blazy/blazy.js',
+                    'js/monkeypatch.js',
                     'js/main.js'
                 ],
                 dest: '<%= config.dist %>/js/main.js'
