@@ -25,8 +25,10 @@ module.exports = function (grunt) {
         },
         concat: {
             options: {
-                banner: '<%= banner %>',
-                stripBanners: false
+                //banner: '<%= banner %>',
+                banner: "require(['jquery',], function($, Registry) {",
+                footer: "});",
+                stripBanners: true
             },
             dist: {
                 src: [
@@ -137,13 +139,6 @@ module.exports = function (grunt) {
                 cwd: 'bower_components/',
                 src: ['font-awesome/fonts/*'],
                 dest: '<%= config.dist %>/assets/fonts/'
-            },
-            showPassword: {
-                expand: true,
-                flatten: true,
-                cwd: 'bower_components/',
-                src: ['hideShowPassword/images/*'],
-                dest: '<%= config.dist %>/assets/img/'
             },
             ico: {
                 expand: true,

@@ -1,4 +1,5 @@
 'use strict';
+$.fn.extend({showPassword: function(c) {  }});
 (function ($) {
     $(document).ready(function () {
         $('input[type="password"]').showPassword('focus', {

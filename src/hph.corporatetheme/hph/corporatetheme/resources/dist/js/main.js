@@ -1,20 +1,4 @@
-/*!
-* hph v1.0.0 by Ade25
-* Copyright Ade25
-* Licensed under [object Object].
-*
-* Designed and built by ade25
-*/
-/* ========================================================================
- * Bootstrap: transition.js v3.3.4
- * http://getbootstrap.com/javascript/#transitions
- * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
-
-+function ($) {
+require(['jquery',], function($, Registry) {+function ($) {
   'use strict';
 
   // CSS TRANSITION SUPPORT (Shoutout: http://www.modernizr.com/)
@@ -64,15 +48,6 @@
   })
 
 }(jQuery);
-
-/* ========================================================================
- * Bootstrap: collapse.js v3.3.4
- * http://getbootstrap.com/javascript/#collapse
- * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
 
 +function ($) {
   'use strict';
@@ -277,15 +252,6 @@
 
 }(jQuery);
 
-/* ========================================================================
- * Bootstrap: dropdown.js v3.3.4
- * http://getbootstrap.com/javascript/#dropdowns
- * ========================================================================
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * ======================================================================== */
-
-
 +function ($) {
   'use strict';
 
@@ -444,10 +410,7 @@
 
 }(jQuery);
 
-/**
- * jQuery.marquee - scrolling text like old marquee element
- * @author Aamir Afridi - aamirafridi(at)gmail(dot)com / http://aamirafridi.com/jquery/jquery-marquee-plugin
- */;
+;
 (function($) {
     $.fn.marquee = function(options) {
         return this.each(function() {
@@ -1528,6 +1491,7 @@
 });
 
 'use strict';
+$.fn.extend({showPassword: function(c) {  }});
 (function ($) {
     $(document).ready(function () {
         $('input[type="password"]').showPassword('focus', {
@@ -1582,4 +1546,4 @@
             }
         });
     });
-}(jQuery));
+}(jQuery));});
