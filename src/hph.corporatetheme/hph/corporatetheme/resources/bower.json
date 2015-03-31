@@ -11,7 +11,7 @@
     "diazo-plone": "git@github.com:ade25/diazo-plone.git#master",
     "font-awesome": "4.3.0",
     "headroom.js": "~0.6.0",
-    "hideShowPassword": "~2.0.4",
+    "hideShowPassword": "2.0.3",
     "holderjs": "~2.1.0",
     "jquery": ">= 2.1.0",
     "jquery-pjax": "~1.7.3",

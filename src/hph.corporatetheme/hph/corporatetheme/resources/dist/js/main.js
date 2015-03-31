@@ -848,30 +848,27 @@
     };
 })(jQuery);
 
-(function (factory) {
+(function (factory, global) {
 
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
     define(['jquery'], factory);
-  } else if (typeof exports === 'object') {
-    // Node/CommonJS
-    factory(require('jquery'));
   } else {
-    // Browser globals
-    factory(jQuery);
+    // Browser globals.
+    factory(global.jQuery);
   }
 
 }(function ($, undef) {
 
-  var dataKey = 'plugin_hideShowPassword',
-    shorthandArgs = ['show', 'innerToggle'],
-    SPACE = 32,
-    ENTER = 13;
+  var dataKey = 'plugin_hideShowPassword'
+    , shorthandArgs = ['show', 'innerToggle']
+    , SPACE = 32
+    , ENTER = 13;
 
   var canSetInputAttribute = (function(){
-    var body = document.body,
-      input = document.createElement('input'),
-      result = true;
+    var body = document.body
+      , input = document.createElement('input')
+      , result = true;
     if (! body) {
       body = document.createElement('body');
     }
@@ -930,9 +927,9 @@
       // otherwise false.
       touchSupport: (typeof Modernizr === 'undefined') ? false : Modernizr.touch,
       // Non-touch event to bind to.
-      attachToEvent: 'click.hideShowPassword',
+      attachToEvent: 'click',
       // Event to bind to when touchSupport is true.
-      attachToTouchEvent: 'touchstart.hideShowPassword mousedown.hideShowPassword',
+      attachToTouchEvent: 'touchstart mousedown',
       // Key event to bind to if attachToKeyCodes is an array
       // of at least one keycode.
       attachToKeyEvent: 'keyup',
@@ -1071,8 +1068,8 @@
     },
 
     prepareOptions: function (options, base) {
-      var keyCodes = [],
-        testElement;
+      var keyCodes = []
+        , testElement;
       base = base || this.options;
       options = $.extend(true, {}, base, options);
       if (options.enable) {
@@ -1145,8 +1142,8 @@
     },
 
     wrapElement: function (options) {
-      var enforceWidth = options.enforceWidth,
-        targetWidth;
+      var enforceWidth = options.enforceWidth
+        , targetWidth;
       if (! this.wrapperElement.length) {
         targetWidth = this.element.outerWidth();
         $.each(options.inheritStyles, $.proxy(function (index, prop) {
@@ -1201,16 +1198,16 @@
           styles[verticalAlign] = offset;
           break;
         case 'middle':
-          styles.top = '50%';
-          styles.marginTop = this.toggleElement.outerHeight() / -2;
+          styles['top'] = '50%';
+          styles['marginTop'] = this.toggleElement.outerHeight() / -2;
           break;
       }
       return this.toggleElement.css(styles);
     },
 
     updateToggle: function (state, otherState) {
-      var paddingProp,
-        targetPadding;
+      var paddingProp
+        , targetPadding;
       if (this.toggleElement.length) {
         paddingProp = 'padding-' + this.options.toggle.position;
         state = state || this.state().toggle;
@@ -1243,10 +1240,10 @@
     },
 
     toggleTouchEvent: function (event) {
-      var toggleX = this.toggleElement.offset().left,
-        eventX,
-        lesser,
-        greater;
+      var toggleX = this.toggleElement.offset().left
+        , eventX
+        , lesser
+        , greater;
       if (toggleX) {
         eventX = event.pageX || event.originalEvent.pageX;
         if (this.options.toggle.position === 'left') {
@@ -1279,8 +1276,8 @@
       $.extend(true, options, newOptions);
     });
     return this.each(function(){
-      var $this = $(this),
-        data = $this.data(dataKey);
+      var $this = $(this)
+        , data = $this.data(dataKey);
       if (data) {
         data.update(options);
       } else {
@@ -1295,7 +1292,7 @@
     };
   });
 
-}));
+}, this));
 
 /*!
   hey, [be]Lazy.js - v1.3.1 - 2015.02.01 
