@@ -149,21 +149,43 @@ class View(grok.View):
     def worklist(self):
         context = aq_inner(self.context)
         userinfo = self.user_info()
+        user_worklist = userinfo['worklist']
+        removable = []
         worklist = []
-        for item_uid in userinfo['worklist']:
-            item = api.content.get(UID=item_uid)
-            info = {}
-            info['uid'] = item_uid
-            info['title'] = item.Title()
-            if ILecture.providedBy(item):
-                next_url = '{0}/@@lecture-factory/{1}'.format(
-                    context.absolute_url(), item_uid)
-                info['url'] = next_url
-            else:
-                info['url'] = item.absolute_url()
-            info['path'] = self.breadcrumbs(item)
-            worklist.append(info)
+        for item_uid in user_worklist:
+            try:
+                item = api.content.get(UID=item_uid)
+                info = {}
+                info['uid'] = item_uid
+                info['title'] = item.Title()
+                if ILecture.providedBy(item):
+                    next_url = '{0}/@@lecture-factory/{1}'.format(
+                        context.absolute_url(), item_uid)
+                    info['url'] = next_url
+                else:
+                    info['url'] = item.absolute_url()
+                info['path'] = self.breadcrumbs(item)
+                worklist.append(info)
+            except:
+                removable.append(item_uid)
+        if len(removable):
+            removed = self._autoclean_worklist(removable)
+            msg = _(u"Removed {0} broken assignments from worklist".format(
+                removed))
+            api.portal.show_message(message=msg, request=self.request)
         return worklist
+
+    def _autoclean_worklist(self, items):
+        context = aq_inner(self.context)
+        idx = 0
+        updated = self.user_info()['worklist']
+        for item in items:
+            idx += 1
+            updated.remove(item)
+        user_id = context.getId()
+        user = api.user.get(username=user_id)
+        user.setMemberProperties(mapping={'worklist': updated})
+        return idx
 
     def breadcrumbs(self, item):
         """ Compute nice breadcrumb for object location in site """
