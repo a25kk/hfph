@@ -25,9 +25,8 @@ require(['jquery',], function($, Registry) {+function ($) {
 
   // http://blog.alexmaccaw.com/css-transitions
   $.fn.emulateTransitionEnd = function (duration) {
-    var called = false
-    var $el = this
-    $(this).one('bsTransitionEnd', function () { called = true })
+    var called = false, $el = this
+    $(this).one($.support.transition.end, function () { called = true })
     var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
     setTimeout(callback, duration)
     return this
@@ -35,16 +34,6 @@ require(['jquery',], function($, Registry) {+function ($) {
 
   $(function () {
     $.support.transition = transitionEnd()
-
-    if (!$.support.transition) return
-
-    $.event.special.bsTransitionEnd = {
-      bindType: $.support.transition.end,
-      delegateType: $.support.transition.end,
-      handle: function (e) {
-        if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
-      }
-    }
   })
 
 }(jQuery);
@@ -58,22 +47,11 @@ require(['jquery',], function($, Registry) {+function ($) {
   var Collapse = function (element, options) {
     this.$element      = $(element)
     this.options       = $.extend({}, Collapse.DEFAULTS, options)
-    this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
-                           '[data-toggle="collapse"][data-target="#' + element.id + '"]')
     this.transitioning = null
 
-    if (this.options.parent) {
-      this.$parent = this.getParent()
-    } else {
-      this.addAriaAndCollapsedClass(this.$element, this.$trigger)
-    }
-
+    if (this.options.parent) this.$parent = $(this.options.parent)
     if (this.options.toggle) this.toggle()
   }
-
-  Collapse.VERSION  = '3.3.4'
-
-  Collapse.TRANSITION_DURATION = 350
 
   Collapse.DEFAULTS = {
     toggle: true
@@ -87,21 +65,17 @@ require(['jquery',], function($, Registry) {+function ($) {
   Collapse.prototype.show = function () {
     if (this.transitioning || this.$element.hasClass('in')) return
 
-    var activesData
-    var actives = this.$parent && this.$parent.children('.panel').children('.in, .collapsing')
-
-    if (actives && actives.length) {
-      activesData = actives.data('bs.collapse')
-      if (activesData && activesData.transitioning) return
-    }
-
     var startEvent = $.Event('show.bs.collapse')
     this.$element.trigger(startEvent)
     if (startEvent.isDefaultPrevented()) return
 
+    var actives = this.$parent && this.$parent.find('> .panel > .in')
+
     if (actives && actives.length) {
-      Plugin.call(actives, 'hide')
-      activesData || actives.data('bs.collapse', null)
+      var hasData = actives.data('bs.collapse')
+      if (hasData && hasData.transitioning) return
+      actives.collapse('hide')
+      hasData || actives.data('bs.collapse', null)
     }
 
     var dimension = this.dimension()
@@ -109,21 +83,16 @@ require(['jquery',], function($, Registry) {+function ($) {
     this.$element
       .removeClass('collapse')
       .addClass('collapsing')[dimension](0)
-      .attr('aria-expanded', true)
-
-    this.$trigger
-      .removeClass('collapsed')
-      .attr('aria-expanded', true)
 
     this.transitioning = 1
 
-    var complete = function () {
+    var complete = function (e) {
+      if (e && e.target != this.$element[0]) return
       this.$element
         .removeClass('collapsing')
-        .addClass('collapse in')[dimension]('')
+        .addClass('collapse in')[dimension]('auto')
       this.transitioning = 0
-      this.$element
-        .trigger('shown.bs.collapse')
+      this.$element.trigger('shown.bs.collapse')
     }
 
     if (!$.support.transition) return complete.call(this)
@@ -131,8 +100,8 @@ require(['jquery',], function($, Registry) {+function ($) {
     var scrollSize = $.camelCase(['scroll', dimension].join('-'))
 
     this.$element
-      .one('bsTransitionEnd', $.proxy(complete, this))
-      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize])
+      .one($.support.transition.end, $.proxy(complete, this))
+      .emulateTransitionEnd(350)[dimension](this.$element[0][scrollSize])
   }
 
   Collapse.prototype.hide = function () {
@@ -148,81 +117,50 @@ require(['jquery',], function($, Registry) {+function ($) {
 
     this.$element
       .addClass('collapsing')
-      .removeClass('collapse in')
-      .attr('aria-expanded', false)
-
-    this.$trigger
-      .addClass('collapsed')
-      .attr('aria-expanded', false)
+      .removeClass('collapse')
+      .removeClass('in')
 
     this.transitioning = 1
 
-    var complete = function () {
+    var complete = function (e) {
+      if (e && e.target != this.$element[0]) return
       this.transitioning = 0
       this.$element
+        .trigger('hidden.bs.collapse')
         .removeClass('collapsing')
         .addClass('collapse')
-        .trigger('hidden.bs.collapse')
     }
 
     if (!$.support.transition) return complete.call(this)
 
     this.$element
       [dimension](0)
-      .one('bsTransitionEnd', $.proxy(complete, this))
-      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)
+      .one($.support.transition.end, $.proxy(complete, this))
+      .emulateTransitionEnd(350)
   }
 
   Collapse.prototype.toggle = function () {
     this[this.$element.hasClass('in') ? 'hide' : 'show']()
   }
 
-  Collapse.prototype.getParent = function () {
-    return $(this.options.parent)
-      .find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]')
-      .each($.proxy(function (i, element) {
-        var $element = $(element)
-        this.addAriaAndCollapsedClass(getTargetFromTrigger($element), $element)
-      }, this))
-      .end()
-  }
-
-  Collapse.prototype.addAriaAndCollapsedClass = function ($element, $trigger) {
-    var isOpen = $element.hasClass('in')
-
-    $element.attr('aria-expanded', isOpen)
-    $trigger
-      .toggleClass('collapsed', !isOpen)
-      .attr('aria-expanded', isOpen)
-  }
-
-  function getTargetFromTrigger($trigger) {
-    var href
-    var target = $trigger.attr('data-target')
-      || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
-
-    return $(target)
-  }
-
 
   // COLLAPSE PLUGIN DEFINITION
   // ==========================
 
-  function Plugin(option) {
+  var old = $.fn.collapse
+
+  $.fn.collapse = function (option) {
     return this.each(function () {
       var $this   = $(this)
       var data    = $this.data('bs.collapse')
       var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
-      if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false
+      if (!data && options.toggle && option == 'show') option = !option
       if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
 
-  var old = $.fn.collapse
-
-  $.fn.collapse             = Plugin
   $.fn.collapse.Constructor = Collapse
 
 
@@ -239,15 +177,22 @@ require(['jquery',], function($, Registry) {+function ($) {
   // =================
 
   $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
-    var $this   = $(this)
-
-    if (!$this.attr('data-target')) e.preventDefault()
-
-    var $target = getTargetFromTrigger($this)
+    var $this   = $(this), href
+    var target  = $this.attr('data-target')
+        || e.preventDefault()
+        || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
+    var $target = $(target)
     var data    = $target.data('bs.collapse')
     var option  = data ? 'toggle' : $this.data()
+    var parent  = $this.attr('data-parent')
+    var $parent = parent && $(parent)
 
-    Plugin.call($target, option)
+    if (!data || !data.transitioning) {
+      if ($parent) $parent.find('[data-toggle="collapse"][data-parent="' + parent + '"]').not($this).addClass('collapsed')
+      $this[$target.hasClass('in') ? 'addClass' : 'removeClass']('collapsed')
+    }
+
+    $target.collapse(option)
   })
 
 }(jQuery);
@@ -264,8 +209,6 @@ require(['jquery',], function($, Registry) {+function ($) {
     $(element).on('click.bs.dropdown', this.toggle)
   }
 
-  Dropdown.VERSION = '3.3.4'
-
   Dropdown.prototype.toggle = function (e) {
     var $this = $(this)
 
@@ -279,10 +222,7 @@ require(['jquery',], function($, Registry) {+function ($) {
     if (!isActive) {
       if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
         // if mobile we use a backdrop because click events don't delegate
-        $(document.createElement('div'))
-          .addClass('dropdown-backdrop')
-          .insertAfter($(this))
-          .on('click', clearMenus)
+        $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
       }
 
       var relatedTarget = { relatedTarget: this }
@@ -290,20 +230,18 @@ require(['jquery',], function($, Registry) {+function ($) {
 
       if (e.isDefaultPrevented()) return
 
-      $this
-        .trigger('focus')
-        .attr('aria-expanded', 'true')
-
       $parent
         .toggleClass('open')
         .trigger('shown.bs.dropdown', relatedTarget)
+
+      $this.trigger('focus')
     }
 
     return false
   }
 
   Dropdown.prototype.keydown = function (e) {
-    if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return
+    if (!/(38|40|27)/.test(e.keyCode)) return
 
     var $this = $(this)
 
@@ -315,42 +253,33 @@ require(['jquery',], function($, Registry) {+function ($) {
     var $parent  = getParent($this)
     var isActive = $parent.hasClass('open')
 
-    if ((!isActive && e.which != 27) || (isActive && e.which == 27)) {
+    if (!isActive || (isActive && e.keyCode == 27)) {
       if (e.which == 27) $parent.find(toggle).trigger('focus')
       return $this.trigger('click')
     }
 
-    var desc = ' li:not(.disabled):visible a'
+    var desc = ' li:not(.divider):visible a'
     var $items = $parent.find('[role="menu"]' + desc + ', [role="listbox"]' + desc)
 
     if (!$items.length) return
 
-    var index = $items.index(e.target)
+    var index = $items.index($items.filter(':focus'))
 
-    if (e.which == 38 && index > 0)                 index--                        // up
-    if (e.which == 40 && index < $items.length - 1) index++                        // down
+    if (e.keyCode == 38 && index > 0)                 index--                        // up
+    if (e.keyCode == 40 && index < $items.length - 1) index++                        // down
     if (!~index)                                      index = 0
 
     $items.eq(index).trigger('focus')
   }
 
   function clearMenus(e) {
-    if (e && e.which === 3) return
     $(backdrop).remove()
     $(toggle).each(function () {
-      var $this         = $(this)
-      var $parent       = getParent($this)
+      var $parent = getParent($(this))
       var relatedTarget = { relatedTarget: this }
-
       if (!$parent.hasClass('open')) return
-
-      if (e && e.type == 'click' && /input|textarea/i.test(e.target.tagName) && $.contains($parent[0], e.target)) return
-
       $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
-
       if (e.isDefaultPrevented()) return
-
-      $this.attr('aria-expanded', 'false')
       $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)
     })
   }
@@ -360,7 +289,7 @@ require(['jquery',], function($, Registry) {+function ($) {
 
     if (!selector) {
       selector = $this.attr('href')
-      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
     }
 
     var $parent = selector && $(selector)
@@ -372,7 +301,9 @@ require(['jquery',], function($, Registry) {+function ($) {
   // DROPDOWN PLUGIN DEFINITION
   // ==========================
 
-  function Plugin(option) {
+  var old = $.fn.dropdown
+
+  $.fn.dropdown = function (option) {
     return this.each(function () {
       var $this = $(this)
       var data  = $this.data('bs.dropdown')
@@ -382,9 +313,6 @@ require(['jquery',], function($, Registry) {+function ($) {
     })
   }
 
-  var old = $.fn.dropdown
-
-  $.fn.dropdown             = Plugin
   $.fn.dropdown.Constructor = Dropdown
 
 
@@ -404,26 +332,23 @@ require(['jquery',], function($, Registry) {+function ($) {
     .on('click.bs.dropdown.data-api', clearMenus)
     .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
     .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
-    .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
-    .on('keydown.bs.dropdown.data-api', '[role="menu"]', Dropdown.prototype.keydown)
-    .on('keydown.bs.dropdown.data-api', '[role="listbox"]', Dropdown.prototype.keydown)
+    .on('keydown.bs.dropdown.data-api', toggle + ', [role="menu"], [role="listbox"]', Dropdown.prototype.keydown)
 
 }(jQuery);
 
 ;
-(function($) {
-    $.fn.marquee = function(options) {
-        return this.each(function() {
+(function ($) {
+    $.fn.marquee = function (options) {
+        return this.each(function () {
             // Extend the options if any provided
             var o = $.extend({}, $.fn.marquee.defaults, options),
                 $this = $(this),
-                $marqueeWrapper, containerWidth, animationCss, verticalDir, elWidth,
-                loopCount = 3,
+                $marqueeWrapper, containerWidth, animationCss, verticalDir, elWidth, loopCount = 3,
                 playState = 'animation-play-state',
                 css3AnimationIsSupported = false,
 
                 //Private methods
-                _prefixedEvent = function(element, type, callback) {
+                _prefixedEvent = function (element, type, callback) {
                     var pfx = ["webkit", "moz", "MS", "o", ""];
                     for (var p = 0; p < pfx.length; p++) {
                         if (!pfx[p]) type = type.toLowerCase();
@@ -431,7 +356,7 @@ require(['jquery',], function($, Registry) {+function ($) {
                     }
                 },
 
-                _objToString = function(obj) {
+                _objToString = function (obj) {
                     var tabjson = [];
                     for (var p in obj) {
                         if (obj.hasOwnProperty(p)) {
@@ -442,13 +367,13 @@ require(['jquery',], function($, Registry) {+function ($) {
                     return '{' + tabjson.join(',') + '}';
                 },
 
-                _startAnimationWithDelay = function() {
+                _startAnimationWithDelay = function () {
                     $this.timer = setTimeout(animate, o.delayBeforeStart);
                 },
 
                 //Public methods
                 methods = {
-                    pause: function() {
+                    pause: function () {
                         if (css3AnimationIsSupported && o.allowCss3Support) {
                             $marqueeWrapper.css(playState, 'paused');
                         } else {
@@ -463,7 +388,7 @@ require(['jquery',], function($, Registry) {+function ($) {
                         $this.trigger('paused');
                     },
 
-                    resume: function() {
+                    resume: function () {
                         //resume using css3
                         if (css3AnimationIsSupported && o.allowCss3Support) {
                             $marqueeWrapper.css(playState, 'running');
@@ -479,17 +404,19 @@ require(['jquery',], function($, Registry) {+function ($) {
                         $this.trigger('resumed');
                     },
 
-                    toggle: function() {
+                    toggle: function () {
                         methods[$this.data('runningStatus') == 'resumed' ? 'pause' : 'resume']();
                     },
 
-                    destroy: function() {
+                    destroy: function () {
                         //Clear timer
                         clearTimeout($this.timer);
-                        //Unbind all events
-                        $this.find("*").andSelf().unbind();
                         //Just unwrap the elements that has been added using this plugin
-                        $this.html($this.find('.js-marquee:first').html());
+                        $this.css('visibility', 'hidden').html($this.find('.js-marquee:first'));
+                        //This is to prevent the sudden blink
+                        setTimeout(function () {
+                            $this.css('visibility', 'visible');
+                        }, 0);
                     }
                 };
 
@@ -508,23 +435,23 @@ require(['jquery',], function($, Registry) {+function ($) {
                 return;
             }
 
-            /* Check if element has data attributes. They have top priority
+/* Check if element has data attributes. They have top priority
                For details https://twitter.com/aamirafridi/status/403848044069679104 - Can't find a better solution :/
                jQuery 1.3.2 doesn't support $.data().KEY hence writting the following */
             var dataAttributes = {},
-            attr;
-            $.each(o, function(key, value) {
+                attr;
+            $.each(o, function (key, value) {
                 //Check if element has this data attribute
                 attr = $this.attr('data-' + key);
                 if (typeof attr !== 'undefined') {
                     //Now check if value is boolean or not
                     switch (attr) {
-                        case 'true':
-                            attr = true;
-                            break;
-                        case 'false':
-                            attr = false;
-                            break;
+                    case 'true':
+                        attr = true;
+                        break;
+                    case 'false':
+                        attr = false;
+                        break;
                     }
                     o[key] = attr;
                 }
@@ -537,7 +464,7 @@ require(['jquery',], function($, Registry) {+function ($) {
             verticalDir = o.direction == 'up' || o.direction == 'down';
 
             //no gap if not duplicated
-            o.gap = o.duplicated ? parseInt(o.gap) : 0;
+            o.gap = o.duplicated ? o.gap : 0;
 
             //wrap inner content into a div
             $this.wrapInner('<div class="js-marquee"></div>');
@@ -633,17 +560,17 @@ require(['jquery',], function($, Registry) {+function ($) {
                 }
             }
 
-            var _rePositionVertically = function() {
-                $marqueeWrapper.css('margin-top', o.direction == 'up' ? containerHeight + 'px' : '-' + elHeight + 'px');
-            },
-            _rePositionHorizontally = function() {
-                $marqueeWrapper.css('margin-left', o.direction == 'left' ? containerWidth + 'px' : '-' + elWidth + 'px');
-            };
+            var _rePositionVertically = function () {
+                    $marqueeWrapper.css('margin-top', o.direction == 'up' ? containerHeight + 'px' : '-' + elHeight + 'px');
+                },
+                _rePositionHorizontally = function () {
+                    $marqueeWrapper.css('margin-left', o.direction == 'left' ? containerWidth + 'px' : '-' + elWidth + 'px');
+                };
 
             //if duplicated option is set to true than position the wrapper
             if (o.duplicated) {
                 if (verticalDir) {
-                    $marqueeWrapper.css('margin-top', o.direction == 'up' ? containerHeight + 'px' : '-' + ((elHeight * 2) - o.gap) + 'px');
+                    $marqueeWrapper.css('margin-top', o.direction == 'up' ? containerHeight : '-' + ((elHeight * 2) - o.gap) + 'px');
                 } else {
                     $marqueeWrapper.css('margin-left', o.direction == 'left' ? containerWidth + 'px' : '-' + ((elWidth * 2) - o.gap) + 'px');
                 }
@@ -657,116 +584,116 @@ require(['jquery',], function($, Registry) {+function ($) {
             }
 
             //Animate recursive method
-            var animate = function() {
-                if (o.duplicated) {
-                    //When duplicated, the first loop will be scroll longer so double the duration
-                    if (loopCount === 1) {
-                        o._originalDuration = o.duration;
-                        if (verticalDir) {
-                            o.duration = o.direction == 'up' ? o.duration + (containerHeight / ((elHeight) / o.duration)) : o.duration * 2;
-                        } else {
-                            o.duration = o.direction == 'left' ? o.duration + (containerWidth / ((elWidth) / o.duration)) : o.duration * 2;
-                        }
-                        //Adjust the css3 animation as well
-                        if (animationCss3Str) {
-                            animationCss3Str = animationName + ' ' + o.duration / 1000 + 's ' + o.delayBeforeStart / 1000 + 's ' + o.css3easing;
-                        }
-                        loopCount++;
-                    }
-                    //On 2nd loop things back to normal, normal duration for the rest of animations
-                    else if (loopCount === 2) {
-                        o.duration = o._originalDuration;
-                        //Adjust the css3 animation as well
-                        if (animationCss3Str) {
-                            animationName = animationName + '0';
-                            keyframeString = $.trim(keyframeString) + '0 ';
-                            animationCss3Str = animationName + ' ' + o.duration / 1000 + 's 0s infinite ' + o.css3easing;
-                        }
-                        loopCount++;
-                    }
-                }
-
-                if (verticalDir) {
+            var animate = function () {
                     if (o.duplicated) {
-
-                        //Adjust the starting point of animation only when first loops finishes
-                        if (loopCount > 2) {
-                            $marqueeWrapper.css('margin-top', o.direction == 'up' ? 0 : '-' + elHeight + 'px');
+                        //When duplicated, the first loop will be scroll longer so double the duration
+                        if (loopCount === 1) {
+                            o._originalDuration = o.duration;
+                            if (verticalDir) {
+                                o.duration = o.direction == 'up' ? o.duration + (containerHeight / ((elHeight) / o.duration)) : o.duration * 2;
+                            } else {
+                                o.duration = o.direction == 'left' ? o.duration + (containerWidth / ((elWidth) / o.duration)) : o.duration * 2;
+                            }
+                            //Adjust the css3 animation as well
+                            if (animationCss3Str) {
+                                animationCss3Str = animationName + ' ' + o.duration / 1000 + 's ' + o.delayBeforeStart / 1000 + 's ' + o.css3easing;
+                            }
+                            loopCount++;
                         }
-
-                        animationCss = {
-                            'margin-top': o.direction == 'up' ? '-' + elHeight + 'px' : 0
-                        };
-                    } else {
-                        _rePositionVertically();
-                        animationCss = {
-                            'margin-top': o.direction == 'up' ? '-' + ($marqueeWrapper.height()) + 'px' : containerHeight + 'px'
-                        };
-                    }
-                } else {
-                    if (o.duplicated) {
-
-                        //Adjust the starting point of animation only when first loops finishes
-                        if (loopCount > 2) {
-                            $marqueeWrapper.css('margin-left', o.direction == 'left' ? 0 : '-' + elWidth + 'px');
+                        //On 2nd loop things back to normal, normal duration for the rest of animations
+                        else if (loopCount === 2) {
+                            o.duration = o._originalDuration;
+                            //Adjust the css3 animation as well
+                            if (animationCss3Str) {
+                                animationName = animationName + '0';
+                                keyframeString = $.trim(keyframeString) + '0 ';
+                                animationCss3Str = animationName + ' ' + o.duration / 1000 + 's 0s infinite ' + o.css3easing;
+                            }
+                            loopCount++;
                         }
-
-                        animationCss = {
-                            'margin-left': o.direction == 'left' ? '-' + elWidth + 'px' : 0
-                        };
-
-                    } else {
-                        _rePositionHorizontally();
-                        animationCss = {
-                            'margin-left': o.direction == 'left' ? '-' + elWidth + 'px' : containerWidth + 'px'
-                        };
-                    }
-                }
-
-                //fire event
-                $this.trigger('beforeStarting');
-
-                //If css3 support is available than do it with css3, otherwise use jQuery as fallback
-                if (css3AnimationIsSupported) {
-                    //Add css3 animation to the element
-                    $marqueeWrapper.css(animationString, animationCss3Str);
-                    var keyframeCss = keyframeString + ' { 100%  ' + _objToString(animationCss) + '}',
-                        $styles = $('style');
-
-                    //Now add the keyframe animation to the head
-                    if ($styles.length !== 0) {
-                        //Bug fixed for jQuery 1.3.x - Instead of using .last(), use following
-                        $styles.filter(":last").append(keyframeCss);
-                    } else {
-                        $('head').append('<style>' + keyframeCss + '</style>');
                     }
 
-                    //Animation iteration event
-                    _prefixedEvent($marqueeWrapper[0], "AnimationIteration", function() {
-                        $this.trigger('finished');
-                    });
-                    //Animation stopped
-                    _prefixedEvent($marqueeWrapper[0], "AnimationEnd", function() {
-                        animate();
-                        $this.trigger('finished');
-                    });
+                    if (verticalDir) {
+                        if (o.duplicated) {
 
-                } else {
-                    //Start animating
-                    $marqueeWrapper.animate(animationCss, o.duration, o.easing, function() {
-                        //fire event
-                        $this.trigger('finished');
-                        //animate again
-                        if (o.pauseOnCycle) {
-                            _startAnimationWithDelay();
+                            //Adjust the starting point of animation only when first loops finishes
+                            if (loopCount > 2) {
+                                $marqueeWrapper.css('margin-top', o.direction == 'up' ? 0 : '-' + elHeight + 'px');
+                            }
+
+                            animationCss = {
+                                'margin-top': o.direction == 'up' ? '-' + elHeight + 'px' : 0
+                            };
                         } else {
+                            _rePositionVertically();
+                            animationCss = {
+                                'margin-top': o.direction == 'up' ? '-' + ($marqueeWrapper.height()) + 'px' : containerHeight + 'px'
+                            };
+                        }
+                    } else {
+                        if (o.duplicated) {
+
+                            //Adjust the starting point of animation only when first loops finishes
+                            if (loopCount > 2) {
+                                $marqueeWrapper.css('margin-left', o.direction == 'left' ? 0 : '-' + elWidth + 'px');
+                            }
+
+                            animationCss = {
+                                'margin-left': o.direction == 'left' ? '-' + elWidth + 'px' : 0
+                            };
+
+                        } else {
+                            _rePositionHorizontally();
+                            animationCss = {
+                                'margin-left': o.direction == 'left' ? '-' + elWidth + 'px' : containerWidth + 'px'
+                            };
+                        }
+                    }
+
+                    //fire event
+                    $this.trigger('beforeStarting');
+
+                    //If css3 support is available than do it with css3, otherwise use jQuery as fallback
+                    if (css3AnimationIsSupported) {
+                        //Add css3 animation to the element
+                        $marqueeWrapper.css(animationString, animationCss3Str);
+                        var keyframeCss = keyframeString + ' { 100%  ' + _objToString(animationCss) + '}',
+                            $styles = $('style');
+
+                        //Now add the keyframe animation to the head
+                        if ($styles.length !== 0) {
+                            //Bug fixed for jQuery 1.3.x - Instead of using .last(), use following
+                            $styles.filter(":last").append(keyframeCss);
+                        } else {
+                            $('head').append('<style>' + keyframeCss + '</style>');
+                        }
+
+                        //Animation iteration event
+                        _prefixedEvent($marqueeWrapper[0], "AnimationIteration", function () {
+                            $this.trigger('finished');
+                        });
+                        //Animation stopped
+                        _prefixedEvent($marqueeWrapper[0], "AnimationEnd", function () {
                             animate();
-                        }
-                    });
-                }
-                //save the status
-                $this.data('runningStatus', 'resumed');
-            };
+                            $this.trigger('finished');
+                        });
+
+                    } else {
+                        //Start animating
+                        $marqueeWrapper.animate(animationCss, o.duration, o.easing, function () {
+                            //fire event
+                            $this.trigger('finished');
+                            //animate again
+                            if (o.pauseOnCycle) {
+                                _startAnimationWithDelay();
+                            } else {
+                                animate();
+                            }
+                        });
+                    }
+                    //save the status
+                    $this.data('runningStatus', 'resumed');
+                };
 
             //bind pause and resume events
             $this.bind('pause', methods.pause);
@@ -1490,8 +1417,8 @@ require(['jquery',], function($, Registry) {+function ($) {
 	 return Blazy;
 });
 
-'use strict';
 $.fn.extend({showPassword: function(c) {  }});
+'use strict';
 (function ($) {
     $(document).ready(function () {
         $('input[type="password"]').showPassword('focus', {
