@@ -48,7 +48,9 @@ class CourseTypeVocabulary(object):
             _(u"Introductory seminar source"): 'introductory-seminar-course',
             _(u"Advanced seminar"): 'advanced',
             _(u"Exercise"): 'exercise',
-            _(u"Colloquium"): 'colloquium'
+            _(u"Colloquium"): 'colloquium',
+            _(u"Basic module"): 'basic',
+            _(u"Reading course"): 'reading'
         }
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
@@ -66,7 +68,8 @@ class CourseDegreeVocabulary(object):
             _(u"MA kons"): 'ma-kons',
             _(u"BA"): 'ba',
             _(u"Mag"): 'magister',
-            _(u"ZEP"): 'zep'
+            _(u"ZEP"): 'zep',
+            _(u"MA-IB"): 'ma-ib'
         }
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
