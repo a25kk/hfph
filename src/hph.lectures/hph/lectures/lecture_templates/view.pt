@@ -53,7 +53,7 @@
 
             <div class="app-list-item">
                 <div class="app-list-item-kicker">
-                    <span tal:replace="context/courseNumber" /><span tal:condition="context/blockLecture">*</span>
+                    <span tal:replace="context/courseNumber" /><span tal:condition="context/blockLecture">*</span><span tal:condition="context/onlineLecture">@</span>
                     <tal:lecturer tal:condition="context/lecturer">
                         <tal:items tal:repeat="node context/lecturer">
                             <span tal:replace="node/to_object/Title" /><tal:separator condition="not: repeat/node/end">,</tal:separator>

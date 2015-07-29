@@ -46,6 +46,10 @@ class ILecture(form.Schema, IImageScaleTraversable):
         title=_(u"Block Lecture"),
         required=False,
     )
+    onlineLecture = schema.Bool(
+        title=_(u"Online Lecture"),
+        required=False,
+    )
     description = schema.Text(
         title=_(u"Additional Information"),
         required=False,
