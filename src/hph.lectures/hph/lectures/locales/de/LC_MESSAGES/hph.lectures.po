@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2015-07-30 06:56+0000\n"
-"PO-Revision-Date: 2015-07-30 08:59+0100\n"
+"PO-Revision-Date: 2015-08-03 14:42+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -91,7 +91,7 @@ msgstr "BA"
 
 #: ../vocabulary.py:52
 msgid "Basic module"
-msgstr "Grundlagenmodul"
+msgstr "Grundlagenmodule"
 
 #: ../interfaces.py:37 ../lecture.py:46
 msgid "Block Lecture"
@@ -345,7 +345,7 @@ msgstr "Raum:"
 
 #: ../vocabulary.py:53
 msgid "Reading course"
-msgstr "Lektürekurs"
+msgstr "Lektürekurse"
 
 #: ../lecture.py:63
 msgid "Related lecturer"
