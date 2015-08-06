@@ -66,7 +66,7 @@
             <div class="app-list-item"
                 tal:define="item view/content_item">
                 <div class="app-list-item-kicker">
-                    <span tal:replace="item/courseNumber" /><span tal:condition="item/blockLecture">*</span><span tal:condition="context/onlineLecture">@</span>
+                    <span tal:replace="item/courseNumber" /><span tal:condition="item/blockLecture">*</span><span tal:condition="item/onlineLecture">@</span>
                     <tal:lecturer tal:condition="item/lecturer">
                         <tal:items tal:repeat="node item/lecturer">
                             <span tal:replace="node/to_object/Title" /><tal:separator condition="not: repeat/node/end">,</tal:separator>
