@@ -29,3 +29,4 @@ src/plone.*
 src/vwc.*
 src/ade25.*
 src/kk.tiles
+pip-selfcheck.json
