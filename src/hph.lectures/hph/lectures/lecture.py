@@ -4,7 +4,7 @@ from Acquisition import aq_inner
 from five import grok
 from plone import api
 from plone.app.vocabularies.catalog import CatalogSource
-from plone.app.widgets.dx import RelatedItemsWidget
+from plone.app.z3cform.widget import RelatedItemsWidget
 from plone.dexterity.content import Container
 from plone.directives import form
 from plone.indexer import indexer
