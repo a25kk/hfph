@@ -27,7 +27,7 @@ setup(name='hph.membership',
       install_requires=[
           'setuptools',
           'requests',
-          'plone.app.dexterity [grok, relations]',
+          'plone.app.dexterity',
           'plone.app.relationfield',
           'plone.namedfile [blobs]',
           'plone.principalsource',

@@ -29,7 +29,6 @@ setup(name='hph.sitecontent',
           'plone.api',
           'plone.app.dexterity',
           'five.grok',
-          'plone.namedfile [blobs]',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
