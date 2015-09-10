@@ -34,7 +34,7 @@
                 <div class="app-box app-box-faculty"
                     tal:condition="subcontents">
                     <div class="app-box-header">
-                        <h3 class="app-box-heading" tal:content="context/last_name">
+                        <h3 class="app-box-heading" tal:content="context/lastname">
                             Additional Information
                         </h3>
                     </div>
