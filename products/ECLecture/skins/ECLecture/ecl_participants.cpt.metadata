@@ -1,5 +1,0 @@
-[default]
-title = View lecture participants
-
-[security]
-View = 0:Authenticated
