@@ -12,7 +12,7 @@ from ade25.fabfiles import project
 from ade25.fabfiles.server import controls
 
 from slacker import Slacker
-slack = Slacker('xoxp-2440800772-2440800774-2520374751-468e84')
+slack = Slacker('${settings:slack-api-token}')
 
 env.use_ssh_config = True
 env.forward_agent = True
@@ -25,8 +25,7 @@ env.local_root = '${buildout:directory}'
 env.sitename = 'hph'
 env.code_user = 'root'
 env.prod_user = 'www'
-# Uncomment and add your name here
-# env.actor = 'John Doe'
+env.actor = ${settings:username}
 
 
 env.roledefs = {
