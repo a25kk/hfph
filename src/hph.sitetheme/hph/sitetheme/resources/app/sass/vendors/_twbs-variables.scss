@@ -1,0 +1,84 @@
+@function strip-units($number) {// From : http://stackoverflow.com/a/12335841/1339426
+  @return $number / ($number * 0 + 1);
+}
+
+/**
+* Use em or rem font-size in Bootstrap 3
+* Ported from Less version here: https://gist.github.com/jasny/9731895
+*/
+$font-size-root: 16px;
+$font-unit: 1rem; // Pick em or rem here
+
+
+// Convert all variables to em
+
+$font-size-base: 1 * $font-unit;
+$font-size-large: 1.25 * $font-unit;
+$font-size-small: 0.85 * $font-unit;
+
+$font-size-h1: 2.6 * $font-unit;
+$font-size-h2: 2.15 * $font-unit;
+$font-size-h3: 1.7 * $font-unit;
+$font-size-h4: 1.25 * $font-unit;
+$font-size-h5: $font-size-base;
+$font-size-h6: 0.85 * $font-unit;
+
+$line-height-computed: ($font-size-base * $line-height-base);
+
+$padding-base-vertical: ((6px / $font-size-root) * $font-unit);
+$padding-base-horizontal: ((12px / $font-size-root) * $font-unit);
+
+$padding-large-vertical: ((10px / $font-size-root) * $font-unit);
+$padding-large-horizontal: ((16px / $font-size-root) * $font-unit);
+
+$padding-small-vertical: ((5px / $font-size-root) * $font-unit);
+$padding-small-horizontal: ((10px / $font-size-root) * $font-unit);
+
+$padding-xs-vertical: ((1px / $font-size-root) * $font-unit);
+$padding-xs-horizontal: ((5px / $font-size-root) * $font-unit);
+
+$border-radius-base: ((4px / $font-size-root) * $font-unit);
+$border-radius-large: ((6px / $font-size-root) * $font-unit);
+$border-radius-small: ((3px / $font-size-root) * $font-unit);
+
+$caret-width-base: ((4px / $font-size-root) * $font-unit);
+$caret-width-large: ((5px / $font-size-root) * $font-unit);
+
+$table-cell-padding: ((8px / $font-size-root) * $font-unit);
+$table-condensed-cell-padding: ((5px / $font-size-root) * $font-unit);
+
+//** Default `.form-control` height
+$input-height-base: ($line-height-computed + ($padding-base-vertical * 2));
+//** Large `.form-control` height
+$input-height-large: (($font-size-large * $line-height-large) + ($padding-large-vertical * 2));
+//** Small `.form-control` height
+$input-height-small: (($font-size-small * $line-height-small) + ($padding-small-vertical * 2));
+
+
+//== Bootstrap variable overides
+//
+//## Reset and adjust existing variables
+
+$brand-primary:                 $app-primary;
+$link-color:                    $app-blue-secondary;
+
+$font-family-base:              'Fira Sans', $font-family-sans-serif;
+
+//** Font awesome font path
+$fa-font-path:                  "../assets/fonts";
+
+
+//== Compontent border reset
+//
+//## Bootstrap border radius reset
+$border-radius-base:        0px;
+$border-radius-large:       0px;
+$border-radius-small:       0px;
+
+//** Navbar toggle
+$navbar-default-toggle-hover-bg:           #ddd;
+$navbar-default-toggle-icon-bar-bg:        #888;
+$navbar-default-toggle-border-color:       #ddd;
+
+//** Button primary uses default link color not brand primary
+$btn-primary-bg:                 $app-secondary;

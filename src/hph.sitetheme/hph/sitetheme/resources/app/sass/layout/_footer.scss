@@ -1,0 +1,16 @@
+//
+// Footer
+// -----------------------------------
+
+.app-footer {
+    padding-top: $line-height-computed;
+    padding-bottom: $line-height-computed;
+}
+
+.app-footer-content {
+  @extend .container;
+  font-weight: 400;
+  a {
+    text-transform: uppercase;
+  }
+}

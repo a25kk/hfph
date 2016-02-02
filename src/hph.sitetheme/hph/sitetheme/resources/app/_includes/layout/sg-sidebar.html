@@ -1,0 +1,88 @@
+<div class="sg-sidebar">
+  <div class="sg-sidebar-header">
+    <div class="sg-sidebar-title">Styleguide</div>
+    <div class="sg-sidebar-subtitle">v1.0.0-dev</div>
+  </div>
+  <div class="sg-sidebar-content">
+  <ul class="sg-sidebar-nav">
+    <li{% if page.slug == "styleguide" %} class="active"{% endif %}>
+      <a href="{{ page.base_url }}styleguide">Startseite</a>
+      {% if page.slug == "styleguide" %}<span class="sr-only">(current)</span>{% endif %}
+    </li>
+  </ul>
+  <ul class="sg-sidebar-nav">
+      <li class="sg-sidebar-navitem sg-sidebar-nav-header">Basis</li>
+      <li{% if page.slug == "sg-brand" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-brand">Marke</a>
+      </li>
+      <li{% if page.slug == "sg-colors" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-colors">Farbschema</a>
+      </li>
+      <li{% if page.slug == "sg-typography" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-typography">Typographie</a>
+      </li>
+      <li{% if page.slug == "sg-icons" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-icons">Icons</a>
+      </li>
+    </ul>
+    <ul class="sg-sidebar-nav">
+      <li class="sg-sidebar-navitem sg-sidebar-nav-header">Layout</li>
+
+      <li{% if page.slug == "sg-sitestructure" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-sitestructure">Seitenstruktur</a>
+      </li>
+      <li{% if page.slug == "sg-site" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-site">Seite</a>
+      </li>
+    </ul>
+    <ul class="sg-sidebar-nav">
+      <li class="sg-sidebar-navitem sg-sidebar-nav-header">Komponenten</li>
+
+      <li{% if page.slug == "sg-buttons" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-buttons">Buttons</a>
+      </li>
+
+      <li{% if page.slug == "sg-forms" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-forms">Forms</a>
+      </li>
+
+      <li{% if page.slug == "sg-tables" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-tables">Tables</a>
+      </li>
+
+      <li{% if page.slug == "sg-cards" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-cards">Cards</a>
+      </li>
+
+      <li{% if page.slug == "sg-actionpanel" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-actionpanel">Actionpanel</a>
+      </li>
+
+      <li{% if page.slug == "sg-copyright" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-copyright">Copyright</a>
+      </li>
+
+      <li{% if page.slug == "sg-navigation" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-navigation">Navigation</a>
+      </li>
+
+      <li{% if page.slug == "sg-pathbar" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-pathbar">Pathbar</a>
+      </li>
+
+      <li{% if page.slug == "sg-hero" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-hero">Hero</a>
+      </li>
+
+      <li{% if page.slug == "sg-banner" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-banner">Banner</a>
+      </li>
+
+      <li{% if page.slug == "sg-newsletter" %} class="active"{% endif %}>
+        <a href="{{ page.base_url }}sg-newsletter">Newsletter</a>
+      </li>
+
+
+    </ul>
+    </div>
+</div>

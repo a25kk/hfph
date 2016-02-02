@@ -1,0 +1,219 @@
+---
+layout: styleguide
+title: Styleguide Farbschema
+slug: sg-colors
+lead: "An overview of the new diazo theme"
+base_url: "../../"
+---
+<main class="app-page" id="content">
+  <div class="app-page-header">
+      <div class="app-page-title">
+          <h1 class="app-page-headline">Farbschema
+          </h1>
+      </div>
+      <p class="app-page-abstract">
+          Markenspezifische Farbwerte und Definitionen
+      </p>
+  </div>
+  <div class="app-page-body">
+    <div class="sg-section">
+    <h2>Standardfarben</h2>
+
+    <h3>Grauwerte</h3>
+    <p>Graustufen werden im Hinblick auf die Barrierefreiheit mit möglichst
+      hohem Kontrast auf Basis eines 100%igen Schwarzwertes automatisch generiert.
+      Da bei der Darstellung auf Monitoren ein reines Schwarz als zu kontrastreich
+      angesehen wird, ist ein dunkler Grauwert <code>$gray-dark</code> als Standard für
+      Fließtext in Verwendung.
+    </p>
+    <div class="sg-example">
+    <div class="color-swatches">
+      <div class="color-swatch gray-darker"></div>
+      <div class="color-swatch gray-dark"></div>
+      <div class="color-swatch gray"></div>
+      <div class="color-swatch gray-light"></div>
+      <div class="color-swatch gray-lighter"></div>
+    </div>
+  </div>
+{% highlight scss %}
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20%)   !default; // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+{% endhighlight %}
+    </div><!-- /sg-section -->
+    <div class="sg-section">
+    <h3>Markenfarben</h3>
+    <p>Hauptfarben der Marke werden automatisch als Highlightfarben verwendet und
+      sollten möglichst kontrastreich sein.
+    </p>
+
+    <h4>Primäre Farbe</h4>
+    <p>Hauptfarbe für Überschriften und den Markennamen.</p>
+    <div class="sg-example">
+    <div class="color-swatches">
+      <div class="color-swatch app-primary-darker"></div>
+      <div class="color-swatch app-primary-dark"></div>
+      <div class="color-swatch app-primary">#274d38</div>
+      <div class="color-swatch app-primary-light"></div>
+      <div class="color-swatch app-primary-lighter"></div>
+    </div>
+  </div>
+{% highlight scss %}
+$app-primary-base:              rgba(5, 81, 125, 1) !default;
+$app-primary-darker:            darken($app-primary-base, 20%)  !default;
+$app-primary-dark:              darken($app-primary-base, 15%)  !default;
+$app-primary:                   $app-primary-base               !default; // #05517D
+$app-primary-light:             lighten($app-primary-base, 15%) !default;
+$app-primary-lighter:           lighten($app-primary-base, 20%) !default;
+{% endhighlight %}
+
+    <h4>Sekundäre Farbe</h4>
+    <p>Hauptfarbe für Unterüberschriften und Links</p>
+    <div class="sg-example">
+    <div class="color-swatches">
+      <div class="color-swatch app-secondary-darker"></div>
+      <div class="color-swatch app-secondary-dark"></div>
+      <div class="color-swatch app-secondary">#588c73</div>
+      <div class="color-swatch app-secondary-light"></div>
+      <div class="color-swatch app-secondary-lighter"></div>
+    </div>
+  </div>
+{% highlight scss %}
+$app-secondary-base:              rgba(55, 116, 151, 1) !default;
+$app-secondary-darker:            darken($app-secondary-base, 15%)    !default;
+$app-secondary-dark:              darken($app-secondary-base, 7.5%)   !default;
+$app-secondary:                   $app-secondary-base                 !default; // #377497
+$app-secondary-light:             lighten($app-secondary-base, 7.5%)  !default;
+$app-secondary-lighter:           lighten($app-secondary-base, 15%)   !default;
+{% endhighlight %}
+    </div><!-- /sg-section -->
+
+    <div class="sg-section">
+    <h3>Sektionen (Rubriken)</h3>
+    <p>Die einzelnen Sektionen/Rubriken der Seite werden durch vorgegebene
+      Farbwerte repräsentiert.
+    </p>
+    <div class="sg-example">
+    <div class="color-swatches">
+      <div class="color-swatch sg-ui-color-primary">Default</div>
+      <div class="color-swatch sg-ui-color-news">News</div>
+      <div class="color-swatch sg-ui-color-do">District office</div>
+      <div class="color-swatch sg-ui-color-service">Service</div>
+      <div class="color-swatch sg-ui-color-info">Info</div>
+      <div class="color-swatch sg-ui-color-county">County</div>
+    </div>
+  </div>
+{% highlight scss %}
+$app-section-default:         $app-primary-base;
+//** Section: News
+$app-section-news:            $app-secondary-base;
+//** Section: Administrative district office (abbr: DO)
+$app-section-do:              rgba(199, 180, 80, 1) !default;
+//** Section: service
+$app-section-service:         rgba(242, 174, 115, 1) !default;
+//** Section: info
+$app-section-info:            rgba(217, 100, 89, 1) !default;
+//** Section: County
+$app-section-county:          rgba(140, 71, 71, 1) !default;
+{% endhighlight %}
+    </div><!-- /sg-section -->
+
+    <div class="sg-section">
+      <h4>Verwendung der Highlightfarben für Sektionen</h4>
+      <p>Die Highlightfarben sollten in der Navigation der Seite zur besseren
+        Orientierung innerhalb der Teilbereiche dienen. Demnach müssen die Farbwerte
+        einheitlich an identischen Stellen im Portal eingesetzt werden.</p>
+      <div class="sg-example">
+        <table class="table">
+          <thead>
+            <th>Anwendungsbeispiel</th>
+            <th>Rubrik</th>
+            <th>Kontrastwert</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="color-swatch app-primary">#274d38</div>
+              </td>
+              <td class="type-info">Startseite (Primärfarbe)
+              </td>
+              <td class="type-info">9.5 <span class="label label-success">sehr gut</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="color-swatch sg-ui-color-news">#588c73</div>
+              </td>
+              <td class="type-info">Aktuelles (Sekundärfarbe)
+              </td>
+              <td class="type-info">3.9 <span class="label label-warning">akzeptabel</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="color-swatch sg-ui-color-info">#D96459</div>
+              </td>
+              <td class="type-info">Info
+              </td>
+              <td class="type-info">3.5 <span class="label label-info">akzeptabel</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="color-swatch sg-ui-color-do">#588c73</div>
+              </td>
+              <td class="type-info">Landratsamt
+              </td>
+              <td class="type-info">3.9 <span class="label label-warning">akzeptabel</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="color-swatch sg-ui-color-county">#8C4747</div>
+              </td>
+              <td class="type-info">Leben im Landkreis
+              </td>
+              <td class="type-info">6.8 <span class="label label-success">sehr gut</span></td>
+            </tr>
+            <tr>
+              <td>
+                <div class="color-swatch sg-ui-color-service">#f2ae73</div>
+              </td>
+              <td class="type-info">Service
+              </td>
+              <td class="type-info">1.9 <span class="label label-danger">unzureichend</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+      <h5>Legende</h5>
+      <p>Definition der Kontrastwerte hinsichtlich der Barrierefreiheit gemäß
+        <a href="http://www.w3.org/TR/WCAG/#visual-audio-contrast">WCAG 2.0</a>
+      </p>
+      <dl class="dl-horizontal">
+        <dt><span class="label label-success">sehr gut</span></dt>
+        <dd>
+          Erreicht eine AAA Level Einstufung: bei allen Schriftgrößen ist ein optimaler
+          Kontrast gegeben
+        </dd>
+        <dt><span class="label label-success">gut</span></dt>
+        <dd>
+          Erreicht für Schriftgrößen ab 18pt eine AAA Level Einstufung und bei
+          kleineren Schriftgrößen eine gute AA Bewertung
+        </dd>
+        <dt><span class="label label-warning">akzeptabel</span></dt>
+        <dd>
+          Erreicht eine AA Level Einstufung für Schriftgrößen ab 18pt. Bei kleineren
+          Schriftgrößen ist die Lesbarkeit bereits deutlich beeintächtigt bis nicht mehr gegeben.
+        </dd>
+        <dt><span class="label label-danger">unzureichend</span></dt>
+        <dd>
+          Erreicht keinen ausreichenden Kontrast, um Menschen
+          mit einer Farbenblindheit, Achromatopsie oder Achromasie eine ausreichende Lesbarkeit
+          gewährleisten zu können.
+        </dd>
+      </dl>
+    </div><!-- /sg-section  -->
+
+    </div>
+</main>

@@ -1,0 +1,143 @@
+---
+layout: styleguide
+title: Styleguide Navigation
+slug: sg-navigation
+lead: "Styleguide for brand usage"
+base_url: "../../"
+---
+<main class="app-page" id="content">
+  <div class="app-page-header">
+      <div class="app-page-title">
+          <h1 class="app-page-headline">Navigation
+          </h1>
+      </div>
+      <p class="app-page-abstract">
+          Integration und Verwendungsbeispiele
+      </p>
+  </div>
+  <div class="app-page-body">
+    <p>Responsive Navigation als Navigationsleiste für das Portal. Unterteilt in 6 farblich markierte Bereiche.
+    Die Leiste klappt in mobilen Ansichten zusammen und ist dann per Touch/Klick bedienbar.</p>
+  <div class="sg-section">
+    <h2>Hauptnavigation</h2>
+    <p>Die Sektionen der Seite sind über eine Navigationsliste im Header der Seite
+      erreichbar. Diese Navigationsliste verhält sich adaptiv und passt sich in ihrem
+      Verhalten an den verfügbaren horizontalen Raum auf dem darstellenden Bildschirm
+      an.
+    </p>
+    <h3>Standard Hauptnavigation</h3>
+    <p>Im Ausgangzustand sind die Rubriken/Hauptsektionen der Seite über eine
+      Aktionsleiste ereichbar. Diese verwendet das aus mobilen Apps bekannte <em>Hamburger Icon</em>.
+    </p>
+    <div class="sg-example">
+      <div class="sg-example-container-xs">
+        <nav class="app-navbar app-navbar-collapsed" role="navigation">
+          <div class="xcontainer">
+            <div class="app-navbar-header">
+              <div class="app-navbar-header-title">
+                <a class="app-navbar-brand" href="/">Rubriken</a>
+              </div>
+              <div class="app-navbar-header-toggle">
+                <button type="button" class="app-navbar-toggle show" data-toggle="collapse" data-target=".app-navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+{% highlight html %}
+<div class="app-navbar-header">
+  <div class="app-navbar-header-title">
+    <a class="app-navbar-brand" href="/">Rubriken</a>
+  </div>
+  <div class="app-navbar-header-toggle">
+    <button type="button" class="app-navbar-toggle">
+      <span class="sr-only">Navigation umschalten</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+</div>
+{% endhighlight %}
+    </div><!-- /sg-section -->
+    <div class="sg-section">
+      <h3>Standard Hauptnavigation ausgeklappt</h3>
+      <p>Die Navigation wird durch einen Klick aufgeklappt und zeigt die Rubriken
+        in einer vertikalen Liste.
+      </p>
+
+    <div class="sg-example">
+      <div class="sg-example-container-xs">
+        <nav class="app-navbar app-navbar-open" role="navigation">
+          <div class="xcontainer">
+            <div class="app-navbar-header">
+              <div class="app-navbar-header-title">
+                <a class="app-navbar-brand" href="/">Rubriken</a>
+              </div>
+              <div class="app-navbar-header-toggle">
+                <button type="button" class="app-navbar-toggle show" data-toggle="collapse" data-target=".app-navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+            </div>
+            <div class="navbar-collapse app-navbar-collapse in">
+              <ul class="app-navbar-nav" id="app-navbar-nav">
+                <li class="app-navitem active">
+                  <a class="app-navitem-tab app-navitem-tab-home" href="{{ page.base_url }}">
+                    <span>Startseite</span>
+                  </a>
+                </li>
+                <li class="app-navitem">
+                  <a class="app-navitem-tab app-navitem-tab-aktuelles" href="{{ page.base_url }}aktuelles">
+                    <span>Aktuelles</span>
+                  </a>
+                </li>
+                <li class="app-navitem">
+                  <a class="app-navitem-tab app-navitem-tab-verwaltung-und-politik" href="{{ page.base_url }}verwaltung-und-politik">
+                    <span>Verwaltung &amp; Politik</span>
+                  </a>
+                </li>
+                <li class="app-navitem">
+                  <a class="app-navitem-tab app-navitem-tab-tourismus-und-wirtschaft" href="{{ page.base_url }}tourismus-und-wirtschaft">
+                    <span>Tourismus &amp; Wirtschaft</span>
+                  </a>
+                </li>
+                <li class="app-navitem">
+                  <a class="app-navitem-tab app-navitem-tab-leben-im-landkreis" href="{{ page.base_url }}(leben-im-landkreis">
+                    <span>Leben im Landkreis</span>
+                  </a>
+                </li>
+                <li class="app-navitem">
+                  <a class="app-navitem-tab app-navitem-tab-buergerportal-und-service" href="{{ page.base_url }}buergerportal-und-service">
+                    <span>Bürgerportal &amp; Service</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    </div><!-- /sg-section -->
+    <div class="sg-section">
+    <h3>Horizontale Navigationsliste</h3>
+    <p>Auf mittleren und großen Monitoren wird die Hauptnavigation als horizontale
+      Navigationsleiste dargestellt und ist permanent sichtbar. Die Länge der Navigationstitel ist ungünstig. Wo möglich sollte eine Titelkürzung vorgenommen werden.
+    </p>
+    <div class="sg-example">
+      {% include components/navbar.html %}
+    </div>
+  </div>
+
+  </div>
+</main>

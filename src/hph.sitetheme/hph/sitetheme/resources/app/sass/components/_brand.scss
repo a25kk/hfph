@@ -1,0 +1,94 @@
+//
+// Brand
+// -----------------------------------------
+
+
+// Make a gridrow
+.app-brand {
+  display: flex;
+  align-items: center;
+  width: $screen-xs;
+  margin-right: $padding-small-horizontal;
+  &-panel-inverse {
+    width: 100%;
+  }
+}
+
+//** Inline svg logo
+.app-brand-img {
+  display: block;
+  width: 140px;
+  &-xs {
+    width: 64px;
+  }
+  &-sm {
+    width: 64px;
+  }
+  &-md {
+    width: 128px;
+  }
+  &-lg {
+    width: 272.576px
+  }
+  .app-brand-panel & {
+    flex: 1;
+     @media (min-width: $grid-float-breakpoint) {
+        flex: 0 0 33.3333%;
+     }
+  }
+  .app-brand-panel-inverse & {
+    @media (min-width: $grid-float-breakpoint) {
+        flex: 0 0 25%;
+    }
+  }
+}
+
+.app-brandname-logo {
+  width: 140px;
+  .app-brand-img-xs & {
+    width: 32px;
+  }
+  .app-brand-img-sm & {
+    width: 64px;
+  }
+  .app-brand-img-md & {
+    width: 128px;
+  }
+  .app-brand-img-lg & {
+    width: 272px;
+  }
+}
+
+// The actual brandname/title
+.app-brand-title {
+  //@include make-md-column(8);
+}
+
+.app-brandname {
+  display: block;
+  padding: $padding-small-horizontal $padding-small-vertical;
+  font-size: 1.65rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: $app-primary;
+  .app-brand-panel & {
+    flex: 1;
+     @media (min-width: $grid-float-breakpoint) {
+        flex: 0 0 66.6666%;
+     }
+    margin-top: -($line-height-computed);
+  }
+  .app-brand-panel-inverse & {
+    font-size: 1.25rem;
+    line-height: 1;
+    color: #fff;
+    @media (min-width: $grid-float-breakpoint) {
+        flex: 0 0 75%;
+    }
+  }
+}
+
+// Sitewide claim
+.app-brand-aside {
+  @include make-md-column(4);
+}

@@ -1,0 +1,152 @@
+//
+// Basic scaffolding and resets
+// ----------------------------------
+
+// Set root font size
+html {
+    font-size: $font-size-root;
+    @media (min-width: $screen-sm-min) {
+        font-size: ceil(($font-size-root + 2));
+    }
+    @media (min-width: $screen-md-min) {
+        font-size: ceil(($font-size-root + 4));
+    }
+}
+
+
+//** Adjust font weight for initialized webfonts
+body {
+    .wf-active & {
+        font-weight: 300;
+    }
+    &.template-theming-controlpanel .row {
+        // Fix theming control panel
+        margin: 0 $line-height-computed;
+    }
+}
+
+// Set font weights if webfont is active
+.wf-active {
+    b,
+    strong {
+        font-weight: 500;
+    }
+}
+
+// prevent fake bolds
+b,
+strong {
+    font-weight: 700;
+    .wf-active & {
+        font-weight: 500;
+    }
+}
+
+// Remove dotted outline
+a {
+    outline: 0;
+}
+
+// Transistion link color on :hover state
+a:hover {
+  transition: color 0.5s linear;
+}
+
+
+// Change styling for elements that mix pixels and rems
+//
+// Form input is calculated based on line and font sizes and needs to be
+// adjusted manually
+// Change styling for elements that mix pixels and ems
+
+pre {
+  font-size: ( $font-size-base - ($font-unit / strip-units($font-size-root)));
+}
+
+.form-control-feedback {
+    width: calc($input-height-base + 2px);
+    height: calc($input-height-base + 2px);
+}
+.input-lg + .form-control-feedback {
+    width: calc($input-height-large + 2px);
+    height: calc($input-height-large + 2px);
+}
+.input-sm + .form-control-feedback {
+    width: calc($input-height-small + 2px);
+    height: calc($input-height-small + 2px);
+}
+
+.form-control {
+    height: calc($input-height-base + 2px);
+}
+
+.form-horizontal {
+.radio,
+.checkbox,
+.radio-inline,
+.checkbox-inline {
+    padding: $padding-base-vertical;
+    border: 1px solid transparent;
+}
+.radio,
+.checkbox {
+    min-height: calc(($line-height-computed + $padding-base-vertical) + 1px);
+}
+.form-control-static {
+    padding-top: $padding-base-vertical;
+    border-top: 1px solid transparent;
+    padding-bottom: $padding-base-vertical;
+    border-bottom: 1px solid transparent;
+}
+
+@media (min-width: #{$screen-sm-min}) {
+    .control-label {
+        padding-top: $padding-base-vertical;
+        border-top: 1px solid transparent;
+    }
+}}
+
+// Optional plone settings and adjustments
+// ---------------------------------------
+// Combat plone.app.widget styling (also using bootstrap) and correct
+// display errors caused by grid system inconsistencies
+
+// Combat plone hidden element class via mixin
+.hiddenStructure {
+    @extend .hidden;
+}
+
+// Reenable type selection in navigation control panel
+// Hidden by bootstrap label component
+.template-navigation-controlpanel .label:empty {
+    display: inline;
+}
+
+// Reset widget styling
+.mce-edit-area,
+#content .field textarea,
+#content .field input[type="text"] {
+    background: #fff;
+    background-image: none;
+}
+
+// Fix recurrence widget overlay styling
+div.riform .label {
+    float: none;
+}
+// Fix datepicker header year + month select
+.pattern-pickadate-wrapper .picker__select--month,
+.pattern-pickadate-wrapper .picker__select--year {
+    display: inline-block;
+}
+
+// Force search button to display styled
+.searchButton {
+    @extend .btn;
+    @extend .btn-default;
+}
+
+// Reset tiny mce content body styling for better readability
+.mceContentBody {
+    padding: $line-height-computed;
+}

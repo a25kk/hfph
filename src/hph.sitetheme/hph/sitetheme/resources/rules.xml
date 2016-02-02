@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+     <!-- Setup custom login form -->
+    <theme href="dist/signin/index.html" css:if-content="body.template-login_form" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-logged_out" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-login_failed" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_form" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_response" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_form" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
+
+    <!-- Rules applying to a standard Plone web page -->
+    <rules css:if-content="#visual-portal-wrapper">
+
+        <notheme if="$ajax_load" />
+        <theme href="dist/index.html" />
+
+        <replace css:theme="title" css:content="title" />
+        <after theme="/html/head/title" css:content="base" />
+        <!-- Add meta tags -->
+        <drop theme="/html/head/meta" />
+
+        <before content="/html/head/meta" theme="/html/head/title" />
+
+       <rules css:if-content="body.userrole-authenticated">
+            <!-- Copy style, script and link tags in the order they appear in the content -->
+            <after
+                content="/html/head/style | /html/head/script | /html/head/link"
+                theme-children="/html/head"
+                />
+
+            <drop theme="/html/head/style" />
+            <drop theme="/html/head/link" />
+
+            <!-- Drop scripts from theme footer if present -->
+            <drop theme="/html/body/script" />
+        </rules>
+
+        <!-- Custom favicon implementation -->
+        <drop css:content="head link[rel='apple-touch-icon']" />
+        <drop css:content="head link[rel='shortcut icon']" />
+        <after theme="/html/head">
+            <link rel="shortcut icon" href="/++theme++example.sitetheme/dist/assets/ico/favicon.ico" type="images/x-icon" />
+            <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/++theme++example.sitetheme/dist/assets/ico/apple-touch-icon-144-precomposed.png" />
+            <link rel="shortcut icon" href="/++theme++example.sitetheme/dist/assets/ico/favicon.png" />
+        </after>
+
+        <!-- Copy over the id/class attributes on the body tag.
+             This is important for per-section styling -->
+        <merge attributes="class" css:content="body" css:theme="body" />
+        <copy attributes="*" css:content="body" css:theme="body" />
+
+        <!-- CMSUI Editbar replacements -->
+        <drop css:theme="#app-toolbar"
+            css:if-content=".userrole-anonymous" />
+
+        <replace css:theme="#app-toolbar"
+            css:content="#app-toolbar" />
+
+        <!-- Logo (link target) -->
+        <copy attributes="href" css:content="#portal-logo" css:theme="a.navbar-brand" />
+        <copy attributes="href" css:content="#portal-logo" css:theme="a.app-brand" />
+
+        <!-- Portal searchbox -->
+        <!--<copy attributes="action" css:content="#portal-searchbox form"
+            css:theme="#portal-searchbox" />-->
+
+        <!-- Global navigation -->
+        <replace css:content="#portal-globalnav li"
+            css:theme-children="#app-navbar-nav" />
+
+        <!-- Breadcrumbs -->
+        <replace css:content-children='#portal-breadcrumbs'
+            css:theme-children='#app-pathbar' />
+
+         <!-- Login form rules -->
+        <replace css:content-children="#content-core"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-login_form" />
+        <replace css:content-children="#content-core"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-login_failed" />
+        <replace css:content-children="#content-core"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-logged_out" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-mail_password_form" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-mail_password_response" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-pwreset_form" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-pwreset_finish" />
+
+
+        <!-- Document First Heading -->
+        <replace css:content=".documentFirstHeading">
+            <div class="app-page-header">
+                <h1 class="app-page-title">
+                    <xsl:apply-templates />
+                </h1>
+            </div>
+        </replace>
+        <!-- Document lead description -->
+        <replace css:content=".documentDescription">
+            <p class="app-page-abstract">
+                <xsl:apply-templates />
+            </p>
+        </replace>
+        <!-- Add classes to content core -->
+         <replace css:content="#content-core">
+             <div class="app-page-content" id="content-core">
+                 <xsl:apply-templates />
+             </div>
+         </replace>
+
+        <!-- Document Content -->
+        <replace css:content-children="#content"
+            css:theme-children="#content" />
+
+        <before css:content=".portalMessage" css:theme="#content" />
+        <replace css:content-children="#viewlet-below-content"
+            css:theme-children="#app-below-main-content" />
+
+        <replace css:content=".configlets">
+            <ul class="nav nav-list checkbox">
+                <xsl:apply-templates />
+            </ul>
+        </replace>
+
+        <!-- Columns example -->
+        <replace css:content-children="#portal-column-two > *"
+            css:theme-children="#app-sidebar" />
+
+    </rules>
+
+</rules>

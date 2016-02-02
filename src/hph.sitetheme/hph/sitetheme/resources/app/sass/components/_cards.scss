@@ -1,0 +1,110 @@
+//
+// Cards displaying thumbnails and data collections
+// ------------------------------------------------------
+
+
+//== Card lists
+//
+//## Use a grid layout for card listings
+.app-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+//** Base card styles
+.app-card {
+  flex: 1;
+  color: $gray-lighter;
+}
+
+//== Card layout
+//
+//## Reflow card contents based on viewport size
+.app-card-header {
+  display: flex;
+  align-items: center;
+  height: 8rem;
+  min-height: 8rem;
+  padding: 1rem $padding-small-horizontal;
+  background: $app-secondary;
+}
+
+//** Card content
+.app-card-main {
+  padding: $padding-small-vertical $padding-small-horizontal;
+  background: $app-primary;
+}
+
+//** Card footer
+.app-card-footer {
+  padding: $padding-small-vertical $padding-small-horizontal;
+}
+
+//== Gutter
+//
+//## Add spacing to cards
+.app-card-gutter {
+  margin: -1rem 0 0 -1rem;
+  .app-card {
+    padding: 1rem 0 0 1rem;
+  }
+}
+
+//== Embedded card
+//
+//## Remove spacing for card inside card usecase
+.app-subcard {
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  border: 0;
+}
+
+
+//== Card title
+//
+//## Title is used inside the card-main container
+.app-card-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+//** Set card content specific styles
+.app-card-content {
+  padding-top: 1rem;
+  font-size: 1rem;
+  address {
+    margin-bottom: 0.75rem;
+  }
+  a {
+    font-weight: 400;
+    text-decoration: underline;
+    color: #fff;
+  }
+}
+
+
+//== Placeholder for missing card content
+//
+//## Provide call to actions and descriptions on empty cards
+//## by providing highlighted card content
+.app-card-placeholder {
+  margin: 0.5rem auto;
+  padding: 1rem;
+  text-align: center;
+  @media (min-width: $screen-sm-min) {
+    padding: 2rem 3rem;
+    width: 66.66%;
+  }
+}
+
+//** Round hellip sign
+.app-card-placeholder-sign {
+  @include square(4rem);
+  @extend .center-block;
+  padding-top: 0.5rem;
+  border-radius: 50%;
+  border: 1px solid $gray-lighter;
+  color: $gray-lighter;
+  font-size: 2rem;
+}

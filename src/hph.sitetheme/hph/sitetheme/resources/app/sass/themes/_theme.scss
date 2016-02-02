@@ -1,0 +1,59 @@
+//
+// Main site theme
+// --------------------------------------
+
+
+//== Main content area
+//
+//## Provides optional fullscreen layouts
+.app-main {
+  @extend .container-fluid;
+  &-fullscreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.app-content {
+  @extend .container;
+  &-centerstage {
+    @extend .container-fluid;
+    @extend .center-block;
+    max-width: 480px;
+  }
+}
+
+
+//== Page styles
+//
+//## Define content specific styles
+.app-page {
+  padding: $line-height-computed 0;
+}
+
+.app-page-title {
+  @extend .page-header;
+}
+
+
+// Use custom lead element for page desciptions
+// that has proper line-height on all media types
+.app-page-lead,
+.app-page-abstract {
+  margin-bottom: $line-height-computed;
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.5;
+  @media (min-width: $screen-sm-min) {
+    font-size: 1.5rem;
+  }
+}
+
+
+//== Page section
+//
+//## Container providing visual separation
+.app-page-section {
+  margin: 1rem 0 2rem;
+}

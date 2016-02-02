@@ -1,0 +1,127 @@
+---
+layout: styleguide
+title: Styleguide Marke
+slug: sg-brand
+lead: "Styleguide for brand usage"
+base_url: "../../"
+---
+<main class="app-page" id="content">
+  <div class="app-page-header">
+      <div class="app-page-title">
+          <h1 class="app-page-headline">Marke/CI
+          </h1>
+      </div>
+      <p class="app-page-abstract">
+          Für die responsive und adaptive Verwendung der Marke wird diese
+          in Wortmarke und Bildmarke (Logo) aufgeteilt.
+      </p>
+  </div>
+  <div class="app-page-body">
+    <div class="sg-section">
+      <h2>Bildmarke (Logo)</h2>
+      <p>Das Logo wird ausschließlich im SVG Format verwendet. Um
+        die automatische Skalierung von SVGs für das adaptive Verhalten bei
+        unterschiedlichen Bildschirmgrößen und -auflösungen zu nutzen, ist das
+        Logo im Quelltext eingebunden und erfordert ein Rahmenelement
+        <code>.app-brand-img</code>, das die maximale
+        Größe vorgibt.
+      </p>
+
+      <div class="sg-example sg-example-brand" data-example-id="brand-img">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>
+                <a class="app-brand-img-xs" href="/">
+                  {% include components/logo.html %}
+                </a>
+              </td>
+              <td class="type-info">Extra Small
+              </td>
+              <td class="type-info">36px</td>
+            </tr>
+            <tr>
+              <td>
+                <a class="app-brand-img app-brand-img-sm" href="/">
+                  {% include components/logo.html %}
+                </a>
+              </td>
+              <td class="type-info">Small</td>
+              <td class="type-info">64px</td>
+            </tr>
+            <tr>
+              <td>
+                <a class="app-brand-img app-brand-img-md" href="/">
+                  {% include components/logo.html %}
+                </a>
+              </td>
+              <td class="type-info">Medium</td>
+              <td class="type-info">128px</td>
+            </tr>
+            <tr>
+              <td>
+                <a class="app-brand-img" href="/">
+                  {% include components/logo.html %}
+                </a>
+              </td>
+              <td class="type-info">Default</td>
+              <td class="type-info">140px</td>
+            </tr>
+            <tr>
+              <td>
+                <a class="app-brand-img app-brand-img-lg" href="/">
+                  {% include components/logo.html %}
+                </a>
+              </td>
+              <td class="type-info">Large (Original)</td>
+              <td class="type-info">272px</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+{% highlight html %}
+<div class="app-brand">
+    <a class="app-brand-img app-brand-img-md" href="/">
+        <div class="app-brandname-logo">
+          <svg>...</svg>
+        </div>
+    </a>
+</div>
+{% endhighlight %}
+    </div><!-- /sg-section -->
+
+    <div class="sg-section">
+      <h2>Wortmarke</h2>
+      <p>Die Wortmarke wird immer in der primären Farbe der Seite dargestellt, auch wenn
+        diese als Link, wie üblicherweise im Header als Link zur Startseite, verwendet wird.
+      </p>
+      <div class="sg-example sg-example-brand" data-example-id="brand-name">
+        {% include components/brandname.html %}
+      </div>
+{% highlight html %}
+<span class="app-brandname">Landratsamt<br />Aichach-Friedberg</span>
+{% endhighlight %}
+    </div>
+
+    <div class="sg-section">
+      <h2>Marke</h2>
+      <p>Die Marke wird im Header der Seite immer als Kombination von Bild- und
+        Wortmarke verwendet.
+      </p>
+      <div class="sg-example sg-example-brand" data-example-id="brand-name">
+        {% include components/brandpanel.html %}
+      </div>
+{% highlight html %}
+<div class="app-brand app-brand-panel">
+  <a class="app-brand-img app-brand-img-md" href="/">
+    <div class="app-brandname-logo">
+      <svg>...</svg>
+    </div>
+  </a>
+  <span class="app-brandname">Landratsamt<br />Aichach-Friedberg</span>
+</div>
+{% endhighlight %}
+    </div>
+
+  </div>
+</main>

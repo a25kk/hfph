@@ -1,0 +1,21 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    {% include base/head.html %}
+  </head>
+  <body>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+    <main class="app-main app-main-fullscreen" role="main">
+          {{ content }}
+    </main>
+    <div class="app-js-slot">
+        {% include base/webfonts.html %}
+    </div>
+    {% include base/javascript.html %}
+  </body>
+</html>
