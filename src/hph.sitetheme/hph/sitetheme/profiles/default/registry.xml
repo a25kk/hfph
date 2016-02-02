@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<registry>
+  <records prefix="plone.resources/hph.sitetheme"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+    <value key="js">++theme++hph.sitetheme/dist/scripts/main.js</value>
+    <value key="deps">jquery</value>
+  </records>
+  <records prefix="plone.bundles/hph.sitetheme"
+         interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+  <value key="resources">
+    <element>hph.sitetheme</element>
+  </value>
+  <value key="enabled">True</value>
+  <value key="jscompilation">++theme++hph.sitetheme/dist/scripts/main-compiled.min.js</value>
+  <value key="last_compilation">2015-02-06 00:00:00</value>
+</records>
+</registry>
