@@ -26,6 +26,7 @@ fake-eggs
 parts
 pip-selfcheck.json
 src/ade25.*
+src/bobtemplates.*
 src/collective.*
 src/kk.tiles
 src/plone.*
