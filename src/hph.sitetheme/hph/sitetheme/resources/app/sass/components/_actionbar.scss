@@ -13,7 +13,7 @@
 
 .app-action {
   flex: 1;
-  padding: ceil(($line-height-computed / 2)) $padding-xs-horizontal;
+  padding: .5rem .25rem;
   color: #fff;
   background: $app-primary;
   text-align: center;
@@ -42,8 +42,11 @@
   width: 66.6666%;
   background-color: $app-gray;
   border-color: $app-gray;
-    // Placeholder
-  @include placeholder($app-primary);
+    &::placeholder {
+        color: $app-primary;
+        // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+        opacity: 1;
+    }
 }
 
 .app-searchbox-btn {

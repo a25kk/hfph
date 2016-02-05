@@ -7,14 +7,14 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  @media (min-width: $grid-float-breakpoint-max) {
+    @include media-breakpoint-up(md) {
     flex-direction: row;
   }
 }
 
 .sg-aside {
   flex: 1;
-  @media (min-width: $grid-float-breakpoint-max) {
+    @include media-breakpoint-up(md) {
     flex: 0 0 12em;
   }
 }
@@ -47,30 +47,6 @@
 
 .sg-ui-color-primary {
   background-color: $app-primary-base;
-}
-
-.sg-ui-color-secondary {
-  background-color: $app-secondary;
-}
-
-.sg-ui-color-news {
-  background-color: $app-section-news;
-}
-
-.sg-ui-color-do {
-  background-color: $app-section-do;
-}
-
-.sg-ui-color-service {
-  background-color: $app-section-service;
-}
-
-.sg-ui-color-county {
-  background-color: $app-section-county;
-}
-
-.sg-ui-color-info {
-  background-color: $app-section-info;
 }
 
 //** Header component
@@ -343,7 +319,7 @@
   margin: 0 5px;
   text-align: center;
   color: #fff;
-  font-size: $font-size-small;
+  font-size: $font-size-sm;
 }
 
 @media (min-width: 768px) {

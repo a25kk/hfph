@@ -1,0 +1,39 @@
+//
+// Bootstrap variable overides
+//
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-flex:               true;
+$enable-rounded:            false;
+$enable-shadows:            false;
+$enable-gradients:          false;
+$enable-transitions:        false;
+$enable-hover-media-query:  false;
+$enable-grid-classes:       true;
+
+// Custom webfonts
+// $app-font-family-light:     "DINRoundWeb-Light";
+// $app-font-family-medium:    "DINRoundWeb-Medium";
+// $app-font-family-strong:    "DINRoundWeb";
+
+
+// $font-family-base:            $app-font-family-light, Arial, sans-serif;
+// $headings-font-family:        $app-font-family-medium, $font-family-base;
+// $headings-font-weight:        normal;
+
+//## Reset and adjust existing variables
+$brand-primary:                 $app-primary;
+$link-color:                    $app-primary;
+
+
+//** Navbar toggle
+$navbar-default-toggle-hover-bg:           #ddd;
+$navbar-default-toggle-icon-bar-bg:        #888;
+$navbar-default-toggle-border-color:       #ddd;
+
+//** Button primary uses default link color not brand primary
+$btn-primary-bg:                 $app-primary;
+$font-family-base:              'Open Sans', 'Trebuchet MS', $font-family-sans-serif;

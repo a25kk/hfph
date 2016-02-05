@@ -1,0 +1,12 @@
+.app-page {
+    padding: 1rem;
+    @include media-breakpoint-up(sm) {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+.app-page-headline {
+	font-size: 2rem;
+	font-weight: 700;
+}

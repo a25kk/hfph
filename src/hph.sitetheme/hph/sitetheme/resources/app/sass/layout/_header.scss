@@ -5,14 +5,14 @@
 
 .app-header {
   padding-top: 3rem;
-  @media (min-width: $grid-float-breakpoint-max) {
-    padding-left: $line-height-computed;
+   @include media-breakpoint-up(md) {
+    padding-left: $spacer;
     padding-bottom: 1rem;
   }
 }
 
 .app-header-content {
-  @media (min-width: $grid-float-breakpoint) {
+   @include media-breakpoint-up(md) {
     @extend .container;
     display: flex;
   }
@@ -30,7 +30,7 @@
 //
 //## Starting from the grid breakpoint the header
 //## should display in the standard 2:1 ratio
-@media (min-width: $grid-float-breakpoint-max) {
+ @include media-breakpoint-up(md) {
   .app-header-brandbar {
     flex: 0 0 66.6666%;
   }

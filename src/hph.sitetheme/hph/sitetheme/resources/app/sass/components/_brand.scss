@@ -5,90 +5,96 @@
 
 // Make a gridrow
 .app-brand {
-  display: flex;
-  align-items: center;
-  width: $screen-xs;
-  margin-right: $padding-small-horizontal;
-  &-panel-inverse {
-    width: 100%;
-  }
+    // display: flex;
+    @include make-row();
+    align-items: center;
+    margin-right: $spacer;
+    &-panel-inverse {
+        width: 100%;
+    }
+
 }
 
 //** Inline svg logo
 .app-brand-img {
-  display: block;
-  width: 140px;
-  &-xs {
-    width: 64px;
-  }
-  &-sm {
-    width: 64px;
-  }
-  &-md {
-    width: 128px;
-  }
-  &-lg {
-    width: 272.576px
-  }
-  .app-brand-panel & {
-    flex: 1;
-     @media (min-width: $grid-float-breakpoint) {
-        flex: 0 0 33.3333%;
-     }
-  }
-  .app-brand-panel-inverse & {
-    @media (min-width: $grid-float-breakpoint) {
-        flex: 0 0 25%;
+    display: block;
+    width: 140px;
+    &-xs {
+        width: 64px;
     }
-  }
+    &-sm {
+        width: 64px;
+    }
+    &-md {
+        width: 128px;
+    }
+    &-lg {
+        width: 272.576px
+    }
+    .app-brand-panel & {
+        @include make-col();
+        @include make-col-span(4);
+        @include media-breakpoint-up(md) {
+            @include make-col-span(3);
+        }
+    }
+    .app-brand-panel-inverse & {
+        @include make-col();
+        @include media-breakpoint-up(md) {
+            @include make-col-span(3);
+        }
+    }
 }
 
 .app-brandname-logo {
-  width: 140px;
-  .app-brand-img-xs & {
-    width: 32px;
-  }
-  .app-brand-img-sm & {
-    width: 64px;
-  }
-  .app-brand-img-md & {
-    width: 128px;
-  }
-  .app-brand-img-lg & {
-    width: 272px;
-  }
+    width: 100%;
+    margin: 0 0 1rem 0;
+    .app-header-brandbar & {
+        width: 64px;
+        @include media-breakpoint-up(sm) {
+            width: 128px;
+        }
+    }
 }
 
 // The actual brandname/title
 .app-brand-title {
-  //@include make-md-column(8);
+    //@include make-md-column(8);
 }
 
 .app-brandname {
-  display: block;
-  padding: $padding-small-horizontal $padding-small-vertical;
-  font-size: 1.65rem;
-  font-weight: 500;
-  line-height: 1.25;
-  color: $app-primary;
-  .app-brand-panel & {
-    flex: 1;
-     @media (min-width: $grid-float-breakpoint) {
-        flex: 0 0 66.6666%;
-     }
-    margin-top: -($line-height-computed);
-  }
-  .app-brand-panel-inverse & {
+    display: block;
+    padding: $spacer 0;
     font-size: 1.25rem;
-    line-height: 1;
-    color: #fff;
-    @media (min-width: $grid-float-breakpoint) {
-        flex: 0 0 75%;
+    font-weight: 500;
+    line-height: 1.25;
+    color: $app-primary;
+    .app-brand-panel & {
+        flex: 1;
+        @include media-breakpoint-up(md) {
+            flex: 0 0 66.6666%;
+        }
+        margin-top: -($spacer);
     }
-  }
+    .app-brand-panel-inverse & {
+        font-size: 1.25rem;
+        line-height: 1;
+        color: #fff;
+        @include media-breakpoint-up(md) {
+            flex: 0 0 75%;
+        }
+    }
+    @include media-breakpoint-up(sm) {
+        font-size: 1.65rem;
+    }
 }
 
 // Sitewide claim
 .app-brand-aside {
-  @include make-md-column(4);
+    @include make-col();
+    @include make-col-span(4);
+}
+
+.app-logo-mobile {
+    padding: $spacer $spacer 0 $spacer;
 }

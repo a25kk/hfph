@@ -3,48 +3,53 @@
 // -----------------------------------------
 
 .app-brandbar {
-  padding-top: ceil(($line-height-computed * 1.5));
-  @media (min-width: $grid-float-breakpoint-max) {
-    padding-left: $line-height-computed;
-    padding-bottom: ceil(($line-height-computed * 1.5));
-  }
+    padding-top: ($spacer * 1.5);
+    @include media-breakpoint-up(md) {
+        padding-left: $spacer;
+        padding-bottom: ($spacer * 1.5);
+    }
 }
 
 .app-brandbar-content {
-  @media (min-width: $grid-float-breakpoint) {
-    @extend .container;
-  }
+    @include media-breakpoint-up(md) {
+        @extend .container;
+    }
 }
 
 // Make a gridrow
 .app-brand {
-  @include make-row();
+    @include make-row();
 }
-
 // The actual brandname/title
 .app-brand-title {
-  @include make-md-column(8);
-}
-
-.app-brandname {
-  display: block;
-  padding: $padding-small-horizontal $padding-small-vertical;
-  font-size: 1.5rem;
-  font-weight: 500;
-  line-height: 1;
-  color: $app-primary;
-  .app-brandname-logo {
-    @extend .img-responsive;
-  }
-}
-
-.app-brandname-heading {
-  color: $app-primary;
-  font-size: $font-size-large;
-  font-weight: 400;
+    @include make-col();
+    @include media-breakpoint-up(md) {
+        @include make-col-span(8);
+    }
 }
 
 // Sitewide claim
 .app-brand-aside {
-  @include make-md-column(4);
+    @include make-col();
+    @include media-breakpoint-up(md) {
+        @include make-col-span(4);
+    }
 }
+
+
+// Styles for brand components
+.app-brandname {
+    max-width: 400px;
+    display: block;
+}
+
+.app-brandname-logo {
+    @extend .img-responsive;
+}
+
+.app-brandname-heading {
+    color: $app-primary;
+    font-size: $font-size-lg;
+    font-weight: 400;
+}
+
