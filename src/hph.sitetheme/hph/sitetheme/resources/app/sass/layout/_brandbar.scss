@@ -22,17 +22,17 @@
 }
 // The actual brandname/title
 .app-brand-title {
-    @include make-col();
+    @include make-col(12);
     @include media-breakpoint-up(md) {
-        @include make-col-span(8);
+        @include make-col(8);
     }
 }
 
 // Sitewide claim
 .app-brand-aside {
-    @include make-col();
+    @include make-col(12);
     @include media-breakpoint-up(md) {
-        @include make-col-span(4);
+        @include make-col(4);
     }
 }
 

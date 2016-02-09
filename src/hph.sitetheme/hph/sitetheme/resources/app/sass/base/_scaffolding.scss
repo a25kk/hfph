@@ -5,6 +5,7 @@
 
 //** Adjust font weight for initialized webfonts
 body {
+    background-color: $app-gray-light;
     .wf-active & {
         font-weight: 300;
     }

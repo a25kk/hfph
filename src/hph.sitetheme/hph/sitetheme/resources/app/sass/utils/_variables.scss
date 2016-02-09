@@ -17,6 +17,7 @@ $app-purple:                  rgba(126, 4, 167, 1);
 
 // Gray baseline
 $app-gray:                      rgba(64, 64, 64, 1);
+$app-gray-light:				#eee;
 
 // Brand danger
 $app-danger:                    $app-red;
@@ -43,6 +44,12 @@ $app-secondary:                   $app-secondary-base               !default; //
 $app-secondary-light:             lighten($app-secondary-base, 7.5%) !default;
 $app-secondary-lighter:           lighten($app-secondary-base, 15%) !default;
 
+
+//** Section IGP R: 239 G: 125 B: 0 (#ef7d00)
+$app-color-igp:					rgba(239, 125, 0, 1) !default;
+
+
+$app-link-color:				#5896c8;
 
 
 //** Brand primary color schema used as default

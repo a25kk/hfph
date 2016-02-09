@@ -14,19 +14,13 @@
 .app-action {
   flex: 1;
   padding: .5rem .25rem;
-  color: #fff;
-  background: $app-primary;
   text-align: center;
-  &:nth-child(even) {
-    color: #fff;
-    background: $app-secondary;
-  }
 }
 
 .app-action-search {
   flex: 1;
   color: $app-primary;
-  background: $app-gray;
+  background: $gray-light;
 }
 
 .app-searchbox-group {
@@ -40,7 +34,6 @@
 .app-searchbox-field {
   @extend .form-control;
   width: 66.6666%;
-  background-color: $app-gray;
   border-color: $app-gray;
     &::placeholder {
         color: $app-primary;

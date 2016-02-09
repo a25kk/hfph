@@ -9,4 +9,25 @@
 
 .app-footer-content {
   @extend .container;
+  padding: 1rem;
+  margin-top: .25rem;
+  margin-bottom: 1rem;
+  border-top: 5px solid $app-primary;
+  box-shadow: 0 0 5px 5px rgba(0,0,0,.05);
+  background-color: #fff;
+}
+
+.app-footer-actions {
+	@extend .nav;
+	@extend .nav-inline;
+}
+
+.app-footer-action {
+	@extend .nav-item;
+}
+
+.app-footer-link {
+	@extend .nav-link;
+	font-size: .85rem;
+	text-transform: uppercase;
 }

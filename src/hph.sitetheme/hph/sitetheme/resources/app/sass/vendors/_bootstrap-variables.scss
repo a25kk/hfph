@@ -26,7 +26,7 @@ $enable-grid-classes:       true;
 
 //## Reset and adjust existing variables
 $brand-primary:                 $app-primary;
-$link-color:                    $app-primary;
+$link-color:                    #5896c8;
 
 
 //** Navbar toggle
@@ -37,3 +37,6 @@ $navbar-default-toggle-border-color:       #ddd;
 //** Button primary uses default link color not brand primary
 $btn-primary-bg:                 $app-primary;
 $font-family-base:              'Open Sans', 'Trebuchet MS', $font-family-sans-serif;
+
+// Reset headings font-family to serif
+$headings-font-family: 			$font-family-serif;

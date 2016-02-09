@@ -6,9 +6,11 @@
 .app-pathbar {
     //@extend .breadcrumb;
   margin-top: 0;
+  padding: 0 .5rem;
   font-size: $font-size-sm;
   border-radius: 0;
-  background-color: transparent;
+  background-color: #eee;
+  box-shadow: 0 0 5px 5px rgba(0,0,0,.05);
   .breadcrumb {
   	background-color: transparent;
   	margin-bottom: 0;
@@ -34,8 +36,8 @@
      position: relative;
      padding: 0;
      + li:before {
-       content: " > ";
-       padding: 0 0.5rem;
+       content: " / ";
+       padding: 0 0.25rem;
        color: #000;
      }
    }

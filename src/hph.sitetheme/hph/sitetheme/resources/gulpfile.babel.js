@@ -195,7 +195,9 @@ gulp.task('serve', ['styles', 'scripts', 'jekyll-build', 'html'], () => {
     basePaths.app + '/*.html',
     basePaths.app + '/scripts/*.js',
     basePaths.app + '/styles/*.css',
-  ]).on('change', reload);
+  ]).on('change', function () {
+        browserSync.reload();
+    });
 
   gulp.watch(basePaths.app + "sass/**/*.scss", ['styles']);
   gulp.watch(basePaths.app + "scripts/**/*.js", ['scripts']);

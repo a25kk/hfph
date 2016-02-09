@@ -32,16 +32,14 @@
         width: 272.576px
     }
     .app-brand-panel & {
-        @include make-col();
-        @include make-col-span(4);
+        @include make-col(4);
         @include media-breakpoint-up(md) {
-            @include make-col-span(3);
+            @include make-col(3);
         }
     }
     .app-brand-panel-inverse & {
-        @include make-col();
         @include media-breakpoint-up(md) {
-            @include make-col-span(3);
+            @include make-col(3);
         }
     }
 }
@@ -91,8 +89,7 @@
 
 // Sitewide claim
 .app-brand-aside {
-    @include make-col();
-    @include make-col-span(4);
+    @include make-col(4);
 }
 
 .app-logo-mobile {
