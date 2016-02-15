@@ -1,13 +1,16 @@
 <header class="app-header" id="app-header" role="banner">
-  <div class="app-header-content">
-    <div class="app-header-panel app-header-brandbar">
-      {% include components/brandpanel.html %}
-    </div>
-    <div class="app-header-panel app-header-actionbar">
+  <div class="app-header-content app-header-content-main">
+    <div class="app-header-actionbar">
       {% include components/actionbar.html %}
     </div>
+    <div class="app-header-brandbar">
+      {% include components/brandpanel.html %}
+    </div>
   </div>
-  <div class="app-header-content">
+  <div class="app-header-content app-header-content-main" id="app-header-content-navbar">
     {% include components/navbar.html %}
+  </div>
+  <div class="app-header-content" id="app-header-content-subnavbar">
+    {% include components/navbar-sub.html %}
   </div>
 </header>

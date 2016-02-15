@@ -58,8 +58,11 @@
         <drop css:theme="#app-toolbar"
             css:if-content=".userrole-anonymous" />
 
+         <!-- toolbar -->
         <replace css:theme="#app-toolbar"
-            css:content="#app-toolbar" />
+            css:content="#edit-bar"
+            css:if-not-content=".ajax_load"
+            css:if-content=".userrole-authenticated"/>
 
         <!-- Logo (link target) -->
         <copy attributes="href" css:content="#portal-logo" css:theme="a.navbar-brand" />
@@ -70,8 +73,36 @@
             css:theme="#portal-searchbox" />-->
 
         <!-- Global navigation -->
-        <replace css:content="#portal-globalnav li"
+        <drop css:theme="#brandbar-label"
+            css:if-not-content="#brandbar-sectionname" />
+        <replace css:content="#brandbar-sectionname"
+            css:theme="#brandbar-sectionname" />
+
+        <replace css:content-children="#portal-navigation"
+            css:theme-children="#app-sections"
+            css:if-not-content="body.template-frontpage-view" />
+
+        <!-- FIXME: Global navigation -->
+        <!--<replace css:content-children="#portal-navigation"
+            css:theme-children="#app-navbar-main" />-->
+
+        <replace css:content-children="#portal-navigation"
+            css:theme-children="#app-navbar-main"
+            css:if-content="body.template-frontpage-view" />
+
+        <replace css:content-children="#portal-subnavigation"
             css:theme-children="#app-navbar-nav" />
+
+        <drop css:theme="#app-header-content-subnavbar"
+            css:if-not-content="#subsubsections" />
+        <replace css:content-children="#portal-subsubnavigation"
+            css:theme-children="#app-navbar-nav-sub" />
+
+        <drop css:theme="#app-tickerbar"
+            css:if-not-content="#app-tickerbar" />
+        <replace css:theme="#app-tickerbar"
+            css:content="#app-tickerbar"
+            css:if-content="#app-tickerbar" />
 
         <!-- Breadcrumbs -->
         <replace css:content-children='#portal-breadcrumbs'
@@ -126,9 +157,73 @@
         <replace css:content-children="#content"
             css:theme-children="#content" />
 
-        <before css:content=".portalMessage" css:theme="#content" />
-        <replace css:content-children="#viewlet-below-content"
-            css:theme-children="#app-below-main-content" />
+         <!-- Alert and portal messages -->
+        <strip css:content=".portalMessage dd"/>
+        <replace css:content=".portalMessage" >
+          <xsl:choose>
+              <xsl:when css:test=".portalMessage[style]"/>
+              <xsl:when css:test=".portalMessage">
+                  <div class="app-callout app-callout-default alert-dismissable" role="alert">
+                      <xsl:choose>
+                          <xsl:when css:test=".info">
+                              <xsl:attribute name="class">app-callout app-callout-success alert-dismissable</xsl:attribute>
+                          </xsl:when>
+                          <xsl:when css:test=".error">
+                              <xsl:attribute name="class">app-callout app-callout-danger alert-dismissable</xsl:attribute>
+                          </xsl:when>
+                          <xsl:when css:test=".warning">
+                              <xsl:attribute name="class">app-callout app-callout-warning alert-dismissable</xsl:attribute>
+                          </xsl:when>
+                      </xsl:choose>
+                      <h4><xsl:apply-templates select="./dt/*"/></h4>
+                      <xsl:apply-templates />
+                  </div>
+              </xsl:when>
+          </xsl:choose>
+        </replace>
+
+        <!-- Replace input elements (submit buttons and checkboxes) -->
+        <replace css:content="input">
+            <xsl:choose>
+                <xsl:when css:test="[type='submit'],[type='button']">
+                    <button>
+                        <xsl:copy-of select="@*" />
+                        <xsl:choose>
+                            <xsl:when css:test=".delete, .destructive, [value='Delete']">
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> btn btn-danger</xsl:attribute>
+                            </xsl:when>
+                            <xsl:when css:test=".searchButton, .context">
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> btn btn-primary</xsl:attribute>
+                            </xsl:when>
+                            <xsl:when css:test=".standalone, .submit, .submit-widget, [type='file']">
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> btn btn-default</xsl:attribute>
+                            </xsl:when>
+                            <xsl:otherwise>
+                              <xsl:attribute name="class"><xsl:value-of select="./@class" /> btn btn-default</xsl:attribute>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                        <xsl:value-of select="./@value"/>
+                    </button>
+                </xsl:when>
+                <xsl:when css:test="[type='text'][name$='.title'],#title, textarea">
+                    <xsl:copy>
+                        <xsl:copy-of select="@*" />
+                        <xsl:attribute name="class"><xsl:value-of select="./@class" /> form-control</xsl:attribute>
+                        <xsl:apply-templates />
+                    </xsl:copy>
+                </xsl:when>
+                <xsl:when css:test="[class='label checkboxType']">
+                    <xsl:copy>
+                        <xsl:copy-of select="@*" />
+                        <xsl:attribute name="class">checkboxType</xsl:attribute>
+                        <xsl:apply-templates />
+                    </xsl:copy>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:copy-of select="."/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </replace>
 
         <replace css:content=".configlets">
             <ul class="nav nav-list checkbox">

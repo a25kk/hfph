@@ -7,19 +7,33 @@
 //
 //## Provides optional fullscreen layouts
 .app-main {
-  @extend .container-fluid;
-  &-fullscreen {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
 }
 
-.app-content {
+.app-page {
   @extend .container;
-  &-centerstage {
-    @extend .container-fluid;
-    @extend .center-block;
-    max-width: 480px;
-  }
+  padding: 1rem;
+  box-shadow: 0 0 5px 5px rgba(0,0,0,.05);
+  background-color: #fff;
+}
+
+//** Add full height to layout components
+.app-content {
+    @include make-row()
+}
+
+.app-content-aside {
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+        @include make-col(3);
+        padding: 0 1rem 1rem 1rem;
+    }
+}
+
+.app-content-main {
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+        @include make-col(9);
+        padding: 0 1rem 0 0;
+    }
 }

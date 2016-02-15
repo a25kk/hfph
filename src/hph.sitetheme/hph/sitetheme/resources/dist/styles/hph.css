@@ -4290,7 +4290,7 @@ pre code
 .app-brandbar-content,
 .app-footer-content,
 .app-banner,
-.app-content
+.app-page
 {
     margin-right: auto;
     margin-left: auto;
@@ -4304,7 +4304,7 @@ pre code
     .app-brandbar-content,
     .app-footer-content,
     .app-banner,
-    .app-content
+    .app-page
     {
         max-width: 576px;
     }
@@ -4316,7 +4316,7 @@ pre code
     .app-brandbar-content,
     .app-footer-content,
     .app-banner,
-    .app-content
+    .app-page
     {
         max-width: 720px;
     }
@@ -4328,7 +4328,7 @@ pre code
     .app-brandbar-content,
     .app-footer-content,
     .app-banner,
-    .app-content
+    .app-page
     {
         max-width: 940px;
     }
@@ -4340,15 +4340,13 @@ pre code
     .app-brandbar-content,
     .app-footer-content,
     .app-banner,
-    .app-content
+    .app-page
     {
         max-width: 1140px;
     }
 }
 
-.container-fluid,
-.app-main,
-.app-content-centerstage
+.container-fluid
 {
     margin-right: auto;
     margin-left: auto;
@@ -10708,10 +10706,6 @@ div.riform .label
     background-color: #036;
 }
 
-.app-header
-{
-    padding-top: 3rem;
-}
 @media (min-width: 768px)
 {
     .app-header
@@ -10723,48 +10717,17 @@ div.riform .label
 
 .app-header-content
 {
-    padding: 1rem;
-
-    border-top: 5px solid #036;
-    background-color: #fff; 
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .05);
+    background-color: #fff;
 }
-@media (min-width: 768px)
+.app-header-content-main
 {
-    .app-header-content
-    {
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display:         flex;
-    }
+    border-top: 5px solid #036;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .05);
 }
 
 .app-header-content + .app-header-content
 {
     margin-top: 1.5rem;
-}
-
-.app-header-panel
-{
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-}
-
-@media (min-width: 768px)
-{
-    .app-header-brandbar
-    {
-        -webkit-flex: 0 0 66.6666%;
-            -ms-flex: 0 0 66.6666%;
-                flex: 0 0 66.6666%;
-    }
-    .app-header-actionbar
-    {
-        -webkit-flex: 0 0 33.3333%;
-            -ms-flex: 0 0 33.3333%;
-                flex: 0 0 33.3333%;
-    }
 }
 
 .app-brandbar
@@ -11262,7 +11225,7 @@ label
 {
     .app-header-brandbar .app-brandname-logo
     {
-        width: 128px;
+        width: 240px;
     }
 }
 
@@ -11436,6 +11399,15 @@ img[data-sizes='auto']
     display: block;
 
     width: 100%;
+}
+
+.app-actionbar
+{
+    display: block;
+
+    width: 100%;
+
+    border: 1px solid #404040;
 }
 
 .app-actions
@@ -12156,23 +12128,88 @@ body.template-frontpage-view .app-pathbar
     font-weight: 700;
 }
 
-.app-main-fullscreen
+.app-page
+{
+    padding: 1rem;
+
+    background-color: #fff; 
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .05);
+}
+
+.app-content
 {
     display: -webkit-flex;
     display: -ms-flexbox;
     display:         flex;
 
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-            align-items: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-            justify-content: center;
+    margin-right: -15px; 
+    margin-left: -15px;
+
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
 }
 
-.app-content-centerstage
+.app-content-aside
 {
-    max-width: 480px;
+    position: relative;
+
+    max-width: 100%; 
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+}
+@media (min-width: 768px)
+{
+    .app-content-aside
+    {
+        position: relative;
+
+        max-width: 25%;
+        min-height: 1px;
+        padding: 0 1rem 1rem 1rem; 
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -webkit-flex: 0 0 25%;
+            -ms-flex: 0 0 25%;
+                flex: 0 0 25%;
+    }
+}
+
+.app-content-main
+{
+    position: relative;
+
+    max-width: 100%; 
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+}
+@media (min-width: 768px)
+{
+    .app-content-main
+    {
+        position: relative;
+
+        max-width: 75%;
+        min-height: 1px;
+        padding: 0 1rem 0 0; 
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -webkit-flex: 0 0 75%;
+            -ms-flex: 0 0 75%;
+                flex: 0 0 75%;
+    }
 }
 
 .app-styleguide
@@ -12445,7 +12482,7 @@ body.template-frontpage-view .app-pathbar
 .sg-example .app-brandbar-content,
 .sg-example .app-footer-content,
 .sg-example .app-banner,
-.sg-example .app-content
+.sg-example .app-page
 {
     width: auto;
 }

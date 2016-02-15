@@ -4,7 +4,6 @@
 
 
 .app-header {
-  padding-top: 3rem;
    @include media-breakpoint-up(md) {
     padding-left: $spacer;
     padding-bottom: 1rem;
@@ -14,31 +13,14 @@
 .app-header-content {
    @include media-breakpoint-up(md) {
     @extend .container;
-    display: flex;
   }
-  padding: 1rem;
-  border-top: 5px solid $app-primary;
-  box-shadow: 0 0 5px 5px rgba(0,0,0,.05);
   background-color: #fff;
+  &-main {
+    border-top: 5px solid $app-primary;
+    box-shadow: 0 0 5px 5px rgba(0,0,0,.05);
+  }
 }
 
 .app-header-content + .app-header-content {
   margin-top: 1.5rem;
-}
-
-.app-header-panel {
-  flex: 1;
-}
-
-//== Adjust grid cell sizes
-//
-//## Starting from the grid breakpoint the header
-//## should display in the standard 2:1 ratio
- @include media-breakpoint-up(md) {
-  .app-header-brandbar {
-    flex: 0 0 66.6666%;
-  }
-  .app-header-actionbar {
-    flex: 0 0 33.3333%;
-  }
 }
