@@ -71,12 +71,12 @@
             </div>
 
             <form tal:attributes="action python:context.absolute_url()+'/'+template.id"
-                  class="enableAutoFocus app-signin-form"
+                  class="enableAutoFocus"
                   method="post"
                   id="login_form"
                   tal:condition="use_normal">
 
-                <div class="login-form" id="login-form">
+                <div id="login-form">
 
                     <input type="hidden"
                         name="came_from"
@@ -119,17 +119,15 @@
                     <input type="hidden" name="login_name" id="login_name" value="" />
                     <input type="hidden" name="pwd_empty" id="pwd_empty" value="0" />
 
-                    <div class="field app-signin-group app-signin-control app-signin-control-bordered"
+                    <div class="field"
                          tal:define="error python:errors.get(ac_name, None);"
-                         tal:attributes="class python:test(error, 'form-group app-signin-group app-signin-control has-error', 'form-group app-signin-group app-signin-control')">
-                      <div class="app-signin-field">
-                        <label class="signin-label"
-                               i18n:translate="label_login_name"
+                         tal:attributes="class python:test(error, 'field error', 'field')">
+
+                        <label i18n:translate="label_login_name"
                                tal:condition="not:use_email_as_login"
                                tal:attributes="for ac_name">Login Name</label>
 
-                        <label class="signin-label"
-                               i18n:translate="label_email"
+                        <label i18n:translate="label_email"
                                tal:condition="use_email_as_login"
                                tal:attributes="for ac_name">E-mail</label>
 
@@ -142,15 +140,14 @@
                                                id ac_name;
                                                value login_name;"
                                />
-                      </div>
+
                 </div>
 
-                <div class="field app-signin-group"
+                <div class="field"
                          tal:define="error python:errors.get(ac_password, None);"
-                         tal:attributes="class python:test(error, 'form-group app-signin-group app-signin-control has-error', 'form-group app-signin-group app-signin-control')">
-                    <div class="app-signin-field">
-                        <label class="signin-label"
-                              i18n:translate="label_password"
+                         tal:attributes="class python:test(error, 'field error', 'field')">
+
+                        <label i18n:translate="label_password"
                                tal:attributes="for ac_password">Password</label>
 
                         <div tal:condition="error"
@@ -158,11 +155,9 @@
 
                         <input type="password"
                                size="15"
-                               data-appui="pw-toggle"
                                tal:attributes="name ac_password;
                                                id ac_password;"
                                />
-                    </div>
                 </div>
 
                     <div class="field" tal:condition="ac_persist">
@@ -195,20 +190,19 @@
                         </tal:email>
 
                     </div>
-                    <div class="formControls">
-                      <div class="app-signin-field">
+                    <div class="form-actions text-right">
+                        <span tal:condition="python:mail_password_url and use_normal">
+                            <a class="btn btn-link btn-sm" tal:define="mail_password_url python:mail_password_url+test(mail_password_url.find('?')==-1, '?', '&amp;')+ztu.make_query(userid=login_name)"
+                                tal:attributes="href mail_password_url; target target;"
+                                i18n:translate="box_forgot_password_option">Forgot your password?</a>
+                        </span>
                         <input class="context"
                                type="submit"
                                name="submit"
                                value="Log in"
                                i18n:attributes="value label_log_in;"
                                />
-                        <span tal:condition="python:mail_password_url and use_normal">
-                            <a class="btn btn-link btn-sm" tal:define="mail_password_url python:mail_password_url+test(mail_password_url.find('?')==-1, '?', '&amp;')+ztu.make_query(userid=login_name)"
-                                tal:attributes="href mail_password_url; target target;"
-                                i18n:translate="box_forgot_password_option">Forgot your password?</a>
-                        </span>
-                      </div>
+
                     </div>
 
                 </div>

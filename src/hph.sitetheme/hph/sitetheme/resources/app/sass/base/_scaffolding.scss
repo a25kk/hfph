@@ -34,13 +34,14 @@ strong {
 
 // Remove dotted outline
 a {
-    outline: 0 !important;
+    outline: 0;
 }
 
 // Transistion link color on :hover state
 a:hover {
     transition: color 0.5s linear;
 }
+
 
 // Optional plone settings and adjustments
 // ---------------------------------------

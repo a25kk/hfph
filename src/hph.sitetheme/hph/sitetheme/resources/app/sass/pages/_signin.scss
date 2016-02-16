@@ -7,8 +7,12 @@
 }
 
 .app-signin-wrapper {
-    @extend .center-block;
+    margin: 2rem auto;
+    padding: $spacer;
     max-width: 480px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .app-signin {

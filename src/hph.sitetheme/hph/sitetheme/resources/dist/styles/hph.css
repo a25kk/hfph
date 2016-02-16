@@ -10648,7 +10648,7 @@ strong
 
 a
 {
-    outline: 0 !important;
+    outline: 0;
 }
 
 a:hover
@@ -10704,6 +10704,19 @@ div.riform .label
 .app-default-bg
 {
     background-color: #036;
+}
+
+.app-panel
+{
+    margin-bottom: 1rem;
+
+    background: #fff;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .05);
+}
+
+.app-panel-main
+{
+    border-top: 5px solid #036;
 }
 
 @media (min-width: 768px)
@@ -11064,12 +11077,8 @@ div.riform .label
 .app-footer-content
 {
     margin-top: .25rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; 
     padding: 1rem;
-
-    border-top: 5px solid #036;
-    background-color: #fff; 
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .05);
 }
 
 .app-footer-link
@@ -11917,6 +11926,12 @@ body.template-frontpage-view .app-pathbar
 .app-signin-wrapper
 {
     max-width: 480px;
+    margin: 2rem auto;
+    padding: 1rem;
+
+    border: 1px solid #fff;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .15);
 }
 
 .app-signin
