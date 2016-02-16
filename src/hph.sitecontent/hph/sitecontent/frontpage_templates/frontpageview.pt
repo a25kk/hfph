@@ -10,19 +10,18 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-    <section class="app-page app-content-fp" id="app-content"
+    <section class="app-content app-content-frontpage" id="app-content"
         tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                     portal_url context/portal_url">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-9" id="app-col-content">
-            <aside class="app-fp-tile" id="app-sidebar-fp">
-            <img class="img-section"
+        <div class="app-content-main" id="app-content-main">
+            <figure class="app-image" id="app-image">
+                <img class="img-fluid"
                 tal:define="portal_url context/portal_url"
                 tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/hph-muenchen.jpg';
                                 alt context/Description" />
-          </aside>
+            </figure>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3" id="app-col-sidebar">
+        <div class="app-content-aside" id="app-content-aside">
             <aside class="app-fp-tile" id="app-sidebar" >
                 <div class="app-box app-box-striped app-box-events">
                     <div class="app-box-header">
@@ -49,7 +48,6 @@
                 </div>
             </aside>
         </div>
-      </div>
     </section> <!-- /container app-content -->
 
 
