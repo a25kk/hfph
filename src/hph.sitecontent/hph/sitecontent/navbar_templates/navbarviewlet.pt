@@ -13,10 +13,11 @@
             <li tal:define="tab_id tab/id;
                             active python:selected == tab_id"
                 tal:attributes="id string:tab-${tab_id};
-                                class python:active and 'navitem active' or 'navitem'">
-                <a href=""
-                    tal:attributes="href tab/url"
-                    tal:content="tab/name" />
+                                class python:active and 'app-navitem active' or 'app-navitem'">
+                <a href="" class="app-navitem-tab"
+                    tal:attributes="href tab/url">
+                    <span tal:content="tab/name" />
+                </a>
             </li>
         </tal:sections>
     </ul>

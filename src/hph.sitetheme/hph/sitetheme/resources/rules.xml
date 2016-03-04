@@ -87,7 +87,7 @@
             css:theme-children="#app-navbar-main" />-->
 
         <replace css:content-children="#portal-navigation"
-            css:theme-children="#app-navbar-main"
+            css:theme-children="#app-navbar-nav"
             css:if-content="body.template-frontpage-view" />
 
         <replace css:content-children="#portal-subnavigation"
