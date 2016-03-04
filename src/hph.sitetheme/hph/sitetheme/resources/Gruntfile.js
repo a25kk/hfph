@@ -48,6 +48,11 @@ module.exports = function (grunt) {
                 dest: '<%= config.dist %>/scripts/<%= pkg.name %>.js'
             },
             theme: {
+                options: {
+                    banner: "require(['jquery'], function($) {'use strict';",
+                    footer: "});",
+                    stripBanners: true
+                },
                 src: [
                     '<%= config.modules %>/tether/dist/js/tether.min.js',
                     '<%= config.modules %>/bootstrap/dist/js/bootstrap.js',
@@ -146,11 +151,11 @@ module.exports = function (grunt) {
             }
         },
         copy: {
-            fontawesome: {
+            ionicons: {
                 expand: true,
                 flatten: true,
                 cwd: '<%= config.modules %>/',
-                src: ['font-awesome/fonts/*'],
+                src: ['ionicons/fonts/*'],
                 dest: '<%= config.dist %>/assets/fonts/'
             },
             showPassword: {
