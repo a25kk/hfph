@@ -28,7 +28,7 @@
 
     <div tal:replace="structure provider:plone.belowcontentbody" />
 
-  </article>
+  </section>
 
   </metal:content-core>
 </metal:main>
