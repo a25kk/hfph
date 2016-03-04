@@ -6,23 +6,18 @@
 //== Main content area
 //
 //## Provides optional fullscreen layouts
-.app-main {
-
-}
-
-.app-page {
+.app-main-content {
   @extend .container;
-  padding: 1rem;
-  box-shadow: 0 0 5px 5px rgba(0,0,0,.05);
-  background-color: #fff;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 //** Add full height to layout components
-.app-content {
+.app-section {
     @include make-row()
 }
 
-.app-content-aside {
+.app-section-aside {
     @include make-col(12);
     @include media-breakpoint-up(md) {
         @include make-col(3);
@@ -30,7 +25,7 @@
     }
 }
 
-.app-content-main {
+.app-section-main {
     @include make-col(12);
     @include media-breakpoint-up(md) {
         @include make-col(9);

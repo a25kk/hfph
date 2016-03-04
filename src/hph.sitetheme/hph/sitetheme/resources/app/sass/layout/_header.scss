@@ -4,21 +4,11 @@
 
 
 .app-header {
-   @include media-breakpoint-up(md) {
-    padding-left: $spacer;
-    padding-bottom: 1rem;
-  }
+
 }
 
 .app-header-content {
-   @include media-breakpoint-up(md) {
-    @extend .container;
-  }
-  background-color: #fff;
-  &-main {
-    border-top: 5px solid $app-primary;
-    box-shadow: 0 0 5px 5px rgba(0,0,0,.05);
-  }
+  @extend .container;
 }
 
 .app-header-content + .app-header-content {

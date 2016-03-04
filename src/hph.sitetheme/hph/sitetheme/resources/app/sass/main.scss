@@ -7,7 +7,7 @@
 @import 'utils/functions';
 @import 'utils/mixins.scss';
 
-@import 'vendors/font-awesome';
+@import 'vendors/ionicons';
 @import 'vendors/bootstrap';
 
 @import 'base/syntax';
@@ -22,8 +22,11 @@
 @import 'layout/footer';
 @import 'layout/forms';
 
+@import 'components/spinner';
+@import 'components/contextmenu';
 @import 'components/brand';
 @import 'components/configlets';
+@import 'components/paneleditor';
 @import 'components/media';
 @import 'components/actionbar';
 @import 'components/banner';
@@ -34,6 +37,7 @@
 
 @import 'pages/signin';
 @import 'pages/contentpage';
+@import 'pages/panelpage';
 
 @import 'themes/theme';
 @import 'themes/styleguide';

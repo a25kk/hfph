@@ -105,8 +105,19 @@
             css:if-content="#app-tickerbar" />
 
         <!-- Breadcrumbs -->
-        <replace css:content-children='#portal-breadcrumbs'
-            css:theme-children='#app-pathbar' />
+        <replace css:content="#portal-breadcrumbs" method="raw" if-content="//*[@id='breadcrumbs-1']">
+            <ol class="breadcrumb">
+                <xsl:for-each select="./div/ol/li[not(position() = last())]//a">
+                    <li>
+                        <xsl:apply-templates select="."/>
+                    </li>
+                </xsl:for-each>
+                <li class="active">
+                    <xsl:apply-templates select="./div/ol/li[position() = last()]/*"/>
+                </li>
+            </ol>
+        </replace>
+        <replace css:theme-children="#app-pathbar" css:content="#portal-breadcrumbs" />
 
         <!-- Login form rules -->
         <replace css:content-children="#content-core"

@@ -4,8 +4,8 @@
 
 
 .app-pathbar {
-    //@extend .breadcrumb;
-  margin-top: 0;
+  @extend .container;
+  margin-bottom: $spacer;
   padding: 0 .5rem;
   font-size: $font-size-sm;
   border-radius: 0;
