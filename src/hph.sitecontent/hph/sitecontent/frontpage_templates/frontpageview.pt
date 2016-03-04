@@ -10,10 +10,10 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-    <section class="app-content app-content-frontpage" id="app-content"
+    <section class="app-section app-content-frontpage" id="app-section"
         tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                     portal_url context/portal_url">
-        <div class="app-content-main" id="app-content-main">
+        <div class="app-section-main" id="app-content-main">
             <figure class="app-image" id="app-image">
                 <img class="img-fluid"
                 tal:define="portal_url context/portal_url"
@@ -21,7 +21,7 @@
                                 alt context/Description" />
             </figure>
         </div>
-        <div class="app-content-aside" id="app-content-aside">
+        <div class="app-section-aside" id="app-content-aside">
             <aside class="app-fp-tile" id="app-sidebar" >
                 <div class="app-box app-box-striped app-box-events">
                     <div class="app-box-header">
@@ -51,45 +51,36 @@
     </section> <!-- /container app-content -->
 
 
-     <aside class="app-aside" id="app-aside">
-        <div class="app-tile app-content-body" id="app-aside-content">
-             <div class="app-tile-news-content">
-                <div class="row"
-                    tal:condition="view/has_news">
-                    <tal:block tal:repeat="item view/recent_news">
-                      <div class="col-xs-12 col-sm-6 col-lg-3">
-                        <div class="app-box app-box-aside app-box-newsitem">
-                            <div class="app-box-header">
-                                <h4 class="app-box-heading">
-                                    <a tal:attributes="href item/getURL"
-                                        tal:content="item/Title">App Box Title</a>
-                                </h4>
-                            </div>
-                            <div class="app-box-body">
-                                <div class="app-box-item">
-                                    <a tal:attributes="href item/getURL">
-                                        <img tal:define="img python:view.constructImageTag(item);"
-                                            tal:attributes="class string:app-img;
-                                                            src img/url;
-                                                            width img/width;
-                                                            height img/height;
-                                                            alt item/Title" />
-                                    </a>
-                                    <p class="text-discreet" tal:content="item/Description" />
-                                </div>
-                            </div>
-                        </div>
-                      </div>
-                    </tal:block>
+     <aside class="app-cards app-gutter" id="app-section-aside" tal:condition="view/has_news">
+        <tal:block tal:repeat="item view/recent_news">
+          <div class="app-card">
+                <div class="app-card-header">
+                    <h4 class="app-card-title">
+                        <a tal:attributes="href item/getURL"
+                            tal:content="item/Title">App Box Title</a>
+                    </h4>
                 </div>
-                <div class="app-tile-footer text-right">
-                    <a class="btn btn-default btn-sm" href="#"
-                        tal:define="portal_url context/portal_url"
-                        tal:attributes="href python:portal_url + '/nachrichten'">
-                        Weitere Nachrichten</a>
+                <div class="app-card-main">
+                    <div class="app-card-item">
+                        <a tal:attributes="href item/getURL">
+                            <img tal:define="img python:view.constructImageTag(item);"
+                                tal:attributes="class string:app-img;
+                                                src img/url;
+                                                width img/width;
+                                                height img/height;
+                                                alt item/Title" />
+                        </a>
+                        <p class="text-discreet" tal:content="item/Description" />
+                    </div>
                 </div>
-            </div>
-      </div>
+          </div>
+        </tal:block>
+        <div class="app-card app-card-block">
+            <a class="btn btn-default btn-sm" href="#"
+                tal:define="portal_url context/portal_url"
+                tal:attributes="href python:portal_url + '/nachrichten'">
+                Weitere Nachrichten</a>
+        </div>
     </aside>
 
   </metal:content-core>

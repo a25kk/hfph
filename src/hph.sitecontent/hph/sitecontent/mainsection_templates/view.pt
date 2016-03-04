@@ -10,10 +10,10 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-  <section class="app-content" id="app-content"
+  <section class="app-section" id="app-content"
     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
                 portal_url context/portal_url">
-      <div class="app-content-main">
+      <div class="app-section-main">
           <figure class="app-image">
                 <tal:img tal:condition="context/image">
                     <img tal:define="img view/banner_image"
@@ -28,21 +28,21 @@
                     tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/banner-dummy.jpg'" />
           </figure>
       </div>
-      <div class="app-content-aside">
-        <div class="app-box app-box-striped app-box-events">
-          <div class="app-box-header">
-              <h4 class="app-box-heading">
+      <div class="app-section-aside">
+        <div class="app-card app-card-striped app-card-events">
+          <div class="app-card-header">
+              <h4 class="app-card-title">
                   <a href="#" tal:define="portal_url context/portal_url"
                       tal:attributes="href python:portal_url + '/termine'">
                       Aktuelle Termine</a>
               </h4>
           </div>
-          <div class="app-box-content"
+          <div class="app-card-main"
               data-appui="eventbox"
               tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
           </div>
-          <div class="app-box-footer text-right">
-              <a class="btn btn-default btn-sm" href="#"
+          <div class="app-card-footer text-md-right">
+              <a class="btn btn-secondary btn-sm" href="#"
                   tal:define="portal_url context/portal_url"
                   tal:attributes="href python:portal_url + '/termine'">
                   Weitere Termine
