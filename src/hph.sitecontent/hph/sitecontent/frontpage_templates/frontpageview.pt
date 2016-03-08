@@ -37,11 +37,11 @@
                     </div>
                     <div class="app-box-footer text-right"
                         tal:define="portal_url context/portal_url">
-                        <a class="btn btn-default btn-sm" href="#"
+                        <a class="app-btn app-btn-sm" href="#"
                             tal:attributes="href python:portal_url + '/termine'">
                             Weitere Termine
                         </a>
-                        <a class="btn btn-default btn-sm"
+                        <a class="app-btn app-btn-sm"
                             href="${portal_url}/studium/studiengaenge/termine">
                             Studientermine</a>
                     </div>
@@ -50,38 +50,41 @@
         </div>
     </section> <!-- /container app-content -->
 
-
-     <aside class="app-cards app-gutter" id="app-section-aside" tal:condition="view/has_news">
-        <tal:block tal:repeat="item view/recent_news">
-          <div class="app-card">
-                <div class="app-card-header">
-                    <h4 class="app-card-title">
-                        <a tal:attributes="href item/getURL"
-                            tal:content="item/Title">App Box Title</a>
-                    </h4>
-                </div>
-                <div class="app-card-main">
-                    <div class="app-card-item">
-                        <a tal:attributes="href item/getURL">
-                            <img tal:define="img python:view.constructImageTag(item);"
-                                tal:attributes="class string:app-img;
-                                                src img/url;
-                                                width img/width;
-                                                height img/height;
-                                                alt item/Title" />
-                        </a>
-                        <p class="text-discreet" tal:content="item/Description" />
+    <section class="app-panel-news" id="app-panel-news">
+        <aside class="app-cards app-gutter" id="app-section-aside" tal:condition="view/has_news">
+            <tal:block tal:repeat="item view/recent_news">
+              <div class="app-card">
+                    <div class="app-card-header">
+                        <h4 class="app-card-title">
+                            <a tal:attributes="href item/getURL"
+                                tal:content="item/Title">App Box Title</a>
+                        </h4>
                     </div>
-                </div>
-          </div>
-        </tal:block>
-        <div class="app-card app-card-block">
-            <a class="btn btn-default btn-sm" href="#"
+                    <div class="app-card-main">
+                        <div class="app-card-block">
+                            <a tal:attributes="href item/getURL">
+                                <img tal:define="img python:view.constructImageTag(item);"
+                                    tal:attributes="class string:app-img;
+                                                    src img/url;
+                                                    width img/width;
+                                                    height img/height;
+                                                    alt item/Title" />
+                            </a>
+                        </div>
+                        <div class="app-card-block">
+                            <p class="app-text-discreet" tal:content="item/Description" />
+                        </div>
+                    </div>
+              </div>
+            </tal:block>
+        </aside>
+        <div class="app-panel-news-actions">
+            <a class="app-btn" href="#"
                 tal:define="portal_url context/portal_url"
                 tal:attributes="href python:portal_url + '/nachrichten'">
                 Weitere Nachrichten</a>
         </div>
-    </aside>
+    </section>
 
   </metal:content-core>
 </metal:main>
