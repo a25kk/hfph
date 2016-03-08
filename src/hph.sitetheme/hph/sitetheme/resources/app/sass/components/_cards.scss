@@ -7,23 +7,26 @@
 //
 //## Use a grid layout for card listings
 .app-cards {
-  display: flex;
-  flex-wrap: wrap;
+    @include make-row();
 }
 
 //** Base card styles
 .app-card {
-  flex: 1;
-  padding: .5rem;
-  background-color: #fff;
-
+    @include make-col(12);
+    padding: .5rem;
+    background-color: #fff;
+    @include media-breakpoint-up(xs) {
+        @include make-col(6);
+    }
+    @include media-breakpoint-up(md) {
+        @include make-col(3);
+    }
 }
 
 //== Card layout
 //
 //## Reflow card contents based on viewport size
 .app-card-header {
-  display: flex;
   padding: 0 .5rem .5rem;
   font-family: $headings-font-family;
 }
@@ -40,7 +43,7 @@
 
 // Card content blocks
 .app-card-block {
-    padding: .5rem;
+    padding: .5rem .25rem;
 }
 
 //== Gutter

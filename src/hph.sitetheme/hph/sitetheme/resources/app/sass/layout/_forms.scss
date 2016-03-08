@@ -3,6 +3,15 @@
 //------------------------------------
 
 
+// Standard applciation button styles
+.app-btn {
+    @extend .btn;
+    @include button-outline-variant($app-primary);
+    &-sm {
+        @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-border-radius-sm);
+    }
+}
+
 //** Webfont specific adjustments
 label {
   font-weight: 700;

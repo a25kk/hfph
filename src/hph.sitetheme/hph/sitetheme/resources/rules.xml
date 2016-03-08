@@ -165,8 +165,17 @@
          </replace>
 
         <!-- Document Content -->
+        <!-- Frontpage exception -->
+        <replace css:content="#app-section"
+            css:theme-children="#content"
+            css:if-content=".template-frontpage-view" />
+        <replace css:content-children="#app-panel-news"
+            css:theme-children="#app-panel-news"
+            css:if-content=".template-frontpage-view" />
+        <!-- Standard content area -->
         <replace css:content-children="#content"
-            css:theme-children="#content" />
+            css:theme-children="#content"
+            css:if-not-content=".template-frontpage-view" />
 
         <!-- Fix table styles -->
         <replace css:content="table.listing">
