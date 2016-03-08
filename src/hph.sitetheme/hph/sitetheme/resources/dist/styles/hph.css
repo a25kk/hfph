@@ -12425,6 +12425,11 @@ div.riform .label
     margin-top: 1.5rem;
 }
 
+.app-header-brandbar
+{
+    padding: 1rem;
+}
+
 .app-brandbar
 {
     padding-top: 1.5rem;
@@ -12668,6 +12673,10 @@ div.riform .label
     .app-navitem
     {
         width: auto;
+
+        -webkit-flex: 0 0 20%;
+            -ms-flex: 0 0 20%;
+                flex: 0 0 20%;
     }
 }
 @media (min-width: 768px) and (min-width: 992px)
@@ -12698,6 +12707,11 @@ div.riform .label
     font-weight: 700;
     line-height: 1;
 
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+
+    height: 4rem;
     padding-right: .25rem;
     padding-bottom: .7rem;
     padding-left: .25rem;
@@ -12706,6 +12720,11 @@ div.riform .label
     text-transform: uppercase;
 
     color: #333;
+    background-color: #fc3;
+
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+            align-items: center;
 }
 @media (min-width: 992px)
 {
@@ -13752,6 +13771,8 @@ img[data-sizes='auto']
     display: block;
 
     width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
 
     border: 1px solid #404040;
 }

@@ -13,6 +13,8 @@
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_form" />
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
 
+    <theme href="dist/frontpage/index.html" css:if-content=".template-frontpage-view" />
+
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
 
@@ -78,7 +80,7 @@
         <replace css:content="#brandbar-sectionname"
             css:theme="#brandbar-sectionname" />
 
-        <replace css:content-children="#portal-navigation"
+        <replace css:content-children="#portal-navigation-base"
             css:theme-children="#app-sections"
             css:if-not-content="body.template-frontpage-view" />
 

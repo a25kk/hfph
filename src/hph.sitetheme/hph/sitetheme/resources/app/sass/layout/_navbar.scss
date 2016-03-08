@@ -106,6 +106,7 @@
     @include media-breakpoint-up(md) {
         //width: 16.66666667%;
         width: auto;
+        flex: 0 0 20%;
         @include media-breakpoint-up(lg) {
             background: transparent url("../assets/img/dot.png") no-repeat scroll right 10px;
             padding-left: 1rem;
@@ -122,10 +123,14 @@
 
 
 .app-navitem-tab {
+    display: flex;
+    height: 4rem;
+    align-items: center;
     padding-right: 0.25rem;
     padding-left: 0.25rem;
     padding-bottom: 0.7rem;
     color: #333;
+    background-color: $app-secondary;
     text-transform: uppercase;
     font-weight: 700;
     line-height: 1;
