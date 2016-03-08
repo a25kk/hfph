@@ -24,20 +24,23 @@
 //## Reflow card contents based on viewport size
 .app-card-header {
   display: flex;
-  padding: 0 .5rem;
+  padding: 0 .5rem .5rem;
   font-family: $headings-font-family;
 }
 
 //** Card content
 .app-card-main {
-  padding: .5rem;
-  border: 1px solid $app-gray;
   border-top: 4px solid $app-secondary;
 }
 
 //** Card footer
 .app-card-footer {
   padding: .5rem;
+}
+
+// Card content blocks
+.app-card-block {
+    padding: .5rem;
 }
 
 //== Gutter
