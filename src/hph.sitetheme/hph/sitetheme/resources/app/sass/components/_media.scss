@@ -1,19 +1,40 @@
+// Images and media support
+//
+
+//## Shim for exising classes
+.app-img {
+    @extend .img-fluid;
+    margin-bottom: .5rem;
+    line-height: 1;
+    background-color: $thumbnail-bg;
+    border: 1px solid $thumbnail-border;
+    border-top: 4px solid $app-secondary;
+    &-inverse {
+        border-color: #000;
+    }
+    &-placeholder {
+        width: 90px;
+        height: 140px;
+        text-align: center;
+        padding-top: 1.5rem;
+        color: $gray-lighter;
+    }
+}
+
 .app-page-leadimage {
   margin-bottom: 1rem;
   img {
     @extend.img-fluid;
-    width: 100%;
   }
 }
 
+
 .image-inline {
-  @extend.img-fluid;
-    width: 100%;
+    @extend.img-fluid;
 }
 
 .image-left {
-  @extend.img-fluid;
-    width: 100%;
+    @extend.img-fluid;
 }
 
 .embed-responsive {
