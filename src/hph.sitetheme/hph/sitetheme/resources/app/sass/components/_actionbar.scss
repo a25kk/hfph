@@ -3,50 +3,66 @@
 // -------------------------------------
 
 .app-actionbar {
-  display: block;
-  width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border: 1px solid $app-gray;
+    display: block;
+    margin-top: -5px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border: 1px solid $app-gray;
+    border-top: 5px solid $gray-light;
+    @include media-breakpoint-up(md) {
+        margin-left: 50%;
+    }
 }
 
 .app-actions {
-  display: flex;
-  font-size: 0.85rem;
+    @include media-breakpoint-up(sm) {
+        @include make-row();
+    }
+    font-size: 0.85rem;
 }
 
 .app-action {
-  flex: 1;
-  padding: .5rem .25rem;
-  text-align: center;
+    @include make-col(12);
+    @include media-breakpoint-up(sm) {
+        @include make-col(6);
+    }
+    padding: .5rem .25rem;
+    text-align: center;
 }
 
 .app-action-search {
-  flex: 1;
-  color: $app-primary;
-  background: $gray-light;
+    @include make-col(12);
+    @include media-breakpoint-up(sm) {
+        @include make-col(6);
+    }
+    color: $app-primary;
+    background: $gray-light;
+}
+
+.app-searchbox {
 }
 
 .app-searchbox-group {
-  display: flex;
-}
-
-.app-searchbox-control {
-  display: flex;
+    @include make-row();
+    flex-wrap: nowrap;
 }
 
 .app-searchbox-field {
   @extend .form-control;
-  width: 66.6666%;
-  border-color: $app-gray;
+  border-color: $gray-light;
     &::placeholder {
-        color: $app-primary;
+        color: $gray-light;
         // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
         opacity: 1;
     }
 }
 
+.app-searchbox-control {
+    @include make-col(9);
+    width: 75%;
+}
+
 .app-searchbox-btn {
-  flex: 0 0 33.3333%;
-  @include button-variant(#fff, $app-secondary, $app-secondary);
+    @include make-col(3);
+    @include button-variant(#000, #fff, $gray-light);
 }

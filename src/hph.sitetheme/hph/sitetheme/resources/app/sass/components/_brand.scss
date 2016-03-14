@@ -48,7 +48,7 @@
     width: 100%;
     margin: 0 0 1rem 0;
     .app-header-brandbar & {
-        width: 64px;
+        width: 240px;
         @include media-breakpoint-up(sm) {
             width: 240px;
         }

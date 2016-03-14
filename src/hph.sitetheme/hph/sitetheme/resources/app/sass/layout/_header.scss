@@ -17,6 +17,17 @@
   margin-top: 1.5rem;
 }
 
+.app-header-actionbar {
+	text-align: right;
+}
+
 .app-header-brandbar {
 	padding: 1rem;
+}
+
+.app-section-marker {
+	color: $gray-light;
+	font-size: 2rem;
+	text-align: right;
+	font-weight: 400;
 }

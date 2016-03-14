@@ -58,7 +58,7 @@ gulp.task('jekyll-build', function (done) {
 gulp.task('browser-sync', function () {
     browserSync.init({
         server: {
-            baseDir: "./"
+            baseDir: "./dist"
         }
     });
 });
@@ -194,7 +194,7 @@ gulp.task('serve', ['styles', 'scripts', 'jekyll-build', 'html'], () => {
   gulp.watch([
     basePaths.app + '/*.html',
     basePaths.app + '/scripts/*.js',
-    basePaths.app + '/styles/*.css',
+    basePaths.app + "sass/**/*.scss",
   ]).on('change', function () {
         browserSync.reload();
     });

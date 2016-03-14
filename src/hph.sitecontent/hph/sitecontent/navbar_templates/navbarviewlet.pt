@@ -9,12 +9,6 @@
         class="nav navbar-nav nav-justified"
         tal:define="navtree viewlet/main_sections;
                     selected viewlet/selected_section">
-        <li class="app-navitem app-navitem-home" id="tab-home">
-            <a href="" class="app-navitem-tab"
-                tal:attributes="href viewlet/portal_url">
-                Frontpage
-            </a>
-        </li>
         <tal:sections tal:repeat="tab navtree">
             <li tal:define="tab_id tab/id;
                             active python:selected == tab_id"

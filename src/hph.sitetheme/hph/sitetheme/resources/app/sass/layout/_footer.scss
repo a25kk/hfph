@@ -15,7 +15,9 @@
 
 .app-footer-actions {
 	@extend .nav;
-	@extend .nav-inline;
+	@include media-breakpoint-up(md) {
+		@extend .nav-inline;
+	}
 }
 
 .app-footer-action {

@@ -15,7 +15,7 @@
     @include make-col(12);
     padding: .5rem;
     background-color: #fff;
-    @include media-breakpoint-up(xs) {
+    @include media-breakpoint-up(sm) {
         @include make-col(6);
     }
     @include media-breakpoint-up(md) {
