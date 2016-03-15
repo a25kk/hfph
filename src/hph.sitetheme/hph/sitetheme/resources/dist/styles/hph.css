@@ -5243,6 +5243,7 @@ mark,
 }
 
 .img-fluid,
+.app-img,
 .app-page-leadimage img,
 .image-inline,
 .image-left
@@ -13717,23 +13718,34 @@ textarea
     background: rgba(255, 255, 255, .5);
 }
 
+.app-img
+{
+    line-height: 1;
+
+    margin-bottom: .5rem;
+
+    border: 1px solid #818a91;
+    border-top: 4px solid #fc3; 
+    background-color: #eceeef;
+}
+.app-img-inverse
+{
+    border-color: #000;
+}
+.app-img-placeholder
+{
+    width: 90px;
+    height: 140px;
+    padding-top: 1.5rem;
+
+    text-align: center;
+
+    color: #eceeef;
+}
+
 .app-page-leadimage
 {
     margin-bottom: 1rem;
-}
-.app-page-leadimage img
-{
-    width: 100%;
-}
-
-.image-inline
-{
-    width: 100%;
-}
-
-.image-left
-{
-    width: 100%;
 }
 
 .embed-responsive
@@ -14244,15 +14256,18 @@ body.template-frontpage-view .app-pathbar
 
 .app-card
 {
+    padding: .5rem;
+
+    background-color: #fff;
+}
+.app-cards .app-card
+{
     position: relative;
 
-    max-width: 100%;
+    max-width: 100%; 
     min-height: 1px;
-    padding: .5rem;
     padding-right: 15px;
     padding-left: 15px;
-
-    background-color: #fff; 
 
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
@@ -14260,7 +14275,7 @@ body.template-frontpage-view .app-pathbar
 }
 @media (min-width: 544px)
 {
-    .app-card
+    .app-cards .app-card
     {
         position: relative;
 
@@ -14276,7 +14291,7 @@ body.template-frontpage-view .app-pathbar
 }
 @media (min-width: 768px)
 {
-    .app-card
+    .app-cards .app-card
     {
         position: relative;
 

@@ -6,8 +6,8 @@
     @extend .img-fluid;
     margin-bottom: .5rem;
     line-height: 1;
-    background-color: $thumbnail-bg;
-    border: 1px solid $thumbnail-border;
+    background-color: $gray-lighter;
+    border: 1px solid $gray-light;
     border-top: 4px solid $app-secondary;
     &-inverse {
         border-color: #000;

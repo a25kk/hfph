@@ -12,14 +12,16 @@
 
 //** Base card styles
 .app-card {
-    @include make-col(12);
     padding: .5rem;
     background-color: #fff;
-    @include media-breakpoint-up(sm) {
-        @include make-col(6);
-    }
-    @include media-breakpoint-up(md) {
-        @include make-col(3);
+    @include when-inside('.app-cards') {
+        @include make-col(12);
+        @include media-breakpoint-up(sm) {
+            @include make-col(6);
+        }
+        @include media-breakpoint-up(md) {
+            @include make-col(3);
+        }
     }
 }
 
