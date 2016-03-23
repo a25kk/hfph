@@ -8,6 +8,9 @@
     line-height: ($spacer / 2);
     padding-left: 0;
     padding-right: 0;
+    &-sub {
+        background-color: #fff;
+    }
 }
 
 //== Navbar header
@@ -15,9 +18,15 @@
 //## Default display of global site navigation
 //## Hidden on larger displays
 .app-navbar-header {
-    flex: 0 0 10%;
+    flex: 0 0 50px;
     padding: 0;
     background: transparent;
+    &-sub {
+        display: block;
+        @include media-breakpoint-up(sm) {
+            display: none;
+        }
+    }
 }
 
 .app-navbar-header-title {
@@ -116,8 +125,12 @@
     }
     @extend .clearfix;
     @include media-breakpoint-up(md) {
-        justify-content: space-between;
+        justify-content: center;
     }
+}
+
+.app-navbar-nav-sub {
+    height: 50px;
 }
 
 //== Navitems
@@ -126,13 +139,20 @@
 .app-navitem {
     width: 100%;
     @include media-breakpoint-up(md) {
-    width: auto;
-    flex: 0 0 25%;
-    padding-right: 0px;
-    &:last-child {
-      padding-right: 0;
+        width: auto;
+        flex: 1 0 10%;
+        @include when-inside('.template-frontpage-view') {
+            flex: 0 0 25%;
+        }
+        padding-right: 0px;
+        &:last-child {
+            padding-right: 0;
+        }
     }
-  }
+}
+
+.app-navitem-sub {
+    flex: 1 0 auto;
 }
 
 

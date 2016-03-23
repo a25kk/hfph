@@ -50,10 +50,12 @@
                             item_url item/getURL;
                             selected tab/marker"
                 tal:attributes="id string:tab-${item_id};
-                                class python:selected and 'navitem active' or 'navitem'">
+                                class python:selected and 'app-navitem active' or 'app-navitem'">
                 <a href=""
-                    tal:attributes="href item_url"
-                    tal:content="item_title" />
+                    class="app-navitem-tab"
+                    tal:attributes="href item_url">
+                    <span tal:content="item_title" />
+                </a>
             </li>
         </tal:sections>
     </ul>
@@ -69,8 +71,9 @@
                             item_url item/getURL;
                             selected tab/marker"
                 tal:attributes="id string:tab-${item_id};
-                                class python:selected and 'navitem active' or 'navitem'">
+                                class python:selected and 'app-navitem app-navitem-sub active' or 'app-navitem app-navitem-sub'">
                 <a href=""
+                   class="app-navitem-base-tab"
                     tal:attributes="href item_url"
                     tal:content="item_title" />
             </li>
