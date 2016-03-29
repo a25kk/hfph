@@ -14,6 +14,14 @@
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
 
     <theme href="dist/frontpage/index.html" css:if-content=".template-frontpage-view" />
+    <theme href="dist/frontpage/index.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />
+
+    <!-- Project specific theme files -->
+    <theme href="dist/theme-igp/index.html" css:if-content="body.subsection-institute-gesellschaftspolitik" />
+    <!--<theme href="dist/pp/index.html" css:if-content="body.section-pro-philosophia" />-->
+    <!-- Opac und newsletter templates -->
+    <!--><theme href="dist/opac/index.html" css:if-content="body.subsection-bibliotheken-opac-recherche" />
+    <theme href="dist/newsletter/index.html" css:if-content="body.section-newsletter" />-->
 
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
@@ -84,10 +92,6 @@
         <replace css:content-children="#portal-navigation-base"
             css:theme-children="#app-sections"
             css:if-not-content="body.template-frontpage-view" />
-
-        <!-- FIXME: Global navigation -->
-        <!--<replace css:content-children="#portal-navigation"
-            css:theme-children="#app-navbar-main" />-->
 
         <replace css:content-children="#portal-navigation"
             css:theme-children="#app-navbar-nav"

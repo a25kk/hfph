@@ -11,26 +11,28 @@
                     selected viewlet/selected_section">
         <tal:sections tal:repeat="tab navtree">
             <li tal:define="tab_id tab/id;
-                            active python:selected == tab_id"
+                            active python:selected == tab_id;
+                            is_last repeat/tab/end"
                 tal:attributes="id string:tab-${tab_id};
                                 class python:active and 'app-navitem active' or 'app-navitem'">
                 <a href="" class="app-navitem-tab"
-                    tal:attributes="href tab/url">
+                    tal:attributes="href tab/url;
+                                    class python:is_last and 'app-navitem-tab app-navitem-tab-last' or 'app-navitem-tab'">
                     <span tal:content="tab/name" />
                 </a>
             </li>
         </tal:sections>
     </ul>
     <ul id="portal-navigation-base"
-        class="nav nav-justified"
+        class="app-actionbar-nav"
         tal:define="navtree viewlet/main_sections;
                     selected viewlet/selected_section">
         <tal:sections tal:repeat="tab navtree">
             <li tal:define="tab_id tab/id;
                             active python:selected == tab_id"
                 tal:attributes="id string:tab-${tab_id};
-                                class python:active and 'app-navitem-base active' or 'app-navitem-base'">
-                <a href="" class="app-navitem-base-link"
+                                class python:active and 'app-actionbar-nav-item active' or 'app-actionbar-nav-item'">
+                <a href="" class="app-actionbar-nav-link"
                     tal:attributes="href tab/url">
                     <span tal:content="tab/name" />
                 </a>
@@ -48,12 +50,14 @@
                             item_id item/getId;
                             item_title item/Title;
                             item_url item/getURL;
-                            selected tab/marker"
+                            selected tab/marker;
+                            is_last repeat/tab/end"
                 tal:attributes="id string:tab-${item_id};
                                 class python:selected and 'app-navitem active' or 'app-navitem'">
                 <a href=""
                     class="app-navitem-tab"
-                    tal:attributes="href item_url">
+                    tal:attributes="href item_url;
+                                    class python:is_last and 'app-navitem-tab app-navitem-tab-last' or 'app-navitem-tab'">
                     <span tal:content="item_title" />
                 </a>
             </li>
@@ -69,13 +73,15 @@
                             item_id item/getId;
                             item_title item/Title;
                             item_url item/getURL;
-                            selected tab/marker"
+                            selected tab/marker;
+                            is_last repeat/tab/end"
                 tal:attributes="id string:tab-${item_id};
                                 class python:selected and 'app-navitem app-navitem-sub active' or 'app-navitem app-navitem-sub'">
                 <a href=""
                    class="app-navitem-base-tab"
-                    tal:attributes="href item_url"
-                    tal:content="item_title" />
+                    tal:attributes="href item_url;
+                                    class python:is_last and 'app-navitem-tab-base app-navitem-tab-last' or 'app-navitem-tab-base'">
+                    <span tal:content="item_title" /></a>
             </li>
         </tal:sections>
     </ul>

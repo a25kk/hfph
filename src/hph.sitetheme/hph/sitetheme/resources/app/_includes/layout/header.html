@@ -4,7 +4,12 @@
       {% include components/actionbar.html %}
     </div>
     <div class="app-header-brandbar">
-      {% include components/brandbar.html %}
+        {% if page.theme == "default" %}
+            {% include components/brandbar.html %}
+        {% endif %}
+        {% if page.theme == "igp" %}
+            {% include components/brandbar-igp.html %}
+        {% endif %}
     </div>
     {% include components/navbar.html %}
   </div>

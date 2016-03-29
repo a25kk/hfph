@@ -30,6 +30,15 @@
     text-align: center;
 }
 
+// Global section and language switcher
+.app-actionbar-nav {
+    @extend .nav;
+}
+
+.app-actionbar-nav-item {
+    display: inline-block;
+}
+
 .app-action-search {
     @include make-col(12);
     @include media-breakpoint-up(sm) {
@@ -37,32 +46,4 @@
     }
     color: $app-primary;
     background: $gray-light;
-}
-
-.app-searchbox {
-}
-
-.app-searchbox-group {
-    @include make-row();
-    flex-wrap: nowrap;
-}
-
-.app-searchbox-field {
-  @extend .form-control;
-  border-color: $gray-light;
-    &::placeholder {
-        color: $gray-light;
-        // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
-        opacity: 1;
-    }
-}
-
-.app-searchbox-control {
-    @include make-col(9);
-    width: 75%;
-}
-
-.app-searchbox-btn {
-    @include make-col(3);
-    @include button-variant(#000, #fff, $gray-light);
 }

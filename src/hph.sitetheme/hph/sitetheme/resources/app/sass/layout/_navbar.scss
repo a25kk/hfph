@@ -37,8 +37,9 @@
     height: 50px;
     font-size: 1.5rem;
     line-height: 1.5rem;
+    background-color: $app-primary;
     &:hover {
-        background-color: $app-primary;
+        background-color: $app-secondary;
     }
 }
 
@@ -105,9 +106,10 @@
 
 
 .app-navbar-collapse {
-    flex: 0 0 90%;
-    //margin-left: -30px !important;
-    //margin-right: -30px !important;
+    flex: 0 0 calc(100% - 50px);
+    &-secondary {
+        flex: 0 0 100%;
+    }
 }
 
 // Unordered list main navigation
@@ -116,6 +118,8 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: space-around;
+    width: 100%;
     margin-bottom: 0;
     padding: 0;
     list-style: none;
@@ -125,12 +129,14 @@
     }
     @extend .clearfix;
     @include media-breakpoint-up(md) {
-        justify-content: center;
+        justify-content: space-around;
     }
 }
 
 .app-navbar-nav-sub {
     height: 50px;
+    width: 100%;
+    justify-content: flex-start;
 }
 
 //== Navitems
@@ -140,7 +146,7 @@
     width: 100%;
     @include media-breakpoint-up(md) {
         width: auto;
-        flex: 1 0 10%;
+        flex: 1 1 25%;
         @include when-inside('.template-frontpage-view') {
             flex: 0 0 25%;
         }
@@ -163,13 +169,16 @@
     color: $app-primary;
     background-color: $app-secondary;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1;
     text-transform: uppercase;
     // text-align: center;
     transition: background-color 0.5s ease;
     border-right: 1px solid rgba(0, 0, 0, .1);
     border-left: 1px solid rgba(255, 255, 255, .75);
+    &-last {
+        border-right: none;
+    }
     &:hover {
       color: #fff;
       background-color: darken($app-primary, 6.5%);
@@ -190,5 +199,33 @@
     @include when-inside('.app-navitem-home') {
         content: "\f24f";
         font-family: "ionicons";
+    }
+}
+
+.app-navitem-tab-base {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    color: $app-primary;
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 1;
+    transition: background-color 0.5s ease;
+    &:hover {
+        color: #fff;
+        background-color: darken($app-primary, 6.5%);
+        text-decoration: none;
+    }
+    > span {
+        display: block;
+        margin-left: $spacer;
+        @include media-breakpoint-up(md) {
+            margin: 0 auto;
+        }
+    }
+    @include media-breakpoint-up(md) {
+        height: 50px;
+        min-height: 50px;
+        text-align: center;
     }
 }
