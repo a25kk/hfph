@@ -13014,10 +13014,6 @@ div.riform .label
 {
     line-height: .5rem;
 
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display:         flex;
-
     padding-right: 0; 
     padding-left: 0;
 
@@ -13026,6 +13022,15 @@ div.riform .label
 .app-navbar-sub
 {
     background-color: #fff;
+}
+@media (min-width: 544px)
+{
+    .app-navbar
+    {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display:         flex;
+    }
 }
 
 .app-navbar-header
@@ -13067,18 +13072,25 @@ div.riform .label
     -webkit-align-items: center;
     -ms-flex-align: center;
             align-items: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-            justify-content: center;
 }
 .app-navbar-header-title:hover
 {
     background-color: #fc3;
 }
+@media (min-width: 544px)
+{
+    .app-navbar-header-title
+    {
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+                justify-content: center;
+    }
+}
 
 .app-navbar-brand
 {
-    max-width: 50%;
+    max-width: 50%; 
+    margin-left: 1rem;
 }
 
 .app-navbar-brand-title
@@ -13110,6 +13122,8 @@ div.riform .label
 .app-navbar-header-toggle
 {
     float: right !important;
+
+    margin-top: -3rem;
 }
 
 @media (min-width: 544px)
@@ -13141,8 +13155,9 @@ div.riform .label
     font-size: 1.25rem;
     line-height: 1;
 
-    padding: .5rem .75rem;
+    padding: .5rem .5rem;
 
+    color: #fff;
     border: 1px solid transparent; 
     background: none;
 }
@@ -13214,11 +13229,17 @@ div.riform .label
 .app-navbar-nav-sub
 {
     width: 100%;
-    height: 50px;
+}
+@media (min-width: 544px)
+{
+    .app-navbar-nav-sub
+    {
+        height: 50px;
 
-    -webkit-justify-content: flex-start;
-    -ms-flex-pack: start;
-            justify-content: flex-start;
+        -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+                justify-content: flex-start;
+    }
 }
 
 .app-navitem
@@ -14395,8 +14416,6 @@ img[data-sizes='auto']
     display: block;
 
     margin-top: -5px;
-    padding-right: 1rem;
-    padding-left: 1rem;
 
     border: 1px solid #404040;
     border-top: 5px solid #818a91;
@@ -14404,6 +14423,13 @@ img[data-sizes='auto']
 @media (min-width: 768px)
 {
     .app-actionbar
+    {
+        margin-right: 1rem; 
+        margin-left: 33.3333%;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+    .template-frontpage-view .app-actionbar
     {
         margin-left: 50%;
     }
@@ -14467,38 +14493,29 @@ img[data-sizes='auto']
 {
     display: inline-block;
 }
+.app-actionbar-nav-item:not(:last-child)
+{
+    margin-right: .25rem;
+}
+
+.app-actionbar-nav-link
+{
+    display: block;
+
+    padding: .5rem;
+
+    text-transform: uppercase;
+}
+.app-actionbar-nav-item-section .app-actionbar-nav-link
+{
+    padding-right: .1rem;
+    padding-left: .1rem;
+}
 
 .app-action-search
 {
-    position: relative;
-
-    max-width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-
     color: #036;
-    background: #818a91; 
-
-    -webkit-flex: 0 0 100%;
-        -ms-flex: 0 0 100%;
-            flex: 0 0 100%;
-}
-@media (min-width: 544px)
-{
-    .app-action-search
-    {
-        position: relative;
-
-        max-width: 50%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
-
-        -webkit-flex: 0 0 50%;
-            -ms-flex: 0 0 50%;
-                flex: 0 0 50%;
-    }
+    background: #818a91;
 }
 
 .app-searchbox

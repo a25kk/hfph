@@ -14,7 +14,7 @@
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
 
     <theme href="dist/frontpage/index.html" css:if-content=".template-frontpage-view" />
-    <theme href="dist/frontpage/index.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />
+    <!--<theme href="dist/frontpage/index.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />-->
 
     <!-- Project specific theme files -->
     <theme href="dist/theme-igp/index.html" css:if-content="body.subsection-institute-gesellschaftspolitik" />
@@ -84,10 +84,10 @@
             css:theme="#portal-searchbox" />-->
 
         <!-- Global navigation -->
-        <drop css:theme="#brandbar-label"
+        <drop css:theme="#app-section-marker"
             css:if-not-content="#brandbar-sectionname" />
-        <replace css:content="#brandbar-sectionname"
-            css:theme="#brandbar-sectionname" />
+        <replace css:content-children="#brandbar-sectionname"
+            css:theme-children="#app-section-marker" />
 
         <replace css:content-children="#portal-navigation-base"
             css:theme-children="#app-sections"

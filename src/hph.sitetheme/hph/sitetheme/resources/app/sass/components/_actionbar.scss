@@ -5,12 +5,16 @@
 .app-actionbar {
     display: block;
     margin-top: -5px;
-    padding-left: 1rem;
-    padding-right: 1rem;
     border: 1px solid $app-gray;
     border-top: 5px solid $gray-light;
     @include media-breakpoint-up(md) {
-        margin-left: 50%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-left: 33.3333%;
+        margin-right: 1rem;
+        @include when-inside('.template-frontpage-view') {
+            margin-left: 50%;
+        }
     }
 }
 
@@ -37,13 +41,26 @@
 
 .app-actionbar-nav-item {
     display: inline-block;
+    &:not(:last-child) {
+        margin-right: .25rem;
+    }
+}
+
+.app-actionbar-nav-link {
+    display: block;
+    padding: .5rem;
+    text-transform: uppercase;
+    @include when-inside('.app-actionbar-nav-item-section') {
+        padding-right: .1rem;
+        padding-left: .1rem;
+    }
 }
 
 .app-action-search {
-    @include make-col(12);
-    @include media-breakpoint-up(sm) {
-        @include make-col(6);
-    }
+    //@include make-col(12);
+    //@include media-breakpoint-up(sm) {
+    //    @include make-col(6);
+    //}
     color: $app-primary;
     background: $gray-light;
 }
