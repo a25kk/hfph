@@ -79,15 +79,9 @@ class MemberTool(grok.GlobalUtility):
         registration = api.portal.get_tool(name='portal_registration')
         pas = api.portal.get_tool(name='acl_users')
         generator = getUtility(IUUIDGenerator)
-        try:
-            existing_user = api.user.get(username=data['email'])
-            has_account = True
-            logger.info("Existing user record for {0}".format(data['email']))
-        except:
-            has_account = False
-
+        existing_user = api.user.get(username=data['email'])
         info = {}
-        if has_account:
+        if existing_user is not None:
             user = existing_user
             user_id = user.getId()
             info['created'] = False
