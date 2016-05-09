@@ -150,3 +150,10 @@ class UserAccount(grok.View):
         IStatusMessage(self.request).addStatusMessage(
             _(u"You are now logged in."), "info")
         self.request.response.redirect(next_url)
+
+
+class UserAccountError(grok.View):
+    grok.context(INavigationRoot)
+    grok.implements(IPublishTraverse)
+    grok.require('zope2.View')
+    grok.name('useraccount-error')
