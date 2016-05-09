@@ -1,13 +1,16 @@
 import datetime
 import json
 import time
+
+from Products.CMFPlone.utils import safe_unicode
 from five import grok
 from plone import api
 from zope.component import getUtility
+from zope.interface import alsoProvides
 from zope.lifecycleevent import modified
-from Products.CMFPlone.utils import safe_unicode
 
 from plone.app.layout.navigation.interfaces import INavigationRoot
+from plone.protect.interfaces import IDisableCSRFProtection
 
 from hph.membership.tool import api_group_mapper
 from hph.membership.tool import user_group_mapper
@@ -31,6 +34,10 @@ class MemberRecords(grok.View):
     grok.context(INavigationRoot)
     grok.require('cmf.ManagePortal')
     grok.name('member-record-updater')
+
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+        return self.render()
 
     def render(self):
         status = self._process_update()
