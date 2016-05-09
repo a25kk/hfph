@@ -22,6 +22,7 @@ class UserAccount(grok.View):
         self.key = self.traverse_subpath[0]
         self.token = self.traverse_subpath[1]
         self.errors = {}
+        self.can_set_password = self.has_valid_token(self.token)
         unwanted = ('_authenticator', 'form.button.Submit')
         required = ('title')
         if 'form.button.Submit' in self.request:
@@ -141,3 +142,10 @@ class UserAccount(grok.View):
         IStatusMessage(self.request).addStatusMessage(
             _(u"You are now logged in."), "info")
         self.request.response.redirect(next_url)
+
+
+class UserAccountError(grok.View):
+    grok.context(INavigationRoot)
+    grok.implements(IPublishTraverse)
+    grok.require('zope2.View')
+    grok.name('useraccount-error')

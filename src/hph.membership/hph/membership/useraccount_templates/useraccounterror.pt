@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+    <div class="tile-content">
+        <section id="content-core">
+          <h2 i18n:translate="">Activate account</h2>
+          <p i18n:translate="">
+            We are sorry to inform you that this request can not be processed.
+          </p>
+            <hr>
+              <p i18n:translate="">Please check wether the requested URL is complete and contains the required
+                access token to verify your identity. If the url is correct and the error persists it is
+                most likely due to an incorrectly generated user account. Our team has already been informed
+                about this error by our automatic exception handler system.
+              </p>
+              <p i18n:translate="">Should you encounter this error repeatedly than do not
+                hesitate to contact our website team and we will try to resolve the specific issue.
+              </p>
+
+          </section>
+        </div>
+  </metal:content-core>
+</metal:main>
+</body>
+</html>
