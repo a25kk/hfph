@@ -187,6 +187,9 @@ else window.onload = downloadJSAtOnload;
         <replace css:content-children="#content"
                 css:theme-children="#app-signin-content"
                 css:if-content="body.template-useraccount" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-useraccount-error" />
 
         <!-- Discourse error -->
         <!-- Login form rules -->
