@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2015-02-23 19:58+0000\n"
+"POT-Creation-Date: 2016-05-09 10:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: hph.membership\n"
 
-#: ./../workspace_templates/view.pt:102
+#: ./../workspace_templates/view.pt:103
 msgid "A list of content items you are asigned as a contributor"
 msgstr ""
 
@@ -30,6 +30,7 @@ msgid "A new user acount has successfully been created"
 msgstr ""
 
 #: ./../useraccount_templates/useraccount.pt:14
+#: ./../useraccount_templates/useraccounterror.pt:14
 msgid "Activate account"
 msgstr ""
 
@@ -54,7 +55,7 @@ msgstr ""
 msgid "Again for confirmation"
 msgstr ""
 
-#: ./../asignment_templates/asignmentusers.pt:53
+#: ./../asignment_templates/asignmentusers.pt:54
 msgid "Allow user to contribute in this context"
 msgstr ""
 
@@ -65,10 +66,6 @@ msgstr ""
 #: ./../asignment_templates/asignmentusers.pt:17
 #: ./../asignment_templates/asignmentview.pt:17
 msgid "Asignment"
-msgstr ""
-
-#: ./../workspace_templates/view.pt:100
-msgid "Asignments"
 msgstr ""
 
 #: ./../discourse_templates/discoursessoerror.pt:19
@@ -131,6 +128,10 @@ msgstr ""
 msgid "Enumerating all registered users would have certain performance implications and therefore a user group must be selected"
 msgstr ""
 
+#: ./../configure.zcml:35
+msgid "Extension profile for HPH user management and membership tools"
+msgstr ""
+
 #: ./../memberfolder.py:269
 msgid "External records stored for import"
 msgstr ""
@@ -147,6 +148,10 @@ msgstr ""
 msgid "HPH Membership Tool"
 msgstr ""
 
+#: ./../configure.zcml:35
+msgid "HPH user management and membership tools"
+msgstr ""
+
 #: ./../discourse_templates/discoursessoerror.pt:23
 msgid "If you see this page than either the url you were trying to open does not exist or an error happened when trying to authenticate your credentials."
 msgstr ""
@@ -155,7 +160,7 @@ msgstr ""
 msgid "Importable API Records"
 msgstr ""
 
-#: ./../tool.py:123
+#: ./../tool.py:126
 msgid "Invitation to join the HfPH portal"
 msgstr ""
 
@@ -167,7 +172,7 @@ msgstr ""
 msgid "Invite new users by passing a list of email addresses"
 msgstr ""
 
-#: ./../asignment_templates/asignmentusers.pt:63
+#: ./../asignment_templates/asignmentusers.pt:64
 msgid "Klick to remove user asignment"
 msgstr ""
 
@@ -240,13 +245,17 @@ msgstr ""
 msgid "No activity recorded yet"
 msgstr ""
 
-#: ./../asignment.py:96
+#: ./../asignment.py:97
 #: ./../workspace.py:49
 msgid "No email provided"
 msgstr ""
 
-#: ./../useraccount.py:71
-msgid "No stored acces token found"
+#: ./../useraccount.py:73
+msgid "No matching user account found"
+msgstr ""
+
+#: ./../useraccount.py:80
+msgid "No stored access token found"
 msgstr ""
 
 #: ./../asignment_templates/asignmentusers.pt:25
@@ -258,7 +267,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: ./../useraccount.py:105
+#: ./../useraccount.py:114
 msgid "Passwords must consist of at least 8 characters"
 msgstr ""
 
@@ -266,7 +275,7 @@ msgstr ""
 msgid "Passwords require a minimum length of 8 characters."
 msgstr ""
 
-#: ./../workspace_templates/view.pt:124
+#: ./../workspace_templates/view.pt:100
 msgid "Personal Contents"
 msgstr ""
 
@@ -274,8 +283,12 @@ msgstr ""
 msgid "Personal workspace container for members"
 msgstr ""
 
-#: ./../tool.py:112
+#: ./../tool.py:115
 msgid "Please change your account information for HfPH"
+msgstr ""
+
+#: ./../useraccount_templates/useraccounterror.pt:19
+msgid "Please check wether the requested URL is complete and contains the required access token to verify your identity. If the url is correct and the error persists it is most likely due to an incorrectly generated user account. Our team has already been informed about this error by our automatic exception handler system."
 msgstr ""
 
 #: ./../discourse.py:60
@@ -307,6 +320,10 @@ msgstr ""
 msgid "Quit user selection"
 msgstr ""
 
+#: ./../workspace.py:173
+msgid "Removed {0} broken assignments from worklist"
+msgstr ""
+
 #: ./../signin.py:185
 msgid "Request sent."
 msgstr ""
@@ -315,7 +332,7 @@ msgstr ""
 msgid "Required parameters for SSO credential verification are missing in the request"
 msgstr ""
 
-#: ./../asignment.py:160
+#: ./../asignment.py:163
 msgid "Responsible user asignment successfully updated"
 msgstr ""
 
@@ -337,6 +354,10 @@ msgstr ""
 
 #: ./../asignment_templates/asignmentview.pt:29
 msgid "Setting and revoking user roles and permissions is a highly critical task and will always have certain performance implications. Therefore lists of user roles are most likely cached heavily by any larger application server and might appear to be out of date. Please be patient and check back later."
+msgstr ""
+
+#: ./../useraccount_templates/useraccounterror.pt:24
+msgid "Should you encounter this error repeatedly than do not hesitate to contact our website team and we will try to resolve the specific issue."
 msgstr ""
 
 #: ./../discourse_templates/discoursesigninform.pt:25
@@ -376,12 +397,8 @@ msgstr ""
 msgid "The Discourse SSO endpoint has not been configured yet"
 msgstr ""
 
-#: ./../useraccount.py:110
+#: ./../useraccount.py:119
 msgid "The entered password and confirmation do not match."
-msgstr ""
-
-#: ./../workspace_templates/view.pt:126
-msgid "The following content is owned by your user."
 msgstr ""
 
 #: ./../memberfolder_templates/usermanager.pt:27
@@ -393,7 +410,7 @@ msgid "This API token can be used to authenticate with the portal e.g. when call
 msgstr ""
 
 #: ./../invitation.py:52
-#: ./../useraccount.py:42
+#: ./../useraccount.py:43
 msgid "This field is required"
 msgstr ""
 
@@ -448,6 +465,10 @@ msgstr ""
 msgid "Users should are redirected to their personal workspace except when logged in as site administrator"
 msgstr ""
 
+#: ./../useraccount_templates/useraccounterror.pt:15
+msgid "We are sorry to inform you that this request can not be processed."
+msgstr ""
+
 #: ./../discourse_templates/discoursessoerror.pt:33
 msgid "Where do you want to go next?"
 msgstr ""
@@ -464,11 +485,11 @@ msgstr ""
 
 #: ./../discourse.py:129
 #: ./../signin.py:133
-#: ./../useraccount.py:142
+#: ./../useraccount.py:151
 msgid "You are now logged in."
 msgstr ""
 
-#: ./../asignment_templates/asignmentusers.pt:58
+#: ./../asignment_templates/asignmentusers.pt:59
 msgid "asigned"
 msgstr ""
 
@@ -478,11 +499,10 @@ msgid "cancel"
 msgstr ""
 
 #. Default: "Abgelegt unter"
-#: ./../workspace_templates/view.pt:143
+#: ./../workspace_templates/view.pt:121
 msgid "text_searchitem_location"
 msgstr ""
 
 #: ./../invitation.py:120
 msgid "{0} invitation emails successfully sent."
 msgstr ""
-
