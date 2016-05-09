@@ -65,7 +65,7 @@ class UserAccount(grok.View):
 
     def has_valid_token(self, token):
         token = self.traverse_subpath[1]
-        user = api.user.get(userid=self.key)
+        user = api.user.get(userid=str(self.key))
         try:
             stored_token = user.getProperty('token', None)
         except AttributeError:
