@@ -66,10 +66,18 @@ class UserAccount(grok.View):
     def has_valid_token(self, token):
         token = self.traverse_subpath[1]
         user = api.user.get(username=self.key)
-        stored_token = user.getProperty('token', None)
+        try:
+            stored_token = user.getProperty('token', None)
+        except AttributeError:
+            IStatusMessage(self.request).addStatusMessage(
+                _(u"No matching user account found"),
+                type='error')
+            portal_url = api.portal.get().absolute_url()
+            error_url = '{0}/@@useraccount-error'.format(portal_url)
+            return self.request.response.redirect(error_url)
         if stored_token is None:
             IStatusMessage(self.request).addStatusMessage(
-                _(u"No stored acces token found"),
+                _(u"No stored access token found"),
                 type='error')
             portal_url = api.portal.get().absolute_url()
             error_url = '{0}/@@useraccount-error'.format(portal_url)
