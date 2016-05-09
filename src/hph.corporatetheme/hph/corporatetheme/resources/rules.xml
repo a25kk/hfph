@@ -18,6 +18,7 @@
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_form" />
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
     <theme href="dist/signin/index.html" css:if-content="body.template-useraccount" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-useraccount-error" />
     <theme href="dist/signin/index.html" css:if-content="body.template-signin-form" />
 
 
