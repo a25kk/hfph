@@ -21,6 +21,7 @@ class UserAccount(grok.View):
     def update(self):
         self.key = self.traverse_subpath[0]
         self.token = self.traverse_subpath[1]
+        self.has_valid_token(self.token)
         self.errors = {}
         unwanted = ('_authenticator', 'form.button.Submit')
         required = ('title')
