@@ -84,7 +84,7 @@ class UserAccount(grok.View):
             return self.request.response.redirect(error_url)
         return self.is_equal(stored_token, token)
 
-    def is_equal(a, b):
+    def is_equal(self, a, b):
         """ Constant time comparison """
         if len(a) != len(b):
             return False
