@@ -9579,7 +9579,7 @@ img[data-sizes='auto']
 
     margin-top: -5px;
 
-    border: 1px solid #404040;
+    border: 1px solid #818a91;
     border-top: 5px solid #818a91;
 }
 @media (min-width: 768px)
@@ -9599,7 +9599,7 @@ img[data-sizes='auto']
 
 .app-actions
 {
-    font-size: .85rem;
+    font-size: .75rem;
 }
 @media (min-width: 544px)
 {
@@ -9622,7 +9622,7 @@ img[data-sizes='auto']
 
     max-width: 100%;
     min-height: 1px;
-    padding: .5rem .25rem;
+    padding: 0;
     padding-right: 15px;
     padding-left: 15px;
 
@@ -9743,6 +9743,8 @@ img[data-sizes='auto']
 
 .app-searchbox-control
 {
+    font-size: .75rem;
+
     position: relative;
     z-index: 2;
 
