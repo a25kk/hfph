@@ -12,7 +12,7 @@
 
 .app-brandbar-content {
     @include media-breakpoint-up(md) {
-        @extend .container;
+        @include make-container();
     }
 }
 
@@ -44,7 +44,7 @@
 }
 
 .app-brandname-logo {
-    @extend .img-responsive;
+    @extend .img-fluid;
 }
 
 .app-brandname-heading {
