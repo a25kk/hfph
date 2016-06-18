@@ -8544,6 +8544,10 @@ div.riform .label
     -ms-flex-align: center;
     align-items: center;
 }
+.app-navbar-nav-sub .app-navitem-tab-base
+{
+    color: #377497;
+}
 .app-navitem-tab-base:hover
 {
     text-decoration: none; 

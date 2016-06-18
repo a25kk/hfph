@@ -219,6 +219,9 @@
     font-size: 0.9rem;
     line-height: 1;
     transition: background-color 0.5s ease;
+    @include when-inside('.app-navbar-nav-sub') {
+        color: $app-blue-secondary;
+    }
     &:hover {
         color: #fff;
         background-color: darken($app-primary, 6.5%);
