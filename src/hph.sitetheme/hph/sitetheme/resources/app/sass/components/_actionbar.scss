@@ -5,7 +5,7 @@
 .app-actionbar {
     display: block;
     margin-top: -5px;
-    border: 1px solid $app-gray;
+    border: 1px solid $gray-light;
     border-top: 5px solid $gray-light;
     @include media-breakpoint-up(md) {
         padding-left: 1rem;
@@ -22,7 +22,7 @@
     @include media-breakpoint-up(sm) {
         @include make-row();
     }
-    font-size: 0.85rem;
+    font-size: 0.75rem;
 }
 
 .app-action {
@@ -30,7 +30,7 @@
     @include media-breakpoint-up(sm) {
         @include make-col(6);
     }
-    padding: .5rem .25rem;
+    padding: 0;
     text-align: center;
 }
 

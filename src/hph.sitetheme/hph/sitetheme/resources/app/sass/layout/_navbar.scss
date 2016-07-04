@@ -177,7 +177,7 @@
     color: $app-primary;
     background-color: $app-secondary;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     line-height: 1;
     text-transform: uppercase;
     // text-align: center;
@@ -219,6 +219,9 @@
     font-size: 0.9rem;
     line-height: 1;
     transition: background-color 0.5s ease;
+    @include when-inside('.app-navbar-nav-sub') {
+        color: $app-blue-secondary;
+    }
     &:hover {
         color: #fff;
         background-color: darken($app-primary, 6.5%);
