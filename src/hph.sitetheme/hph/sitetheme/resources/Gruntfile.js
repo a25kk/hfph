@@ -155,7 +155,7 @@ module.exports = function (grunt) {
                 expand: true,
                 flatten: true,
                 cwd: '<%= config.modules %>/',
-                src: ['ionicons/fonts/*'],
+                src: ['ionicons/dist/fonts/*'],
                 dest: '<%= config.dist %>/assets/fonts/'
             },
             showPassword: {

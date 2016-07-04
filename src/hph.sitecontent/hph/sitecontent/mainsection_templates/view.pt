@@ -54,11 +54,11 @@
 
     <aside class="app-content" id="app-content-2">
       <section class="app-tile app-content-body" id="app-aside-content">
-        <section class="page">
-          <header class="page-header">
+        <section class="app-page">
+          <header class="app-page-header">
             <h1 tal:content="context/Title">Title</h1>
           </header>
-          <article class="page-content">
+          <article class="app-page-content">
             <div tal:replace="structure provider:plone.belowcontentbody" />
           </article>
         </section>

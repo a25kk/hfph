@@ -171,6 +171,10 @@
              </div>
          </replace>
 
+        <!-- Cleanup unwanted inline styles -->
+        <drop attributes="align style" css:content="p" />
+        <drop attributes="align style" css:content="ul" />
+
         <!-- Document Content -->
         <!-- Frontpage exception -->
         <replace css:content="#app-section"
@@ -179,10 +183,26 @@
         <replace css:content-children="#app-panel-news"
             css:theme-children="#app-panel-news"
             css:if-content=".template-frontpage-view" />
+
         <!-- Standard content area -->
-        <replace css:content-children="#content"
-            css:theme-children="#content"
-            css:if-not-content=".template-frontpage-view" />
+        <rules css:if-not-content=".template-frontpage-view">
+            <rules css:if-not-content="#portal-column-one">
+                <drop css:theme="#app-page-aside" />
+                <replace css:content-children="#content"
+                         css:theme-children="#content"
+                />
+            </rules>
+            <rules css:if-content="#portal-column-one">
+                <before css:theme-children="#content" method="raw">
+                    <xsl:attribute name="class">app-main-content app-main-content-gutter app-panel</xsl:attribute>
+                </before>
+                <replace css:content-children="#portal-column-one > *"
+                         css:theme-children="#app-page-aside" />
+                <replace css:content-children="#content"
+                         css:theme-children="#app-page-main"
+                />
+            </rules>
+        </rules>
 
         <!-- Fix table styles -->
         <replace css:content="table.listing">
@@ -191,6 +211,14 @@
             <xsl:attribute name="class">table table-hover</xsl:attribute>
             <xsl:apply-templates />
           </table>
+        </replace>
+
+        <replace css:content="table.plain">
+            <table>
+                <xsl:copy-of select="@*"/>
+                <xsl:attribute name="class">table</xsl:attribute>
+                <xsl:apply-templates />
+            </table>
         </replace>
 
          <!-- Alert and portal messages -->
@@ -327,6 +355,9 @@
         <!-- Navtree -->
          <replace css:content=".portletNavigationTree" css:if-not-content=".template-overview-controlpanel">
             <div class="app-card app-card-nav app-nav-list">
+                <div class="app-card-header">
+                    Navigation
+                </div>
                 <div class="app-card-main">
                     <nav class="app-nav-tree">
                         <xsl:for-each css:select=".portletContent > *">
@@ -398,10 +429,6 @@
                 </xsl:for-each>
             </div>
         </replace>
-
-        <!-- Columns example -->
-        <replace css:content-children="#portal-column-two > *"
-            css:theme-children="#app-sidebar" />
 
     </rules>
 

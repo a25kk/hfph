@@ -15,15 +15,14 @@
             <aside class="app-aside" id="app-sidebar"
                 tal:define="subcontents python:context.restrictedTraverse('@@folderListing')(portal_type=['Folder', 'hph.sitecontent.contentpage'])">
 
-                <div class="app-box app-box-faculty">
-                    <div class="app-box-header">
-                    </div>
-                    <div class="app-box-content">
-                        <ul class="nav nav-pills nav-stacked app-box-nav">
+                <div class="app-card app-card-nav app-card-faculty">
+                    <div class="app-card-main">
+                        <ul class="app-nav-list">
                             <tal:block tal:repeat="filter view/filter_options">
-                                <li tal:define="filter_value filter/value"
+                                <li class="app-nav-list-item" tal:define="filter_value filter/value"
                                     tal:attributes="class python:view.computed_klass(filter_value)">
-                                    <a tal:attributes="href string:${view/parent_url}?content_filter=1&amp;academicRole=${filter/value}"
+                                    <a class="app-nav-list-link"
+                                        tal:attributes="href string:${view/parent_url}?content_filter=1&amp;academicRole=${filter/value}"
                                         tal:content="filter/title">Filter option</a>
                                 </li>
                             </tal:block>
@@ -31,19 +30,21 @@
                     </div>
                 </div>
 
-                <div class="app-box app-box-faculty"
+                <div class="app-card app-card-nav app-card-faculty"
                     tal:condition="subcontents">
-                    <div class="app-box-header">
+                    <div class="app-card-header">
                     </div>
-                    <div class="app-box-content">
-                        <ul class="nav nav-pills nav-stacked app-box-nav">
-                            <li>
-                                <a tal:attributes="href string:${context/absolute_url}/@@publications"
+                    <div class="app-card-main">
+                        <ul class="app-nav-list">
+                            <li class="app-nav-list-item">
+                                <a class="app-nav-list-link"
+                                    tal:attributes="href string:${context/absolute_url}/@@publications"
                                     i18n:translate="">Publications</a>
                             </li>
                             <tal:block tal:repeat="item subcontents">
-                                <li tal:define="item_url item/getURL">
+                                <li class="app-nav-list-item" tal:define="item_url item/getURL">
                                     <a data-appui="pjaxed"
+                                       class="app-nav-list-link"
                                         tal:attributes="href item_url;
                                                         data-source-url string:${item_url}?ajax_load=1#content-core;
                                                         data-appui-hide string:#page-content"

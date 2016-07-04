@@ -35,7 +35,11 @@
 
 //** Card content
 .app-card-main {
-  border-top: 4px solid $app-secondary;
+  // border-top: 4px solid $app-secondary;
+    &-boxed {
+        border: 1px solid $gray-lighter;
+        border-top: 4px solid $app-secondary;
+    }
 }
 
 //** Card footer

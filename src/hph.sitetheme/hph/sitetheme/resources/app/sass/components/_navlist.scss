@@ -4,8 +4,9 @@
 
 .app-card-nav {
 	.app-card-main {
-		background: #e3dcec;
 		padding: 0;
+        border: 1px solid $gray-lighter;
+        border-top: 4px solid $app-secondary;
 	}
 }
 
@@ -24,18 +25,18 @@
 }
 
 .app-nav-list-link {
-	color: $app-primary !important;
+	color: $link-color !important;
 	padding: .5rem 1rem;
 	border: 0px solid red;
 	display: inline-block;
 	width: 100% !important;
 	&:hover {
-		color: darken(#fff, 10%) !important;
+		color: lighten(#000, 10%) !important;
 		text-decoration: none;
-		background: $app-primary;
+		background: $gray-lighter;
 	}
 	&.navTreeCurrentNode {
-		color: #fff !important;
-		background: $app-primary;
+		color: #000 !important;
+        background: $gray-lighter;
 	}
 }

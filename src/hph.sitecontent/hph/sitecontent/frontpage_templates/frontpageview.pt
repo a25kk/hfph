@@ -79,7 +79,7 @@
             </tal:block>
         </aside>
         <div class="app-panel-news-actions">
-            <a class="app-btn" href="#"
+            <a class="app-btn app-btn-sm" href="#"
                 tal:define="portal_url context/portal_url"
                 tal:attributes="href python:portal_url + '/nachrichten'">
                 Weitere Nachrichten</a>

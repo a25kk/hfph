@@ -50,6 +50,9 @@
 .app-navbar-brand {
     margin-left: 1rem;
     max-width: 50%;
+    @include media-breakpoint-up(md) {
+        margin-left: 0;
+    }
 }
 
 .app-navbar-brand-title {
@@ -99,7 +102,7 @@
 
 .navbar-toggler {
     padding: .5rem .5rem;
-    font-size: $font-size-lg;
+    font-size: 1.5rem;
     line-height: 1;
     background: none;
     color: #fff;
@@ -109,7 +112,6 @@
         text-decoration: none;
     }
 }
-
 
 .app-navbar-collapse {
     flex: 0 0 calc(100% - 50px);

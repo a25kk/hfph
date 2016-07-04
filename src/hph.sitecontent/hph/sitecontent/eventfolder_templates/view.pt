@@ -10,12 +10,12 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-   <section class="page" id="news-listing"
+   <section class="app-page" id="news-listing"
     tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
-    <header class="page-header">
+    <header class="app-page-header">
         <h1 tal:content="context/Title" />
     </header>
-    <div class="page-content" tal:define="items context/@@folderListing">
+    <div class="app-page-content" tal:define="items context/@@folderListing">
         <article tal:repeat="item items">
             <h4><a href="" tal:content="item/Title"
                     tal:attributes="href item/getURL" /></h4>
@@ -26,7 +26,7 @@
             </p>
         </article>
     </div>
-  </section>  
+  </section>
 
   </metal:content-core>
 </metal:main>
