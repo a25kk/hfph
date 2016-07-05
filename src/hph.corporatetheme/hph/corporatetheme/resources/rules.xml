@@ -39,7 +39,7 @@
     <!--<theme href="dist/landingpage.html" css:if-content="body.section-presse-oeffentlichkeitsarbeit" />-->
 
     <!-- Opac und newsletter templates -->
-    <theme href="dist/opac/index.html" css:if-content="body.subsection-bibliotheken-opac-recherche" />
+    <!-- <theme href="dist/opac/index.html" css:if-content="body.subsection-bibliotheken-opac-recherche" /> -->
     <theme href="dist/newsletter/index.html" css:if-content="body.section-newsletter" />
 
     <!-- Rules applying to a standard Plone web page -->
