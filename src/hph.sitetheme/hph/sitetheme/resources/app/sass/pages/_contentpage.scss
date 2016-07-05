@@ -4,6 +4,10 @@
         margin-top: 0;
         margin-bottom: 1rem;
     }
+    @include media-breakpoint-up(md) {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
 }
 
 .app-page-header {
@@ -14,6 +18,13 @@
 .app-page-headline {
 	font-size: 2rem;
 	font-weight: 700;
+}
+
+.app-page-abstract {
+    font-weight: 700;
+    @include when-inside('app-fonts-loaded') {
+        font-weight: 600;
+    }
 }
 
 .discreet,

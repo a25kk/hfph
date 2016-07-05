@@ -35,6 +35,7 @@ module.exports = function (grunt) {
                   '<%= config.modules %>/modernizr/modernizr.js',
                   '<%= config.modules %>/tether/dist/js/tether.min.js',
                   '<%= config.modules %>/bootstrap/dist/js/bootstrap.js',
+                  '<%= config.modules %>/jquery.marquee/jquery.marquee.js',
                   '<%= config.modules %>/mailcheck/src/mailcheck.js',
                   '<%= config.modules %>/JVFloat/jvfloat.js',
                   '<%= config.modules %>/hideShowPassword/hideShowPassword.js',
@@ -49,19 +50,22 @@ module.exports = function (grunt) {
             },
             theme: {
                 options: {
-                    banner: "require(['jquery'], function($) {'use strict';",
+                    banner: "requirejs(['require',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/jquery.marquee.min.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/html.sortable.min.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/medium-editor.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/fontfaceobserver.standalone.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/hideShowPassword.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/jvfloat.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/respimage.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/ls.parent-fit.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/lazysizes-umd.js',],\n" +
+                                       " function(require) {\n'use strict';\n",
                     footer: "});",
                     stripBanners: true
                 },
                 src: [
-                    '<%= config.modules %>/tether/dist/js/tether.min.js',
-                    '<%= config.modules %>/bootstrap/dist/js/bootstrap.js',
-                    '<%= config.modules %>/lazysizes/plugins/ls.parent-fit.js',
-                    '<%= config.modules %>/lazysizes/plugins/ls.bgset.js',
-                    '<%= config.modules %>/lazysizes/plugins/ls.unveilhooks.js',
-                    '<%= config.modules %>/lazysizes/lazysizes.js',
-                    '<%= config.modules %>/respimage/respimage.js',
-                    '<%= config.app %>/scripts/main.js'
+                    '<%= config.app %>/scripts/app.js'
                 ],
                 dest: '<%= config.dist %>/scripts/main.js'
             }
@@ -151,6 +155,24 @@ module.exports = function (grunt) {
             }
         },
         copy: {
+            javascript: {
+                expand: true,
+                flatten: true,
+                src: [
+                    '<%= config.modules %>/mailcheck/src/mailcheck.js',
+                    '<%= config.modules %>/JVFloat/jvfloat.js',
+                    '<%= config.modules %>/hideShowPassword/hideShowPassword.js',
+                    '<%= config.modules %>/lazysizes/lazysizes-umd.js',
+                    '<%= config.modules %>/lazysizes/plugins/parent-fit/ls.parent-fit.js',
+                    '<%= config.modules %>/respimage/respimage.js',
+                    '<%= config.modules %>/jquery.marquee/jquery.marquee.min.js',
+                    '<%= config.modules %>/html5sortable/dist/html.sortable.min.js',
+                    '<%= config.modules %>/medium-editor/dist/js/medium-editor.js',
+                    '<%= config.modules %>/fontfaceobserver/fontfaceobserver.js',
+                    '<%= config.modules %>/fontfaceobserver/fontfaceobserver.standalone.js',
+                ],
+                dest: '<%= config.dist %>/scripts/'
+            },
             ionicons: {
                 expand: true,
                 flatten: true,
@@ -650,6 +672,7 @@ module.exports = function (grunt) {
         'html',
         'css',
         'js',
+        'copy:javascript',
         'cb',
         'replace:dist'
     ]);

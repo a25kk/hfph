@@ -1,0 +1,33 @@
+.app-ticker-bar {
+    @include make-container();
+    @include make-container-max-widths();
+    background-color: #fff;
+    margin-bottom: $spacer;
+}
+
+.app-ticker {
+    padding: .5rem;
+}
+
+.app-ticker-content {
+    @include make-row();
+ }
+
+.app-ticker-title {
+    @include make-col(2);
+    color: $app-primary;
+    border-right: 4px solid $app-secondary;
+    font-weight: 400;
+}
+
+.app-ticker-main {
+    @include make-col(9);
+}
+
+.app-ticker-actions {
+    @include make-col(1);
+}
+
+.app-marquee {
+    overflow: hidden;
+}

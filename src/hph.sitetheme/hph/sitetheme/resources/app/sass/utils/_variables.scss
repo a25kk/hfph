@@ -6,6 +6,10 @@
 //== Colors
 //
 //## Brand colors used across the project
+$color-midnight-blue:          rgba(0, 51, 102, 1); // #003366;
+$color-sun-glow:               rgba(255, 204, 51, 1); // #ffcc33
+$color-tundora:                rgba(64, 64, 64, 1); // #404040
+$color-shuttle-gray:            rgba(90, 95, 100, 1); // #5A5F64
 
 $app-blue-primary:            rgba(5, 81, 125, 1);
 $app-blue-secondary:          rgba(55, 116, 151, 1);
@@ -16,7 +20,7 @@ $app-violet:                  rgba(71, 19, 123, 1);
 $app-purple:                  rgba(126, 4, 167, 1);
 
 // Gray baseline
-$app-gray:                      rgba(64, 64, 64, 1);
+$app-gray:                      $color-shuttle-gray;
 $app-gray-light:				#eee;
 
 // Brand danger

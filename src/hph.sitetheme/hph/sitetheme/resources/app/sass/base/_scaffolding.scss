@@ -6,7 +6,8 @@
 //** Adjust font weight for initialized webfonts
 body {
     background-color: $app-gray-light;
-    .wf-active & {
+    .wf-active &,
+    .app-fonts-loaded & {
         font-weight: 300;
     }
     &.template-theming-controlpanel .row {
@@ -16,10 +17,11 @@ body {
 }
 
 // Set font weights if webfont is active
-.wf-active {
+.wf-active,
+.app-fonts-loaded {
     b,
     strong {
-        font-weight: 500;
+        font-weight: 600;
     }
 }
 
@@ -27,9 +29,14 @@ body {
 b,
 strong {
     font-weight: 700;
-    .wf-active & {
-        font-weight: 500;
+    .wf-active &,
+    .app-fonts-loaded & {
+        font-weight: 600;
     }
+}
+
+em {
+    font-weight: 400;
 }
 
 // Remove dotted outline

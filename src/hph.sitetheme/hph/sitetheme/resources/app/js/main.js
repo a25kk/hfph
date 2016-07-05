@@ -1,8 +1,12 @@
 'use strict';
 (function ($) {
     $(document).ready(function () {
-
+        var font = new FontFaceObserver('Open Sans');
+        font.load().then(function () {
+            document.documentElement.className += " app-fonts-loaded";
+        });
         $('.marquee').marquee({ speed: 5000 });
+        // Ajax content loading
         var $ajaxContainer = $('#appui-container');
         $('div[data-appui="ajaxified"]').each(function () {
             var $wrapper = $(this).parent(),
@@ -55,16 +59,13 @@
             $('input[type="password"]').showPassword('focus', {});
             $('.app-signin-input').jvFloat();
             var $mcNote = $('#app-signin-suggestion');
-            Mailcheck.defaultDomains.push('eda.kreativkombinat.de')
+            Mailcheck.defaultDomains.push('hfph.de')
             $('#ac-name').on('blur', function (event) {
-                console.log("event ", event);
-                console.log("this ", $(this));
                 $(this).mailcheck({
                     // domains: domains,                       // optional
                     // topLevelDomains: topLevelDomains,       // optional
                     suggested: function (element, suggestion) {
                         // callback code
-                        console.log("suggestion ", suggestion.full);
                         $mcNote.removeClass('hidden').addClass('fadeInDown');
                         $mcNote.html("Meinten Sie <i>" + suggestion.full + "</i>?");
                         $mcNote.on('click', function (evt) {
