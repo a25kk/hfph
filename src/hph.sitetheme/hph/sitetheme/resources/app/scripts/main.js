@@ -1,6 +1,10 @@
 'use strict';
 (function ($) {
     $(document).ready(function () {
+        var font = new FontFaceObserver('Open Sans');
+        font.load().then(function () {
+            document.documentElement.className += " app-fonts-loaded";
+        });
         $('.js-ticker').marquee({ speed: 5000 });
         var $ajaxContainer = $('#appui-container');
         $('div[data-appui="ajaxified"]').each(function () {

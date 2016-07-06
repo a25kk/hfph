@@ -31,6 +31,9 @@
 .app-card-header {
   padding: 0 .5rem .5rem;
   font-family: $headings-font-family;
+    @include when-inside('.app-panel-news') {
+        min-height: 3.75rem;
+    }
 }
 
 //** Card content

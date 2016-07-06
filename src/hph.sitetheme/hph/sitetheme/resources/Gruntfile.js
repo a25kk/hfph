@@ -33,6 +33,7 @@ module.exports = function (grunt) {
                 src: [
                   '<%= config.modules %>/jquery/dist/jquery.js',
                   '<%= config.modules %>/modernizr/modernizr.js',
+                  '<%= config.modules %>/fontfaceobserver/fontfaceobserver.js',
                   '<%= config.modules %>/tether/dist/js/tether.min.js',
                   '<%= config.modules %>/bootstrap/dist/js/bootstrap.js',
                   '<%= config.modules %>/jquery.marquee/jquery.marquee.js',

@@ -15941,60 +15941,83 @@ img[data-sizes='auto']
     padding: .5rem;
 }
 
-.app-ticker-content
+@media (min-width: 768px)
 {
-    display: -ms-flexbox;
-    display: flex;
+    .app-ticker-content
+    {
+        display: -ms-flexbox;
+        display: flex;
 
-    margin-right: -15px; 
-    margin-left: -15px;
+        margin-right: -15px; 
+        margin-left: -15px;
 
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    }
 }
 
 .app-ticker-title
 {
-    font-weight: 400; 
-
-    position: relative;
-
-    max-width: 16.6666666667%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+    font-weight: 400;
 
     color: #036;
-    border-right: 4px solid #fc3;
+    border-bottom: 4px solid #fc3;
+}
+@media (min-width: 768px)
+{
+    .app-ticker-title
+    {
+        position: relative;
 
-    -ms-flex: 0 0 16.6666666667%;
-        flex: 0 0 16.6666666667%;
+        max-width: 16.6666666667%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        border-right: 4px solid #fc3;
+        border-bottom: 0; 
+
+        -ms-flex: 0 0 16.6666666667%;
+            flex: 0 0 16.6666666667%;
+    }
 }
 
 .app-ticker-main
 {
-    position: relative;
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+}
+@media (min-width: 768px)
+{
+    .app-ticker-main
+    {
+        position: relative;
 
-    max-width: 75%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+        max-width: 75%;
+        min-height: 1px;
+        margin: 0; 
+        padding-right: 15px;
+        padding-left: 15px;
 
-    -ms-flex: 0 0 75%;
-        flex: 0 0 75%;
+        -ms-flex: 0 0 75%;
+            flex: 0 0 75%;
+    }
 }
 
-.app-ticker-actions
+@media (min-width: 768px)
 {
-    position: relative;
+    .app-ticker-actions
+    {
+        position: relative;
 
-    max-width: 8.3333333333%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+        max-width: 8.3333333333%; 
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
 
-    -ms-flex: 0 0 8.3333333333%;
-        flex: 0 0 8.3333333333%;
+        -ms-flex: 0 0 8.3333333333%;
+            flex: 0 0 8.3333333333%;
+    }
 }
 
 .app-marquee
@@ -16453,6 +16476,10 @@ body.template-frontpage-view .app-pathbar
     font-family: Georgia, 'Times New Roman', Times, serif; 
 
     padding: 0 .5rem .5rem;
+}
+.app-panel-news .app-card-header
+{
+    min-height: 3.75rem;
 }
 
 .app-card-main-boxed

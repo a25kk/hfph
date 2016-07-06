@@ -10,22 +10,35 @@
 }
 
 .app-ticker-content {
-    @include make-row();
+    @include media-breakpoint-up(md) {
+        @include make-row();
+    }
  }
 
 .app-ticker-title {
-    @include make-col(2);
     color: $app-primary;
-    border-right: 4px solid $app-secondary;
     font-weight: 400;
+    border-bottom: 4px solid $app-secondary;
+    @include media-breakpoint-up(md) {
+        @include make-col(2);
+        border-right: 4px solid $app-secondary;
+        border-bottom: 0;
+    }
 }
 
 .app-ticker-main {
-    @include make-col(9);
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    @include media-breakpoint-up(md) {
+        @include make-col(9);
+        margin: 0;
+    }
 }
 
 .app-ticker-actions {
-    @include make-col(1);
+    @include media-breakpoint-up(md) {
+        @include make-col(1);
+    }
 }
 
 .app-marquee {
