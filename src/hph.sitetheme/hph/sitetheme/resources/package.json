@@ -93,6 +93,7 @@
     "animate.css": "^3.5.1",
     "bootstrap": "github:twbs/bootstrap#v4-dev",
     "csscomb": "^3.1.8",
+    "dragula": "^3.7.1",
     "flickity": "^1.2.1",
     "font-awesome": "^4.6.3",
     "fontfaceobserver": "^1.7.1",
