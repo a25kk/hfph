@@ -39,4 +39,8 @@
 		color: #000 !important;
         background: $gray-lighter;
 	}
+    @include when-inside('.app-nav-list-item-active') {
+        color: #fff !important;
+        background: $link-color;
+    }
 }

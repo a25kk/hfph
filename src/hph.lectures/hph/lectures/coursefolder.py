@@ -68,7 +68,7 @@ class View(grok.View):
         active_filter = self.request.get('courseType', None)
         klass = 'app-nav-list-item app-nav-list-item-plain'
         if active_filter == value:
-            klass = 'active'
+            klass = 'app-nav-list-item app-nav-list-item-active'
         return klass
 
     def contained_items(self):

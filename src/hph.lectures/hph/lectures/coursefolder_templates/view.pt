@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-xs-12 col-sm-3">
             <aside class="app-aside" id="app-sidebar">
-                <div class="app-card app-card-nav app-card-faculty"
+                <div class="app-card app-card-nav app-card-lecture"
                     tal:define="active_filter request/courseType | nothing">
                     <div class="app-card-header">
                     </div>
@@ -35,7 +35,7 @@
                             &times; <span i18n:translate="">remove filter</span></a>
                     </div>
                 </div>
-                <div class="app-card app-card-nav app-card-faculty"
+                <div class="app-card app-card-nav app-card-lecture"
                     tal:condition="view/has_archives">
                     <div class="app-card-header">
                         <div class="app-box-heading" i18n:translate="">Archive</div>

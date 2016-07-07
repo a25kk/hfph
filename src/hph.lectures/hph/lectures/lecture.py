@@ -212,7 +212,7 @@ class View(grok.View):
     def computed_klass(self, value):
         context = aq_inner(self.context)
         active_filter = getattr(context, 'courseType', None)
-        klass = 'nav-item-plain'
+        klass = 'app-nav-list-item app-nav-list-item-plain'
         if active_filter == value:
-            klass = 'active'
+            klass = 'app-nav-list-item app-nav-list-item-active'
         return klass
