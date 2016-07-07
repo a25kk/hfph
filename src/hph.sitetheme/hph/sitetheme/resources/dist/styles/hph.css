@@ -11935,6 +11935,64 @@ input[type='color'] + .input-group-addon:not(:first-child),
     padding: .275rem .75rem;
 }
 
+.media
+{
+    display: -ms-flexbox;
+    display: flex;
+
+    margin-bottom: 1rem;
+}
+
+.media-body
+{
+    -ms-flex: 1;
+        flex: 1;
+}
+
+.media-middle
+{
+    -ms-flex-item-align: center;
+    align-self: center;
+}
+
+.media-bottom
+{
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+}
+
+.media-object
+{
+    display: block;
+}
+.media-object.img-thumbnail
+{
+    max-width: none;
+}
+
+.media-right
+{
+    padding-left: 10px;
+}
+
+.media-left
+{
+    padding-right: 10px;
+}
+
+.media-heading
+{
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.media-list
+{
+    padding-left: 0;
+
+    list-style: none;
+}
+
 .embed-responsive
 {
     position: relative;
