@@ -94,31 +94,35 @@ $('div[data-appui="editable"]').on({
             .addClass('fadeOutUp');
     }
 });
-var $sortableSection = $('.ppe-section-sortable').sortable({
-    items: '.ppe-block-sortable',
-    handle: '.ppe-dragindicator'
-});
-if ($sortableSection.length) {
-    $sortableSection.on('sortupdate', function () {
-        var $ajaxTarget = $sortableSection.data('appui-ajax-uri'),
-            $data = $('#ppe-form-rearrange').serializeArray();
-        $.ajax({
-            url: $ajaxTarget,
-            data: $data,
-            context: document.body,
-            success: function (data) {
-                if (data.success === true) {
-                    var $message = data.message,
-                        $htmlString = '<p class="text-warning">' + $message + '</p>';
-                    $('#ppe-statusinfo-content').append($htmlString).removeClass('hidden').slideDown('slow');
-                } else {
-                    // This could be nicer in the future...
-                    console.log('Form could not be submitted. Bummer.');
-                }
-            }
-        });
+// window.PanelPageSortable = Sortable;
+var $sortableElement = document.querySelectorAll('.ppe-section-sortable');
+if ($sortableElement.length) {
+    var $sortableSection = new Sortable($sortableElement, {
+        handle: '.ppe-dragindicator'
     });
 }
+
+// if ($sortableSection.length) {
+//     $sortableSection.on('sortupdate', function () {
+//         var $ajaxTarget = $sortableSection.data('appui-ajax-uri'),
+//             $data = $('#ppe-form-rearrange').serializeArray();
+//         $.ajax({
+//             url: $ajaxTarget,
+//             data: $data,
+//             context: document.body,
+//             success: function (data) {
+//                 if (data.success === true) {
+//                     var $message = data.message,
+//                         $htmlString = '<p class="text-warning">' + $message + '</p>';
+//                     $('#ppe-statusinfo-content').append($htmlString).removeClass('hidden').slideDown('slow');
+//                 } else {
+//                     // This could be nicer in the future...
+//                     console.log('Form could not be submitted. Bummer.');
+//                 }
+//             }
+//         });
+//     });
+// }
 // Anonymous only scripts (mainly used in login views)
 if ($(".userrole-anonymous")[0]) {
     // Show password by default
