@@ -42,13 +42,12 @@
 // ------------------------------------------------------
 
 .cbp-spmenu-vertical {
-  width: 8rem;
+  width: 25rem;
   height: 100%;
-  top: 0;
   z-index: 1000;
 }
 .userrole-authenticated .cbp-spmenu-vertical {
-  top: 4rem;
+    top: 0rem;
 }
 
 .cbp-spmenu-vertical a {
@@ -97,7 +96,7 @@
 }
 
 .cbp-spmenu-right {
-  right: -(8rem);
+  right: -(25rem);
 }
 
 .cbp-spmenu-left.cbp-spmenu-open {

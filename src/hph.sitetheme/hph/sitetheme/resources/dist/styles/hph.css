@@ -15205,15 +15205,14 @@ textarea
 .cbp-spmenu-vertical
 {
     z-index: 1000; 
-    top: 0;
 
-    width: 8rem;
+    width: 25rem;
     height: 100%;
 }
 
 .userrole-authenticated .cbp-spmenu-vertical
 {
-    top: 4rem;
+    top: 0rem;
 }
 
 .cbp-spmenu-vertical a
@@ -15278,7 +15277,7 @@ textarea
 
 .cbp-spmenu-right
 {
-    right: -8rem;
+    right: -25rem;
 }
 
 .cbp-spmenu-left.cbp-spmenu-open
@@ -17168,6 +17167,17 @@ app-fonts-loaded .app-page-abstract
     color: #373a3c; 
     border-right: 1rem solid #eceeef;
     border-bottom: 1px solid #eceeef;
+}
+.ppe-block-grid
+{
+    display: -ms-flexbox;
+    display: flex;
+
+    margin-right: -15px; 
+    margin-left: -15px;
+
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 .ppe-block .ppe-block-col-first
 {

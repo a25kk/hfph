@@ -108,6 +108,9 @@
     border-bottom: 1px solid $gray-lighter;
     border-right: ceil(($spacer / 3)) solid $gray-lighter;
     color: $body-color;
+    &-grid {
+        @include make-row();
+    }
     .ppe-block-col-first {
         padding: ceil(($spacer / 2));
     }
