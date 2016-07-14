@@ -94,13 +94,11 @@ $('div[data-appui="editable"]').on({
             .addClass('fadeOutUp');
     }
 });
-// window.PanelPageSortable = Sortable;
-var $sortableElement = document.querySelectorAll('.ppe-section-sortable');
-if ($sortableElement.length) {
-    var $sortableSection = new Sortable($sortableElement, {
-        handle: '.ppe-dragindicator'
-    });
-}
+
+var $sortableSection = $('.ppe-section-sortable').sortable({
+    items: '.ppe-block-sortable',
+    handle: '.ppe-dragindicator'
+});
 
 // if ($sortableSection.length) {
 //     $sortableSection.on('sortupdate', function () {

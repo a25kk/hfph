@@ -53,7 +53,7 @@ module.exports = function (grunt) {
                 options: {
                     banner: "requirejs(['require',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/jquery.marquee.min.js',\n" +
-                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/Sortable.min.js',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/html.sortable.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/medium-editor.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/fontfaceobserver.standalone.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/hideShowPassword.js',\n" +
@@ -167,7 +167,7 @@ module.exports = function (grunt) {
                     '<%= config.modules %>/lazysizes/plugins/parent-fit/ls.parent-fit.js',
                     '<%= config.modules %>/respimage/respimage.js',
                     '<%= config.modules %>/jquery.marquee/jquery.marquee.min.js',
-                    '<%= config.modules %>/sortablejs/Sortable.min.js',
+                    '<%= config.modules %>/html5sortable/dist/html.sortable.js',
                     '<%= config.modules %>/medium-editor/dist/js/medium-editor.js',
                     '<%= config.modules %>/fontfaceobserver/fontfaceobserver.js',
                     '<%= config.modules %>/fontfaceobserver/fontfaceobserver.standalone.js',
