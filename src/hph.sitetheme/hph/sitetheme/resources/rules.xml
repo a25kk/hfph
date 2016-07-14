@@ -74,12 +74,15 @@
             css:content="#edit-bar"
             css:if-not-content=".ajax_load"
             css:if-content=".userrole-authenticated"/>
-
         <!-- Logo (link target) -->
         <copy attributes="href" css:content="#portal-logo" css:theme="a.navbar-brand" />
         <copy attributes="href" css:content="#portal-logo" css:theme="a.app-brand" />
         <copy attributes="href" css:content="#portal-logo" css:theme=".app-brandname" />
 
+        <drop css:if-content=".section-pro-philosophia"
+              css:theme="#app-brandname-logo-main" />
+        <drop css:if-not-content=".section-pro-philosophia"
+              css:theme="#app-brandname-logo-pro-philosophia" />
         <!-- Portal searchbox -->
         <!--<copy attributes="action" css:content="#portal-searchbox form"
             css:theme="#portal-searchbox" />-->

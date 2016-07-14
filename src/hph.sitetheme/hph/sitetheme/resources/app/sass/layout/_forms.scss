@@ -53,6 +53,13 @@ textarea {
   padding-top: $spacer;
 }
 
+.help-block {
+    display: block;
+    font-size: .85rem;
+    font-weight: 300;
+    color: $gray-light;
+}
+
 //== Required field
 //
 //## Mark fields as required

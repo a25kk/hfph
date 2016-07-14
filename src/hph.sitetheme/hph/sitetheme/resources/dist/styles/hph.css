@@ -15019,6 +15019,16 @@ textarea
     padding-top: 1rem;
 }
 
+.help-block
+{
+    font-size: .85rem;
+    font-weight: 300;
+
+    display: block;
+
+    color: #818a91;
+}
+
 .app-field-required
 {
     position: relative;
@@ -17665,6 +17675,26 @@ app-fonts-loaded .app-page-abstract
         -ms-flex: 0 0 75%;
             flex: 0 0 75%;
     }
+}
+
+.subsection-institute-gesellschaftspolitik .app-panel-main
+{
+    border-top: 5px solid #ef7d00;
+}
+
+.subsection-institute-gesellschaftspolitik .app-navitem-tab
+{
+    background-color: #ef7d00;
+}
+
+.subsection-institute-gesellschaftspolitik .app-img
+{
+    border-top: 4px solid #ef7d00;
+}
+
+.subsection-institute-gesellschaftspolitik .app-card-main
+{
+    border-top: 4px solid #ef7d00;
 }
 
 .app-styleguide
