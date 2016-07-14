@@ -7,7 +7,7 @@
     margin-top: -5px;
     border: 1px solid $gray-light;
     border-top: 5px solid $gray-light;
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up(lg) {
         padding-left: 1rem;
         padding-right: 1rem;
         margin-left: 33.3333%;
@@ -37,6 +37,10 @@
 // Global section and language switcher
 .app-actionbar-nav {
     @extend .nav;
+    font-size: .8rem;
+    @include media-breakpoint-up(md) {
+        font-size: .9rem;
+    }
 }
 
 .app-actionbar-nav-item {
@@ -61,6 +65,18 @@
     //@include media-breakpoint-up(sm) {
     //    @include make-col(6);
     //}
+    padding-left: 0;
+    padding-right: 0;
     color: $app-primary;
+
+}
+
+.app-action-search-content {
+    margin-right: $spacer;
+    padding-left: $spacer;
+    padding-right: $spacer;
     background: $gray-light;
+    @include media-breakpoint-up(lg) {
+        margin-right: 0;
+    }
 }

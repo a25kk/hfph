@@ -113,8 +113,16 @@
     }
 }
 
+$app-nav-bar-title-width: 50px;
 .app-navbar-collapse {
-    flex: 0 0 calc(100% - 50px);
+    // Mock standard browser calculation behavior
+    // flex: 0 0 calc(100% - 50px);
+    // Fixes IE10-11 layout issues
+    @each $breakpoint, $container-max-width in $container-max-widths {
+        @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+            flex: 0 0 ($container-max-width - $app-nav-bar-title-width);
+        }
+    }
     &-secondary {
         flex: 0 0 100%;
     }
@@ -154,8 +162,10 @@
 //## Color coded based on addon classes
 .app-navitem {
     width: 100%;
+    max-width: 100%;
     @include media-breakpoint-up(md) {
-        width: auto;
+        width: 25%;
+        max-width: 100%;
         flex: 1 1 25%;
         @include when-inside('.template-frontpage-view') {
             flex: 0 0 25%;
@@ -179,7 +189,7 @@
     color: $app-primary;
     background-color: $app-secondary;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: .8rem;
     line-height: 1;
     text-transform: uppercase;
     // text-align: center;
@@ -202,9 +212,10 @@
         }
     }
     @include media-breakpoint-up(md) {
-      height: 50px;
-      min-height: 50px;
+        height: 50px;
+        min-height: 50px;
         text-align: center;
+        font-size: 1rem;
     }
     @include when-inside('.app-navitem-home') {
         content: "\f24f";

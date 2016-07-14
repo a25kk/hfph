@@ -14620,11 +14620,42 @@ div.riform .label
     text-decoration: none;
 }
 
-.app-navbar-collapse
+@media (min-width: 544px)
 {
-    -ms-flex: 0 0 calc(100% - 50px);
-        flex: 0 0 calc(100% - 50px);
+    .app-navbar-collapse
+    {
+        -ms-flex: 0 0 526px;
+            flex: 0 0 526px;
+    }
 }
+
+@media (min-width: 768px)
+{
+    .app-navbar-collapse
+    {
+        -ms-flex: 0 0 670px;
+            flex: 0 0 670px;
+    }
+}
+
+@media (min-width: 992px)
+{
+    .app-navbar-collapse
+    {
+        -ms-flex: 0 0 890px;
+            flex: 0 0 890px;
+    }
+}
+
+@media (min-width: 1200px)
+{
+    .app-navbar-collapse
+    {
+        -ms-flex: 0 0 1090px;
+            flex: 0 0 1090px;
+    }
+}
+
 .app-navbar-collapse-secondary
 {
     -ms-flex: 0 0 100%;
@@ -14688,12 +14719,14 @@ div.riform .label
 .app-navitem
 {
     width: 100%;
+    max-width: 100%;
 }
 @media (min-width: 768px)
 {
     .app-navitem
     {
-        width: auto;
+        width: 25%;
+        max-width: 100%;
         padding-right: 0; 
 
         -ms-flex: 1 1 25%;
@@ -14718,7 +14751,7 @@ div.riform .label
 
 .app-navitem-tab
 {
-    font-size: 1rem;
+    font-size: .8rem;
     font-weight: 700;
     line-height: 1;
 
@@ -14766,6 +14799,8 @@ div.riform .label
 {
     .app-navitem-tab
     {
+        font-size: 1rem; 
+
         height: 50px;
         min-height: 50px;
 
@@ -15980,7 +16015,7 @@ img[data-sizes='auto']
     border: 1px solid #818a91;
     border-top: 5px solid #818a91;
 }
-@media (min-width: 768px)
+@media (min-width: 992px)
 {
     .app-actionbar
     {
@@ -16045,6 +16080,18 @@ img[data-sizes='auto']
     }
 }
 
+.app-actionbar-nav
+{
+    font-size: .8rem;
+}
+@media (min-width: 768px)
+{
+    .app-actionbar-nav
+    {
+        font-size: .9rem;
+    }
+}
+
 .app-actionbar-nav-item
 {
     display: inline-block;
@@ -16070,8 +16117,26 @@ img[data-sizes='auto']
 
 .app-action-search
 {
+    padding-right: 0;
+    padding-left: 0;
+
     color: #036;
+}
+
+.app-action-search-content
+{
+    margin-right: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
     background: #818a91;
+}
+@media (min-width: 992px)
+{
+    .app-action-search-content
+    {
+        margin-right: 0;
+    }
 }
 
 .app-ticker-bar
