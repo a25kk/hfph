@@ -274,9 +274,9 @@
           </xsl:copy>
         </replace>
 
-        <replace content="//*[contains(@class, 'fieldRequired')]/@class">
+        <!--<replace content="//*[contains(@class, 'fieldRequired')]/@class">
           <xsl:attribute name="class"><xsl:value-of select="." /> text-warning</xsl:attribute>
-        </replace>
+        </replace>-->
         <!-- Drop .label class for twbs compatibility -->
         <drop content="//label/span[@class='label']/@class" />
 
@@ -303,18 +303,6 @@
             </xsl:if>
               <xsl:apply-templates />
           </xsl:copy>
-              <!--
-            <label>
-              <xsl:copy-of select="./label/@*" />
-              <xsl:attribute name="class"><xsl:value-of select="./label/@class" /> control-label</xsl:attribute>
-              <xsl:apply-templates select="./label/text()"/>
-              <xsl:apply-templates select="./span[@class='fieldRequired']"/>
-            </label>
-            <div class="controls">
-              <xsl:apply-templates select="./*[not(self::label) and not(@class='fieldRequired')]"/>
-            </div>
-              -->
-
         </replace>
 
         <!-- Replace input elements (submit buttons and checkboxes) -->
@@ -331,10 +319,10 @@
                                 <xsl:attribute name="class"><xsl:value-of select="./@class" /> btn btn-primary</xsl:attribute>
                             </xsl:when>
                             <xsl:when css:test=".standalone, .submit, .submit-widget, [type='file']">
-                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> btn btn-default</xsl:attribute>
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> app-btn app-btn-default</xsl:attribute>
                             </xsl:when>
                             <xsl:otherwise>
-                              <xsl:attribute name="class"><xsl:value-of select="./@class" /> btn btn-default</xsl:attribute>
+                              <xsl:attribute name="class"><xsl:value-of select="./@class" /> app-btn app-btn-default</xsl:attribute>
                             </xsl:otherwise>
                         </xsl:choose>
                         <xsl:value-of select="./@value"/>
