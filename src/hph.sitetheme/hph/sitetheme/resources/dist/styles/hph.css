@@ -14725,8 +14725,7 @@ div.riform .label
 {
     .app-navitem
     {
-        width: 25%;
-        max-width: 100%;
+        width: auto;
         padding-right: 0; 
 
         -ms-flex: 1 1 25%;
