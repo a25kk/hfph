@@ -6317,31 +6317,31 @@ h6,
 h1,
 .h1
 {
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 h2,
 .h2
 {
-    font-size: 2rem;
+    font-size: 1.75rem;
 }
 
 h3,
 .h3
 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
 }
 
 h4,
 .h4
 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 h5,
 .h5
 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
 }
 
 h6,
@@ -16150,11 +16150,17 @@ img[data-sizes='auto']
 
 .app-action-search-content
 {
-    margin-right: 1rem;
     padding-right: 1rem;
     padding-left: 1rem;
 
     background: #818a91;
+}
+@media (min-width: 768px)
+{
+    .app-action-search-content
+    {
+        margin-right: 1rem;
+    }
 }
 @media (min-width: 992px)
 {
@@ -16236,13 +16242,28 @@ img[data-sizes='auto']
     {
         position: relative;
 
-        max-width: 16.6666666667%;
+        max-width: 25%;
         min-height: 1px;
         padding-right: 15px;
         padding-left: 15px;
 
         border-right: 4px solid #fc3;
         border-bottom: 0; 
+
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-ticker-title
+    {
+        position: relative;
+
+        max-width: 16.6666666667%; 
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
 
         -ms-flex: 0 0 16.6666666667%;
             flex: 0 0 16.6666666667%;
@@ -16260,6 +16281,22 @@ img[data-sizes='auto']
     {
         position: relative;
 
+        max-width: 58.3333333333%;
+        min-height: 1px;
+        margin: 0; 
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -ms-flex: 0 0 58.3333333333%;
+            flex: 0 0 58.3333333333%;
+    }
+}
+@media (min-width: 992px)
+{
+    .app-ticker-main
+    {
+        position: relative;
+
         max-width: 75%;
         min-height: 1px;
         margin: 0; 
@@ -16271,7 +16308,26 @@ img[data-sizes='auto']
     }
 }
 
+.app-ticker-actions
+{
+    text-align: right;
+}
 @media (min-width: 768px)
+{
+    .app-ticker-actions
+    {
+        position: relative;
+
+        max-width: 16.6666666667%; 
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+
+        -ms-flex: 0 0 16.6666666667%;
+            flex: 0 0 16.6666666667%;
+    }
+}
+@media (min-width: 992px)
 {
     .app-ticker-actions
     {

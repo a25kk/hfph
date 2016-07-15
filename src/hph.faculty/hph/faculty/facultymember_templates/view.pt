@@ -10,8 +10,8 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-    <div class="row">
-        <div class="col-xs-12 col-lg-3">
+    <div class="app-section">
+        <div class="app-section-aside">
             <aside class="app-aside" id="app-sidebar"
                 tal:define="subcontents python:context.restrictedTraverse('@@folderListing')(portal_type=['Folder', 'hph.sitecontent.contentpage'])">
 
@@ -61,7 +61,7 @@
                 </div>
             </aside>
         </div>
-        <div class="col-xs-12 col-lg-9">
+        <div class="app-section-main">
             <article class="tile-content" id="tile-content">
                 <tal:can_edit tal:condition="view/item_owner">
                     <div class="app-callout app-callout-warning">
@@ -76,8 +76,8 @@
                         </p>
                     </div>
                 </tal:can_edit>
-                <header class="page-header">
-                    <h1 tal:content="context/Title">Title inserted here</h1>
+                <header class="app-page-header">
+                    <h1 class="app-page-headline" tal:content="context/Title">Title inserted here</h1>
                 </header>
 
                 <p class="app-page-teaser" tal:condition="context/Description"
@@ -86,7 +86,7 @@
                 <div class="app-page-department" tal:condition="context/department"
                     tal:content="context/department" />
 
-                <section class="page-content" id="page-content">
+                <section class="app-page-content" id="page-content">
                     <div class="row">
                         <div class="col-xs-12 col-sm-4" tal:condition="context/image">
                             <img tal:condition="context/image"

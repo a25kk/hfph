@@ -72,10 +72,12 @@
 }
 
 .app-action-search-content {
-    margin-right: $spacer;
     padding-left: $spacer;
     padding-right: $spacer;
     background: $gray-light;
+    @include media-breakpoint-up(md) {
+        margin-right: $spacer;
+    }
     @include media-breakpoint-up(lg) {
         margin-right: 0;
     }
