@@ -152,7 +152,10 @@ $app-nav-bar-title-width: 50px;
 .app-navbar-nav-sub {
     width: 100%;
     @include media-breakpoint-up(sm) {
-        height: 50px;
+        // height: 50px;
+        min-height: 50px;
+        flex-wrap: wrap;
+        align-content: flex-start;
         justify-content: flex-start;
     }
 }
@@ -177,7 +180,7 @@ $app-nav-bar-title-width: 50px;
 }
 
 .app-navitem-sub {
-    flex: 1 0 auto;
+    flex: 1 1 auto;
 }
 
 

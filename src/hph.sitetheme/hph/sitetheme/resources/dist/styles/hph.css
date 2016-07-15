@@ -14709,8 +14709,12 @@ div.riform .label
 {
     .app-navbar-nav-sub
     {
-        height: 50px;
+        min-height: 50px;
 
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -ms-flex-line-pack: start;
+        align-content: flex-start;
         -ms-flex-pack: start;
         justify-content: flex-start;
     }
@@ -14744,8 +14748,8 @@ div.riform .label
 
 .app-navitem-sub
 {
-    -ms-flex: 1 0 auto;
-        flex: 1 0 auto;
+    -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
 }
 
 .app-navitem-tab
@@ -17209,6 +17213,33 @@ app-fonts-loaded .app-page-abstract
 .app-page-department
 {
     font-weight: bold;
+}
+
+#searchform .actionMenu
+{
+    display: none;
+}
+
+#searchResultsSort
+{
+    float: right;
+}
+
+#search-results
+{
+    padding-top: 1rem;
+}
+
+.searchResults > li
+{
+    margin-bottom: 1rem;
+}
+
+.searchResults cite
+{
+    font-size: .9rem; 
+
+    display: block;
 }
 
 .app-panelpage

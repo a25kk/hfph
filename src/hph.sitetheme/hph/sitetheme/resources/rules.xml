@@ -83,9 +83,12 @@
               css:theme="#app-brandname-logo-main" />
         <drop css:if-not-content=".section-pro-philosophia"
               css:theme="#app-brandname-logo-pro-philosophia" />
+
         <!-- Portal searchbox -->
-        <!--<copy attributes="action" css:content="#portal-searchbox form"
-            css:theme="#portal-searchbox" />-->
+        <!--<copy attributes="*" css:content="#portal-searchbox form"
+              css:theme="#app-searchbox" />
+
+        <replace css:content="#portal-searchbox" css:theme="#app-searchbox" method="raw" />-->
 
         <!-- Global navigation -->
         <drop css:theme="#app-section-marker"
