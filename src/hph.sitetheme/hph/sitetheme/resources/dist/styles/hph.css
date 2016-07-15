@@ -14785,6 +14785,11 @@ div.riform .label
     color: #fff;
     background-color: #002245;
 }
+.active .app-navitem-tab
+{
+    color: #fff;
+    background-color: #002245;
+}
 .app-navitem-tab > span
 {
     display: block;
@@ -14843,6 +14848,11 @@ div.riform .label
 {
     text-decoration: none; 
 
+    color: #fff;
+    background-color: #002245;
+}
+.active .app-navitem-tab-base
+{
     color: #fff;
     background-color: #002245;
 }
@@ -15890,6 +15900,8 @@ textarea
 
 .ppe-block-sortable .ppe-panel-preview
 {
+    padding: 1rem; 
+
     color: #55595c;
 }
 
@@ -17428,6 +17440,8 @@ app-fonts-loaded .app-page-abstract
     position: absolute;
     z-index: 1060;
     top: 0;
+
+    padding: 1rem;
 
     background: #fff;
     background: rgba(255, 255, 255, .5);

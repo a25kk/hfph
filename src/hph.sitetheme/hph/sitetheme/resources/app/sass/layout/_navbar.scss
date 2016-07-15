@@ -206,6 +206,10 @@ $app-nav-bar-title-width: 50px;
       background-color: darken($app-primary, 6.5%);
       text-decoration: none;
     }
+    @include when-inside('.active') {
+        color: #fff;
+        background-color: darken($app-primary, 6.5%);
+    }
     > span {
         display: block;
         margin-left: $spacer;
@@ -241,6 +245,10 @@ $app-nav-bar-title-width: 50px;
         color: #fff;
         background-color: darken($app-primary, 6.5%);
         text-decoration: none;
+    }
+    @include when-inside('.active') {
+        color: #fff;
+        background-color: darken($app-primary, 6.5%);
     }
     > span {
         display: block;

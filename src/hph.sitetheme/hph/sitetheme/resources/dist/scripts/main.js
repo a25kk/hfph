@@ -8,7 +8,7 @@ requirejs(['require',
 '/++theme++hph.sitetheme/dist/scripts/respimage.js',
 '/++theme++hph.sitetheme/dist/scripts/ls.parent-fit.js',
 '/++theme++hph.sitetheme/dist/scripts/lazysizes-umd.js',],
- function(require, Sortable) {
+ function(require, sortable) {
 'use strict';
 var font = new FontFaceObserver('Open Sans');
 font.load().then(function () {

@@ -61,7 +61,7 @@ module.exports = function (grunt) {
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/respimage.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/ls.parent-fit.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/lazysizes-umd.js',],\n" +
-                                       " function(require, Sortable) {\n'use strict';\n",
+                                       " function(require, sortable) {\n'use strict';\n",
                     footer: "});",
                     stripBanners: true
                 },
