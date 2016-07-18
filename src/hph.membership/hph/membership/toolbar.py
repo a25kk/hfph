@@ -24,10 +24,6 @@ class ToolbarViewlet(grok.Viewlet):
     def update(self):
         self.context = aq_inner(self.context)
         self.tools = self.get_multi_adapter(u'plone_tools')
-        self.scripts_view = self.get_multi_adapter(
-            u'resourceregistries_scripts_view')
-        self.styles_view = self.get_multi_adapter(
-            u'resourceregistries_styles_view')
         self.context_state = self.get_multi_adapter(u'plone_context_state')
         self.portal_state = self.get_multi_adapter(u'plone_portal_state')
         self.anonymous = self.portal_state.anonymous()
@@ -43,17 +39,6 @@ class ToolbarViewlet(grok.Viewlet):
 
     def get_multi_adapter(self, name):
         return getMultiAdapter((self.context, self.request), name=name)
-
-    @memoize
-    def resources(self):
-        resources = []
-        skinname = self.context.getCurrentSkinName()
-        self.context.changeSkin('toolbar', self.request)
-        for item in self.styles_view.styles() + self.scripts_view.scripts():
-            if item['src']:
-                resources.append(item['src'])
-        self.context.changeSkin(skinname, self.request)
-        return resources
 
     def is_deco_enabled(self):
         try:

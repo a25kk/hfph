@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+  <layer
+    name="hph.sitetheme"
+    interface="hph.sitetheme.interfaces.IHphSiteThemeLayer"
+  />
+</layers>

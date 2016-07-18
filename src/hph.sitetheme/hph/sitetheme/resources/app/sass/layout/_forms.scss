@@ -1,0 +1,161 @@
+//
+// Forms
+//------------------------------------
+
+
+// Standard applciation button styles
+.app-btn {
+    @extend .btn;
+    @include button-variant(#333, $gray-lighter, #333);
+    @include button-outline-variant($gray);
+    &-sm {
+        @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-border-radius-sm);
+    }
+}
+
+//** Webfont specific adjustments
+label {
+  font-weight: 700;
+  .wf-active & {
+    font-weight: 400;
+  }
+}
+
+
+//== Inputs
+//
+//## Add basic styling to all input types
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  @extend  .form-control;
+}
+
+//** Reset textarea height
+textarea {
+    height: auto;
+}
+
+.app-form-actions {
+  padding-top: $spacer;
+}
+
+.help-block {
+    display: block;
+    font-size: .85rem;
+    font-weight: 300;
+    color: $gray-light;
+}
+
+//== Required field
+//
+//## Mark fields as required
+.app-field-required {
+    position: relative;
+}
+
+.app-field-required .required-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin: -0.25em 0.25em 0em;
+    background-color: #E8E8E8;
+    border-color: #E8E8E8;
+    padding: 0.5em 0.8em;
+    color: rgba(0, 0, 0, 0.65);
+    text-transform: uppercase;
+    font-weight: normal;
+    border-radius: 0.325em;
+    box-sizing: border-box;
+    transition: background 0.1s linear;
+    font-size: 75%;
+}
+
+.app-field-required .required-icon {
+    background-color: transparent;
+    position: absolute;
+    top: 2.25em;
+    right: 0em;
+    z-index: 10;
+    margin: 0em;
+    width: 45px;
+    height: 45px;
+    padding: 0em;
+    text-align: center;
+    transition: color 0.2s ease;
+}
+
+.app-field-required .required-icon:after {
+    position: absolute;
+    content: "";
+    right: 1px;
+    top: 1px;
+    z-index: -1;
+    width: 0em;
+    height: 0em;
+    transition: border-color 0.2s ease;
+}
+
+.app-field-required .required-icon .text {
+  margin: -3px 0 0 12px;
+  color: $app-danger;
+  font-size: 2.25rem;
+  font-weight: 300;
+}
+
+
+//== Password toggle
+//
+//## Hide/show password in [type="password"] fields
+::-ms-reveal,
+::-ms-clear {
+  display: none !important;
+}
+
+.hideShowPassword-toggle {
+    width: 46px;
+    height: 33px;
+    min-height: 100%;
+    overflow: hidden;
+    text-indent: -999em;
+  // background: transparent;
+    background-color: transparent;
+    background-image: url('../assets/img/icon-wink.png'); /* fallback */
+    background-image: url('../assets/img/icon-wink.svg'), none;
+    background-position: 0 center;
+    background-repeat: no-repeat;
+  border: 0;
+  border-radius: 0.25em;
+  color: #888;
+  cursor: pointer;
+  font-size: 0.75em;
+  font-weight: bold;
+  margin-right: 0.5em;
+  padding: 0.5em;
+  text-transform: uppercase;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+.hideShowPassword-toggle-hide {
+    background-position: -44px center;
+}
+
+.hideShowPassword-toggle:hover,
+.hideShowPassword-toggle:focus {
+  background-color: transparent;
+  color: #555;
+  outline: transparent;
+}

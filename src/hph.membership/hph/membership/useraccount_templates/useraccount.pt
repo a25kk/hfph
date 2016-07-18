@@ -19,7 +19,8 @@
             Passwords require a minimum length of 8 characters.
           </p>
             <hr>
-            <form class="app-form"
+            <tal:valid tal:condition="view/can_set_password">
+              <form class="app-form"
                   method="post" role="form"
                   tal:attributes="action request/URL">
                   <span tal:replace="structure context/@@authenticator/authenticator"/>
@@ -33,7 +34,7 @@
                           title="8 characters minimum"
                           required />
                   </div>
-                  <div class="field">
+                  <div class="field"<name />
                       <label for="confirm" i18n:translate="">Confirm</label>
                       <input class="form-control"
                           id="confirm"
@@ -45,7 +46,19 @@
                        name="form.button.Submit"
                        id="form.button.Submit"
                        i18n:translate="">Save</button>
-            </form>
+              </form>
+            </tal:valid>
+            <tal:invalid tal:condition="not:view/can_set_password">
+              <div class="app-callout app-callout-danger">
+                <h4 i18n:translate="">Unauthorized</h4>
+                <p i18n:translate="">We are sorry to inform you that this request can not be resolved.</p>
+              </div>
+              <p i18n:translate="">Please check wether the requested URL is complete and contains the required
+                access token to verify your identity. If the url is correct and the error persists it is
+                most likely due to an incorrectly gernerated user account. Please contact our team if you
+                have any questions.
+              </p>
+            </tal:invalid>
           </section>
         </div>
   </metal:content-core>

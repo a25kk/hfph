@@ -27,7 +27,7 @@ setup(name='hph.membership',
       install_requires=[
           'setuptools',
           'requests',
-          'plone.app.dexterity [grok, relations]',
+          'plone.app.dexterity',
           'plone.app.relationfield',
           'plone.namedfile [blobs]',
           'plone.principalsource',
@@ -38,10 +38,4 @@ setup(name='hph.membership',
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      # The next two lines may be deleted after you no longer need
-      # addcontent support from paster and before you distribute
-      # your package.
-      setup_requires=["PasteScript"],
-      paster_plugins = ["ZopeSkel"],
-
       )

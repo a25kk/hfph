@@ -1,0 +1,92 @@
+//
+// CSS animations
+// ----------------------------------------------
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+// Fades
+// ----------------------------------------
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeInDown {
+    animation-name: fadeInDown;
+}
+
+@keyframes fadeOutUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+.fadeOutUp {
+    animation-name: fadeOutUp;
+}
+
+
+// Dimmer to gradually fade or dim in areas
+// ----------------------------------------
+
+// Mixin class to construct vendor prefixed versions
+@mixin app-frame-dimmer() {
+    from { opacity:0; }
+    to { opacity:1; }
+}
+
+// make keyframes that tell the start state and the end state of our object
+// @-webkit-keyframes dimmer-animation {app-frame-dimmer;}
+// @-moz-keyframes dimmer-animation {app-frame-dimmer;}
+// @-ms-keyframes dimmer-animation {app-frame-dimmer;}
+// @-o-keyframes dimmer-animation {app-frame-dimmer;}
+@keyframes dimmer-animation {@include app-frame-dimmer;}
+
+// Apply this class to animated content areas
+.dim-in {
+    opacity: 0;  /* make things invisible upon start */
+    animation: dimmer-animation ease-in 1;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    &.dim-in-1 {
+        transition-delay: 0.5s;
+    }
+    &.dim-in-2 {
+        transition-delay: 1.2s;
+    }
+    &.dim-in-3 {
+        transition-delay: 1.8s;
+    }
+}
+
+//= Global transition timer
+//
+//## Modifier classes to delay transitions
+.app-dlay-1 {
+    transition-delay: 0.5s;
+}
+
+.app-dlay-2 {
+    transition-delay: 1.2s;
+}
+
+.app-dlay-3 {
+    transition-delay: 1.8s;
+}

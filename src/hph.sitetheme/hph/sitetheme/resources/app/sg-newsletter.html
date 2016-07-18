@@ -1,0 +1,36 @@
+---
+layout: styleguide
+title: Styleguide Newsletter
+slug: sg-newsletter
+lead: "Styleguide for brand usage"
+base_url: "../../"
+---
+<main class="app-page" id="content">
+  <div class="app-page-header">
+      <div class="app-page-title">
+          <h1 class="app-page-headline">Newsletter
+          </h1>
+      </div>
+      <p class="app-page-abstract">
+          Newsletter Formular als optionales Feature
+      </p>
+  </div>
+  <div class="app-page-body">
+  <p>Die Newsletteranmeldung erfolgt über ein fest definiertes Eingabefeld auf der Startseite. Die Anmeldung erfolgt durch Angabe der E-Mailadresse. Angegebene Adressen werden in einer Datenbank gesammelt. Weitere Funktionen sind nicht berücksichtigt.</p>
+
+  <div class="sg-example">
+    {% include components/newsletter.html %}
+{% highlight html %}
+<div class="app-newsletterbar" id="newsletter">
+    <div class="app-newsletter">
+      <div class="app-newsletter-item">
+        <div class="app-newsletter-item-content">
+          ...
+        </div>
+      </div>
+    </div>
+</div>
+{% endhighlight %}
+  </div>
+
+</main>

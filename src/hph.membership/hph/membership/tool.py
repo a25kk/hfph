@@ -23,7 +23,7 @@ DEFAULT_SERVICE_TIMEOUT = socket.getdefaulttimeout()
 
 from hph.membership import MessageFactory as _
 
-logger = logging.getLogger('Member Tool')
+logger = logging.getLogger("User Importer")
 
 
 class IHPHMemberTool(Interface):
@@ -98,7 +98,6 @@ class MemberTool(grok.GlobalUtility):
                 password
             )
             pas.updateLoginName(user_id, user_email)
-            # user = api.user.get(username=user_id)
             user.setMemberProperties(mapping=properties)
             info['created'] = True
         info['userid'] = user_id
@@ -186,7 +185,7 @@ class MemberTool(grok.GlobalUtility):
         if dev_mode:
             portal_url = api.portal.get().absolute_url()
         else:
-            portal_url = 'http://www.hfph.de'
+            portal_url = 'https://www.hfph.de'
         url = '{0}/useraccount/{1}/{2}'.format(
             portal_url, user_id, token)
         template_vars = {

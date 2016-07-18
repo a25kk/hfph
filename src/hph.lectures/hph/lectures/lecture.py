@@ -4,7 +4,7 @@ from Acquisition import aq_inner
 from five import grok
 from plone import api
 from plone.app.vocabularies.catalog import CatalogSource
-from plone.app.widgets.dx import RelatedItemsWidget
+from plone.app.z3cform.widget import RelatedItemsWidget
 from plone.dexterity.content import Container
 from plone.directives import form
 from plone.indexer import indexer
@@ -212,7 +212,7 @@ class View(grok.View):
     def computed_klass(self, value):
         context = aq_inner(self.context)
         active_filter = getattr(context, 'courseType', None)
-        klass = 'nav-item-plain'
+        klass = 'app-nav-list-item app-nav-list-item-plain'
         if active_filter == value:
-            klass = 'active'
+            klass = 'app-nav-list-item app-nav-list-item-active'
         return klass

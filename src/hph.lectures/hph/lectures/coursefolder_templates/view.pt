@@ -13,37 +13,39 @@
     <div class="row">
         <div class="col-xs-12 col-sm-3">
             <aside class="app-aside" id="app-sidebar">
-                <div class="app-box app-box-faculty"
+                <div class="app-card app-card-nav app-card-lecture"
                     tal:define="active_filter request/courseType | nothing">
-                    <div class="app-box-header">
+                    <div class="app-card-header">
                     </div>
-                    <div class="app-box-content">
-                        <ul class="nav nav-pills nav-stacked app-box-nav">
+                    <div class="app-card-main">
+                        <ul class="app-nav-list">
                             <tal:block tal:repeat="filter view/filter_options">
                                 <li tal:define="filter_value filter/value"
                                     tal:attributes="class python:view.computed_klass(filter_value)">
-                                    <a tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;courseType=${filter/value}"
+                                    <a class="app-nav-list-link"
+                                            tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;courseType=${filter/value}"
                                         tal:content="filter/title">Filter option</a>
                                 </li>
                             </tal:block>
                         </ul>
                     </div>
-                    <div class="app-box-footer">
+                    <div class="app-card-footer">
                         <a class="btn btn-danger btn-sm" tal:condition="active_filter"
                             tal:attributes="href string:${context/absolute_url}">
                             &times; <span i18n:translate="">remove filter</span></a>
                     </div>
                 </div>
-                <div class="app-box app-box-faculty"
+                <div class="app-card app-card-nav app-card-lecture"
                     tal:condition="view/has_archives">
-                    <div class="app-box-header">
+                    <div class="app-card-header">
                         <div class="app-box-heading" i18n:translate="">Archive</div>
                     </div>
-                    <div class="app-box-content">
-                        <ul class="nav nav-pills nav-stacked app-box-nav">
+                    <div class="app-card-main">
+                        <ul class="app-nav-list">
                             <tal:block tal:repeat="folder view/subfolders">
-                                <li tal:define="filter_active python:view.is_active_folder(folder)">
-                                    <a tal:attributes="href folder/getURL"
+                                <li class="app-nav-list-item" tal:define="filter_active python:view.is_active_folder(folder)">
+                                    <a class="app-nav-list-link"
+                                            tal:attributes="href folder/getURL"
                                         tal:content="folder/Title">Archive folder</a>
                                 </li>
                             </tal:block>
@@ -84,7 +86,7 @@
                                     <span tal:replace="item/courseNumber" /><span tal:condition="item/blockLecture">*</span><span tal:condition="item/onlineLecture">@</span>
                                     <tal:lecturer tal:condition="item/lecturer">
                                         <tal:items tal:repeat="node item/lecturer">
-                                            <a tal:attributes="href node/to_object/absolute_url | context/absolute_url" tal:content="node/to_object/Title" /><tal:separator condition="not: repeat/node/end">,</tal:separator>
+                                            <a tal:attributes="href node/to_object/absolute_url | nothing" tal:content="node/to_object/Title | nothing" /><tal:separator condition="not: repeat/node/end">,</tal:separator>
                                         </tal:items>
                                     </tal:lecturer>
                                 </div>

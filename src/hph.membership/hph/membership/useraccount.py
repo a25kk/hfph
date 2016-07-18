@@ -23,6 +23,7 @@ class UserAccount(grok.View):
         self.token = self.traverse_subpath[1]
         self.has_valid_token(self.token)
         self.errors = {}
+        self.can_set_password = self.has_valid_token(self.token)
         unwanted = ('_authenticator', 'form.button.Submit')
         required = ('title')
         if 'form.button.Submit' in self.request:

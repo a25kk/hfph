@@ -1,0 +1,13 @@
+// Panels
+//
+//## Layout component panel
+
+.app-panel {
+	margin-bottom: $spacer;
+	background: #fff;
+	box-shadow: 0 0 5px 5px rgba(0, 0, 0, .05);
+}
+
+.app-panel-main {
+	border-top: 5px solid $app-primary;
+}

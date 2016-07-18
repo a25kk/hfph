@@ -29,7 +29,6 @@ setup(name='hph.sitecontent',
           'plone.api',
           'plone.app.dexterity',
           'five.grok',
-          'plone.namedfile [blobs]',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
@@ -37,10 +36,4 @@ setup(name='hph.sitecontent',
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      # The next two lines may be deleted after you no longer need
-      # addcontent support from paster and before you distribute
-      # your package.
-      setup_requires=["PasteScript"],
-      paster_plugins = ["ZopeSkel"],
-
       )

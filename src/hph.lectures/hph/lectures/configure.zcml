@@ -40,14 +40,12 @@
         title="CourseDetails"
         description="Additional information on a specific lecture or course"
         provides=".coursedetails.ICourseDetails"
-        for="plone.dexterity.interfaces.IDexterityContent"
         />
 
-     <plone:behavior
-        title="CourseModules"
-        description="Course module data grid behavior"
-        provides=".coursemodules.ICourseModuleInformation"
-        for="plone.dexterity.interfaces.IDexterityContent"
-        />
+  <plone:behavior
+     title="CourseModules"
+     description="Course module data grid behavior"
+     provides=".coursemodules.ICourseModuleInformation"
+     />
 
 </configure>

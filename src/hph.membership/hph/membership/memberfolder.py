@@ -316,7 +316,7 @@ class CreateRecords(grok.View):
             user_info = tool.create_user(data)
             user_id = user_info['userid']
             is_new_user = user_info['created']
-            if is_new_user is True:
+            if is_new_user:
                 for group in record['groups']:
                     api.group.add_user(
                         groupname=group,
