@@ -1,3 +1,4 @@
+import logging
 import socket
 import requests
 import contextlib
@@ -21,6 +22,8 @@ DEFAULT_SERVICE_URI = 'getAllUsers'
 DEFAULT_SERVICE_TIMEOUT = socket.getdefaulttimeout()
 
 from hph.membership import MessageFactory as _
+
+logger = logging.getLogger('Member Tool')
 
 
 class IHPHMemberTool(Interface):
@@ -76,9 +79,13 @@ class MemberTool(grok.GlobalUtility):
         registration = api.portal.get_tool(name='portal_registration')
         pas = api.portal.get_tool(name='acl_users')
         generator = getUtility(IUUIDGenerator)
-        existing = api.user.get(username=data['email'])
+        existing_user = api.user.get(username=data['email'])
         info = {}
-        if not existing:
+        if existing_user is not None:
+            user = existing_user
+            user_id = user.getId()
+            info['created'] = False
+        else:
             user_id = generator()
             user_email = data['email']
             password = django_random.get_random_string(8)
@@ -94,10 +101,6 @@ class MemberTool(grok.GlobalUtility):
             # user = api.user.get(username=user_id)
             user.setMemberProperties(mapping=properties)
             info['created'] = True
-        else:
-            user = existing
-            user_id = user.getId()
-            info['created'] = False
         info['userid'] = user_id
         return info
 

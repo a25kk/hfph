@@ -21,6 +21,7 @@ class UserAccount(grok.View):
     def update(self):
         self.key = self.traverse_subpath[0]
         self.token = self.traverse_subpath[1]
+        self.has_valid_token(self.token)
         self.errors = {}
         unwanted = ('_authenticator', 'form.button.Submit')
         required = ('title')
@@ -64,18 +65,26 @@ class UserAccount(grok.View):
 
     def has_valid_token(self, token):
         token = self.traverse_subpath[1]
-        user = api.user.get(username=self.key)
-        stored_token = user.getProperty('token', None)
+        user = api.user.get(userid=str(self.key))
+        try:
+            stored_token = user.getProperty('token', None)
+        except AttributeError:
+            IStatusMessage(self.request).addStatusMessage(
+                _(u"No matching user account found"),
+                type='error')
+            portal_url = api.portal.get().absolute_url()
+            error_url = '{0}/@@useraccount-error'.format(portal_url)
+            return self.request.response.redirect(error_url)
         if stored_token is None:
             IStatusMessage(self.request).addStatusMessage(
-                _(u"No stored acces token found"),
+                _(u"No stored access token found"),
                 type='error')
             portal_url = api.portal.get().absolute_url()
             error_url = '{0}/@@useraccount-error'.format(portal_url)
             return self.request.response.redirect(error_url)
         return self.is_equal(stored_token, token)
 
-    def is_equal(a, b):
+    def is_equal(self, a, b):
         """ Constant time comparison """
         if len(a) != len(b):
             return False
@@ -141,3 +150,10 @@ class UserAccount(grok.View):
         IStatusMessage(self.request).addStatusMessage(
             _(u"You are now logged in."), "info")
         self.request.response.redirect(next_url)
+
+
+class UserAccountError(grok.View):
+    grok.context(INavigationRoot)
+    grok.implements(IPublishTraverse)
+    grok.require('zope2.View')
+    grok.name('useraccount-error')
