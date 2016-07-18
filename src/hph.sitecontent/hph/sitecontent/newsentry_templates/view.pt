@@ -11,12 +11,12 @@
   <metal:content-core define-macro="main">
 
     <article classs="app-content" id="app-content">
-        <section class="page">
-            <header class="page-header">
-              <h1 tal:content="context/Title">Title</h1>
+        <section class="app-page">
+            <header class="app-page-header">
+              <h1 class="app-page-headline" tal:content="context/Title">Title</h1>
             </header>
-            <div class="row">
-                <div class="col-xs-12 col-sm-2">
+            <div class="app-section">
+                <div class="app-section-aside">
                     <img tal:condition="context/image"
                         tal:define="scales context/@@images"
                         tal:replace="structure python: scales.tag('image',
@@ -25,8 +25,8 @@
                                      css_class='app-img',
                                      direction='down')" />
                 </div>
-                <div class="col-xs-12 col-sm-10">
-            <article class="page-content"> 
+                <div class="app-section-main">
+            <article class="page-content">
                 <div tal:condition="context/text"
                     tal:content="structure context/text/output" />
 
@@ -53,19 +53,19 @@
                     </ul>
                 </div>
 
-                <p class="text-right">
-                    <a href="" class="btn btn-primary"
+                <p class="text-xs-right">
+                    <a href="" class="app-btn app-btn-primary"
                         tal:define="portal_url context/portal_url"
                         tal:attributes="href view/parent_url">
                         Weitere Nachrichten</a>
                 </p>
 
                 <div class="visualClear" tal:condition="view/can_edit">
-                    <div class="alert alert-warning">
+                    <div class="app-callout app-callout-default">
                         <p i18n:translate="">
                         Since you are signed in as editor you can add file
                         attachments to this news entry</p>
-                        <a class="btn btn-default"
+                        <a class="app-btn app-btn-default app-btn-sm"
                         i18n:translate=""
                         tal:attributes="href string:${context/absolute_url}/++add++File">
                         add attachment</a>
@@ -76,7 +76,7 @@
             </div>
         </section>
     </article>
-    
+
   </metal:content-core>
 </metal:main>
 

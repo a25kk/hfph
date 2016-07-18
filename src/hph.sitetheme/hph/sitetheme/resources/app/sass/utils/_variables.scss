@@ -1,0 +1,67 @@
+//
+// Application settings and variables
+// -------------------------------------------------
+
+
+//== Colors
+//
+//## Brand colors used across the project
+$color-midnight-blue:          rgba(0, 51, 102, 1); // #003366;
+$color-sun-glow:               rgba(255, 204, 51, 1); // #ffcc33
+$color-tundora:                rgba(64, 64, 64, 1); // #404040
+$color-shuttle-gray:            rgba(90, 95, 100, 1); // #5A5F64
+
+$app-blue-primary:            rgba(5, 81, 125, 1);
+$app-blue-secondary:          rgba(55, 116, 151, 1);
+$app-brown:                   rgba(159, 123, 15, 1);
+$app-green:                   rgba(9, 130, 39, 1);
+$app-red:                     rgba(144, 7, 7, 1);
+$app-violet:                  rgba(71, 19, 123, 1);
+$app-purple:                  rgba(126, 4, 167, 1);
+
+// Gray baseline
+$app-gray:                      $color-shuttle-gray;
+$app-gray-light:				#eee;
+
+// Brand danger
+$app-danger:                    $app-red;
+
+
+
+//== Brand and Section specific variables
+//
+//## Used in mixin and modifier classes
+
+//** Primary brand color
+$app-primary-base:              rgba(0, 51, 102, 1) !default;
+$app-primary-darker:            darken($app-primary-base, 15%)  !default;
+$app-primary-dark:              darken($app-primary-base, 7.5%) !default;
+$app-primary:                   $app-primary-base               !default; // #274d38
+$app-primary-light:             lighten($app-primary-base, 7.5%) !default;
+$app-primary-lighter:           lighten($app-primary-base, 15%) !default;
+
+//** Secondary brand color
+$app-secondary-base:              rgba(255, 204, 51, 1) !default;
+$app-secondary-darker:            darken($app-secondary-base, 15%)  !default;
+$app-secondary-dark:              darken($app-secondary-base, 7.5%) !default;
+$app-secondary:                   $app-secondary-base               !default; // #588c73
+$app-secondary-light:             lighten($app-secondary-base, 7.5%) !default;
+$app-secondary-lighter:           lighten($app-secondary-base, 15%) !default;
+
+
+//** Section IGP R: 239 G: 125 B: 0 (#ef7d00)
+$app-color-igp:					rgba(239, 125, 0, 1) !default;
+
+
+$app-link-color:				#5896c8;
+
+
+//** Brand primary color schema used as default
+$app-default:                 $app-primary-base;
+$app-section-default:         $app-primary-base;
+
+
+//** Font awesome font path
+$fa-font-path:                  "../assets/fonts";
+// Ionicons
+$ionicons-font-path: 			"../assets/fonts";

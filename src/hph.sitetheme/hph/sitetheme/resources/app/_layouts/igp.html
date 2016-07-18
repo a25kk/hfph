@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <!-- Meta, title, CSS, favicons, etc. -->
+    {% include head.html %}
+</head>
+<body>
+<a class="sr-only" href="#content">Skip navigation</a>
+{% include toolbar.html %}
+<header class="container app-header" id="app-header" role="banner">
+    <div class="app-tile app-header-content" id="app-header-content">
+        <!-- @include "_includes/metanav.html" -->
+        {% include metanav.html %}
+        {% include brandbar-igp.html %}
+        {% include mainnavbar.html %}
+    </div>
+    {% include subnavbar.html %}
+</header><!-- /app-header -->
+{% include breadcrumbs.html %}
+
+
+<main class="app-main" role="main">
+    {{ content }}
+</main>
+
+{% include footer.html %}
+{% include javascript.html %}
+
+<div class="app-js-slot">
+    {% include piwik.html %}
+</div>
+
+</body>
+</html>

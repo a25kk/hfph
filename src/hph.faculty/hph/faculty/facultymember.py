@@ -7,7 +7,7 @@ from hph.publications.publication import IPublication
 from plone import api
 from plone.app.contentlisting.interfaces import IContentListing
 from plone.app.textfield import RichText
-from plone.app.widgets.dx import RelatedItemsWidget
+from plone.app.z3cform.widget import RelatedItemsWidget
 from plone.dexterity.content import Container
 from plone.directives import form
 from plone.formwidget.contenttree import ObjPathSourceBinder

@@ -113,12 +113,6 @@ class CleanupView(grok.View):
         idx = 0
         for item in items:
             i = item.getObject()
-            media = getattr(i, 'medium')
-            series = getattr(i, 'series')
-            display = getattr(i, 'display')
-            setattr(i, 'pubMedia', media)
-            setattr(i, 'pubSeries', series)
-            setattr(i, 'thirdPartyProject', display)
             idx += 1
             modified(i)
             i.reindexObject(idxs='modified')

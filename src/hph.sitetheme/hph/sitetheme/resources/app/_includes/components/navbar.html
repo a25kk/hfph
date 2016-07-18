@@ -1,0 +1,46 @@
+<nav class="app-navbar" id="app-navbar" role="navigation">
+  <div class="app-navbar-header">
+      <div class="app-navbar-header-title">
+          <a class="app-navbar-brand" href="/">
+            <i class="ion ion-ios-square app-navbar-brand-icon"></i>
+            <span class="app-navbar-brand-title">Bereiche</span>
+          </a>
+      </div>
+      <div class="app-navbar-header-toggle">
+          <button type="button" class="app-navbar-toggle navbar-toggler hidden-sm-up" data-toggle="collapse" data-target="#app-navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              &#9776;
+          </button>
+      </div>
+  </div>
+
+  <div class="navbar-collapse app-navbar-collapse collapse navbar-toggleable-xs" id="app-navbar-collapse">
+    <ul class="xnav xnavbar-nav app-navbar-nav" id="app-navbar-nav">
+      <li class="app-navitem active">
+        <a class="app-navitem-tab app-navitem-tab-home" href="{{ page.base_url }}">
+          <span>Startseite</span>
+        </a>
+      </li>
+      <li class="app-navitem">
+        <a class="app-navitem-tab app-navitem-tab-aktuelles" href="{{ page.base_url }}hochschule">
+          <span>Hochschule</span>
+        </a>
+      </li>
+      <li class="app-navitem">
+        <a class="app-navitem-tab app-navitem-tab-verwaltung-und-politik" href="{{ page.base_url }}studium">
+          <span>Studium</span>
+        </a>
+      </li>
+      <li class="app-navitem">
+        <a class="app-navitem-tab app-navitem-tab-tourismus-und-wirtschaft" href="{{ page.base_url }}forschung">
+          <span>Forschung</span>
+        </a>
+      </li>
+      <li class="app-navitem">
+        <a class="app-navitem-tab app-navitem-tab-leben-im-landkreis" href="{{ page.base_url }}impulse">
+          <span>Impulse</span>
+        </a>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</nav>

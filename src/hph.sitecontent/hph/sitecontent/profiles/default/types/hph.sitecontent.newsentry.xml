@@ -10,7 +10,7 @@
   <property name="icon_expr">string:${portal_url}/folder_icon.png</property>
   <property name="factory">hph.sitecontent.newsentry</property>
   <property name="global_allow">True</property>
-  <property name="filter_content_types">True</property>  
+  <property name="filter_content_types">True</property>
   <property name="allowed_content_types">
     <element value="Image" />
     <element value="File" />
@@ -18,13 +18,13 @@
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">hph.sitecontent.newsentry.INewsEntry</property> 
+  <property name="schema">hph.sitecontent.newsentry.INewsEntry</property>
   <property name="klass">hph.sitecontent.newsentry.NewsEntry</property>
 
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
-     <element value="plone.app.dexterity.behaviors.metadata.IRelatedItems" />
+     <element value="plone.app.relationfield.behavior.IRelatedItems" />
      <element value="plone.app.dexterity.behaviors.metadata.IPublication" />
    </property>
 

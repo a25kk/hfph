@@ -13,22 +13,22 @@
     <div class="row">
         <div class="col-xs-12 col-sm-3">
             <aside class="app-aside hidden-print" id="app-sidebar">
-                <div class="app-box app-box-faculty"
+                <div class="app-card app-card-nav app-card-lecture"
                     tal:define="active_filter request/academicRole | nothing">
-                    <div class="app-box-header">
-                    </div>
-                    <div class="app-box-content">
-                        <ul class="nav nav-pills nav-stacked app-box-nav">
+                    <div class="app-card-main">
+                        <ul class="app-nav-list">
                             <tal:block tal:repeat="filter view/filter_options">
-                                <li tal:define="filter_value filter/value"
+                                <li class="app-nav-list-item"
+                                    tal:define="filter_value filter/value"
                                     tal:attributes="class python:view.computed_klass(filter_value)">
-                                    <a tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;academicRole=${filter/value}"
+                                    <a class="app-nav-list-link"
+                                        tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;academicRole=${filter/value}"
                                         tal:content="filter/title">Filter option</a>
                                 </li>
                             </tal:block>
                         </ul>
                     </div>
-                    <div class="app-box-footer">
+                    <div class="app-card-footer">
                         <a class="btn btn-danger btn-sm" tal:condition="active_filter"
                             tal:attributes="href string:${context/absolute_url}">
                             &times; <span i18n:translate="">remove filter</span></a>
@@ -94,7 +94,7 @@
                     tal:condition="context/Description"
                     tal:content="context/Description" />
                 <p tal:condition="context/moodle">
-                    <a class="btn btn-default"
+                    <a class="app-btn app-btn-default"
                         href="${context/moodle}"
                         i18n:translate="">
                         View lecture in moodle
@@ -170,11 +170,11 @@
                     </ul>
                 </div>
                 <div class="visualClear" tal:condition="view/can_edit">
-                    <div class="alert alert-warning">
+                    <div class="app-callout app-callout-warning">
                         <p i18n:translate="">
                         Since you are signed in as editor you can add file
                         attachments to this content item</p>
-                        <a class="btn btn-default"
+                        <a class="app-btn app-btn-default app-btn-sm"
                             i18n:translate=""
                             tal:attributes="href string:${context/absolute_url}/++add++File">
                             Add attachment</a>

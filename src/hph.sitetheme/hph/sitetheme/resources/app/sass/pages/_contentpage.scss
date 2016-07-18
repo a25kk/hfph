@@ -1,0 +1,39 @@
+.app-page {
+    padding: 1rem;
+    @include media-breakpoint-up(sm) {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+    @include media-breakpoint-up(md) {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+}
+
+.app-page-header {
+    margin: 2rem 0;
+    border-bottom: 1px solid $gray-lighter;
+}
+
+.app-page-headline {
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+.app-page-abstract {
+    font-weight: 700;
+    @include when-inside('app-fonts-loaded') {
+        font-weight: 600;
+    }
+}
+
+.discreet,
+.app-text-discreet {
+	font-size: $font-size-sm;
+	color: #999;
+}
+
+// Mark department string
+.app-page-department {
+    font-weight: bold;
+}

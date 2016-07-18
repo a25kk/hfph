@@ -1,0 +1,57 @@
+.app-ticker-bar {
+    @include make-container();
+    @include make-container-max-widths();
+    background-color: #fff;
+    margin-bottom: $spacer;
+}
+
+.app-ticker {
+    padding: .5rem;
+}
+
+.app-ticker-content {
+    @include media-breakpoint-up(md) {
+        @include make-row();
+    }
+ }
+
+.app-ticker-title {
+    color: $app-primary;
+    font-weight: 400;
+    border-bottom: 4px solid $app-secondary;
+    @include media-breakpoint-up(md) {
+        @include make-col(3);
+        border-right: 4px solid $app-secondary;
+        border-bottom: 0;
+    }
+    @include media-breakpoint-up(lg) {
+        @include make-col(2);
+    }
+}
+
+.app-ticker-main {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    @include media-breakpoint-up(md) {
+        @include make-col(7);
+        margin: 0;
+    }
+    @include media-breakpoint-up(lg) {
+        @include make-col(9);
+        margin: 0;
+    }
+}
+
+.app-ticker-actions {
+    text-align: right;
+    @include media-breakpoint-up(md) {
+        @include make-col(2);
+    }
+    @include media-breakpoint-up(lg) {
+        @include make-col(1);
+    }
+}
+
+.app-marquee {
+    overflow: hidden;
+}

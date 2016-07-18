@@ -30,7 +30,7 @@ env.actor = ${settings:username}
 
 env.roledefs = {
     'production': ['hph'],
-    'staging': ['z9']
+    'staging': ['z3']
 }
 
 
@@ -116,14 +116,14 @@ def stage(actor=None):
         with cd(env.code_root):
             run('bin/buildout -Nc staging.cfg')
         project.site.restart()
-    msg = ('[z9] *%(sitename)s* deployed by %(actor)s' % opts)
+    msg = ('[z3] *%(sitename)s* deployed to *staging* by %(actor)s' % opts)
     user = 'fabric'
     icon = ':shipit:'
     slack.chat.post_message('#general', msg, username=user, icon_emoji=icon)
 
 
 @task
-@roles('staging')
+@roles('production')
 def deploy_full():
     """ Deploy current master to production and run buildout """
     with settings(port=22222, webserver='/opt/webserver/buildout.webserver'):
@@ -133,6 +133,7 @@ def deploy_full():
 
 
 @task
+@roles('production')
 def rebuild():
     """ Deploy current master and run full buildout """
     with settings(port=22):
@@ -142,9 +143,10 @@ def rebuild():
 
 
 @task
+@roles('production')
 def get_data():
     """ Copy live database for local development """
-    project.db.download_data()
+    project.db.download()
 
 
 @task

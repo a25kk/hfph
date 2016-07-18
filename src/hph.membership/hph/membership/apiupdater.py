@@ -5,12 +5,11 @@ import time
 from Products.CMFPlone.utils import safe_unicode
 from five import grok
 from plone import api
+from plone.app.layout.navigation.interfaces import INavigationRoot
+from plone.protect.interfaces import IDisableCSRFProtection
 from zope.component import getUtility
 from zope.interface import alsoProvides
 from zope.lifecycleevent import modified
-
-from plone.app.layout.navigation.interfaces import INavigationRoot
-from plone.protect.interfaces import IDisableCSRFProtection
 
 from hph.membership.tool import api_group_mapper
 from hph.membership.tool import user_group_mapper

@@ -10,25 +10,25 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-  <article id="contentpage-view" class="tile-content">
-    <header class="page-header">
-        <h1 tal:condition="context/headline"
+  <section class="app-page" id="app-content-page-view">
+    <header class="app-page-header">
+        <h1 class="app-page-title" tal:condition="context/headline"
             tal:content="context/headline" />
-        <h1 tal:condition="not:context/headline"
+        <h1 class="app-page-title" tal:condition="not:context/headline"
             tal:content="context/Title" />
     </header>
 
     <section id="content-core">
-      <p class="app-lead" tal:condition="context/Description"
+      <p class="app-page-abstract" tal:condition="context/Description"
         tal:content="context/Description" />
 
-      <div tal:condition="context/text"
+      <div class="app-page-body" tal:condition="context/text"
         tal:content="structure context/text/output" />
     </section>
 
     <div tal:replace="structure provider:plone.belowcontentbody" />
-    
-  </article>
+
+  </section>
 
   </metal:content-core>
 </metal:main>
