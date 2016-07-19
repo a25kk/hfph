@@ -54,10 +54,14 @@
         <drop css:content="head link[rel='apple-touch-icon']" />
         <drop css:content="head link[rel='shortcut icon']" />
         <after theme="/html/head">
-            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600" rel="stylesheet"></link>
-            <link rel="shortcut icon" href="/++theme++example.sitetheme/dist/assets/ico/favicon.ico" type="images/x-icon"></link>
-            <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/++theme++example.sitetheme/dist/assets/ico/apple-touch-icon-144-precomposed.png"></link>
-            <link rel="shortcut icon" href="/++theme++example.sitetheme/dist/assets/ico/favicon.png"></link>
+          <link rel="apple-touch-icon" sizes="180x180" href="/++theme++hph.sitetheme/dist/assets/ico/apple-touch-icon.png">
+          <link rel="icon" type="image/png" href="/++theme++hph.sitetheme/dist/assets/ico/favicon-32x32.png" sizes="32x32">
+          <link rel="icon" type="image/png" href="/++theme++hph.sitetheme/dist/assets/ico/favicon-16x16.png" sizes="16x16">
+          <link rel="manifest" href="/++theme++hph.sitetheme/dist/assets/ico/manifest.json">
+          <link rel="mask-icon" href="/++theme++hph.sitetheme/dist/assets/ico/safari-pinned-tab.svg" color="#5bbad5">
+          <link rel="shortcut icon" href="/++theme++hph.sitetheme/dist/assets/ico/favicon.ico">
+          <meta name="msapplication-config" content="/++theme++hph.sitetheme/dist/assets/ico/browserconfig.xml">
+          <meta name="theme-color" content="#ffffff">
         </after>
 
         <!-- Copy over the id/class attributes on the body tag.
