@@ -33,3 +33,4 @@ src/plone.*
 src/sauna.reload
 src/vwc.*
 var
+secret.cfg
