@@ -17199,7 +17199,8 @@ body.template-frontpage-view .app-pathbar
     border-bottom: 1px solid #eceeef;
 }
 
-.app-page-headline
+.app-page-headline,
+.app-page-title
 {
     font-size: 2rem;
 }
