@@ -26,7 +26,9 @@
                 <a class="app-event-nav-list-link mode_ical"  href="" tal:attributes="href view/ical_url"
                    title="Download this event in iCal format"
                     i18n:attributes="title title_add_to_ical;">
-                    <span i18n:translate="label_add_to_ical">iCal</span></a>
+                    <i class="ion ion-ios-download-outline"></i>
+                    <span i18n:translate="label_add_to_ical">iCal</span>
+                </a>
 
             </li>
         </ul>
@@ -114,8 +116,7 @@
                                                 tal:attributes="href string:${data/url}/ics_view"
                                                title="Download this event in iCal format"
                                                 i18n:attributes="title title_add_to_ical;">
-                                                <img src="" alt=""
-                                                    tal:attributes="src string:${portal_url}/++resource++plone.app.event/calendar-o.svg" width="12" height="12" />
+                                                <i class="ion ion-ios-calendar-outline"></i>
                                                 <span i18n:translate="label_add_to_ical">iCal</span>
                                             </a>
                                         </li>

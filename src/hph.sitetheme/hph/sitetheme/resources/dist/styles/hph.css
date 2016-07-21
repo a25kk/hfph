@@ -17469,24 +17469,25 @@ app-fonts-loaded .app-page-abstract
     padding: 1rem;
 }
 
-.app-event-list-date-panel
-{
-    background-color: #eceeef;
-}
-
 .app-date-panel
 {
     font-weight: 400; 
 
+    width: 100%;
     padding: 1rem;
 }
 @media (min-width: 992px)
 {
     .app-date-panel
     {
-        font-weight: 300; 
+        font-weight: 300;
+
+        padding-top: 2rem;
+        padding-bottom: 2rem;
 
         text-align: center;
+
+        background-color: #eceeef;
     }
 }
 

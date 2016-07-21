@@ -38,15 +38,19 @@
 }
 
 .app-event-list-date-panel {
-    background-color: $gray-lighter;
+
 }
 
 .app-date-panel {
+    width: 100%;
     padding: 1rem;
     font-weight: 400;
     @include media-breakpoint-up(lg) {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
         text-align: center;
         font-weight: 300;
+        background-color: $gray-lighter;
     }
 }
 
