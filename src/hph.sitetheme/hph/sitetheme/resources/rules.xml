@@ -246,6 +246,15 @@
             </table>
         </replace>
 
+        <!-- Event listing transforms -->
+        <replace css:content="ul.mode_selector">
+            <table>
+                <xsl:copy-of select="@*"/>
+                <xsl:attribute name="class">app-event-list-nav</xsl:attribute>
+                <xsl:apply-templates />
+            </table>
+        </replace>
+
          <!-- Alert and portal messages -->
         <strip css:content=".portalMessage dd"/>
         <replace css:content=".portalMessage" >
