@@ -29,6 +29,12 @@
             display: none;
         }
     }
+    @include media-breakpoint-up(sm) {
+        display: none;
+    }
+    @include media-breakpoint-up(xl) {
+        display: block;
+    }
 }
 
 .app-navbar-header-title {
@@ -42,9 +48,10 @@
     &:hover {
         background-color: $app-secondary;
     }
-    @include media-breakpoint-up(sm) {
+    @include media-breakpoint-up(xl) {
         justify-content: center;
     }
+
 }
 
 .app-navbar-brand {
@@ -118,10 +125,14 @@ $app-nav-bar-title-width: 50px;
     // Mock standard browser calculation behavior
     // flex: 0 0 calc(100% - 50px);
     // Fixes IE10-11 layout issues
-    @each $breakpoint, $container-max-width in $container-max-widths {
-        @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
-            flex: 0 0 ($container-max-width - $app-nav-bar-title-width);
-        }
+    // @each $breakpoint, $container-max-width in $container-max-widths {
+    //     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+    //         flex: 0 0 ($container-max-width - $app-nav-bar-title-width);
+    //     }
+    // }
+    flex: 0 0 100%;
+    @include media-breakpoint-up(xl) {
+        flex: 0 0 1090px;
     }
     &-secondary {
         flex: 0 0 100%;

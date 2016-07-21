@@ -14720,6 +14720,20 @@ div.riform .label
         display: none;
     }
 }
+@media (min-width: 544px)
+{
+    .app-navbar-header
+    {
+        display: none;
+    }
+}
+@media (min-width: 1200px)
+{
+    .app-navbar-header
+    {
+        display: block;
+    }
+}
 
 .app-navbar-header-title
 {
@@ -14741,7 +14755,7 @@ div.riform .label
 {
     background-color: #fc3;
 }
-@media (min-width: 544px)
+@media (min-width: 1200px)
 {
     .app-navbar-header-title
     {
@@ -14837,33 +14851,11 @@ div.riform .label
     text-decoration: none;
 }
 
-@media (min-width: 544px)
+.app-navbar-collapse
 {
-    .app-navbar-collapse
-    {
-        -ms-flex: 0 0 526px;
-            flex: 0 0 526px;
-    }
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
 }
-
-@media (min-width: 768px)
-{
-    .app-navbar-collapse
-    {
-        -ms-flex: 0 0 670px;
-            flex: 0 0 670px;
-    }
-}
-
-@media (min-width: 992px)
-{
-    .app-navbar-collapse
-    {
-        -ms-flex: 0 0 890px;
-            flex: 0 0 890px;
-    }
-}
-
 @media (min-width: 1200px)
 {
     .app-navbar-collapse
@@ -14872,7 +14864,6 @@ div.riform .label
             flex: 0 0 1090px;
     }
 }
-
 .app-navbar-collapse-secondary
 {
     -ms-flex: 0 0 100%;
