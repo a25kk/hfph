@@ -20,8 +20,8 @@
     <theme href="dist/theme-igp/index.html" css:if-content="body.subsection-institute-gesellschaftspolitik" />
     <!--<theme href="dist/pp/index.html" css:if-content="body.section-pro-philosophia" />-->
     <!-- Opac und newsletter templates -->
-    <!--><theme href="dist/opac/index.html" css:if-content="body.subsection-bibliotheken-opac-recherche" />
-    <theme href="dist/newsletter/index.html" css:if-content="body.section-newsletter" />-->
+    <!--><theme href="dist/opac/index.html" css:if-content="body.subsection-bibliotheken-opac-recherche" />-->
+    <theme href="dist/newsletter/index.html" css:if-content="body.section-newsletter" />
 
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
