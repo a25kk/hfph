@@ -144,26 +144,35 @@
 
         <!-- Login form rules -->
         <replace css:content-children="#content-core"
-                css:theme-children="#app-signin-body"
-                css:if-content="body.template-login_form" />
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-login_form" />
         <replace css:content-children="#content-core"
-                css:theme-children="#app-signin-content"
-                css:if-content="body.template-login_failed" />
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-signin-form" />
         <replace css:content-children="#content-core"
-                css:theme-children="#app-signin-body"
-                css:if-content="body.template-logged_out" />
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-login_failed" />
+        <replace css:content-children="#content-core"
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-logged_out" />
         <replace css:content-children="#content"
-                css:theme-children="#app-signin-content"
-                css:if-content="body.template-mail_password_form" />
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-mail_password_form" />
         <replace css:content-children="#content"
-                css:theme-children="#app-signin-content"
-                css:if-content="body.template-mail_password_response" />
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-mail_password_response" />
         <replace css:content-children="#content"
-                css:theme-children="#app-signin-content"
-                css:if-content="body.template-pwreset_form" />
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-pwreset_form" />
         <replace css:content-children="#content"
-                css:theme-children="#app-signin-content"
-                css:if-content="body.template-pwreset_finish" />
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-pwreset_finish" />
+        <replace css:content-children="#content"
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-useraccount" />
+        <replace css:content-children="#content"
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-useraccount-error" />
 
 
         <!-- Document First Heading -->
@@ -201,7 +210,7 @@
             css:if-content=".template-frontpage-view" />
 
         <!-- Standard content area -->
-        <rules css:if-not-content=".template-frontpage-view">
+        <rules css:if-not-content=".template-frontpage-view, .section-newsletter">
             <rules css:if-not-content="#portal-column-one">
                 <drop css:theme="#app-page-aside" />
                 <replace css:content-children="#content"
