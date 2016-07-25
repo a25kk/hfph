@@ -10217,14 +10217,22 @@ fieldset[disabled] a.app-searchbox-btn
     color: #818a91;
 }
 
-.btn-lg
+.btn-lg,
+.btn-group-lg > .btn,
+.btn-group-lg > .searchButton,
+.btn-group-lg > .app-btn,
+.btn-group-lg > .app-searchbox-btn
 {
     font-size: 1.25rem; 
 
     padding: .75rem 1.5rem;
 }
 
-.btn-sm
+.btn-sm,
+.btn-group-sm > .btn,
+.btn-group-sm > .searchButton,
+.btn-group-sm > .app-btn,
+.btn-group-sm > .app-searchbox-btn
 {
     font-size: .875rem; 
 
@@ -10466,6 +10474,323 @@ input[type='button'].btn-block
     bottom: 100%;
 
     margin-bottom: 2px;
+}
+
+.btn-group,
+.btn-group-vertical
+{
+    position: relative;
+
+    display: inline-block;
+
+    vertical-align: middle;
+}
+.btn-group > .btn,
+.btn-group > .searchButton,
+.btn-group > .app-btn,
+.btn-group > .app-searchbox-btn,
+.btn-group-vertical > .btn,
+.btn-group-vertical > .searchButton,
+.btn-group-vertical > .app-btn,
+.btn-group-vertical > .app-searchbox-btn
+{
+    position: relative;
+
+    float: left;
+}
+.btn-group > .btn:focus,
+.btn-group > .searchButton:focus,
+.btn-group > .app-btn:focus,
+.btn-group > .app-searchbox-btn:focus,
+.btn-group > .btn:active,
+.btn-group > .searchButton:active,
+.btn-group > .app-btn:active,
+.btn-group > .app-searchbox-btn:active,
+.btn-group > .btn.active,
+.btn-group > .active.searchButton,
+.btn-group > .active.app-btn,
+.btn-group > .active.app-searchbox-btn,
+.btn-group-vertical > .btn:focus,
+.btn-group-vertical > .searchButton:focus,
+.btn-group-vertical > .app-btn:focus,
+.btn-group-vertical > .app-searchbox-btn:focus,
+.btn-group-vertical > .btn:active,
+.btn-group-vertical > .searchButton:active,
+.btn-group-vertical > .app-btn:active,
+.btn-group-vertical > .app-searchbox-btn:active,
+.btn-group-vertical > .btn.active,
+.btn-group-vertical > .active.searchButton,
+.btn-group-vertical > .active.app-btn,
+.btn-group-vertical > .active.app-searchbox-btn
+{
+    z-index: 2;
+}
+.btn-group > .btn:hover,
+.btn-group > .searchButton:hover,
+.btn-group > .app-btn:hover,
+.btn-group > .app-searchbox-btn:hover,
+.btn-group-vertical > .btn:hover,
+.btn-group-vertical > .searchButton:hover,
+.btn-group-vertical > .app-btn:hover,
+.btn-group-vertical > .app-searchbox-btn:hover
+{
+    z-index: 2;
+}
+
+.btn-group .btn + .btn,
+.btn-group .searchButton + .btn,
+.btn-group .app-btn + .btn,
+.btn-group .app-searchbox-btn + .btn,
+.btn-group .btn + .searchButton,
+.btn-group .searchButton + .searchButton,
+.btn-group .app-btn + .searchButton,
+.btn-group .app-searchbox-btn + .searchButton,
+.btn-group .btn + .app-btn,
+.btn-group .searchButton + .app-btn,
+.btn-group .app-btn + .app-btn,
+.btn-group .app-searchbox-btn + .app-btn,
+.btn-group .btn + .app-searchbox-btn,
+.btn-group .searchButton + .app-searchbox-btn,
+.btn-group .app-btn + .app-searchbox-btn,
+.btn-group .app-searchbox-btn + .app-searchbox-btn,
+.btn-group .btn + .btn-group,
+.btn-group .searchButton + .btn-group,
+.btn-group .app-btn + .btn-group,
+.btn-group .app-searchbox-btn + .btn-group,
+.btn-group .btn-group + .btn,
+.btn-group .btn-group + .searchButton,
+.btn-group .btn-group + .app-btn,
+.btn-group .btn-group + .app-searchbox-btn,
+.btn-group .btn-group + .btn-group
+{
+    margin-left: -1px;
+}
+
+.btn-toolbar
+{
+    margin-left: -.5rem;
+}
+.btn-toolbar::after
+{
+    display: table;
+    clear: both; 
+
+    content: '';
+}
+.btn-toolbar .btn-group,
+.btn-toolbar .input-group
+{
+    float: left;
+}
+.btn-toolbar > .btn,
+.btn-toolbar > .searchButton,
+.btn-toolbar > .app-btn,
+.btn-toolbar > .app-searchbox-btn,
+.btn-toolbar > .btn-group,
+.btn-toolbar > .input-group
+{
+    margin-left: .5rem;
+}
+
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle),
+.btn-group > .searchButton:not(:first-child):not(:last-child):not(.dropdown-toggle),
+.btn-group > .app-btn:not(:first-child):not(:last-child):not(.dropdown-toggle),
+.btn-group > .app-searchbox-btn:not(:first-child):not(:last-child):not(.dropdown-toggle)
+{
+    border-radius: 0;
+}
+
+.btn-group > .btn:first-child,
+.btn-group > .searchButton:first-child,
+.btn-group > .app-btn:first-child,
+.btn-group > .app-searchbox-btn:first-child
+{
+    margin-left: 0;
+}
+
+.btn-group > .btn-group
+{
+    float: left;
+}
+
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn,
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .searchButton,
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .app-btn,
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .app-searchbox-btn
+{
+    border-radius: 0;
+}
+
+.btn-group .dropdown-toggle:active,
+.btn-group.open .dropdown-toggle
+{
+    outline: 0;
+}
+
+.btn + .dropdown-toggle-split,
+.searchButton + .dropdown-toggle-split,
+.app-btn + .dropdown-toggle-split,
+.app-searchbox-btn + .dropdown-toggle-split
+{
+    padding-right: .75rem;
+    padding-left: .75rem;
+}
+.btn + .dropdown-toggle-split::after,
+.searchButton + .dropdown-toggle-split::after,
+.app-btn + .dropdown-toggle-split::after,
+.app-searchbox-btn + .dropdown-toggle-split::after
+{
+    margin-left: 0;
+}
+
+.btn-sm + .dropdown-toggle-split,
+.btn-group-sm > .btn + .dropdown-toggle-split,
+.btn-group-sm > .searchButton + .dropdown-toggle-split,
+.btn-group-sm > .app-btn + .dropdown-toggle-split,
+.btn-group-sm > .app-searchbox-btn + .dropdown-toggle-split
+{
+    padding-right: .375rem;
+    padding-left: .375rem;
+}
+
+.btn-lg + .dropdown-toggle-split,
+.btn-group-lg > .btn + .dropdown-toggle-split,
+.btn-group-lg > .searchButton + .dropdown-toggle-split,
+.btn-group-lg > .app-btn + .dropdown-toggle-split,
+.btn-group-lg > .app-searchbox-btn + .dropdown-toggle-split
+{
+    padding-right: 1.125rem;
+    padding-left: 1.125rem;
+}
+
+.btn .caret,
+.searchButton .caret,
+.app-btn .caret,
+.app-searchbox-btn .caret
+{
+    margin-left: 0;
+}
+
+.btn-lg .caret,
+.btn-group-lg > .btn .caret,
+.btn-group-lg > .searchButton .caret,
+.btn-group-lg > .app-btn .caret,
+.btn-group-lg > .app-searchbox-btn .caret
+{
+    border-width: .3em .3em 0;
+    border-bottom-width: 0;
+}
+
+.dropup .btn-lg .caret,
+.dropup .btn-group-lg > .btn .caret,
+.dropup .btn-group-lg > .searchButton .caret,
+.dropup .btn-group-lg > .app-btn .caret,
+.dropup .btn-group-lg > .app-searchbox-btn .caret
+{
+    border-width: 0 .3em .3em;
+}
+
+.btn-group-vertical > .btn,
+.btn-group-vertical > .searchButton,
+.btn-group-vertical > .app-btn,
+.btn-group-vertical > .app-searchbox-btn,
+.btn-group-vertical > .btn-group,
+.btn-group-vertical > .btn-group > .btn,
+.btn-group-vertical > .btn-group > .searchButton,
+.btn-group-vertical > .btn-group > .app-btn,
+.btn-group-vertical > .btn-group > .app-searchbox-btn
+{
+    display: block;
+    float: none;
+
+    width: 100%;
+    max-width: 100%;
+}
+
+.btn-group-vertical > .btn-group::after
+{
+    display: table;
+    clear: both; 
+
+    content: '';
+}
+
+.btn-group-vertical > .btn-group > .btn,
+.btn-group-vertical > .btn-group > .searchButton,
+.btn-group-vertical > .btn-group > .app-btn,
+.btn-group-vertical > .btn-group > .app-searchbox-btn
+{
+    float: none;
+}
+
+.btn-group-vertical > .btn + .btn,
+.btn-group-vertical > .searchButton + .btn,
+.btn-group-vertical > .app-btn + .btn,
+.btn-group-vertical > .app-searchbox-btn + .btn,
+.btn-group-vertical > .btn + .searchButton,
+.btn-group-vertical > .searchButton + .searchButton,
+.btn-group-vertical > .app-btn + .searchButton,
+.btn-group-vertical > .app-searchbox-btn + .searchButton,
+.btn-group-vertical > .btn + .app-btn,
+.btn-group-vertical > .searchButton + .app-btn,
+.btn-group-vertical > .app-btn + .app-btn,
+.btn-group-vertical > .app-searchbox-btn + .app-btn,
+.btn-group-vertical > .btn + .app-searchbox-btn,
+.btn-group-vertical > .searchButton + .app-searchbox-btn,
+.btn-group-vertical > .app-btn + .app-searchbox-btn,
+.btn-group-vertical > .app-searchbox-btn + .app-searchbox-btn,
+.btn-group-vertical > .btn + .btn-group,
+.btn-group-vertical > .searchButton + .btn-group,
+.btn-group-vertical > .app-btn + .btn-group,
+.btn-group-vertical > .app-searchbox-btn + .btn-group,
+.btn-group-vertical > .btn-group + .btn,
+.btn-group-vertical > .btn-group + .searchButton,
+.btn-group-vertical > .btn-group + .app-btn,
+.btn-group-vertical > .btn-group + .app-searchbox-btn,
+.btn-group-vertical > .btn-group + .btn-group
+{
+    margin-top: -1px;
+    margin-left: 0;
+}
+
+.btn-group-vertical > .btn:not(:first-child):not(:last-child),
+.btn-group-vertical > .searchButton:not(:first-child):not(:last-child),
+.btn-group-vertical > .app-btn:not(:first-child):not(:last-child),
+.btn-group-vertical > .app-searchbox-btn:not(:first-child):not(:last-child)
+{
+    border-radius: 0;
+}
+
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn,
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .searchButton,
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .app-btn,
+.btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .app-searchbox-btn
+{
+    border-radius: 0;
+}
+
+[data-toggle='buttons'] > .btn input[type='radio'],
+[data-toggle='buttons'] > .searchButton input[type='radio'],
+[data-toggle='buttons'] > .app-btn input[type='radio'],
+[data-toggle='buttons'] > .app-searchbox-btn input[type='radio'],
+[data-toggle='buttons'] > .btn input[type='checkbox'],
+[data-toggle='buttons'] > .searchButton input[type='checkbox'],
+[data-toggle='buttons'] > .app-btn input[type='checkbox'],
+[data-toggle='buttons'] > .app-searchbox-btn input[type='checkbox'],
+[data-toggle='buttons'] > .btn-group > .btn input[type='radio'],
+[data-toggle='buttons'] > .btn-group > .searchButton input[type='radio'],
+[data-toggle='buttons'] > .btn-group > .app-btn input[type='radio'],
+[data-toggle='buttons'] > .btn-group > .app-searchbox-btn input[type='radio'],
+[data-toggle='buttons'] > .btn-group > .btn input[type='checkbox'],
+[data-toggle='buttons'] > .btn-group > .searchButton input[type='checkbox'],
+[data-toggle='buttons'] > .btn-group > .app-btn input[type='checkbox'],
+[data-toggle='buttons'] > .btn-group > .app-searchbox-btn input[type='checkbox']
+{
+    position: absolute;
+
+    clip: rect(0, 0, 0, 0);
+
+    pointer-events: none;
 }
 
 .input-group
@@ -15233,6 +15558,11 @@ label
 textarea
 {
     height: auto;
+}
+
+select[multiple]
+{
+    overflow: hidden;
 }
 
 .app-form-actions

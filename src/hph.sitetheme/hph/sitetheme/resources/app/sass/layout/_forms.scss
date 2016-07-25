@@ -49,6 +49,10 @@ textarea {
     height: auto;
 }
 
+select[multiple] {
+    overflow: hidden;
+}
+
 .app-form-actions {
   padding-top: $spacer;
 }

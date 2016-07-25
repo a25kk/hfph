@@ -93,7 +93,7 @@ class UserManager(grok.View):
     grok.name('user-manager')
 
     def update(self):
-        self.has_users = len(self.get_all_members()) > 0
+        self.has_users = len(self.member_records()) > 0
 
     @property
     def traverse_subpath(self):
@@ -110,6 +110,33 @@ class UserManager(grok.View):
         if userid in context.keys():
             return True
         return False
+
+    def member_records(self):
+        return self.get_member_ids()
+
+    def member_record_details(self, user_id):
+        data = {}
+        user = api.user.get(username=user_id)
+        userid = user.getId()
+        email = user.getProperty('email')
+        groups = api.group.get_groups(username=userid)
+        user_groups = list()
+        for group in groups:
+            gid = group.getId()
+            if gid != 'AuthenticatedUsers':
+                user_groups.append(gid)
+        data['userid'] = userid
+        data['email'] = email
+        data['name'] = user.getProperty('fullname', userid)
+        data['enabled'] = user.getProperty('enabled')
+        data['confirmed'] = user.getProperty('confirmed')
+        data['groups'] = user_groups
+        data['workspace'] = user.getProperty('workspace')
+        return data
+
+    def get_member_ids(self):
+        member_tool = api.portal.get_tool(name='portal_membership')
+        return member_tool.listMemberIds()
 
     @ram.cache(lambda *args: time() // (60 * 60))
     def get_all_members(self):

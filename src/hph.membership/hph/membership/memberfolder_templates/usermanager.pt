@@ -16,38 +16,40 @@
 
             <div class="row">
                 <div class="col-xs-12 col-sm-3">
-                    <div class="app-box app-box-workspaces">
-                        <div class="app-box-header">
-                            <h2 class="app-box-heading" i18n:translate="">
+                    <div class="app-card app-card-workspaces">
+                        <div class="app-card-header">
+                            <h2 class="app-card-title" i18n:translate="">
                                 Workspaces
                             </h2>
                         </div>
-                        <div class="app-box-content">
-                            <div class="alert alert-danger">
-                                <h4 i18n:translate="">The member area contains member workspaces</h4>
+                        <div class="app-card-main app-card-main-boxed">
+                            <div class="app-card-block">
+                                <p i18n:translate="">
+                                    Der Benutzerbereich beinhaltet Arbeitsplätze für angemeldete Benutzer
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-9">
                     <div class="btn-group pull-right">
-                      <a class="btn btn-primary pull-right"
+                      <a class="app-btn app-btn-primary pull-right"
                         tal:attributes="href string:${context/absolute_url}/@@add-new-user">
                         <i class="fa fa-plus-square-o"></i>
                         Add user
                       </a>
                       <div class="btn-group">
-                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                        <button type="button" class="app-btn app-btn-danger dropdown-toggle" data-toggle="dropdown">
                           More
                           <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right">
-                            <li><a tal:attributes="href string:${context/absolute_url}/@@update-member-records">
+                            <li class="dropdown-item"><a tal:attributes="href string:${context/absolute_url}/@@update-member-records">
                                 Load external user data</a>
                             </li>
-                            <li><a tal:attributes="href string:${context/absolute_url}/@@create-member-records">
+                            <li class="dropdown-item"><a tal:attributes="href string:${context/absolute_url}/@@create-member-records">
                                 Create user accounts from stored data</a></li>
-                            <li><a tal:attributes="href string:${context/absolute_url}/@@send-reset-invitations">
+                            <li class="dropdown-item"><a tal:attributes="href string:${context/absolute_url}/@@send-reset-invitations">
                                 Send invitation email to unconfirmed accounts
                                 </a></li>
                         </ul>
@@ -55,68 +57,92 @@
                     </div>
 
 
-                        <h3 i18n:translate="">User Manager</h3>
-                        <hr>
-                        <p i18n:translate="">
+                    <div class="app-page-header">
+                        <h1 class="app-page-headline" i18n:translate="">User Manager</h1>
+                        <p class="app-page-abstract" i18n:translate="">
                             Users should are redirected to their personal workspace except
                             when logged in as site administrator
                         </p>
+                    </div>
+                    <form class="form-inline" hidden>
+                        <div class="form-group">
+                            <label class="sr-only" for="member-email">Email address</label>
+                            <input type="email" class="app-form-field" id="member-email" placeholder="Enter email">
+                        </div>
+                        <button type="submit" class="app-btn app-btn-primary">Search member records</button>
+                        <small class="text-muted">
+                            Note: this search form is currently disabled
+                        </small>
+                    </form>
                 </div>
             </div>
 
-            <tal:users tal:condition="view/has_users">
-                <hr>
-                <div class="table-responsive" tal:define="results view/get_all_members;">
-                    <table class="table table-condensed table-hover app-table-usermanager" id="table-usermanager">
-                        <thead>
-                            <tr>
-                                <th>Userrecord</th>
-                                <th>Groups</th>
-                                <th>Enabled</th>
-                                <th>Confirmed</th>
-                                <th>More</th>
-                            </tr>
+
+            <div class="app-page-body app-listing-members"
+                tal:define="records view/member_records;
+                            Batch python:modules['plone.batching'].Batch;
+                            b_size python:30;b_start python:0;b_start request/b_start | b_start;
+                            batch python:Batch(records, b_size, int(b_start), orphan=1);">
+
+                <div class="app-listing-table" tal:define="results view/get_all_members;">
+                    <table class="table table-sm table-striped table-hover app-table-usermanager" id="table-usermanager">
+                        <thead class="thead-inverse">
+                        <tr>
+                            <th scope="row">Userrecord</th>
+                            <th>Groups</th>
+                            <th>Enabled</th>
+                            <th>Confirmed</th>
+                            <th>More</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr class="app-contentlisting" tal:repeat="item results">
-                                <td class="app-list-item app-td-first"
-                                    tal:define="user_id item/userid;
-                                                has_ws python:view.has_workspace(user_id)">
-                                    <a tal:condition="has_ws"
-                                        tal:attributes="href string:${context/absolute_url}/${user_id}">
-                                        <strong tal:content="item/name" />
-                                    </a>
-                                    <strong tal:condition="not:has_ws" tal:content="item/name" /><br>
-                                    <small tal:content="item/email" />
-                                </td>
-                                <td>
-                                    <tal:items tal:repeat="group item/groups">
-                                        <small tal:content="group" /><tal:separator condition="not: repeat/group/end">,</tal:separator>
-                                    </tal:items>
-                                </td>
-                                <td><span tal:content="item/enabled" i18n:translate="">Yes/No</span>
-                                </td>
-                                <td>
-                                    <div class="btn-group">
-                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                        <span tal:content="item/confirmed" i18n:translate="">Yes/No</span>
-                                        <span class="caret"></span>
-                                      </button>
-                                      <ul class="dropdown-menu">
-                                        <li><a tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${item/userid}">Sent confirmation link</a></li>
-                                        <li><a href="#">Change as administrator</a></li>
-                                      </ul>
-                                    </div>
-                                </td>
-                                <td><a tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${item/userid}">
-                                        Send invitation
-                                    </a>
-                                </td>
-                            </tr>
+                            <tal:user tal:repeat="user_record batch">
+                                <tr class="app-contentlisting"
+                                    tal:define="user_id user_record;
+                                                item python:view.member_record_details(user_id)">
+                                    <td class="app-list-item app-td-first"
+                                             tal:define="user_id item;
+                                                    has_ws python:view.has_workspace(user_id)">
+                                        <a tal:condition="has_ws"
+                                                 tal:attributes="href string:${context/absolute_url}/${user_id}">
+                                            <strong tal:content="item/name" />
+                                        </a>
+                                        <strong tal:condition="not:has_ws" tal:content="item/name" /><br>
+                                        <small tal:content="item/email" />
+                                    </td>
+                                    <td>
+                                        <tal:items tal:repeat="group item/groups">
+                                            <small tal:content="group" /><tal:separator condition="not: repeat/group/end">,</tal:separator>
+                                        </tal:items>
+                                    </td>
+                                    <td><span tal:content="item/enabled" i18n:translate="">Yes/No</span>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="app-btn app-btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <span tal:content="item/confirmed" i18n:translate="">Yes/No</span>
+                                                <span class="caret"></span>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${item/userid}">Sent confirmation link</a>
+                                                <a class="dropdown-item" href="#">Change as administrator</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${item/userid}">
+                                            Send invitation
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tal:user>
                         </tbody>
                     </table>
+                    <tal:batchnavigation
+                            define="batchnavigation nocall:context/@@batchnavigation"
+                            replace="structure python:batchnavigation(batch)" />
                 </div>
-            </tal:users>
+            </div>
         </section>
     </div>
 

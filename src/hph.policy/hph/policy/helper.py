@@ -6,8 +6,14 @@ from zope.lifecycleevent import modified
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.app.contentlisting.interfaces import IContentListing
 
+from zc.relation.interfaces import ICatalog
+from zope.component import getUtility
+from zope.component import queryUtility
+from zope.intid.interfaces import IIntIds
+
 from hph.faculty.facultymember import IFacultyMember
 
+from hph.lectures.lecture import ILecture
 from hph.publications.publicationfolder import IPublicationFolder
 from hph.publications.publication import IPublication
 
@@ -67,6 +73,7 @@ class CleanupLecturesSchema(grok.View):
         idx = 0
         for item in items:
             obj = item.getObject()
+            import pdb; pdb.set_trace()
             third_party_project = getattr(obj, 'thirdPartyProject', None)
             if third_party_project:
                 setattr(obj, 'externalFundsProject', third_party_project)
@@ -78,8 +85,42 @@ class CleanupLecturesSchema(grok.View):
 
     def lectures(self):
         catalog = api.portal.get_tool(name="portal_catalog")
-        results = catalog(object_provides=ILectures.__identifier__,)
+        results = catalog(object_provides=ILecture.__identifier__,)
         return IContentListing(results)
+
+    def get_relations(self, obj, attribute=None, backrefs=False):
+        """Get any kind of references and backreferences"""
+        int_id = self.get_intid(obj)
+        if not int_id:
+            return retval
+
+        relation_catalog = getUtility(ICatalog)
+        if not relation_catalog:
+            return retval
+
+        query = {}
+        if attribute:
+            # Constrain the search for certain relation-types.
+            query['from_attribute'] = attribute
+
+        if backrefs:
+            query['to_id'] = int_id
+        else:
+            query['from_id'] = int_id
+
+        return relation_catalog.findRelations(query)
+
+    def get_intid(self, obj):
+        """Return the intid of an object from the intid-catalog"""
+        intids = queryUtility(IIntIds)
+        if intids is None:
+            return
+        # check that the object has an intid, otherwise there's nothing to be done
+        try:
+            return intids.getId(obj)
+        except KeyError:
+            # The object has not been added to the ZODB yet
+            return
 
 
 class CleanupFacultyMemberSchema(grok.View):
