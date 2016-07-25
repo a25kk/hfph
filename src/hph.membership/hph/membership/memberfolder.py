@@ -105,9 +105,9 @@ class UserManager(grok.View):
         self.subpath.append(name)
         return self
 
-    def has_workspace(self, userid):
+    def has_workspace(self, user):
         context = aq_inner(self.context)
-        if userid in context.keys():
+        if user['userid'] in context.keys():
             return True
         return False
 

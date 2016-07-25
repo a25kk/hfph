@@ -34,7 +34,7 @@
                           title="8 characters minimum"
                           required />
                   </div>
-                  <div class="field"<name />
+                  <div class="field">
                       <label for="confirm" i18n:translate="">Confirm</label>
                       <input class="form-control"
                           id="confirm"

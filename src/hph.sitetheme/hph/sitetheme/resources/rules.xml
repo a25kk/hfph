@@ -12,6 +12,9 @@
     <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_response" />
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_form" />
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-useraccount" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-useraccount-error" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-signin-form" />
 
     <theme href="dist/frontpage/index.html" css:if-content=".template-frontpage-view" />
     <!--<theme href="dist/frontpage/index.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />-->
@@ -155,7 +158,7 @@
         <replace css:content-children="#content-core"
                  css:theme-children="#app-signin-content"
                  css:if-content="body.template-logged_out" />
-        <replace css:content-children="#content"
+        <replace css:content-children="#content-core"
                  css:theme-children="#app-signin-content"
                  css:if-content="body.template-mail_password_form" />
         <replace css:content-children="#content"
@@ -167,10 +170,10 @@
         <replace css:content-children="#content"
                  css:theme-children="#app-signin-content"
                  css:if-content="body.template-pwreset_finish" />
-        <replace css:content-children="#content"
+        <replace css:content-children="#content-core"
                  css:theme-children="#app-signin-content"
                  css:if-content="body.template-useraccount" />
-        <replace css:content-children="#content"
+        <replace css:content-children="#content-core"
                  css:theme-children="#app-signin-content"
                  css:if-content="body.template-useraccount-error" />
 
