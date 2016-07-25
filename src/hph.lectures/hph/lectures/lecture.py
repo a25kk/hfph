@@ -55,7 +55,7 @@ class ILecture(model.Schema, IImageScaleTraversable):
         title=_(u"Additional Information"),
         required=False,
     )
-    # form.widget('lecturer', RelatedItemsWidget)
+    form.widget('lecturer', RelatedItemsWidget)
     lecturer = RelationList(
         title=u"Lecturers",
         description=_(u"Please select one or more lecturers for this course"),
