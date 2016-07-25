@@ -5,10 +5,11 @@ from five import grok
 from plone import api
 from plone.app.vocabularies.catalog import CatalogSource
 from plone.app.z3cform.widget import RelatedItemsWidget
+from plone.autoform import directives as form
 from plone.dexterity.content import Container
-from plone.directives import form
 from plone.indexer import indexer
 from plone.namedfile.interfaces import IImageScaleTraversable
+from plone.supermodel import model
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
@@ -18,7 +19,7 @@ from zope.schema.vocabulary import getVocabularyRegistry
 from hph.lectures import MessageFactory as _
 
 
-class ILecture(form.Schema, IImageScaleTraversable):
+class ILecture(model.Schema, IImageScaleTraversable):
     """
     A single course
     """
@@ -107,8 +108,17 @@ class ILecture(form.Schema, IImageScaleTraversable):
         description=_(u"Please enter absolute link to moodle representation"),
         required=False,
     )
-    form.widget(thirdPartyProject=CheckBoxFieldWidget)
+    form.mode(thirdPartyProject='hidden')
     thirdPartyProject = schema.Set(
+        title=_(u"Third Party Project Display"),
+        value_type=schema.Choice(
+            title=_(u"Display Selection"),
+            vocabulary=u'hph.sitecontent.thirdPartyProjects',
+        ),
+        required=False,
+    )
+    form.widget(externalFundsProject=CheckBoxFieldWidget)
+    externalFundsProject = schema.Set(
         title=_(u"Third Party Project Display"),
         value_type=schema.Choice(
             title=_(u"Display Selection"),

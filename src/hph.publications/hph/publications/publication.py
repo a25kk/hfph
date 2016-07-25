@@ -72,6 +72,15 @@ class IPublication(form.Schema, IImageScaleTraversable):
         ),
         required=False,
     )
+    form.widget(externalFundsProject=CheckBoxFieldWidget)
+    externalFundsProject = schema.List(
+        title=_(u"Third Party Project Display"),
+        value_type=schema.Choice(
+            title=_(u"Display Selection"),
+            vocabulary=u'hph.sitecontent.thirdPartyProjects',
+        ),
+        required=False,
+    )
     summary = RichText(
         title=_(u"Summary"),
         required=False,

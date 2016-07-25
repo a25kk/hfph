@@ -35,23 +35,50 @@ class CleanupPublicationSchema(grok.View):
         idx = 0
         for item in items:
             obj = item.getObject()
-            medium = getattr(obj, 'medium')
-            series = getattr(obj, 'series')
-            for i, member in enumerate(medium):
-                if i == 0:
-                    setattr(obj, 'media', member)
-            for i, member in enumerate(series):
-                if i == 0:
-                    setattr(obj, 'bookSeries', member)
+            third_party_project = getattr(obj, 'thirdPartyProject', None)
+            if third_party_project:
+                setattr(obj, 'externalFundsProject', third_party_project)
             idx += 1
             modified(obj)
+            # TODO: add specific indexing for new field values
             obj.reindexObject(idxs='modified')
         return idx
 
     def publications(self):
         catalog = api.portal.get_tool(name="portal_catalog")
-        results = catalog(object_provides=IPublication.__identifier__,
-                          sort_on='getObjPositionInParent')
+        results = catalog(object_provides=IPublication.__identifier__,)
+        return IContentListing(results)
+
+
+class CleanupLecturesSchema(grok.View):
+    grok.context(INavigationRoot)
+    grok.require('zope2.View')
+    grok.name('cleanup-lectures')
+
+    def update(self):
+        self.has_lectures = len(self.lectures()) > 0
+
+    def render(self):
+        idx = self._cleanup_schema()
+        return 'Cleaned up {0} objects'.format(idx)
+
+    def _cleanup_schema(self):
+        items = self.lectures()
+        idx = 0
+        for item in items:
+            obj = item.getObject()
+            third_party_project = getattr(obj, 'thirdPartyProject', None)
+            if third_party_project:
+                setattr(obj, 'externalFundsProject', third_party_project)
+            idx += 1
+            modified(obj)
+            # TODO: add specific indexing for new field values
+            obj.reindexObject(idxs='modified')
+        return idx
+
+    def lectures(self):
+        catalog = api.portal.get_tool(name="portal_catalog")
+        results = catalog(object_provides=ILectures.__identifier__,)
         return IContentListing(results)
 
 
