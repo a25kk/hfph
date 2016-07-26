@@ -100,9 +100,9 @@ grok.global_adapter(authorLastNameIndexer, name="lastname")
 
 
 @indexer(IPublication)
-def thirdPartyProjectIndexer(obj):
-    return obj.thirdPartyProject
-grok.global_adapter(thirdPartyProjectIndexer, name="thirdPartyProject")
+def externalFundsProjectIndexer(obj):
+    return obj.externalFundsProject
+grok.global_adapter(externalFundsProjectIndexer, name="externalFundsProject")
 
 
 @indexer(IPublication)

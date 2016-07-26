@@ -135,9 +135,9 @@ grok.global_adapter(courseTypeIndexer, name="courseType")
 
 
 @indexer(ILecture)
-def thirdPartyProjectIndexer(obj):
-    return obj.thirdPartyProject
-grok.global_adapter(thirdPartyProjectIndexer, name="thirdPartyProject")
+def externalFundsProjectIndexer(obj):
+    return obj.externalFundsProject
+grok.global_adapter(externalFundsProjectIndexer, name="externalFundsProject")
 
 
 class Lecture(Container):
