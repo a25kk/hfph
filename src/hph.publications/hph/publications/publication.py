@@ -64,15 +64,6 @@ class IPublication(form.Schema, IImageScaleTraversable):
         vocabulary=u'hph.publications.publicationSeries',
         required=False,
     )
-    form.mode(thirdPartyProject='hidden')
-    thirdPartyProject = schema.Set(
-        title=_(u"Third Party Project Display"),
-        value_type=schema.Choice(
-            title=_(u"Display Selection"),
-            vocabulary=u'hph.sitecontent.thirdPartyProjects',
-        ),
-        required=False,
-    )
     form.widget(externalFundsProject=CheckBoxFieldWidget)
     externalFundsProject = schema.List(
         title=_(u"Third Party Project Display"),

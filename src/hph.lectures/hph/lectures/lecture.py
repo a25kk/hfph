@@ -108,15 +108,6 @@ class ILecture(model.Schema, IImageScaleTraversable):
         description=_(u"Please enter absolute link to moodle representation"),
         required=False,
     )
-    form.widget(thirdPartyProject=CheckBoxFieldWidget)
-    thirdPartyProject = schema.Set(
-        title=_(u"Third Party Project Display"),
-        value_type=schema.Choice(
-            title=_(u"Display Selection"),
-            vocabulary=u'hph.sitecontent.thirdPartyProjects',
-        ),
-        required=False,
-    )
     form.widget(externalFundsProject=CheckBoxFieldWidget)
     externalFundsProject = schema.List(
         title=_(u"Third Party Project Display"),
