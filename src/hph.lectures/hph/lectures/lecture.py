@@ -118,7 +118,7 @@ class ILecture(model.Schema, IImageScaleTraversable):
         required=False,
     )
     form.widget(externalFundsProject=CheckBoxFieldWidget)
-    externalFundsProject = schema.Set(
+    externalFundsProject = schema.List(
         title=_(u"Third Party Project Display"),
         value_type=schema.Choice(
             title=_(u"Display Selection"),

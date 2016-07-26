@@ -50,7 +50,8 @@ class CleanupPublicationSchema(grok.View):
             obj = item.getObject()
             third_party_project = getattr(obj, 'thirdPartyProject', None)
             if third_party_project:
-                setattr(obj, 'externalFundsProject', third_party_project)
+                external_funds = list(third_party_project)
+                setattr(obj, 'externalFundsProject', external_funds)
             idx += 1
             modified(obj)
             obj.reindexObject(idxs=['externalFundsProject', 'modified'])
@@ -85,7 +86,8 @@ class CleanupLecturesSchema(grok.View):
             obj = item.getObject()
             third_party_project = getattr(obj, 'thirdPartyProject', None)
             if third_party_project:
-                setattr(obj, 'externalFundsProject', third_party_project)
+                external_funds = list(third_party_project)
+                setattr(obj, 'externalFundsProject', external_funds)
             idx += 1
             modified(obj)
             obj.reindexObject(idxs=['externalFundsProject', 'modified'])
