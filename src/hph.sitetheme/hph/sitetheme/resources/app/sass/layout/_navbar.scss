@@ -23,17 +23,20 @@
     flex: 0 0 50px;
     padding: 0;
     background: transparent;
-    &-sub {
-        display: block;
-        @include media-breakpoint-up(sm) {
-            display: none;
-        }
-    }
     @include media-breakpoint-up(sm) {
         display: none;
     }
     @include media-breakpoint-up(xl) {
         display: block;
+    }
+    &-sub {
+        display: block;
+        @include media-breakpoint-up(sm) {
+            display: none;
+        }
+        @include media-breakpoint-up(xl) {
+            display: none;
+        }
     }
 }
 

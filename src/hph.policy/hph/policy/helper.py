@@ -6,9 +6,12 @@ from zope.lifecycleevent import modified
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.app.contentlisting.interfaces import IContentListing
 
+from plone.protect.interfaces import IDisableCSRFProtection
+
 from zc.relation.interfaces import ICatalog
 from zope.component import getUtility
 from zope.component import queryUtility
+from zope.interface import alsoProvides
 from zope.intid.interfaces import IIntIds
 
 from hph.faculty.facultymember import IFacultyMember
@@ -29,6 +32,10 @@ class CleanupPublicationSchema(grok.View):
     grok.require('zope2.View')
     grok.name('cleanup-publications')
 
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+        return self.render()
+
     def update(self):
         self.has_publications = len(self.publications()) > 0
 
@@ -46,8 +53,7 @@ class CleanupPublicationSchema(grok.View):
                 setattr(obj, 'externalFundsProject', third_party_project)
             idx += 1
             modified(obj)
-            # TODO: add specific indexing for new field values
-            obj.reindexObject(idxs='modified')
+            obj.reindexObject(idxs=['externalFundsProject', 'modified'])
         return idx
 
     def publications(self):
@@ -61,6 +67,10 @@ class CleanupLecturesSchema(grok.View):
     grok.require('zope2.View')
     grok.name('cleanup-lectures')
 
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+        return self.render()
+
     def update(self):
         self.has_lectures = len(self.lectures()) > 0
 
@@ -73,14 +83,12 @@ class CleanupLecturesSchema(grok.View):
         idx = 0
         for item in items:
             obj = item.getObject()
-            import pdb; pdb.set_trace()
             third_party_project = getattr(obj, 'thirdPartyProject', None)
             if third_party_project:
                 setattr(obj, 'externalFundsProject', third_party_project)
             idx += 1
             modified(obj)
-            # TODO: add specific indexing for new field values
-            obj.reindexObject(idxs='modified')
+            obj.reindexObject(idxs=['externalFundsProject', 'modified'])
         return idx
 
     def lectures(self):

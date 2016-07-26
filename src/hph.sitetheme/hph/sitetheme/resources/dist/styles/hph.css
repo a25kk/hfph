@@ -6036,7 +6036,7 @@ html
 
 body
 {
-    font-family: 'Open Sans', Trebuchet MS, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Open Sans', Trebuchet MS, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: 1rem;
     line-height: 1.5;
 
@@ -6129,7 +6129,6 @@ a:hover
 }
 a:focus
 {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px;
 }
@@ -6670,6 +6669,75 @@ pre code
         flex-wrap: wrap;
 }
 
+.col-xs-1,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12,
+.col-sm-1,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-md-1,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-lg-1,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-xl-1,
+.col-xl-2,
+.col-xl-3,
+.col-xl-4,
+.col-xl-5,
+.col-xl-6,
+.col-xl-7,
+.col-xl-8,
+.col-xl-9,
+.col-xl-10,
+.col-xl-11,
+.col-xl-12
+{
+    position: relative;
+
+    width: 100%; 
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
 .col-xs
 {
     position: relative;
@@ -6687,12 +6755,7 @@ pre code
 
 .col-xs-1
 {
-    position: relative;
-
     max-width: 8.3333333333%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 8.3333333333%;
         flex: 0 0 8.3333333333%;
@@ -6700,12 +6763,7 @@ pre code
 
 .col-xs-2
 {
-    position: relative;
-
     max-width: 16.6666666667%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 16.6666666667%;
         flex: 0 0 16.6666666667%;
@@ -6713,12 +6771,7 @@ pre code
 
 .col-xs-3
 {
-    position: relative;
-
     max-width: 25%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 25%;
         flex: 0 0 25%;
@@ -6726,12 +6779,7 @@ pre code
 
 .col-xs-4
 {
-    position: relative;
-
     max-width: 33.3333333333%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 33.3333333333%;
         flex: 0 0 33.3333333333%;
@@ -6739,12 +6787,7 @@ pre code
 
 .col-xs-5
 {
-    position: relative;
-
     max-width: 41.6666666667%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 41.6666666667%;
         flex: 0 0 41.6666666667%;
@@ -6752,12 +6795,7 @@ pre code
 
 .col-xs-6
 {
-    position: relative;
-
     max-width: 50%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 50%;
         flex: 0 0 50%;
@@ -6765,12 +6803,7 @@ pre code
 
 .col-xs-7
 {
-    position: relative;
-
     max-width: 58.3333333333%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 58.3333333333%;
         flex: 0 0 58.3333333333%;
@@ -6778,12 +6811,7 @@ pre code
 
 .col-xs-8
 {
-    position: relative;
-
     max-width: 66.6666666667%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 66.6666666667%;
         flex: 0 0 66.6666666667%;
@@ -6791,12 +6819,7 @@ pre code
 
 .col-xs-9
 {
-    position: relative;
-
     max-width: 75%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 75%;
         flex: 0 0 75%;
@@ -6804,12 +6827,7 @@ pre code
 
 .col-xs-10
 {
-    position: relative;
-
     max-width: 83.3333333333%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 83.3333333333%;
         flex: 0 0 83.3333333333%;
@@ -6817,12 +6835,7 @@ pre code
 
 .col-xs-11
 {
-    position: relative;
-
     max-width: 91.6666666667%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 91.6666666667%;
         flex: 0 0 91.6666666667%;
@@ -6830,12 +6843,7 @@ pre code
 
 .col-xs-12
 {
-    position: relative;
-
     max-width: 100%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 100%;
         flex: 0 0 100%;
@@ -7044,144 +7052,84 @@ pre code
     }
     .col-sm-1
     {
-        position: relative;
-
         max-width: 8.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 8.3333333333%;
             flex: 0 0 8.3333333333%;
     }
     .col-sm-2
     {
-        position: relative;
-
         max-width: 16.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 16.6666666667%;
             flex: 0 0 16.6666666667%;
     }
     .col-sm-3
     {
-        position: relative;
-
         max-width: 25%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 25%;
             flex: 0 0 25%;
     }
     .col-sm-4
     {
-        position: relative;
-
         max-width: 33.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 33.3333333333%;
             flex: 0 0 33.3333333333%;
     }
     .col-sm-5
     {
-        position: relative;
-
         max-width: 41.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 41.6666666667%;
             flex: 0 0 41.6666666667%;
     }
     .col-sm-6
     {
-        position: relative;
-
         max-width: 50%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 50%;
             flex: 0 0 50%;
     }
     .col-sm-7
     {
-        position: relative;
-
         max-width: 58.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 58.3333333333%;
             flex: 0 0 58.3333333333%;
     }
     .col-sm-8
     {
-        position: relative;
-
         max-width: 66.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 66.6666666667%;
             flex: 0 0 66.6666666667%;
     }
     .col-sm-9
     {
-        position: relative;
-
         max-width: 75%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 75%;
             flex: 0 0 75%;
     }
     .col-sm-10
     {
-        position: relative;
-
         max-width: 83.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 83.3333333333%;
             flex: 0 0 83.3333333333%;
     }
     .col-sm-11
     {
-        position: relative;
-
         max-width: 91.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 91.6666666667%;
             flex: 0 0 91.6666666667%;
     }
     .col-sm-12
     {
-        position: relative;
-
         max-width: 100%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
@@ -7358,144 +7306,84 @@ pre code
     }
     .col-md-1
     {
-        position: relative;
-
         max-width: 8.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 8.3333333333%;
             flex: 0 0 8.3333333333%;
     }
     .col-md-2
     {
-        position: relative;
-
         max-width: 16.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 16.6666666667%;
             flex: 0 0 16.6666666667%;
     }
     .col-md-3
     {
-        position: relative;
-
         max-width: 25%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 25%;
             flex: 0 0 25%;
     }
     .col-md-4
     {
-        position: relative;
-
         max-width: 33.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 33.3333333333%;
             flex: 0 0 33.3333333333%;
     }
     .col-md-5
     {
-        position: relative;
-
         max-width: 41.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 41.6666666667%;
             flex: 0 0 41.6666666667%;
     }
     .col-md-6
     {
-        position: relative;
-
         max-width: 50%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 50%;
             flex: 0 0 50%;
     }
     .col-md-7
     {
-        position: relative;
-
         max-width: 58.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 58.3333333333%;
             flex: 0 0 58.3333333333%;
     }
     .col-md-8
     {
-        position: relative;
-
         max-width: 66.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 66.6666666667%;
             flex: 0 0 66.6666666667%;
     }
     .col-md-9
     {
-        position: relative;
-
         max-width: 75%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 75%;
             flex: 0 0 75%;
     }
     .col-md-10
     {
-        position: relative;
-
         max-width: 83.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 83.3333333333%;
             flex: 0 0 83.3333333333%;
     }
     .col-md-11
     {
-        position: relative;
-
         max-width: 91.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 91.6666666667%;
             flex: 0 0 91.6666666667%;
     }
     .col-md-12
     {
-        position: relative;
-
         max-width: 100%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
@@ -7672,144 +7560,84 @@ pre code
     }
     .col-lg-1
     {
-        position: relative;
-
         max-width: 8.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 8.3333333333%;
             flex: 0 0 8.3333333333%;
     }
     .col-lg-2
     {
-        position: relative;
-
         max-width: 16.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 16.6666666667%;
             flex: 0 0 16.6666666667%;
     }
     .col-lg-3
     {
-        position: relative;
-
         max-width: 25%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 25%;
             flex: 0 0 25%;
     }
     .col-lg-4
     {
-        position: relative;
-
         max-width: 33.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 33.3333333333%;
             flex: 0 0 33.3333333333%;
     }
     .col-lg-5
     {
-        position: relative;
-
         max-width: 41.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 41.6666666667%;
             flex: 0 0 41.6666666667%;
     }
     .col-lg-6
     {
-        position: relative;
-
         max-width: 50%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 50%;
             flex: 0 0 50%;
     }
     .col-lg-7
     {
-        position: relative;
-
         max-width: 58.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 58.3333333333%;
             flex: 0 0 58.3333333333%;
     }
     .col-lg-8
     {
-        position: relative;
-
         max-width: 66.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 66.6666666667%;
             flex: 0 0 66.6666666667%;
     }
     .col-lg-9
     {
-        position: relative;
-
         max-width: 75%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 75%;
             flex: 0 0 75%;
     }
     .col-lg-10
     {
-        position: relative;
-
         max-width: 83.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 83.3333333333%;
             flex: 0 0 83.3333333333%;
     }
     .col-lg-11
     {
-        position: relative;
-
         max-width: 91.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 91.6666666667%;
             flex: 0 0 91.6666666667%;
     }
     .col-lg-12
     {
-        position: relative;
-
         max-width: 100%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
@@ -7986,144 +7814,84 @@ pre code
     }
     .col-xl-1
     {
-        position: relative;
-
         max-width: 8.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 8.3333333333%;
             flex: 0 0 8.3333333333%;
     }
     .col-xl-2
     {
-        position: relative;
-
         max-width: 16.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 16.6666666667%;
             flex: 0 0 16.6666666667%;
     }
     .col-xl-3
     {
-        position: relative;
-
         max-width: 25%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 25%;
             flex: 0 0 25%;
     }
     .col-xl-4
     {
-        position: relative;
-
         max-width: 33.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 33.3333333333%;
             flex: 0 0 33.3333333333%;
     }
     .col-xl-5
     {
-        position: relative;
-
         max-width: 41.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 41.6666666667%;
             flex: 0 0 41.6666666667%;
     }
     .col-xl-6
     {
-        position: relative;
-
         max-width: 50%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 50%;
             flex: 0 0 50%;
     }
     .col-xl-7
     {
-        position: relative;
-
         max-width: 58.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 58.3333333333%;
             flex: 0 0 58.3333333333%;
     }
     .col-xl-8
     {
-        position: relative;
-
         max-width: 66.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 66.6666666667%;
             flex: 0 0 66.6666666667%;
     }
     .col-xl-9
     {
-        position: relative;
-
         max-width: 75%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 75%;
             flex: 0 0 75%;
     }
     .col-xl-10
     {
-        position: relative;
-
         max-width: 83.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 83.3333333333%;
             flex: 0 0 83.3333333333%;
     }
     .col-xl-11
     {
-        position: relative;
-
         max-width: 91.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 91.6666666667%;
             flex: 0 0 91.6666666667%;
     }
     .col-xl-12
     {
-        position: relative;
-
         max-width: 100%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
@@ -9445,7 +9213,6 @@ input[type='color'],
 .active.focus.app-btn,
 .active.focus.app-searchbox-btn
 {
-    outline: thin dotted;
     outline: 5px auto -webkit-focus-ring-color;
     outline-offset: -2px;
 }
@@ -15191,12 +14958,7 @@ div.riform .label
 
 .app-brand-title
 {
-    position: relative;
-
     max-width: 100%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 100%;
         flex: 0 0 100%;
@@ -15205,12 +14967,7 @@ div.riform .label
 {
     .app-brand-title
     {
-        position: relative;
-
         max-width: 66.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 66.6666666667%;
             flex: 0 0 66.6666666667%;
@@ -15219,12 +14976,7 @@ div.riform .label
 
 .app-brand-aside
 {
-    position: relative;
-
     max-width: 100%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 100%;
         flex: 0 0 100%;
@@ -15233,12 +14985,7 @@ div.riform .label
 {
     .app-brand-aside
     {
-        position: relative;
-
         max-width: 33.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 33.3333333333%;
             flex: 0 0 33.3333333333%;
@@ -15291,17 +15038,6 @@ div.riform .label
     -ms-flex: 0 0 50px;
         flex: 0 0 50px;
 }
-.app-navbar-header-sub
-{
-    display: block;
-}
-@media (min-width: 544px)
-{
-    .app-navbar-header-sub
-    {
-        display: none;
-    }
-}
 @media (min-width: 544px)
 {
     .app-navbar-header
@@ -15314,6 +15050,24 @@ div.riform .label
     .app-navbar-header
     {
         display: block;
+    }
+}
+.app-navbar-header-sub
+{
+    display: block;
+}
+@media (min-width: 544px)
+{
+    .app-navbar-header-sub
+    {
+        display: none;
+    }
+}
+@media (min-width: 1200px)
+{
+    .app-navbar-header-sub
+    {
+        display: none;
     }
 }
 
@@ -16411,12 +16165,7 @@ select[multiple]
 }
 .app-brand-panel .app-brand-img
 {
-    position: relative;
-
     max-width: 33.3333333333%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 33.3333333333%;
         flex: 0 0 33.3333333333%;
@@ -16425,12 +16174,7 @@ select[multiple]
 {
     .app-brand-panel .app-brand-img
     {
-        position: relative;
-
         max-width: 25%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 25%;
             flex: 0 0 25%;
@@ -16440,12 +16184,7 @@ select[multiple]
 {
     .app-brand-panel-inverse .app-brand-img
     {
-        position: relative;
-
         max-width: 25%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 25%;
             flex: 0 0 25%;
@@ -16532,12 +16271,7 @@ select[multiple]
 
 .app-brand-aside
 {
-    position: relative;
-
     max-width: 33.3333333333%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 33.3333333333%;
         flex: 0 0 33.3333333333%;
@@ -16887,13 +16621,8 @@ img[data-sizes='auto']
 
 .app-action
 {
-    position: relative;
-
     max-width: 100%;
-    min-height: 1px;
     padding: 0;
-    padding-right: 15px;
-    padding-left: 15px;
 
     text-align: center; 
 
@@ -16904,12 +16633,7 @@ img[data-sizes='auto']
 {
     .app-action
     {
-        position: relative;
-
         max-width: 50%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 50%;
             flex: 0 0 50%;
@@ -17051,12 +16775,7 @@ img[data-sizes='auto']
 {
     .app-ticker-title
     {
-        position: relative;
-
         max-width: 25%;
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         border-right: 4px solid #fc3;
         border-bottom: 0; 
@@ -17069,12 +16788,7 @@ img[data-sizes='auto']
 {
     .app-ticker-title
     {
-        position: relative;
-
         max-width: 16.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 16.6666666667%;
             flex: 0 0 16.6666666667%;
@@ -17090,13 +16804,8 @@ img[data-sizes='auto']
 {
     .app-ticker-main
     {
-        position: relative;
-
         max-width: 58.3333333333%;
-        min-height: 1px;
         margin: 0; 
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 58.3333333333%;
             flex: 0 0 58.3333333333%;
@@ -17106,13 +16815,8 @@ img[data-sizes='auto']
 {
     .app-ticker-main
     {
-        position: relative;
-
         max-width: 75%;
-        min-height: 1px;
         margin: 0; 
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 75%;
             flex: 0 0 75%;
@@ -17127,12 +16831,7 @@ img[data-sizes='auto']
 {
     .app-ticker-actions
     {
-        position: relative;
-
         max-width: 16.6666666667%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 16.6666666667%;
             flex: 0 0 16.6666666667%;
@@ -17142,12 +16841,7 @@ img[data-sizes='auto']
 {
     .app-ticker-actions
     {
-        position: relative;
-
         max-width: 8.3333333333%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 8.3333333333%;
             flex: 0 0 8.3333333333%;
@@ -17176,24 +16870,14 @@ img[data-sizes='auto']
 
 .app-searchbox-item
 {
-    position: relative;
-
     max-width: 75%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 75%;
         flex: 0 0 75%;
 }
 .app-searchbox-item:first-child
 {
-    position: relative;
-
     max-width: 25%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 25%;
         flex: 0 0 25%;
@@ -17564,12 +17248,7 @@ body.template-frontpage-view .app-pathbar
 }
 .app-cards .app-card
 {
-    position: relative;
-
     max-width: 100%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 100%;
         flex: 0 0 100%;
@@ -17578,12 +17257,7 @@ body.template-frontpage-view .app-pathbar
 {
     .app-cards .app-card
     {
-        position: relative;
-
         max-width: 50%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 50%;
             flex: 0 0 50%;
@@ -17593,12 +17267,7 @@ body.template-frontpage-view .app-pathbar
 {
     .app-cards .app-card
     {
-        position: relative;
-
         max-width: 25%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 25%;
             flex: 0 0 25%;
@@ -17660,7 +17329,7 @@ body.template-frontpage-view .app-pathbar
 {
     font-size: 1rem; 
 
-    padding-top: 1rem;
+    padding: .5rem;
 }
 .app-card-content address
 {
@@ -18566,12 +18235,7 @@ app-fonts-loaded .app-page-abstract
 .app-page-aside,
 .app-page-main
 {
-    position: relative;
-
     max-width: 100%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 100%;
         flex: 0 0 100%;
@@ -18581,12 +18245,7 @@ app-fonts-loaded .app-page-abstract
 {
     .app-page-aside
     {
-        position: relative;
-
         max-width: 25%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 25%;
             flex: 0 0 25%;
@@ -18597,12 +18256,7 @@ app-fonts-loaded .app-page-abstract
 {
     .app-page-main
     {
-        position: relative;
-
         max-width: 75%; 
-        min-height: 1px;
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 75%;
             flex: 0 0 75%;
@@ -18623,12 +18277,7 @@ app-fonts-loaded .app-page-abstract
 
 .app-section-aside
 {
-    position: relative;
-
     max-width: 100%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 100%;
         flex: 0 0 100%;
@@ -18637,13 +18286,8 @@ app-fonts-loaded .app-page-abstract
 {
     .app-section-aside
     {
-        position: relative;
-
         max-width: 25%;
-        min-height: 1px;
         padding: 0 1rem 1rem 1rem; 
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 25%;
             flex: 0 0 25%;
@@ -18652,12 +18296,7 @@ app-fonts-loaded .app-page-abstract
 
 .app-section-main
 {
-    position: relative;
-
     max-width: 100%; 
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
 
     -ms-flex: 0 0 100%;
         flex: 0 0 100%;
@@ -18666,13 +18305,8 @@ app-fonts-loaded .app-page-abstract
 {
     .app-section-main
     {
-        position: relative;
-
         max-width: 75%;
-        min-height: 1px;
         padding: 0 1rem 0 0; 
-        padding-right: 15px;
-        padding-left: 15px;
 
         -ms-flex: 0 0 75%;
             flex: 0 0 75%;
