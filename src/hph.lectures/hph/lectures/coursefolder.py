@@ -80,7 +80,7 @@ class View(grok.View):
             if course_filter is not None:
                 query['courseType'] = course_filter
             if project_filter is not None:
-                query['thirdPartyProject'] = project_filter
+                query['externalFundsProject'] = project_filter
         results = catalog.searchResults(query)
         return IContentListing(results)
 
