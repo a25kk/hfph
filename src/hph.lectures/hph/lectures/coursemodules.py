@@ -37,7 +37,12 @@ class ICourseModuleInformation(model.Schema):
         fields=['moduledetails']
     )
 
-    form.widget(moduledetails=DataGridFieldFactory)
+    form.widget('moduledetails',
+                DataGridFieldFactory,
+                allow_insert=True,
+                allow_delete=True,
+                auto_append=True,
+                allow_reorder=False)
     moduledetails = schema.List(
         title=u'Product Details',
         value_type=DictRow(

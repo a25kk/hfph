@@ -4,9 +4,14 @@
 from plone.directives import form
 from zope import schema
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
+from plone.theme.interfaces import IDefaultPloneLayer
 from plone.namedfile.field import NamedBlobFile
 
 from hph.lectures import MessageFactory as _
+
+
+class IHPHLecturesLayer(IDefaultPloneLayer):
+    """Marker interface that defines a Zope 3 browser layer."""
 
 
 class ILectureBase(form.Schema):

@@ -11,6 +11,8 @@
   <!-- Include configuration for dependencies listed in setup.py -->
   <includeDependencies package="." />
 
+    <include package=".browser" />
+
   <!-- Grok the package to initialize schema interfaces and content classes -->
   <grok:grok package="." />
 
@@ -47,5 +49,13 @@
      description="Course module data grid behavior"
      provides=".coursemodules.ICourseModuleInformation"
      />
+
+   <!-- Lecture edit form with data grid support -->
+   <browser:page
+        for="hph.lectures.lecture.ILecture"
+        name="edit"
+        class="hph.lectures.lecture.EditForm"
+        permission="cmf.ModifyPortalContent"
+        />
 
 </configure>
