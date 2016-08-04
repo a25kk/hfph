@@ -58,4 +58,9 @@
         permission="cmf.ModifyPortalContent"
         />
 
+    <!-- Tool providing utility functions for asset storage manipulation -->
+    <utility
+            factory=".tool.CourseModuleTool"
+            provides=".interfaces.ICourseModuleTool"/>
+
 </configure>

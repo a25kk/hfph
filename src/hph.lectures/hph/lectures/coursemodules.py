@@ -50,6 +50,13 @@ class ICourseModuleInformation(model.Schema):
             schema=ICourseModules),
         required=True
     )
+    moduleInformation = schema.TextLine(
+        title=_(u"Module Information"),
+        description=_(u"Storage for course module json data. This field should"
+                      u" ideally not be edited directly and should be hidden "
+                      u"form the base edit form"),
+        required=False,
+    )
 
 
 alsoProvides(ICourseModuleInformation, IFormFieldProvider)
