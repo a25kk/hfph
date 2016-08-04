@@ -1,0 +1,22 @@
+// Course module editor styles
+.app-module-editor {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.app-table-modules {
+    @extend .table;
+    @extend .table-striped;
+    @extend .table-sm;
+}
+
+// Actions row
+.app-table-actions {
+    background-color: #fff;
+    border-top: 2px solid #333;
+    padding-top: 1rem;
+}
+
+.app-table-actions-cell {
+    padding-top: 1rem !important;
+}

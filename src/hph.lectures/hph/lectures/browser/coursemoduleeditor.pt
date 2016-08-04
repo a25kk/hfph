@@ -4,7 +4,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
          metal:use-macro="context/main_template/macros/master"
-         i18n:domain="aha.sitecontent">
+         i18n:domain="hph.lectures">
 <body>
 
 <metal:main fill-slot="main">
@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-4">
                         <div class="ppe-header-title text-center" i18n:translate="">
-                            Course modules
+                            Module bearbeiten
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4">
@@ -38,39 +38,56 @@
                       id="createBlockForm"
                       method="post" role="form"
                          tal:attributes="action string:${context/absolute_url}/@@course-module-add">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-4">
-                            <div class="form-group field"
-                                     tal:define="req_value request/title | nothing">
-                                <label for="degree" i18n:translate="">Degree</label>
-                                <input class="form-control" id="degree"
-                                       type="text" name="degree"
-                                       placeholder="Enter degree title"
-                                         tal:attributes="value req_value">
-                            </div> <!-- /title field -->
-                        </div>
-                        <div class="col-xs-12 col-md-4">
-                            <div class="form-group field"
-                                     tal:define="req_value request/info | nothing">
-                                <label for="info" i18n:translate="">Info</label>
-                                <input class="form-control" id="info"
-                                       type="text" name="info"
-                                       placeholder="Please enter information"
-                                         tal:attributes="value req_value">
-                            </div> <!-- /title field -->
-                        </div>
-                        <div class="col-xs-12 col-md-3">
-                            <div class="form-group">
-                                <span tal:replace="structure context/@@authenticator/authenticator"/>
-                                <button class="btn btn-block btn-ppe"
-                                        name="form.button.Submit"
-                                        id="form.button.Submit">
-                                    <i class="ion ion-ios-add-circle-outline pp-icon pp-icon-lg"></i>
-                                    <span class="h5" i18n:translate="">Add module</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <table class="app-table-modules">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th i18n:translate="">Degree</th>
+                                <th i18n:translate="">Module Information</th>
+                                <th i18n:translate="">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr class="app-table-actions">
+                                <th scope="row">&nbsp;</th>
+                                <td class="app-table-actions-cell">
+                                    <div class="form-group field"
+                                             tal:define="req_value request/title | nothing">
+                                        <input class="form-control" id="degree"
+                                               type="text" name="degree"
+                                               placeholder="Enter degree title"
+                                                 tal:attributes="value req_value">
+                                    </div> <!-- /title field -->
+                                </td>
+                                <td class="app-table-actions-cell">
+                                    <div class="form-group field"
+                                             tal:define="req_value request/info | nothing">
+                                        <input class="form-control" id="info"
+                                               type="text" name="info"
+                                               placeholder="Please enter information"
+                                                 tal:attributes="value req_value">
+                                    </div> <!-- /title field -->
+                                </td>
+                                <td class="app-table-actions-cell">
+                                    <div class="form-group">
+                                        <span tal:replace="structure context/@@authenticator/authenticator"/>
+                                        <button class="app-btn app-btn-default"
+                                                name="form.button.Submit"
+                                                id="form.button.Submit">
+                                            <i class="ion ion-ios-add-circle-outline pp-icon"></i>
+                                            <span i18n:translate="">Add module</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </form>
             </div>
         </div>

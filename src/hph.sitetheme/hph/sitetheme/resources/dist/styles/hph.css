@@ -5993,12 +5993,15 @@ textarea
     {
         border: 1px solid #000;
     }
-    .table
+    .table,
+    .app-table-modules
     {
         border-collapse: collapse !important;
     }
     .table td,
-    .table th
+    .app-table-modules td,
+    .table th,
+    .app-table-modules th
     {
         background-color: #fff !important;
     }
@@ -8050,14 +8053,17 @@ pre code
     }
 }
 
-.table
+.table,
+.app-table-modules
 {
     width: 100%;
     max-width: 100%;
     margin-bottom: 1rem;
 }
 .table th,
-.table td
+.app-table-modules th,
+.table td,
+.app-table-modules td
 {
     padding: .75rem;
 
@@ -8065,23 +8071,30 @@ pre code
 
     border-top: 1px solid #eceeef;
 }
-.table thead th
+.table thead th,
+.app-table-modules thead th
 {
     vertical-align: bottom;
 
     border-bottom: 2px solid #eceeef;
 }
-.table tbody + tbody
+.table tbody + tbody,
+.app-table-modules tbody + tbody
 {
     border-top: 2px solid #eceeef;
 }
-.table .table
+.table .table,
+.app-table-modules .table,
+.table .app-table-modules,
+.app-table-modules .app-table-modules
 {
     background-color: #fff;
 }
 
 .table-sm th,
-.table-sm td
+.app-table-modules th,
+.table-sm td,
+.app-table-modules td
 {
     padding: .3rem;
 }
@@ -8101,7 +8114,8 @@ pre code
     border-bottom-width: 2px;
 }
 
-.table-striped tbody tr:nth-of-type(odd)
+.table-striped tbody tr:nth-of-type(odd),
+.app-table-modules tbody tr:nth-of-type(odd)
 {
     background-color: rgba(0, 0, 0, .05);
 }
@@ -17809,6 +17823,25 @@ app-fonts-loaded .app-page-abstract
     display: block;
 }
 
+.app-module-editor
+{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.app-table-actions
+{
+    padding-top: 1rem; 
+
+    border-top: 2px solid #333;
+    background-color: #fff;
+}
+
+.app-table-actions-cell
+{
+    padding-top: 1rem !important;
+}
+
 .app-panelpage
 {
     margin: 1rem 0;
@@ -18632,6 +18665,7 @@ app-fonts-loaded .app-page-abstract
 .sg-example > .app-searchbox-field:last-child,
 .sg-example > .app-searchbox-control:last-child,
 .sg-example > .table:last-child,
+.sg-example > .app-table-modules:last-child,
 .sg-example > .navbar:last-child,
 .sg-example > .app-event-nav:last-child,
 .sg-example > .jumbotron:last-child,
@@ -18640,7 +18674,8 @@ app-fonts-loaded .app-page-abstract
 .sg-example > .list-group:last-child,
 .sg-example > .well:last-child,
 .sg-example > .progress:last-child,
-.sg-example > .table-responsive:last-child > .table
+.sg-example > .table-responsive:last-child > .table,
+.sg-example > .table-responsive:last-child > .app-table-modules
 {
     margin-bottom: 0;
 }
@@ -18902,5 +18937,10 @@ app-fonts-loaded .app-page-abstract
 .color-swatches .app-secondary-lighter
 {
     background-color: #ffdf80;
+}
+
+.app-table-actions-cell
+{
+    padding-top: 1.5rem !important;
 }
 /*# sourceMappingURL=hph.css.map */
