@@ -20,3 +20,30 @@
 .app-table-actions-cell {
     padding-top: 1rem !important;
 }
+
+// TODO: refactor into standalone component
+.app-inline-editable {
+    position: relative;
+    &::after {
+        content: " ";
+        z-index: 10;
+        display: none;
+        position: absolute;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        &:hover {
+            display: block;
+        }
+    }
+}
+
+.app-inline-edit-bar {
+    border-top: 1px solid #333;
+}
+
+.app-btn-inline-edit {
+    float: right;
+}

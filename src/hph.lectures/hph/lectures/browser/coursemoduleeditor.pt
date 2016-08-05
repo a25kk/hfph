@@ -37,7 +37,8 @@
                 <form class="app-form app-create-form"
                       id="createBlockForm"
                       method="post" role="form"
-                         tal:attributes="action string:${context/absolute_url}/@@course-module-add">
+                      tal:define="errors view/errors"
+                      tal:attributes="action request/URL">
                     <table class="app-table-modules">
                         <thead>
                             <tr>
@@ -48,12 +49,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
+                            <tal:items tal:condition="view/has_course_information">
+                                <tal:block tal:define="stored_data view/course_information;
+                                                        courses stored_data/items">
+                                    <tr tal:repeat="item python:stored_data['items']">
+                                        <th scope="row">${repeat/item/number}</th>
+                                        <td>${item/degree}</td>
+                                        <td>${item/info}</td>
+                                        <td>
+                                            <a href="${context/absolute_url}/@@module-editor-remove/${repeat/item/index}">
+                                                <i class="ion ion-ios-backspace-outline pp-icon"></i> delete
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tal:block>
+                            </tal:items>
                             <tr class="app-table-actions">
                                 <th scope="row">&nbsp;</th>
                                 <td class="app-table-actions-cell">

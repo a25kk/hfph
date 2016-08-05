@@ -28,7 +28,7 @@ class CourseModuleTool(object):
     # @memoize
     def read(self, uuid, key=None):
         item = api.content.get(UID=uuid)
-        stored = getattr(item, 'moduleInformation', dict())
+        stored = getattr(item, 'moduleInformation', None)
         data = dict()
         if stored is not None:
             data = json.loads(stored)
@@ -44,8 +44,10 @@ class CourseModuleTool(object):
             records = stored['items']
             records[key] = data
         else:
-            stored = data
+            records = stored['items']
+            records.append(data)
         end = time.time()
+        stored['items'] = records
         stored.update(dict(_runtime=str(end-start),
                            timestamp=str(int(time.time())),
                            updated=str(datetime.datetime.now())))
@@ -77,6 +79,9 @@ class CourseModuleTool(object):
             "title": item.Title(),
             "items": []
         }
+        # Add potential initial data
+        if data:
+            records['items'].append(data)
         return records
 
     def safe_encode(self, value):

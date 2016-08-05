@@ -17842,6 +17842,41 @@ app-fonts-loaded .app-page-abstract
     padding-top: 1rem !important;
 }
 
+.app-inline-editable
+{
+    position: relative;
+}
+.app-inline-editable::after
+{
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    display: none;
+
+    height: 100%;
+
+    content: ' ';
+
+    background: rgba(0, 0, 0, .5);
+}
+.app-inline-editable::after:hover
+{
+    display: block;
+}
+
+.app-inline-edit-bar
+{
+    border-top: 1px solid #333;
+}
+
+.app-btn-inline-edit
+{
+    float: right;
+}
+
 .app-panelpage
 {
     margin: 1rem 0;

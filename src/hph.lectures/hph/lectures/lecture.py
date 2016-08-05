@@ -16,6 +16,9 @@ from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from zope import schema
 from zope.schema.vocabulary import getVocabularyRegistry
+from zope.component import getUtility
+
+from hph.lectures.interfaces import ICourseModuleTool
 
 from hph.lectures import MessageFactory as _
 
@@ -240,3 +243,15 @@ class View(grok.View):
         if active_filter == value:
             klass = 'app-nav-list-item app-nav-list-item-active'
         return klass
+
+    def course_information(self):
+        context = aq_inner(self.context)
+        context_uid = api.content.get_uuid(obj=context)
+        tool = getUtility(ICourseModuleTool)
+        data = tool.read(context_uid)
+        return data
+
+    def has_course_information(self):
+        if self.course_information():
+            return True
+        return False

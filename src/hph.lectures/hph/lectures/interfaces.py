@@ -2,10 +2,11 @@
 """Lecture edit form schema interfaces"""
 
 from plone.directives import form
-from zope import schema
-from z3c.form.browser.checkbox import CheckBoxFieldWidget
-from plone.theme.interfaces import IDefaultPloneLayer
 from plone.namedfile.field import NamedBlobFile
+from plone.theme.interfaces import IDefaultPloneLayer
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
+from zope import schema
+from zope.interface import Interface
 
 from hph.lectures import MessageFactory as _
 
