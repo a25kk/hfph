@@ -44,8 +44,7 @@ class CourseModuleTool(object):
             records = stored['items']
             records[key] = data
         else:
-            records = stored['items']
-            records.append(data)
+            records = data
         end = time.time()
         stored['items'] = records
         stored.update(dict(_runtime=str(end-start),

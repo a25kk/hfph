@@ -16,7 +16,7 @@
                         <a class="ppe-close pull-left"
                                  tal:attributes="href string:${context/absolute_url}">
                             <i class="ion ion-ios-arrow-back-outline pp-icon pp-icon-md">
-                                Quit
+                                <span tal:omit-tag="" i18n:translate="">Quit</span>
                         </a>
                     </div>
                     <div class="col-xs-12 col-sm-4">
@@ -56,9 +56,11 @@
                                         <th scope="row">${repeat/item/number}</th>
                                         <td>${item/degree}</td>
                                         <td>${item/info}</td>
-                                        <td>
-                                            <a href="${context/absolute_url}/@@module-editor-remove/${repeat/item/index}">
-                                                <i class="ion ion-ios-backspace-outline pp-icon"></i> delete
+                                        <td tal:define="url string:${context/absolute_url}/@@module-editor-remove/${repeat/item/index};
+                                                        protected_url python:view.generate_protected_url(url)">
+                                            <a href="${protected_url}">
+                                                <i class="ion ion-ios-backspace-outline pp-icon"></i>
+                                                <span tal:omit-tag="" i18n:translate="">delete</span>
                                             </a>
                                         </td>
                                     </tr>

@@ -10,7 +10,14 @@
             name="module-editor"
             class=".coursemodules.CourseModuleEditor"
             template="coursemoduleeditor.pt"
-            permission="zope2.View"
+            permission="cmf.ModifyPortalContent"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+    <browser:page
+            for="hph.lectures.lecture.ILecture"
+            name="module-editor-remove"
+            class=".coursemodules.CourseModuleEditorRemove"
+            permission="cmf.ModifyPortalContent"
             layer="..interfaces.IHPHLecturesLayer"
     />
 </configure>
