@@ -37,13 +37,25 @@ class ICourseModuleInformation(model.Schema):
         fields=['moduledetails']
     )
 
-    form.widget(moduledetails=DataGridFieldFactory)
+    form.widget('moduledetails',
+                DataGridFieldFactory,
+                allow_insert=True,
+                allow_delete=True,
+                auto_append=True,
+                allow_reorder=False)
     moduledetails = schema.List(
         title=u'Product Details',
         value_type=DictRow(
             title=u'Module Details',
             schema=ICourseModules),
         required=True
+    )
+    moduleInformation = schema.TextLine(
+        title=_(u"Module Information"),
+        description=_(u"Storage for course module json data. This field should"
+                      u" ideally not be edited directly and should be hidden "
+                      u"form the base edit form"),
+        required=False,
     )
 
 

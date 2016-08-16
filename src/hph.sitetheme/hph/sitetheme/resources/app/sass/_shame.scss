@@ -13,3 +13,11 @@
 //
 // See: http://csswizardry.com/2013/04/shame-css/
 // -----------------------------------------------------
+
+
+// Override bootstrap table cell padding
+// The component styles basically use too much specificity be declaring
+// the padding with .table-sm td {}
+.app-table-actions-cell {
+    padding-top: 1.5rem !important;
+}

@@ -1,0 +1,23 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser"
+        xmlns:z3c="http://namespaces.zope.org/z3c"
+        i18n_domain="hph.lectures">
+
+    <!-- Page section snippet -->
+    <browser:page
+            for="hph.lectures.lecture.ILecture"
+            name="module-editor"
+            class=".coursemodules.CourseModuleEditor"
+            template="coursemoduleeditor.pt"
+            permission="cmf.ModifyPortalContent"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+    <browser:page
+            for="hph.lectures.lecture.ILecture"
+            name="module-editor-remove"
+            class=".coursemodules.CourseModuleEditorRemove"
+            permission="cmf.ModifyPortalContent"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+</configure>
