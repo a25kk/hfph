@@ -10,8 +10,8 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-    <div class="app-page-section">
-      <div class="app-page-section-aside">
+    <div class="app-section">
+      <div class="app-section-aside">
           <div class="app-box app-box-workspaces">
               <div class="app-box-header">
                   <h2 class="app-box-heading" i18n:translate="">
@@ -33,7 +33,7 @@
               </div>
           </div>
       </div>
-      <div class="app-page-section-main">
+      <div class="app-section-main">
         <div class="app-page-header">
             <h1 i18n:translate="">User Selection</h1>
             <p class="lead" tal:content="context/Title">Context title</p>

@@ -1,0 +1,109 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.lectures">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+        <div class="app-page-editor">
+            <div class="ppe-header">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4">
+                        <a class="ppe-close pull-left"
+                                 tal:attributes="href string:${context/absolute_url}">
+                            <i class="ion ion-ios-arrow-back-outline pp-icon pp-icon-md">
+                                <span tal:omit-tag="" i18n:translate="">Quit</span>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <div class="ppe-header-title text-center" i18n:translate="">
+                            Module bearbeiten
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4">
+                        <a class="ppe-close pull-right"
+                                 tal:attributes="href string:${context/absolute_url}/"
+                                 i18n:translate="">
+                            View
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="app-module-editor">
+                <form class="app-form app-create-form"
+                      id="createBlockForm"
+                      method="post" role="form"
+                      tal:define="errors view/errors"
+                      tal:attributes="action request/URL">
+                    <table class="app-table-modules">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th i18n:translate="">Degree</th>
+                                <th i18n:translate="">Module Information</th>
+                                <th i18n:translate="">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tal:items tal:condition="view/has_course_information">
+                                <tal:block tal:define="stored_data view/course_information;
+                                                        courses stored_data/items">
+                                    <tr tal:repeat="item python:stored_data['items']">
+                                        <th scope="row">${repeat/item/number}</th>
+                                        <td>${item/degree}</td>
+                                        <td>${item/info}</td>
+                                        <td tal:define="url string:${context/absolute_url}/@@module-editor-remove/${repeat/item/index};
+                                                        protected_url python:view.generate_protected_url(url)">
+                                            <a href="${protected_url}">
+                                                <i class="ion ion-ios-backspace-outline pp-icon"></i>
+                                                <span tal:omit-tag="" i18n:translate="">delete</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tal:block>
+                            </tal:items>
+                            <tr class="app-table-actions">
+                                <th scope="row">&nbsp;</th>
+                                <td class="app-table-actions-cell">
+                                    <div class="form-group field"
+                                             tal:define="req_value request/title | nothing">
+                                        <input class="form-control" id="degree"
+                                               type="text" name="degree"
+                                               placeholder="Enter degree title"
+                                                 tal:attributes="value req_value">
+                                    </div> <!-- /title field -->
+                                </td>
+                                <td class="app-table-actions-cell">
+                                    <div class="form-group field"
+                                             tal:define="req_value request/info | nothing">
+                                        <input class="form-control" id="info"
+                                               type="text" name="info"
+                                               placeholder="Please enter information"
+                                                 tal:attributes="value req_value">
+                                    </div> <!-- /title field -->
+                                </td>
+                                <td class="app-table-actions-cell">
+                                    <div class="form-group">
+                                        <span tal:replace="structure context/@@authenticator/authenticator"/>
+                                        <button class="app-btn app-btn-default"
+                                                name="form.button.Submit"
+                                                id="form.button.Submit">
+                                            <i class="ion ion-ios-add-circle-outline pp-icon"></i>
+                                            <span i18n:translate="">Add module</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </metal:content-core>
+</metal:main>
+</body>
+</html>

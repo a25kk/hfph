@@ -116,3 +116,10 @@ div.riform .label {
 .mceContentBody {
     padding: $spacer;
 }
+
+// Toolbar icon for new contributing view
+.icon-contributing {
+    &:before {
+        content: '\e820';
+    }
+}
