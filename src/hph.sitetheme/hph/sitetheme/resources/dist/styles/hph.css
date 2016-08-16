@@ -14847,6 +14847,11 @@ div.riform .label
     padding: 1rem;
 }
 
+.icon-contributing:before
+{
+    content: '\e820';
+}
+
 .app-default
 {
     color: #036;
@@ -17875,6 +17880,8 @@ app-fonts-loaded .app-page-abstract
 .app-btn-inline-edit
 {
     float: right;
+
+    margin-top: -1px;
 }
 
 .app-panelpage
