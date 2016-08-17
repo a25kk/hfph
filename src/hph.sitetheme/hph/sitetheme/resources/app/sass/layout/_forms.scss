@@ -119,6 +119,18 @@ select[multiple] {
   font-weight: 300;
 }
 
+//== Editable filed
+//
+//## Highlight inline editable fields
+.app-field-editable {
+    padding: .5rem;
+    margin-bottom: 1rem;
+    border: 1px solid $gray-lighter;
+    &:hover {
+        border-color: $color-sun-glow;
+    }
+}
+
 
 //== Password toggle
 //

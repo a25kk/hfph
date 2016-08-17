@@ -15678,6 +15678,18 @@ select[multiple]
     color: #900707;
 }
 
+.app-field-editable
+{
+    margin-bottom: 1rem;
+    padding: .5rem;
+
+    border: 1px solid #eceeef;
+}
+.app-field-editable:hover
+{
+    border-color: #fc3;
+}
+
 ::-ms-reveal,
 ::-ms-clear
 {
