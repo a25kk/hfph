@@ -44,10 +44,14 @@
                     <div class="list-group">
                         <tal:block tal:repeat="item view/selectable_faculty_members">
                             <tal:item tal:define="item_uid item/UID;
-                                                  active python:view.has_active_assignment(item_uid)">
+                                                  active python:view.has_active_assignment(item_uid);
+                                                  add_url string:${context/absolute_url}/@@faculty-member-assignment-factory/${item_uid}/add;
+                                                  remove_url string:${context/absolute_url}/@@faculty-member-assignment-factory/${item_uid}/remove;
+                                                  protected_add_url python:view.generate_protected_url(add_url);
+                                                  protected_remove_url python:view.generate_protected_url(remove_url)">
                                 <a href="#" class="list-group-item"
                                          tal:condition="not:active"
-                                         tal:attributes="href string:${context/absolute_url}/@@faculty-member-assign/${item_uid}/add">
+                                         tal:attributes="href protected_add_url">
                                     <h4 class="list-group-item-heading"
                                              tal:content="item/Title">
                                         List group item heading
@@ -56,7 +60,7 @@
                                 </a>
                                 <a href="#" class="list-group-item active"
                                          tal:condition="active"
-                                         tal:attributes="href string:${context/absolute_url}/@@faculty-member-assign/${item_uid}/remove">
+                                         tal:attributes="href protected_remove_url">
                                     <span class="tag tag-primary" i18n:translate="">assigned</span>
                                     <h4 class="list-group-item-heading"
                                              tal:content="item/Title">

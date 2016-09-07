@@ -14,8 +14,8 @@
 
     <browser:page
             for="hph.publications.publication.IPublication"
-            name="faculty-member-assign"
-            class=".assignment.FacultyMemberAssign"
+            name="faculty-member-assignment-factory"
+            class=".assignment.FacultyMemberAssignmentFactory"
             permission="cmf.ModifyPortalContent"
     />
 

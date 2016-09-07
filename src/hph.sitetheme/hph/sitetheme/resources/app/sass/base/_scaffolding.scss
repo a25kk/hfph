@@ -6,8 +6,10 @@
 //** Adjust font weight for initialized webfonts
 body {
     background-color: $app-gray-light;
+    font-family: $font-family-base;
     .wf-active &,
     .app-fonts-loaded & {
+        font-family: $app-font-family-base;
         font-weight: 300;
     }
     &.template-theming-controlpanel .row {
