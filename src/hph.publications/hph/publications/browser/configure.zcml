@@ -1,0 +1,22 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser"
+        i18n_domain="hph.publications">
+
+    <!-- Faculty member assignment -->
+    <browser:page
+            for="hph.publications.publication.IPublication"
+            name="faculty-member-assignment"
+            class=".assignment.FacultyMemberAssignment"
+            template="assignment.pt"
+            permission="cmf.ModifyPortalContent"
+    />
+
+    <browser:page
+            for="hph.publications.publication.IPublication"
+            name="faculty-member-assign"
+            class=".assignment.FacultyMemberAssign"
+            permission="cmf.ModifyPortalContent"
+    />
+
+</configure>
