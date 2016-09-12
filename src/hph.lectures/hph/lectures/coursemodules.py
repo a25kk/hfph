@@ -1,4 +1,5 @@
 from plone.autoform.interfaces import IFormFieldProvider
+from plone.autoform import directives
 from plone.supermodel import model
 from plone.directives import form
 from zope import schema
@@ -31,19 +32,21 @@ class ICourseModuleInformation(model.Schema):
     """
        Marker/Form interface for Module Information
     """
-    form.fieldset(
-        'modules',
-        label=u"Modules",
-        fields=['moduledetails']
-    )
-
-    form.widget(moduledetails=DataGridFieldFactory)
+    directives.omitted('moduledetails')
     moduledetails = schema.List(
         title=u'Product Details',
         value_type=DictRow(
             title=u'Module Details',
             schema=ICourseModules),
         required=True
+    )
+    directives.mode(moduleInformation='hidden')
+    moduleInformation = schema.TextLine(
+        title=_(u"Module Information"),
+        description=_(u"Storage for course module json data. This field should"
+                      u" ideally not be edited directly and should be hidden "
+                      u"form the base edit form"),
+        required=False,
     )
 
 

@@ -18,6 +18,7 @@
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_form" />
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
     <theme href="dist/signin/index.html" css:if-content="body.template-useraccount" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-useraccount-error" />
     <theme href="dist/signin/index.html" css:if-content="body.template-signin-form" />
 
 
@@ -187,6 +188,9 @@ else window.onload = downloadJSAtOnload;
         <replace css:content-children="#content"
                 css:theme-children="#app-signin-content"
                 css:if-content="body.template-useraccount" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-useraccount-error" />
 
         <!-- Discourse error -->
         <!-- Login form rules -->

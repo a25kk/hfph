@@ -31,7 +31,7 @@
                     <div class="app-box-header">
                         <h2 i18n:translate="">Lecture Factory</h2>
                     </div>
-                    <div class="app-box-content">
+                    <div class="app-box-main app-box-bordered">
                         <ul class="nav nav-pills nav-stacked app-box-nav"
                             tal:define="current view/getFieldname">
                             <li tal:define="fieldname string:courseTheme"
@@ -105,11 +105,11 @@
                             type="hidden" name="field-name"
                             tal:attributes="value view/getFieldname">
                         <span tal:replace="structure context/@@authenticator/authenticator"/>
-                        <button class="btn btn-primary"
+                        <button class="app-btn app-btn-primary"
                                 name="form.button.Submit"
                                 id="form.button.Submit"
                                 i18n:translate="">Save changes</button>
-                        <a class="btn btn-default" href="${context/absolute_url}/@@lecture-factory/${item/@@uuid}"
+                        <a class="app-btn app-btn-default" href="${context/absolute_url}/@@lecture-factory/${item/@@uuid}"
                             i18n:translate="">Cancel</a>
                     </form>
                 </div>

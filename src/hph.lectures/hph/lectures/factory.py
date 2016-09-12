@@ -47,7 +47,7 @@ class LectureBaseEditForm(form.SchemaEditForm):
 
     schema = ILectureBase
     ignoreContext = False
-    css_class = 'app-form'
+    css_class = 'app-for'
     label = _(u"Edit course base information")
 
     @property

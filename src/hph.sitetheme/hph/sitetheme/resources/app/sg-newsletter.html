@@ -12,21 +12,19 @@ base_url: "../../"
           </h1>
       </div>
       <p class="app-page-abstract">
-          Newsletter Formular als optionales Feature
+          Newsletter Formular
       </p>
   </div>
   <div class="app-page-body">
-  <p>Die Newsletteranmeldung erfolgt über ein fest definiertes Eingabefeld auf der Startseite. Die Anmeldung erfolgt durch Angabe der E-Mailadresse. Angegebene Adressen werden in einer Datenbank gesammelt. Weitere Funktionen sind nicht berücksichtigt.</p>
+  <p>Die Newsletteranmeldung erfolgt über ein statisch integriertes Anmeldeformular, das von MailChimp bereitgestellt wird.</p>
 
   <div class="sg-example">
     {% include components/newsletter.html %}
-{% highlight html %}
-<div class="app-newsletterbar" id="newsletter">
-    <div class="app-newsletter">
-      <div class="app-newsletter-item">
-        <div class="app-newsletter-item-content">
+{% highlight html lineos %}
+<div class="app-newsletter" id="app-newsletter">
+    <div class="app-newsletter-content">
+      <div class="app-newsletter-registration">
           ...
-        </div>
       </div>
     </div>
 </div>

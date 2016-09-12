@@ -111,16 +111,29 @@
                                 <p class="text-muted">
                                     <span i18n:translate="">Dates</span>:
                                     <span tal:replace="item/courseDates" />
-                                <p class="text-muted" tal:condition="item/moduledetails">
-                                    <tal:items tal:repeat="node item/moduledetails">
-                                        <span tal:define="degree node/degree;
-                                                          pretty_degree python:view.prettify_degree(degree)"
-                                            tal:content="pretty_degree"
-                                            i18n:translate="" />:
-                                        <span tal:replace="node/info" />
-                                        <tal:separator condition="not: repeat/node/end"><br></tal:separator>
+
+                                <tal:modules tal:condition="item/moduleInformation">
+                                <p class="text-muted" tal:define="item_uid item/UID;
+                                                                  stored_data python:view.course_information(item_uid)">
+                                    <tal:items tal:repeat="item python:stored_data['items']">
+                                    ${item/degree}: ${item/info}<tal:separator condition="not: repeat/item/end"><br></tal:separator>
                                     </tal:items>
                                 </p>
+                                </tal:modules>
+                                <tal:nomodules tal:condition="not:item/moduleInformation">
+                                    <p class="text-muted" tal:condition="item/moduledetails">
+                                        <tal:items tal:repeat="node item/moduledetails">
+                                        <span tal:define="degree node/degree;
+                                                pretty_degree python:view.prettify_degree(degree)"
+                                                 tal:content="pretty_degree"
+                                                 i18n:translate="" />:
+                                            <span tal:replace="node/info" />
+                                            <tal:separator condition="not: repeat/node/end"><br></tal:separator>
+                                        </tal:items>
+                                    </p>
+                                </tal:nomodules>
+
+
                                 <p class="text-discreet text-muted"
                                     tal:condition="item/Description"
                                     tal:content="item/Description" />

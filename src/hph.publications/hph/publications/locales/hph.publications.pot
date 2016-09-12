@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-07-28 19:39+0000\n"
+"POT-Creation-Date: 2016-09-09 07:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,11 @@ msgstr ""
 msgid "A  central collection of publications with filter functionality"
 msgstr ""
 
-#: ./../publication_templates/view.pt:45
+#: ./../publication_templates/view.pt:67
+msgid "A publication can be associated with one or more faculty members"
+msgstr ""
+
+#: ./../publication_templates/view.pt:55
 msgid "A publication will only be displayed inside the filterable listing view and therefore no dedicated information available here"
 msgstr ""
 
@@ -29,20 +33,40 @@ msgstr ""
 msgid "A single publication like a book, dvd or magazine"
 msgstr ""
 
-#: ./../publication.py:33
+#: ./../browser/assignment.pt:59
+msgid "Assign faculty member to this publication"
+msgstr ""
+
+#: ./../publication_templates/view.pt:69
+msgid "Assign faculty members"
+msgstr ""
+
+#: ./../browser/assignment.pt:17
+msgid "Assignment"
+msgstr ""
+
+#: ./../publication_templates/view.pt:64
+msgid "Associate faculty members"
+msgstr ""
+
+#: ./../publication.py:34
 msgid "Author Lastname"
 msgstr ""
 
-#: ./../publication.py:39
+#: ./../publication.py:40
 msgid "Author One"
 msgstr ""
 
-#: ./../publication.py:47
+#: ./../publication.py:48
 msgid "Author Three"
 msgstr ""
 
-#: ./../publication.py:43
+#: ./../publication.py:44
 msgid "Author Two"
+msgstr ""
+
+#: ./../publication_templates/view.pt:45
+msgid "Back to publication listing"
 msgstr ""
 
 #: ./../vocabulary.py:15
@@ -53,7 +77,7 @@ msgstr ""
 msgid "Contexts"
 msgstr ""
 
-#: ./../publication.py:80
+#: ./../publication.py:81
 msgid "Cover Image"
 msgstr ""
 
@@ -61,7 +85,7 @@ msgstr ""
 msgid "DVD/CD"
 msgstr ""
 
-#: ./../publication.py:70
+#: ./../publication.py:71
 msgid "Display Selection"
 msgstr ""
 
@@ -69,20 +93,32 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: ./../publication.py:29
+#: ./../publication.py:30
 msgid "Editor"
+msgstr ""
+
+#: ./../configure.zcml:28
+msgid "Extension profile for Listing of publications like books and dvds"
+msgstr ""
+
+#: ./../browser/assignment.pt:39
+msgid "Faculty Member Selection"
+msgstr ""
+
+#: ./../browser/assignment.py:95
+msgid "Faculty member successfully assigned"
 msgstr ""
 
 #: ./../vocabulary.py:31
 msgid "Global Culture"
 msgstr ""
 
-#: ./../publication_templates/view.pt:44
-msgid "Heads up:"
-msgstr ""
-
 #: ./../publication_templates/view.pt:22
 msgid "It appears that you are a contributor to this content item"
+msgstr ""
+
+#: ./../configure.zcml:28
+msgid "Listing of publications like books and dvds"
 msgstr ""
 
 #: ./../vocabulary.py:16
@@ -93,11 +129,11 @@ msgstr ""
 msgid "Media"
 msgstr ""
 
-#: ./../publication.py:55
+#: ./../publication.py:56
 msgid "Medium"
 msgstr ""
 
-#: ./../publication.py:51
+#: ./../publication.py:52
 msgid "More Authors"
 msgstr ""
 
@@ -113,11 +149,17 @@ msgstr ""
 msgid "Philosophy"
 msgstr ""
 
-#: ./../publication.py:81
+#: ./../browser/assignment.pt:22
+msgid "Please select the faculty member to associate with this publication"
+msgstr ""
+
+#: ./../publication.py:82
 msgid "Please upload a cover image"
 msgstr ""
 
+#: ./../browser/assignment.pt:40
 #: ./../profiles/default/types/hph.publications.publication.xml
+#: ./../publication_templates/view.pt:50
 msgid "Publication"
 msgstr ""
 
@@ -125,20 +167,32 @@ msgstr ""
 msgid "PublicationFolder"
 msgstr ""
 
-#: ./../publication.py:61
-#: ./../publicationfolder_templates/view.pt:35
+#: ./../browser/assignment.pt:33
+msgid "Quit assignment"
+msgstr ""
+
+#: ./../browser/assignment.pt:69
+msgid "Remove faculty member assignment"
+msgstr ""
+
+#: ./../publication.py:62
+#: ./../publicationfolder_templates/view.pt:37
 msgid "Series"
+msgstr ""
+
+#: ./../browser/assignment.pt:25
+msgid "Since this view will update the faculty member database entry new associations might not be available for display immediately."
 msgstr ""
 
 #: ./../vocabulary.py:32
 msgid "Solidarity"
 msgstr ""
 
-#: ./../publication.py:76
+#: ./../publication.py:77
 msgid "Summary"
 msgstr ""
 
-#: ./../publication.py:34
+#: ./../publication.py:35
 msgid "The entered value will be used to associate this publication with the corresponding faculty member"
 msgstr ""
 
@@ -146,23 +200,30 @@ msgstr ""
 msgid "Theology"
 msgstr ""
 
-#: ./../publication.py:68
+#: ./../publication.py:69
 msgid "Third Party Project Display"
 msgstr ""
 
-#: ./../publication.py:56
+#: ./../publication.py:57
 msgid "This is the field publications can be filtered on"
 msgstr ""
 
-#: ./../publication.py:21
+#: ./../publication.py:22
 msgid "Title"
 msgstr ""
 
-#: ./../publication.py:25
+#: ./../publication.py:26
 msgid "Year of Publication"
 msgstr ""
 
-#: ./../publicationfolder_templates/view.pt:98
+#: ./../publicationfolder_templates/view.pt:105
 msgid "a.o."
 msgstr ""
 
+#: ./../browser/assignment.pt:64
+msgid "assigned"
+msgstr ""
+
+#: ./../publicationfolder_templates/view.pt:58
+msgid "remove filter"
+msgstr ""

@@ -10,8 +10,10 @@ from plone.directives import form
 from plone.namedfile.interfaces import IImageScaleTraversable
 
 from plone.app.contentlisting.interfaces import IContentListing
+from zope.component import getUtility
 
 from hph.lectures.lecture import ILecture
+from hph.lectures.interfaces import ICourseModuleTool
 
 from hph.lectures import MessageFactory as _
 
@@ -80,7 +82,7 @@ class View(grok.View):
             if course_filter is not None:
                 query['courseType'] = course_filter
             if project_filter is not None:
-                query['thirdPartyProject'] = project_filter
+                query['externalFundsProject'] = project_filter
         results = catalog.searchResults(query)
         return IContentListing(results)
 
@@ -106,6 +108,11 @@ class View(grok.View):
         if folder.getId() == context.getId():
             active = True
         return active
+
+    def course_information(self, uuid):
+        tool = getUtility(ICourseModuleTool)
+        data = tool.read(uuid)
+        return data
 
     def can_edit(self):
         if api.user.is_anonymous():

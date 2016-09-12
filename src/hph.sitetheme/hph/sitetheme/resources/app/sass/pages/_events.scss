@@ -1,0 +1,87 @@
+// Events
+// Note: the event styles are mostly candidates for the shame file since
+// the plone.app.event default styling is way too naive to fit with
+// alternative themes and layouts
+//
+// We therefore customize the event listing template to cleanup and
+// enhance the semantics and css classes via z3c.bot/theme overrides
+
+// Event listing filter navigation
+.app-event-nav {
+    @extend .navbar;
+    @extend .navbar-light;
+    border: 1px solid $app-gray-light;
+    margin-bottom: 1rem;
+}
+.app-event-nav-list {
+    @extend .nav;
+    @extend .navbar-nav;
+}
+
+.app-event-nav-list-item {
+    @extend .nav-item;
+}
+
+.app-event-nav-list-link {
+    display: inline-block;
+    @include hover-focus {
+        text-decoration: none;
+    }
+    color: $app-gray;
+}
+
+// Event listing
+.app-event-list-item {
+    padding: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+.app-event-list-date-panel {
+
+}
+
+.app-date-panel {
+    width: 100%;
+    padding: 1rem;
+    font-weight: 400;
+    @include media-breakpoint-up(lg) {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        text-align: center;
+        font-weight: 300;
+        background-color: $gray-lighter;
+    }
+}
+
+// FIXME: Ported styles form upstream
+@include media-breakpoint-up(lg) {
+    .cal_wkday {
+        display:block;
+        font-size:2.3em;
+        font-weight:bold;
+        padding-bottom:0.3em;
+    }
+    .cal_day {
+        font-size:1.7em;
+        display:inline-block;
+        padding-top:0.3em;
+    }
+    .cal_month {
+        font-size:1.3em;
+        line-height:1.3em;
+        display:inline-block;
+    }
+}
+
+.app-event-list-item-content {
+    padding: 1rem;
+}
+
+.app-event-list-item-byline {
+    background: none repeat scroll 0 0 transparent;
+    color: black !important;
+    font-size: 1em !important;
+    font-weight: bold;
+    padding: 0;
+}

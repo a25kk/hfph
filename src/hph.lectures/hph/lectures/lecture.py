@@ -5,20 +5,25 @@ from five import grok
 from plone import api
 from plone.app.vocabularies.catalog import CatalogSource
 from plone.app.z3cform.widget import RelatedItemsWidget
+from plone.autoform import directives as form
+from plone.dexterity.browser import edit
 from plone.dexterity.content import Container
-from plone.directives import form
 from plone.indexer import indexer
 from plone.namedfile.interfaces import IImageScaleTraversable
+from plone.supermodel import model
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from zope import schema
 from zope.schema.vocabulary import getVocabularyRegistry
+from zope.component import getUtility
+
+from hph.lectures.interfaces import ICourseModuleTool
 
 from hph.lectures import MessageFactory as _
 
 
-class ILecture(form.Schema, IImageScaleTraversable):
+class ILecture(model.Schema, IImageScaleTraversable):
     """
     A single course
     """
@@ -107,8 +112,8 @@ class ILecture(form.Schema, IImageScaleTraversable):
         description=_(u"Please enter absolute link to moodle representation"),
         required=False,
     )
-    form.widget(thirdPartyProject=CheckBoxFieldWidget)
-    thirdPartyProject = schema.Set(
+    form.widget(externalFundsProject=CheckBoxFieldWidget)
+    externalFundsProject = schema.List(
         title=_(u"Third Party Project Display"),
         value_type=schema.Choice(
             title=_(u"Display Selection"),
@@ -125,14 +130,36 @@ grok.global_adapter(courseTypeIndexer, name="courseType")
 
 
 @indexer(ILecture)
-def thirdPartyProjectIndexer(obj):
-    return obj.thirdPartyProject
-grok.global_adapter(thirdPartyProjectIndexer, name="thirdPartyProject")
+def externalFundsProjectIndexer(obj):
+    return obj.externalFundsProject
+grok.global_adapter(externalFundsProjectIndexer, name="externalFundsProject")
 
 
 class Lecture(Container):
     grok.implements(ILecture)
     pass
+
+
+class EditForm(edit.DefaultEditForm):
+    """Custom edit form overriding date grid widget settings"""
+
+    def update_widget_settings(self, widget_name, widgets):
+        widget = widgets[widget_name]
+        widget.allow_insert = True
+        widget.allow_delete = True
+        widget.auto_append = True
+        widget.allow_reorder = False
+
+    def course_module_data_grid(self):
+        data_grid_widget = 'ICourseModuleInformation.moduledetails'
+        for group in self.groups:
+            group_widgets = group.widgets
+            if data_grid_widget in group_widgets:
+                self.update_widget_settings(data_grid_widget, group_widgets)
+
+    def update(self):
+        super(EditForm, self).update()
+        self.course_module_data_grid()
 
 
 class View(grok.View):
@@ -216,3 +243,15 @@ class View(grok.View):
         if active_filter == value:
             klass = 'app-nav-list-item app-nav-list-item-active'
         return klass
+
+    def course_information(self):
+        context = aq_inner(self.context)
+        context_uid = api.content.get_uuid(obj=context)
+        tool = getUtility(ICourseModuleTool)
+        data = tool.read(context_uid)
+        return data
+
+    def has_course_information(self):
+        if self.course_information():
+            return True
+        return False

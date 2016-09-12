@@ -10,8 +10,8 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-    <div class="app-page-section">
-      <div class="app-page-section-aside">
+    <div class="app-section">
+      <div class="app-section-aside">
           <div class="app-box app-box-workspaces">
               <div class="app-box-header">
                   <h2 class="app-box-heading" i18n:translate="">
@@ -37,7 +37,7 @@
               </div>
           </div>
       </div>
-      <div class="app-page-section-main">
+      <div class="app-section-main">
         <div class="app-page-header">
             <h1 i18n:translate="">Group Selection</h1>
             <p class="lead" tal:content="context/Title">Available groups:</p>
@@ -47,7 +47,7 @@
                 <tal:block tal:repeat="item view/groups">
                     <a href="#" class="list-group-item"
                         tal:attributes="href string:${context/absolute_url}/@@asignment-users/${item/name}">
-                      <span class="badge" tal:content="item/users">index</span>
+                      <span class="pull-right tag" tal:content="item/users">index</span>
                       <h4 class="list-group-item-heading"
                         tal:content="item/name">
                         List group item heading
@@ -57,7 +57,10 @@
             </div>
         </div>
         <div class="app-page-body">
-          <h2 i18n:translate="">Active Asignments</h2>
+            <div class="app-page-header">
+                <h2 i18n:translate="">Active Asignments</h2>
+            </div>
+
           <ul>
             <li tal:repeat="item view/active_asignments">
               <a href="${context/portal_url}/ws/${item/userid}">

@@ -12,6 +12,9 @@
     <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_response" />
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_form" />
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-useraccount" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-useraccount-error" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-signin-form" />
 
     <theme href="dist/frontpage/index.html" css:if-content=".template-frontpage-view" />
     <!--<theme href="dist/frontpage/index.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />-->
@@ -20,8 +23,8 @@
     <theme href="dist/theme-igp/index.html" css:if-content="body.subsection-institute-gesellschaftspolitik" />
     <!--<theme href="dist/pp/index.html" css:if-content="body.section-pro-philosophia" />-->
     <!-- Opac und newsletter templates -->
-    <!--><theme href="dist/opac/index.html" css:if-content="body.subsection-bibliotheken-opac-recherche" />
-    <theme href="dist/newsletter/index.html" css:if-content="body.section-newsletter" />-->
+    <!--><theme href="dist/opac/index.html" css:if-content="body.subsection-bibliotheken-opac-recherche" />-->
+    <theme href="dist/newsletter/index.html" css:if-content="body.section-newsletter" />
 
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">
@@ -54,10 +57,15 @@
         <drop css:content="head link[rel='apple-touch-icon']" />
         <drop css:content="head link[rel='shortcut icon']" />
         <after theme="/html/head">
-            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600" rel="stylesheet"></link>
-            <link rel="shortcut icon" href="/++theme++example.sitetheme/dist/assets/ico/favicon.ico" type="images/x-icon"></link>
-            <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/++theme++example.sitetheme/dist/assets/ico/apple-touch-icon-144-precomposed.png"></link>
-            <link rel="shortcut icon" href="/++theme++example.sitetheme/dist/assets/ico/favicon.png"></link>
+          <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600" rel="stylesheet" />
+          <link rel="apple-touch-icon" sizes="180x180" href="/++theme++hph.sitetheme/dist/assets/ico/apple-touch-icon.png" />
+          <link rel="icon" type="image/png" href="/++theme++hph.sitetheme/dist/assets/ico/favicon-32x32.png" sizes="32x32" />
+          <link rel="icon" type="image/png" href="/++theme++hph.sitetheme/dist/assets/ico/favicon-16x16.png" sizes="16x16" />
+          <link rel="manifest" href="/++theme++hph.sitetheme/dist/assets/ico/manifest.json" />
+          <link rel="mask-icon" href="/++theme++hph.sitetheme/dist/assets/ico/safari-pinned-tab.svg" color="#5bbad5" />
+          <link rel="shortcut icon" href="/++theme++hph.sitetheme/dist/assets/ico/favicon.ico" />
+          <meta name="msapplication-config" content="/++theme++hph.sitetheme/dist/assets/ico/browserconfig.xml" />
+          <meta name="theme-color" content="#ffffff" />
         </after>
 
         <!-- Copy over the id/class attributes on the body tag.
@@ -139,26 +147,35 @@
 
         <!-- Login form rules -->
         <replace css:content-children="#content-core"
-                css:theme-children="#app-signin-body"
-                css:if-content="body.template-login_form" />
+                 css:theme-children="#app-signin-body"
+                 css:if-content="body.template-login_form" />
         <replace css:content-children="#content-core"
-                css:theme-children="#app-signin-content"
-                css:if-content="body.template-login_failed" />
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-signin-form" />
         <replace css:content-children="#content-core"
-                css:theme-children="#app-signin-body"
-                css:if-content="body.template-logged_out" />
+                 css:theme-children="#app-signin-body"
+                 css:if-content="body.template-login_failed" />
+        <replace css:content-children="#content-core"
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-logged_out" />
+        <replace css:content-children="#content-core"
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-mail_password_form" />
         <replace css:content-children="#content"
-                css:theme-children="#app-signin-content"
-                css:if-content="body.template-mail_password_form" />
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-mail_password_response" />
         <replace css:content-children="#content"
-                css:theme-children="#app-signin-content"
-                css:if-content="body.template-mail_password_response" />
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-pwreset_form" />
         <replace css:content-children="#content"
-                css:theme-children="#app-signin-content"
-                css:if-content="body.template-pwreset_form" />
-        <replace css:content-children="#content"
-                css:theme-children="#app-signin-content"
-                css:if-content="body.template-pwreset_finish" />
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-pwreset_finish" />
+        <replace css:content-children="#content-core"
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-useraccount" />
+        <replace css:content-children="#content-core"
+                 css:theme-children="#app-signin-content"
+                 css:if-content="body.template-useraccount-error" />
 
 
         <!-- Document First Heading -->
@@ -196,7 +213,7 @@
             css:if-content=".template-frontpage-view" />
 
         <!-- Standard content area -->
-        <rules css:if-not-content=".template-frontpage-view">
+        <rules css:if-not-content=".template-frontpage-view, .section-newsletter">
             <rules css:if-not-content="#portal-column-one">
                 <drop css:theme="#app-page-aside" />
                 <replace css:content-children="#content"
@@ -228,6 +245,15 @@
             <table>
                 <xsl:copy-of select="@*"/>
                 <xsl:attribute name="class">table</xsl:attribute>
+                <xsl:apply-templates />
+            </table>
+        </replace>
+
+        <!-- Event listing transforms -->
+        <replace css:content="ul.mode_selector">
+            <table>
+                <xsl:copy-of select="@*"/>
+                <xsl:attribute name="class">app-event-list-nav</xsl:attribute>
                 <xsl:apply-templates />
             </table>
         </replace>

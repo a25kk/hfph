@@ -28,6 +28,7 @@ setup(name='hph.sitecontent',
           'setuptools',
           'plone.api',
           'plone.app.dexterity',
+          'plone.app.relationfield',
           'five.grok',
           # -*- Extra requirements: -*-
       ],

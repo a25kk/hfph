@@ -144,6 +144,14 @@ def rebuild():
 
 @task
 @roles('production')
+def get_backup():
+    """ Copy zipbackup for local development """
+    run('ethtool -K eth0 tx off rx off')
+    project.db.download_backup()
+
+
+@task
+@roles('production')
 def get_data():
     """ Copy live database for local development """
     project.db.download()

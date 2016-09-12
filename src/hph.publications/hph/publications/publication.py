@@ -3,6 +3,7 @@ from Acquisition import aq_inner
 from five import grok
 from plone import api
 from plone.app.textfield import RichText
+from plone.autoform import directives as form
 from plone.directives import dexterity, form
 from plone.indexer import indexer
 from plone.namedfile.field import NamedBlobImage
@@ -63,8 +64,8 @@ class IPublication(form.Schema, IImageScaleTraversable):
         vocabulary=u'hph.publications.publicationSeries',
         required=False,
     )
-    form.widget(thirdPartyProject=CheckBoxFieldWidget)
-    thirdPartyProject = schema.Set(
+    form.widget(externalFundsProject=CheckBoxFieldWidget)
+    externalFundsProject = schema.List(
         title=_(u"Third Party Project Display"),
         value_type=schema.Choice(
             title=_(u"Display Selection"),
@@ -90,9 +91,9 @@ grok.global_adapter(authorLastNameIndexer, name="lastname")
 
 
 @indexer(IPublication)
-def thirdPartyProjectIndexer(obj):
-    return obj.thirdPartyProject
-grok.global_adapter(thirdPartyProjectIndexer, name="thirdPartyProject")
+def externalFundsProjectIndexer(obj):
+    return obj.externalFundsProject
+grok.global_adapter(externalFundsProjectIndexer, name="externalFundsProject")
 
 
 @indexer(IPublication)

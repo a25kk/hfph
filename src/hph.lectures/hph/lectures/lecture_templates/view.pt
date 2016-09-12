@@ -80,16 +80,33 @@
                 <p class="text-muted">
                     <span i18n:translate="">Dates</span>:
                     <span tal:replace="context/courseDates" />
-                <p class="text-muted" tal:condition="context/moduledetails">
-                    <tal:items tal:repeat="node context/moduledetails">
-                        <span tal:define="degree node/degree;
-                                          pretty_degree python:view.prettify_degree(degree)"
-                            tal:content="pretty_degree"
-                            i18n:translate="" />:
-                        <span tal:replace="node/info" />
-                        <tal:separator condition="not: repeat/node/end"><br></tal:separator>
-                    </tal:items>
-                </p>
+
+                <div class="app-course-modules app-inline-editable">
+                    <div class="app-inline-edit-bar" tal:condition="view/can_edit">
+                        <a class="app-btn app-btn-inline-edit" href="${context/absolute_url}/@@module-editor" i18n:translate="">edit modules</a>
+                    </div>
+                    <tal:modules tal:condition="context/moduleInformation">
+                        <p class="text-muted" tal:define="stored_data view/course_information;
+                                                          courses stored_data/items">
+                            <tal:items tal:repeat="item python:stored_data['items']">
+                                ${item/degree}: ${item/info}<tal:separator condition="not: repeat/item/end"><br></tal:separator>
+                            </tal:items>
+                        </p>
+                    </tal:modules>
+                    <tal:nomodules tal:condition="not:context/moduleInformation">
+                        <p class="text-muted" tal:condition="context/moduledetails">
+                            <tal:items tal:repeat="node context/moduledetails">
+                                    <span tal:define="degree node/degree;
+                                            pretty_degree python:view.prettify_degree(degree)"
+                                             tal:content="pretty_degree"
+                                             i18n:translate="" />:
+                                <span tal:replace="node/info" />
+                                <tal:separator condition="not: repeat/node/end"><br></tal:separator>
+                            </tal:items>
+                        </p>
+                    </tal:nomodules>
+                </div>
+
                 <p class="text-discreet text-muted"
                     tal:condition="context/Description"
                     tal:content="context/Description" />

@@ -25,8 +25,9 @@ require(['jquery',], function($, Registry) {+function ($) {
 
   // http://blog.alexmaccaw.com/css-transitions
   $.fn.emulateTransitionEnd = function (duration) {
-    var called = false, $el = this
-    $(this).one($.support.transition.end, function () { called = true })
+    var called = false
+    var $el = this
+    $(this).one('bsTransitionEnd', function () { called = true })
     var callback = function () { if (!called) $($el).trigger($.support.transition.end) }
     setTimeout(callback, duration)
     return this
@@ -34,9 +35,21 @@ require(['jquery',], function($, Registry) {+function ($) {
 
   $(function () {
     $.support.transition = transitionEnd()
+
+    if (!$.support.transition) return
+
+    $.event.special.bsTransitionEnd = {
+      bindType: $.support.transition.end,
+      delegateType: $.support.transition.end,
+      handle: function (e) {
+        if ($(e.target).is(this)) return e.handleObj.handler.apply(this, arguments)
+      }
+    }
   })
 
 }(jQuery);
+
+/* jshint latedef: false */
 
 +function ($) {
   'use strict';
@@ -47,11 +60,22 @@ require(['jquery',], function($, Registry) {+function ($) {
   var Collapse = function (element, options) {
     this.$element      = $(element)
     this.options       = $.extend({}, Collapse.DEFAULTS, options)
+    this.$trigger      = $('[data-toggle="collapse"][href="#' + element.id + '"],' +
+                           '[data-toggle="collapse"][data-target="#' + element.id + '"]')
     this.transitioning = null
 
-    if (this.options.parent) this.$parent = $(this.options.parent)
+    if (this.options.parent) {
+      this.$parent = this.getParent()
+    } else {
+      this.addAriaAndCollapsedClass(this.$element, this.$trigger)
+    }
+
     if (this.options.toggle) this.toggle()
   }
+
+  Collapse.VERSION  = '3.3.6'
+
+  Collapse.TRANSITION_DURATION = 350
 
   Collapse.DEFAULTS = {
     toggle: true
@@ -65,17 +89,21 @@ require(['jquery',], function($, Registry) {+function ($) {
   Collapse.prototype.show = function () {
     if (this.transitioning || this.$element.hasClass('in')) return
 
+    var activesData
+    var actives = this.$parent && this.$parent.children('.panel').children('.in, .collapsing')
+
+    if (actives && actives.length) {
+      activesData = actives.data('bs.collapse')
+      if (activesData && activesData.transitioning) return
+    }
+
     var startEvent = $.Event('show.bs.collapse')
     this.$element.trigger(startEvent)
     if (startEvent.isDefaultPrevented()) return
 
-    var actives = this.$parent && this.$parent.find('> .panel > .in')
-
     if (actives && actives.length) {
-      var hasData = actives.data('bs.collapse')
-      if (hasData && hasData.transitioning) return
-      actives.collapse('hide')
-      hasData || actives.data('bs.collapse', null)
+      Plugin.call(actives, 'hide')
+      activesData || actives.data('bs.collapse', null)
     }
 
     var dimension = this.dimension()
@@ -83,16 +111,21 @@ require(['jquery',], function($, Registry) {+function ($) {
     this.$element
       .removeClass('collapse')
       .addClass('collapsing')[dimension](0)
+      .attr('aria-expanded', true)
+
+    this.$trigger
+      .removeClass('collapsed')
+      .attr('aria-expanded', true)
 
     this.transitioning = 1
 
-    var complete = function (e) {
-      if (e && e.target != this.$element[0]) return
+    var complete = function () {
       this.$element
         .removeClass('collapsing')
-        .addClass('collapse in')[dimension]('auto')
+        .addClass('collapse in')[dimension]('')
       this.transitioning = 0
-      this.$element.trigger('shown.bs.collapse')
+      this.$element
+        .trigger('shown.bs.collapse')
     }
 
     if (!$.support.transition) return complete.call(this)
@@ -100,8 +133,8 @@ require(['jquery',], function($, Registry) {+function ($) {
     var scrollSize = $.camelCase(['scroll', dimension].join('-'))
 
     this.$element
-      .one($.support.transition.end, $.proxy(complete, this))
-      .emulateTransitionEnd(350)[dimension](this.$element[0][scrollSize])
+      .one('bsTransitionEnd', $.proxy(complete, this))
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)[dimension](this.$element[0][scrollSize])
   }
 
   Collapse.prototype.hide = function () {
@@ -117,50 +150,81 @@ require(['jquery',], function($, Registry) {+function ($) {
 
     this.$element
       .addClass('collapsing')
-      .removeClass('collapse')
-      .removeClass('in')
+      .removeClass('collapse in')
+      .attr('aria-expanded', false)
+
+    this.$trigger
+      .addClass('collapsed')
+      .attr('aria-expanded', false)
 
     this.transitioning = 1
 
-    var complete = function (e) {
-      if (e && e.target != this.$element[0]) return
+    var complete = function () {
       this.transitioning = 0
       this.$element
-        .trigger('hidden.bs.collapse')
         .removeClass('collapsing')
         .addClass('collapse')
+        .trigger('hidden.bs.collapse')
     }
 
     if (!$.support.transition) return complete.call(this)
 
     this.$element
       [dimension](0)
-      .one($.support.transition.end, $.proxy(complete, this))
-      .emulateTransitionEnd(350)
+      .one('bsTransitionEnd', $.proxy(complete, this))
+      .emulateTransitionEnd(Collapse.TRANSITION_DURATION)
   }
 
   Collapse.prototype.toggle = function () {
     this[this.$element.hasClass('in') ? 'hide' : 'show']()
   }
 
+  Collapse.prototype.getParent = function () {
+    return $(this.options.parent)
+      .find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]')
+      .each($.proxy(function (i, element) {
+        var $element = $(element)
+        this.addAriaAndCollapsedClass(getTargetFromTrigger($element), $element)
+      }, this))
+      .end()
+  }
+
+  Collapse.prototype.addAriaAndCollapsedClass = function ($element, $trigger) {
+    var isOpen = $element.hasClass('in')
+
+    $element.attr('aria-expanded', isOpen)
+    $trigger
+      .toggleClass('collapsed', !isOpen)
+      .attr('aria-expanded', isOpen)
+  }
+
+  function getTargetFromTrigger($trigger) {
+    var href
+    var target = $trigger.attr('data-target')
+      || (href = $trigger.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
+
+    return $(target)
+  }
+
 
   // COLLAPSE PLUGIN DEFINITION
   // ==========================
 
-  var old = $.fn.collapse
-
-  $.fn.collapse = function (option) {
+  function Plugin(option) {
     return this.each(function () {
       var $this   = $(this)
       var data    = $this.data('bs.collapse')
       var options = $.extend({}, Collapse.DEFAULTS, $this.data(), typeof option == 'object' && option)
 
-      if (!data && options.toggle && option == 'show') option = !option
+      if (!data && options.toggle && /show|hide/.test(option)) options.toggle = false
       if (!data) $this.data('bs.collapse', (data = new Collapse(this, options)))
       if (typeof option == 'string') data[option]()
     })
   }
 
+  var old = $.fn.collapse
+
+  $.fn.collapse             = Plugin
   $.fn.collapse.Constructor = Collapse
 
 
@@ -177,22 +241,15 @@ require(['jquery',], function($, Registry) {+function ($) {
   // =================
 
   $(document).on('click.bs.collapse.data-api', '[data-toggle="collapse"]', function (e) {
-    var $this   = $(this), href
-    var target  = $this.attr('data-target')
-        || e.preventDefault()
-        || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
-    var $target = $(target)
+    var $this   = $(this)
+
+    if (!$this.attr('data-target')) e.preventDefault()
+
+    var $target = getTargetFromTrigger($this)
     var data    = $target.data('bs.collapse')
     var option  = data ? 'toggle' : $this.data()
-    var parent  = $this.attr('data-parent')
-    var $parent = parent && $(parent)
 
-    if (!data || !data.transitioning) {
-      if ($parent) $parent.find('[data-toggle="collapse"][data-parent="' + parent + '"]').not($this).addClass('collapsed')
-      $this[$target.hasClass('in') ? 'addClass' : 'removeClass']('collapsed')
-    }
-
-    $target.collapse(option)
+    Plugin.call($target, option)
   })
 
 }(jQuery);
@@ -209,6 +266,42 @@ require(['jquery',], function($, Registry) {+function ($) {
     $(element).on('click.bs.dropdown', this.toggle)
   }
 
+  Dropdown.VERSION = '3.3.6'
+
+  function getParent($this) {
+    var selector = $this.attr('data-target')
+
+    if (!selector) {
+      selector = $this.attr('href')
+      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+    }
+
+    var $parent = selector && $(selector)
+
+    return $parent && $parent.length ? $parent : $this.parent()
+  }
+
+  function clearMenus(e) {
+    if (e && e.which === 3) return
+    $(backdrop).remove()
+    $(toggle).each(function () {
+      var $this         = $(this)
+      var $parent       = getParent($this)
+      var relatedTarget = { relatedTarget: this }
+
+      if (!$parent.hasClass('open')) return
+
+      if (e && e.type == 'click' && /input|textarea/i.test(e.target.tagName) && $.contains($parent[0], e.target)) return
+
+      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
+
+      if (e.isDefaultPrevented()) return
+
+      $this.attr('aria-expanded', 'false')
+      $parent.removeClass('open').trigger($.Event('hidden.bs.dropdown', relatedTarget))
+    })
+  }
+
   Dropdown.prototype.toggle = function (e) {
     var $this = $(this)
 
@@ -222,7 +315,10 @@ require(['jquery',], function($, Registry) {+function ($) {
     if (!isActive) {
       if ('ontouchstart' in document.documentElement && !$parent.closest('.navbar-nav').length) {
         // if mobile we use a backdrop because click events don't delegate
-        $('<div class="dropdown-backdrop"/>').insertAfter($(this)).on('click', clearMenus)
+        $(document.createElement('div'))
+          .addClass('dropdown-backdrop')
+          .insertAfter($(this))
+          .on('click', clearMenus)
       }
 
       var relatedTarget = { relatedTarget: this }
@@ -230,18 +326,20 @@ require(['jquery',], function($, Registry) {+function ($) {
 
       if (e.isDefaultPrevented()) return
 
+      $this
+        .trigger('focus')
+        .attr('aria-expanded', 'true')
+
       $parent
         .toggleClass('open')
-        .trigger('shown.bs.dropdown', relatedTarget)
-
-      $this.trigger('focus')
+        .trigger($.Event('shown.bs.dropdown', relatedTarget))
     }
 
     return false
   }
 
   Dropdown.prototype.keydown = function (e) {
-    if (!/(38|40|27)/.test(e.keyCode)) return
+    if (!/(38|40|27|32)/.test(e.which) || /input|textarea/i.test(e.target.tagName)) return
 
     var $this = $(this)
 
@@ -253,57 +351,30 @@ require(['jquery',], function($, Registry) {+function ($) {
     var $parent  = getParent($this)
     var isActive = $parent.hasClass('open')
 
-    if (!isActive || (isActive && e.keyCode == 27)) {
+    if (!isActive && e.which != 27 || isActive && e.which == 27) {
       if (e.which == 27) $parent.find(toggle).trigger('focus')
       return $this.trigger('click')
     }
 
-    var desc = ' li:not(.divider):visible a'
-    var $items = $parent.find('[role="menu"]' + desc + ', [role="listbox"]' + desc)
+    var desc = ' li:not(.disabled):visible a'
+    var $items = $parent.find('.dropdown-menu' + desc)
 
     if (!$items.length) return
 
-    var index = $items.index($items.filter(':focus'))
+    var index = $items.index(e.target)
 
-    if (e.keyCode == 38 && index > 0)                 index--                        // up
-    if (e.keyCode == 40 && index < $items.length - 1) index++                        // down
-    if (!~index)                                      index = 0
+    if (e.which == 38 && index > 0)                 index--         // up
+    if (e.which == 40 && index < $items.length - 1) index++         // down
+    if (!~index)                                    index = 0
 
     $items.eq(index).trigger('focus')
-  }
-
-  function clearMenus(e) {
-    $(backdrop).remove()
-    $(toggle).each(function () {
-      var $parent = getParent($(this))
-      var relatedTarget = { relatedTarget: this }
-      if (!$parent.hasClass('open')) return
-      $parent.trigger(e = $.Event('hide.bs.dropdown', relatedTarget))
-      if (e.isDefaultPrevented()) return
-      $parent.removeClass('open').trigger('hidden.bs.dropdown', relatedTarget)
-    })
-  }
-
-  function getParent($this) {
-    var selector = $this.attr('data-target')
-
-    if (!selector) {
-      selector = $this.attr('href')
-      selector = selector && /#[A-Za-z]/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
-    }
-
-    var $parent = selector && $(selector)
-
-    return $parent && $parent.length ? $parent : $this.parent()
   }
 
 
   // DROPDOWN PLUGIN DEFINITION
   // ==========================
 
-  var old = $.fn.dropdown
-
-  $.fn.dropdown = function (option) {
+  function Plugin(option) {
     return this.each(function () {
       var $this = $(this)
       var data  = $this.data('bs.dropdown')
@@ -313,6 +384,9 @@ require(['jquery',], function($, Registry) {+function ($) {
     })
   }
 
+  var old = $.fn.dropdown
+
+  $.fn.dropdown             = Plugin
   $.fn.dropdown.Constructor = Dropdown
 
 
@@ -332,23 +406,25 @@ require(['jquery',], function($, Registry) {+function ($) {
     .on('click.bs.dropdown.data-api', clearMenus)
     .on('click.bs.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
     .on('click.bs.dropdown.data-api', toggle, Dropdown.prototype.toggle)
-    .on('keydown.bs.dropdown.data-api', toggle + ', [role="menu"], [role="listbox"]', Dropdown.prototype.keydown)
+    .on('keydown.bs.dropdown.data-api', toggle, Dropdown.prototype.keydown)
+    .on('keydown.bs.dropdown.data-api', '.dropdown-menu', Dropdown.prototype.keydown)
 
 }(jQuery);
 
 ;
-(function ($) {
-    $.fn.marquee = function (options) {
-        return this.each(function () {
+(function($) {
+    $.fn.marquee = function(options) {
+        return this.each(function() {
             // Extend the options if any provided
             var o = $.extend({}, $.fn.marquee.defaults, options),
                 $this = $(this),
-                $marqueeWrapper, containerWidth, animationCss, verticalDir, elWidth, loopCount = 3,
+                $marqueeWrapper, containerWidth, animationCss, verticalDir, elWidth,
+                loopCount = 3,
                 playState = 'animation-play-state',
                 css3AnimationIsSupported = false,
 
                 //Private methods
-                _prefixedEvent = function (element, type, callback) {
+                _prefixedEvent = function(element, type, callback) {
                     var pfx = ["webkit", "moz", "MS", "o", ""];
                     for (var p = 0; p < pfx.length; p++) {
                         if (!pfx[p]) type = type.toLowerCase();
@@ -356,7 +432,7 @@ require(['jquery',], function($, Registry) {+function ($) {
                     }
                 },
 
-                _objToString = function (obj) {
+                _objToString = function(obj) {
                     var tabjson = [];
                     for (var p in obj) {
                         if (obj.hasOwnProperty(p)) {
@@ -367,13 +443,13 @@ require(['jquery',], function($, Registry) {+function ($) {
                     return '{' + tabjson.join(',') + '}';
                 },
 
-                _startAnimationWithDelay = function () {
+                _startAnimationWithDelay = function() {
                     $this.timer = setTimeout(animate, o.delayBeforeStart);
                 },
 
                 //Public methods
                 methods = {
-                    pause: function () {
+                    pause: function() {
                         if (css3AnimationIsSupported && o.allowCss3Support) {
                             $marqueeWrapper.css(playState, 'paused');
                         } else {
@@ -388,7 +464,7 @@ require(['jquery',], function($, Registry) {+function ($) {
                         $this.trigger('paused');
                     },
 
-                    resume: function () {
+                    resume: function() {
                         //resume using css3
                         if (css3AnimationIsSupported && o.allowCss3Support) {
                             $marqueeWrapper.css(playState, 'running');
@@ -404,19 +480,17 @@ require(['jquery',], function($, Registry) {+function ($) {
                         $this.trigger('resumed');
                     },
 
-                    toggle: function () {
+                    toggle: function() {
                         methods[$this.data('runningStatus') == 'resumed' ? 'pause' : 'resume']();
                     },
 
-                    destroy: function () {
+                    destroy: function() {
                         //Clear timer
                         clearTimeout($this.timer);
+                        //Unbind all events
+                        $this.find("*").andSelf().unbind();
                         //Just unwrap the elements that has been added using this plugin
-                        $this.css('visibility', 'hidden').html($this.find('.js-marquee:first'));
-                        //This is to prevent the sudden blink
-                        setTimeout(function () {
-                            $this.css('visibility', 'visible');
-                        }, 0);
+                        $this.html($this.find('.js-marquee:first').html());
                     }
                 };
 
@@ -435,23 +509,23 @@ require(['jquery',], function($, Registry) {+function ($) {
                 return;
             }
 
-/* Check if element has data attributes. They have top priority
+            /* Check if element has data attributes. They have top priority
                For details https://twitter.com/aamirafridi/status/403848044069679104 - Can't find a better solution :/
                jQuery 1.3.2 doesn't support $.data().KEY hence writting the following */
             var dataAttributes = {},
-                attr;
-            $.each(o, function (key, value) {
+            attr;
+            $.each(o, function(key, value) {
                 //Check if element has this data attribute
                 attr = $this.attr('data-' + key);
                 if (typeof attr !== 'undefined') {
                     //Now check if value is boolean or not
                     switch (attr) {
-                    case 'true':
-                        attr = true;
-                        break;
-                    case 'false':
-                        attr = false;
-                        break;
+                        case 'true':
+                            attr = true;
+                            break;
+                        case 'false':
+                            attr = false;
+                            break;
                     }
                     o[key] = attr;
                 }
@@ -464,7 +538,7 @@ require(['jquery',], function($, Registry) {+function ($) {
             verticalDir = o.direction == 'up' || o.direction == 'down';
 
             //no gap if not duplicated
-            o.gap = o.duplicated ? o.gap : 0;
+            o.gap = o.duplicated ? parseInt(o.gap) : 0;
 
             //wrap inner content into a div
             $this.wrapInner('<div class="js-marquee"></div>');
@@ -506,8 +580,17 @@ require(['jquery',], function($, Registry) {+function ($) {
                 var elHeight = $this.find('.js-marquee:first').height() + o.gap;
 
                 // adjust the animation speed according to the text length
-                // formula is to: (Height of the text node / Height of the main container) * speed;
-                o.duration = ((parseInt(elHeight, 10) + parseInt(containerHeight, 10)) / parseInt(containerHeight, 10)) * o.duration;
+                if (o.startVisible && !o.duplicated) {
+                    // Compute the complete animation duration and save it for later reference
+                    // formula is to: (Height of the text node + height of the main container / Height of the main container) * speed;
+                    o._completeDuration = ((parseInt(elHeight, 10) + parseInt(containerHeight, 10)) / parseInt(containerHeight, 10)) * o.duration;
+
+                    // formula is to: (Height of the text node / height of the main container) * speed
+                    o.duration = (parseInt(elHeight, 10) / parseInt(containerHeight, 10)) * o.duration;
+                } else {
+                    // formula is to: (Height of the text node + height of the main container / Height of the main container) * speed;
+                    o.duration = ((parseInt(elHeight, 10) + parseInt(containerHeight, 10)) / parseInt(containerHeight, 10)) * o.duration;
+                }
 
             } else {
                 //Save the width of the each element so we can use it in animation
@@ -517,11 +600,20 @@ require(['jquery',], function($, Registry) {+function ($) {
                 containerWidth = $this.width();
 
                 // adjust the animation speed according to the text length
-                // formula is to: (Width of the text node / Width of the main container) * speed;
-                o.duration = ((parseInt(elWidth, 10) + parseInt(containerWidth, 10)) / parseInt(containerWidth, 10)) * o.duration;
+                if (o.startVisible && !o.duplicated) {
+                    // Compute the complete animation duration and save it for later reference
+                    // formula is to: (Width of the text node + width of the main container / Width of the main container) * speed;
+                    o._completeDuration = ((parseInt(elWidth, 10) + parseInt(containerWidth, 10)) / parseInt(containerWidth, 10)) * o.duration;
+
+                    // (Width of the text node / width of the main container) * speed
+                    o.duration = (parseInt(elWidth, 10) / parseInt(containerWidth, 10)) * o.duration;
+                } else {
+                    // formula is to: (Width of the text node + width of the main container / Width of the main container) * speed;
+                    o.duration = ((parseInt(elWidth, 10) + parseInt(containerWidth, 10)) / parseInt(containerWidth, 10)) * o.duration;
+                }
             }
 
-            //if duplicated than reduce the speed
+            //if duplicated then reduce the speed
             if (o.duplicated) {
                 o.duration = o.duration / 2;
             }
@@ -560,21 +652,36 @@ require(['jquery',], function($, Registry) {+function ($) {
                 }
             }
 
-            var _rePositionVertically = function () {
-                    $marqueeWrapper.css('margin-top', o.direction == 'up' ? containerHeight + 'px' : '-' + elHeight + 'px');
-                },
-                _rePositionHorizontally = function () {
-                    $marqueeWrapper.css('margin-left', o.direction == 'left' ? containerWidth + 'px' : '-' + elWidth + 'px');
-                };
+            var _rePositionVertically = function() {
+                $marqueeWrapper.css('margin-top', o.direction == 'up' ? containerHeight + 'px' : '-' + elHeight + 'px');
+            },
+            _rePositionHorizontally = function() {
+                $marqueeWrapper.css('margin-left', o.direction == 'left' ? containerWidth + 'px' : '-' + elWidth + 'px');
+            };
 
             //if duplicated option is set to true than position the wrapper
             if (o.duplicated) {
                 if (verticalDir) {
-                    $marqueeWrapper.css('margin-top', o.direction == 'up' ? containerHeight : '-' + ((elHeight * 2) - o.gap) + 'px');
+                    if (o.startVisible) {
+                        $marqueeWrapper.css('margin-top', 0);
+                    } else {
+                        $marqueeWrapper.css('margin-top', o.direction == 'up' ? containerHeight + 'px' : '-' + ((elHeight * 2) - o.gap) + 'px');
+                    }
                 } else {
-                    $marqueeWrapper.css('margin-left', o.direction == 'left' ? containerWidth + 'px' : '-' + ((elWidth * 2) - o.gap) + 'px');
+                    if (o.startVisible) {
+                        $marqueeWrapper.css('margin-left', 0);
+                    } else {
+                        $marqueeWrapper.css('margin-left', o.direction == 'left' ? containerWidth + 'px' : '-' + ((elWidth * 2) - o.gap) + 'px');
+                    }
                 }
-                loopCount = 1;
+
+                // If the text starts out visible we can skip the two initial loops
+                if (!o.startVisible) {
+                  loopCount = 1;
+                }
+            } else if (o.startVisible) {
+                // We only have two different loops if marquee is duplicated and starts visible 
+                loopCount = 2;
             } else {
                 if (verticalDir) {
                     _rePositionVertically();
@@ -584,116 +691,160 @@ require(['jquery',], function($, Registry) {+function ($) {
             }
 
             //Animate recursive method
-            var animate = function () {
+            var animate = function() {
+                if (o.duplicated) {
+                    //When duplicated, the first loop will be scroll longer so double the duration
+                    if (loopCount === 1) {
+                        o._originalDuration = o.duration;
+                        if (verticalDir) {
+                            o.duration = o.direction == 'up' ? o.duration + (containerHeight / ((elHeight) / o.duration)) : o.duration * 2;
+                        } else {
+                            o.duration = o.direction == 'left' ? o.duration + (containerWidth / ((elWidth) / o.duration)) : o.duration * 2;
+                        }
+                        //Adjust the css3 animation as well
+                        if (animationCss3Str) {
+                            animationCss3Str = animationName + ' ' + o.duration / 1000 + 's ' + o.delayBeforeStart / 1000 + 's ' + o.css3easing;
+                        }
+                        loopCount++;
+                    }
+                    //On 2nd loop things back to normal, normal duration for the rest of animations
+                    else if (loopCount === 2) {
+                        o.duration = o._originalDuration;
+                        //Adjust the css3 animation as well
+                        if (animationCss3Str) {
+                            animationName = animationName + '0';
+                            keyframeString = $.trim(keyframeString) + '0 ';
+                            animationCss3Str = animationName + ' ' + o.duration / 1000 + 's 0s infinite ' + o.css3easing;
+                        }
+                        loopCount++;
+                    }
+                }
+
+                if (verticalDir) {
                     if (o.duplicated) {
-                        //When duplicated, the first loop will be scroll longer so double the duration
-                        if (loopCount === 1) {
-                            o._originalDuration = o.duration;
-                            if (verticalDir) {
-                                o.duration = o.direction == 'up' ? o.duration + (containerHeight / ((elHeight) / o.duration)) : o.duration * 2;
-                            } else {
-                                o.duration = o.direction == 'left' ? o.duration + (containerWidth / ((elWidth) / o.duration)) : o.duration * 2;
-                            }
+
+                        //Adjust the starting point of animation only when first loops finishes
+                        if (loopCount > 2) {
+                            $marqueeWrapper.css('margin-top', o.direction == 'up' ? 0 : '-' + elHeight + 'px');
+                        }
+
+                        animationCss = {
+                            'margin-top': o.direction == 'up' ? '-' + elHeight + 'px' : 0
+                        };
+                    } else if (o.startVisible) {
+                        // This loop moves the marquee out of the container
+                        if (loopCount === 2) {
                             //Adjust the css3 animation as well
                             if (animationCss3Str) {
                                 animationCss3Str = animationName + ' ' + o.duration / 1000 + 's ' + o.delayBeforeStart / 1000 + 's ' + o.css3easing;
                             }
+                            animationCss = {
+                                'margin-top': o.direction == 'up' ? '-' + elHeight + 'px' : containerHeight + 'px'
+                            };
                             loopCount++;
+                        } else if (loopCount === 3) {
+                            // Set the duration for the animation that will run forever
+                            o.duration = o._completeDuration;
+                            //Adjust the css3 animation as well
+                            if (animationCss3Str) {
+                                    animationName = animationName + '0';
+                                    keyframeString = $.trim(keyframeString) + '0 ';
+                                    animationCss3Str = animationName + ' ' + o.duration / 1000 + 's 0s infinite ' + o.css3easing;
+                            }
+                            _rePositionVertically();
                         }
-                        //On 2nd loop things back to normal, normal duration for the rest of animations
-                        else if (loopCount === 2) {
-                            o.duration = o._originalDuration;
+                    } else {
+                        _rePositionVertically();
+                        animationCss = {
+                            'margin-top': o.direction == 'up' ? '-' + ($marqueeWrapper.height()) + 'px' : containerHeight + 'px'
+                        };
+                    }
+                } else {
+                    if (o.duplicated) {
+
+                        //Adjust the starting point of animation only when first loops finishes
+                        if (loopCount > 2) {
+                            $marqueeWrapper.css('margin-left', o.direction == 'left' ? 0 : '-' + elWidth + 'px');
+                        }
+
+                        animationCss = {
+                            'margin-left': o.direction == 'left' ? '-' + elWidth + 'px' : 0
+                        };
+
+                    } else if (o.startVisible) {
+                        // This loop moves the marquee out of the container
+                        if (loopCount === 2) {
+                            //Adjust the css3 animation as well
+                            if (animationCss3Str) {
+                                animationCss3Str = animationName + ' ' + o.duration / 1000 + 's ' + o.delayBeforeStart / 1000 + 's ' + o.css3easing;
+                            }
+                            animationCss = {
+                                'margin-left': o.direction == 'left' ? '-' + elWidth + 'px' : containerWidth + 'px'
+                            };
+                            loopCount++;
+                        } else if (loopCount === 3) {
+                            // Set the duration for the animation that will run forever
+                            o.duration = o._completeDuration;
                             //Adjust the css3 animation as well
                             if (animationCss3Str) {
                                 animationName = animationName + '0';
                                 keyframeString = $.trim(keyframeString) + '0 ';
                                 animationCss3Str = animationName + ' ' + o.duration / 1000 + 's 0s infinite ' + o.css3easing;
                             }
-                            loopCount++;
-                        }
-                    }
-
-                    if (verticalDir) {
-                        if (o.duplicated) {
-
-                            //Adjust the starting point of animation only when first loops finishes
-                            if (loopCount > 2) {
-                                $marqueeWrapper.css('margin-top', o.direction == 'up' ? 0 : '-' + elHeight + 'px');
-                            }
-
-                            animationCss = {
-                                'margin-top': o.direction == 'up' ? '-' + elHeight + 'px' : 0
-                            };
-                        } else {
-                            _rePositionVertically();
-                            animationCss = {
-                                'margin-top': o.direction == 'up' ? '-' + ($marqueeWrapper.height()) + 'px' : containerHeight + 'px'
-                            };
-                        }
-                    } else {
-                        if (o.duplicated) {
-
-                            //Adjust the starting point of animation only when first loops finishes
-                            if (loopCount > 2) {
-                                $marqueeWrapper.css('margin-left', o.direction == 'left' ? 0 : '-' + elWidth + 'px');
-                            }
-
-                            animationCss = {
-                                'margin-left': o.direction == 'left' ? '-' + elWidth + 'px' : 0
-                            };
-
-                        } else {
                             _rePositionHorizontally();
-                            animationCss = {
-                                'margin-left': o.direction == 'left' ? '-' + elWidth + 'px' : containerWidth + 'px'
-                            };
                         }
-                    }
-
-                    //fire event
-                    $this.trigger('beforeStarting');
-
-                    //If css3 support is available than do it with css3, otherwise use jQuery as fallback
-                    if (css3AnimationIsSupported) {
-                        //Add css3 animation to the element
-                        $marqueeWrapper.css(animationString, animationCss3Str);
-                        var keyframeCss = keyframeString + ' { 100%  ' + _objToString(animationCss) + '}',
-                            $styles = $('style');
-
-                        //Now add the keyframe animation to the head
-                        if ($styles.length !== 0) {
-                            //Bug fixed for jQuery 1.3.x - Instead of using .last(), use following
-                            $styles.filter(":last").append(keyframeCss);
-                        } else {
-                            $('head').append('<style>' + keyframeCss + '</style>');
-                        }
-
-                        //Animation iteration event
-                        _prefixedEvent($marqueeWrapper[0], "AnimationIteration", function () {
-                            $this.trigger('finished');
-                        });
-                        //Animation stopped
-                        _prefixedEvent($marqueeWrapper[0], "AnimationEnd", function () {
-                            animate();
-                            $this.trigger('finished');
-                        });
-
                     } else {
-                        //Start animating
-                        $marqueeWrapper.animate(animationCss, o.duration, o.easing, function () {
-                            //fire event
-                            $this.trigger('finished');
-                            //animate again
-                            if (o.pauseOnCycle) {
-                                _startAnimationWithDelay();
-                            } else {
-                                animate();
-                            }
-                        });
+                        _rePositionHorizontally();
+                        animationCss = {
+                            'margin-left': o.direction == 'left' ? '-' + elWidth + 'px' : containerWidth + 'px'
+                        };
                     }
-                    //save the status
-                    $this.data('runningStatus', 'resumed');
-                };
+                }
+
+                //fire event
+                $this.trigger('beforeStarting');
+
+                //If css3 support is available than do it with css3, otherwise use jQuery as fallback
+                if (css3AnimationIsSupported) {
+                    //Add css3 animation to the element
+                    $marqueeWrapper.css(animationString, animationCss3Str);
+                    var keyframeCss = keyframeString + ' { 100%  ' + _objToString(animationCss) + '}',
+                         $styles = $marqueeWrapper.find('style');
+
+                    //Now add the keyframe animation to the marquee element
+                    if ($styles.length !== 0) {
+                        //Bug fixed for jQuery 1.3.x - Instead of using .last(), use following
+                        $styles.filter(":last").html(keyframeCss);
+                    } else {
+                        $marqueeWrapper.append('<style>' + keyframeCss + '</style>');
+                    }
+
+                    //Animation iteration event
+                    _prefixedEvent($marqueeWrapper[0], "AnimationIteration", function() {
+                        $this.trigger('finished');
+                    });
+                    //Animation stopped
+                    _prefixedEvent($marqueeWrapper[0], "AnimationEnd", function() {
+                        animate();
+                        $this.trigger('finished');
+                    });
+
+                } else {
+                    //Start animating
+                    $marqueeWrapper.animate(animationCss, o.duration, o.easing, function() {
+                        //fire event
+                        $this.trigger('finished');
+                        //animate again
+                        if (o.pauseOnCycle) {
+                            _startAnimationWithDelay();
+                        } else {
+                            animate();
+                        }
+                    });
+                }
+                //save the status
+                $this.data('runningStatus', 'resumed');
+            };
 
             //bind pause and resume events
             $this.bind('pause', methods.pause);
@@ -734,7 +885,9 @@ require(['jquery',], function($, Registry) {+function ($) {
         //on cycle pause the marquee
         pauseOnCycle: false,
         //on hover pause the marquee - using jQuery plugin https://github.com/tobia/Pause
-        pauseOnHover: false
+        pauseOnHover: false,
+        //the marquee is visible initially positioned next to the border towards it will be moving
+        startVisible: false
     };
 })(jQuery);
 
@@ -1185,238 +1338,322 @@ require(['jquery',], function($, Registry) {+function ($) {
 }, this));
 
 /*!
-  hey, [be]Lazy.js - v1.3.1 - 2015.02.01 
-  A lazy loading and multi-serving image script
+  hey, [be]Lazy.js - v1.6.2 - 2016.05.09
+  A fast, small and dependency free lazy load script (https://github.com/dinbror/blazy)
   (c) Bjoern Klinggaard - @bklinggaard - http://dinbror.dk/blazy
 */
-;(function(root, blazy) {
-	if (typeof define === 'function' && define.amd) {
+;
+(function(root, blazy) {
+    if (typeof define === 'function' && define.amd) {
         // AMD. Register bLazy as an anonymous module
         define(blazy);
-	} else if (typeof exports === 'object') {
-		// Node. Does not work with strict CommonJS, but
+    } else if (typeof exports === 'object') {
+        // Node. Does not work with strict CommonJS, but
         // only CommonJS-like environments that support module.exports,
-        // like Node. 
-		module.exports = blazy();
-	} else {
+        // like Node.
+        module.exports = blazy();
+    } else {
         // Browser globals. Register bLazy on window
         root.Blazy = blazy();
-	}
-})(this, function () {
-	'use strict';
-	
-	//vars
-	var source, options, viewport, images, count, isRetina, destroyed;
-	//throttle vars
-	var validateT, saveViewportOffsetT;
-	
-	// constructor
-	function Blazy(settings) {
-		//IE7- fallback for missing querySelectorAll support
-		if (!document.querySelectorAll) {
-			var s=document.createStyleSheet();
-			document.querySelectorAll = function(r, c, i, j, a) {
-				a=document.all, c=[], r = r.replace(/\[for\b/gi, '[htmlFor').split(',');
-				for (i=r.length; i--;) {
-					s.addRule(r[i], 'k:v');
-					for (j=a.length; j--;) a[j].currentStyle.k && c.push(a[j]);
-						s.removeRule(0);
-				}
-				return c;
-			};
-		}
-		//init vars
-		destroyed 				= true;
-		images 					= [];
-		viewport				= {};
-		//options
-		options 				= settings 				|| {};
-		options.error	 		= options.error 		|| false;
-		options.offset			= options.offset 		|| 100;
-		options.success			= options.success 		|| false;
-	  	options.selector 		= options.selector 		|| '.b-lazy';
-		options.separator 		= options.separator 	|| '|';
-		options.container		= options.container 	?  document.querySelectorAll(options.container) : false;
-		options.errorClass 		= options.errorClass 	|| 'b-error';
-		options.breakpoints		= options.breakpoints	|| false;
-		options.successClass 	= options.successClass 	|| 'b-loaded';
-		options.src = source 	= options.src			|| 'data-src';
-		isRetina				= window.devicePixelRatio > 1;
-		viewport.top 			= 0 - options.offset;
-		viewport.left 			= 0 - options.offset;
-		//throttle, ensures that we don't call the functions too often
-		validateT				= throttle(validate, 25); 
-		saveViewportOffsetT			= throttle(saveViewportOffset, 50);
+    }
+})(this, function() {
+    'use strict';
 
-		saveViewportOffset();	
-				
-		//handle multi-served image src
-		each(options.breakpoints, function(object){
-			if(object.width >= window.screen.width) {
-				source = object.src;
-				return false;
-			}
-		});
-		
-		// start lazy load
-		initialize();	
-  	}
-	
-	/* public functions
-	************************************/
-	Blazy.prototype.revalidate = function() {
- 		initialize();
-   	};
-	Blazy.prototype.load = function(element, force){
-		if(!isElementLoaded(element)) loadImage(element, force);
-	};
-	Blazy.prototype.destroy = function(){
-		if(options.container){
-			each(options.container, function(object){
-				unbindEvent(object, 'scroll', validateT);
-			});
-		}
-		unbindEvent(window, 'scroll', validateT);
-		unbindEvent(window, 'resize', validateT);
-		unbindEvent(window, 'resize', saveViewportOffsetT);
-		count = 0;
-		images.length = 0;
-		destroyed = true;
-	};
-	
-	/* private helper functions
-	************************************/
-	function initialize(){
-		// First we create an array of images to lazy load
-		createImageArray(options.selector);
-		// Then we bind resize and scroll events if not already binded
-		if(destroyed) {
-			destroyed = false;
-			if(options.container) {
-	 			each(options.container, function(object){
-	 				bindEvent(object, 'scroll', validateT);
-	 			});
-	 		}
-			bindEvent(window, 'resize', saveViewportOffsetT);
-			bindEvent(window, 'resize', validateT);
-	 		bindEvent(window, 'scroll', validateT);
-		}
-		// And finally, we start to lazy load. Should bLazy ensure domready?
-		validate();	
-	}
-	
-	function validate() {
-		for(var i = 0; i<count; i++){
-			var image = images[i];
- 			if(elementInView(image) || isElementLoaded(image)) {
-				Blazy.prototype.load(image);
- 				images.splice(i, 1);
- 				count--;
- 				i--;
- 			} 
- 		}
-		if(count === 0) {
-			Blazy.prototype.destroy();
-		}
-	}
-	
-	function loadImage(ele, force){
-		// if element is visible
-		if(force || (ele.offsetWidth > 0 && ele.offsetHeight > 0)) {
-			var dataSrc = ele.getAttribute(source) || ele.getAttribute(options.src); // fallback to default data-src
-			if(dataSrc) {
-				var dataSrcSplitted = dataSrc.split(options.separator);
-				var src = dataSrcSplitted[isRetina && dataSrcSplitted.length > 1 ? 1 : 0];
-				var img = new Image();
-				// cleanup markup, remove data source attributes
-				each(options.breakpoints, function(object){
-					ele.removeAttribute(object.src);
-				});
-				ele.removeAttribute(options.src);
-				img.onerror = function() {
-					if(options.error) options.error(ele, "invalid");
-					ele.className = ele.className + ' ' + options.errorClass;
-				}; 
-				img.onload = function() {
-					// Is element an image or should we add the src as a background image?
-			      		ele.nodeName.toLowerCase() === 'img' ? ele.src = src : ele.style.backgroundImage = 'url("' + src + '")';	
-					ele.className = ele.className + ' ' + options.successClass;	
-					if(options.success) options.success(ele);
-				};
-				img.src = src; //preload image
-			} else {
-				if(options.error) options.error(ele, "missing");
-				ele.className = ele.className + ' ' + options.errorClass;
-			}
-		}
-	 }
-			
-	function elementInView(ele) {
-		var rect = ele.getBoundingClientRect();
-		
-		return (
-			// Intersection
-			rect.right >= viewport.left
-			&& rect.bottom >= viewport.top
-			&& rect.left <= viewport.right
-			&& rect.top <= viewport.bottom
-		 );
-	 }
-	 
-	 function isElementLoaded(ele) {
-		 return (' ' + ele.className + ' ').indexOf(' ' + options.successClass + ' ') !== -1;
-	 }
-	 
-	 function createImageArray(selector) {
- 		var nodelist 	= document.querySelectorAll(selector);
- 		count 			= nodelist.length;
- 		//converting nodelist to array
- 		for(var i = count; i--; images.unshift(nodelist[i])){}
-	 }
-	 
-	 function saveViewportOffset(){
-		 viewport.bottom = (window.innerHeight || document.documentElement.clientHeight) + options.offset;
-		 viewport.right = (window.innerWidth || document.documentElement.clientWidth) + options.offset;
-	 }
-	 
-	 function bindEvent(ele, type, fn) {
-		 if (ele.attachEvent) {
-         		ele.attachEvent && ele.attachEvent('on' + type, fn);
-       	 	} else {
-         	       ele.addEventListener(type, fn, false);
-       		}
-	 }
-	 
-	 function unbindEvent(ele, type, fn) {
-		 if (ele.detachEvent) {
-         		ele.detachEvent && ele.detachEvent('on' + type, fn);
-       	 	} else {
-         	       ele.removeEventListener(type, fn, false);
-       		}
-	 }
-	 
-	 function each(object, fn){
- 		if(object && fn) {
- 			var l = object.length;
- 			for(var i = 0; i<l && fn(object[i], i) !== false; i++){}
- 		}
-	 }
-	 
-	 function throttle(fn, minDelay) {
-     		 var lastCall = 0;
-		 return function() {
-			 var now = +new Date();
-         		 if (now - lastCall < minDelay) {
-           			 return;
-			 }
-         		 lastCall = now;
-         		 fn.apply(images, arguments);
-       		 };
-	 }
-  	
-	 return Blazy;
+    //private vars
+    var _source, _viewport, _isRetina, _attrSrc = 'src',
+        _attrSrcset = 'srcset';
+
+    // constructor
+    return function Blazy(options) {
+        //IE7- fallback for missing querySelectorAll support
+        if (!document.querySelectorAll) {
+            var s = document.createStyleSheet();
+            document.querySelectorAll = function(r, c, i, j, a) {
+                a = document.all, c = [], r = r.replace(/\[for\b/gi, '[htmlFor').split(',');
+                for (i = r.length; i--;) {
+                    s.addRule(r[i], 'k:v');
+                    for (j = a.length; j--;) a[j].currentStyle.k && c.push(a[j]);
+                    s.removeRule(0);
+                }
+                return c;
+            };
+        }
+
+        //options and helper vars
+        var scope = this;
+        var util = scope._util = {};
+        util.elements = [];
+        util.destroyed = true;
+        scope.options = options || {};
+        scope.options.error = scope.options.error || false;
+        scope.options.offset = scope.options.offset || 100;
+        scope.options.success = scope.options.success || false;
+        scope.options.selector = scope.options.selector || '.b-lazy';
+        scope.options.separator = scope.options.separator || '|';
+        scope.options.container = scope.options.container ? document.querySelectorAll(scope.options.container) : false;
+        scope.options.errorClass = scope.options.errorClass || 'b-error';
+        scope.options.breakpoints = scope.options.breakpoints || false; // obsolete
+        scope.options.loadInvisible = scope.options.loadInvisible || false;
+        scope.options.successClass = scope.options.successClass || 'b-loaded';
+        scope.options.validateDelay = scope.options.validateDelay || 25;
+        scope.options.saveViewportOffsetDelay = scope.options.saveViewportOffsetDelay || 50;
+        scope.options.srcset = scope.options.srcset || 'data-srcset';
+        scope.options.src = _source = scope.options.src || 'data-src';
+        _isRetina = window.devicePixelRatio > 1;
+        _viewport = {};
+        _viewport.top = 0 - scope.options.offset;
+        _viewport.left = 0 - scope.options.offset;
+
+
+        /* public functions
+         ************************************/
+        scope.revalidate = function() {
+            initialize(this);
+        };
+        scope.load = function(elements, force) {
+            var opt = this.options;
+            if (elements.length === undefined) {
+                loadElement(elements, force, opt);
+            } else {
+                each(elements, function(element) {
+                    loadElement(element, force, opt);
+                });
+            }
+        };
+        scope.destroy = function() {
+            var self = this;
+            var util = self._util;
+            if (self.options.container) {
+                each(self.options.container, function(object) {
+                    unbindEvent(object, 'scroll', util.validateT);
+                });
+            }
+            unbindEvent(window, 'scroll', util.validateT);
+            unbindEvent(window, 'resize', util.validateT);
+            unbindEvent(window, 'resize', util.saveViewportOffsetT);
+            util.count = 0;
+            util.elements.length = 0;
+            util.destroyed = true;
+        };
+
+        //throttle, ensures that we don't call the functions too often
+        util.validateT = throttle(function() {
+            validate(scope);
+        }, scope.options.validateDelay, scope);
+        util.saveViewportOffsetT = throttle(function() {
+            saveViewportOffset(scope.options.offset);
+        }, scope.options.saveViewportOffsetDelay, scope);
+        saveViewportOffset(scope.options.offset);
+
+        //handle multi-served image src (obsolete)
+        each(scope.options.breakpoints, function(object) {
+            if (object.width >= window.screen.width) {
+                _source = object.src;
+                return false;
+            }
+        });
+
+        // start lazy load
+        setTimeout(function() {
+            initialize(scope);
+        }); // "dom ready" fix
+
+    };
+
+
+    /* Private helper functions
+     ************************************/
+    function initialize(self) {
+        var util = self._util;
+        // First we create an array of elements to lazy load
+        util.elements = toArray(self.options.selector);
+        util.count = util.elements.length;
+        // Then we bind resize and scroll events if not already binded
+        if (util.destroyed) {
+            util.destroyed = false;
+            if (self.options.container) {
+                each(self.options.container, function(object) {
+                    bindEvent(object, 'scroll', util.validateT);
+                });
+            }
+            bindEvent(window, 'resize', util.saveViewportOffsetT);
+            bindEvent(window, 'resize', util.validateT);
+            bindEvent(window, 'scroll', util.validateT);
+        }
+        // And finally, we start to lazy load.
+        validate(self);
+    }
+
+    function validate(self) {
+        var util = self._util;
+        for (var i = 0; i < util.count; i++) {
+            var element = util.elements[i];
+            if (elementInView(element) || hasClass(element, self.options.successClass)) {
+                self.load(element);
+                util.elements.splice(i, 1);
+                util.count--;
+                i--;
+            }
+        }
+        if (util.count === 0) {
+            self.destroy();
+        }
+    }
+
+    function elementInView(ele) {
+        var rect = ele.getBoundingClientRect();
+        return (
+            // Intersection
+            rect.right >= _viewport.left && rect.bottom >= _viewport.top && rect.left <= _viewport.right && rect.top <= _viewport.bottom
+        );
+    }
+
+    function loadElement(ele, force, options) {
+        // if element is visible, not loaded or forced
+        if (!hasClass(ele, options.successClass) && (force || options.loadInvisible || (ele.offsetWidth > 0 && ele.offsetHeight > 0))) {
+            var dataSrc = ele.getAttribute(_source) || ele.getAttribute(options.src); // fallback to default 'data-src'
+            if (dataSrc) {
+                var dataSrcSplitted = dataSrc.split(options.separator);
+                var src = dataSrcSplitted[_isRetina && dataSrcSplitted.length > 1 ? 1 : 0];
+                var isImage = equal(ele, 'img');
+                // Image or background image
+                if (isImage || ele.src === undefined) {
+                    var img = new Image();
+                    // using EventListener instead of onerror and onload
+                    // due to bug introduced in chrome v50 
+                    // (https://productforums.google.com/forum/#!topic/chrome/p51Lk7vnP2o)
+                    var onErrorHandler = function() {
+                        if (options.error) options.error(ele, "invalid");
+                        addClass(ele, options.errorClass);
+                        unbindEvent(img, 'error', onErrorHandler);
+                        unbindEvent(img, 'load', onLoadHandler);
+                    };
+                    var onLoadHandler = function() {
+                        // Is element an image
+                        if (isImage) {
+                            setSrc(ele, src); //src
+                            handleSource(ele, _attrSrcset, options.srcset); //srcset
+                            //picture element
+                            var parent = ele.parentNode;
+                            if (parent && equal(parent, 'picture')) {
+                                each(parent.getElementsByTagName('source'), function(source) {
+                                    handleSource(source, _attrSrcset, options.srcset);
+                                });
+                            }
+                        // or background-image
+                        } else {
+                            ele.style.backgroundImage = 'url("' + src + '")';
+                        }
+                        itemLoaded(ele, options);
+                        unbindEvent(img, 'load', onLoadHandler);
+                        unbindEvent(img, 'error', onErrorHandler);
+                    };
+                    bindEvent(img, 'error', onErrorHandler);
+                    bindEvent(img, 'load', onLoadHandler);
+                    setSrc(img, src); //preload
+                } else { // An item with src like iframe, unity, simpelvideo etc
+                    setSrc(ele, src);
+                    itemLoaded(ele, options);
+                }
+            } else {
+                // video with child source
+                if (equal(ele, 'video')) {
+                    each(ele.getElementsByTagName('source'), function(source) {
+                        handleSource(source, _attrSrc, options.src);
+                    });
+                    ele.load();
+                    itemLoaded(ele, options);
+                } else {
+                    if (options.error) options.error(ele, "missing");
+                    addClass(ele, options.errorClass);
+                }
+            }
+        }
+    }
+
+    function itemLoaded(ele, options) {
+        addClass(ele, options.successClass);
+        if (options.success) options.success(ele);
+        // cleanup markup, remove data source attributes
+        ele.removeAttribute(options.src);
+        each(options.breakpoints, function(object) {
+            ele.removeAttribute(object.src);
+        });
+    }
+
+    function setSrc(ele, src) {
+        ele[_attrSrc] = src;
+    }
+
+    function handleSource(ele, attr, dataAttr) {
+        var dataSrc = ele.getAttribute(dataAttr);
+        if (dataSrc) {
+            ele[attr] = dataSrc;
+            ele.removeAttribute(dataAttr);
+        }
+    }
+
+    function equal(ele, str) {
+        return ele.nodeName.toLowerCase() === str;
+    }
+
+    function hasClass(ele, className) {
+        return (' ' + ele.className + ' ').indexOf(' ' + className + ' ') !== -1;
+    }
+
+    function addClass(ele, className) {
+        if (!hasClass(ele, className)) {
+            ele.className += ' ' + className;
+        }
+    }
+
+    function toArray(selector) {
+        var array = [];
+        var nodelist = document.querySelectorAll(selector);
+        for (var i = nodelist.length; i--; array.unshift(nodelist[i])) {}
+        return array;
+    }
+
+    function saveViewportOffset(offset) {
+        _viewport.bottom = (window.innerHeight || document.documentElement.clientHeight) + offset;
+        _viewport.right = (window.innerWidth || document.documentElement.clientWidth) + offset;
+    }
+
+    function bindEvent(ele, type, fn) {
+        if (ele.attachEvent) {
+            ele.attachEvent && ele.attachEvent('on' + type, fn);
+        } else {
+            ele.addEventListener(type, fn, false);
+        }
+    }
+
+    function unbindEvent(ele, type, fn) {
+        if (ele.detachEvent) {
+            ele.detachEvent && ele.detachEvent('on' + type, fn);
+        } else {
+            ele.removeEventListener(type, fn, false);
+        }
+    }
+
+    function each(object, fn) {
+        if (object && fn) {
+            var l = object.length;
+            for (var i = 0; i < l && fn(object[i], i) !== false; i++) {}
+        }
+    }
+
+    function throttle(fn, minDelay, scope) {
+        var lastCall = 0;
+        return function() {
+            var now = +new Date();
+            if (now - lastCall < minDelay) {
+                return;
+            }
+            lastCall = now;
+            fn.apply(scope, arguments);
+        };
+    }
 });
-
 $.fn.extend({showPassword: function(c) {  }});
 'use strict';
 (function ($) {
