@@ -6039,7 +6039,7 @@ html
 
 body
 {
-    font-family: 'Open Sans', Trebuchet MS, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: Trebuchet MS, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: 1rem;
     line-height: 1.5;
 
@@ -14739,11 +14739,14 @@ a.text-danger:hover
 
 body
 {
+    font-family: Trebuchet MS, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
+
     background-color: #eee;
 }
 .wf-active body,
 .app-fonts-loaded body
 {
+    font-family: 'Open Sans', Trebuchet MS, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-weight: 300;
 }
 body.template-theming-controlpanel .row
