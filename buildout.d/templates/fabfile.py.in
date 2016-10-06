@@ -126,10 +126,9 @@ def stage(actor=None):
 @roles('production')
 def deploy_full():
     """ Deploy current master to production and run buildout """
-    with settings(port=22222, webserver='/opt/webserver/buildout.webserver'):
-        project.site.update()
-        project.site.build()
-        project.site.restart()
+    project.site.update()
+    project.site.build()
+    project.cluster.restart_clients()
 
 
 @task
