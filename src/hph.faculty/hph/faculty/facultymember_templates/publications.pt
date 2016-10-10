@@ -4,26 +4,26 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="hph.faculty">
+      i18n:domain="hph.publications">
 <body>
 
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-    <div class="row">
-        <div class="col-xs-12 col-lg-3">
+    <div class="app-section">
+        <div class="app-section-aside">
             <aside class="app-aside" id="app-sidebar"
                 tal:define="subcontents python:context.restrictedTraverse('@@folderListing')(portal_type=['Folder', 'hph.sitecontent.contentpage'])">
 
-                <div class="app-box app-box-faculty">
-                    <div class="app-box-header">
-                    </div>
-                    <div class="app-box-content">
-                        <ul class="nav nav-pills nav-stacked app-box-nav">
+                <div class="app-card app-card-nav app-card-faculty">
+
+                    <div class="app-card-main">
+                        <ul class="app-nav-list">
                             <tal:block tal:repeat="filter view/filter_options">
-                                <li tal:define="filter_value filter/value"
+                                <li class="app-nav-list-item" tal:define="filter_value filter/value"
                                     tal:attributes="class python:view.computed_klass(filter_value)">
-                                    <a tal:attributes="href string:${view/parent_url}?content_filter=1&amp;academicRole=${filter/value}"
+                                    <a class="app-nav-list-link"
+                                        tal:attributes="href string:${view/parent_url}?content_filter=1&amp;academicRole=${filter/value}"
                                         tal:content="filter/title">Filter option</a>
                                 </li>
                             </tal:block>
@@ -31,22 +31,22 @@
                     </div>
                 </div>
 
-                <div class="app-box app-box-faculty"
+                <div class="app-card app-card-nav app-card-faculty"
                     tal:condition="subcontents">
-                    <div class="app-box-header">
-                        <h3 class="app-box-heading" tal:content="context/lastname">
+                    <div class="app-card-header">
+                        <h3 class="app-card-title" tal:content="context/lastname">
                             Additional Information
                         </h3>
                     </div>
-                    <div class="app-box-content">
-                        <ul class="nav nav-pills nav-stacked app-box-nav">
-                            <li class="active">
-                                <a tal:attributes="href string:${context/absolute_url}/@@publications"
+                    <div class="app-card-main">
+                        <ul class="app-nav-list">
+                            <li class="app-nav-list-item app-nav-list-item-active">
+                                <a class="app-nav-list-link" tal:attributes="href string:${context/absolute_url}/@@publications"
                                     i18n:translate="">Publications</a>
                             </li>
                             <tal:block tal:repeat="item subcontents">
-                                <li>
-                                    <a tal:attributes="href item/getURL"
+                                <li class="app-nav-list-item">
+                                    <a class="app-nav-list-link" tal:attributes="href item/getURL"
                                         tal:content="item/Title">Filter option</a>
                                 </li>
                             </tal:block>
@@ -55,63 +55,58 @@
                 </div>
             </aside>
         </div>
-        <div class="col-xs-12 col-lg-9">
+        <div class="app-section-main">
             <article class="tile-content" id="tile-content">
-                <header class="page-header">
-                    <h1 tal:content="context/Title">Title inserted here</h1>
+                <header class="app-page-header">
+                    <h1 class="app-page-title" tal:content="context/Title">Title inserted here</h1>
                 </header>
 
-                <section class="page-content" id="content-core">
-                <div class="alert alert-warning" tal:condition="not:view/has_publications">
+                <section class="app-page-content" id="app-page-content">
+                <div class="app-callout app-callout-default" tal:condition="not:view/has_publications">
                   <h4>Note:</h4>
                   <p>There are no publications available yet</p>
                 </div>
 
                 <tal:block tal:condition="view/has_publications">
-                  <div class="app-content-body"
-                    tal:define="Batch python:modules['Products.CMFPlone'].Batch;
-                                   b_size python:int(request.get('b_size', 20));
-                                   b_start python:int(request.get('b_start', 0));
-                                   results view/publications;
-                                   batch python:Batch(results, b_size, b_start);">
-                    <div class="app-list-item" tal:repeat="item batch">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-2 col-lg-2">
-                                <img tal:condition="item/image"
-                                    tal:define="item_obj item/getObject;
-                                                 scales item_obj/@@images"
-                                    tal:replace="structure python: scales.tag('image',
-                                                 width=90,
-                                                 height=140,
-                                                 css_class='app-img',
-                                                 direction='down')"
-                                />
-                                <div tal:condition="not:item/image">
-                                  <div class="no-img"><i class="fa fa-camera fa-3x"></i></div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-10 col-lg-10">
-                              <h2 class="h2 list-item-heading">
-                                <small>
+                  <div class="app-content-body">
+                      <tal:block tal:repeat="item_uid view/associated_publications">
+                          <div class="app-list-item" tal:define="item python:view.get_publication_details(item_uid);">
+                              <div class="row">
+                                  <div class="col-xs-12 col-sm-2 col-lg-2">
+                                      <img tal:condition="item/image"
+                                               tal:define="scales item/@@images"
+                                               tal:replace="structure python: scales.tag('image',
+                                                      width=90,
+                                                      height=140,
+                                                      css_class='app-img',
+                                                      direction='down')"
+                                      />
+                                      <div tal:condition="not:item/image">
+                                          <div class="no-img"><i class="fa fa-camera fa-3x"></i></div>
+                                      </div>
+                                  </div>
+                                  <div class="col-xs-12 col-sm-10 col-lg-10">
+                                      <h2 class="h2 list-item-heading">
+                                          <small>
                                     <span tal:condition="item/authorOne"
-                                        tal:replace="item/authorOne" /><span tal:condition="item/authorTwo">,
+                                             tal:replace="item/authorOne" /><span tal:condition="item/authorTwo">,
                                       <span tal:replace="item/authorTwo" /></span><span tal:condition="item/authorThree">,
                                       <span tal:replace="item/authorThree" />
                                     </span>
-                                    <span tal:condition="item/authorPlus"
-                                        i18n:translate="">a.o.</span>
-                                </small>
+                                              <span tal:condition="item/authorPlus"
+                                                       i18n:translate="">a.o.</span>
+                                          </small>
 
-                                <br />
-                                <span tal:replace="item/Title" />
-                              </h2>
-                              <div tal:condition="item/summary"
-                                tal:content="structure item/summary/output" />
-                            </div>
+                                          <br />
+                                          <span tal:replace="item/Title" />
+                                      </h2>
+                                      <div tal:condition="item/summary"
+                                               tal:content="structure item/summary/output" />
 
-                        </div><hr />
-                    </div>
-                    <div metal:use-macro="context/batch_macros/macros/navigation" />
+                              </div><hr />
+                              </div>
+                          </div>
+                      </tal:block>
                   </div>
                 </tal:block>
               </section>

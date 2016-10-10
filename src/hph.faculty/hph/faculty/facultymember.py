@@ -166,7 +166,7 @@ class Publications(grok.View):
     grok.name('publications')
 
     def update(self):
-        self.has_publications = len(self.publications()) > 0
+        self.has_publications = len(self.associated_publications()) > 0
 
     def parent_url(self):
         context = aq_inner(self.context)
@@ -182,10 +182,19 @@ class Publications(grok.View):
     def computed_klass(self, value):
         context = aq_inner(self.context)
         active_filter = getattr(context, 'academicRole', None)
-        klass = 'nav-item-plain'
+        klass = 'app-nav-list-item'
         if active_filter == value:
-            klass = 'active'
+            klass += 'app-nav-list-item-active'
         return klass
+
+    def associated_publications(self):
+        context = aq_inner(self.context)
+        assigned = getattr(context, 'associatedPublications', None)
+        return assigned
+
+    def get_publication_details(self, uuid):
+        item = api.content.get(UID=uuid)
+        return item
 
     def publications(self):
         context = aq_inner(self.context)
