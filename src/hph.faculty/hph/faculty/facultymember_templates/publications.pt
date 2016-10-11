@@ -109,7 +109,55 @@
                       </tal:block>
                   </div>
                 </tal:block>
-              </section>
+
+                <tal:old-publication tal:condition="not:view/has_publications">
+                    <div class="app-content-body"
+                             tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                                    b_size python:int(request.get('b_size', 20));
+                                            b_start python:int(request.get('b_start', 0));
+                                                    results view/publications;
+                                                            batch python:Batch(results, b_size, b_start);">
+                        <div class="app-list-item" tal:repeat="item batch">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-2 col-lg-2">
+                                    <img tal:condition="item/image"
+                                             tal:define="item_obj item/getObject;
+                                                    scales item_obj/@@images"
+                                             tal:replace="structure python: scales.tag('image',
+                                                    width=90,
+                                                    height=140,
+                                                    css_class='app-img',
+                                                    direction='down')"
+                                    />
+                                    <div tal:condition="not:item/image">
+                                        <div class="no-img"><i class="fa fa-camera fa-3x"></i></div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-10 col-lg-10">
+                                    <h2 class="h2 list-item-heading">
+                                        <small>
+                                    <span tal:condition="item/authorOne"
+                                             tal:replace="item/authorOne" /><span tal:condition="item/authorTwo">,
+                                      <span tal:replace="item/authorTwo" /></span><span tal:condition="item/authorThree">,
+                                      <span tal:replace="item/authorThree" />
+                                    </span>
+                                            <span tal:condition="item/authorPlus"
+                                                     i18n:translate="">a.o.</span>
+                                        </small>
+
+                                        <br />
+                                        <span tal:replace="item/Title" />
+                                    </h2>
+                                    <div tal:condition="item/summary"
+                                             tal:content="structure item/summary/output" />
+                                </div>
+
+                            </div><hr />
+                        </div>
+                        <div metal:use-macro="context/batch_macros/macros/navigation" />
+                    </div>
+                </tal:old-publication>
+                </section>
             </article>
         </div>
     </div>
