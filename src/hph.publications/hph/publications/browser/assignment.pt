@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.publications">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <div class="app-section">
+            <div class="app-section-aside">
+                <div class="app-box app-box-workspaces">
+                    <div class="app-box-header">
+                        <h2 class="app-box-heading" i18n:translate="">
+                            Assignment
+                        </h2>
+                    </div>
+                    <div class="app-box-content">
+                        <p class="lead" i18n:translate="">
+                            Please select the faculty member to associate with this publication
+                        </p>
+                        <p i18n:translate="">Since this view will update the faculty member
+                            database entry new associations might not be available for
+                            display immediately.
+                        </p>
+                    </div>
+                    <div class="app-box-footer">
+                        <a class="btn btn-danger btn-sm"
+                                 tal:attributes="href string:${context/absolute_url}">
+                            &times; <span i18n:translate="">Quit assignment</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="app-section-main">
+                <div class="app-page-header">
+                    <h1 i18n:translate="">Faculty Member Selection</h1>
+                    <p class="lead"><strong i18n:translate="">Publication</strong>: ${context/Title}
+                    </p>
+                </div>
+                <div class="app-page-body">
+                    <div class="list-group">
+                        <tal:block tal:repeat="item view/selectable_faculty_members">
+                            <tal:item tal:define="item_uid item/UID;
+                                                  active python:view.has_active_assignment(item_uid);
+                                                  add_url string:${context/absolute_url}/@@faculty-member-assignment-factory/${item_uid}/add;
+                                                  remove_url string:${context/absolute_url}/@@faculty-member-assignment-factory/${item_uid}/remove;
+                                                  protected_add_url python:view.generate_protected_url(add_url);
+                                                  protected_remove_url python:view.generate_protected_url(remove_url)">
+                                <a href="#" class="list-group-item"
+                                         tal:condition="not:active"
+                                         tal:attributes="href protected_add_url">
+                                    <h4 class="list-group-item-heading"
+                                             tal:content="item/Title">
+                                        List group item heading
+                                    </h4>
+                                    <p i18n:translate="">Assign faculty member to this publication</p>
+                                </a>
+                                <a href="#" class="list-group-item active"
+                                         tal:condition="active"
+                                         tal:attributes="href protected_remove_url">
+                                    <span class="tag tag-primary" i18n:translate="">assigned</span>
+                                    <h4 class="list-group-item-heading"
+                                             tal:content="item/Title">
+                                        List group item heading
+                                    </h4>
+                                    <p i18n:translate="">Remove faculty member assignment</p>
+                                </a>
+                            </tal:item>
+                        </tal:block>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </metal:content-core>
+</metal:main>
+</body>
+</html>

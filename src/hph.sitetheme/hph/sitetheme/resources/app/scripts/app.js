@@ -24,10 +24,9 @@ $('div[data-appui="eventbox"]').each(function () {
     $.getJSON($sourceUrl, function (data) {
         var divData = '';
         $.each(data.items, function (i, item) {
-            divData += '<a class="app-box-item" href="' + item.url + '">';
-            divData += '<time class="app-box-date h5">' + item.date + '</time>';
-            divData += '<span>' + item.title + '</span>';
-            divData += '<span class="app-box-item-more text-right"><i class="icon-double-angle-right"></i></span>';
+            divData += '<a class="app-card-item" href="' + item.url + '">';
+            divData += '<time class="app-card-date h5">' + item.date + '</time>';
+            divData += '<p>' + item.title + '</p>';
             divData += '</a>';
         });
         $targetEl.html(divData);
