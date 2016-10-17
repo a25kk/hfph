@@ -166,7 +166,7 @@ class Publications(grok.View):
     grok.name('publications')
 
     def update(self):
-        self.has_publications = len(self.associated_publications()) > 0
+        self.has_publications = len(self.publications()) > 0
 
     def parent_url(self):
         context = aq_inner(self.context)
