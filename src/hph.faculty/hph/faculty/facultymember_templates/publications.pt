@@ -110,7 +110,7 @@
                   </div>
                 </tal:block>
 
-                <tal:old-publication tal:condition="not:view/has_publications">
+                <tal:old-publication tal:condition="not:view/associated_publications">
                     <div class="app-content-body"
                              tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                                     b_size python:int(request.get('b_size', 20));
