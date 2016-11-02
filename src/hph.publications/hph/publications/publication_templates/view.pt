@@ -41,7 +41,9 @@
                 </section>
                 <hr>
                 <a class="app-btn"
-                         tal:attributes="href string:${context/absolute_url}">
+                   tal:define="parent context/@@plone_context_state/parent;
+                               parent_url parent/absolute_url"
+                         tal:attributes="href string:${parent_url}">
                     <span i18n:translate="">Back to publication listing</span></a>
             </div>
             <div class="app-section-aside">
