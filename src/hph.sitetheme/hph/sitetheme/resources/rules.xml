@@ -4,7 +4,71 @@
     xmlns:css="http://namespaces.plone.org/diazo/css"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 
-     <!-- Setup custom login form -->
+    <!-- Template for navigation tree rewrites -->
+    <xsl:template name="nav-tree">
+        <div class="app-card app-card-nav app-nav-list">
+            <div class="app-card-header app-card-header-nav-list">
+                Navigation
+            </div>
+            <div class="app-card-main">
+                <nav class="app-nav-tree">
+                    <ul class="app-nav-tree-list app-nav-list app-nav-level-0">
+                        <xsl:apply-templates select="./nav/*"/>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </xsl:template>
+    <xsl:template name="nav-list-base">
+        <ul class="app-nav-tree-list app-nav-list app-nav-level-0">
+            <xsl:apply-templates />
+        </ul>
+    </xsl:template>
+    <xsl:template name="nav-list">
+        <ul class="app-nav-list">
+            <xsl:if test="@class[contains(.,'navTreeLevel1')]">
+                <xsl:attribute name="class">app-nav-tree-list app-nav-list app-nav-level-1</xsl:attribute>
+            </xsl:if>
+            <xsl:if test="@class[contains(.,'navTreeLevel2')]">
+                <xsl:attribute name="class">app-nav-tree-list app-nav-list app-nav-level-2</xsl:attribute>
+            </xsl:if>
+            <xsl:apply-templates />
+        </ul>
+    </xsl:template>
+    <xsl:template name="nav-tree-item">
+        <li class="app-nav-list-item">
+            <xsl:choose>
+                <xsl:when css:test=".navTreeCurrentNode">
+                    <xsl:attribute name="class">app-nav-list-item app-nav-list-item-active</xsl:attribute>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:attribute name="class">app-nav-list-item</xsl:attribute>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:apply-templates />
+        </li>
+    </xsl:template>
+    <xsl:template name="nav-tree-link">
+        <a class="app-nav-list-link">
+            <xsl:choose>
+                <xsl:when css:test=".navTreeCurrentNode">
+                    <xsl:attribute name="class">app-nav-list-link app-nav-list-link-active</xsl:attribute>
+                </xsl:when>
+                <xsl:when css:test=".navTreeItemInPath">
+                    <xsl:attribute name="class">app-nav-list-link app-nav-list-link-open</xsl:attribute>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:attribute name="class">app-nav-list-link</xsl:attribute>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:attribute name="href"><xsl:value-of select="@href" /></xsl:attribute>
+            <xsl:copy-of select="./a/@*[local-name() != 'class']"/>
+            <!--<xsl:attribute name="class"><xsl:value-of select="./@class" /> app-nav-list-link</xsl:attribute>-->
+            <xsl:copy-of select="./text()" />
+        </a>
+    </xsl:template>
+
+     <!-- Setup custom templates for specific site sections or views -->
     <theme href="dist/signin/index.html" css:if-content="body.template-login_form" />
     <theme href="dist/signin/index.html" css:if-content="body.template-logged_out" />
     <theme href="dist/signin/index.html" css:if-content="body.template-login_failed" />
@@ -26,7 +90,7 @@
     <!--><theme href="dist/opac/index.html" css:if-content="body.subsection-bibliotheken-opac-recherche" />-->
     <theme href="dist/newsletter/index.html" css:if-content="body.section-newsletter" />
 
-    <!-- Rules applying to a standard Plone web page -->
+    <!-- Rules applying to a standard web page -->
     <rules css:if-content="#visual-portal-wrapper">
 
         <notheme if="$ajax_load" />
