@@ -18990,6 +18990,10 @@ app-fonts-loaded .app-page-abstract
     {
         position: absolute !important;
     }
+    #edit-bar
+    {
+        display: none;
+    }
     .app-header,
     .app-pathbar,
     .app-main-aside,
