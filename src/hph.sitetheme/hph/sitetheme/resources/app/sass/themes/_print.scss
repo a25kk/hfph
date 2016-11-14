@@ -1,0 +1,36 @@
+@page {
+    size: A4;
+}
+
+@media print {
+    // Basic body resets
+    body {
+        background: white;
+        display: block;
+        overflow: visible !important;
+        margin: 0 auto .5cm auto;
+        // Use well readable system fonts for printing
+        font-family: Trebuchet MS, 'Times New Roman', serif;
+        font-size: 1em;
+    }
+
+    .dim-in {
+        opacity: 1 !important;  /* make things visible upon start */
+    }
+
+    svg {
+        position: absolute !important;
+    }
+
+    // Hide components
+    .app-header,
+    .app-pathbar,
+    .app-main-aside,
+    .app-contact-panel,
+    .app-contact-actions,
+    .app-footer {
+        display: none;
+    }
+}
+
+

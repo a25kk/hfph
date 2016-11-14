@@ -18962,6 +18962,45 @@ app-fonts-loaded .app-page-abstract
     background-color: #ffdf80;
 }
 
+@page
+{
+    size: A4;
+}
+
+@media print
+{
+    body
+    {
+        font-family: Trebuchet MS, 'Times New Roman', serif;
+        font-size: 1em; 
+
+        display: block;
+        overflow: visible !important;
+
+        margin: 0 auto .5cm auto;
+
+        background: white;
+    }
+    .dim-in
+    {
+        opacity: 1 !important;
+        /* make things visible upon start */
+    }
+    svg
+    {
+        position: absolute !important;
+    }
+    .app-header,
+    .app-pathbar,
+    .app-main-aside,
+    .app-contact-panel,
+    .app-contact-actions,
+    .app-footer
+    {
+        display: none;
+    }
+}
+
 .app-table-actions-cell
 {
     padding-top: 1.5rem !important;
