@@ -17630,6 +17630,27 @@ body.template-frontpage-view .app-pathbar
     opacity: 1;
 }
 
+.app-fp-tile
+{
+    height: 100%;
+}
+
+.app-box-events
+{
+    position: relative;
+
+    height: 100%;
+}
+
+@media (min-width: 544px)
+{
+    .app-box-footer
+    {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
 .app-panel-news-actions
 {
     text-align: right;

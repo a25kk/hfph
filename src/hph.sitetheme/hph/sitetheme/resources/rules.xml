@@ -84,11 +84,11 @@
     <!--<theme href="dist/frontpage/index.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />-->
 
     <!-- Project specific theme files -->
-    <theme href="dist/theme-igp/index.html" css:if-content="body.subsection-institute-gesellschaftspolitik" />
+    <theme href="dist/theme-igp/index.html" css:if-content=".subsection-institute-gesellschaftspolitik" />
     <!--<theme href="dist/pp/index.html" css:if-content="body.section-pro-philosophia" />-->
     <!-- Opac und newsletter templates -->
     <!--><theme href="dist/opac/index.html" css:if-content="body.subsection-bibliotheken-opac-recherche" />-->
-    <theme href="dist/newsletter/index.html" css:if-content="body.section-newsletter" />
+    <theme href="dist/newsletter/index.html" css:if-content=".section-newsletter" />
 
     <!-- Rules applying to a standard web page -->
     <rules css:if-content="#visual-portal-wrapper">
@@ -442,41 +442,39 @@
         </replace>
 
         <!-- Navtree -->
-         <replace css:content=".portletNavigationTree" css:if-not-content=".template-overview-controlpanel">
-            <div class="app-card app-card-nav app-nav-list">
-                <div class="app-card-header">
-                    Navigation
-                </div>
-                <div class="app-card-main">
-                    <nav class="app-nav-tree">
-                        <xsl:for-each css:select=".portletContent > *">
-                            <ul class="app-nav-tree-list">
-                                <xsl:if test="@class[contains(.,'navTreeLevel0')]">
-                                    <xsl:attribute name="class">app-nav-list app-nav-level-0</xsl:attribute>
-                                </xsl:if>
-                                <xsl:if test="@class[contains(.,'navTreeLevel1')]">
-                                    <xsl:attribute name="class">app-nav-list app-nav-level-1</xsl:attribute>
-                                </xsl:if>
-                                <xsl:if test="@class[contains(.,'navTreeLevel2')]">
-                                    <xsl:attribute name="class">app-nav-list app-nav-level-2</xsl:attribute>
-                                </xsl:if>
-                                <xsl:if test="@class[contains(.,'navTreeItem')]">
-                                    <xsl:attribute name="class"><xsl:value-of select="./@class" /> app-nav-list-item</xsl:attribute>
-                                </xsl:if>
-                                <xsl:for-each css:select=".navTreeItem">
-                                  <li class="app-nav-list-item">
-                                    <a class="app-nav-list-link">
-                                        <xsl:copy-of select="./a/@*[local-name() != 'class']"/>
-                                       <xsl:attribute name="class"><xsl:value-of select="./@class" /> app-nav-list-link</xsl:attribute>
-                                       <xsl:copy-of select="./a/text()" />
-                                    </a>
-                                  </li>
-                                </xsl:for-each>
-                            </ul>
-                        </xsl:for-each>
-                    </nav>
-                </div>
-            </div>
+        <!-- Uses card semantics throughout the template
+            The different parts are restyled from included template partials
+        -->
+
+        <replace css:content=".portletNavigationTree" css:if-not-content=".template-overview-controlpanel">
+            <xsl:call-template name="nav-tree" />
+        </replace>
+        <replace css:content=".navTreeLevel0">
+            <xsl:call-template name="nav-list-base" />
+        </replace>
+        <replace css:content=".navTree:not(.navTreeLevel0)">
+            <xsl:call-template name="nav-list" />
+        </replace>
+        <replace css:content=".navTreeItem">
+            <xsl:call-template name="nav-tree-item" />
+        </replace>
+        <replace css:content=".navTreeItem > a">
+            <xsl:call-template name="nav-tree-link" />
+        </replace>
+        <replace css:content=".xnavTree" method="raw">
+            <xsl:copy>
+                <xsl:copy-of select="@*" />
+                <xsl:if test="@class[contains(.,'navTreeLevel0')]">
+                    <xsl:attribute name="class">app-nav-tree-list app-nav-list app-nav-level-0</xsl:attribute>
+                </xsl:if>
+                <xsl:if test="@class[contains(.,'navTreeLevel1')]">
+                    <xsl:attribute name="class">app-nav-tree-list app-nav-list app-nav-level-1</xsl:attribute>
+                </xsl:if>
+                <xsl:if test="@class[contains(.,'navTreeLevel2')]">
+                    <xsl:attribute name="class">app-nav-tree-list app-nav-list app-nav-level-2</xsl:attribute>
+                </xsl:if>
+                <xsl:apply-templates />
+            </xsl:copy>
         </replace>
 
         <!-- Portlets-->
