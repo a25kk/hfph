@@ -1,14 +1,13 @@
 # -*- coding: UTF-8 -*-
-
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from five import grok
-from hph.publications.publication import IPublication
+from operator import attrgetter
 from plone import api
-from plone.autoform import directives
 from plone.app.contentlisting.interfaces import IContentListing
 from plone.app.textfield import RichText
 from plone.app.z3cform.widget import RelatedItemsWidget
+from plone.autoform import directives
 from plone.dexterity.content import Container
 from plone.directives import form
 from plone.formwidget.contenttree import ObjPathSourceBinder
@@ -19,6 +18,8 @@ from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from zope import schema
 from zope.schema.vocabulary import getVocabularyRegistry
+
+from hph.publications.publication import IPublication
 
 from hph.faculty import MessageFactory as _
 
@@ -198,6 +199,12 @@ class Publications(grok.View):
 
     def publications(self):
         context = aq_inner(self.context)
+        publications = [self.get_publication_details(item)
+                        for item in self.associated_publications()]
+        sorted_publications = sorted(
+            publications,
+            key=attrgetter('publicationYear')
+        )
         catalog = api.portal.get_tool(name='portal_catalog')
         obj_provides = IPublication.__identifier__
         author_name = getattr(context, 'lastname')
