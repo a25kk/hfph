@@ -40,7 +40,7 @@
                     </div>
                     <div class="app-card-main">
                         <ul class="app-nav-list">
-                            <li class="app-nav-list-item app-nav-list-item-active">
+                            <li class="app-nav-list-item app-nav-list-item-active" tal:condition="context/associatedPublications">
                                 <a class="app-nav-list-link" tal:attributes="href string:${context/absolute_url}/@@publications"
                                     i18n:translate="">Publications</a>
                             </li>
@@ -67,10 +67,10 @@
                   <p>There are no publications available yet</p>
                 </div>
 
-                <tal:block tal:condition="view/has_publications">
+                <tal:block tal:condition="view/publications">
                   <div class="app-content-body">
-                      <tal:block tal:repeat="item_uid view/associated_publications">
-                          <div class="app-list-item" tal:define="item python:view.get_publication_details(item_uid);">
+                      <tal:block tal:repeat="item view/publications">
+                          <div class="app-list-item">
                               <div class="row">
                                   <div class="col-xs-12 col-sm-2 col-lg-2">
                                       <img tal:condition="item/image"

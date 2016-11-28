@@ -36,7 +36,7 @@
                     </div>
                     <div class="app-card-main">
                         <ul class="app-nav-list">
-                            <li class="app-nav-list-item">
+                            <li class="app-nav-list-item" tal:condition="context/associatedPublications">
                                 <a class="app-nav-list-link"
                                     tal:attributes="href string:${context/absolute_url}/@@publications"
                                     i18n:translate="">Publications</a>

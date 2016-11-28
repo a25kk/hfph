@@ -203,15 +203,7 @@ class Publications(grok.View):
                         for item in self.associated_publications()]
         sorted_publications = sorted(
             publications,
-            key=attrgetter('publicationYear')
+            key=attrgetter('publicationYear'),
+            reverse=True
         )
-        catalog = api.portal.get_tool(name='portal_catalog')
-        obj_provides = IPublication.__identifier__
-        author_name = getattr(context, 'lastname')
-        query = dict(object_provides=obj_provides,
-                     lastname=author_name,
-                     review_state='published',
-                     sort_on='publicationYear',
-                     sort_order='reverse')
-        results = catalog.searchResults(query)
-        return IContentListing(results)
+        return sorted_publications
