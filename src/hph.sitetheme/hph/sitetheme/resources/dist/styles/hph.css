@@ -5757,7 +5757,7 @@ html
 body
 {
     font-family: Trebuchet MS, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    font-size: 1rem;
+    font-size: 14px;
     font-weight: normal;
     line-height: 1.5;
 
@@ -8563,7 +8563,7 @@ input[type='color'],
 .app-searchbox-field,
 .app-searchbox-control
 {
-    font-size: 1rem;
+    font-size: 14px;
     line-height: 1.25;
 
     display: block;
@@ -8827,7 +8827,7 @@ select:focus::-ms-value
 
 .col-form-legend
 {
-    font-size: 1rem; 
+    font-size: 14px; 
 
     margin-bottom: 0;
     padding-top: .5rem;
@@ -9389,7 +9389,7 @@ input[type='color'],
 .app-btn,
 .app-searchbox-btn
 {
-    font-size: 1rem; 
+    font-size: 14px; 
     font-weight: normal;
     line-height: 1.25;
 
@@ -9981,7 +9981,7 @@ input[type='button'].btn-block
 
 .dropdown-menu
 {
-    font-size: 1rem;
+    font-size: 14px;
 
     position: absolute;
     z-index: 1000;
@@ -10617,7 +10617,7 @@ input[type='color'],
 
 .input-group-addon
 {
-    font-size: 1rem;
+    font-size: 14px;
     font-weight: normal;
     line-height: 1.25;
 
@@ -18049,6 +18049,11 @@ select[multiple]
     color: #636c72;
 }
 
+[id='form-widgets-groups'] .option
+{
+    display: block;
+}
+
 .app-field-required
 {
     position: relative;
@@ -18824,7 +18829,7 @@ select[multiple]
 
 .ppe-col-info
 {
-    font-size: 1rem;
+    font-size: 14px;
 
     padding-top: 1rem;
 
@@ -20875,19 +20880,19 @@ app-fonts-loaded .app-page-abstract
 
 .pp-icon
 {
-    font-size: 1rem;
+    font-size: 14px;
 }
 .pp-icon.pp-icon-md
 {
-    font-size: 2rem;
+    font-size: 28px;
 }
 .pp-icon.pp-icon-mlg
 {
-    font-size: 3rem;
+    font-size: 42px;
 }
 .pp-icon.pp-icon-lg
 {
-    font-size: 4rem;
+    font-size: 56px;
 }
 
 .app-main-content
