@@ -89,7 +89,7 @@
       &:hover,
       &:focus {
         text-decoration: none;
-        background-color: $nav-link-hover-bg;
+        background-color: $nav-tabs-active-link-hover-bg;
       }
       &.active {
         border-right: 1px solid $gray;
