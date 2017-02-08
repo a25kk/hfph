@@ -18539,7 +18539,7 @@ select[multiple]
 
 .app-callout-default
 {
-    color: #3c763d; 
+    color: #464a4c; 
     border-color: #636c72;
     background-color: #eceeef;
 }
@@ -18549,7 +18549,7 @@ select[multiple]
 }
 .app-callout-default .alert-link
 {
-    color: #2b542c;
+    color: #2e3031;
 }
 
 .app-callout-success
@@ -19684,7 +19684,7 @@ img[data-sizes='auto']
 
 .app-callout-default
 {
-    color: #3c763d; 
+    color: #464a4c; 
     border-color: #636c72;
     background-color: #eceeef;
 }
@@ -19694,7 +19694,7 @@ img[data-sizes='auto']
 }
 .app-callout-default .alert-link
 {
-    color: #2b542c;
+    color: #2e3031;
 }
 
 .app-callout-success

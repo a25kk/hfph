@@ -125,7 +125,8 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
             if 'groups' in criteria:
                 group_results = list()
                 for group in criteria['groups']:
-                    group_results.append(api.user.get_users(groupname=group))
+                    for record in api.user.get_users(groupname=group):
+                        group_results.append(record)
                 if results:
                     # Interpolate potential user results
                     import pdb; pdb.set_trace()
@@ -136,18 +137,18 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
 
     def member_record_details(self, user_data):
         data = {}
-        user = api.user.get(username=user_data['id'])
-        userid = user_data['id']
+        user = api.user.get(username=user_data.getId())
+        user_id = user_data.getId()
         email = user.getProperty('email')
-        groups = api.group.get_groups(username=userid)
+        groups = api.group.get_groups(username=user_id)
         user_groups = list()
         for group in groups:
             gid = group.getId()
             if gid != 'AuthenticatedUsers':
                 user_groups.append(gid)
-        data['userid'] = userid
+        data['user_id'] = user_id
         data['email'] = email
-        data['name'] = user.getProperty('fullname', userid)
+        data['name'] = user.getProperty('fullname', user_id)
         data['enabled'] = user.getProperty('enabled')
         data['confirmed'] = user.getProperty('confirmed')
         data['groups'] = user_groups
@@ -156,7 +157,7 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
 
     def has_workspace(self, user):
         context = aq_inner(self.context)
-        if user['userid'] in context.keys():
+        if user['user_id'] in context.keys():
             return True
         return False
 
