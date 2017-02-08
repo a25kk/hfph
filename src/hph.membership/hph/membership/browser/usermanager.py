@@ -106,6 +106,66 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
 
     submitted = False
 
+    def has_workspace(self, user_id):
+        context = aq_inner(self.context)
+        if user_id in context.keys():
+            return True
+        return False
+
+    def _get_user_details(self, user_id, user):
+        context = aq_inner(self.context)
+        has_workspace = False
+        if self.has_workspace(user_id):
+            has_workspace = True
+        groups = api.group.get_groups(username=user_id)
+        user_groups = list()
+        for group in groups:
+            gid = group.getId()
+            if gid != 'AuthenticatedUsers':
+                user_groups.append(gid)
+        user_info = {
+            'email': user.getProperty('email'),
+            'user_id': user_id,
+            'name': user.getProperty('fullname', user.getId()),
+            'enabled': user.getProperty('enabled'),
+            'confirmed': user.getProperty('confirmed'),
+            'has_workspace': has_workspace,
+            'workspace': user.getProperty('workspace'),
+            'workspace_url': '{}/{}'.format(
+                context.absolute_url(),
+                user.getProperty('workspace')
+            ),
+            'groups': user_groups
+        }
+        return user_info
+
+    def _clean_user_data(self, user_data):
+        records = list()
+        for user in user_data:
+            try:
+                user_id = user.getId()
+            except AttributeError:
+                user_id = user['userid']
+            user_object = api.user.get(username=user_id)
+            user_details = self._get_user_details(user_id, user_object)
+            records.append(user_details)
+        return records
+
+    @staticmethod
+    def merge_search_results(cleaned, original):
+        output = {}
+        for entry in cleaned:
+            key = entry['user_id']
+            if key not in output:
+                if any(d['userid'] == key for d in original):
+                    # does already exist
+                    output[key] = entry.copy()
+            else:
+                buf = entry.copy()
+                buf.update(output[key])
+                output[key] = buf
+        return output.values()
+
     @button.buttonAndHandler(_(u'label_search', default=u'Search'),
                              name='search')
     def handleApply(self, action):
@@ -118,27 +178,32 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
 
         if request.get('form.buttons.search', None):
             self.submitted = True
-
             view = self.context.restrictedTraverse('@@pas_search')
             criteria = extractCriteriaFromRequest(self.request.form.copy())
-            results = view.searchUsers(sort_by=u'fullname', **criteria)
+            results_user = view.searchUsers(sort_by=u'fullname', **criteria)
+            # Keep original search result for later merge reference
+            # by using a copy for further processing
+            results = results_user[:]
             if 'groups' in criteria:
-                group_results = list()
                 for group in criteria['groups']:
                     for record in api.user.get_users(groupname=group):
-                        group_results.append(record)
-                if results:
-                    # Interpolate potential user results
-                    import pdb; pdb.set_trace()
-                    pass
-                else:
-                    results = group_results
-            self.results = results
+                        results.append(record)
+            cleaned_results = self._clean_user_data(results)
+            # Remove potential duplicates using the pas merge method
+            search_results = view.merge(cleaned_results, 'user_id')
+            user_records = self.merge_search_results(
+                search_results,
+                results_user)
+            self.results = user_records
 
     def member_record_details(self, user_data):
         data = {}
+        try:
+            user_id = user_data.getId()
+        except AttributeError:
+            import pdb; pdb.set_trace()
+            pass
         user = api.user.get(username=user_data.getId())
-        user_id = user_data.getId()
         email = user.getProperty('email')
         groups = api.group.get_groups(username=user_id)
         user_groups = list()
@@ -154,12 +219,6 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
         data['groups'] = user_groups
         data['workspace'] = user.getProperty('workspace')
         return data
-
-    def has_workspace(self, user):
-        context = aq_inner(self.context)
-        if user['user_id'] in context.keys():
-            return True
-        return False
 
 
 class UserManager(BrowserView):

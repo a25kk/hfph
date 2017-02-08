@@ -85,19 +85,16 @@
                                         <tbody>
                                         <tal:user tal:repeat="user_record batch">
                                             <tr class="app-contentlisting"
-                                                     tal:define="user_id user_record;
-                                                                 item python:view.member_record_details(user_id)">
-                                                <td class="app-list-item app-td-first"
-                                                         tal:define="user_id item;
-                                                                     has_ws python:view.has_workspace(user_id)">
-                                                    <a tal:condition="has_ws"
-                                                             tal:attributes="href string:${context/absolute_url}/${item/workspace}">
+                                                     tal:define="item user_record">
+                                                <td class="app-list-item app-td-first">
+                                                    <a tal:condition="item/has_workspace"
+                                                            href="${item/workspace_url}">
                                                         <strong tal:content="item/name" />
                                                     </a>
-                                                    <strong tal:condition="not:has_ws" tal:content="item/name" /><br>
+                                                    <strong tal:condition="not:item/has_workspace" tal:content="item/name" /><br>
                                                     <small tal:content="item/email" />
                                                 </td>
-                                                <td>
+                                                <td tal:condition="exists:item/groups">
                                                     <tal:items tal:repeat="group item/groups">
                                                         <small tal:content="group" /><tal:separator condition="not: repeat/group/end">,</tal:separator>
                                                     </tal:items>
@@ -123,7 +120,7 @@
                                                 </td>
                                             </tr>
                                         </tal:user>
-                                        
+
                                         </tbody>
                                     </table>
                                     <tal:batchnavigation
