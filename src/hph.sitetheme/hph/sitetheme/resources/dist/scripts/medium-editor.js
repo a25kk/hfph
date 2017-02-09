@@ -385,7 +385,7 @@ if (!("classList" in document.createElement("_"))) {
 
 (function (root, factory) {
     'use strict';
-    var isElectron = typeof module === 'object' && process && process.versions && process.versions.electron;
+    var isElectron = typeof module === 'object' && typeof process !== 'undefined' && process && process.versions && process.versions.electron;
     if (!isElectron && typeof module === 'object') {
         module.exports = factory;
     } else if (typeof define === 'function' && define.amd) {
@@ -629,11 +629,10 @@ MediumEditor.extensions = {};
         splitEndNodeIfNeeded: function (currentNode, newNode, matchEndIndex, currentTextIndex) {
             var textIndexOfEndOfFarthestNode,
                 endSplitPoint;
-            textIndexOfEndOfFarthestNode = currentTextIndex + (newNode || currentNode).nodeValue.length +
-                    (newNode ? currentNode.nodeValue.length : 0) -
-                    1;
-            endSplitPoint = (newNode || currentNode).nodeValue.length -
-                    (textIndexOfEndOfFarthestNode + 1 - matchEndIndex);
+            textIndexOfEndOfFarthestNode = currentTextIndex + currentNode.nodeValue.length +
+                    (newNode ? newNode.nodeValue.length : 0) - 1;
+            endSplitPoint = matchEndIndex - currentTextIndex -
+                    (newNode ? currentNode.nodeValue.length : 0);
             if (textIndexOfEndOfFarthestNode >= matchEndIndex &&
                     currentTextIndex !== textIndexOfEndOfFarthestNode &&
                     endSplitPoint !== 0) {
@@ -1430,11 +1429,15 @@ MediumEditor.extensions = {};
         },
 
         cleanupTags: function (el, tags) {
-            tags.forEach(function (tag) {
-                if (el.nodeName.toLowerCase() === tag) {
-                    el.parentNode.removeChild(el);
-                }
-            });
+            if (tags.indexOf(el.nodeName.toLowerCase()) !== -1) {
+                el.parentNode.removeChild(el);
+            }
+        },
+
+        unwrapTags: function (el, tags) {
+            if (tags.indexOf(el.nodeName.toLowerCase()) !== -1) {
+                MediumEditor.util.unwrap(el, document);
+            }
         },
 
         // get the closest parent
@@ -2465,7 +2468,10 @@ MediumEditor.extensions = {};
         // Helpers for event handling
 
         attachDOMEvent: function (targets, event, listener, useCapture) {
-            targets = MediumEditor.util.isElement(targets) || [window, document].indexOf(targets) > -1 ? [targets] : targets;
+            var win = this.base.options.contentWindow,
+                doc = this.base.options.ownerDocument;
+
+            targets = MediumEditor.util.isElement(targets) || [win, doc].indexOf(targets) > -1 ? [targets] : targets;
 
             Array.prototype.forEach.call(targets, function (target) {
                 target.addEventListener(event, listener, useCapture);
@@ -2474,16 +2480,21 @@ MediumEditor.extensions = {};
         },
 
         detachDOMEvent: function (targets, event, listener, useCapture) {
-            var index, e;
-            targets = MediumEditor.util.isElement(targets) || [window, document].indexOf(targets) > -1 ? [targets] : targets;
+            var index, e,
+                win = this.base.options.contentWindow,
+                doc = this.base.options.ownerDocument;
 
-            Array.prototype.forEach.call(targets, function (target) {
-                index = this.indexOfListener(target, event, listener, useCapture);
-                if (index !== -1) {
-                    e = this.events.splice(index, 1)[0];
-                    e[0].removeEventListener(e[1], e[2], e[3]);
-                }
-            }.bind(this));
+            if (targets !== null) {
+                targets = MediumEditor.util.isElement(targets) || [win, doc].indexOf(targets) > -1 ? [targets] : targets;
+
+                Array.prototype.forEach.call(targets, function (target) {
+                    index = this.indexOfListener(target, event, listener, useCapture);
+                    if (index !== -1) {
+                        e = this.events.splice(index, 1)[0];
+                        e[0].removeEventListener(e[1], e[2], e[3]);
+                    }
+                }.bind(this));
+            }
         },
 
         indexOfListener: function (target, event, listener, useCapture) {
@@ -2643,23 +2654,23 @@ MediumEditor.extensions = {};
 
             // Helper method to call all listeners to execCommand
             var callListeners = function (args, result) {
-                    if (doc.execCommand.listeners) {
-                        doc.execCommand.listeners.forEach(function (listener) {
-                            listener({
-                                command: args[0],
-                                value: args[2],
-                                args: args,
-                                result: result
-                            });
+                if (doc.execCommand.listeners) {
+                    doc.execCommand.listeners.forEach(function (listener) {
+                        listener({
+                            command: args[0],
+                            value: args[2],
+                            args: args,
+                            result: result
                         });
-                    }
-                },
+                    });
+                }
+            },
 
-            // Create a wrapper method for execCommand which will:
-            // 1) Call document.execCommand with the correct arguments
-            // 2) Loop through any listeners and notify them that execCommand was called
-            //    passing extra info on the call
-            // 3) Return the result
+                // Create a wrapper method for execCommand which will:
+                // 1) Call document.execCommand with the correct arguments
+                // 2) Loop through any listeners and notify them that execCommand was called
+                //    passing extra info on the call
+                // 3) Return the result
                 wrapper = function () {
                     var result = doc.execCommand.orig.apply(this, arguments);
 
@@ -2834,10 +2845,10 @@ MediumEditor.extensions = {};
             // For clicks, we need to know if the mousedown that caused the click happened inside the existing focused element
             // or one of the extension elements.  If so, we don't want to focus another element
             if (hadFocus &&
-                    eventObj.type === 'click' &&
-                    this.lastMousedownTarget &&
-                    (MediumEditor.util.isDescendant(hadFocus, this.lastMousedownTarget, true) ||
-                     isElementDescendantOfExtension(this.base.extensions, this.lastMousedownTarget))) {
+                eventObj.type === 'click' &&
+                this.lastMousedownTarget &&
+                (MediumEditor.util.isDescendant(hadFocus, this.lastMousedownTarget, true) ||
+                    isElementDescendantOfExtension(this.base.extensions, this.lastMousedownTarget))) {
                 toFocus = hadFocus;
             }
 
@@ -2855,7 +2866,7 @@ MediumEditor.extensions = {};
 
             // Check if the target is external (not part of the editor, toolbar, or any other extension)
             var externalEvent = !MediumEditor.util.isDescendant(hadFocus, target, true) &&
-                                !isElementDescendantOfExtension(this.base.extensions, target);
+                !isElementDescendantOfExtension(this.base.extensions, target);
 
             if (toFocus !== hadFocus) {
                 // If element has focus, and focus is going outside of editor
@@ -3854,18 +3865,47 @@ MediumEditor.extensions = {};
             this.base.checkSelection();
         },
 
+        ensureEncodedUri: function (str) {
+            return str === decodeURI(str) ? encodeURI(str) : str;
+        },
+
+        ensureEncodedUriComponent: function (str) {
+            return str === decodeURIComponent(str) ? encodeURIComponent(str) : str;
+        },
+
+        ensureEncodedParam: function (param) {
+            var split = param.split('='),
+                key = split[0],
+                val = split[1];
+
+            return key + (val === undefined ? '' : '=' + this.ensureEncodedUriComponent(val));
+        },
+
+        ensureEncodedQuery: function (queryString) {
+            return queryString.split('&').map(this.ensureEncodedParam.bind(this)).join('&');
+        },
+
         checkLinkFormat: function (value) {
             // Matches any alphabetical characters followed by ://
             // Matches protocol relative "//"
             // Matches common external protocols "mailto:" "tel:" "maps:"
-            var urlSchemeRegex = /^([a-z]+:)?\/\/|^(mailto|tel|maps):/i,
-            // var te is a regex for checking if the string is a telephone number
-            telRegex = /^\+?\s?\(?(?:\d\s?\-?\)?){3,20}$/;
+            // Matches relative hash link, begins with "#"
+            var urlSchemeRegex = /^([a-z]+:)?\/\/|^(mailto|tel|maps):|^\#/i,
+                // telRegex is a regex for checking if the string is a telephone number
+                telRegex = /^\+?\s?\(?(?:\d\s?\-?\)?){3,20}$/,
+                split = value.split('?'),
+                path = split[0],
+                query = split[1];
+
             if (telRegex.test(value)) {
                 return 'tel:' + value;
             } else {
                 // Check for URL scheme and default to http:// if none found
-                return (urlSchemeRegex.test(value) ? '' : 'http://') + encodeURI(value);
+                return (urlSchemeRegex.test(value) ? '' : 'http://') +
+                    // Ensure path is encoded
+                    this.ensureEncodedUri(path) +
+                    // Ensure query is encoded
+                    (query === undefined ? '' : '?' + this.ensureEncodedQuery(query));
             }
         },
 
@@ -4028,7 +4068,9 @@ MediumEditor.extensions = {};
         },
 
         hidePreview: function () {
-            this.anchorPreview.classList.remove('medium-editor-anchor-preview-active');
+            if (this.anchorPreview) {
+                this.anchorPreview.classList.remove('medium-editor-anchor-preview-active');
+            }
             this.activeAnchor = null;
         },
 
@@ -4060,13 +4102,15 @@ MediumEditor.extensions = {};
 
         positionPreview: function (activeAnchor) {
             activeAnchor = activeAnchor || this.activeAnchor;
-            var buttonHeight = this.anchorPreview.offsetHeight,
+            var containerWidth = this.window.innerWidth,
+                buttonHeight = this.anchorPreview.offsetHeight,
                 boundary = activeAnchor.getBoundingClientRect(),
-                middleBoundary = (boundary.left + boundary.right) / 2,
                 diffLeft = this.diffLeft,
                 diffTop = this.diffTop,
-                halfOffsetWidth,
-                defaultLeft;
+                elementsContainer = this.getEditorOption('elementsContainer'),
+                elementsContainerAbsolute = ['absolute', 'fixed'].indexOf(window.getComputedStyle(elementsContainer).getPropertyValue('position')) > -1,
+                relativeBoundary = {},
+                halfOffsetWidth, defaultLeft, middleBoundary, elementsContainerBoundary, top;
 
             halfOffsetWidth = this.anchorPreview.offsetWidth / 2;
             var toolbarExtension = this.base.getExtensionByName('toolbar');
@@ -4076,12 +4120,35 @@ MediumEditor.extensions = {};
             }
             defaultLeft = diffLeft - halfOffsetWidth;
 
-            this.anchorPreview.style.top = Math.round(buttonHeight + boundary.bottom - diffTop + this.window.pageYOffset - this.anchorPreview.offsetHeight) + 'px';
+            // If container element is absolute / fixed, recalculate boundaries to be relative to the container
+            if (elementsContainerAbsolute) {
+                elementsContainerBoundary = elementsContainer.getBoundingClientRect();
+                ['top', 'left'].forEach(function (key) {
+                    relativeBoundary[key] = boundary[key] - elementsContainerBoundary[key];
+                });
+
+                relativeBoundary.width = boundary.width;
+                relativeBoundary.height = boundary.height;
+                boundary = relativeBoundary;
+
+                containerWidth = elementsContainerBoundary.width;
+
+                // Adjust top position according to container scroll position
+                top = elementsContainer.scrollTop;
+            } else {
+                // Adjust top position according to window scroll position
+                top = this.window.pageYOffset;
+            }
+
+            middleBoundary = boundary.left + boundary.width / 2;
+            top += buttonHeight + boundary.top + boundary.height - diffTop - this.anchorPreview.offsetHeight;
+
+            this.anchorPreview.style.top = Math.round(top) + 'px';
             this.anchorPreview.style.right = 'initial';
             if (middleBoundary < halfOffsetWidth) {
                 this.anchorPreview.style.left = defaultLeft + halfOffsetWidth + 'px';
                 this.anchorPreview.style.right = 'initial';
-            } else if ((this.window.innerWidth - middleBoundary) < halfOffsetWidth) {
+            } else if ((containerWidth - middleBoundary) < halfOffsetWidth) {
                 this.anchorPreview.style.left = 'auto';
                 this.anchorPreview.style.right = 0;
             } else {
@@ -4241,7 +4308,8 @@ MediumEditor.extensions = {};
     var WHITESPACE_CHARS,
         KNOWN_TLDS_FRAGMENT,
         LINK_REGEXP_TEXT,
-        KNOWN_TLDS_REGEXP;
+        KNOWN_TLDS_REGEXP,
+        LINK_REGEXP;
 
     WHITESPACE_CHARS = [' ', '\t', '\n', '\r', '\u00A0', '\u2000', '\u2001', '\u2002', '\u2003',
                                     '\u2028', '\u2029'];
@@ -4262,6 +4330,8 @@ MediumEditor.extensions = {};
         ')|(([a-z0-9\\-]+\\.)?[a-z0-9\\-]+\\.(' + KNOWN_TLDS_FRAGMENT + '))';
 
     KNOWN_TLDS_REGEXP = new RegExp('^(' + KNOWN_TLDS_FRAGMENT + ')$', 'i');
+
+    LINK_REGEXP = new RegExp(LINK_REGEXP_TEXT, 'gi');
 
     function nodeIsNotInsideAnchorTag(node) {
         return !MediumEditor.util.getClosestTag(node, 'a');
@@ -4444,12 +4514,11 @@ MediumEditor.extensions = {};
         },
 
         findLinkableText: function (contenteditable) {
-            var linkRegExp = new RegExp(LINK_REGEXP_TEXT, 'gi'),
-                textContent = contenteditable.textContent,
+            var textContent = contenteditable.textContent,
                 match = null,
                 matches = [];
 
-            while ((match = linkRegExp.exec(textContent)) !== null) {
+            while ((match = LINK_REGEXP.exec(textContent)) !== null) {
                 var matchOk = true,
                     matchEnd = match.index + match[0].length;
                 // If the regexp detected something as a link that has text immediately preceding/following it, bail out.
@@ -5068,13 +5137,13 @@ MediumEditor.extensions = {};
             [new RegExp(/<br class="Apple-interchange-newline">/g), '<br>'],
 
             // replace google docs italics+bold with a span to be replaced once the html is inserted
-            [new RegExp(/<span[^>]*(font-style:italic;font-weight:bold|font-weight:bold;font-style:italic)[^>]*>/gi), '<span class="replace-with italic bold">'],
+            [new RegExp(/<span[^>]*(font-style:italic;font-weight:(bold|700)|font-weight:(bold|700);font-style:italic)[^>]*>/gi), '<span class="replace-with italic bold">'],
 
             // replace google docs italics with a span to be replaced once the html is inserted
             [new RegExp(/<span[^>]*font-style:italic[^>]*>/gi), '<span class="replace-with italic">'],
 
             //[replace google docs bolds with a span to be replaced once the html is inserted
-            [new RegExp(/<span[^>]*font-weight:bold[^>]*>/gi), '<span class="replace-with bold">'],
+            [new RegExp(/<span[^>]*font-weight:(bold|700)[^>]*>/gi), '<span class="replace-with bold">'],
 
              // replace manually entered b/i/a tags with real ones
             [new RegExp(/&lt;(\/?)(i|b|a)&gt;/gi), '<$1$2>'],
@@ -5169,6 +5238,13 @@ MediumEditor.extensions = {};
          * calling `cleanPaste(text)` or `pasteHTML(html, options)` helper methods.
          */
         cleanTags: ['meta'],
+
+        /* unwrapTags: [Array]
+         * list of element tag names to unwrap (remove the element tag but retain its child elements)
+         * during paste when __cleanPastedHTML__ is `true` or when
+         * calling `cleanPaste(text)` or `pasteHTML(html, options)` helper methods.
+         */
+        unwrapTags: [],
 
         init: function () {
             MediumEditor.Extension.prototype.init.apply(this, arguments);
@@ -5453,7 +5529,8 @@ MediumEditor.extensions = {};
         pasteHTML: function (html, options) {
             options = MediumEditor.util.defaults({}, options, {
                 cleanAttrs: this.cleanAttrs,
-                cleanTags: this.cleanTags
+                cleanTags: this.cleanTags,
+                unwrapTags: this.unwrapTags
             });
 
             var elList, workEl, i, fragmentBody, pasteBlock = this.document.createDocumentFragment();
@@ -5475,6 +5552,7 @@ MediumEditor.extensions = {};
 
                 MediumEditor.util.cleanupAttrs(workEl, options.cleanAttrs);
                 MediumEditor.util.cleanupTags(workEl, options.cleanTags);
+                MediumEditor.util.unwrapTags(workEl, options.unwrapTags);
             }
 
             MediumEditor.util.insertHTMLCommand(this.document, fragmentBody.innerHTML.replace(/&nbsp;/g, ' '));
@@ -6306,35 +6384,66 @@ MediumEditor.extensions = {};
                 }
             }
 
-            var windowWidth = this.window.innerWidth,
-                middleBoundary = (boundary.left + boundary.right) / 2,
+            var containerWidth = this.window.innerWidth,
                 toolbarElement = this.getToolbarElement(),
                 toolbarHeight = toolbarElement.offsetHeight,
                 toolbarWidth = toolbarElement.offsetWidth,
                 halfOffsetWidth = toolbarWidth / 2,
                 buttonHeight = 50,
-                defaultLeft = this.diffLeft - halfOffsetWidth;
+                defaultLeft = this.diffLeft - halfOffsetWidth,
+                elementsContainer = this.getEditorOption('elementsContainer'),
+                elementsContainerAbsolute = ['absolute', 'fixed'].indexOf(window.getComputedStyle(elementsContainer).getPropertyValue('position')) > -1,
+                positions = {},
+                relativeBoundary = {},
+                middleBoundary, elementsContainerBoundary;
+
+            // If container element is absolute / fixed, recalculate boundaries to be relative to the container
+            if (elementsContainerAbsolute) {
+                elementsContainerBoundary = elementsContainer.getBoundingClientRect();
+                ['top', 'left'].forEach(function (key) {
+                    relativeBoundary[key] = boundary[key] - elementsContainerBoundary[key];
+                });
+
+                relativeBoundary.width = boundary.width;
+                relativeBoundary.height = boundary.height;
+                boundary = relativeBoundary;
+
+                containerWidth = elementsContainerBoundary.width;
+
+                // Adjust top position according to container scroll position
+                positions.top = elementsContainer.scrollTop;
+            } else {
+                // Adjust top position according to window scroll position
+                positions.top = this.window.pageYOffset;
+            }
+
+            middleBoundary = boundary.left + boundary.width / 2;
+            positions.top += boundary.top - toolbarHeight;
 
             if (boundary.top < buttonHeight) {
                 toolbarElement.classList.add('medium-toolbar-arrow-over');
                 toolbarElement.classList.remove('medium-toolbar-arrow-under');
-                toolbarElement.style.top = buttonHeight + boundary.bottom - this.diffTop + this.window.pageYOffset - toolbarHeight + 'px';
+                positions.top += buttonHeight + boundary.height - this.diffTop;
             } else {
                 toolbarElement.classList.add('medium-toolbar-arrow-under');
                 toolbarElement.classList.remove('medium-toolbar-arrow-over');
-                toolbarElement.style.top = boundary.top + this.diffTop + this.window.pageYOffset - toolbarHeight + 'px';
+                positions.top += this.diffTop;
             }
 
             if (middleBoundary < halfOffsetWidth) {
-                toolbarElement.style.left = defaultLeft + halfOffsetWidth + 'px';
-                toolbarElement.style.right = 'initial';
-            } else if ((windowWidth - middleBoundary) < halfOffsetWidth) {
-                toolbarElement.style.left = 'auto';
-                toolbarElement.style.right = 0;
+                positions.left = defaultLeft + halfOffsetWidth;
+                positions.right = 'initial';
+            } else if ((containerWidth - middleBoundary) < halfOffsetWidth) {
+                positions.left = 'auto';
+                positions.right = 0;
             } else {
-                toolbarElement.style.left = defaultLeft + middleBoundary + 'px';
-                toolbarElement.style.right = 'initial';
+                positions.left = defaultLeft + middleBoundary;
+                positions.right = 'initial';
             }
+
+            ['top', 'left', 'right'].forEach(function (key) {
+                toolbarElement.style[key] = positions[key] + (isNaN(positions[key]) ? '' : 'px');
+            });
         }
     });
 
@@ -6541,6 +6650,31 @@ MediumEditor.extensions = {};
             // then pressing backspace key should change the <blockquote> to a <p> tag
             event.preventDefault();
             MediumEditor.util.execFormatBlock(this.options.ownerDocument, 'p');
+        } else if (MediumEditor.util.isKey(event, MediumEditor.util.keyCode.ENTER) &&
+                (MediumEditor.util.getClosestTag(node, 'blockquote') !== false) &&
+                MediumEditor.selection.getCaretOffsets(node).right === 0) {
+
+            // when cursor is at the end of <blockquote>,
+            // then pressing enter key should create <p> tag, not <blockquote>
+            p = this.options.ownerDocument.createElement('p');
+            p.innerHTML = '<br>';
+            node.parentElement.insertBefore(p, node.nextSibling);
+
+            // move the cursor into the new paragraph
+            MediumEditor.selection.moveCursor(this.options.ownerDocument, p);
+
+            event.preventDefault();
+        } else if (MediumEditor.util.isKey(event, MediumEditor.util.keyCode.BACKSPACE) &&
+                MediumEditor.util.isMediumEditorElement(node.parentElement) &&
+                !node.previousElementSibling &&
+                node.nextElementSibling &&
+                isEmpty.test(node.innerHTML)) {
+
+            // when cursor is in the first element, it's empty and user presses backspace,
+            // do delete action instead to get rid of the first element and move caret to 2nd
+            event.preventDefault();
+            MediumEditor.selection.moveCursor(this.options.ownerDocument, node.nextSibling);
+            node.parentElement.removeChild(node);
         }
     }
 
@@ -7697,7 +7831,7 @@ MediumEditor.parseVersionString = function (release) {
 
 MediumEditor.version = MediumEditor.parseVersionString.call(this, ({
     // grunt-bump looks for this:
-    'version': '5.21.0'
+    'version': '5.22.2'
 }).version);
 
     return MediumEditor;

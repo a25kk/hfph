@@ -224,11 +224,16 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
 class UserManager(BrowserView):
     """ Manage portal members """
 
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
     def render(self):
         return self.index()
 
     def __call__(self):
         self.results = None
+        self.submitted = False
         self.errors = dict()
         return self.render()
 
