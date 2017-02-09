@@ -64,6 +64,10 @@ select[multiple] {
     color: $gray-light;
 }
 
+[id="form-widgets-groups"] .option {
+    display: block;
+}
+
 //== Required field
 //
 //## Mark fields as required

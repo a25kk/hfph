@@ -81,7 +81,7 @@
 }
 
 .app-navbar-header-toggle {
-    @include pull-right;
+    float: right;
     margin-top: -3rem;
 }
 

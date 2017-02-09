@@ -1,0 +1,143 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <div class="tile-content">
+
+            <section id="content-core">
+                <div class="app-page-header">
+                    <div class="btn-group pull-right">
+                        <a class="app-btn app-btn-primary pull-right"
+                                 tal:attributes="href string:${context/absolute_url}/@@add-new-user">
+                            <i class="fa fa-plus-square-o"></i>
+                            Add user
+                        </a>
+                        <div class="btn-group">
+                            <button type="button" class="app-btn app-btn-danger dropdown-toggle" data-toggle="dropdown">
+                                More
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li class="dropdown-item"><a tal:attributes="href string:${context/absolute_url}/@@update-member-records">
+                                    Load external user data</a>
+                                </li>
+                                <li class="dropdown-item"><a tal:attributes="href string:${context/absolute_url}/@@create-member-records">
+                                    Create user accounts from stored data</a></li>
+                                <li class="dropdown-item"><a tal:attributes="href string:${context/absolute_url}/@@send-reset-invitations">
+                                    Send invitation email to unconfirmed accounts
+                                </a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h1 class="app-page-headline" i18n:translate="">User Manager</h1>
+                    <p class="app-page-abstract">
+                        Sie sind angemeldet als Administrator und haben die Möglichkeit nach
+                        Benutzern zu suchen.
+                    </p>
+                </div>
+
+                <div class="app-page-header" tal:condition="not: view/submitted">
+                    <h1 class="app-page-headline"
+                             tal:content="view/label | nothing" />
+                    <metal:block use-macro="context/@@ploneform-macros/titlelessform" />
+                </div>
+                <hr>
+                <tal:results tal:condition="view/submitted">
+                    <div class="app-page-body app-listing-members"
+                        tal:define="listing_allowed python: checkPermission('List portal members', here);
+                                    results python:listing_allowed and view.results;
+                                    Batch python:modules['Products.CMFPlone'].Batch;
+                                    DateTime python:modules['DateTime'].DateTime;
+                                    b_size python:12;b_start python:0;b_start request/b_start | b_start;">
+
+                        <div class="app-callout app-callout-default" tal:condition="not: listing_allowed"
+                                 i18n:translate="member_listing_not_allowed">
+                            You are not allowed to list portal members.
+                        </div>
+                        <div class="app-callout app-callout-default">
+                            <div class="pull-right"><a class="app-btn app-btn-default" href="${context/absolute_url}/@@user-management">Neue Suche</a></div>
+                            <strong i18n:translate="batch_x_items_matching_your_criteria">
+                                <span i18n:name="number" tal:omit-tag="" tal:content="python:len(results)">234</span> Benutzer wurden gefunden.
+                            </strong>
+                        </div>
+                        <tal:block condition="python: results and listing_allowed">
+                            <div tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1)">
+                                <div class="app-listing-table" tal:define="search_results batch;">
+                                    <table class="table table-sm table-striped table-hover app-table-usermanager" id="table-usermanager">
+                                        <thead class="thead-inverse">
+                                        <tr>
+                                            <th scope="row">Userrecord</th>
+                                            <th>Groups</th>
+                                            <th>Enabled</th>
+                                            <th>Confirmed</th>
+                                            <th>More</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tal:user tal:repeat="user_record batch">
+                                            <tr class="app-contentlisting"
+                                                     tal:define="item user_record">
+                                                <td class="app-list-item app-td-first">
+                                                    <a tal:condition="item/has_workspace"
+                                                            href="${item/workspace_url}">
+                                                        <strong tal:content="item/name" />
+                                                    </a>
+                                                    <strong tal:condition="not:item/has_workspace" tal:content="item/name" /><br>
+                                                    <small tal:content="item/email" />
+                                                </td>
+                                                <td tal:condition="exists:item/groups">
+                                                    <tal:items tal:repeat="group item/groups">
+                                                        <small tal:content="group" /><tal:separator condition="not: repeat/group/end">,</tal:separator>
+                                                    </tal:items>
+                                                </td>
+                                                <td><span tal:content="item/enabled" i18n:translate="">Yes/No</span>
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <button type="button" class="app-btn app-btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <span tal:content="item/confirmed" i18n:translate="">Yes/No</span>
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${item/user_id}">Sent confirmation link</a>
+                                                            <a class="dropdown-item" href="#">Change as administrator</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <a tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${item/user_id}">
+                                                        Send invitation
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tal:user>
+
+                                        </tbody>
+                                    </table>
+                                    <tal:batchnavigation
+                                            define="batchnavigation nocall:context/@@batchnavigation"
+                                            replace="structure python:batchnavigation(batch)" />
+                                </div>
+                            </div>
+                        </tal:block>
+                    </div>
+                </tal:results>
+            </section>
+        </div>
+
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+
