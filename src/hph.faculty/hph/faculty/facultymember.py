@@ -1,14 +1,13 @@
 # -*- coding: UTF-8 -*-
-
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from five import grok
-from hph.publications.publication import IPublication
+from operator import attrgetter
 from plone import api
-from plone.autoform import directives
 from plone.app.contentlisting.interfaces import IContentListing
 from plone.app.textfield import RichText
 from plone.app.z3cform.widget import RelatedItemsWidget
+from plone.autoform import directives
 from plone.dexterity.content import Container
 from plone.directives import form
 from plone.formwidget.contenttree import ObjPathSourceBinder
@@ -19,6 +18,8 @@ from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from zope import schema
 from zope.schema.vocabulary import getVocabularyRegistry
+
+from hph.publications.publication import IPublication
 
 from hph.faculty import MessageFactory as _
 
@@ -182,20 +183,27 @@ class Publications(grok.View):
     def computed_klass(self, value):
         context = aq_inner(self.context)
         active_filter = getattr(context, 'academicRole', None)
-        klass = 'nav-item-plain'
+        klass = 'app-nav-list-item'
         if active_filter == value:
-            klass = 'active'
+            klass += 'app-nav-list-item-active'
         return klass
+
+    def associated_publications(self):
+        context = aq_inner(self.context)
+        assigned = getattr(context, 'associatedPublications', None)
+        return assigned
+
+    def get_publication_details(self, uuid):
+        item = api.content.get(UID=uuid)
+        return item
 
     def publications(self):
         context = aq_inner(self.context)
-        catalog = api.portal.get_tool(name='portal_catalog')
-        obj_provides = IPublication.__identifier__
-        author_name = getattr(context, 'lastname')
-        query = dict(object_provides=obj_provides,
-                     lastname=author_name,
-                     review_state='published',
-                     sort_on='publicationYear',
-                     sort_order='reverse')
-        results = catalog.searchResults(query)
-        return IContentListing(results)
+        publications = [self.get_publication_details(item)
+                        for item in self.associated_publications()]
+        sorted_publications = sorted(
+            publications,
+            key=attrgetter('publicationYear'),
+            reverse=True
+        )
+        return sorted_publications

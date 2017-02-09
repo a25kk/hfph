@@ -16704,40 +16704,6 @@ a.text-gray-dark:hover
     color: #b3b3b1;
 }
 
-.gu-mirror
-{
-    position: fixed !important;
-    z-index: 9999 !important;
-
-    margin: 0 !important;
-
-    opacity: .8;
-
-    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=80)';
-        filter: alpha(opacity=80);
-}
-
-.gu-hide
-{
-    display: none !important;
-}
-
-.gu-unselectable
-{
-    -webkit-user-select: none !important;
-       -moz-user-select: none !important;
-        -ms-user-select: none !important;
-            user-select: none !important;
-}
-
-.gu-transit
-{
-    opacity: .2;
-
-    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)';
-        filter: alpha(opacity=20);
-}
-
 .hll
 {
     background-color: #ffc;
@@ -20247,6 +20213,27 @@ body.template-frontpage-view .app-pathbar
     opacity: 1;
 }
 
+.app-fp-tile
+{
+    height: 100%;
+}
+
+.app-box-events
+{
+    position: relative;
+
+    height: 100%;
+}
+
+@media (min-width: 576px)
+{
+    .app-box-footer
+    {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
 .app-panel-news-actions
 {
     text-align: right;
@@ -21649,6 +21636,49 @@ app-fonts-loaded .app-page-abstract
 .color-swatches .app-secondary-lighter
 {
     background-color: #ffdf80;
+}
+
+@page
+{
+    size: A4;
+}
+
+@media print
+{
+    body
+    {
+        font-family: Trebuchet MS, 'Times New Roman', serif;
+        font-size: 1em; 
+
+        display: block;
+        overflow: visible !important;
+
+        margin: 0 auto .5cm auto;
+
+        background: white;
+    }
+    .dim-in
+    {
+        opacity: 1 !important;
+        /* make things visible upon start */
+    }
+    svg
+    {
+        position: absolute !important;
+    }
+    #edit-bar
+    {
+        display: none;
+    }
+    .app-header,
+    .app-pathbar,
+    .app-main-aside,
+    .app-contact-panel,
+    .app-contact-actions,
+    .app-footer
+    {
+        display: none;
+    }
 }
 
 .app-table-actions-cell
