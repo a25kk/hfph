@@ -76,9 +76,9 @@
                                         <thead class="thead-inverse">
                                         <tr>
                                             <th scope="row">Userrecord</th>
-                                            <th>Groups</th>
-                                            <th>Enabled</th>
-                                            <th>Confirmed</th>
+                                            <th>E-Mail</th>
+                                            <th>E-Mail best&auml;tigt</th>
+                                            <th>Aktiv</th>
                                             <th>More</th>
                                         </tr>
                                         </thead>
@@ -92,28 +92,21 @@
                                                         <strong tal:content="item/name" />
                                                     </a>
                                                     <strong tal:condition="not:item/has_workspace" tal:content="item/name" /><br>
+                                                </td>
+                                                <td>
                                                     <small tal:content="item/email" />
                                                 </td>
-                                                <td tal:condition="exists:item/groups">
-                                                    <tal:items tal:repeat="group item/groups">
-                                                        <small tal:content="group" /><tal:separator condition="not: repeat/group/end">,</tal:separator>
-                                                    </tal:items>
+                                                <td tal:define="record_confirmed item/confirmed">
+                                                    <i class="icon ion ion-ios-checkmark-circle-outline app-icon--md" tal:condition="python:record_confirmed == True"></i>
+                                                    <i class="icon ion ion-ios-radio-button-off-outline app-icon--md app-icon--disabled" tal:condition="python:record_confirmed == False"></i>
                                                 </td>
-                                                <td><span tal:content="item/enabled" i18n:translate="">Yes/No</span>
+                                                <td tal:define="record_enabled item/enabled">
+                                                    <i class="icon ion ion-ios-checkmark-circle-outline app-icon--md" tal:condition="python:record_enabled == True"></i>
+                                                    <i class="icon ion ion-ios-radio-button-off-outline app-icon--md app-icon--disabled" tal:condition="python:record_enabled == False"></i>
                                                 </td>
+
                                                 <td>
-                                                    <div class="btn-group">
-                                                        <button type="button" class="app-btn app-btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            <span tal:content="item/confirmed" i18n:translate="">Yes/No</span>
-                                                            <span class="caret"></span>
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${item/user_id}">Sent confirmation link</a>
-                                                            <a class="dropdown-item" href="#">Change as administrator</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
+                                                    <a href="${context/absolute_url}/@@user-management-details/${item/user_id}">Details</a>
                                                     <a tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${item/user_id}">
                                                         Send invitation
                                                     </a>

@@ -12,6 +12,15 @@
             permission="cmf.ManagePortal"
     />
 
+    <!-- User details -->
+    <browser:page
+            for="hph.membership.memberfolder.IMemberFolder"
+            name="user-management-details"
+            class=".usermanager.UserDetails"
+            template="user-details.pt"
+            permission="cmf.ManagePortal"
+    />
+
     <browser:page
             for="hph.membership.memberfolder.IMemberFolder"
             name="user-management-base"

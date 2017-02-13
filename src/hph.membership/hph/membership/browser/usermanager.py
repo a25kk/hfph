@@ -5,6 +5,7 @@ from Acquisition import aq_inner
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.PasswordResetTool import django_random
 from hph.membership import MessageFactory as _
 from plone import api
 # from plone.app.users.browser.membersearch import extractCriteriaFromRequest
@@ -16,6 +17,8 @@ from plone.supermodel import model
 from z3c.form.browser.checkbox import CheckBoxWidget
 from zope.component import getMultiAdapter
 from zope import schema
+from zope.interface import implementer
+from zope.publisher.interfaces import IPublishTraverse
 
 
 class IUserSearchSchema(model.Schema):
@@ -191,9 +194,12 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
             cleaned_results = self._clean_user_data(results)
             # Remove potential duplicates using the pas merge method
             search_results = view.merge(cleaned_results, 'user_id')
-            user_records = self.merge_search_results(
-                search_results,
-                results_user)
+            if results_user:
+                user_records = self.merge_search_results(
+                    search_results,
+                    results_user)
+            else:
+                user_records = search_results
             self.results = user_records
 
     def member_record_details(self, user_data):
@@ -219,6 +225,91 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
         data['groups'] = user_groups
         data['workspace'] = user.getProperty('workspace')
         return data
+
+
+@implementer(IPublishTraverse)
+class UserDetails(BrowserView):
+    """Manage user details"""
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    def render(self):
+        return self.index()
+
+    def __call__(self):
+        return self.render()
+
+    @property
+    def traverse_subpath(self):
+        return self.subpath
+
+    def publishTraverse(self, request, name):
+        if not hasattr(self, 'subpath'):
+            self.subpath = []
+        self.subpath.append(name)
+        return self
+
+    def user_info(self):
+        context = aq_inner(self.context)
+        info = {}
+        userid = self.subpath[0]
+        user = api.user.get(username=userid)
+        info['fullname'] = user.getProperty('fullname', '') or userid
+        info['email'] = user.getProperty('email', _(u"No email provided"))
+        info['login_time'] = user.getProperty('last_login_time', '')
+        info['enabled'] = user.getProperty('enabled', '')
+        info['confirmed'] = user.getProperty('confirmed', '')
+        info['worklist'] = user.getProperty('worklist', list())
+        return info
+
+    def get_user_details(self):
+        context = aq_inner(self.context)
+        user_id = self.subpath[0]
+        user = api.user.get(username=user_id)
+        groups = api.group.get_groups(username=user_id)
+        user_groups = list()
+        for group in groups:
+            gid = group.getId()
+            if gid != 'AuthenticatedUsers':
+                user_groups.append(gid)
+        user_info = {
+            'fullname': user.getProperty('fullname', '') or user_id,
+            'email': user.getProperty('email'),
+            'user_id': user_id,
+            'name': user.getProperty('fullname', user.getId()),
+            'enabled': user.getProperty('enabled'),
+            'confirmed': user.getProperty('confirmed'),
+            'login_time': user.getProperty('last_login_time', ''),
+            'workspace': user.getProperty('workspace'),
+            'workspace_url': '{}/{}'.format(
+                context.absolute_url(),
+                user.getProperty('workspace')
+            ),
+            'worklist': user.getProperty('worklist', list()),
+            'groups': user_groups
+        }
+        return user_info
+
+    def compose_pwreset_link(self):
+        context = aq_inner(self.context)
+        user_id = self.subpath[0]
+        user = api.user.get(username=user_id)
+        token = self._access_token(user)
+        portal_url = api.portal.get().absolute_url()
+        url = '{0}/useraccount/{1}/{2}'.format(
+            portal_url, user_id, token)
+        return url
+
+    def _access_token(self, user):
+        stored_token = user.getProperty('token', '')
+        if len(stored_token):
+            token = stored_token
+        else:
+            token = django_random.get_random_string(length=12)
+            user.setMemberProperties(mapping={'token': token})
+        return token
 
 
 class UserManager(BrowserView):

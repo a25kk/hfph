@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <div class="tile-content">
+
+            <section id="content-core" tal:define="user view/get_user_details;
+                                                   toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+                <div class="app-page-header">
+                    <div class="btn-group pull-right">
+                        <a class="app-btn app-btn-primary pull-right"
+                                 tal:attributes="href string:${context/absolute_url}/@@user-management">
+                            <i class="ion ion-ios-arrow-dropleft-outline app-icon"></i>
+                            Zurück zur Benutzersuche
+                        </a>
+                    </div>
+
+                    <h1 class="app-page-headline" i18n:translate="">User Manager</h1>
+                    <p class="app-page-abstract">
+                        ${context/Title} - ${context/getId}
+                    </p>
+                </div>
+
+                <hr>
+                <tal:results>
+                    <div class="app-page-body app-listing-members">
+
+                        <div class="app-callout app-callout-default"
+                                 i18n:translate="member_listing_not_allowed">
+                            You are not allowed to list portal members.
+                        </div>
+                        <div class="app-box-header">
+                            <h1 class="app-box-heading" i18n:translate="">
+                                Workspace
+                            </h1>
+                        </div>
+                        <div class="app-box-content">
+                            <p tal:content="user/fullname" />
+                            <p class="text-muted" tal:content="user/email">
+                                E-Mail
+                            </p>
+                            <p class="text-discreet"
+                                     tal:define="timestamp user/login_time">
+                                <span i18n:translate="">Login:</span>
+                                <span tal:replace="python:toLocalizedTime(timestamp, long_format=True)" />
+                            </p>
+                            <p tal:define="reset_url view/compose_pwreset_link">
+                                <a tal:attributes="href reset_url"
+                                         i18n:translate="">Change password</a>
+                            </p>
+                            <p>
+                                <a tal:attributes="href string:${context/portal_url}/logout"
+                                         i18n:translate="">Signout</a>
+                            </p>
+                        </div>
+
+                    </div>
+                </tal:results>
+            </section>
+        </div>
+
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+
