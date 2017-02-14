@@ -1,0 +1,19 @@
+.app-icon {
+    font-size: $font-size-base;
+}
+
+// Size modifier
+.app-icon--md {
+    font-size: ceil(($font-size-base * 2));
+}
+.app-icon--lg {
+    font-size: ceil(($font-size-base * 3));
+}
+.app-icon--xl {
+    font-size: ceil(($font-size-base * 4));
+}
+// State modifier
+.app-icon--disabled {
+    opacity: .5;
+}
+

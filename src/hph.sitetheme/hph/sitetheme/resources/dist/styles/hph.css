@@ -17115,6 +17115,12 @@ a.text-gray-dark:hover
     transition-delay: 1.8s;
 }
 
+.app-fonts-loaded
+{
+    font-family: 'Open Sans', Trebuchet MS, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+}
+
 body
 {
     font-family: Trebuchet MS, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
@@ -17124,7 +17130,7 @@ body
 .wf-active body,
 .app-fonts-loaded body
 {
-    font-family: 'Open Sans', Trebuchet MS, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Open Sans', Trebuchet MS, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
     font-weight: 300;
 }
 body.template-theming-controlpanel .row
@@ -18252,6 +18258,31 @@ select[multiple]
     {
         transform: rotate(360deg);
     }
+}
+
+.app-icon
+{
+    font-size: 14px;
+}
+
+.app-icon--md
+{
+    font-size: 28px;
+}
+
+.app-icon--lg
+{
+    font-size: 42px;
+}
+
+.app-icon--xl
+{
+    font-size: 56px;
+}
+
+.app-icon--disabled
+{
+    opacity: .5;
 }
 
 .cbp-spmenu
