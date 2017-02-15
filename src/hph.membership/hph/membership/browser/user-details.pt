@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+        <div class="tile-content">
+
+            <section id="content-core"
+                tal:define="user view/get_user_details;
+                            toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+                <div class="app-page-header">
+                    <div class="btn-group pull-right">
+                        <a class="app-btn app-btn-primary pull-right"
+                                 tal:attributes="href string:${context/absolute_url}/@@user-management">
+                            <i class="ion ion-ios-arrow-dropleft-outline app-icon"></i>
+                            Zurück zur Benutzersuche
+                        </a>
+                    </div>
+
+                    <h1 class="app-page-headline" i18n:translate="">User Manager</h1>
+                </div>
+                <hr>
+                <div class="app-page-body">
+
+                    <div class="list-group">
+                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">${user/name}</h5>
+                                <small tal:define="timestamp user/login_time">
+                                    Zuletzt angemeldet: <span tal:replace="python:toLocalizedTime(timestamp, long_format=True)" /> Uhr
+                                </small>
+                            </div>
+                            <p class="mb-1">${user/email}</p>
+                            <small tal:condition="exists:user/groups">
+                                Gruppen:
+                                <tal:items tal:repeat="group user/groups">
+                                    <span tal:content="group" /><tal:separator condition="not: repeat/group/end">,</tal:separator>
+                                </tal:items>
+                            </small>
+                        </div>
+                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">Aktiver Nutzer</h5>
+                                <small tal:define="record_confirmed user/enabled">
+                                    <i class="icon ion ion-ios-checkmark-circle-outline app-icon--md" tal:condition="python:record_confirmed == True"></i>
+                                    <i class="icon ion ion-ios-radio-button-off-outline app-icon--md app-icon--disabled" tal:condition="python:record_confirmed == False"></i>
+                                </small>
+                            </div>
+                            <p class="mb-1">Der Benutzer ist aktiv und kann sich im Portal anmelden.</p>
+                            <small tal:condition="exists:user/groups">
+                                Gruppen:
+                                <tal:items tal:repeat="group user/groups">
+                                    <span tal:content="group" /><tal:separator condition="not: repeat/group/end">,</tal:separator>
+                                </tal:items>
+                            </small>
+                        </div>
+                    </div>
+                    <hr>
+                    <p tal:define="reset_url view/compose_pwreset_link">
+                        <a class="app-btn" tal:attributes="href reset_url">
+                            Passwort zur&uuml;cksetzen</a>
+                        <a class="app-btn" tal:attributes="href string:${context/absolute_url}/@@user-invitation?userid=${user/user_id}">
+                            Neue Einladung zur Teilnahme versenden
+                        </a>
+                    </p>
+                </div>
+
+            </section>
+        </div>
+
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

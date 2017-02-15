@@ -5,6 +5,7 @@ from Acquisition import aq_inner
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.PasswordResetTool import django_random
 from hph.membership import MessageFactory as _
 from plone import api
 # from plone.app.users.browser.membersearch import extractCriteriaFromRequest
@@ -16,6 +17,11 @@ from plone.supermodel import model
 from z3c.form.browser.checkbox import CheckBoxWidget
 from zope.component import getMultiAdapter
 from zope import schema
+from zope.interface import implementer
+from zope.publisher.interfaces import IPublishTraverse
+from plone.protect.utils import addTokenToUrl
+from plone.protect.interfaces import IDisableCSRFProtection
+from zope.interface import alsoProvides
 
 
 class IUserSearchSchema(model.Schema):
@@ -106,6 +112,24 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
 
     submitted = False
 
+    def can_manage_users(self):
+        """ Enhance basic modify portal content permission
+            by manually checking for group membership
+        """
+        context = aq_inner(self.context)
+        admin_roles = ('Manager', 'Site Administrator', 'StaffMember')
+        is_adm = False
+        if not api.user.is_anonymous():
+            user = api.user.get_current()
+            user_id = user.getId()
+            if user_id is 'zope-admin':
+                is_adm = True
+            roles = api.user.get_roles(username=user_id, obj=context)
+            for role in roles:
+                if role in admin_roles:
+                    is_adm = True
+        return is_adm
+
     def has_workspace(self, user_id):
         context = aq_inner(self.context)
         if user_id in context.keys():
@@ -123,6 +147,10 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
             gid = group.getId()
             if gid != 'AuthenticatedUsers':
                 user_groups.append(gid)
+        details_url = '{0}/@@user-management-details?user-id={1}'.format(
+            context.absolute_url(), user_id
+        )
+        user_details_url = addTokenToUrl(details_url)
         user_info = {
             'email': user.getProperty('email'),
             'user_id': user_id,
@@ -135,7 +163,8 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
                 context.absolute_url(),
                 user.getProperty('workspace')
             ),
-            'groups': user_groups
+            'groups': user_groups,
+            'details_link': user_details_url
         }
         return user_info
 
@@ -191,34 +220,70 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
             cleaned_results = self._clean_user_data(results)
             # Remove potential duplicates using the pas merge method
             search_results = view.merge(cleaned_results, 'user_id')
-            user_records = self.merge_search_results(
-                search_results,
-                results_user)
+            if results_user:
+                user_records = self.merge_search_results(
+                    search_results,
+                    results_user)
+            else:
+                user_records = search_results
             self.results = user_records
 
-    def member_record_details(self, user_data):
-        data = {}
-        try:
-            user_id = user_data.getId()
-        except AttributeError:
-            import pdb; pdb.set_trace()
-            pass
-        user = api.user.get(username=user_data.getId())
-        email = user.getProperty('email')
+
+@implementer(IPublishTraverse)
+class UserDetails(BrowserView):
+    """Manage user details"""
+
+    def get_user_object(self):
+        user_id = self.request.get('user-id', None)
+        user = api.user.get(username=user_id)
+        return user
+
+    def get_user_details(self):
+        context = aq_inner(self.context)
+        # user_token = self.subpath[0]
+        # user_id = user_token.replace('user-id-', '')
+        user_id = self.request.get('user-id', None)
+        user = api.user.get(username=user_id)
         groups = api.group.get_groups(username=user_id)
         user_groups = list()
         for group in groups:
             gid = group.getId()
             if gid != 'AuthenticatedUsers':
                 user_groups.append(gid)
-        data['user_id'] = user_id
-        data['email'] = email
-        data['name'] = user.getProperty('fullname', user_id)
-        data['enabled'] = user.getProperty('enabled')
-        data['confirmed'] = user.getProperty('confirmed')
-        data['groups'] = user_groups
-        data['workspace'] = user.getProperty('workspace')
-        return data
+        user_info = {
+            'fullname': user.getProperty('fullname', '') or user_id,
+            'email': user.getProperty('email'),
+            'user_id': user_id,
+            'name': user.getProperty('fullname', user.getId()),
+            'enabled': user.getProperty('enabled'),
+            'confirmed': user.getProperty('confirmed'),
+            'login_time': user.getProperty('last_login_time', ''),
+            'workspace': user.getProperty('workspace'),
+            'workspace_url': '{}/{}'.format(
+                context.absolute_url(),
+                user.getProperty('workspace')
+            ),
+            'worklist': user.getProperty('worklist', list()),
+            'groups': user_groups
+        }
+        return user_info
+
+    def compose_pwreset_link(self):
+        user = self.get_user_object()
+        token = self._access_token(user)
+        portal_url = api.portal.get().absolute_url()
+        url = '{0}/useraccount/{1}/{2}'.format(
+            portal_url, user.getId(), token)
+        return url
+
+    def _access_token(self, user):
+        stored_token = user.getProperty('token', '')
+        if len(stored_token):
+            token = stored_token
+        else:
+            token = django_random.get_random_string(length=12)
+            user.setMemberProperties(mapping={'token': token})
+        return token
 
 
 class UserManager(BrowserView):

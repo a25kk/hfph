@@ -2,6 +2,10 @@
 // Basic scaffolding and resets
 // ----------------------------------
 
+.app-fonts-loaded {
+    font-family: $app-font-family-base;
+    font-size: 14px;
+}
 
 //** Adjust font weight for initialized webfonts
 body {
@@ -9,7 +13,7 @@ body {
     font-family: $font-family-base;
     .wf-active &,
     .app-fonts-loaded & {
-        font-family: $app-font-family-base;
+        font-family: $app-font-family-base !important;
         font-weight: 300;
     }
     &.template-theming-controlpanel .row {

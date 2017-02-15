@@ -9,7 +9,16 @@
             name="user-management"
             class=".usermanager.UserSearchForm"
             template="usermanager.pt"
-            permission="cmf.ManagePortal"
+            permission="cmf.ModifyPortalContent"
+    />
+
+    <!-- User details -->
+    <browser:page
+            for="hph.membership.memberfolder.IMemberFolder"
+            name="user-management-details"
+            class=".usermanager.UserDetails"
+            template="user-details.pt"
+            permission="cmf.ModifyPortalContent"
     />
 
     <browser:page

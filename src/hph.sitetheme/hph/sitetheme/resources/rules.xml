@@ -99,28 +99,26 @@
         <replace css:theme="title" css:content="title" />
         <after theme="/html/head/title" css:content="base" />
         <!-- Add meta tags -->
-        <drop theme="/html/head/meta" />
-
+        <drop css:content="meta[name='viewport']" />
         <before content="/html/head/meta" theme="/html/head/title" />
 
+        <after
+            content="/html/head/link | /html/head/style | /html/head/script"
+            theme-children="/html/head"
+        />
+
        <rules css:if-content="body.userrole-authenticated">
-            <!-- Copy style, script and link tags in the order they appear in the content -->
-           <after
-               content="/html/head/link | /html/head/style | /html/head/script"
-               theme-children="/html/head"
-           />
-
+           <!-- Drop style tags from theme template -->
             <drop theme="/html/head/style" />
-            <drop theme="/html/head/link" />
-
-            <!-- Drop scripts from theme footer if present -->
-            <drop theme="/html/body/script" />
         </rules>
 
+        <drop theme="/html/body/script" />
+
         <!-- Custom favicon implementation -->
+        <drop css:content="head link[rel='apple-touch-icon-precomposed']" />
         <drop css:content="head link[rel='apple-touch-icon']" />
         <drop css:content="head link[rel='shortcut icon']" />
-        <after theme="/html/head">
+        <!--<after theme="/html/head">
           <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600" rel="stylesheet" />
           <link rel="apple-touch-icon" sizes="180x180" href="/++theme++hph.sitetheme/dist/assets/ico/apple-touch-icon.png" />
           <link rel="icon" type="image/png" href="/++theme++hph.sitetheme/dist/assets/ico/favicon-32x32.png" sizes="32x32" />
@@ -130,7 +128,7 @@
           <link rel="shortcut icon" href="/++theme++hph.sitetheme/dist/assets/ico/favicon.ico" />
           <meta name="msapplication-config" content="/++theme++hph.sitetheme/dist/assets/ico/browserconfig.xml" />
           <meta name="theme-color" content="#ffffff" />
-        </after>
+        </after>-->
 
         <!-- Copy over the id/class attributes on the body tag.
              This is important for per-section styling -->
