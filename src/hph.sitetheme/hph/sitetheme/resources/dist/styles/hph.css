@@ -18265,19 +18265,24 @@ select[multiple]
     font-size: 14px;
 }
 
+.app-icon--sm
+{
+    font-size: 1.5rem;
+}
+
 .app-icon--md
 {
-    font-size: 28px;
+    font-size: 2rem;
 }
 
 .app-icon--lg
 {
-    font-size: 42px;
+    font-size: 3rem;
 }
 
 .app-icon--xl
 {
-    font-size: 56px;
+    font-size: 4rem;
 }
 
 .app-icon--disabled

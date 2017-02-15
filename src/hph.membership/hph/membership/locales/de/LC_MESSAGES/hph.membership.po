@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2016-05-09 10:05+0000\n"
-"PO-Revision-Date: 2016-05-09 12:12+0200\n"
+"POT-Creation-Date: 2017-02-15 08:58+0000\n"
+"PO-Revision-Date: 2017-02-15 10:15+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: hph.membership\n"
 "Language: de\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.11\n"
 
 #: ../workspace_templates/view.pt:103
 msgid "A list of content items you are asigned as a contributor"
@@ -33,7 +33,7 @@ msgstr "Der neue Benutzerzugang wurde erstellt"
 msgid "Activate account"
 msgstr "Zugang aktivieren"
 
-#: ../asignment_templates/asignmentview.pt:60
+#: ../asignment_templates/asignmentview.pt:61
 msgid "Active Asignments"
 msgstr "Aktive Zuweisungen"
 
@@ -82,11 +82,11 @@ msgstr "Zurück zur Benutzerverwaltung"
 msgid "Came From"
 msgstr "Zuletzt besucht"
 
-#: ../workspace_templates/view.pt:37
+#: ../browser/user-details.pt:56 ../workspace_templates/view.pt:37
 msgid "Change password"
 msgstr "Passwort ändern"
 
-#: ../useraccount_templates/useraccount.pt:37
+#: ../useraccount_templates/useraccount.pt:38
 msgid "Confirm"
 msgstr "Wiederholen"
 
@@ -126,11 +126,11 @@ msgstr "Geben Sie hier die vollständige URL der Discourse Installation ein"
 msgid "Enumerating all registered users would have certain performance implications and therefore a user group must be selected"
 msgstr "Da die Auflistung aller Benutzerkonten sich negativ auf die Performance der Seite auswirkt, muss zur Auswahl einer Benutzers zunächst eine Benutzergruppe selektiert werden"
 
-#: ../configure.zcml:35
+#: ../configure.zcml:37
 msgid "Extension profile for HPH user management and membership tools"
 msgstr "Erweiterungsprofil für Benutzerkonten und Benutzerverwaltung"
 
-#: ../memberfolder.py:269
+#: ../memberfolder.py:326
 msgid "External records stored for import"
 msgstr "Externe Daten für den Import"
 
@@ -146,7 +146,7 @@ msgstr "Gruppenauswahl"
 msgid "HPH Membership Tool"
 msgstr "HPH Membership Tool"
 
-#: ../configure.zcml:35
+#: ../configure.zcml:37
 msgid "HPH user management and membership tools"
 msgstr "HPH Benutzerverwaltung"
 
@@ -154,11 +154,11 @@ msgstr "HPH Benutzerverwaltung"
 msgid "If you see this page than either the url you were trying to open does not exist or an error happened when trying to authenticate your credentials."
 msgstr "Diese Seite wird angezeigt, weil die aufgerufene URL nicht korrekt ist oder ein Fehler in der Freigabe der Zugangsdaten augetreten ist."
 
-#: ../memberfolder.py:29
+#: ../memberfolder.py:30
 msgid "Importable API Records"
 msgstr "Importierbare DAten aus der API"
 
-#: ../tool.py:126
+#: ../tool.py:125
 msgid "Invitation to join the HfPH portal"
 msgstr "Hochschule für Philosophie München: Einladung zur Webseite"
 
@@ -194,7 +194,7 @@ msgstr "Die Anmeldung ist fehlgeschlagen. Sowohl bei der E-Mail-Adresse als auch
 msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled."
 msgstr "Die Anmeldung ist fehlgeschlagen. Sowohl bei der E-Mail-Adresse als auch beim Passwort ist die Gross-/Kleinschreibung zu beachten"
 
-#: ../workspace_templates/view.pt:33
+#: ../browser/user-details.pt:52 ../workspace_templates/view.pt:33
 msgid "Login:"
 msgstr "Login:"
 
@@ -230,7 +230,7 @@ msgstr "API Version der externen Benutzerdatenbank"
 msgid "MembershipTool IP"
 msgstr "IP Adresse der Benutzerdatenbank"
 
-#: ../setpassword.py:21 ../useraccount_templates/useraccount.pt:27
+#: ../setpassword.py:21 ../useraccount_templates/useraccount.pt:28
 msgid "New Password"
 msgstr "Neues Passwort"
 
@@ -238,15 +238,15 @@ msgstr "Neues Passwort"
 msgid "No activity recorded yet"
 msgstr "Er wurde bis dato noch keine Aktivität aufgezeichnet."
 
-#: ../asignment.py:97 ../workspace.py:49
+#: ../asignment.py:97 ../browser/usermanager.py:278 ../workspace.py:49
 msgid "No email provided"
 msgstr "Es wurde keine E-Mail-Addresse übermittelt"
 
-#: ../useraccount.py:73
+#: ../useraccount.py:74
 msgid "No matching user account found"
 msgstr "Es wurde kein passendes Benutzerkonto zu Ihrer Anfrage gefunden"
 
-#: ../useraccount.py:80
+#: ../useraccount.py:81
 msgid "No stored access token found"
 msgstr "Es wurde kein gültiger Token zur Verifizierung Ihrer Anfrage gefunden."
 
@@ -258,7 +258,7 @@ msgstr "Leider kann aufgrund der im Hintergrund durchgeführten Aktualisierung d
 msgid "Password"
 msgstr "Passwort"
 
-#: ../useraccount.py:114
+#: ../useraccount.py:115
 msgid "Passwords must consist of at least 8 characters"
 msgstr "Passwörter müssen mindestens 8 Zeichen lang sein"
 
@@ -274,13 +274,17 @@ msgstr "Persönliche Inhalte"
 msgid "Personal workspace container for members"
 msgstr "Persönlicher Arbeitsbereich für Benutzer"
 
-#: ../tool.py:115
+#: ../tool.py:114
 msgid "Please change your account information for HfPH"
 msgstr "Bitte aktualisieren Sie Ihre Benutzerinformationen für HfPH"
 
 #: ../useraccount_templates/useraccounterror.pt:19
 msgid "Please check wether the requested URL is complete and contains the required access token to verify your identity. If the url is correct and the error persists it is most likely due to an incorrectly generated user account. Our team has already been informed about this error by our automatic exception handler system."
 msgstr "Bitte überprüfen Sie die aufgerufene Adresse auf Vollständigkeit insbesondere im Hinblick auf den Zugriffsschlüssel zur Identifizierung Ihres Benutzerkontos. Sollten die URL korrekt sein oder ein Link in einer E-Mail diese Seite aufgerufen haben, dann wurde wahrscheinlich Ihr Benutzerkonto nicht oder nicht vollständig angelegt. Unser Team wurde in diesem Fall bereits automatisch über unser System informiert."
+
+#: ../useraccount_templates/useraccount.pt:56
+msgid "Please check wether the requested URL is complete and contains the required access token to verify your identity. If the url is correct and the error persists it is most likely due to an incorrectly gernerated user account. Please contact our team if you have any questions."
+msgstr "Bitte überprüfen Sie die aufgerufene URL auf Vollständigkeit und das Vorhandensein eines Zugriffsschlüssel zur Betätigung Ihrer Identität. Wenn die URL korrekt zu sein scheint und der Fehler weiterhin auftritt, dann liegt das möglicherweise an einem nicht korrekt erstellten Benutzerkonto. Bitte kontaktieren Sie unser Webseiten-Team für Fragen bezüglich dem weitern Vorgehen."
 
 #: ../discourse.py:60
 msgid "Please enter your credentials to verify SSO login"
@@ -334,7 +338,7 @@ msgstr "SSO Signatur"
 msgid "SSO payload"
 msgstr "SSO Payload"
 
-#: ../useraccount_templates/useraccount.pt:44
+#: ../useraccount_templates/useraccount.pt:45
 msgid "Save"
 msgstr "Speichern"
 
@@ -359,7 +363,7 @@ msgstr "Anmelden"
 msgid "Signin error"
 msgstr "Fehler bei der Anmeldung"
 
-#: ../workspace_templates/view.pt:41
+#: ../browser/user-details.pt:60 ../workspace_templates/view.pt:41
 msgid "Signout"
 msgstr "Abmelden"
 
@@ -387,19 +391,19 @@ msgstr "Die Seite zur Freigabe von Benutzerdaten für die Anmeldung am Diskussio
 msgid "The Discourse SSO endpoint has not been configured yet"
 msgstr "SSO für das Diskussionsforum wurde noch nicht konfiguriert"
 
-#: ../useraccount.py:119
+#: ../useraccount.py:120
 msgid "The entered password and confirmation do not match."
 msgstr "Die angegeben Passwörter stimmen nicht überein. Bitte versuchen Sie es erneut."
 
-#: ../memberfolder_templates/usermanager.pt:27
-msgid "The member area contains member workspaces"
-msgstr "Der benutzerbereich beinhaltet Arbietsplätze für angemeldete Benutzer"
+#: ../browser/usermanager.py:108
+msgid "There were errors."
+msgstr "Es sind Fehler aufgetreten."
 
 #: ../interfaces.py:28
 msgid "This API token can be used to authenticate with the portal e.g. when calling the member updater via external cronjob"
 msgstr "Dieser Token kann verwendet werden, um sich am Portal anzumelden, z.B. bei Aufrufen über externe Dienste"
 
-#: ../invitation.py:52 ../useraccount.py:43
+#: ../browser/usermanager.py:367 ../invitation.py:52 ../memberfolder.py:115
 msgid "This field is required"
 msgstr "Dieses Feld ist ein Pflichtfeld"
 
@@ -414,6 +418,10 @@ msgstr "Die Anfrage zum Setzen eines neuen Passworts ist ungültig"
 #: ../signin.py:188
 msgid "Unable to send request."
 msgstr "Die Anfrage konnte nicht versandt werden"
+
+#: ../useraccount_templates/useraccount.pt:53
+msgid "Unauthorized"
+msgstr "Unzureichende Berechtigungen"
 
 #: ../memberfolder_templates/memberrecords.pt:34
 msgid "Update and manage user records coming from an external database and provided via url endpoint"
@@ -432,9 +440,8 @@ msgstr "Benutzerkonten"
 msgid "User Invitations"
 msgstr "Benutzer Einladungen"
 
+#: ../browser/user-details.pt:26 ../browser/usermanager.pt:17
 #: ../invitation_templates/userinvitation.pt:32
-#: ../memberfolder_templates/usermanager.pt:58
-#: ../memberinfo_templates/enableuseraccount.pt:18
 msgid "User Manager"
 msgstr "Benutzerverwaltung"
 
@@ -450,21 +457,21 @@ msgstr "Benutzerauswahl"
 msgid "User invitation email has been sent successfully."
 msgstr "Eine E-Mail mit Informationen zur Teilnahme an der neuen Webseite wurde verschickt"
 
-#: ../memberfolder_templates/usermanager.pt:60
-msgid "Users should are redirected to their personal workspace except when logged in as site administrator"
-msgstr "Benutzer sollten direkt zu ihren jeweiligen Arbietsplätzen weitergeleitet werden mit Ausnahme von Benutzern mit Administrationsrechten."
-
 #: ../useraccount_templates/useraccounterror.pt:15
 msgid "We are sorry to inform you that this request can not be processed."
 msgstr "Leider kann diese Anfrage nicht ausgeführt werden."
+
+#: ../useraccount_templates/useraccount.pt:54
+msgid "We are sorry to inform you that this request can not be resolved."
+msgstr "Verzeihung, Ihre Anfrage kann nicht korrekt aufgelöst und beantwortet werden."
 
 #: ../discourse_templates/discoursessoerror.pt:33
 msgid "Where do you want to go next?"
 msgstr "Weiterführende Verweise:"
 
+#: ../browser/user-details.pt:41
 #: ../memberfolder_templates/workspacemissing.pt:18
 #: ../profiles/default/types/hph.membership.workspace.xml
-#: ../userfactory_templates/usercreationform.pt:20
 msgid "Workspace"
 msgstr "Arbeitsplatz"
 
@@ -472,7 +479,7 @@ msgstr "Arbeitsplatz"
 msgid "Workspaces"
 msgstr "Arbeitsplätze"
 
-#: ../discourse.py:129 ../signin.py:133 ../useraccount.py:151
+#: ../discourse.py:129 ../signin.py:133 ../useraccount.py:152
 msgid "You are now logged in."
 msgstr "Sie sind nun angemeldet"
 
@@ -480,9 +487,84 @@ msgstr "Sie sind nun angemeldet"
 msgid "asigned"
 msgstr "zugewiesen"
 
+#. Default: "${number} Benutzer wurden gefunden."
+#: ../browser/usermanager.pt:83
+msgid "batch_x_items_matching_your_criteria"
+msgstr "Ergebnisse für Ihre Anfrage"
+
 #: ../setpassword.py:70 ../userfactory.py:62
 msgid "cancel"
 msgstr "abbrechen"
+
+#. Default: "This search form enables you to find users by specifying one or more search criteria."
+#: ../browser/usermanager.py:103
+msgid "description_member_search"
+msgstr "Formular, um Benutzer nach Kriterien in Kombination mit Gruppenzugehörigkeit zu finden."
+
+#. Default: "Search for users"
+#: ../browser/usermanager.py:102
+msgid "heading_member_search"
+msgstr "Benutzersuche"
+
+#. Default: "Find users whose email address contain"
+#: ../browser/usermanager.py:43
+msgid "help_search_email"
+msgstr "Benutzer finden, deren E-Mail-Adresse folgenden text enthält"
+
+#. Default: "Find users whose full names contain"
+#: ../browser/usermanager.py:50
+msgid "help_search_fullname"
+msgstr "Benutzer finden, deren voller Name folgende Inhalte enthält"
+
+#. Default: "Find all members of selected groups."
+#: ../browser/usermanager.py:64
+msgid "help_search_groups"
+msgstr "Finden Sie alle Mitglieder der folgenden Benutzergruppen."
+
+#. Default: "Find users whose login name contain"
+#: ../browser/usermanager.py:36
+msgid "help_search_name"
+msgstr "Benutzer, deren Login Name (üblicherweise eine E-Mail-Adresse) folgende Parameter enthält."
+
+#. Default: "E-mail"
+#: ../browser/usermanager.py:42
+msgid "label_email"
+msgstr "E-Mail-Adresse"
+
+#. Default: "Full Name"
+#: ../browser/usermanager.py:49
+msgid "label_fullname"
+msgstr "Voller Name"
+
+#. Default: "Group(s)"
+#: ../browser/usermanager.py:63
+msgid "label_groups"
+msgstr "Benutzergruppen"
+
+#. Default: "Name"
+#: ../browser/usermanager.py:35
+msgid "label_name"
+msgstr "Anmeldename"
+
+#. Default: "Search"
+#: ../browser/usermanager.py:190
+msgid "label_search"
+msgstr "Benutzersuche"
+
+#. Default: "User Search Criteria"
+#: ../browser/usermanager.py:29
+msgid "legend_member_search_criteria"
+msgstr "Suchkriterien Benutzer"
+
+#. Default: "User Group Search"
+#: ../browser/usermanager.py:57
+msgid "legend_member_search_groups"
+msgstr "Suchkriterien Benutzergruppen"
+
+#. Default: "You are not allowed to list portal members."
+#: ../browser/user-details.pt:36 ../browser/usermanager.pt:76
+msgid "member_listing_not_allowed"
+msgstr "Der Benutzer, mit dem Sie angemeldet sind, hat nicht die notwendigen Zugriffsrechte, um Details zu anderen Benutzern anzuzeigen."
 
 #. Default: "Abgelegt unter"
 #: ../workspace_templates/view.pt:121

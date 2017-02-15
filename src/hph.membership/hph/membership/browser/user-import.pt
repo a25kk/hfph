@@ -1,0 +1,68 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <div class="tile-content">
+
+            <section id="content-core">
+                <div class="app-page-header">
+                    <div class="app-section">
+                        <div class="app-section-aside">
+                            <div class="app-card app-card-workspaces">
+                                <div class="app-card-header">
+                                    <h2 class="app-card-title">
+                                        Benutzerverwaltung
+                                    </h2>
+                                </div>
+                                <div class="app-card-main app-card-main-boxed">
+                                    <div class="app-card-block">
+                                        <p i18n:translate="">
+                                            Import aus externer Datenquelle verwalten
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="app-section-main">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link"
+                                             tal:attributes="href string:${context/absolute_url}/@@add-new-user">
+                                        <i class="ion ion-ios-add-circle-outline app-icon--md"></i>
+                                        Add user
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" tal:attributes="href string:${context/absolute_url}/@@update-member-records">
+                                        Load external user data</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" tal:attributes="href string:${context/absolute_url}/@@create-member-records">
+                                        Create user accounts from stored data</a></li>
+                                <li class="nav-item">
+                                    <a class="nav-link" tal:attributes="href string:${context/absolute_url}/@@send-reset-invitations">
+                                        Send invitation email to unconfirmed accounts
+                                    </a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

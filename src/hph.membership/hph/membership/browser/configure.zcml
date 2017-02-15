@@ -9,7 +9,7 @@
             name="user-management"
             class=".usermanager.UserSearchForm"
             template="usermanager.pt"
-            permission="cmf.ManagePortal"
+            permission="cmf.ModifyPortalContent"
     />
 
     <!-- User details -->
@@ -18,7 +18,7 @@
             name="user-management-details"
             class=".usermanager.UserDetails"
             template="user-details.pt"
-            permission="cmf.ManagePortal"
+            permission="cmf.ModifyPortalContent"
     />
 
     <browser:page

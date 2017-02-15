@@ -19,6 +19,9 @@ from zope.component import getMultiAdapter
 from zope import schema
 from zope.interface import implementer
 from zope.publisher.interfaces import IPublishTraverse
+from plone.protect.utils import addTokenToUrl
+from plone.protect.interfaces import IDisableCSRFProtection
+from zope.interface import alsoProvides
 
 
 class IUserSearchSchema(model.Schema):
@@ -109,6 +112,24 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
 
     submitted = False
 
+    def can_manage_users(self):
+        """ Enhance basic modify portal content permission
+            by manually checking for group membership
+        """
+        context = aq_inner(self.context)
+        admin_roles = ('Manager', 'Site Administrator', 'StaffMember')
+        is_adm = False
+        if not api.user.is_anonymous():
+            user = api.user.get_current()
+            user_id = user.getId()
+            if user_id is 'zope-admin':
+                is_adm = True
+            roles = api.user.get_roles(username=user_id, obj=context)
+            for role in roles:
+                if role in admin_roles:
+                    is_adm = True
+        return is_adm
+
     def has_workspace(self, user_id):
         context = aq_inner(self.context)
         if user_id in context.keys():
@@ -126,6 +147,10 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
             gid = group.getId()
             if gid != 'AuthenticatedUsers':
                 user_groups.append(gid)
+        details_url = '{0}/@@user-management-details?user-id={1}'.format(
+            context.absolute_url(), user_id
+        )
+        user_details_url = addTokenToUrl(details_url)
         user_info = {
             'email': user.getProperty('email'),
             'user_id': user_id,
@@ -138,7 +163,8 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
                 context.absolute_url(),
                 user.getProperty('workspace')
             ),
-            'groups': user_groups
+            'groups': user_groups,
+            'details_link': user_details_url
         }
         return user_info
 
@@ -202,71 +228,21 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
                 user_records = search_results
             self.results = user_records
 
-    def member_record_details(self, user_data):
-        data = {}
-        try:
-            user_id = user_data.getId()
-        except AttributeError:
-            import pdb; pdb.set_trace()
-            pass
-        user = api.user.get(username=user_data.getId())
-        email = user.getProperty('email')
-        groups = api.group.get_groups(username=user_id)
-        user_groups = list()
-        for group in groups:
-            gid = group.getId()
-            if gid != 'AuthenticatedUsers':
-                user_groups.append(gid)
-        data['user_id'] = user_id
-        data['email'] = email
-        data['name'] = user.getProperty('fullname', user_id)
-        data['enabled'] = user.getProperty('enabled')
-        data['confirmed'] = user.getProperty('confirmed')
-        data['groups'] = user_groups
-        data['workspace'] = user.getProperty('workspace')
-        return data
-
 
 @implementer(IPublishTraverse)
 class UserDetails(BrowserView):
     """Manage user details"""
 
-    def __init__(self, context, request):
-        self.context = context
-        self.request = request
-
-    def render(self):
-        return self.index()
-
-    def __call__(self):
-        return self.render()
-
-    @property
-    def traverse_subpath(self):
-        return self.subpath
-
-    def publishTraverse(self, request, name):
-        if not hasattr(self, 'subpath'):
-            self.subpath = []
-        self.subpath.append(name)
-        return self
-
-    def user_info(self):
-        context = aq_inner(self.context)
-        info = {}
-        userid = self.subpath[0]
-        user = api.user.get(username=userid)
-        info['fullname'] = user.getProperty('fullname', '') or userid
-        info['email'] = user.getProperty('email', _(u"No email provided"))
-        info['login_time'] = user.getProperty('last_login_time', '')
-        info['enabled'] = user.getProperty('enabled', '')
-        info['confirmed'] = user.getProperty('confirmed', '')
-        info['worklist'] = user.getProperty('worklist', list())
-        return info
+    def get_user_object(self):
+        user_id = self.request.get('user-id', None)
+        user = api.user.get(username=user_id)
+        return user
 
     def get_user_details(self):
         context = aq_inner(self.context)
-        user_id = self.subpath[0]
+        # user_token = self.subpath[0]
+        # user_id = user_token.replace('user-id-', '')
+        user_id = self.request.get('user-id', None)
         user = api.user.get(username=user_id)
         groups = api.group.get_groups(username=user_id)
         user_groups = list()
@@ -293,13 +269,11 @@ class UserDetails(BrowserView):
         return user_info
 
     def compose_pwreset_link(self):
-        context = aq_inner(self.context)
-        user_id = self.subpath[0]
-        user = api.user.get(username=user_id)
+        user = self.get_user_object()
         token = self._access_token(user)
         portal_url = api.portal.get().absolute_url()
         url = '{0}/useraccount/{1}/{2}'.format(
-            portal_url, user_id, token)
+            portal_url, user.getId(), token)
         return url
 
     def _access_token(self, user):

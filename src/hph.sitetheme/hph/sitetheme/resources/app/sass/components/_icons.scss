@@ -3,14 +3,17 @@
 }
 
 // Size modifier
+.app-icon--sm {
+    font-size: 1.5rem;
+}
 .app-icon--md {
-    font-size: ceil(($font-size-base * 2));
+    font-size: 2rem;
 }
 .app-icon--lg {
-    font-size: ceil(($font-size-base * 3));
+    font-size: 3rem;
 }
 .app-icon--xl {
-    font-size: ceil(($font-size-base * 4));
+    font-size: 4rem;
 }
 // State modifier
 .app-icon--disabled {
