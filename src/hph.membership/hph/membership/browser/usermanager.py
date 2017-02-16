@@ -2,26 +2,25 @@
 """Module providing user management and search"""
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
+from hph.membership import MessageFactory as _
+from hph.membership.tool import IHPHMemberTool
+from plone import api
+from plone.autoform import directives
+from plone.autoform.form import AutoExtensibleForm
+from plone.protect.utils import addTokenToUrl
+from plone.supermodel import model
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.PasswordResetTool import django_random
-from hph.membership import MessageFactory as _
-from plone import api
-# from plone.app.users.browser.membersearch import extractCriteriaFromRequest
 from z3c.form import button
 from z3c.form import form
-from plone.autoform.form import AutoExtensibleForm
-from plone.autoform import directives
-from plone.supermodel import model
 from z3c.form.browser.checkbox import CheckBoxWidget
-from zope.component import getMultiAdapter
 from zope import schema
+from zope.component import getMultiAdapter
+from zope.component import getUtility
 from zope.interface import implementer
 from zope.publisher.interfaces import IPublishTraverse
-from plone.protect.utils import addTokenToUrl
-from plone.protect.interfaces import IDisableCSRFProtection
-from zope.interface import alsoProvides
 
 
 class IUserSearchSchema(model.Schema):
@@ -31,7 +30,7 @@ class IUserSearchSchema(model.Schema):
         'extra',
         label=_(u'legend_member_search_criteria',
                 default=u'User Search Criteria'),
-        fields=['login', 'email', 'fullname']
+        fields=['login', 'fullname']
     )
 
     login = schema.TextLine(
@@ -39,13 +38,6 @@ class IUserSearchSchema(model.Schema):
         description=_(
             u'help_search_name',
             default=u'Find users whose login name contain'),
-        required=False,
-    )
-    email = schema.TextLine(
-        title=_(u'label_email', default=u'E-mail'),
-        description=_(
-            u'help_search_email',
-            default=u'Find users whose email address contain'),
         required=False,
     )
     fullname = schema.TextLine(
@@ -113,22 +105,11 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
     submitted = False
 
     def can_manage_users(self):
-        """ Enhance basic modify portal content permission
-            by manually checking for group membership
-        """
+        """ Check for user management permissions """
         context = aq_inner(self.context)
-        admin_roles = ('Manager', 'Site Administrator', 'StaffMember')
-        is_adm = False
-        if not api.user.is_anonymous():
-            user = api.user.get_current()
-            user_id = user.getId()
-            if user_id is 'zope-admin':
-                is_adm = True
-            roles = api.user.get_roles(username=user_id, obj=context)
-            for role in roles:
-                if role in admin_roles:
-                    is_adm = True
-        return is_adm
+        tool = getUtility(IHPHMemberTool)
+        can_manage_users = tool.can_manage_users(context)
+        return can_manage_users
 
     def has_workspace(self, user_id):
         context = aq_inner(self.context)
@@ -233,6 +214,13 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
 class UserDetails(BrowserView):
     """Manage user details"""
 
+    def can_manage_users(self):
+        """ Check for user management permissions """
+        context = aq_inner(self.context)
+        tool = getUtility(IHPHMemberTool)
+        can_manage_users = tool.can_manage_users(context)
+        return can_manage_users
+
     def get_user_object(self):
         user_id = self.request.get('user-id', None)
         user = api.user.get(username=user_id)
@@ -268,6 +256,10 @@ class UserDetails(BrowserView):
         }
         return user_info
 
+    @staticmethod
+    def protect_url(url):
+        return addTokenToUrl(url)
+
     def compose_pwreset_link(self):
         user = self.get_user_object()
         token = self._access_token(user)
@@ -286,61 +278,93 @@ class UserDetails(BrowserView):
         return token
 
 
-class UserManager(BrowserView):
-    """ Manage portal members """
-
-    def __init__(self, context, request):
-        self.context = context
-        self.request = request
-
-    def render(self):
-        return self.index()
+class UserEnable(BrowserView):
+    """ Enable user account """
 
     def __call__(self):
-        self.results = None
-        self.submitted = False
-        self.errors = dict()
         return self.render()
 
-    def update(self):
-        unwanted = ('_authenticator', 'form.button.Submit')
-        required = ('title', )
-        if 'form.button.Submit' in self.request:
-            authenticator = getMultiAdapter((self.context, self.request),
-                                            name=u"authenticator")
-            if not authenticator.verify():
-                raise Unauthorized
-            form = self.request.form
-            form_data = {}
-            form_errors = {}
-            error_idx = 0
-            for value in form:
-                if value not in unwanted:
-                    form_data[value] = safe_unicode(form[value])
-                    if not form[value] and value in required:
-                        error = {
-                            'active': True,
-                            'msg': _(u"This field is required")
-                        }
-                        form_errors[value] = error
-                        error_idx += 1
-                    else:
-                        error = {
-                            'active': True,
-                            'msg': form[value]
-                        }
-                        form_errors[value] = error
-            if error_idx > 0:
-                self.errors = form_errors
-            else:
-                self._search_records(form)
-
-    def member_records(self):
-        return None
-
-    def _search_records(self, data):
+    def render(self):
         context = aq_inner(self.context)
-        view = context.restrictedTraverse('@@pas_search')
-        criteria = extractCriteriaFromRequest(self.request.form.copy())
-        self.results = view.searchUsers(sort_by=u'fullname', **criteria)
-        return self.results
+        authenticator = getMultiAdapter((context, self.request),
+                                        name=u"authenticator")
+        if not authenticator.verify():
+            raise Unauthorized
+        user_id = self.request.get('user-id', None)
+        tool = getUtility(IHPHMemberTool)
+        if tool.can_manage_users(context):
+            tool.update_user(user_id, {
+                'enabled': True
+            })
+        base_url = '{0}/@@user-manager-details?user-id={1}'.format(
+            context.absolute_url(),
+            user_id
+        )
+        next_url = '{0}&_authenticator={1}'.format(
+            base_url,
+            authenticator.token()
+        )
+        api.portal.show_message(
+            message=_(u"User account enabled."),
+            request=self.request)
+        return self.request.response.redirect(next_url)
+
+
+class UserDisable(BrowserView):
+    """ Disable user account """
+
+    def __call__(self):
+        return self.render()
+
+    def render(self):
+        context = aq_inner(self.context)
+        authenticator = getMultiAdapter((context, self.request),
+                                        name=u"authenticator")
+        if not authenticator.verify():
+            raise Unauthorized
+        user_id = self.request.get('user-id', None)
+        tool = getUtility(IHPHMemberTool)
+        if tool.can_manage_users(context):
+            tool.update_user(user_id, {
+                'enabled': False
+            })
+        base_url = '{0}/@@user-manager-details?user-id={1}'.format(
+            context.absolute_url(),
+            user_id
+        )
+        next_url = '{0}&_authenticator={1}'.format(
+            base_url,
+            authenticator.token()
+        )
+        api.portal.show_message(
+            message=_(u"User was successfully disabled."),
+            request=self.request)
+        return self.request.response.redirect(next_url)
+
+
+class UserRemove(BrowserView):
+    """ Disable user account """
+
+    def __call__(self):
+        return self.render()
+
+    def render(self):
+        context = aq_inner(self.context)
+        authenticator = getMultiAdapter((context, self.request),
+                                        name=u"authenticator")
+        if not authenticator.verify():
+            raise Unauthorized
+        user_id = self.request.get('user-id', None)
+        tool = getUtility(IHPHMemberTool)
+        if tool.can_manage_users(context):
+            tool.remove_user(user_id)
+        base_url = '{0}/@@user-management'.format(context.absolute_url())
+        next_url = '{0}?_authenticator={1}'.format(
+            base_url,
+            authenticator.token()
+        )
+        api.portal.show_message(
+            message=_(u"User account successfully removed form portal"),
+            request=self.request)
+        return self.request.response.redirect(next_url)
+
