@@ -18,12 +18,12 @@ from hph.membership.mailer import prepare_email_message
 from hph.membership.mailer import get_mail_template
 from hph.membership.mailer import send_mail
 
-DEFAULT_SERVICE_URI = 'getAllUsers'
-DEFAULT_SERVICE_TIMEOUT = socket.getdefaulttimeout()
-
 from hph.membership import MessageFactory as _
 
 logger = logging.getLogger("User Importer")
+
+DEFAULT_SERVICE_URI = 'getAllUsers'
+DEFAULT_SERVICE_TIMEOUT = socket.getdefaulttimeout()
 
 
 class IHPHMemberTool(Interface):
@@ -75,6 +75,23 @@ class IHPHMemberTool(Interface):
 class MemberTool(grok.GlobalUtility):
     grok.provides(IHPHMemberTool)
 
+    def can_manage_users(self, object):
+        """ Enhance basic modify portal content permission
+            by manually checking for group membership
+        """
+        admin_roles = ('Manager', 'Site Administrator', 'StaffMember')
+        is_adm = False
+        if not api.user.is_anonymous():
+            user = api.user.get_current()
+            user_id = user.getId()
+            if user_id is 'zope-admin':
+                is_adm = True
+            roles = api.user.get_roles(username=user_id, obj=object)
+            for role in roles:
+                if role in admin_roles:
+                    is_adm = True
+        return is_adm
+
     def create_user(self, data):
         registration = api.portal.get_tool(name='portal_registration')
         pas = api.portal.get_tool(name='acl_users')
@@ -102,6 +119,15 @@ class MemberTool(grok.GlobalUtility):
             info['created'] = True
         info['userid'] = user_id
         return info
+
+    def remove_user(self, user_id):
+        if self.get_user(user_id):
+            api.user.delete(user_id)
+            workspace_folder = api.content.get(UID=user_id)
+            if workspace_folder:
+                api.content.delete(workspace_folder,
+                                   check_linkintegrity=False)
+        return True
 
     def update_user(self, userid, props):
         user = self.get_user(userid)

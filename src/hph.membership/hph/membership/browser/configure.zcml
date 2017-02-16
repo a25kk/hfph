@@ -23,10 +23,21 @@
 
     <browser:page
             for="hph.membership.memberfolder.IMemberFolder"
-            name="user-management-base"
-            class=".usermanager.UserManager"
-            template="usermanagerbase.pt"
-            permission="cmf.ManagePortal"
+            name="user-enable"
+            class=".usermanager.UserEnable"
+            permission="cmf.ModifyPortalContent"
+    />
+    <browser:page
+            for="hph.membership.memberfolder.IMemberFolder"
+            name="user-disable"
+            class=".usermanager.UserDisable"
+            permission="cmf.ModifyPortalContent"
+    />
+    <browser:page
+            for="hph.membership.memberfolder.IMemberFolder"
+            name="user-remove"
+            class=".usermanager.UserRemove"
+            permission="cmf.ModifyPortalContent"
     />
 
 </configure>
