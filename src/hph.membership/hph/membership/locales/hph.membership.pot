@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-05-09 10:05+0000\n"
+"POT-Creation-Date: 2017-02-15 08:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "Activate account"
 msgstr ""
 
-#: ./../asignment_templates/asignmentview.pt:60
+#: ./../asignment_templates/asignmentview.pt:61
 msgid "Active Asignments"
 msgstr ""
 
@@ -84,11 +84,12 @@ msgstr ""
 msgid "Came From"
 msgstr ""
 
+#: ./../browser/user-details.pt:56
 #: ./../workspace_templates/view.pt:37
 msgid "Change password"
 msgstr ""
 
-#: ./../useraccount_templates/useraccount.pt:37
+#: ./../useraccount_templates/useraccount.pt:38
 msgid "Confirm"
 msgstr ""
 
@@ -128,11 +129,11 @@ msgstr ""
 msgid "Enumerating all registered users would have certain performance implications and therefore a user group must be selected"
 msgstr ""
 
-#: ./../configure.zcml:35
+#: ./../configure.zcml:37
 msgid "Extension profile for HPH user management and membership tools"
 msgstr ""
 
-#: ./../memberfolder.py:269
+#: ./../memberfolder.py:326
 msgid "External records stored for import"
 msgstr ""
 
@@ -148,7 +149,7 @@ msgstr ""
 msgid "HPH Membership Tool"
 msgstr ""
 
-#: ./../configure.zcml:35
+#: ./../configure.zcml:37
 msgid "HPH user management and membership tools"
 msgstr ""
 
@@ -156,11 +157,11 @@ msgstr ""
 msgid "If you see this page than either the url you were trying to open does not exist or an error happened when trying to authenticate your credentials."
 msgstr ""
 
-#: ./../memberfolder.py:29
+#: ./../memberfolder.py:30
 msgid "Importable API Records"
 msgstr ""
 
-#: ./../tool.py:126
+#: ./../tool.py:125
 msgid "Invitation to join the HfPH portal"
 msgstr ""
 
@@ -200,6 +201,7 @@ msgstr ""
 msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled."
 msgstr ""
 
+#: ./../browser/user-details.pt:52
 #: ./../workspace_templates/view.pt:33
 msgid "Login:"
 msgstr ""
@@ -237,7 +239,7 @@ msgid "MembershipTool IP"
 msgstr ""
 
 #: ./../setpassword.py:21
-#: ./../useraccount_templates/useraccount.pt:27
+#: ./../useraccount_templates/useraccount.pt:28
 msgid "New Password"
 msgstr ""
 
@@ -246,15 +248,16 @@ msgid "No activity recorded yet"
 msgstr ""
 
 #: ./../asignment.py:97
+#: ./../browser/usermanager.py:278
 #: ./../workspace.py:49
 msgid "No email provided"
 msgstr ""
 
-#: ./../useraccount.py:73
+#: ./../useraccount.py:74
 msgid "No matching user account found"
 msgstr ""
 
-#: ./../useraccount.py:80
+#: ./../useraccount.py:81
 msgid "No stored access token found"
 msgstr ""
 
@@ -267,7 +270,7 @@ msgstr ""
 msgid "Password"
 msgstr ""
 
-#: ./../useraccount.py:114
+#: ./../useraccount.py:115
 msgid "Passwords must consist of at least 8 characters"
 msgstr ""
 
@@ -283,12 +286,16 @@ msgstr ""
 msgid "Personal workspace container for members"
 msgstr ""
 
-#: ./../tool.py:115
+#: ./../tool.py:114
 msgid "Please change your account information for HfPH"
 msgstr ""
 
 #: ./../useraccount_templates/useraccounterror.pt:19
 msgid "Please check wether the requested URL is complete and contains the required access token to verify your identity. If the url is correct and the error persists it is most likely due to an incorrectly generated user account. Our team has already been informed about this error by our automatic exception handler system."
+msgstr ""
+
+#: ./../useraccount_templates/useraccount.pt:56
+msgid "Please check wether the requested URL is complete and contains the required access token to verify your identity. If the url is correct and the error persists it is most likely due to an incorrectly gernerated user account. Please contact our team if you have any questions."
 msgstr ""
 
 #: ./../discourse.py:60
@@ -344,7 +351,7 @@ msgstr ""
 msgid "SSO payload"
 msgstr ""
 
-#: ./../useraccount_templates/useraccount.pt:44
+#: ./../useraccount_templates/useraccount.pt:45
 msgid "Save"
 msgstr ""
 
@@ -369,6 +376,7 @@ msgstr ""
 msgid "Signin error"
 msgstr ""
 
+#: ./../browser/user-details.pt:60
 #: ./../workspace_templates/view.pt:41
 msgid "Signout"
 msgstr ""
@@ -397,20 +405,21 @@ msgstr ""
 msgid "The Discourse SSO endpoint has not been configured yet"
 msgstr ""
 
-#: ./../useraccount.py:119
+#: ./../useraccount.py:120
 msgid "The entered password and confirmation do not match."
 msgstr ""
 
-#: ./../memberfolder_templates/usermanager.pt:27
-msgid "The member area contains member workspaces"
+#: ./../browser/usermanager.py:108
+msgid "There were errors."
 msgstr ""
 
 #: ./../interfaces.py:28
 msgid "This API token can be used to authenticate with the portal e.g. when calling the member updater via external cronjob"
 msgstr ""
 
+#: ./../browser/usermanager.py:367
 #: ./../invitation.py:52
-#: ./../useraccount.py:43
+#: ./../memberfolder.py:115
 msgid "This field is required"
 msgstr ""
 
@@ -424,6 +433,10 @@ msgstr ""
 
 #: ./../signin.py:188
 msgid "Unable to send request."
+msgstr ""
+
+#: ./../useraccount_templates/useraccount.pt:53
+msgid "Unauthorized"
 msgstr ""
 
 #: ./../memberfolder_templates/memberrecords.pt:34
@@ -443,9 +456,9 @@ msgstr ""
 msgid "User Invitations"
 msgstr ""
 
+#: ./../browser/user-details.pt:26
+#: ./../browser/usermanager.pt:17
 #: ./../invitation_templates/userinvitation.pt:32
-#: ./../memberfolder_templates/usermanager.pt:58
-#: ./../memberinfo_templates/enableuseraccount.pt:18
 msgid "User Manager"
 msgstr ""
 
@@ -461,21 +474,21 @@ msgstr ""
 msgid "User invitation email has been sent successfully."
 msgstr ""
 
-#: ./../memberfolder_templates/usermanager.pt:60
-msgid "Users should are redirected to their personal workspace except when logged in as site administrator"
-msgstr ""
-
 #: ./../useraccount_templates/useraccounterror.pt:15
 msgid "We are sorry to inform you that this request can not be processed."
+msgstr ""
+
+#: ./../useraccount_templates/useraccount.pt:54
+msgid "We are sorry to inform you that this request can not be resolved."
 msgstr ""
 
 #: ./../discourse_templates/discoursessoerror.pt:33
 msgid "Where do you want to go next?"
 msgstr ""
 
+#: ./../browser/user-details.pt:41
 #: ./../memberfolder_templates/workspacemissing.pt:18
 #: ./../profiles/default/types/hph.membership.workspace.xml
-#: ./../userfactory_templates/usercreationform.pt:20
 msgid "Workspace"
 msgstr ""
 
@@ -485,7 +498,7 @@ msgstr ""
 
 #: ./../discourse.py:129
 #: ./../signin.py:133
-#: ./../useraccount.py:151
+#: ./../useraccount.py:152
 msgid "You are now logged in."
 msgstr ""
 
@@ -493,9 +506,85 @@ msgstr ""
 msgid "asigned"
 msgstr ""
 
+#. Default: "${number} Benutzer wurden gefunden."
+#: ./../browser/usermanager.pt:83
+msgid "batch_x_items_matching_your_criteria"
+msgstr ""
+
 #: ./../setpassword.py:70
 #: ./../userfactory.py:62
 msgid "cancel"
+msgstr ""
+
+#. Default: "This search form enables you to find users by specifying one or more search criteria."
+#: ./../browser/usermanager.py:103
+msgid "description_member_search"
+msgstr ""
+
+#. Default: "Search for users"
+#: ./../browser/usermanager.py:102
+msgid "heading_member_search"
+msgstr ""
+
+#. Default: "Find users whose email address contain"
+#: ./../browser/usermanager.py:43
+msgid "help_search_email"
+msgstr ""
+
+#. Default: "Find users whose full names contain"
+#: ./../browser/usermanager.py:50
+msgid "help_search_fullname"
+msgstr ""
+
+#. Default: "Find all members of selected groups."
+#: ./../browser/usermanager.py:64
+msgid "help_search_groups"
+msgstr ""
+
+#. Default: "Find users whose login name contain"
+#: ./../browser/usermanager.py:36
+msgid "help_search_name"
+msgstr ""
+
+#. Default: "E-mail"
+#: ./../browser/usermanager.py:42
+msgid "label_email"
+msgstr ""
+
+#. Default: "Full Name"
+#: ./../browser/usermanager.py:49
+msgid "label_fullname"
+msgstr ""
+
+#. Default: "Group(s)"
+#: ./../browser/usermanager.py:63
+msgid "label_groups"
+msgstr ""
+
+#. Default: "Name"
+#: ./../browser/usermanager.py:35
+msgid "label_name"
+msgstr ""
+
+#. Default: "Search"
+#: ./../browser/usermanager.py:190
+msgid "label_search"
+msgstr ""
+
+#. Default: "User Search Criteria"
+#: ./../browser/usermanager.py:29
+msgid "legend_member_search_criteria"
+msgstr ""
+
+#. Default: "User Group Search"
+#: ./../browser/usermanager.py:57
+msgid "legend_member_search_groups"
+msgstr ""
+
+#. Default: "You are not allowed to list portal members."
+#: ./../browser/user-details.pt:36
+#: ./../browser/usermanager.pt:76
+msgid "member_listing_not_allowed"
 msgstr ""
 
 #. Default: "Abgelegt unter"

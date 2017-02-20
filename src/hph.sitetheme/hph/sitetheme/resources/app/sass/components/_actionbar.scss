@@ -37,6 +37,7 @@
 // Global section and language switcher
 .app-actionbar-nav {
     @extend .nav;
+    justify-content: center;
     font-size: .8rem;
     @include media-breakpoint-up(md) {
         font-size: .9rem;

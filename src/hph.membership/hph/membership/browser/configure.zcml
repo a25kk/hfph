@@ -1,0 +1,43 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser"
+        i18n_domain="hph.membership">
+
+    <!-- Faculty member assignment -->
+    <browser:page
+            for="hph.membership.memberfolder.IMemberFolder"
+            name="user-management"
+            class=".usermanager.UserSearchForm"
+            template="usermanager.pt"
+            permission="cmf.ModifyPortalContent"
+    />
+
+    <!-- User details -->
+    <browser:page
+            for="hph.membership.memberfolder.IMemberFolder"
+            name="user-management-details"
+            class=".usermanager.UserDetails"
+            template="user-details.pt"
+            permission="cmf.ModifyPortalContent"
+    />
+
+    <browser:page
+            for="hph.membership.memberfolder.IMemberFolder"
+            name="user-enable"
+            class=".usermanager.UserEnable"
+            permission="cmf.ModifyPortalContent"
+    />
+    <browser:page
+            for="hph.membership.memberfolder.IMemberFolder"
+            name="user-disable"
+            class=".usermanager.UserDisable"
+            permission="cmf.ModifyPortalContent"
+    />
+    <browser:page
+            for="hph.membership.memberfolder.IMemberFolder"
+            name="user-remove"
+            class=".usermanager.UserRemove"
+            permission="cmf.ModifyPortalContent"
+    />
+
+</configure>

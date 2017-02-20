@@ -65,9 +65,9 @@
 
 .ppe-header {
     margin-bottom: 0;
-    padding: $modal-title-padding;
+    padding: $modal-header-padding;
     border-bottom: 1px solid rgba(252,252,252,0.1);
-    min-height: ($modal-title-padding + $modal-title-line-height);
+    min-height: ($modal-header-padding + $modal-title-line-height);
     background: $gray-lighter;
     color: $gray;
     .ppe-close {
