@@ -19183,7 +19183,10 @@ img[data-sizes='auto']
 
 .app-actionbar-nav
 {
-    font-size: .8rem;
+    font-size: .8rem; 
+
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 @media (min-width: 768px)
 {
