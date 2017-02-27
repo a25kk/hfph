@@ -106,10 +106,10 @@ $('div[data-appui="editable"]').on({
     }
 });
 
-var $sortableSection = $('.ppe-section-sortable').sortable({
-    items: '.ppe-block-sortable',
-    handle: '.ppe-dragindicator'
-});
+// var $sortableSection = $('.ppe-section-sortable').sortable({
+//     items: '.ppe-block-sortable',
+//     handle: '.ppe-dragindicator'
+// });
 
 // if ($sortableSection.length) {
 //     $sortableSection.on('sortupdate', function () {
