@@ -10,9 +10,6 @@
 }
 
 .app-ticker-content {
-    @include media-breakpoint-up(md) {
-        @include make-row();
-    }
  }
 
 .app-ticker-title {
@@ -20,25 +17,25 @@
     font-weight: 400;
     border-bottom: 4px solid $app-secondary;
     @include media-breakpoint-up(md) {
-        @include make-col(3);
-        border-right: 4px solid $app-secondary;
-        border-bottom: 0;
+        float:right;
+        border: none;
     }
-    @include media-breakpoint-up(lg) {
-        @include make-col(2);
+}
+
+.app-ticker__headline {
+    float: right;
+    margin-top: .75rem;
+    @include media-breakpoint-up(md) {
+        display: none;
     }
 }
 
 .app-ticker-main {
     margin-top: 1rem;
     margin-bottom: .5rem;
+    padding: .5rem;
     @include media-breakpoint-up(md) {
-        @include make-col(7);
-        margin: 0;
-    }
-    @include media-breakpoint-up(lg) {
-        @include make-col(9);
-        margin: 0;
+        border-left: 4px solid $app-secondary;
     }
 }
 
@@ -54,4 +51,78 @@
 
 .app-marquee {
     overflow: hidden;
+}
+
+/* ---- Single banner item ---- */
+//
+//## This part will be filled dynamically with
+//## content and a lazyloaded background image
+.app-marquee__item {
+    position: relative;
+    height: 8rem;
+    min-height: 8rem;
+    width: 100%;
+    background-size: cover;
+    background-position: top center;
+    @include media-breakpoint-up(md) {
+        height: 3rem;
+        min-height: 3rem;
+    }
+}
+
+.app-marquee__content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #333;
+    min-height: 8rem;
+    @include media-breakpoint-up(md) {
+        min-height: 3rem;
+    }
+}
+
+.app-ticker__actions {
+    padding-top: .5rem;
+    padding-left: 1.25rem;
+}
+
+.app-marquee__bulletin {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    @include media-breakpoint-up(md) {
+        &:before {
+            content: '+++';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 2rem;
+        }
+    }
+}
+
+
+
+/* ---- flickity overrides ---- */
+
+.flickity-prev-next-button {
+    background: transparent;
+}
+
+.flickity-prev-next-button .arrow {
+    fill: #fff;
+}
+
+.flickity-prev-next-button:hover {
+    background: none;
+}
+
+.flickity-page-dots {
+    bottom: 0;
+    @include media-breakpoint-up(sm) {
+        text-align: right;
+        // position: relative;
+    }
 }
