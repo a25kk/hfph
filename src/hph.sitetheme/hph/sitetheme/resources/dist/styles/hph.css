@@ -19524,7 +19524,7 @@ img[data-sizes='auto']
 
 .app-ticker
 {
-    padding: .5rem;
+    padding: 0;
 }
 
 .app-ticker-title
@@ -19539,7 +19539,7 @@ img[data-sizes='auto']
     {
         float: left;
 
-        margin-right: 1rem;
+        margin-right: 1.5rem;
         margin-bottom: 1rem;
 
         border: none;
