@@ -3,6 +3,7 @@
     @include make-container-max-widths();
     background-color: #fff;
     margin-bottom: $spacer;
+    border-left: 5px solid $gray-light;
 }
 
 .app-ticker {
@@ -15,18 +16,25 @@
 .app-ticker-title {
     color: $app-primary;
     font-weight: 400;
-    border-bottom: 4px solid $app-secondary;
     @include media-breakpoint-up(md) {
-        float:right;
+        float:left;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
         border: none;
     }
 }
 
 .app-ticker__headline {
-    float: right;
     margin-top: .75rem;
     @include media-breakpoint-up(md) {
         display: none;
+    }
+}
+
+.app-ticker__icon {
+    float: right;
+    @include media-breakpoint-up(md) {
+        float: none;
     }
 }
 
@@ -34,9 +42,6 @@
     margin-top: 1rem;
     margin-bottom: .5rem;
     padding: .5rem;
-    @include media-breakpoint-up(md) {
-        border-left: 4px solid $app-secondary;
-    }
 }
 
 .app-ticker-actions {
@@ -90,17 +95,6 @@
     display: inline-block;
     position: relative;
     width: 100%;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    @include media-breakpoint-up(md) {
-        &:before {
-            content: '+++';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 2rem;
-        }
-    }
 }
 
 
