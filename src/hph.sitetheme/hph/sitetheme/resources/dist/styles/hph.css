@@ -16281,6 +16281,201 @@ a.text-gray-dark:hover
     }
 }
 
+/*! Flickity v1.2.1
+http://flickity.metafizzy.co
+---------------------------------------------- */
+.flickity-enabled
+{
+    position: relative;
+}
+
+.flickity-enabled:focus
+{
+    outline: none;
+}
+
+.flickity-viewport
+{
+    position: relative;
+
+    overflow: hidden;
+
+    height: 100%;
+}
+
+.flickity-slider
+{
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+}
+
+/* draggable */
+.flickity-enabled.is-draggable
+{
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; 
+
+    -webkit-tap-highlight-color: transparent;
+            tap-highlight-color: transparent;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport
+{
+    cursor: move;
+    cursor: grab;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down
+{
+    cursor: grabbing;
+}
+
+/* ---- previous/next buttons ---- */
+.flickity-prev-next-button
+{
+    position: absolute;
+    top: 50%;
+
+    width: 44px;
+    height: 44px;
+
+    cursor: pointer;
+    /* vertically center */
+    transform: translateY(-50%); 
+
+    border: none;
+    border-radius: 50%;
+    background: white;
+    background: rgba(255, 255, 255, .75);
+}
+
+.flickity-prev-next-button:hover
+{
+    background: white;
+}
+
+.flickity-prev-next-button:focus
+{
+    outline: none;
+    box-shadow: 0 0 0 5px #09f;
+}
+
+.flickity-prev-next-button:active
+{
+    /* IE8 */
+    opacity: .6; 
+
+    filter: alpha(opacity=60);
+}
+
+.flickity-prev-next-button.previous
+{
+    left: 10px;
+}
+
+.flickity-prev-next-button.next
+{
+    right: 10px;
+}
+
+/* right to left */
+.flickity-rtl .flickity-prev-next-button.previous
+{
+    right: 10px; 
+    left: auto;
+}
+
+.flickity-rtl .flickity-prev-next-button.next
+{
+    right: auto;
+    left: 10px;
+}
+
+.flickity-prev-next-button:disabled
+{
+    cursor: auto; 
+    /* IE8 */
+
+    opacity: .3;
+
+    filter: alpha(opacity=30);
+}
+
+.flickity-prev-next-button svg
+{
+    position: absolute;
+    top: 20%;
+    left: 20%;
+
+    width: 60%;
+    height: 60%;
+}
+
+.flickity-prev-next-button .arrow
+{
+    fill: #333;
+}
+
+/* color & size if no SVG - IE8 and Android 2.3 */
+.flickity-prev-next-button.no-svg
+{
+    font-size: 26px; 
+
+    color: #333;
+}
+
+/* ---- page dots ---- */
+.flickity-page-dots
+{
+    line-height: 1; 
+
+    position: absolute;
+    bottom: -25px;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    text-align: center;
+}
+
+.flickity-rtl .flickity-page-dots
+{
+    direction: rtl;
+}
+
+.flickity-page-dots .dot
+{
+    display: inline-block;
+
+    width: 10px;
+    height: 10px;
+    margin: 0 8px;
+
+    cursor: pointer; 
+    /* IE8 */
+
+    opacity: .25;
+    border-radius: 50%;
+    background: #333;
+
+    filter: alpha(opacity=25);
+}
+
+.flickity-page-dots .dot.is-selected
+{
+    /* IE8 */
+    opacity: 1; 
+
+    filter: alpha(opacity=100);
+}
+
 @keyframes medium-editor-image-loading
 {
     0%
@@ -19254,11 +19449,12 @@ img[data-sizes='auto']
     position: relative;
 
     margin-right: auto;
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
     margin-left: auto;
     padding-right: 15px;
     padding-left: 15px;
 
+    border-left: 5px solid #636c72; 
     background-color: #fff;
 }
 @media (min-width: 576px)
@@ -19328,84 +19524,50 @@ img[data-sizes='auto']
 
 .app-ticker
 {
-    padding: .5rem;
-}
-
-@media (min-width: 768px)
-{
-    .app-ticker-content
-    {
-        display: -ms-flexbox;
-        display: flex;
-
-        margin-right: -15px;
-        margin-left: -15px; 
-
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-    }
-}
-@media (min-width: 768px) and (min-width: 576px)
-{
-    .app-ticker-content
-    {
-        margin-right: -15px;
-        margin-left: -15px;
-    }
-}
-@media (min-width: 768px) and (min-width: 768px)
-{
-    .app-ticker-content
-    {
-        margin-right: -15px;
-        margin-left: -15px;
-    }
-}
-@media (min-width: 768px) and (min-width: 992px)
-{
-    .app-ticker-content
-    {
-        margin-right: -15px;
-        margin-left: -15px;
-    }
-}
-@media (min-width: 768px) and (min-width: 1200px)
-{
-    .app-ticker-content
-    {
-        margin-right: -15px;
-        margin-left: -15px;
-    }
+    padding: 0;
 }
 
 .app-ticker-title
 {
-    font-weight: 400;
+    font-weight: 400; 
 
     color: #036;
-    border-bottom: 4px solid #fc3;
 }
 @media (min-width: 768px)
 {
     .app-ticker-title
     {
-        max-width: 25%;
+        float: left;
 
-        border-right: 4px solid #fc3;
-        border-bottom: 0; 
+        margin-right: 1.5rem;
+        margin-bottom: 1rem;
+        padding-top: .5rem;
 
-        -ms-flex: 0 0 25%;
-            flex: 0 0 25%;
+        border: none;
     }
 }
-@media (min-width: 992px)
-{
-    .app-ticker-title
-    {
-        max-width: 16.6666666667%; 
 
-        -ms-flex: 0 0 16.6666666667%;
-            flex: 0 0 16.6666666667%;
+.app-ticker__headline
+{
+    margin-top: .75rem;
+}
+@media (min-width: 768px)
+{
+    .app-ticker__headline
+    {
+        display: none;
+    }
+}
+
+.app-ticker__icon
+{
+    float: right;
+}
+@media (min-width: 768px)
+{
+    .app-ticker__icon
+    {
+        float: none;
     }
 }
 
@@ -19413,28 +19575,7 @@ img[data-sizes='auto']
 {
     margin-top: 1rem;
     margin-bottom: .5rem;
-}
-@media (min-width: 768px)
-{
-    .app-ticker-main
-    {
-        max-width: 58.3333333333%;
-        margin: 0; 
-
-        -ms-flex: 0 0 58.3333333333%;
-            flex: 0 0 58.3333333333%;
-    }
-}
-@media (min-width: 992px)
-{
-    .app-ticker-main
-    {
-        max-width: 75%;
-        margin: 0; 
-
-        -ms-flex: 0 0 75%;
-            flex: 0 0 75%;
-    }
+    padding: .5rem;
 }
 
 .app-ticker-actions
@@ -19465,6 +19606,88 @@ img[data-sizes='auto']
 .app-marquee
 {
     overflow: hidden;
+}
+
+/* ---- Single banner item ---- */
+.app-marquee__item
+{
+    position: relative;
+
+    width: 100%;
+    height: 8rem;
+    min-height: 8rem;
+
+    background-position: top center; 
+    background-size: cover;
+}
+@media (min-width: 768px)
+{
+    .app-marquee__item
+    {
+        height: 3rem;
+        min-height: 3rem;
+    }
+}
+
+.app-marquee__content
+{
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    min-height: 8rem; 
+
+    color: #333;
+}
+@media (min-width: 768px)
+{
+    .app-marquee__content
+    {
+        min-height: 3rem;
+    }
+}
+
+.app-ticker__actions
+{
+    padding-top: .5rem;
+    padding-left: 1.25rem;
+}
+
+.app-marquee__bulletin
+{
+    position: relative;
+
+    display: inline-block;
+
+    width: 100%;
+}
+
+/* ---- flickity overrides ---- */
+.flickity-prev-next-button
+{
+    background: transparent;
+}
+
+.flickity-prev-next-button .arrow
+{
+    fill: #fff;
+}
+
+.flickity-prev-next-button:hover
+{
+    background: none;
+}
+
+.flickity-page-dots
+{
+    bottom: 0;
+}
+@media (min-width: 576px)
+{
+    .flickity-page-dots
+    {
+        text-align: right;
+    }
 }
 
 .app-searchbox

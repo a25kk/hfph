@@ -2,7 +2,24 @@ var font = new FontFaceObserver('Open Sans');
 font.load().then(function () {
     document.documentElement.className += " app-fonts-loaded";
 });
-$('.js-ticker').marquee({ speed: 5000 });
+// $('.js-ticker').marquee({ speed: 5000 });
+// Integrate carousel for news ticekr content
+var $tickerBar = document.querySelectorAll('.js-ticker');
+if ($tickerBar.length) {
+    var tickerflkty = new Flickity('.js-ticker', {
+        autoPlay: 5000,
+        contain: true,
+        wrapAround: true,
+        imagesLoaded: true,
+        cellSelector: '.app-marquee__item',
+        cellAlign: 'left',
+        selectedAttraction: 0.025,
+        friction: 0.28,
+        prevNextButtons: false
+    });
+}
+
+
 var $ajaxContainer = $('#appui-container');
 $('div[data-appui="ajaxified"]').each(function () {
     var $wrapper = $(this).parent(),

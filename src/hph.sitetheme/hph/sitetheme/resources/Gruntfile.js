@@ -52,6 +52,7 @@ module.exports = function (grunt) {
             theme: {
                 options: {
                     banner: "requirejs(['require',\n" +
+                                       "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/flickity.pkgd.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/jquery.marquee.min.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/html.sortable.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/medium-editor.js',\n" +
@@ -61,7 +62,7 @@ module.exports = function (grunt) {
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/respimage.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/ls.parent-fit.js',\n" +
                                        "'<%= config.diazoPrefix %>/<%= config.dist %>/scripts/lazysizes-umd.js',],\n" +
-                                       " function(require, sortable) {\n'use strict';\n",
+                                       " function(require, Flickity, sortable) {\n'use strict';\n",
                     footer: "});",
                     stripBanners: true
                 },
@@ -169,6 +170,7 @@ module.exports = function (grunt) {
                     '<%= config.modules %>/jquery.marquee/jquery.marquee.min.js',
                     '<%= config.modules %>/html5sortable/dist/html.sortable.js',
                     '<%= config.modules %>/medium-editor/dist/js/medium-editor.js',
+                    '<%= config.modules %>/flickity/dist/flickity.pkgd.js',
                     '<%= config.modules %>/fontfaceobserver/fontfaceobserver.js',
                     '<%= config.modules %>/fontfaceobserver/fontfaceobserver.standalone.js',
                 ],
