@@ -45,13 +45,13 @@
         <div class="app-page-body">
             <div class="list-group">
                 <tal:block tal:repeat="item view/groups">
-                    <a href="#" class="list-group-item"
+                    <a href="#" class="list-group-item justify-content-between"
                         tal:attributes="href string:${context/absolute_url}/@@asignment-users/${item/name}">
-                      <span class="pull-right tag" tal:content="item/users">index</span>
                       <h4 class="list-group-item-heading"
                         tal:content="item/name">
                         List group item heading
                       </h4>
+                      <span class="pull-right tag" tal:content="item/users">index</span>
                     </a>
                 </tal:block>
             </div>

@@ -71,7 +71,7 @@
                             <div class="app-page-body">
                                 <div class="list-group">
                                     <tal:block tal:repeat="action view/group_actions">
-                                        <a href="#" class="list-group-item"
+                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"
                                             tal:attributes="href action/action">
                                           <h4 class="list-group-item-heading"
                                             tal:content="action/title">
@@ -107,7 +107,7 @@
                              <div class="app-page-body">
                                 <div class="list-group">
                                     <tal:block tal:repeat="item view/contributing">
-                                        <a href="#" class="list-group-item"
+                                        <a href="#" class="list-group-item  list-group-item-action flex-column align-items-start"
                                             tal:attributes="href item/url">
                                           <h4 class="list-group-item-heading"
                                             tal:content="item/title">
