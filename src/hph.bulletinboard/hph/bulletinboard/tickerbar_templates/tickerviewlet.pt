@@ -5,7 +5,7 @@
 
         <div class="app-ticker-content">
             <div class="app-ticker-title">
-                <i class="ion ion-ios-alert-outline app-icon app-icon--lg pull-right"></i>
+                <i class="ion ion-ios-alert-outline app-icon app-icon--lg app-ticker__icon"></i>
                 <div class="app-ticker__headline">Wichtige Hinweise</div>
             </div>
             <div class="app-ticker-main">
@@ -15,7 +15,9 @@
                     <tal:block tal:repeat="item items">
                         <div class="app-marquee__item">
                             <div class="app-marquee__content">
-                                <div class="app-marquee__bulletin" tal:content="item/Title" />
+                                <div class="app-marquee__bulletin">
+                                    +++ <span tal:replace="item/Title" /> +++
+                                </div>
                             </div>
                         </div>
                     </tal:block>

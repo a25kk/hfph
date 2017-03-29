@@ -19449,11 +19449,12 @@ img[data-sizes='auto']
     position: relative;
 
     margin-right: auto;
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
     margin-left: auto;
     padding-right: 15px;
     padding-left: 15px;
 
+    border-left: 5px solid #636c72; 
     background-color: #fff;
 }
 @media (min-width: 576px)
@@ -19523,21 +19524,24 @@ img[data-sizes='auto']
 
 .app-ticker
 {
-    padding: .5rem;
+    padding: 0;
 }
 
 .app-ticker-title
 {
-    font-weight: 400;
+    font-weight: 400; 
 
     color: #036;
-    border-bottom: 4px solid #fc3;
 }
 @media (min-width: 768px)
 {
     .app-ticker-title
     {
-        float: right;
+        float: left;
+
+        margin-right: 1.5rem;
+        margin-bottom: 1rem;
+        padding-top: .5rem;
 
         border: none;
     }
@@ -19545,8 +19549,6 @@ img[data-sizes='auto']
 
 .app-ticker__headline
 {
-    float: right;
-
     margin-top: .75rem;
 }
 @media (min-width: 768px)
@@ -19557,18 +19559,23 @@ img[data-sizes='auto']
     }
 }
 
+.app-ticker__icon
+{
+    float: right;
+}
+@media (min-width: 768px)
+{
+    .app-ticker__icon
+    {
+        float: none;
+    }
+}
+
 .app-ticker-main
 {
     margin-top: 1rem;
     margin-bottom: .5rem;
     padding: .5rem;
-}
-@media (min-width: 768px)
-{
-    .app-ticker-main
-    {
-        border-left: 4px solid #fc3;
-    }
 }
 
 .app-ticker-actions
@@ -19653,21 +19660,6 @@ img[data-sizes='auto']
     display: inline-block;
 
     width: 100%;
-    padding-right: 2rem; 
-    padding-left: 2rem;
-}
-@media (min-width: 768px)
-{
-    .app-marquee__bulletin:before
-    {
-        position: absolute;
-        top: 0;
-        left: 0;
-
-        width: 2rem; 
-
-        content: '+++';
-    }
 }
 
 /* ---- flickity overrides ---- */
@@ -20279,6 +20271,150 @@ body.template-frontpage-view .app-pathbar
 {
     color: #fff !important;
     background: #5896c8;
+}
+
+.media-item
+{
+    display: -ms-flexbox;
+    display: flex;
+
+    margin-right: -15px;
+    margin-bottom: 1rem; 
+    margin-left: -15px;
+
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+@media (min-width: 576px)
+{
+    .media-item
+    {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+@media (min-width: 768px)
+{
+    .media-item
+    {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+@media (min-width: 992px)
+{
+    .media-item
+    {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .media-item
+    {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+
+.media-item__aside,
+.media-item__main
+{
+    position: relative;
+
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 576px)
+{
+    .media-item__aside,
+    .media-item__main
+    {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+@media (min-width: 768px)
+{
+    .media-item__aside,
+    .media-item__main
+    {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+@media (min-width: 992px)
+{
+    .media-item__aside,
+    .media-item__main
+    {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .media-item__aside,
+    .media-item__main
+    {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+@media (min-width: 576px)
+{
+    .media-item__aside
+    {
+        max-width: 25%; 
+
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+    }
+}
+
+@media (min-width: 992px)
+{
+    .media-item__aside
+    {
+        max-width: 16.6666666667%; 
+
+        -ms-flex: 0 0 16.6666666667%;
+            flex: 0 0 16.6666666667%;
+    }
+}
+
+@media (min-width: 576px)
+{
+    .media-item__main
+    {
+        max-width: 75%; 
+
+        -ms-flex: 0 0 75%;
+            flex: 0 0 75%;
+    }
+}
+
+@media (min-width: 992px)
+{
+    .media-item__main
+    {
+        max-width: 83.3333333333%; 
+
+        -ms-flex: 0 0 83.3333333333%;
+            flex: 0 0 83.3333333333%;
+    }
+}
+
+@media (min-width: 992px)
+{
+    .media-item__content
+    {
+        padding: 1rem 1rem 1rem 0;
+    }
 }
 
 .app-layout-simple
