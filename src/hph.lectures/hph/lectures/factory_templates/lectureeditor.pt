@@ -27,12 +27,12 @@
         tal:define="item view/content_item">
         <div class="col-xs-12 col-sm-3">
             <aside class="app-aside hidden-print" id="app-sidebar">
-                <div class="app-box app-box-faculty">
-                    <div class="app-box-header">
+                <div class="app-card app-card-nav app-card-lecture">
+                    <div class="app-card__header">
                         <h2 i18n:translate="">Lecture Factory</h2>
                     </div>
-                    <div class="app-box-main app-box-bordered">
-                        <ul class="nav nav-pills nav-stacked app-box-nav"
+                    <div class="app-card__main app-card__main--bordered">
+                        <ul class="app-nav-list"
                             tal:define="current view/getFieldname">
                             <li tal:define="fieldname string:courseTheme"
                                 tal:attributes="class python:fieldname == current and 'nav-item active' or 'nav-item'">
@@ -81,7 +81,7 @@
         </div>
         <div class="col-xs-12 col-sm-9">
             <div class="app-item-editable">
-                <h1 i18n:translate="">Edit field content</h1>
+                <h1 i18n:translate="">Feldinhalt bearbeiten</h1>
 
                 <div class="app-field-editable">
                     <div class="editable" id="editable-text"

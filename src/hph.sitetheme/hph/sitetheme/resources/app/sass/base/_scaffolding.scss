@@ -129,3 +129,8 @@ div.riform .label {
         content: '\e820';
     }
 }
+
+// Quick fix for missing default styles
+.link-location {
+    display: block;
+}

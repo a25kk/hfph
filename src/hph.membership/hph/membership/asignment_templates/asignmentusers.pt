@@ -44,7 +44,7 @@
                   <tal:item tal:define="user_id item/userid;
                                         worklist item/worklist;
                                         active python:view.get_asignment(user_id, worklist)">
-                    <a href="#" class="list-group-item"
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"
                         tal:condition="not:active"
                         tal:attributes="href string:${context/absolute_url}/@@asignment/${user_id}/asign">
                       <h4 class="list-group-item-heading"
