@@ -20273,6 +20273,150 @@ body.template-frontpage-view .app-pathbar
     background: #5896c8;
 }
 
+.media-item
+{
+    display: -ms-flexbox;
+    display: flex;
+
+    margin-right: -15px;
+    margin-bottom: 1rem; 
+    margin-left: -15px;
+
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+@media (min-width: 576px)
+{
+    .media-item
+    {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+@media (min-width: 768px)
+{
+    .media-item
+    {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+@media (min-width: 992px)
+{
+    .media-item
+    {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .media-item
+    {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+
+.media-item__aside,
+.media-item__main
+{
+    position: relative;
+
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+@media (min-width: 576px)
+{
+    .media-item__aside,
+    .media-item__main
+    {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+@media (min-width: 768px)
+{
+    .media-item__aside,
+    .media-item__main
+    {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+@media (min-width: 992px)
+{
+    .media-item__aside,
+    .media-item__main
+    {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .media-item__aside,
+    .media-item__main
+    {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+
+@media (min-width: 576px)
+{
+    .media-item__aside
+    {
+        max-width: 25%; 
+
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+    }
+}
+
+@media (min-width: 992px)
+{
+    .media-item__aside
+    {
+        max-width: 16.6666666667%; 
+
+        -ms-flex: 0 0 16.6666666667%;
+            flex: 0 0 16.6666666667%;
+    }
+}
+
+@media (min-width: 576px)
+{
+    .media-item__main
+    {
+        max-width: 75%; 
+
+        -ms-flex: 0 0 75%;
+            flex: 0 0 75%;
+    }
+}
+
+@media (min-width: 992px)
+{
+    .media-item__main
+    {
+        max-width: 83.3333333333%; 
+
+        -ms-flex: 0 0 83.3333333333%;
+            flex: 0 0 83.3333333333%;
+    }
+}
+
+@media (min-width: 992px)
+{
+    .media-item__content
+    {
+        padding: 1rem 1rem 1rem 0;
+    }
+}
+
 .app-layout-simple
 {
     background: #292b2c;
