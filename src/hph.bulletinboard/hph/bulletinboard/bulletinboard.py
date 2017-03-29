@@ -2,6 +2,8 @@ import json
 import DateTime
 from five import grok
 from Acquisition import aq_inner
+
+from plone import api
 from plone.directives import dexterity, form
 
 from Products.CMFCore.utils import getToolByName
@@ -28,15 +30,17 @@ class View(grok.View):
     grok.name('view')
 
     def update(self):
-        self.has_bulletins = len(self.contained_bulletins()) > 0
+        self.has_bulletins = len(self.active_bulletins()) > 0
 
-    def contained_bulletins(self):
-        context = aq_inner(self.context)
-        catalog = getToolByName(context, 'portal_catalog')
+    def active_bulletins(self):
+        catalog = api.portal.get_tool(name='portal_catalog')
+        end = DateTime.DateTime() + 0.1
+        start = DateTime.DateTime() - 14
+        date_range_query = {'query': (start, end), 'range': 'min: max'}
         results = catalog(object_provides=IBulletin.__identifier__,
+                          effective=date_range_query,
                           review_state='published')
-        resultlist = IContentListing(results)
-        return resultlist
+        return IContentListing(results)
 
 
 class BulletinView(grok.View):

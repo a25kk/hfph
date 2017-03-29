@@ -42,7 +42,8 @@
     @include make-row()
 }
 
-.app-section-aside {
+.app-section-aside,
+.app-section__aside {
     @include make-col(12);
     @include media-breakpoint-up(md) {
         @include make-col(3);
@@ -50,7 +51,8 @@
     }
 }
 
-.app-section-main {
+.app-section-main,
+.app-section__main {
     @include make-col(12);
     @include media-breakpoint-up(md) {
         @include make-col(9);

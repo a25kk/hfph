@@ -25,10 +25,16 @@
     }
 }
 
+// Offset card to make it stand out
+.app-card--offset {
+    margin-top: 2rem;
+}
+
 //== Card layout
 //
 //## Reflow card contents based on viewport size
-.app-card-header {
+.app-card-header,
+.app-card__header {
   padding: 0 .5rem .5rem;
   font-family: $headings-font-family;
     @include when-inside('.app-panel-news') {
@@ -37,16 +43,19 @@
 }
 
 //** Card content
-.app-card-main {
+.app-card-main,
+.app-card__main {
   // border-top: 4px solid $app-secondary;
-    &-boxed {
+    &-boxed,
+    &--bordered {
         border: 1px solid $gray-lighter;
         border-top: 4px solid $app-secondary;
     }
 }
 
 //** Card footer
-.app-card-footer {
+.app-card-footer,
+.app-card__footer {
   padding: .5rem;
 }
 

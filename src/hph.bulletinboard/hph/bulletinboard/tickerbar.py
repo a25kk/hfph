@@ -1,6 +1,10 @@
 import DateTime
 from five import grok
 from plone import api
+
+from Acquisition import aq_inner
+
+from hph.bulletinboard.bulletinboard import IBulletinBoard
 from zope.interface import Interface
 from zope.component import getMultiAdapter
 
@@ -19,7 +23,15 @@ class TickerViewlet(grok.Viewlet):
         pstate = getMultiAdapter((self.context, self.request),
                                  name='plone_portal_state')
         self.portal_url = pstate.portal_url
-        self.available = len(self.active_bulletins()) > 0
+        self.available = self.show_viewlet()
+
+    def show_viewlet(self):
+        context = aq_inner(self.context)
+        display = False
+        if len(self.active_bulletins()) > 0:
+            if not IBulletinBoard.providedBy(context):
+                display = True
+        return display
 
     def active_bulletins(self):
         catalog = api.portal.get_tool(name='portal_catalog')
