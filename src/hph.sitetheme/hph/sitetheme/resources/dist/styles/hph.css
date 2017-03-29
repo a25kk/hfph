@@ -20124,6 +20124,11 @@ body.template-frontpage-view .app-pathbar
     }
 }
 
+.app-card--offset
+{
+    margin-top: 2rem;
+}
+
 .app-card-header,
 .app-card__header
 {

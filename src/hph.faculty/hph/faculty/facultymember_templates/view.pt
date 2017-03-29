@@ -13,7 +13,8 @@
     <div class="app-section">
         <div class="app-section-aside">
             <aside class="app-aside" id="app-sidebar"
-                tal:define="subcontents python:context.restrictedTraverse('@@folderListing')(portal_type=['Folder', 'hph.sitecontent.contentpage'])">
+                tal:define="subcontents python:context.restrictedTraverse('@@folderListing')(portal_type=['Folder', 'hph.sitecontent.contentpage']);
+                            contained_links python:context.restrictedTraverse('@@folderListing')(portal_type=['Link'])">
 
                 <div class="app-card app-card-nav app-card-faculty">
                     <div class="app-card-main">
@@ -56,6 +57,29 @@
                     <div class="app-box-footer hide" id="app-box-footer">
                         <a class="btn btn-danger btn-sm"
                             tal:attributes="href string:${context/absolute_url}">
+                            &times; <span i18n:translate="">remove filter</span></a>
+                    </div>
+                </div>
+
+                <div class="app-card app-card-nav app-card-faculty app-card--offset"
+                         tal:condition="contained_links">
+                    <div class="app-card-header">
+                        Weiterführende Links
+                    </div>
+                    <div class="app-card-main">
+                        <ul class="app-nav-list">
+                            <tal:block tal:repeat="item contained_links">
+                                <li class="app-nav-list-item" tal:define="item_url item/getURL">
+                                    <a class="app-nav-list-link"
+                                             tal:attributes="href item_url"
+                                             tal:content="item/Title">Filter option</a>
+                                </li>
+                            </tal:block>
+                        </ul>
+                    </div>
+                    <div class="app-box-footer hide" id="app-box-footer">
+                        <a class="btn btn-danger btn-sm"
+                                 tal:attributes="href string:${context/absolute_url}">
                             &times; <span i18n:translate="">remove filter</span></a>
                     </div>
                 </div>
