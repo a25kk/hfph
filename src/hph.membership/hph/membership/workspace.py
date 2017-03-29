@@ -178,7 +178,9 @@ class View(grok.View):
     def _autoclean_worklist(self, items):
         context = aq_inner(self.context)
         idx = 0
-        updated = self.user_info()['worklist']
+        user_worklist = self.user_info()['worklist']
+        # Make sure the user work list is an actual list
+        updated = list(user_worklist)
         for item in items:
             idx += 1
             updated.remove(item)
