@@ -18226,6 +18226,24 @@ select[multiple]
     display: block;
 }
 
+.form__field--checkbox .option
+{
+    display: inline-block;
+
+    margin-right: 1rem;
+}
+.form__field--checkbox .option > label
+{
+    font-weight: 300; 
+
+    margin-left: .5rem;
+}
+
+.form__field--checkbox > .option > label
+{
+    font-weight: bold;
+}
+
 .app-field-required
 {
     position: relative;

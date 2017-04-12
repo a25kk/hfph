@@ -376,24 +376,32 @@
             <xsl:copy-of select="@*" />
             <xsl:choose>
                <xsl:when css:test=".error">
-                 <xsl:attribute name="class"><xsl:value-of select="./@class" /> form-group has-error</xsl:attribute>
+                 <xsl:attribute name="class"><xsl:value-of select="./@class" /> form-group has-error form__group form__group--has-errors</xsl:attribute>
                </xsl:when>
                <xsl:otherwise>
-                 <xsl:attribute name="class"><xsl:value-of select="./@class" /> form-group</xsl:attribute>
+                 <xsl:attribute name="class"><xsl:value-of select="./@class" /> form-group form__group</xsl:attribute>
                </xsl:otherwise>
             </xsl:choose>
             <xsl:if test="not(*[@class='widget']) and not(table)">
               <xsl:choose>
-                  <xsl:when css:test="[type='xradio']">
-                      <xsl:attribute name="class">form-control radio</xsl:attribute>
+                  <xsl:when css:test="[type='radio']">
+                      <xsl:attribute name="class">form-group form__field form__field--radio</xsl:attribute>
                   </xsl:when>
-                  <xsl:when css:test="[type='xcheckbox']">
-                      <xsl:attribute name="class">form-control checkbox</xsl:attribute>
+                  <xsl:when css:test="[type='checkbox']">
+                      <xsl:attribute name="class">form-group form__field form__field--checkbox</xsl:attribute>
                   </xsl:when>
               </xsl:choose>
             </xsl:if>
               <xsl:apply-templates />
           </xsl:copy>
+        </replace>
+
+        <replace css:content="select">
+            <xsl:copy>
+                <xsl:copy-of select="@*" />
+                <xsl:attribute name="class"><xsl:value-of select="./@class" /> custom-select</xsl:attribute>
+                <xsl:apply-templates />
+            </xsl:copy>
         </replace>
 
         <!-- Replace input elements (submit buttons and checkboxes) -->
@@ -426,10 +434,10 @@
                         <xsl:apply-templates />
                     </xsl:copy>
                 </xsl:when>
-                <xsl:when css:test="[class='label checkboxType']">
+                <xsl:when css:test="[type='checkbox']">
                     <xsl:copy>
                         <xsl:copy-of select="@*" />
-                        <xsl:attribute name="class">checkboxType</xsl:attribute>
+                        <xsl:attribute name="class"><xsl:value-of select="./@class" /> form__control form__control--checkbox</xsl:attribute>
                         <xsl:apply-templates />
                     </xsl:copy>
                 </xsl:when>

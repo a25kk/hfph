@@ -3,8 +3,63 @@ from five import grok
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.interfaces import IVocabularyFactory
+from zope.interface import implementer
 
 from hph.lectures import MessageFactory as _
+
+
+def module_studies_vocabulary(context):
+    """Vocabulary with all available module studies recommendations.
+    """
+    module_studies_recommendations = {
+        _(u"Philosophicum"): 'philosophicum',
+        _(u"Module Studies Economic Ethics"): 'economic-ethics',
+        _(u"Module Studies Adult Education"): 'adult-education',
+        _(u"Module Studies Personal Development"): 'personal-development',
+        _(u"Philosophy & Leadership Certificate"):
+            'philosophy-leadership-certificate',
+        _(u"Module Studies Media Ethics"): 'media-ethics',
+        _(u"Module Studies International Understanding"):
+            'international-understanding',
+        _(u"Global Solidarity"): 'global-solidarity',
+        _(u"Module Studies Medicine Ethics"): 'medicine-ethics',
+        _(u"Module Studies Spiritual Care"): 'spiritual-care',
+    }
+    terms = [
+        SimpleTerm(value, title=title)
+        for title, value in module_studies_recommendations.iteritems()
+    ]
+    return SimpleVocabulary(terms)
+
+
+@implementer(IVocabularyFactory)
+class ModuleStudiesVocabularyFactory(object):
+    """ Recommended module studies for a lecture """
+    def __call__(self, context):
+        module_studies = {
+            _(u"Philosophicum"): 'philosophicum',
+            _(u"Economic Ethics"): 'economic-ethics'
+        }
+        terms = [
+            SimpleTerm(value, title=title)
+            for title, value in module_studies.iteritems()
+        ]
+        return SimpleVocabulary(terms)
+
+
+class ModuleStudiesVocabulary(object):
+    grok.implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        module_studies = {
+            _(u"Philosophicum"): 'philosophicum',
+            _(u"Economic Ethics"): 'economic-ethics'
+        }
+        return SimpleVocabulary([SimpleTerm(value, title=title)
+                                 for title, value
+                                 in module_studies.iteritems()])
+grok.global_utility(ModuleStudiesVocabulary,
+                    name=u"hph.lectures.moduleStudies")
 
 
 class CourseSemesterVocabulary(object):
