@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2017-04-13 07:25+0000\n"
-"PO-Revision-Date: 2017-04-19 16:31+0200\n"
+"PO-Revision-Date: 2017-04-19 16:43+0200\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "(Example 1: maximum participants 12)(Example 2: Participation only for students of the ethics master)"
 msgstr ""
 "(Beispiel 1: max. 12 Studierende)\n"
-"(Beispiel 2: Teilnahme nur für Studierende des weiterbildenden Masters Ethik und der Ethik Modulstudien)"
+"(Beispiel 2: Teilnahme nur für Studierende des weiterbildenden Masters Ethik und der Ethik Modulstudien)"
 
 #: ../lecture.py:74
 msgid "(Example: register until 19.01.2017 via example.tld)"
@@ -73,7 +73,7 @@ msgstr "Zusatzinformation"
 #: ../factory_templates/lecturefactory.pt:82 ../interfaces.py:103
 #: ../lecture.py:42
 msgid "Additional Lecturer"
-msgstr "Zusammen mit"
+msgstr "Unter Mitarbeit von"
 
 #: ../configure.zcml:45
 msgid "Additional information on a specific lecture or course"
@@ -213,7 +213,7 @@ msgstr "Kurzmodul erfolgreich entfernt"
 
 #: ../lecture.py:78
 msgid "Course participation restricted"
-msgstr "Teilnehmerzahl beschränkt"
+msgstr "Teilnehmerbeschränkung"
 
 #: ../lecture.py:73
 msgid "Course registration required"
@@ -314,7 +314,7 @@ msgstr "Lehrveranstaltung Editor"
 
 #: ../interfaces.py:79 ../lecture.py:56
 msgid "Lecure Number"
-msgstr "Vorlesungsnummer"
+msgstr "Veranstaltungsnummer"
 
 #: ../vocabulary.py:122
 msgid "MA Ethics"
@@ -350,7 +350,7 @@ msgstr "Modulstudium Wirtschaftsethik"
 
 #: ../vocabulary.py:22
 msgid "Module Studies International Understanding"
-msgstr "Modulstudium Völkerverständigung"
+msgstr "Modulstudium Völkerverständigung"
 
 #: ../vocabulary.py:21
 msgid "Module Studies Media Ethics"
@@ -362,7 +362,7 @@ msgstr "Modulstudium Medizinethik"
 
 #: ../vocabulary.py:18
 msgid "Module Studies Personal Development"
-msgstr "Modulstudium Persönlichkeitsbildung"
+msgstr "Modulstudium Persönlichkeitsbildung"
 
 #: ../lecture.py:121
 msgid "Module Studies Recommendations"
