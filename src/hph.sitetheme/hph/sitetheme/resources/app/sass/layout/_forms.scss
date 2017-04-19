@@ -68,9 +68,9 @@ select[multiple] {
     display: block;
 }
 
-//== Custom classes added by diazo transforms
-//## This fixes try to combat unclear semantics produced by the plone
-//## form libraries
+//== Custom classes added by Diazo transforms
+//## This styles try to combat unclear semantics
+//## produced by the Plone form libraries
 .form__field--checkbox {
     .option {
         display: inline-block;

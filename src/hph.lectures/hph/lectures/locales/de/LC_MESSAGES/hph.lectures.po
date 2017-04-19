@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-08-16 15:24+0000\n"
-"PO-Revision-Date: 2016-08-16 17:25+0200\n"
+"POT-Creation-Date: 2017-04-13 07:25+0000\n"
+"PO-Revision-Date: 2017-04-19 16:31+0200\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -14,17 +14,27 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 "Language: de\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.0.1\n"
 
-#: ../vocabulary.py:30
+#: ../lecture.py:79
+msgid "(Example 1: maximum participants 12)(Example 2: Participation only for students of the ethics master)"
+msgstr ""
+"(Beispiel 1: max. 12 Studierende)\n"
+"(Beispiel 2: Teilnahme nur für Studierende des weiterbildenden Masters Ethik und der Ethik Modulstudien)"
+
+#: ../lecture.py:74
+msgid "(Example: register until 19.01.2017 via example.tld)"
+msgstr "(Beispiel: bis: 19.01.2017, unter: Ignatius.Dampf@hfph.de)"
+
+#: ../vocabulary.py:85
 msgid "1 hour"
 msgstr "1-stdg."
 
-#: ../vocabulary.py:31
+#: ../vocabulary.py:86
 msgid "2 hour"
 msgstr "2-stdg."
 
-#: ../vocabulary.py:32
+#: ../vocabulary.py:87
 msgid "3 hour"
 msgstr "3-stdg."
 
@@ -32,13 +42,13 @@ msgstr "3-stdg."
 msgid "3rd party projects"
 msgstr "Drittmittelprojekte"
 
-#: ../vocabulary.py:33
+#: ../vocabulary.py:88
 msgid "4 hour"
 msgstr "4-stdg."
 
 #: ../profiles/default/types/hph.lectures.lecture.xml
 msgid "A single course"
-msgstr "einzelne Lehrveranstaltung"
+msgstr "Einzelne Lehrveranstaltung"
 
 #: ../browser/coursemoduleeditor.pt:48
 msgid "Actions"
@@ -56,56 +66,48 @@ msgstr "Dateianhang anlegen"
 msgid "Add module"
 msgstr "Module hinzufügen"
 
-#: ../interfaces.py:99 ../lecture.py:59
+#: ../interfaces.py:99 ../lecture.py:102
 msgid "Additional Information"
 msgstr "Zusatzinformation"
 
-#: ../factory_templates/lecturefactory.pt:81 ../interfaces.py:103
-#: ../lecture.py:74
+#: ../factory_templates/lecturefactory.pt:82 ../interfaces.py:103
+#: ../lecture.py:42
 msgid "Additional Lecturer"
-msgstr "zusammen mit"
-
-#: ../coursefolder_templates/view.pt:99
-msgid "Additional Lecturer:"
-msgstr "zusammen mit"
+msgstr "Zusammen mit"
 
 #: ../configure.zcml:45
 msgid "Additional information on a specific lecture or course"
 msgstr "Zusatzinformationen zu einer bestimmten Lehrveranstaltung"
 
-#: ../vocabulary.py:49
+#: ../vocabulary.py:104
 msgid "Advanced seminar"
 msgstr "Hauptseminare"
 
-#: ../coursefolder_templates/view.pt:41
-msgid "Archive"
-msgstr "Archiv"
-
 #: ../factory.py:236
 msgid "Attachement edit has been cancelled."
-msgstr "Die Bearbeitung der Datei wurde abgebrochen"
+msgstr "Die Bearbeitung der Datei wurde abgebrochen."
 
 #: ../lecture_templates/view.pt:167
 msgid "Attachements"
 msgstr "Materialien"
 
-#: ../interfaces.py:83 ../lecture.py:43
+#: ../interfaces.py:83
 msgid "Attendance"
 msgstr "Teilnehmerzahl"
 
-#: ../interfaces.py:87 ../lecture.py:47
+#: ../interfaces.py:87
 msgid "Attendance Required"
 msgstr "Anwesenheitspflicht"
 
-#: ../vocabulary.py:66
+#: ../vocabulary.py:121
 msgid "BA"
 msgstr "BA"
 
-#: ../vocabulary.py:52
+#: ../vocabulary.py:107
 msgid "Basic module"
 msgstr "Grundlagenmodule"
 
-#: ../interfaces.py:91 ../lecture.py:51
+#: ../interfaces.py:91 ../lecture.py:86
 msgid "Block Lecture"
 msgstr "Blockveranstaltung"
 
@@ -113,20 +115,20 @@ msgstr "Blockveranstaltung"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: ../vocabulary.py:51
+#: ../vocabulary.py:106
 msgid "Colloquium"
 msgstr "Kolloquien"
 
 #: ../factory.py:99
 msgid "Content item factory has been cancelled."
-msgstr "Das Erstellen neuer Inhalte wurde abgebrochen"
+msgstr "Das Erstellen neuer Inhalte wurde abgebrochen."
 
 #: ../coursedetails.py:26 ../factory_templates/lectureeditor.pt:44
-#: ../factory_templates/lecturefactory.pt:28
+#: ../factory_templates/lecturefactory.pt:29
 msgid "Course Aims"
 msgstr "Ziele"
 
-#: ../interfaces.py:118 ../lecture.py:89
+#: ../interfaces.py:118 ../lecture.py:65
 msgid "Course Dates"
 msgstr "Termine"
 
@@ -134,64 +136,72 @@ msgstr "Termine"
 msgid "Course Details"
 msgstr "Details"
 
-#: ../interfaces.py:113 ../lecture.py:84
+#: ../interfaces.py:113 ../lecture.py:60
 msgid "Course Duration"
 msgstr "Dauer"
 
 #: ../coursedetails.py:46 ../factory_templates/lectureeditor.pt:69
-#: ../factory_templates/lecturefactory.pt:48
+#: ../factory_templates/lecturefactory.pt:49
 msgid "Course Literature"
 msgstr "Literatur"
 
 #: ../coursedetails.py:30 ../factory_templates/lectureeditor.pt:49
-#: ../factory_templates/lecturefactory.pt:32
+#: ../factory_templates/lecturefactory.pt:33
 msgid "Course Method"
 msgstr "Methode"
 
 #: ../coursedetails.py:50 ../factory_templates/lectureeditor.pt:74
-#: ../factory_templates/lecturefactory.pt:52
+#: ../factory_templates/lecturefactory.pt:53
 msgid "Course Notes"
 msgstr "Anmerkung der Kanzlerin"
 
 #: ../coursedetails.py:34 ../factory_templates/lectureeditor.pt:54
-#: ../factory_templates/lecturefactory.pt:36
+#: ../factory_templates/lecturefactory.pt:37
 msgid "Course Prerequirements"
 msgstr "Voraussetzungen"
 
 #: ../coursedetails.py:38 ../factory_templates/lectureeditor.pt:59
-#: ../factory_templates/lecturefactory.pt:40
+#: ../factory_templates/lecturefactory.pt:41
 msgid "Course Qualification"
 msgstr "Qualifikation"
 
-#: ../interfaces.py:136 ../lecture.py:107
+#: ../interfaces.py:136 ../lecture.py:69
 msgid "Course Room"
-msgstr "Raum:"
+msgstr "Raum"
 
-#: ../interfaces.py:126 ../lecture.py:97
+#: ../interfaces.py:126 ../lecture.py:138
 msgid "Course Semester"
 msgstr "Semester"
 
 #: ../coursedetails.py:42 ../factory_templates/lectureeditor.pt:64
-#: ../factory_templates/lecturefactory.pt:44
+#: ../factory_templates/lecturefactory.pt:45
 msgid "Course Target"
 msgstr "Zielgruppe"
 
 #: ../coursedetails.py:22 ../factory_templates/lectureeditor.pt:39
-#: ../factory_templates/lecturefactory.pt:24
+#: ../factory_templates/lecturefactory.pt:25
 msgid "Course Theme"
 msgstr "Thematik"
 
-#: ../interfaces.py:122 ../lecture.py:93
+#: ../interfaces.py:122 ../lecture.py:133
 msgid "Course Time"
 msgstr "Uhrzeit"
 
-#: ../interfaces.py:107 ../lecture.py:78
+#: ../lecture.py:52
+msgid "Course Title"
+msgstr "Veranstaltungstitel"
+
+#: ../interfaces.py:107 ../lecture.py:46
 msgid "Course Type"
 msgstr "Veranstaltungstyp"
 
-#: ../interfaces.py:132 ../lecture.py:103
+#: ../interfaces.py:132 ../lecture.py:145
 msgid "Course Year"
 msgstr "Jahr"
+
+#: ../lecture.py:98
+msgid "Course cancelled"
+msgstr "Veranstaltung entfällt"
 
 #: ../configure.zcml:51
 msgid "Course module data grid behavior"
@@ -200,6 +210,14 @@ msgstr "Kursmodule Datenraster Verhalten"
 #: ../browser/coursemodules.py:139
 msgid "Course module successfully removed"
 msgstr "Kurzmodul erfolgreich entfernt"
+
+#: ../lecture.py:78
+msgid "Course participation restricted"
+msgstr "Teilnehmerzahl beschränkt"
+
+#: ../lecture.py:73
+msgid "Course registration required"
+msgstr "Anmeldung erforderlich"
 
 #: ../configure.zcml:45
 msgid "CourseDetails"
@@ -213,11 +231,11 @@ msgstr "Veranstaltungsordner"
 msgid "CourseModules"
 msgstr "Kursmodule"
 
-#: ../coursefolder_templates/view.pt:112 ../lecture_templates/view.pt:81
+#: ../lecture_templates/view.pt:81
 msgid "Dates"
 msgstr "Termine"
 
-#: ../browser/coursemoduleeditor.pt:46 ../coursemodules.py:18
+#: ../browser/coursemoduleeditor.pt:46 ../coursemodules.py:19
 msgid "Degree"
 msgstr "Abschluss"
 
@@ -225,9 +243,13 @@ msgstr "Abschluss"
 msgid "Description"
 msgstr "Beschreibung"
 
-#: ../interfaces.py:143 ../lecture.py:119
+#: ../interfaces.py:143 ../lecture.py:114
 msgid "Display Selection"
 msgstr "Auswahl"
+
+#: ../vocabulary.py:41
+msgid "Economic Ethics"
+msgstr "Medianethik"
 
 #: ../lecture_templates/view.pt:42
 msgid "Edit"
@@ -237,21 +259,21 @@ msgstr "Bearbeiten"
 msgid "Edit course base information"
 msgstr "Kursbasisinformationen bearbeiten"
 
-#: ../factory_templates/lectureeditor.pt:84
-msgid "Edit field content"
-msgstr "Feldinhalt bearbteiten"
-
-#: ../coursemodules.py:25
+#: ../coursemodules.py:26
 msgid "Enter corresponding product detail value"
 msgstr "Tragen Sie hier den korrespondierenden Produktwert ein"
 
-#: ../vocabulary.py:50
+#: ../vocabulary.py:105
 msgid "Exercise"
 msgstr "Übungen"
 
 #: ../configure.zcml:37
 msgid "Extension profile for HPH listing of lectures"
 msgstr "Erweiterung zur Verwaltung von Lehrveranstaltungen und Kursen"
+
+#: ../factory_templates/lectureeditor.pt:84
+msgid "Feldinhalt bearbeiten"
+msgstr "Feldinhalt bearbeiten"
 
 #: ../interfaces.py:162
 msgid "File Attachment"
@@ -261,6 +283,10 @@ msgstr "Datei"
 msgid "Filter course listing on <code>${filter/value}</code>: <a href=\"${context/absolute_url}?content_filter=1&amp;project=${filter/value}\">Preview</a>"
 msgstr "Liste filtern nach <code>${filter/value}</code>: <a href=\"${context/absolute_url}?content_filter=1&amp;project=${filter/value}\">Vorschau</a>"
 
+#: ../vocabulary.py:24
+msgid "Global Solidarity"
+msgstr "Globale Solidarität"
+
 #: ../configure.zcml:37
 msgid "HPH listing of lectures"
 msgstr "HPH Lehrveranstaltungen"
@@ -269,44 +295,40 @@ msgstr "HPH Lehrveranstaltungen"
 msgid "Integrations"
 msgstr "Integrationen"
 
-#: ../vocabulary.py:48
+#: ../vocabulary.py:103
 msgid "Introductory seminar source"
 msgstr "Proseminare"
 
 #: ../lecture_templates/view.pt:47
 msgid "It appears that you are listed as constributor on this content item"
-msgstr "Sie werden für diesen Bereich als inhaltlich verantwortlich gelistet."
+msgstr "Sie werden für diesen Bereich als inhaltlich verantwortlich gelistet"
 
-#: ../coursefolder_templates/view.pt:68
-msgid "It appears that you are logged in as staff member. Use the link <em>XHR integrations</em> to open an overview of code snippets that can be used to integrate 3rd party project course listings via ajax"
-msgstr "Sie sind mit administrativen Zugriffsrechten angemeldet. Verwenden Sie die Schaltfläche <em>XHR Integration</em>, um eine Übersicht der verfügbaren Code Schnipsel zu erhalten, die an einer beliebigen Stelle der Seite im Quelltext eingefügt werden können und eine asynchron geladene Liste anzeigen."
-
-#: ../profiles/default/types/hph.lectures.lecture.xml ../vocabulary.py:47
+#: ../profiles/default/types/hph.lectures.lecture.xml ../vocabulary.py:102
 msgid "Lecture"
 msgstr "Vorlesungen"
 
 #: ../factory_templates/lectureeditor.pt:32
-#: ../factory_templates/lecturefactory.pt:19
+#: ../factory_templates/lecturefactory.pt:20
 msgid "Lecture Factory"
 msgstr "Lehrveranstaltung Editor"
 
-#: ../interfaces.py:79 ../lecture.py:39
+#: ../interfaces.py:79 ../lecture.py:56
 msgid "Lecure Number"
 msgstr "Vorlesungsnummer"
 
-#: ../vocabulary.py:67
+#: ../vocabulary.py:122
 msgid "MA Ethics"
 msgstr "MAEthik"
 
-#: ../vocabulary.py:68
+#: ../vocabulary.py:123
 msgid "MA kons"
 msgstr "MAkons"
 
-#: ../vocabulary.py:72
+#: ../vocabulary.py:127
 msgid "MA-IB"
 msgstr "MA-IB"
 
-#: ../vocabulary.py:70
+#: ../vocabulary.py:125
 msgid "Mag"
 msgstr "Mag"
 
@@ -314,35 +336,75 @@ msgstr "Mag"
 msgid "Manage lectures"
 msgstr "Veranstaltungen verwalten"
 
-#: ../browser/coursemoduleeditor.pt:47 ../coursemodules.py:24
+#: ../browser/coursemoduleeditor.pt:47 ../coursemodules.py:25
 msgid "Module Information"
 msgstr "Modulinformationen"
+
+#: ../vocabulary.py:17
+msgid "Module Studies Adult Education"
+msgstr "Modulstudium Erw.‐Bild."
+
+#: ../vocabulary.py:16
+msgid "Module Studies Economic Ethics"
+msgstr "Modulstudium Wirtschaftsethik"
+
+#: ../vocabulary.py:22
+msgid "Module Studies International Understanding"
+msgstr "Modulstudium Völkerverständigung"
+
+#: ../vocabulary.py:21
+msgid "Module Studies Media Ethics"
+msgstr "Modulstudium Medienethik"
+
+#: ../vocabulary.py:25
+msgid "Module Studies Medicine Ethics"
+msgstr "Modulstudium Medizinethik"
+
+#: ../vocabulary.py:18
+msgid "Module Studies Personal Development"
+msgstr "Modulstudium Persönlichkeitsbildung"
+
+#: ../lecture.py:121
+msgid "Module Studies Recommendations"
+msgstr "Modulstudien Empfehlungen"
+
+#: ../vocabulary.py:26
+msgid "Module Studies Spiritual Care"
+msgstr "Modulstudium Spiritual Care"
 
 #: ../browser/coursemoduleeditor.pt:23
 msgid "Module bearbeiten"
 msgstr "Module bearbeiten"
 
-#: ../lecture.py:111
+#: ../lecture.py:106
 msgid "Moodle Link"
 msgstr "Moodle Link"
 
-#: ../coursefolder_templates/view.pt:67 ../lecture_templates/view.pt:46
+#: ../lecture_templates/view.pt:46
 msgid "Note:"
-msgstr "Hinweis"
+msgstr "Hinweis:"
 
-#: ../interfaces.py:95 ../lecture.py:55
+#: ../interfaces.py:95 ../lecture.py:90
 msgid "Online Lecture"
 msgstr "Online-Kurs"
 
-#: ../lecture.py:112
+#: ../vocabulary.py:15
+msgid "Philosophicum"
+msgstr "Philosophicum"
+
+#: ../vocabulary.py:19
+msgid "Philosophy & Leadership Certificate"
+msgstr "Phil & Leadership Zertifikat"
+
+#: ../lecture.py:107
 msgid "Please enter absolute link to moodle representation"
 msgstr "Bitte tragen Sie hier den Direktlink zu Moodle ein"
 
-#: ../coursemodules.py:19
+#: ../coursemodules.py:20
 msgid "Please select module degree"
 msgstr "Bitte wählen Sie eine Modulgruppe aus"
 
-#: ../lecture.py:65
+#: ../lecture.py:33
 msgid "Please select one or more lecturers for this course"
 msgstr "Bitte wählen Sie einen oder mehrere Lehrende für diesen Kurs aus."
 
@@ -350,11 +412,11 @@ msgstr "Bitte wählen Sie einen oder mehrere Lehrende für diesen Kurs aus."
 msgid "Please select the 3rd party project and copy the integration code"
 msgstr "Bitte wählen Sie das Drittmittelprojekt aus, das an anderer Stelle gelistet werden soll"
 
-#: ../interfaces.py:127 ../lecture.py:98
+#: ../interfaces.py:127 ../lecture.py:139
 msgid "Please select the course semester for filtering"
 msgstr "Bitte wählen Sie als Filter ein Semester aus"
 
-#: ../interfaces.py:108 ../lecture.py:79
+#: ../interfaces.py:108 ../lecture.py:47
 msgid "Please select the course type."
 msgstr "Bitte wählen Sie den Veranstaltungstyp"
 
@@ -362,7 +424,7 @@ msgstr "Bitte wählen Sie den Veranstaltungstyp"
 msgid "Quit"
 msgstr "Abbrechen"
 
-#: ../factory_templates/lecturefactory.pt:60
+#: ../factory_templates/lecturefactory.pt:61
 msgid "Quit editor"
 msgstr "Editor beenden"
 
@@ -370,15 +432,15 @@ msgstr "Editor beenden"
 msgid "Quit xhr integrations"
 msgstr "Integrationsauswahl beenden"
 
-#: ../coursefolder_templates/view.pt:109 ../lecture_templates/view.pt:78
+#: ../lecture_templates/view.pt:78
 msgid "Raum"
 msgstr "Raum:"
 
-#: ../vocabulary.py:53
+#: ../vocabulary.py:108
 msgid "Reading course"
 msgstr "Lektürekurse"
 
-#: ../lecture.py:68
+#: ../lecture.py:36
 msgid "Related lecturer"
 msgstr "Lehrender"
 
@@ -394,23 +456,19 @@ msgstr "Änderungen speichern"
 msgid "Select file to upload to this lecture object"
 msgstr "Datei zum Hochladen auswählen"
 
-#: ../coursefolder_templates/view.pt:63
-msgid "Show integration options"
-msgstr "Optionen zur aynchronen Integration anzeigen"
-
 #: ../lecture_templates/view.pt:191
 msgid "Since you are signed in as editor you can add file attachments to this content item"
 msgstr "Da Sie als CMS-Redakteur angemeldet sind, können Sie Datein zu diesem Inhalt hochladen."
 
-#: ../coursemodules.py:55
+#: ../coursemodules.py:46
 msgid "Storage for course module json data. This field should ideally not be edited directly and should be hidden form the base edit form"
 msgstr "JSON Speicher für Kursmodule. Dieses Feld sollte nicht direkt bearbeitet werden und wird nach Fertigstellung der Erweiterung aus der Bearbeitungsoberfläche ausgeblendet."
 
-#: ../interfaces.py:71 ../lecture.py:31
+#: ../interfaces.py:71
 msgid "Subtitle"
 msgstr "Subtitel"
 
-#: ../vocabulary.py:15
+#: ../vocabulary.py:70
 msgid "Summer Semester"
 msgstr "SoSe"
 
@@ -426,7 +484,7 @@ msgstr "Das angezeigte Code Schnipsel muss genau wie angezeigt kopiert und an de
 msgid "The item has successfully been updated"
 msgstr "Der Inhalt wurde erfolgrich aktualisiert"
 
-#: ../interfaces.py:141 ../lecture.py:117
+#: ../interfaces.py:141 ../lecture.py:112
 msgid "Third Party Project Display"
 msgstr "Drittmittelprojekte"
 
@@ -434,7 +492,7 @@ msgstr "Drittmittelprojekte"
 msgid "This field is required"
 msgstr "Dieses Feld ist ein Pflichtfeld"
 
-#: ../interfaces.py:75 ../lecture.py:35
+#: ../interfaces.py:75
 msgid "Title"
 msgstr "Titel"
 
@@ -446,11 +504,11 @@ msgstr "Ansicht"
 msgid "View lecture in moodle"
 msgstr "Besuchen Sie die Veranstaltung bei Moodle"
 
-#: ../vocabulary.py:16
+#: ../vocabulary.py:71
 msgid "Winter Semester"
 msgstr "WiSe"
 
-#: ../vocabulary.py:71
+#: ../vocabulary.py:126
 msgid "ZEP"
 msgstr "ZEP"
 
@@ -466,10 +524,14 @@ msgstr "entfernen"
 msgid "edit modules"
 msgstr "Kursmodule bearbeiten"
 
-#: ../coursefolder_templates/view.pt:35 ../lecture_templates/view.pt:34
+#: ../lecture.py:94
+msgid "pro‐philosophia‐extra"
+msgstr "pro‐philosophia‐extra"
+
+#: ../lecture_templates/view.pt:34
 msgid "remove filter"
 msgstr "Filter entfernen"
 
-#: ../coursefolder.py:43 ../lecture.py:187
+#: ../coursefolder.py:45 ../lecture.py:210
 msgid "undefined"
 msgstr "undefiniert"
