@@ -20181,6 +20181,12 @@ body.template-frontpage-view .app-pathbar
     }
 }
 
+.app-card__date
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 500;
+}
+
 .app-card-gutter
 {
     margin: -1rem 0 0 -1rem;
