@@ -55,7 +55,7 @@ $('div[data-appui="eventbox"]').each(function () {
         var divData = '';
         $.each(data.items, function (i, item) {
             divData += '<a class="app-card-item app-card__item" href="' + item.url + '">';
-            divData += '<time class="app-card-date app-cars__date">' + item.date + '</time>';
+            divData += '<time class="app-card-date app-card__date">' + item.date + '</time>';
             divData += '<p>' + item.title + '</p>';
             divData += '</a>';
         });
