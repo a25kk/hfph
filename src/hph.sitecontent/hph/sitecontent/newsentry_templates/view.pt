@@ -17,13 +17,15 @@
             </header>
             <div class="app-section">
                 <div class="app-section-aside">
-                    <img tal:condition="context/image"
-                        tal:define="scales context/@@images"
-                        tal:replace="structure python: scales.tag('image',
-                                     width=200,
-                                     height=200,
-                                     css_class='app-img',
-                                     direction='down')" />
+                    <div class="app-figure">
+                        <img tal:condition="context/image"
+                                 tal:define="scales context/@@images"
+                                 tal:replace="structure python: scales.tag('image',
+                                        width=200,
+                                        height=200,
+                                        css_class='app-img',
+                                        direction='down')" />
+                    </div>
                 </div>
                 <div class="app-section-main">
             <article class="page-content">
