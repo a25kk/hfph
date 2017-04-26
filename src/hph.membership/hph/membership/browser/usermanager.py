@@ -7,12 +7,12 @@ from hph.membership.tool import IHPHMemberTool
 from plone import api
 from plone.autoform import directives
 from plone.autoform.form import AutoExtensibleForm
+from plone.keyring import django_random
 from plone.protect.utils import addTokenToUrl
 from plone.supermodel import model
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.PasswordResetTool import django_random
 from z3c.form import button
 from z3c.form import form
 from z3c.form.browser.checkbox import CheckBoxWidget
