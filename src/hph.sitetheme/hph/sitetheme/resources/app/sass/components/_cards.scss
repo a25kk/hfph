@@ -57,11 +57,26 @@
 .app-card-footer,
 .app-card__footer {
   padding: .5rem;
+    @include when-inside('.app-box-events') {
+        font-size: $font-size-sm;
+    }
 }
 
 // Card content blocks
 .app-card-block {
     padding: .5rem .25rem;
+}
+
+.app-card-item {
+    font-size: $font-size-sm;
+    @include media-breakpoint-up(lg) {
+        font-size: 1rem;
+    }
+}
+
+.app-card__date {
+    font-family: $headings-font-family;
+    font-weight: 500;
 }
 
 //== Gutter
