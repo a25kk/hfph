@@ -67,9 +67,10 @@
     padding: .5rem .25rem;
 }
 
-.app-card-item {
+.app-card-item,
+.app-card__item {
     font-size: $font-size-sm;
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(xl) {
         font-size: 1rem;
     }
 }

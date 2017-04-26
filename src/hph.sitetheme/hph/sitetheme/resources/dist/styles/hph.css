@@ -20169,13 +20169,15 @@ body.template-frontpage-view .app-pathbar
     padding: .5rem .25rem;
 }
 
-.app-card-item
+.app-card-item,
+.app-card__item
 {
     font-size: .875rem;
 }
-@media (min-width: 992px)
+@media (min-width: 1200px)
 {
-    .app-card-item
+    .app-card-item,
+    .app-card__item
     {
         font-size: 1rem;
     }
