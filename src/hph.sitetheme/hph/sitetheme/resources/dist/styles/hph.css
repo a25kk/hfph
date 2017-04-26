@@ -20157,10 +20157,28 @@ body.template-frontpage-view .app-pathbar
 {
     padding: .5rem;
 }
+.app-box-events .app-card-footer,
+.app-box-events
+  .app-card__footer
+{
+    font-size: .875rem;
+}
 
 .app-card-block
 {
     padding: .5rem .25rem;
+}
+
+.app-card-item
+{
+    font-size: .875rem;
+}
+@media (min-width: 992px)
+{
+    .app-card-item
+    {
+        font-size: 1rem;
+    }
 }
 
 .app-card-gutter
