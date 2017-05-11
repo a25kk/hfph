@@ -1,18 +1,16 @@
 from Acquisition import aq_inner
 from five import grok
+from hph.membership import MessageFactory as _
 from plone import api
-from zope import schema
 from plone.directives import form
 from z3c.form import button
-
-from Products.PasswordResetTool.PasswordResetTool import InvalidRequestError
-from Products.PasswordResetTool.PasswordResetTool import ExpiredRequestError
-
-from Products.statusmessages.interfaces import IStatusMessage
+from zope import schema
 from zope.publisher.interfaces import IPublishTraverse
-from plone.app.layout.navigation.interfaces import INavigationRoot
 
-from hph.membership import MessageFactory as _
+from Products.CMFPlone.PasswordResetTool import InvalidRequestError, \
+    ExpiredRequestError
+from Products.statusmessages.interfaces import IStatusMessage
+from plone.app.layout.navigation.interfaces import INavigationRoot
 
 
 class IUserPassword(form.Schema):

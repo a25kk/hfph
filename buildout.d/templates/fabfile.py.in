@@ -33,9 +33,17 @@ env.roledefs = {
     'staging': ['z3']
 }
 
+@task
+def staging():
+    """ Execute task on staging environment """
+    env.hosts = ['${fabric:host_staging}']
 
 @task
-@roles('production')
+def production():
+    """ Execute task on production environment """
+    env.hosts = ['${fabric:host_production}']
+
+@task
 def develop():
     """ Restart all """
     with cd(env.code_root):
@@ -43,14 +51,12 @@ def develop():
 
 
 @task
-@roles('production')
 def restart():
     """ Restart all """
     project.cluster.restart_clients()
 
 
 @task
-@roles('production')
 def restart_all():
     """ Restart all """
     with cd(env.webserver):
@@ -58,28 +64,24 @@ def restart_all():
 
 
 @task
-@roles('production')
 def restart_nginx():
     """ Restart Nginx """
     controls.restart_nginx()
 
 
 @task
-@roles('production')
 def restart_varnish():
     """ Restart Varnish """
     controls.restart_varnish()
 
 
 @task
-@roles('production')
 def restart_haproxy():
     """ Restart HAProxy """
     controls.restart_haproxy()
 
 
 @task
-@roles('production')
 def ctl(*cmd):
     """Runs an arbitrary supervisorctl command."""
     with cd(env.code_root):
@@ -87,7 +89,6 @@ def ctl(*cmd):
 
 
 @task
-@roles('production')
 def deploy(actor=None):
     """ Deploy current master to production server """
     opts = dict(
@@ -109,7 +110,7 @@ def stage(actor=None):
     """ Deploy current master to staging server """
     opts = dict(
         sitename=env.get('sitename'),
-        actor=actor or env.get('actor') or getpass.getuser(),
+        actor=actor or env.get('actor') or getpass.getuser(),bin/fab
     )
     with settings(port=22222, webserver='/opt/webserver/buildout.webserver'):
         project.site.update()
@@ -123,7 +124,6 @@ def stage(actor=None):
 
 
 @task
-@roles('production')
 def deploy_full():
     """ Deploy current master to production and run buildout """
     project.site.update()
@@ -132,7 +132,6 @@ def deploy_full():
 
 
 @task
-@roles('production')
 def rebuild():
     """ Deploy current master and run full buildout """
     with settings(port=22):
@@ -142,7 +141,6 @@ def rebuild():
 
 
 @task
-@roles('production')
 def get_backup():
     """ Copy zipbackup for local development """
     run('ethtool -K eth0 tx off rx off')
@@ -150,13 +148,12 @@ def get_backup():
 
 
 @task
-@roles('production')
 def get_data():
     """ Copy live database for local development """
     project.db.download()
 
 
 @task
-@roles('production')
 def server_status():
+    """ Show server load and disk status """
     server.status.status()
