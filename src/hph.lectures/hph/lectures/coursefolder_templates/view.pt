@@ -94,7 +94,7 @@
                                     <a tal:attributes="href item/getURL"
                                         tal:content="item/Title" />
                                 </h2>
-                                <p tal:content="item/subtitle" />
+                                <p tal:condition="exists:item/subtitle" tal:content="item/subtitle" />
                                 <p tal:condition="item/lecturerAdditional">
                                     <span i18n:translate="">Additional Lecturer:</span>
                                     <span tal:replace="item/lecturerAdditional" />

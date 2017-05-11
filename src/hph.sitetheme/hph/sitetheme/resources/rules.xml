@@ -118,17 +118,6 @@
         <drop css:content="head link[rel='apple-touch-icon-precomposed']" />
         <drop css:content="head link[rel='apple-touch-icon']" />
         <drop css:content="head link[rel='shortcut icon']" />
-        <!--<after theme="/html/head">
-          <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600" rel="stylesheet" />
-          <link rel="apple-touch-icon" sizes="180x180" href="/++theme++hph.sitetheme/dist/assets/ico/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" href="/++theme++hph.sitetheme/dist/assets/ico/favicon-32x32.png" sizes="32x32" />
-          <link rel="icon" type="image/png" href="/++theme++hph.sitetheme/dist/assets/ico/favicon-16x16.png" sizes="16x16" />
-          <link rel="manifest" href="/++theme++hph.sitetheme/dist/assets/ico/manifest.json" />
-          <link rel="mask-icon" href="/++theme++hph.sitetheme/dist/assets/ico/safari-pinned-tab.svg" color="#5bbad5" />
-          <link rel="shortcut icon" href="/++theme++hph.sitetheme/dist/assets/ico/favicon.ico" />
-          <meta name="msapplication-config" content="/++theme++hph.sitetheme/dist/assets/ico/browserconfig.xml" />
-          <meta name="theme-color" content="#ffffff" />
-        </after>-->
 
         <!-- Copy over the id/class attributes on the body tag.
              This is important for per-section styling -->
@@ -181,12 +170,6 @@
             css:if-not-content="#subsubsections" />
         <replace css:content-children="#portal-subsubnavigation"
             css:theme-children="#app-navbar-nav-sub" />
-
-        <drop css:theme="#app-tickerbar"
-            css:if-not-content="#app-tickerbar" />
-        <replace css:theme="#app-tickerbar"
-            css:content="#app-tickerbar"
-            css:if-content="#app-tickerbar" />
 
         <after css:theme-children="#app-header"
                css:content="#app-tickerbar"
@@ -376,24 +359,32 @@
             <xsl:copy-of select="@*" />
             <xsl:choose>
                <xsl:when css:test=".error">
-                 <xsl:attribute name="class"><xsl:value-of select="./@class" /> form-group has-error</xsl:attribute>
+                 <xsl:attribute name="class"><xsl:value-of select="./@class" /> form-group has-error form__group form__group--has-errors</xsl:attribute>
                </xsl:when>
                <xsl:otherwise>
-                 <xsl:attribute name="class"><xsl:value-of select="./@class" /> form-group</xsl:attribute>
+                 <xsl:attribute name="class"><xsl:value-of select="./@class" /> form-group form__group</xsl:attribute>
                </xsl:otherwise>
             </xsl:choose>
             <xsl:if test="not(*[@class='widget']) and not(table)">
               <xsl:choose>
-                  <xsl:when css:test="[type='xradio']">
-                      <xsl:attribute name="class">form-control radio</xsl:attribute>
+                  <xsl:when css:test="[type='radio']">
+                      <xsl:attribute name="class">form-group form__field form__field--radio</xsl:attribute>
                   </xsl:when>
-                  <xsl:when css:test="[type='xcheckbox']">
-                      <xsl:attribute name="class">form-control checkbox</xsl:attribute>
+                  <xsl:when css:test="[type='checkbox']">
+                      <xsl:attribute name="class">form-group form__field form__field--checkbox</xsl:attribute>
                   </xsl:when>
               </xsl:choose>
             </xsl:if>
               <xsl:apply-templates />
           </xsl:copy>
+        </replace>
+
+        <replace css:content="select">
+            <xsl:copy>
+                <xsl:copy-of select="@*" />
+                <xsl:attribute name="class"><xsl:value-of select="./@class" /> custom-select</xsl:attribute>
+                <xsl:apply-templates />
+            </xsl:copy>
         </replace>
 
         <!-- Replace input elements (submit buttons and checkboxes) -->
@@ -426,10 +417,10 @@
                         <xsl:apply-templates />
                     </xsl:copy>
                 </xsl:when>
-                <xsl:when css:test="[class='label checkboxType']">
+                <xsl:when css:test="[type='checkbox']">
                     <xsl:copy>
                         <xsl:copy-of select="@*" />
-                        <xsl:attribute name="class">checkboxType</xsl:attribute>
+                        <xsl:attribute name="class"><xsl:value-of select="./@class" /> form__control form__control--checkbox</xsl:attribute>
                         <xsl:apply-templates />
                     </xsl:copy>
                 </xsl:when>

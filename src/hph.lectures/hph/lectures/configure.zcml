@@ -63,4 +63,9 @@
             factory=".tool.CourseModuleTool"
             provides=".interfaces.ICourseModuleTool"/>
 
+    <!-- Text Transform Vocabulary -->
+    <utility component="hph.lectures.vocabulary.module_studies_vocabulary"
+             name="hph.lectures.vocabulary.moduleStudies"
+             provides="zope.schema.interfaces.IVocabularyFactory" />
+
 </configure>

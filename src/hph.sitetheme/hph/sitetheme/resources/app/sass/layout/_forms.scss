@@ -68,6 +68,24 @@ select[multiple] {
     display: block;
 }
 
+//== Custom classes added by Diazo transforms
+//## This styles try to combat unclear semantics
+//## produced by the Plone form libraries
+.form__field--checkbox {
+    .option {
+        display: inline-block;
+        margin-right: 1rem;
+        > label {
+            margin-left: .5rem;
+            font-weight: 300;
+        }
+    }
+    > .option > label {
+        font-weight: bold;
+    }
+}
+
+
 //== Required field
 //
 //## Mark fields as required

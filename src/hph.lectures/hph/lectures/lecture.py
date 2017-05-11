@@ -5,7 +5,7 @@ from five import grok
 from plone import api
 from plone.app.vocabularies.catalog import CatalogSource
 from plone.app.z3cform.widget import RelatedItemsWidget
-from plone.autoform import directives as form
+from plone.autoform import directives as form, directives
 from plone.dexterity.browser import edit
 from plone.dexterity.content import Container
 from plone.indexer import indexer
@@ -27,38 +27,6 @@ class ILecture(model.Schema, IImageScaleTraversable):
     """
     A single course
     """
-    subtitle = schema.TextLine(
-        title=_(u"Subtitle"),
-        required=False,
-    )
-    title = schema.TextLine(
-        title=_(u"Title"),
-        required=True,
-    )
-    courseNumber = schema.TextLine(
-        title=_(u"Lecure Number"),
-        required=True,
-    )
-    attendance = schema.TextLine(
-        title=_(u"Attendance"),
-        required=False,
-    )
-    attendanceRequired = schema.Bool(
-        title=_(u"Attendance Required"),
-        required=False,
-    )
-    blockLecture = schema.Bool(
-        title=_(u"Block Lecture"),
-        required=False,
-    )
-    onlineLecture = schema.Bool(
-        title=_(u"Online Lecture"),
-        required=False,
-    )
-    description = schema.Text(
-        title=_(u"Additional Information"),
-        required=False,
-    )
     form.widget('lecturer', RelatedItemsWidget)
     lecturer = RelationList(
         title=u"Lecturers",
@@ -80,6 +48,14 @@ class ILecture(model.Schema, IImageScaleTraversable):
         required=False,
         vocabulary=u'hph.lectures.CourseType',
     )
+    title = schema.TextLine(
+        title=_(u"Course Title"),
+        required=True,
+    )
+    courseNumber = schema.TextLine(
+        title=_(u"Lecure Number"),
+        required=True,
+    )
     courseDuration = schema.Choice(
         title=_(u"Course Duration"),
         required=False,
@@ -89,22 +65,41 @@ class ILecture(model.Schema, IImageScaleTraversable):
         title=_(u"Course Dates"),
         required=True,
     )
-    courseTime = schema.TextLine(
-        title=_(u"Course Time"),
-        required=True,
-    )
-    courseSemester = schema.Choice(
-        title=_(u"Course Semester"),
-        description=_(u"Please select the course semester for filtering"),
-        required=True,
-        vocabulary=u'hph.lectures.CourseSemester',
-    )
-    courseYear = schema.TextLine(
-        title=_(u"Course Year"),
-        required=True,
-    )
     courseRoom = schema.TextLine(
         title=_(u"Course Room"),
+        required=False,
+    )
+    courseRegistration = schema.TextLine(
+        title=_(u"Course registration required"),
+        description=_(u"(Example: register until 19.01.2017 via example.tld)"),
+        required=False
+    )
+    courseRestricted = schema.TextLine(
+        title=_(u"Course participation restricted"),
+        description=_(u"(Example 1: maximum participants 12)"
+                      u"(Example 2: Participation only for students of the "
+                      u"ethics master)"
+                      ),
+        required=False
+    )
+    blockLecture = schema.Bool(
+        title=_(u"Block Lecture"),
+        required=False,
+    )
+    onlineLecture = schema.Bool(
+        title=_(u"Online Lecture"),
+        required=False,
+    )
+    proPhilosophiaExtra = schema.Bool(
+        title=_(u"pro‐philosophia‐extra"),
+        required=False,
+    )
+    courseCancelled = schema.Bool(
+        title=_(u"Course cancelled"),
+        required=False,
+    )
+    description = schema.Text(
+        title=_(u"Additional Information"),
         required=False,
     )
     moodle = schema.TextLine(
@@ -121,7 +116,35 @@ class ILecture(model.Schema, IImageScaleTraversable):
         ),
         required=False,
     )
+    form.widget(moduleStudies=CheckBoxFieldWidget)
+    moduleStudies = schema.List(
+        title=_(u"Module Studies Recommendations"),
+        value_type=schema.Choice(
+            title=_(u"Display Selection"),
+            vocabulary=u'hph.lectures.vocabulary.moduleStudies',
+        ),
+        required=False,
+    )
 
+    # Omitted fields
+    # TODO: remove after browser view cleanup
+    directives.omitted('courseTime')
+    courseTime = schema.TextLine(
+        title=_(u"Course Time"),
+        required=True,
+    )
+    directives.omitted('courseSemester')
+    courseSemester = schema.Choice(
+        title=_(u"Course Semester"),
+        description=_(u"Please select the course semester for filtering"),
+        required=True,
+        vocabulary=u'hph.lectures.CourseSemester',
+    )
+    directives.omitted('courseYear')
+    courseYear = schema.TextLine(
+        title=_(u"Course Year"),
+        required=True,
+    )
 
 @indexer(ILecture)
 def courseTypeIndexer(obj):

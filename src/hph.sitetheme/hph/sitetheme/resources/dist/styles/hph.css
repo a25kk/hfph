@@ -17400,6 +17400,17 @@ a:hover
     background-color: #000;
 }
 
+.pat-structure .navbar,
+.pat-structure .app-event-nav
+{
+    display: block;
+}
+.pat-structure .navbar > .btn-group,
+.pat-structure .app-event-nav > .btn-group
+{
+    margin-top: 1rem;
+}
+
 .template-navigation-controlpanel .label:empty
 {
     display: inline;
@@ -18224,6 +18235,24 @@ select[multiple]
 [id='form-widgets-groups'] .option
 {
     display: block;
+}
+
+.form__field--checkbox .option
+{
+    display: inline-block;
+
+    margin-right: 1rem;
+}
+.form__field--checkbox .option > label
+{
+    font-weight: 300; 
+
+    margin-left: .5rem;
+}
+
+.form__field--checkbox > .option > label
+{
+    font-weight: bold;
 }
 
 .app-field-required
