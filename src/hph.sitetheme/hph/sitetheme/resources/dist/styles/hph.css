@@ -17400,6 +17400,17 @@ a:hover
     background-color: #000;
 }
 
+.pat-structure .navbar,
+.pat-structure .app-event-nav
+{
+    display: block;
+}
+.pat-structure .navbar > .btn-group,
+.pat-structure .app-event-nav > .btn-group
+{
+    margin-top: 1rem;
+}
+
 .template-navigation-controlpanel .label:empty
 {
     display: inline;

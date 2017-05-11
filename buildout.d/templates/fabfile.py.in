@@ -105,6 +105,25 @@ def deploy(actor=None):
 
 
 @task
+@roles('staging')
+def stage(actor=None):
+    """ Deploy current master to staging server """
+    opts = dict(
+        sitename=env.get('sitename'),
+        actor=actor or env.get('actor') or getpass.getuser(),bin/fab
+    )
+    with settings(port=22222, webserver='/opt/webserver/buildout.webserver'):
+        project.site.update()
+        with cd(env.code_root):
+            run('bin/buildout -Nc staging.cfg')
+        project.site.restart()
+    msg = ('[z3] *%(sitename)s* deployed to *staging* by %(actor)s' % opts)
+    user = 'fabric'
+    icon = ':shipit:'
+    slack.chat.post_message('#general', msg, username=user, icon_emoji=icon)
+
+
+@task
 def deploy_full():
     """ Deploy current master to production and run buildout """
     project.site.update()
