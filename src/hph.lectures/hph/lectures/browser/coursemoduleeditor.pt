@@ -43,7 +43,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th i18n:translate="">Degree</th>
+                                <th i18n:translate="">Degree Courses</th>
                                 <th i18n:translate="">Module Information</th>
                                 <th i18n:translate="">Course Core Theme</th>
                                 <th i18n:translate="">Actions</th>
@@ -77,6 +77,19 @@
                                                type="text" name="degree"
                                                placeholder="Enter degree title"
                                                  tal:attributes="value req_value">
+                                        <select class="form-control form__control form__control--courses js-module-selector"
+                                                id="selector__degree-courses"
+                                                data-target-list="#selector__course-modules"
+                                            tal:define="options view/degree_courses">
+                                            <option disabled selected value i18n:translate=""> -- select an option -- </option>
+                                            <tal:block tal:repeat="value options">
+                                                <option tal:define="token python:options[value]"
+                                                    tal:attributes="value string:${token};
+                                                                    name string:course:${token}">
+                                                    ${value}
+                                                </option>
+                                            </tal:block>
+                                        </select>
                                     </div> <!-- /title field -->
                                 </td>
                                 <td class="app-table-actions-cell">
@@ -86,15 +99,53 @@
                                                type="text" name="info"
                                                placeholder="Please enter information"
                                                  tal:attributes="value req_value">
+                                        <!-- learning modules -->
+                                        <select class="form-control form__control module__select module__select--hidden js-module-selector"
+                                                id="selector__course-modules--master"
+                                                 tal:define="options view/learning_modules_master">
+                                            <tal:block tal:repeat="value options">
+                                                <option tal:define="token python:options[value]"
+                                                         tal:attributes="value string:${token};
+                                                                name string:course:${token}">
+                                                        ${token}
+                                                </option>
+                                            </tal:block>
+                                        </select>
+                                        <!-- learning modules bachelor-->
+                                        <select class="form-control form__control module__select module__select--hidden js-module-selector"
+                                                id="selector__course-modules--bachelor"
+                                                 tal:define="options view/learning_modules_bachelor">
+                                            <tal:block tal:repeat="value options">
+                                                <option tal:define="token python:options[value]"
+                                                         tal:attributes="value string:${token};
+                                                                name string:course:${token}">
+                                                        ${token}
+                                                </option>
+                                            </tal:block>
+                                        </select>
                                     </div> <!-- /title field -->
                                 </td>
                                 <td class="app-table-actions-cell">
                                     <div class="form-group field"
-                                             tal:define="req_value request/theme | nothing">
+                                             tal:define="req_value request/theme | nothing;
+                                                         theme_groups view/course_core_themes">
                                         <input class="form-control" id="theme"
                                                type="text" name="theme"
                                                placeholder="Please enter core theme"
                                                  tal:attributes="value req_value">
+                                        <tal:course-themes tal:repeat="theme_group theme_groups">
+                                            <select class="form-control form__control form__control--themes module__select module__select--hidden js-module-selector form__control--themes-${theme_group}"
+                                                    id="selector__course-theme--${theme_group}"
+                                                    tal:define="options python:theme_groups[theme_group]">
+                                                <tal:block tal:repeat="value options">
+                                                    <option tal:define="token python:options[value]"
+                                                             tal:attributes="value string:${token};
+                                                                    name string:course:${token}">
+                                                            ${token}
+                                                    </option>
+                                                </tal:block>
+                                            </select>
+                                        </tal:course-themes>
                                     </div> <!-- /course theme field -->
                                 </td>
                                 <td class="app-table-actions-cell">

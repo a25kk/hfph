@@ -126,7 +126,7 @@
     }
     &.ppe-block-hidden,
     &.ppe-block-private {
-        border-left: ceil(($spacer / 3)) solid $alert-danger-border;
+        border-left: ceil(($spacer / 3)) solid $alert-danger-border-color;
         .ppe-block-state {
             color: $alert-danger-text;
         }
@@ -220,7 +220,7 @@
     }
     &.placeholder-error {
         background: $alert-danger-bg;
-        border-color: $state-danger-border;
+        border-color: $state-danger-border-color;
         .placeholder-sign {
             color: $state-danger-text;
         }

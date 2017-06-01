@@ -11,6 +11,7 @@ from zope.component import getMultiAdapter
 from zope.publisher.interfaces.browser import IPublishTraverse
 from zope.interface import implementer
 
+from hph.lectures import vocabulary
 from hph.lectures.interfaces import ICourseModuleTool
 
 from hph.lectures import MessageFactory as _
@@ -63,6 +64,29 @@ class CourseModuleEditor(BrowserView):
     def render(self):
         self.update()
         return self.index()
+
+    @staticmethod
+    def degree_courses():
+        courses = vocabulary.degree_courses()
+        return courses
+
+    @staticmethod
+    def get_degree_course_title(course):
+        course_names = vocabulary.degree_courses_tokens()
+        return course_names[course]
+
+    @staticmethod
+    def learning_modules_master():
+        master_modules = vocabulary.learning_modules_master()
+        return master_modules
+
+    @staticmethod
+    def learning_modules_bachelor():
+        return vocabulary.learning_modules_bachelor()
+
+    @staticmethod
+    def course_core_themes():
+        return vocabulary.course_core_themes()
 
     def course_information(self):
         context = aq_inner(self.context)

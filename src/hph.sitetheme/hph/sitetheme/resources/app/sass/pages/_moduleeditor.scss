@@ -21,6 +21,20 @@
     padding-top: 1rem !important;
 }
 
+//== Module selector
+.module__select {
+
+}
+
+.module__select--hidden {
+    display: none;
+}
+
+.module__select--active {
+    display: block;
+}
+
+
 // TODO: refactor into standalone component
 .app-inline-editable {
     position: relative;
