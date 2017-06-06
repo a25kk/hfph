@@ -11772,6 +11772,10 @@ input[type='color'] + .input-group-addon:not(:first-child),
     display: flex;
         flex-direction: column;
 
+    min-width: 0;
+
+    word-wrap: break-word;
+
     border: 1px solid rgba(0, 0, 0, .125); 
     background-color: #fff;
 
@@ -11789,8 +11793,6 @@ input[type='color'] + .input-group-addon:not(:first-child),
 .card-title
 {
     margin-bottom: .75rem;
-
-    word-break: break-all;
 }
 
 .card-subtitle

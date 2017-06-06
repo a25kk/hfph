@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module providing views for course module editing"""
+import collections
+
 from Acquisition import aq_inner
 from AccessControl import Unauthorized
 from Products.CMFPlone.utils import safe_unicode
@@ -82,7 +84,9 @@ class CourseModuleEditor(BrowserView):
 
     @staticmethod
     def learning_modules_bachelor():
-        return vocabulary.learning_modules_bachelor()
+        learning_modules = vocabulary.learning_modules_bachelor()
+        sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
+        return sorted_items
 
     @staticmethod
     def course_core_themes():

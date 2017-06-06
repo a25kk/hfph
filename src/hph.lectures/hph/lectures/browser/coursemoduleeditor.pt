@@ -79,13 +79,14 @@
                                                  tal:attributes="value req_value">
                                         <select class="form-control form__control form__control--courses js-module-selector"
                                                 id="selector__degree-courses"
+                                                name="selector:degree-courses"
                                                 data-target-list="#selector__course-modules"
+                                                data-selector="master"
                                             tal:define="options view/degree_courses">
                                             <option disabled selected value i18n:translate=""> -- select an option -- </option>
                                             <tal:block tal:repeat="value options">
                                                 <option tal:define="token python:options[value]"
-                                                    tal:attributes="value string:${token};
-                                                                    name string:course:${token}">
+                                                    tal:attributes="value string:${token};">
                                                     ${value}
                                                 </option>
                                             </tal:block>
@@ -102,7 +103,9 @@
                                         <!-- learning modules -->
                                         <select class="form-control form__control module__select module__select--hidden js-module-selector"
                                                 id="selector__course-modules--master"
+                                                name="selector:modules-master"
                                                  tal:define="options view/learning_modules_master">
+                                            <option disabled selected value i18n:translate=""> -- select an option -- </option>
                                             <tal:block tal:repeat="value options">
                                                 <option tal:define="token python:options[value]"
                                                          tal:attributes="value string:${token};
@@ -114,7 +117,9 @@
                                         <!-- learning modules bachelor-->
                                         <select class="form-control form__control module__select module__select--hidden js-module-selector"
                                                 id="selector__course-modules--bachelor"
+                                                name="selector:modules-bachelor"
                                                  tal:define="options view/learning_modules_bachelor">
+                                            <option disabled selected value i18n:translate=""> -- select an option -- </option>
                                             <tal:block tal:repeat="value options">
                                                 <option tal:define="token python:options[value]"
                                                          tal:attributes="value string:${token};

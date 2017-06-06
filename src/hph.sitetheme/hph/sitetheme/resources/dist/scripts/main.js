@@ -32,6 +32,37 @@ if ($tickerBar.length) {
     });
 }
 
+// Interdependent selection boxes
+function interdependentSelect($elementClass) {
+    var $selectBoxes = $($elementClass);
+    $selectBoxes.each(function (){
+        var $el = $(this);
+        $el.on('change', function(e){
+            var $selectedValue = $(this).find(":selected").val(),
+                $connectedSelect = $(this).data('target-list'),
+                $selectorType = $(this).data('selector');
+            if ($selectorType === 'master') {
+                if ($selectedValue !== 'ba') {
+                    var $targetSelectorId = $connectedSelect + '--master';
+                } else {
+                    var $targetSelectorId = $connectedSelect + '--bachelor';
+                }
+            } else {
+                var $targetSelectorId = $connectedSelect;
+            }
+            console.log($targetSelectorId);
+            var $targetSelector = $($targetSelectorId);
+            $targetSelector.toggleClass('module__select--hidden');
+            $targetSelector.toggleClass('module__select--visible');
+        })
+    });
+}
+
+
+
+var $moduleSelectorClass = '.js-module-selector';
+interdependentSelect($moduleSelectorClass);
+
 
 var $ajaxContainer = $('#appui-container');
 $('div[data-appui="ajaxified"]').each(function () {
