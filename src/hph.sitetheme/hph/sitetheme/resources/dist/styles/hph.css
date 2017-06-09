@@ -20866,7 +20866,13 @@ app-fonts-loaded .app-page-abstract
 
 .app-table-actions-cell
 {
+    width: 20%; 
     padding-top: 1rem !important;
+}
+
+.app-table__actions-cell--first
+{
+    width: 40%;
 }
 
 .module__select--hidden

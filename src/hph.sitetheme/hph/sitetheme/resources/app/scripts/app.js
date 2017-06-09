@@ -29,6 +29,10 @@ function interdependentSelect($elementClass) {
                 $connectedSelect = $(this).data('target-list'),
                 $selectorType = $(this).data('selector');
             if ($selectorType === 'master') {
+                // Hide all visible selects on change
+                var $visibleBoxes = $('.module__select--visible');
+                $visibleBoxes.addClass('module__select--hidden');
+                $visibleBoxes.removeClass('module__select--visible');
                 if ($selectedValue !== 'ba') {
                     var $targetSelectorId = $connectedSelect + '--master';
                 } else {
@@ -37,10 +41,17 @@ function interdependentSelect($elementClass) {
             } else {
                 var $targetSelectorId = $connectedSelect;
             }
-            console.log($targetSelectorId);
             var $targetSelector = $($targetSelectorId);
-            $targetSelector.toggleClass('module__select--hidden');
-            $targetSelector.toggleClass('module__select--visible');
+            $targetSelector.removeClass('module__select--hidden');
+            $targetSelector.addClass('module__select--visible');
+            // Handle additionalcourse theme select boxes
+            if ($selectedValue !== 'ba') {
+                var $themeSelectorId = '#selector__course-theme--' + $selectedValue,
+                    $themeSelector = $($themeSelectorId);
+                console.log($themeSelectorId);
+                $themeSelector.addClass('module__select--visible');
+                $themeSelector.removeClass('module__select--hidden');
+            }
         })
     });
 }

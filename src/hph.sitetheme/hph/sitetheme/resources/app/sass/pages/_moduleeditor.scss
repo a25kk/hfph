@@ -19,6 +19,11 @@
 
 .app-table-actions-cell {
     padding-top: 1rem !important;
+    width: 20%;
+}
+
+.app-table__actions-cell--first {
+    width: 40%;
 }
 
 //== Module selector
