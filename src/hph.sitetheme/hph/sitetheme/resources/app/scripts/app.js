@@ -19,6 +19,48 @@ if ($tickerBar.length) {
     });
 }
 
+// Interdependent selection boxes
+function interdependentSelect($elementClass) {
+    var $selectBoxes = $($elementClass);
+    $selectBoxes.each(function (){
+        var $el = $(this);
+        $el.on('change', function(e){
+            var $selectedValue = $(this).find(":selected").val(),
+                $connectedSelect = $(this).data('target-list'),
+                $selectorType = $(this).data('selector');
+            if ($selectorType === 'master') {
+                // Hide all visible selects on change
+                var $visibleBoxes = $('.module__select--visible');
+                $visibleBoxes.addClass('module__select--hidden');
+                $visibleBoxes.removeClass('module__select--visible');
+                if ($selectedValue !== 'ba') {
+                    var $targetSelectorId = $connectedSelect + '--master';
+                } else {
+                    var $targetSelectorId = $connectedSelect + '--bachelor';
+                }
+            } else {
+                var $targetSelectorId = $connectedSelect;
+            }
+            var $targetSelector = $($targetSelectorId);
+            $targetSelector.removeClass('module__select--hidden');
+            $targetSelector.addClass('module__select--visible');
+            // Handle additionalcourse theme select boxes
+            if ($selectedValue !== 'ba') {
+                var $themeSelectorId = '#selector__course-theme--' + $selectedValue,
+                    $themeSelector = $($themeSelectorId);
+                console.log($themeSelectorId);
+                $themeSelector.addClass('module__select--visible');
+                $themeSelector.removeClass('module__select--hidden');
+            }
+        })
+    });
+}
+
+
+
+var $moduleSelectorClass = '.js-module-selector';
+interdependentSelect($moduleSelectorClass);
+
 
 var $ajaxContainer = $('#appui-container');
 $('div[data-appui="ajaxified"]').each(function () {
