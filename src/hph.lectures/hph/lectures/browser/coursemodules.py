@@ -79,8 +79,9 @@ class CourseModuleEditor(BrowserView):
 
     @staticmethod
     def learning_modules_master():
-        master_modules = vocabulary.learning_modules_master()
-        return master_modules
+        learning_modules = vocabulary.learning_modules_master()
+        sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
+        return sorted_items
 
     @staticmethod
     def learning_modules_bachelor():
@@ -109,7 +110,6 @@ class CourseModuleEditor(BrowserView):
         context_uid = api.content.get_uuid(obj=context)
         tool = getUtility(ICourseModuleTool)
         stored_data = tool.read(context_uid)
-        import pdb; pdb.set_trace()
         if not stored_data:
             tool.create(context_uid, data)
         else:
