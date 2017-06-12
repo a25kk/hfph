@@ -39,6 +39,7 @@
                       method="post" role="form"
                       tal:define="errors view/errors"
                       tal:attributes="action request/URL">
+                    <p tal:content="errors"></p>
                     <table class="app-table-modules">
                         <thead>
                             <tr>
@@ -81,7 +82,7 @@
                                                  tal:attributes="value req_value" hidden>
                                         <select class="form-control form__control form__control--courses js-module-selector"
                                                 id="selector__degree-courses"
-                                                name="selector:degree-courses"
+                                                name="degree-courses"
                                                 data-target-list="#selector__course-modules"
                                                 data-selector="master"
                                             tal:define="options view/degree_courses">
@@ -105,7 +106,7 @@
                                         <!-- learning modules -->
                                         <select class="form-control form__control module__select module__select--hidden js-module-selector"
                                                 id="selector__course-modules--master"
-                                                name="selector:modules-master"
+                                                name="modules"
                                                  tal:define="options view/learning_modules_master">
                                             <option disabled selected value i18n:translate=""> -- select an option -- </option>
                                             <tal:block tal:repeat="value options">
@@ -119,7 +120,7 @@
                                         <!-- learning modules bachelor-->
                                         <select class="form-control form__control module__select module__select--hidden js-module-selector"
                                                 id="selector__course-modules--bachelor"
-                                                name="selector:modules-bachelor"
+                                                name="modules"
                                                  tal:define="options view/learning_modules_bachelor">
                                             <option disabled selected value i18n:translate=""> -- select an option -- </option>
                                             <tal:block tal:repeat="value options">
@@ -143,6 +144,7 @@
                                         <tal:course-themes tal:repeat="theme_group theme_groups">
                                             <select class="form-control form__control form__control--themes module__select module__select--hidden js-module-selector js-selector-course-theme form__control--themes-${theme_group}"
                                                     id="selector__course-theme--${theme_group}"
+                                                    name="course-theme"
                                                     tal:define="options python:theme_groups[theme_group]">
                                                 <option disabled selected value i18n:translate=""> -- select an option -- </option>
                                                 <tal:block tal:repeat="value options">

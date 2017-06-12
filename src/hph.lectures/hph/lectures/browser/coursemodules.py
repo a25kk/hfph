@@ -29,7 +29,7 @@ class CourseModuleEditor(BrowserView):
     def update(self):
         translation_service = api.portal.get_tool(name="translation_service")
         unwanted = ('_authenticator', 'form.button.Submit')
-        required = ('degree', 'info')
+        required = ('selector_degree_courses', )
         if 'form.button.Submit' in self.request:
             authenticator = getMultiAdapter((self.context, self.request),
                                             name=u"authenticator")
@@ -109,6 +109,7 @@ class CourseModuleEditor(BrowserView):
         context_uid = api.content.get_uuid(obj=context)
         tool = getUtility(ICourseModuleTool)
         stored_data = tool.read(context_uid)
+        import pdb; pdb.set_trace()
         if not stored_data:
             tool.create(context_uid, data)
         else:
