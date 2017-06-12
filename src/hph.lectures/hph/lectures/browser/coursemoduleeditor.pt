@@ -55,10 +55,14 @@
                                                         courses stored_data/items">
                                     <tr tal:repeat="item python:stored_data['items']">
                                         <th scope="row">${repeat/item/number}</th>
-                                        <td>${item/degree}</td>
-                                        <td>${item/info}</td>
-                                        <td><span tal:condition="exists:item/course_theme">${item/course_theme}</span>
-                                            <small tal:condition="not:exists:item/course_theme">keine Auswahl</small>
+                                        <td><span tal:condition="exists:item/degree">${item/degree}</span>
+                                            <span tal:condition="exists:item/degree-course">${item/degree-course}</span>
+                                        </td>
+                                        <td><span tal:condition="exists:item/info">${item/info}</span>
+                                            <span tal:condition="exists:item/module">${item/module}</span>
+                                        </td>
+                                        <td><span tal:condition="exists:item/course-theme">${item/course-theme}</span>
+                                            <small tal:condition="not:exists:item/course-theme">keine Auswahl</small>
                                         </td>
                                         <td tal:define="url string:${context/absolute_url}/@@module-editor-remove/${repeat/item/index};
                                                         protected_url python:view.generate_protected_url(url)">
@@ -81,7 +85,7 @@
                                                  tal:attributes="value req_value" hidden>
                                         <select class="form-control form__control form__control--courses js-module-selector"
                                                 id="selector__degree-courses"
-                                                name="selector:degree-courses"
+                                                name="degree-course"
                                                 data-target-list="#selector__course-modules"
                                                 data-selector="master"
                                             tal:define="options view/degree_courses">
@@ -105,7 +109,7 @@
                                         <!-- learning modules -->
                                         <select class="form-control form__control module__select module__select--hidden js-module-selector"
                                                 id="selector__course-modules--master"
-                                                name="selector:modules-master"
+                                                name="module"
                                                  tal:define="options view/learning_modules_master">
                                             <option disabled selected value i18n:translate=""> -- select an option -- </option>
                                             <tal:block tal:repeat="value options">
@@ -119,7 +123,7 @@
                                         <!-- learning modules bachelor-->
                                         <select class="form-control form__control module__select module__select--hidden js-module-selector"
                                                 id="selector__course-modules--bachelor"
-                                                name="selector:modules-bachelor"
+                                                name="module"
                                                  tal:define="options view/learning_modules_bachelor">
                                             <option disabled selected value i18n:translate=""> -- select an option -- </option>
                                             <tal:block tal:repeat="value options">
@@ -143,6 +147,7 @@
                                         <tal:course-themes tal:repeat="theme_group theme_groups">
                                             <select class="form-control form__control form__control--themes module__select module__select--hidden js-module-selector js-selector-course-theme form__control--themes-${theme_group}"
                                                     id="selector__course-theme--${theme_group}"
+                                                    name="course-theme"
                                                     tal:define="options python:theme_groups[theme_group]">
                                                 <option disabled selected value i18n:translate=""> -- select an option -- </option>
                                                 <tal:block tal:repeat="value options">

@@ -29,7 +29,7 @@ class CourseModuleEditor(BrowserView):
     def update(self):
         translation_service = api.portal.get_tool(name="translation_service")
         unwanted = ('_authenticator', 'form.button.Submit')
-        required = ('degree', 'info')
+        required = ('selector_degree_courses', )
         if 'form.button.Submit' in self.request:
             authenticator = getMultiAdapter((self.context, self.request),
                                             name=u"authenticator")
@@ -79,8 +79,9 @@ class CourseModuleEditor(BrowserView):
 
     @staticmethod
     def learning_modules_master():
-        master_modules = vocabulary.learning_modules_master()
-        return master_modules
+        learning_modules = vocabulary.learning_modules_master()
+        sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
+        return sorted_items
 
     @staticmethod
     def learning_modules_bachelor():
