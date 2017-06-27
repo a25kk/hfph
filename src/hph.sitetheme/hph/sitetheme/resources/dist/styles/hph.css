@@ -21530,6 +21530,26 @@ app-fonts-loaded .app-page-abstract
     border-top: 4px solid #ef7d00;
 }
 
+.subsection-institute-globalefragen .app-panel-main
+{
+    border-top: 5px solid #ef7d00;
+}
+
+.subsection-institute-globalefragen .app-navitem-tab
+{
+    background-color: #ef7d00;
+}
+
+.subsection-institute-globalefragen .app-img
+{
+    border-top: 4px solid #ef7d00;
+}
+
+.subsection-institute-globalefragen .app-card-main
+{
+    border-top: 4px solid #ef7d00;
+}
+
 .app-styleguide
 {
     display: -ms-flexbox;

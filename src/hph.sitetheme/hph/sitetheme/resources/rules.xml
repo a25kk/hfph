@@ -85,6 +85,7 @@
 
     <!-- Project specific theme files -->
     <theme href="dist/theme-igp/index.html" css:if-content=".subsection-institute-gesellschaftspolitik" />
+    <theme href="dist/theme-igp/index.html" css:if-content=".subsection-institute-globalefragen" />
     <!--<theme href="dist/pp/index.html" css:if-content="body.section-pro-philosophia" />-->
     <!-- Opac und newsletter templates -->
     <!--><theme href="dist/opac/index.html" css:if-content="body.subsection-bibliotheken-opac-recherche" />-->
