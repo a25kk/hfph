@@ -19,7 +19,26 @@
 
 .app-table-actions-cell {
     padding-top: 1rem !important;
+    width: 20%;
 }
+
+.app-table__actions-cell--first {
+    width: 40%;
+}
+
+//== Module selector
+.module__select {
+
+}
+
+.module__select--hidden {
+    display: none;
+}
+
+.module__select--active {
+    display: block;
+}
+
 
 // TODO: refactor into standalone component
 .app-inline-editable {

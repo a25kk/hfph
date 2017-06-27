@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module providing views for course module editing"""
+import collections
+
 from Acquisition import aq_inner
 from AccessControl import Unauthorized
 from Products.CMFPlone.utils import safe_unicode
@@ -11,6 +13,7 @@ from zope.component import getMultiAdapter
 from zope.publisher.interfaces.browser import IPublishTraverse
 from zope.interface import implementer
 
+from hph.lectures import vocabulary
 from hph.lectures.interfaces import ICourseModuleTool
 
 from hph.lectures import MessageFactory as _
@@ -26,7 +29,7 @@ class CourseModuleEditor(BrowserView):
     def update(self):
         translation_service = api.portal.get_tool(name="translation_service")
         unwanted = ('_authenticator', 'form.button.Submit')
-        required = ('degree', 'info')
+        required = ('selector_degree_courses', )
         if 'form.button.Submit' in self.request:
             authenticator = getMultiAdapter((self.context, self.request),
                                             name=u"authenticator")
@@ -63,6 +66,32 @@ class CourseModuleEditor(BrowserView):
     def render(self):
         self.update()
         return self.index()
+
+    @staticmethod
+    def degree_courses():
+        courses = vocabulary.degree_courses()
+        return courses
+
+    @staticmethod
+    def get_degree_course_title(course):
+        course_names = vocabulary.degree_courses_tokens()
+        return course_names[course]
+
+    @staticmethod
+    def learning_modules_master():
+        learning_modules = vocabulary.learning_modules_master()
+        sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
+        return sorted_items
+
+    @staticmethod
+    def learning_modules_bachelor():
+        learning_modules = vocabulary.learning_modules_bachelor()
+        sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
+        return sorted_items
+
+    @staticmethod
+    def course_core_themes():
+        return vocabulary.course_core_themes()
 
     def course_information(self):
         context = aq_inner(self.context)

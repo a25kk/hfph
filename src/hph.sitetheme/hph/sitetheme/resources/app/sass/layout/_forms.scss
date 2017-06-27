@@ -9,7 +9,7 @@
     @include button-variant(#333, $gray-lighter, #333);
     @include button-outline-variant($gray);
     &-sm {
-        @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-border-radius-sm);
+        @include button-size($input-btn-padding-y-sm, $input-btn-padding-x-sm, $font-size-sm, $line-height-sm, $btn-border-radius-sm);
     }
 }
 
@@ -67,6 +67,24 @@ select[multiple] {
 [id="form-widgets-groups"] .option {
     display: block;
 }
+
+//== Custom classes added by Diazo transforms
+//## This styles try to combat unclear semantics
+//## produced by the Plone form libraries
+.form__field--checkbox {
+    .option {
+        display: inline-block;
+        margin-right: 1rem;
+        > label {
+            margin-left: .5rem;
+            font-weight: 300;
+        }
+    }
+    > .option > label {
+        font-weight: bold;
+    }
+}
+
 
 //== Required field
 //

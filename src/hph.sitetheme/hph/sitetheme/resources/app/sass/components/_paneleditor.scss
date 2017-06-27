@@ -8,11 +8,11 @@
   .sortable-placeholder {
     @include size(100%, 8rem);
     margin: $spacer 0;
-    border: 2px solid $state-warning-border;
+    border: 2px solid $state-warning-border-color;
     background: $state-warning-bg;
   }
   .sortable-dragging {
-    border: 1px solid $state-danger-border;
+    border: 1px solid $state-danger-border-color;
     background: #f2f2f2;
     opacity: 1;
   }

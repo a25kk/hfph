@@ -88,6 +88,12 @@ a:hover {
     background-color: #000;
 }
 
+.pat-structure .navbar {
+    display: block;
+    > .btn-group {
+        margin-top: 1rem;
+    }
+}
 
 // Reenable type selection in navigation control panel
 // Hidden by bootstrap label component
