@@ -20850,6 +20850,11 @@ app-fonts-loaded .app-page-abstract
     display: block;
 }
 
+.app-lecture__detail
+{
+    margin-bottom: 1.5rem;
+}
+
 .app-module-editor
 {
     padding-top: 1rem;

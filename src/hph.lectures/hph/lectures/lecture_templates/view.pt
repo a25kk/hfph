@@ -81,6 +81,18 @@
                     <span i18n:translate="">Dates</span>:
                     <span tal:replace="context/courseDates" />
 
+                <div class="app-lecture__detail" tal:condition="context/courseRegistration">
+                    Anmeldung erforderlich ##
+                </div>
+
+                <div class="app-lecture__detail" tal:condition="context/courseRestricted">
+                    Teilnehmerbeschr&auml;nkung ##
+                </div>
+
+                <div class="lecture__detail" tal:condition="context/courseRegistration">
+                    - pro philosophia extra: für Mitglieder von pro philosophia e.V. frei -
+                </div>
+
                 <div class="app-course-modules app-inline-editable">
                     <div class="app-inline-edit-bar" tal:condition="view/can_edit">
                         <a class="app-btn app-btn-inline-edit" href="${context/absolute_url}/@@module-editor" i18n:translate="">edit modules</a>
