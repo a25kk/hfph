@@ -23,6 +23,9 @@
         }
         @include media-breakpoint-up(md) {
             @include make-col(3);
+            &--filter {
+                @include make-col(4);
+            }
         }
     }
 }

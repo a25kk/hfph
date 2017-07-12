@@ -1,4 +1,5 @@
 <div class="app-list-context">
+    <div tal:condition="context/courseCancelled">Kurs entfällt</div>
     <div class="app-list-context-kicker">
         <span tal:replace="context/courseNumber" /><span tal:condition="context/blockLecture">*</span><span tal:condition="context/onlineLecture">@</span>
         <tal:lecturer tal:condition="context/lecturer">

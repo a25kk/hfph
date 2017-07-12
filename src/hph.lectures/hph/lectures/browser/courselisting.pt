@@ -26,13 +26,18 @@
             </div>
         </tal:can_edit>
 
+        <div class="app-page__header">
+            <h1 i18n:translate="">Lectures</h1>
+            <p class="app-page__abstract">${context/Title}</p>
+        </div>
+
         <div class="app-section">
             <div class="app-section__aside">
                 <div class="app-card app-card--lectures">
                     <div class="app-card__header">
-                        <h4 class="app-card__title" i18n:translate="">
+                        <div class="app-card__heading" i18n:translate="">
                             Veranstaltungstyp
-                        </h4>
+                        </div>
                     </div>
                     <div class="app-card__main app-card__main--bordered">
                         <ul class="app-nav-list">
@@ -71,34 +76,104 @@
                 </div>
             </div>
             <div class="app-section__main">
-                <div class="app-page__header">
-                    <h1 i18n:translate="">Lectures</h1>
-                    <p class="app-page__abstract">${context/Title}</p>
-                </div>
+
                 <div class="app-page__body">
-                    <form>
-                        <div class="form-group field"
-                                 tal:define="req_value request/title | nothing">
-                            <input class="form-control" id="degree"
-                                   type="text" name="degree"
-                                   placeholder="Enter degree title"
-                                     tal:attributes="value req_value" hidden>
-                            <select class="form-control form__control form-field__select form__control--courses js-module-selector"
-                                    id="selector__degree-courses"
-                                    name="degree-course"
-                                    data-target-list="#selector__course-modules"
-                                    data-selector="master"
-                                     tal:define="options view/degree_courses">
-                                <option disabled selected value i18n:translate=""> -- select an option -- </option>
-                                <tal:block tal:repeat="value options">
-                                    <option tal:define="token python:options[value]"
-                                             tal:attributes="value string:${token};">
-                                            ${value}
-                                    </option>
-                                </tal:block>
-                            </select>
-                        </div> <!-- /title field -->
-                    </form>
+                    <section class="app-page__section course-filter">
+                        <form>
+                            <div class="app-cards app-cards--course-filter">
+                                <div class="app-card app-card--filter">
+                                    <div class="app-card__header">
+                                        <div class="app-card__heading">Studiengang</div>
+                                    </div>
+                                    <div class="app-card__main app-card__main--bordered">
+                                        <select class="form-control form__control form-field__select form__control--courses js-module-selector"
+                                                id="selector__degree-courses"
+                                                name="degree-course"
+                                                data-target-list="#selector__course-modules"
+                                                data-selector="master"
+                                                 tal:define="options view/degree_courses">
+                                            <option disabled selected value i18n:translate=""> -- select an option -- </option>
+                                            <tal:block tal:repeat="value options">
+                                                <option tal:define="token python:options[value]"
+                                                         tal:attributes="value string:${token};">
+                                                        ${value}
+                                                </option>
+                                            </tal:block>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="app-card app-card--filter">
+                                    <div class="app-card__header">
+                                        <div class="app-card__heading">Modul</div>
+                                    </div>
+                                    <div class="app-card__main app-card__main--bordered">
+                                        <!-- learning modules -->
+                                        <select class="form-control form__control module__select module__select--hidden js-module-selector"
+                                                id="selector__course-modules--master"
+                                                name="module"
+                                                 tal:define="options view/learning_modules_master">
+                                            <option disabled selected value i18n:translate=""> -- select an option -- </option>
+                                            <tal:block tal:repeat="value options">
+                                                <option tal:define="token python:options[value]"
+                                                         tal:attributes="value string:${token};
+                                                                name string:course:${token}">
+                                                        ${token}
+                                                </option>
+                                            </tal:block>
+                                        </select>
+                                        <!-- learning modules bachelor-->
+                                        <select class="form-control form__control module__select module__select--hidden js-module-selector"
+                                                id="selector__course-modules--bachelor"
+                                                name="module"
+                                                 tal:define="options view/learning_modules_bachelor">
+                                            <option disabled selected value i18n:translate=""> -- select an option -- </option>
+                                            <tal:block tal:repeat="value options">
+                                                <option tal:define="token python:options[value]"
+                                                         tal:attributes="value string:${token};
+                                                                name string:course:${token}">
+                                                        ${token}
+                                                </option>
+                                            </tal:block>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="app-card app-card--filter">
+                                    <div class="app-card__header">
+                                        <div class="app-card__heading">Schwerpunkt</div>
+                                    </div>
+                                    <div class="app-card__main app-card__main--bordered"
+                                        tal:define="theme_groups view/course_core_themes">
+                                            <tal:course-themes tal:repeat="theme_group theme_groups">
+                                                <select class="form-control form__control form__control--themes module__select module__select--hidden js-module-selector js-selector-course-theme form__control--themes-${theme_group}"
+                                                        id="selector__course-theme--${theme_group}"
+                                                        name="course-theme"
+                                                         tal:define="options python:theme_groups[theme_group]">
+                                                    <option disabled selected value i18n:translate=""> -- select an option -- </option>
+                                                    <tal:block tal:repeat="value options">
+                                                        <option tal:define="token python:options[value]"
+                                                                 tal:attributes="value string:${token};
+                                                                        name string:course:${token}">
+                                                                ${token}
+                                                        </option>
+                                                    </tal:block>
+                                                </select>
+                                            </tal:course-themes>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <a class="app-btn app-btn--default"
+                                 tal:attributes="href string:${context/absolute_url}">
+                            <i class="ion ion-ios-close-circle-outline pp-icon pp-icon-sm"></i>
+                            <span tal:omit-tag="" i18n:translate="">Clear filter</span>
+                        </a>
+                        <a class="app-btn app-btn--link"
+                                 tal:attributes="href string:${context/absolute_url}">
+                            <i class="ion ion-ios-add-circle-outline pp-icon pp-icon-sm"></i>
+                            <span tal:omit-tag="" i18n:translate="">Auszeichnung für weiternen<br> Studiengang hinzufügen</span>
+                        </a>
+                    </section>
+
                     <section class="app-page__section app-list"
                         tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                                     b_size python:int(request.get('b_size', 20));
@@ -110,6 +185,7 @@
                                 <span tal:replace="structure python:view.rendered_course_card(item_uuid)" />
                             </div>
                         </article>
+                        <div metal:use-macro="context/batch_macros/macros/navigation" />
                     </section>
                 </div>
 
