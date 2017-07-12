@@ -17768,6 +17768,13 @@ div.riform .label
 
     margin-top: -3rem;
 }
+@media (min-width: 992px)
+{
+    .app-navbar-header-toggle
+    {
+        display: none;
+    }
+}
 
 @media (min-width: 576px)
 {

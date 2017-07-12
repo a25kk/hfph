@@ -50,13 +50,13 @@
      provides=".coursemodules.ICourseModuleInformation"
      />
 
-   <!-- Lecture edit form with data grid support -->
+   <!-- Lecture edit form with data grid support
    <browser:page
         for="hph.lectures.lecture.ILecture"
         name="edit"
         class="hph.lectures.lecture.EditForm"
         permission="cmf.ModifyPortalContent"
-        />
+        /> -->
 
     <!-- Tool providing utility functions for asset storage manipulation -->
     <utility

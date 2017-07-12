@@ -83,6 +83,9 @@
 .app-navbar-header-toggle {
     float: right;
     margin-top: -3rem;
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
 }
 
 // Navbar toggle button visible on small displays
