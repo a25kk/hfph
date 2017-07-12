@@ -20,4 +20,24 @@
             permission="cmf.ModifyPortalContent"
             layer="..interfaces.IHPHLecturesLayer"
     />
+
+    <browser:page
+            for="hph.lectures.lecture.ILecture"
+            name="course-card"
+            class=".course.CoursePreview"
+            template="course-preview.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <!-- Filterable course listing -->
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-listing"
+            class=".courselisting.CourseListing"
+            template="courselisting.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
 </configure>

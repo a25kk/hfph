@@ -49,6 +49,7 @@
         @include make-col(3);
         padding: 0 1rem 1rem 1rem;
         display: flex;
+        flex-direction: column;
     }
 }
 
