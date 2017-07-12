@@ -1,14 +1,20 @@
 # -*- coding: utf-8 -*-
 """Module providing course listings"""
+import collections
+
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
+from hph.lectures.lecture import ILecture
 from plone import api
+from plone.app.contentlisting.interfaces import IContentListing
 
-from hph.lectures import MessageFactory as _
 from zope.component import getMultiAdapter
 from zope.schema.vocabulary import getVocabularyRegistry
+
+from hph.lectures import vocabulary
+from hph.lectures import MessageFactory as _
 
 
 class CourseListing(BrowserView):
@@ -108,6 +114,60 @@ class CourseListing(BrowserView):
         if active_filter == value:
             item_class = 'app-nav-list-item app-nav-list-item-active'
         return item_class
+
+    @staticmethod
+    def degree_courses():
+        courses = vocabulary.degree_courses()
+        return courses
+
+    @staticmethod
+    def get_degree_course_title(course):
+        course_names = vocabulary.degree_courses_tokens()
+        return course_names[course]
+
+    @staticmethod
+    def learning_modules_master():
+        learning_modules = vocabulary.learning_modules_master()
+        sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
+        return sorted_items
+
+    @staticmethod
+    def learning_modules_bachelor():
+        learning_modules = vocabulary.learning_modules_bachelor()
+        sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
+        return sorted_items
+
+    @staticmethod
+    def course_core_themes():
+        return vocabulary.course_core_themes()
+
+    def lectures(self):
+        catalog = api.portal.get_tool(name='portal_catalog')
+        query = self._base_query()
+        project_filter = self.request.get('project', None)
+        course_filter = self.request.get('courseType', None)
+        if self.filter is not None:
+            if course_filter is not None:
+                query['courseType'] = course_filter
+            if project_filter is not None:
+                query['externalFundsProject'] = project_filter
+        results = catalog.searchResults(query)
+        return IContentListing(results)
+
+    def _base_query(self):
+        context = aq_inner(self.context)
+        obj_provides = ILecture.__identifier__
+        return dict(object_provides=obj_provides,
+                    path=dict(query='/'.join(context.getPhysicalPath()),
+                              depth=1),
+                    review_state='published',
+                    sort_on='courseNumber')
+
+    @staticmethod
+    def rendered_course_card(uuid):
+        context = api.content.get(UID=uuid)
+        template = context.restrictedTraverse('@@course-card')()
+        return template
 
     def filter_courses(self, data):
         return

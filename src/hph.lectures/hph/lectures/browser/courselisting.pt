@@ -76,8 +76,43 @@
                     <p class="app-page__abstract">${context/Title}</p>
                 </div>
                 <div class="app-page__body">
-
+                    <form>
+                        <div class="form-group field"
+                                 tal:define="req_value request/title | nothing">
+                            <input class="form-control" id="degree"
+                                   type="text" name="degree"
+                                   placeholder="Enter degree title"
+                                     tal:attributes="value req_value" hidden>
+                            <select class="form-control form__control form-field__select form__control--courses js-module-selector"
+                                    id="selector__degree-courses"
+                                    name="degree-course"
+                                    data-target-list="#selector__course-modules"
+                                    data-selector="master"
+                                     tal:define="options view/degree_courses">
+                                <option disabled selected value i18n:translate=""> -- select an option -- </option>
+                                <tal:block tal:repeat="value options">
+                                    <option tal:define="token python:options[value]"
+                                             tal:attributes="value string:${token};">
+                                            ${value}
+                                    </option>
+                                </tal:block>
+                            </select>
+                        </div> <!-- /title field -->
+                    </form>
+                    <section class="app-page__section app-list"
+                        tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                                    b_size python:int(request.get('b_size', 20));
+                                    b_start python:int(request.get('b_start', 0));
+                                    results view/lectures;
+                                    batch python:Batch(results, b_size, b_start);">
+                        <article class="app-list__item" tal:repeat="item batch">
+                            <div class="app-list__item-details" tal:define="item_uuid item/UID">
+                                <span tal:replace="structure python:view.rendered_course_card(item_uuid)" />
+                            </div>
+                        </article>
+                    </section>
                 </div>
+
             </div>
         </div>
 
