@@ -12,6 +12,8 @@
 
 //** Base card styles
 .app-card {
+    display: block;
+    width: 100%;
     padding: .5rem;
     background-color: #fff;
     @include when-inside('.app-cards') {
@@ -63,7 +65,8 @@
 }
 
 // Card content blocks
-.app-card-block {
+.app-card-block,
+.app-card__block {
     padding: .5rem .25rem;
 }
 

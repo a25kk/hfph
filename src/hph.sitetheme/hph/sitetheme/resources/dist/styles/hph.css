@@ -20053,6 +20053,9 @@ body.template-frontpage-view .app-pathbar
 
 .app-card
 {
+    display: block;
+
+    width: 100%;
     padding: .5rem;
 
     background-color: #fff;
@@ -20125,7 +20128,8 @@ body.template-frontpage-view .app-pathbar
     font-size: .875rem;
 }
 
-.app-card-block
+.app-card-block,
+.app-card__block
 {
     padding: .5rem .25rem;
 }
@@ -20223,7 +20227,8 @@ body.template-frontpage-view .app-pathbar
     border-radius: 50%;
 }
 
-.app-card-nav .app-card-main
+.app-card-nav .app-card-main,
+.app-card--nav .app-card-main
 {
     padding: 0;
 
@@ -21486,13 +21491,15 @@ app-fonts-loaded .app-page-abstract
     .app-section__aside
     {
         display: -ms-flexbox;
-        display: flex; 
+        display: flex;
+            flex-direction: column; 
 
         max-width: 25%;
         padding: 0 1rem 1rem 1rem;
 
         -ms-flex: 0 0 25%;
             flex: 0 0 25%;
+        -ms-flex-direction: column;
     }
 }
 
