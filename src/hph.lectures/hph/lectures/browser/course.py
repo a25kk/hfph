@@ -2,7 +2,6 @@
 """Module providing lecture views"""
 from Acquisition import aq_inner
 from Products.Five import BrowserView
-from bpython.translations import _
 from hph.lectures.interfaces import ICourseModuleTool
 from plone import api
 from zope.component import getUtility
