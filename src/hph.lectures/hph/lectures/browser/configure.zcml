@@ -20,4 +20,15 @@
             permission="cmf.ModifyPortalContent"
             layer="..interfaces.IHPHLecturesLayer"
     />
+
+    <!-- Filterable course listing -->
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-listing"
+            class=".courselisting.CourseListing"
+            template="courselisting.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
 </configure>
