@@ -26,7 +26,7 @@
             </div>
         </tal:can_edit>
 
-        <div class="app-page__header">
+        <div class="app-page__header hiddenStructure">
             <h1 i18n:translate="">Lectures</h1>
             <p class="app-page__abstract">${context/Title}</p>
         </div>
@@ -54,13 +54,13 @@
                     <div class="app-card__footer">
                         <a class="btn btn-danger btn-sm"
                                  tal:attributes="href string:${context/absolute_url}">
-                            &times; <span i18n:translate="">Back to legacy listing</span></a>
+                            &times; <span i18n:translate="">remove filter</span></a>
                     </div>
                 </div>
                 <div class="app-card app-card--nav app-card--lectures"
                          tal:condition="view/has_archives">
                     <div class="app-card__header">
-                        <div class="app-card__heading" i18n:translate="">Archive</div>
+                        <div class="app-card__heading" i18n:translate="">Archiv</div>
                     </div>
                     <div class="app-card__main app-card__main--bordered">
                         <ul class="app-nav-list">
@@ -78,7 +78,7 @@
             <div class="app-section__main">
 
                 <div class="app-page__body">
-                    <section class="app-page__section course-filter">
+                    <section class="app-page__section course-filter" tal:condition="context/is_current_semester">
                         <form>
                             <div class="app-cards app-cards--course-filter">
                                 <div class="app-card app-card--filter">
