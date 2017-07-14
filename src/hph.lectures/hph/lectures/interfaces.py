@@ -63,6 +63,39 @@ class ICourseModuleTool(Interface):
         """
 
 
+class ICourseFilterTool(Interface):
+    """ Course filter tool
+
+        General tool providing module filter session storage
+    """
+    def create(context):
+        """ Create session storage instance
+
+        The caller is responsible for passing a valid data dictionary
+        containing the necessary details
+
+        Returns JSON object
+
+        @param data:        predefined initial data dictionary
+        """
+
+    def delete(context):
+        """ Destroy session storage instance
+
+        Returns JSON object
+
+        @param session_id:        session UID
+        """
+
+
+class ICourseFilterUpdater(Interface):
+    """ Course filter session updater
+
+        General tool providing CRUD operations for storing module filters
+        as json data
+    """
+
+
 class ILectureBase(form.Schema):
     """
     A single course

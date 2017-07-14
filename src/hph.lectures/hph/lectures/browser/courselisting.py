@@ -171,3 +171,11 @@ class CourseListing(BrowserView):
 
     def filter_courses(self, data):
         return
+
+
+class CourseFilter(BrowserView):
+    """ Edit course module data via basic form """
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
