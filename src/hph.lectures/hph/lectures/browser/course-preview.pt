@@ -1,5 +1,11 @@
-<div class="app-list-context">
-    <div tal:condition="context/courseCancelled">Kurs entfällt</div>
+<div class="course-card"
+    tal:define="course_cancelled context/courseCancelled"
+    tal:attributes="class python:course_cancelled and 'course-card course-card--muted' or 'course-card'">
+    <div class="course-card__overlay" tal:condition="context/courseCancelled">
+        <div class="course-card__overlay-title">
+            <div class="app-callout app-callout-default">Kurs entfällt</div>
+        </div>
+    </div>
     <div class="app-list-context-kicker">
         <span tal:replace="context/courseNumber" /><span tal:condition="context/blockLecture">*</span><span tal:condition="context/onlineLecture">@</span>
         <tal:lecturer tal:condition="context/lecturer">
@@ -25,19 +31,35 @@
         <span tal:replace="context/courseTime" />
     </p>
     <p class="text-muted">
-        <span i18n:translate="">Raum</span>
+        <span i18n:translate="">Raum:</span>
         <span tal:replace="context/courseRoom" />
     <p class="text-muted">
-        <span i18n:translate="">Dates</span>:
+        <span i18n:translate="">Termine:</span>:
         <span tal:replace="context/courseDates" />
 
     <tal:modules tal:condition="context/moduleInformation">
-        <p class="text-muted" tal:define="stored_data view/course_information;
+        <p class="text-muted" tal:condition="not:view/has_module_data"
+                 tal:define="stored_data view/course_information;
                 courses stored_data/items">
             <tal:items tal:repeat="item python:stored_data['items']">
             ${item/degree}: ${item/info}<tal:separator condition="not: repeat/item/end"><br></tal:separator>
             </tal:items>
         </p>
+        <div class="course__modules" tal:condition="view/has_module_data"
+                 tal:define="module_data view/module_data">
+            <tal:block tal:repeat="item module_data">
+                <div class="course__module" tal:define="item_details python:module_data[item]">
+                    <span tal:replace="python:view.get_degree_course_title(item)" />:
+                    <span tal:repeat="detail item_details">
+                        ${detail}
+                        <tal:detail_info tal:condition="python:item_details[detail]">
+                            (<tal:info_theme tal:repeat="theme python:item_details[detail]">${theme}<tal:separator condition="not:repeat/theme/end">,</tal:separator></tal:info_theme>)
+                        </tal:detail_info>
+                        <tal:separator condition="not:repeat/detail/end">,</tal:separator>
+                    </span>
+                </div>
+            </tal:block>
+        </div>
     </tal:modules>
     <tal:nomodules tal:condition="not:context/moduleInformation">
         <p class="text-muted" tal:condition="context/moduledetails">
