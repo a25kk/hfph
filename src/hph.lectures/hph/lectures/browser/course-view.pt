@@ -98,26 +98,25 @@
                             <a class="app-btn app-btn-inline-edit" href="${context/absolute_url}/@@module-editor" i18n:translate="">edit modules</a>
                         </div>
                         <tal:modules tal:condition="context/moduleInformation">
-
                             <p class="text-muted" tal:condition="not:view/has_module_data"
                                      tal:define="stored_data view/course_information;
-                                                 courses stored_data/items">
+                                            courses stored_data/items">
                                 <tal:items tal:repeat="item python:stored_data['items']">
                                 ${item/degree}: ${item/info}<tal:separator condition="not: repeat/item/end"><br></tal:separator>
                                 </tal:items>
                             </p>
                             <div class="course__modules" tal:condition="view/has_module_data"
-                                tal:define="module_data view/module_data">
+                                     tal:define="module_data view/module_data">
                                 <tal:block tal:repeat="item module_data">
                                     <div class="course__module" tal:define="item_details python:module_data[item]">
-                                            <span tal:replace="python:view.get_degree_course_title(item)" />:
-                                                <span tal:repeat="detail item_details">
-                                                    ${detail}
-                                                    <tal:detail_info tal:condition="python:item_details[detail]">
-                                                        (<tal:info_theme tal:repeat="theme python:item_details[detail]">${theme}<tal:separator condition="not:repeat/theme/end">,</tal:separator></tal:info_theme>)
-                                                    </tal:detail_info>
-                                                    <tal:separator condition="not:repeat/detail/end">,</tal:separator>
-                                                </span>
+                                        <span tal:replace="python:view.get_degree_course_title(item)" />:
+                                        <span tal:repeat="detail item_details">
+                                            ${detail}
+                                                <tal:detail_info tal:condition="python:item_details[detail]">
+                                                (<tal:info_theme tal:repeat="theme python:item_details[detail]">${theme}<tal:separator condition="not:repeat/theme/end">,</tal:separator></tal:info_theme>)
+                                                </tal:detail_info>
+                                            <tal:separator condition="not:repeat/detail/end">,</tal:separator>
+                                        </span>
                                     </div>
                                 </tal:block>
                             </div>

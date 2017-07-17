@@ -80,15 +80,23 @@ class CourseView(BrowserView):
         for item in stored_data['items']:
             if 'degree-course' in item:
                 course_identifier = item['degree-course']
+                course_module = item['module']
+                course_theme = None
+                if 'course-theme' in item:
+                    course_theme = item['course-theme']
                 if course_identifier in data:
                     course_data = data[course_identifier]
                 else:
                     course_data = {
                         item['module']: list()
                     }
-                course_theme = getattr(item, 'theme', None)
+                if course_module in course_data:
+                    module_info = course_data[course_module]
+                else:
+                    module_info = list()
                 if course_theme:
-                    course_data.append(course_theme)
+                    module_info.append(course_theme)
+                course_data[course_module] = module_info
                 data[course_identifier] = course_data
         return data
 
@@ -162,15 +170,23 @@ class CoursePreview(BrowserView):
         for item in stored_data['items']:
             if 'degree-course' in item:
                 course_identifier = item['degree-course']
+                course_module = item['module']
+                course_theme = None
+                if 'course-theme' in item:
+                    course_theme = item['course-theme']
                 if course_identifier in data:
                     course_data = data[course_identifier]
                 else:
                     course_data = {
                         item['module']: list()
                     }
-                course_theme = getattr(item, 'theme', None)
+                if course_module in course_data:
+                    module_info = course_data[course_module]
+                else:
+                    module_info = list()
                 if course_theme:
-                    course_data.append(course_theme)
+                    module_info.append(course_theme)
+                course_data[course_module] = module_info
                 data[course_identifier] = course_data
         return data
 
