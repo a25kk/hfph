@@ -49,4 +49,31 @@
             layer="..interfaces.IHPHLecturesLayer"
     />
 
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-filter-bar"
+            class=".courselisting.CourseFilter"
+            template="course-filter.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-filter-view"
+            class=".courselisting.CourseFilterView"
+            template="course-filter-view.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-filter-select"
+            class=".courselisting.CourseFilterSelectBox"
+            template="course-select-box.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
 </configure>

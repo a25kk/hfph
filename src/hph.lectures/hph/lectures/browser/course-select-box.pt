@@ -1,0 +1,16 @@
+<tal:block tal:define="select view/field_options">
+    <select class="form-control form__control form-field__select form-field__select--${select/visibility} form__control--${select/name} js-module-selector"
+            id="selector__${select/name}"
+            name="${select/name}"
+            data-target-list="#selector__${select/target}"
+            data-selector="${select/target}"
+             tal:define="options select/options">
+        <option disabled selected value i18n:translate=""> -- select an option -- </option>
+        <tal:block tal:repeat="value options">
+            <option tal:define="token python:options[value]"
+                     tal:attributes="value string:${token};">
+                    ${value}
+            </option>
+        </tal:block>
+    </select>
+</tal:block>
