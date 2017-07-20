@@ -72,7 +72,7 @@ msgstr "Module hinzufügen"
 
 #: ../interfaces.py:132 ../lecture.py:102
 msgid "Additional Information"
-msgstr "Zusatzinformation"
+msgstr "Infotext"
 
 #: ../browser/course-view.pt:68 ../factory_templates/lecturefactory.pt:82
 #: ../interfaces.py:136
@@ -438,7 +438,7 @@ msgstr "Veranstaltungsnummer"
 
 #: ../vocabulary.py:217
 msgid "MA Ethics"
-msgstr "MAEthik"
+msgstr "MA-Ethik"
 
 #: ../vocabulary.py:218
 msgid "MA kons"
@@ -466,7 +466,7 @@ msgstr "MA-IB (Weiterbildender Master Interkulturelle Bildung)"
 
 #: ../vocabulary.py:24
 msgid "MAcons"
-msgstr "MAkon"
+msgstr "MAkons"
 
 #: ../vocabulary.py:14
 msgid "MAcons (Consecutive Master)"
