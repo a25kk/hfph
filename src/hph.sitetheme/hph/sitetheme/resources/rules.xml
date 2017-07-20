@@ -85,6 +85,7 @@
 
     <!-- Project specific theme files -->
     <theme href="dist/theme-igp/index.html" css:if-content=".subsection-institute-gesellschaftspolitik" />
+    <theme href="dist/theme-igp/index.html" css:if-content=".subsection-institute-globalefragen" />
     <!--<theme href="dist/pp/index.html" css:if-content="body.section-pro-philosophia" />-->
     <!-- Opac und newsletter templates -->
     <!--><theme href="dist/opac/index.html" css:if-content="body.subsection-bibliotheken-opac-recherche" />-->
@@ -144,10 +145,10 @@
               css:theme="#app-brandname-logo-pro-philosophia" />
 
         <!-- Portal searchbox -->
-        <!--<copy attributes="*" css:content="#portal-searchbox form"
+        <copy attributes="*" css:content="#portal-searchbox form"
               css:theme="#app-searchbox" />
 
-        <replace css:content="#portal-searchbox" css:theme="#app-searchbox" method="raw" />-->
+        <!-- <replace css:content="#portal-searchbox" css:theme="#app-searchbox" method="raw" /> -->
 
         <!-- Global navigation -->
         <drop css:theme="#app-section-marker"

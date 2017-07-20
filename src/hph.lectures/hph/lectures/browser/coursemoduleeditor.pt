@@ -140,10 +140,6 @@
                                     <div class="form-group field"
                                              tal:define="req_value request/theme | nothing;
                                                          theme_groups view/course_core_themes">
-                                        <input class="form-control" id="theme"
-                                               type="text" name="theme"
-                                               placeholder="Please enter core theme"
-                                                 tal:attributes="value req_value" hidden>
                                         <tal:course-themes tal:repeat="theme_group theme_groups">
                                             <select class="form-control form__control form__control--themes module__select module__select--hidden js-module-selector js-selector-course-theme form__control--themes-${theme_group}"
                                                     id="selector__course-theme--${theme_group}"

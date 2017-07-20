@@ -17768,6 +17768,13 @@ div.riform .label
 
     margin-top: -3rem;
 }
+@media (min-width: 992px)
+{
+    .app-navbar-header-toggle
+    {
+        display: none;
+    }
+}
 
 @media (min-width: 576px)
 {
@@ -18134,6 +18141,10 @@ div.riform .label
 
     padding: .25rem .5rem;
 }
+.app-btn--link
+{
+    border-color: transparent;
+}
 
 label
 {
@@ -18190,6 +18201,18 @@ select[multiple]
 .form__field--checkbox > .option > label
 {
     font-weight: bold;
+}
+
+.form-field__select:not([multiple])
+{
+    padding: .5em 1.5em .5em .5em; 
+
+    color: #999;
+    border-radius: 0;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=) no-repeat right 50%;
+
+    -webkit-appearance: none;
+       -moz-appearance: none;
 }
 
 .app-field-required
@@ -20046,6 +20069,9 @@ body.template-frontpage-view .app-pathbar
 
 .app-card
 {
+    display: block;
+
+    width: 100%;
     padding: .5rem;
 
     background-color: #fff;
@@ -20075,6 +20101,13 @@ body.template-frontpage-view .app-pathbar
 
         -ms-flex: 0 0 25%;
             flex: 0 0 25%;
+    }
+    .app-cards .app-card--filter
+    {
+        max-width: 33.3333333333%; 
+
+        -ms-flex: 0 0 33.3333333333%;
+            flex: 0 0 33.3333333333%;
     }
 }
 
@@ -20118,7 +20151,8 @@ body.template-frontpage-view .app-pathbar
     font-size: .875rem;
 }
 
-.app-card-block
+.app-card-block,
+.app-card__block
 {
     padding: .5rem .25rem;
 }
@@ -20216,7 +20250,8 @@ body.template-frontpage-view .app-pathbar
     border-radius: 50%;
 }
 
-.app-card-nav .app-card-main
+.app-card-nav .app-card-main,
+.app-card--nav .app-card-main
 {
     padding: 0;
 
@@ -20855,6 +20890,57 @@ app-fonts-loaded .app-page-abstract
     margin-bottom: 1.5rem;
 }
 
+.course-filter
+{
+    margin-bottom: 4rem;
+}
+
+.course__modules
+{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.course__module
+{
+    color: #636c72;
+}
+
+.course-card
+{
+    position: relative;
+}
+.course-card--muted
+{
+    padding-top: 4rem;
+}
+
+.course-card__overlay
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.course-card__overlay-title
+{
+    font-size: 1rem;
+
+    width: 120px;
+
+    opacity: 1;
+    color: #000;
+    background-color: transparent;
+}
+.course-card__overlay-title > .app-callout
+{
+    margin-top: 0;
+}
+
 .app-module-editor
 {
     padding-top: 1rem;
@@ -21479,13 +21565,15 @@ app-fonts-loaded .app-page-abstract
     .app-section__aside
     {
         display: -ms-flexbox;
-        display: flex; 
+        display: flex;
+            flex-direction: column; 
 
         max-width: 25%;
         padding: 0 1rem 1rem 1rem;
 
         -ms-flex: 0 0 25%;
             flex: 0 0 25%;
+        -ms-flex-direction: column;
     }
 }
 
@@ -21526,6 +21614,26 @@ app-fonts-loaded .app-page-abstract
 }
 
 .subsection-institute-gesellschaftspolitik .app-card-main
+{
+    border-top: 4px solid #ef7d00;
+}
+
+.subsection-institute-globalefragen .app-panel-main
+{
+    border-top: 5px solid #ef7d00;
+}
+
+.subsection-institute-globalefragen .app-navitem-tab
+{
+    background-color: #ef7d00;
+}
+
+.subsection-institute-globalefragen .app-img
+{
+    border-top: 4px solid #ef7d00;
+}
+
+.subsection-institute-globalefragen .app-card-main
 {
     border-top: 4px solid #ef7d00;
 }

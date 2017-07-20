@@ -2,7 +2,8 @@
 // Navlist based on portlet-navigation
 // ------------------------------------------------------
 
-.app-card-nav {
+.app-card-nav,
+.app-card--nav {
 	.app-card-main {
 		padding: 0;
         border: 1px solid $gray-lighter;

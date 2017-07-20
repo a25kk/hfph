@@ -110,7 +110,7 @@ def stage(actor=None):
     """ Deploy current master to staging server """
     opts = dict(
         sitename=env.get('sitename'),
-        actor=actor or env.get('actor') or getpass.getuser(),bin/fab
+        actor=actor or env.get('actor') or getpass.getuser()
     )
     with settings(port=22222, webserver='/opt/webserver/buildout.webserver'):
         project.site.update()
