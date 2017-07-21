@@ -13,6 +13,9 @@
 
     <include package=".browser" />
 
+    <!-- Custom db indexing for site contents -->
+    <include file="indexers.zcml" />
+
   <!-- Grok the package to initialize schema interfaces and content classes -->
   <grok:grok package="." />
 

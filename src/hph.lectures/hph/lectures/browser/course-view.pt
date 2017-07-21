@@ -49,6 +49,7 @@
                 </tal:can_edit>
 
                 <div class="app-list-item">
+
                     <div class="app-list-item-kicker">
                         <span tal:replace="context/courseNumber" /><span tal:condition="context/blockLecture">*</span><span tal:condition="context/onlineLecture">@</span>
                         <tal:lecturer tal:condition="context/lecturer">

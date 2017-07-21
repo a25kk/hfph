@@ -210,7 +210,7 @@
                         </a>
                     </section>
 
-                    <section class="app-page__section app-list"
+                    <section class="app-page__section app-list" id="content-core"
                         tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                                     b_size python:int(request.get('b_size', 20));
                                     b_start python:int(request.get('b_start', 0));

@@ -23,6 +23,7 @@ def setupCatalogIndexes(context, logger=None):
               ('media', 'FieldIndex'),
               ('bookSeries', 'FieldIndex'),
               ('lastname', 'FieldIndex'),
+              ('courseModules', 'KeywordIndex'),
               )
 
     indexables = []

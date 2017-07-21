@@ -100,6 +100,22 @@ class CourseView(BrowserView):
                 data[course_identifier] = course_data
         return data
 
+    def module_index_data(self):
+        stored_data = self.course_information()
+        storage_blacklist = ('degree', 'info', 'theme')
+        data = list()
+        for item in stored_data['items']:
+            if 'degree-course' in item:
+                for key, value in item.items():
+                    if key not in storage_blacklist:
+                        if key == 'degree-course':
+                            value = self.get_degree_course_title(value)
+                        # if value not in data:
+                        data.append(value)
+        # Remove possible duplicates
+        module_data = list(set(data))
+        return module_data
+
     @staticmethod
     def get_degree_course_title(course):
         course_names = vocabulary.degree_courses_tokens()
