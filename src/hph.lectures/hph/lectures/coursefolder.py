@@ -1,6 +1,7 @@
 from Acquisition import aq_inner
 from five import grok
 from plone import api
+from zope import schema
 
 from zope.schema.vocabulary import getVocabularyRegistry
 
@@ -22,6 +23,14 @@ class ICourseFolder(form.Schema, IImageScaleTraversable):
     """
     Manage lectures
     """
+    # directives.mode(is_current_semester='hidden')
+    is_current_semester = schema.Bool(
+        title=_(u"Check to mark this item as current"),
+        description=_(u"When activated the item will be displayed as current "
+                      u"lecture listing. This settings automatically enables "
+                      u"the module filter and search indexing."),
+        required=False,
+    )
 
 
 class CourseFolder(Container):

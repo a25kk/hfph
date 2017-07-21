@@ -6,3 +6,73 @@
     margin-bottom: 4rem;
 }
 
+.course__modules {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.course__module {
+    color: $text-muted;
+}
+
+.course-card {
+    position: relative;
+    &--muted {
+        padding-top: 4rem;
+    }
+}
+
+.course-card__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255,255,255,.5);
+}
+
+.course-card__overlay-title {
+    width: 120px;
+    color: #000;
+    font-size: 1rem;
+    opacity: 1;
+    background-color: transparent;
+    > .app-callout {
+        margin-top: 0;
+    }
+}
+
+//== Course list filter bar
+.filter__section {
+    @include make-row();
+    margin-bottom: 2rem;
+}
+
+.filter__block {
+    @include make-col-ready();
+    @include make-col(12);
+    @include media-breakpoint-up(lg) {
+        @include make-col(9);
+        &--master {
+            @include make-col(3);
+        }
+    }
+    &--action {
+        text-align: right;
+    }
+    &--container {
+        border: 1px solid $gray-lighter;
+    }
+}
+
+.filter__items {
+    display: flex;
+    flex-direction: row;
+    &--unit {
+    }
+}
+
+.filter__item--action {
+    @include make-col(8);
+    text-align: right;
+}

@@ -171,3 +171,115 @@ class CourseListing(BrowserView):
 
     def filter_courses(self, data):
         return
+
+
+class CourseFilter(BrowserView):
+    """ Edit course module data via basic form """
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    @staticmethod
+    def degree_courses():
+        courses = vocabulary.degree_courses()
+        return courses
+
+    @staticmethod
+    def get_degree_course_title(course):
+        course_names = vocabulary.degree_courses_tokens()
+        return course_names[course]
+
+    @staticmethod
+    def learning_modules_master():
+        learning_modules = vocabulary.learning_modules_master()
+        sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
+        return sorted_items
+
+    @staticmethod
+    def learning_modules_bachelor():
+        learning_modules = vocabulary.learning_modules_bachelor()
+        sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
+        return sorted_items
+
+    @staticmethod
+    def course_core_themes():
+        return vocabulary.course_core_themes()
+
+
+class CourseFilterView(BrowserView):
+    """ Course filter standalone view """
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    @staticmethod
+    def rendered_course_filter_bar(context):
+        context = aq_inner(context)
+        template = context.restrictedTraverse('@@course-filter-bar')()
+        return template
+
+
+class CourseFilterSelectBox(BrowserView):
+    """ Edit course module data via basic form """
+
+    def __call__(self,
+                 selector='master',
+                 identifier=None,
+                 target=None,
+                 data_set=None,
+                 visibility='visible',
+                 **kw):
+        field_data = self.field_data_map()
+        filter_data = {
+            'name': identifier,
+            'selector': selector,
+            'visibility': visibility,
+            'target': 'undefined'
+        }
+        if target:
+            filter_data['target'] = target
+        if data_set:
+            filter_data['options'] = field_data[data_set]
+        filter_data.update(kw)
+        self.field_options = filter_data
+        return self.render()
+
+    def render(self):
+        return self.index()
+
+    @staticmethod
+    def degree_courses():
+        courses = vocabulary.degree_courses()
+        return courses
+
+    @staticmethod
+    def get_degree_course_title(course):
+        course_names = vocabulary.degree_courses_tokens()
+        return course_names[course]
+
+    @staticmethod
+    def learning_modules_master():
+        learning_modules = vocabulary.learning_modules_master()
+        sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
+        return sorted_items
+
+    @staticmethod
+    def learning_modules_bachelor():
+        learning_modules = vocabulary.learning_modules_bachelor()
+        sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
+        return sorted_items
+
+    @staticmethod
+    def course_core_themes():
+        return vocabulary.course_core_themes()
+
+    def field_data_map(self):
+        field_map = {
+            'courses': self.degree_courses(),
+            'modules-ba': self.learning_modules_bachelor(),
+            'modules-ma': self.learning_modules_master(),
+            'core-themes': self.course_core_themes()
+        }
+        return field_map

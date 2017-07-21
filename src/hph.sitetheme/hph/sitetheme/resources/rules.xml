@@ -145,10 +145,10 @@
               css:theme="#app-brandname-logo-pro-philosophia" />
 
         <!-- Portal searchbox -->
-        <!--<copy attributes="*" css:content="#portal-searchbox form"
+        <copy attributes="*" css:content="#portal-searchbox form"
               css:theme="#app-searchbox" />
 
-        <replace css:content="#portal-searchbox" css:theme="#app-searchbox" method="raw" />-->
+        <!-- <replace css:content="#portal-searchbox" css:theme="#app-searchbox" method="raw" /> -->
 
         <!-- Global navigation -->
         <drop css:theme="#app-section-marker"

@@ -63,6 +63,14 @@
             factory=".tool.CourseModuleTool"
             provides=".interfaces.ICourseModuleTool"/>
 
+    <utility
+            factory=".tool.CourseFilterTool"
+            provides=".interfaces.ICourseFilterTool"/>
+
+    <utility
+            factory=".tool.CourseFilterUpdater"
+            provides=".interfaces.ICourseFilterUpdater"/>
+
     <!-- Text Transform Vocabulary -->
     <utility component="hph.lectures.vocabulary.module_studies_vocabulary"
              name="hph.lectures.vocabulary.moduleStudies"

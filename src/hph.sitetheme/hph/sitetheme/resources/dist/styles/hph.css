@@ -20895,6 +20895,187 @@ app-fonts-loaded .app-page-abstract
     margin-bottom: 4rem;
 }
 
+.course__modules
+{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.course__module
+{
+    color: #636c72;
+}
+
+.course-card
+{
+    position: relative;
+}
+.course-card--muted
+{
+    padding-top: 4rem;
+}
+
+.course-card__overlay
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.course-card__overlay-title
+{
+    font-size: 1rem;
+
+    width: 120px;
+
+    opacity: 1;
+    color: #000;
+    background-color: transparent;
+}
+.course-card__overlay-title > .app-callout
+{
+    margin-top: 0;
+}
+
+.filter__section
+{
+    display: -ms-flexbox;
+    display: flex;
+
+    margin-right: -15px;
+    margin-bottom: 2rem; 
+    margin-left: -15px;
+
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+@media (min-width: 576px)
+{
+    .filter__section
+    {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+@media (min-width: 768px)
+{
+    .filter__section
+    {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+@media (min-width: 992px)
+{
+    .filter__section
+    {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .filter__section
+    {
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+}
+
+.filter__block
+{
+    position: relative;
+
+    width: 100%;
+    max-width: 100%; 
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+
+    -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+}
+@media (min-width: 576px)
+{
+    .filter__block
+    {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+@media (min-width: 768px)
+{
+    .filter__block
+    {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+@media (min-width: 992px)
+{
+    .filter__block
+    {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .filter__block
+    {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}
+@media (min-width: 992px)
+{
+    .filter__block
+    {
+        max-width: 75%; 
+
+        -ms-flex: 0 0 75%;
+            flex: 0 0 75%;
+    }
+    .filter__block--master
+    {
+        max-width: 25%; 
+
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+    }
+}
+.filter__block--action
+{
+    text-align: right;
+}
+.filter__block--container
+{
+    border: 1px solid #eceeef;
+}
+
+.filter__items
+{
+    display: -ms-flexbox;
+    display: flex;
+        flex-direction: row; 
+
+    -ms-flex-direction: row;
+}
+
+.filter__item--action
+{
+    max-width: 66.6666666667%;
+
+    text-align: right; 
+
+    -ms-flex: 0 0 66.6666666667%;
+        flex: 0 0 66.6666666667%;
+}
+
 .app-module-editor
 {
     padding-top: 1rem;

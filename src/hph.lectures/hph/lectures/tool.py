@@ -5,8 +5,10 @@ import json
 import time
 import uuid as uuid_tool
 from Products.CMFPlone.utils import safe_unicode
+from collective.beaker.interfaces import ISession
 from plone import api
 from plone.memoize.view import memoize
+from zope.globalrequest import getRequest
 from zope.lifecycleevent import modified
 
 
@@ -88,3 +90,53 @@ class CourseModuleTool(object):
         """
         su = safe_unicode(value)
         return su.encode('utf-8')
+
+
+class CourseFilterTool(object):
+    """ Module filter session storage tool
+
+        Store selected filter configuration inside anonymous session
+        to provide dynamically constructed filter forms
+    """
+
+    @staticmethod
+    def create():
+        """ Create module filter session """
+        portal = api.portal.get()
+        session_id = 'hph.lectures.filter.{0}'.format(
+            '.'.join(portal.getPhysicalPath())
+        )
+        session = ISession(getRequest())
+        if session_id not in session:
+            session[session_id] = dict()
+            session.save()
+        return session[session_id]
+
+    @staticmethod
+    def destroy():
+        """ Destroy module filter session """
+        portal = api.portal.get()
+        session_id = 'hph.lectures.filter.{0}'.format(
+            '.'.join(portal.getPhysicalPath())
+        )
+        session = ISession(getRequest())
+        if session_id in session:
+            del session[session_id]
+            session.save()
+
+
+class CourseFilterUpdater(object):
+    """ Factory providing CRUD operations for course module filters """
+    @staticmethod
+    def _create_record(data):
+        records = {
+            "id": str(uuid_tool.uuid4()),
+            "timestamp": str(int(time.time())),
+            "_runtime": "0.00000000000000000001",
+            "created": datetime.datetime.now().isoformat(),
+            "filter": []
+        }
+        # Add potential initial data
+        if data:
+            records['items'].append(data)
+        return records

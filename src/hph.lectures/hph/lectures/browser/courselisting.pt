@@ -26,7 +26,7 @@
             </div>
         </tal:can_edit>
 
-        <div class="app-page__header">
+        <div class="app-page__header hiddenStructure">
             <h1 i18n:translate="">Lectures</h1>
             <p class="app-page__abstract">${context/Title}</p>
         </div>
@@ -54,13 +54,13 @@
                     <div class="app-card__footer">
                         <a class="btn btn-danger btn-sm"
                                  tal:attributes="href string:${context/absolute_url}">
-                            &times; <span i18n:translate="">Back to legacy listing</span></a>
+                            &times; <span i18n:translate="">remove filter</span></a>
                     </div>
                 </div>
                 <div class="app-card app-card--nav app-card--lectures"
                          tal:condition="view/has_archives">
                     <div class="app-card__header">
-                        <div class="app-card__heading" i18n:translate="">Archive</div>
+                        <div class="app-card__heading" i18n:translate="">Archiv</div>
                     </div>
                     <div class="app-card__main app-card__main--bordered">
                         <ul class="app-nav-list">
@@ -78,8 +78,101 @@
             <div class="app-section__main">
 
                 <div class="app-page__body">
-                    <section class="app-page__section course-filter">
-                        <form>
+                    <section class="app-page__section course-filter" tal:condition="context/is_current_semester">
+                        <form class="app-form app-form--filter-bar"
+                              id="createBlockForm"
+                              method="post" role="form"
+                                 tal:define="errors view/errors"
+                                 tal:attributes="action request/URL">
+
+                            <div class="app-section">
+                                <div class="app-section__aside">
+                                    <div class="app-card app-card--filter">
+                                        <div class="app-card__header">
+                                            <div class="app-card__heading">Studiengang</div>
+                                        </div>
+                                        <div class="app-card__main app-card__main--bordered">
+                                            <select class="form-control form__control form-field__select form__control--courses js-module-selector"
+                                                    id="selector__degree-courses"
+                                                    name="degree-course"
+                                                    data-target-list="#selector__course-modules"
+                                                    data-selector="master"
+                                                     tal:define="options view/degree_courses">
+                                                <option disabled selected value i18n:translate=""> -- select an option -- </option>
+                                                <tal:block tal:repeat="value options">
+                                                    <option tal:define="token python:options[value]"
+                                                             tal:attributes="value string:${token};">
+                                                            ${value}
+                                                    </option>
+                                                </tal:block>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="app-section__main">
+                                    <div class="app-cards filter-bar__block">
+                                        <div class="app-card app-card--filter">
+                                            <div class="app-card__header">
+                                                <div class="app-card__heading">Modul</div>
+                                            </div>
+                                            <div class="app-card__main app-card__main--bordered">
+                                                <!-- learning modules -->
+                                                <select class="form-control form__control module__select module__select--hidden js-module-selector"
+                                                        id="selector__course-modules--master"
+                                                        name="module"
+                                                         tal:define="options view/learning_modules_master">
+                                                    <option disabled selected value i18n:translate=""> -- select an option -- </option>
+                                                    <tal:block tal:repeat="value options">
+                                                        <option tal:define="token python:options[value]"
+                                                                 tal:attributes="value string:${token};
+                                                                        name string:course:${token}">
+                                                                ${token}
+                                                        </option>
+                                                    </tal:block>
+                                                </select>
+                                                <!-- learning modules bachelor-->
+                                                <select class="form-control form__control module__select module__select--hidden js-module-selector"
+                                                        id="selector__course-modules--bachelor"
+                                                        name="module"
+                                                         tal:define="options view/learning_modules_bachelor">
+                                                    <option disabled selected value i18n:translate=""> -- select an option -- </option>
+                                                    <tal:block tal:repeat="value options">
+                                                        <option tal:define="token python:options[value]"
+                                                                 tal:attributes="value string:${token};
+                                                                        name string:course:${token}">
+                                                                ${token}
+                                                        </option>
+                                                    </tal:block>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="app-card app-card--filter">
+                                            <div class="app-card__header">
+                                                <div class="app-card__heading">Schwerpunkt</div>
+                                            </div>
+                                            <div class="app-card__main app-card__main--bordered"
+                                                     tal:define="theme_groups view/course_core_themes">
+                                                <tal:course-themes tal:repeat="theme_group theme_groups">
+                                                    <select class="form-control form__control form__control--themes module__select module__select--hidden js-module-selector js-selector-course-theme form__control--themes-${theme_group}"
+                                                            id="selector__course-theme--${theme_group}"
+                                                            name="course-theme"
+                                                             tal:define="options python:theme_groups[theme_group]">
+                                                        <option disabled selected value i18n:translate=""> -- select an option -- </option>
+                                                        <tal:block tal:repeat="value options">
+                                                            <option tal:define="token python:options[value]"
+                                                                     tal:attributes="value string:${token};
+                                                                            name string:course:${token}">
+                                                                    ${token}
+                                                            </option>
+                                                        </tal:block>
+                                                    </select>
+                                                </tal:course-themes>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="app-cards app-cards--course-filter">
                                 <div class="app-card app-card--filter">
                                     <div class="app-card__header">
@@ -102,64 +195,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="app-card app-card--filter">
-                                    <div class="app-card__header">
-                                        <div class="app-card__heading">Modul</div>
-                                    </div>
-                                    <div class="app-card__main app-card__main--bordered">
-                                        <!-- learning modules -->
-                                        <select class="form-control form__control module__select module__select--hidden js-module-selector"
-                                                id="selector__course-modules--master"
-                                                name="module"
-                                                 tal:define="options view/learning_modules_master">
-                                            <option disabled selected value i18n:translate=""> -- select an option -- </option>
-                                            <tal:block tal:repeat="value options">
-                                                <option tal:define="token python:options[value]"
-                                                         tal:attributes="value string:${token};
-                                                                name string:course:${token}">
-                                                        ${token}
-                                                </option>
-                                            </tal:block>
-                                        </select>
-                                        <!-- learning modules bachelor-->
-                                        <select class="form-control form__control module__select module__select--hidden js-module-selector"
-                                                id="selector__course-modules--bachelor"
-                                                name="module"
-                                                 tal:define="options view/learning_modules_bachelor">
-                                            <option disabled selected value i18n:translate=""> -- select an option -- </option>
-                                            <tal:block tal:repeat="value options">
-                                                <option tal:define="token python:options[value]"
-                                                         tal:attributes="value string:${token};
-                                                                name string:course:${token}">
-                                                        ${token}
-                                                </option>
-                                            </tal:block>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="app-card app-card--filter">
-                                    <div class="app-card__header">
-                                        <div class="app-card__heading">Schwerpunkt</div>
-                                    </div>
-                                    <div class="app-card__main app-card__main--bordered"
-                                        tal:define="theme_groups view/course_core_themes">
-                                            <tal:course-themes tal:repeat="theme_group theme_groups">
-                                                <select class="form-control form__control form__control--themes module__select module__select--hidden js-module-selector js-selector-course-theme form__control--themes-${theme_group}"
-                                                        id="selector__course-theme--${theme_group}"
-                                                        name="course-theme"
-                                                         tal:define="options python:theme_groups[theme_group]">
-                                                    <option disabled selected value i18n:translate=""> -- select an option -- </option>
-                                                    <tal:block tal:repeat="value options">
-                                                        <option tal:define="token python:options[value]"
-                                                                 tal:attributes="value string:${token};
-                                                                        name string:course:${token}">
-                                                                ${token}
-                                                        </option>
-                                                    </tal:block>
-                                                </select>
-                                            </tal:course-themes>
-                                    </div>
-                                </div>
+
                             </div>
                         </form>
                         <a class="app-btn app-btn--default"
