@@ -8,4 +8,5 @@
     <column value="media" />
     <column value="bookSeries" />
     <column value="lastname" />
+    <column value="courseModules" />
 </object>
