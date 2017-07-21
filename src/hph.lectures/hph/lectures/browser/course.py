@@ -170,7 +170,7 @@ class CoursePreview(BrowserView):
         for item in stored_data['items']:
             if 'degree-course' in item:
                 course_identifier = item['degree-course']
-                course_module = item['module']
+                course_module = str(item['module'])
                 course_theme = None
                 if 'course-theme' in item:
                     course_theme = item['course-theme']
