@@ -285,5 +285,4 @@ class CourseFilterSelectBox(BrowserView):
         for theme_key, theme_value in self.course_core_themes().items():
             map_key = 'core-theme-{0}'.format(theme_key)
             field_map[map_key] = theme_value
-        import pdb; pdb.set_trace()
         return field_map
