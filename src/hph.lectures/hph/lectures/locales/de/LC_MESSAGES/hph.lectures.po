@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2017-07-25 10:44+0000\n"
-"PO-Revision-Date: 2017-07-25 13:03+0200\n"
+"PO-Revision-Date: 2017-07-25 15:29+0200\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -659,7 +659,7 @@ msgstr "Die Datei wurde erfolgreich hochgeladen"
 
 #: ../coursefolder_templates/xhrintegration.pt:26
 msgid "The code must be copy and pasted as displayed here in order to trigger the ajax call. Note: since the load is asynchronous and the script is loaded defered, it might take a moment for the caller to run."
-msgstr "Das angezeigte Code Schnipsel muss genau wie angezeigt kopiert und an der gewünschten Stelle in den Quelltext eingefügt werden. Hinweis: da das Laden der verknüpften Liste asynchron durchgeführt wird und das ausführende Script verzögert geladen wird, kann es einen Moment dauern, bis der Aufruf ausgeführt wurde"
+msgstr "Das angezeigte Code Schnipsel muss genau wie angezeigt kopiert und an der gewünschten Stelle in den Quelltext eingefügt werden. Hinweis: da das Laden der verknüpften Liste asynchron durchgeführt wird und das ausführende Script verzögert geladen wird, kann es einen Moment dauern, bis der Aufruf ausgeführt wurde."
 
 #: ../factory.py:92
 msgid "The item has successfully been updated"
@@ -752,7 +752,7 @@ msgstr "WP Theologie"
 
 #: ../coursefolder.py:29
 msgid "When activated the item will be displayed as current lecture listing. This settings automatically enables the module filter and search indexing."
-msgstr ""
+msgstr "Markiert diesen Ordner als Container für Lehrveranstaltungen des aktuellen Semesters. Dadurch wird automatisch die Vorbereitung der Inhalte für die Suche als auch die Filterung der Inhalte aktiviert."
 
 #: ../vocabulary.py:166
 msgid "Winter Semester"
