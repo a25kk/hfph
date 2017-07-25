@@ -72,7 +72,7 @@ msgstr "Module hinzufügen"
 
 #: ../interfaces.py:132 ../lecture.py:102
 msgid "Additional Information"
-msgstr "Zusatzinformation"
+msgstr "Infotext"
 
 #: ../browser/course-view.pt:68 ../factory_templates/lecturefactory.pt:82
 #: ../interfaces.py:136
