@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-07-17 12:32+0000\n"
+"POT-Creation-Date: 2017-07-25 10:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,7 +58,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: ./../browser/course-view.pt:223
+#: ./../browser/course-view.pt:222
 #: ./../lecture_templates/view.pt:206
 msgid "Add attachment"
 msgstr ""
@@ -67,7 +67,7 @@ msgstr ""
 msgid "Add file attachment"
 msgstr ""
 
-#: ./../browser/coursemoduleeditor.pt:171
+#: ./../browser/coursemoduleeditor.pt:167
 msgid "Add module"
 msgstr ""
 
@@ -98,7 +98,7 @@ msgstr ""
 msgid "Attachement edit has been cancelled."
 msgstr ""
 
-#: ./../browser/course-view.pt:196
+#: ./../browser/course-view.pt:195
 #: ./../lecture_templates/view.pt:179
 msgid "Attachements"
 msgstr ""
@@ -148,7 +148,7 @@ msgstr ""
 msgid "Content item factory has been cancelled."
 msgstr ""
 
-#: ./../browser/course-view.pt:160
+#: ./../browser/course-view.pt:159
 #: ./../coursedetails.py:26
 #: ./../factory_templates/lectureeditor.pt:44
 msgid "Course Aims"
@@ -168,31 +168,31 @@ msgstr ""
 msgid "Course Duration"
 msgstr ""
 
-#: ./../browser/course-view.pt:185
+#: ./../browser/course-view.pt:184
 #: ./../coursedetails.py:46
 #: ./../factory_templates/lectureeditor.pt:69
 msgid "Course Literature"
 msgstr ""
 
-#: ./../browser/course-view.pt:165
+#: ./../browser/course-view.pt:164
 #: ./../coursedetails.py:30
 #: ./../factory_templates/lectureeditor.pt:49
 msgid "Course Method"
 msgstr ""
 
-#: ./../browser/course-view.pt:190
+#: ./../browser/course-view.pt:189
 #: ./../coursedetails.py:50
 #: ./../factory_templates/lectureeditor.pt:74
 msgid "Course Notes"
 msgstr ""
 
-#: ./../browser/course-view.pt:170
+#: ./../browser/course-view.pt:169
 #: ./../coursedetails.py:34
 #: ./../factory_templates/lectureeditor.pt:54
 msgid "Course Prerequirements"
 msgstr ""
 
-#: ./../browser/course-view.pt:175
+#: ./../browser/course-view.pt:174
 #: ./../coursedetails.py:38
 #: ./../factory_templates/lectureeditor.pt:59
 msgid "Course Qualification"
@@ -208,13 +208,13 @@ msgstr ""
 msgid "Course Semester"
 msgstr ""
 
-#: ./../browser/course-view.pt:180
+#: ./../browser/course-view.pt:179
 #: ./../coursedetails.py:42
 #: ./../factory_templates/lectureeditor.pt:64
 msgid "Course Target"
 msgstr ""
 
-#: ./../browser/course-view.pt:155
+#: ./../browser/course-view.pt:154
 #: ./../coursedetails.py:22
 #: ./../factory_templates/lectureeditor.pt:39
 msgid "Course Theme"
@@ -664,7 +664,7 @@ msgstr ""
 msgid "Show integration options"
 msgstr ""
 
-#: ./../browser/course-view.pt:220
+#: ./../browser/course-view.pt:219
 #: ./../lecture_templates/view.pt:203
 msgid "Since you are signed in as editor you can add file attachments to this content item"
 msgstr ""
@@ -736,7 +736,7 @@ msgstr ""
 msgid "View"
 msgstr ""
 
-#: ./../browser/course-view.pt:143
+#: ./../browser/course-view.pt:142
 #: ./../lecture_templates/view.pt:126
 msgid "View lecture in moodle"
 msgstr ""
@@ -820,7 +820,7 @@ msgstr ""
 msgid "remove filter"
 msgstr ""
 
-#: ./../browser/course.py:113
+#: ./../browser/course.py:121
 #: ./../coursefolder.py:54
 #: ./../lecture.py:210
 msgid "undefined"
