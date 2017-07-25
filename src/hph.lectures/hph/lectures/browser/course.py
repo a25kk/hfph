@@ -212,7 +212,9 @@ class CoursePreview(BrowserView):
         return course_names[course]
 
     def has_module_data(self):
-        return len(self.module_data()) > 0
+        if self.module_data():
+            return True
+        return False
 
     def prettify_duration(self, value):
         context = aq_inner(self.context)
