@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-07-17 12:32+0000\n"
-"PO-Revision-Date: 2017-07-17 16:11+0200\n"
+"POT-Creation-Date: 2017-07-25 10:44+0000\n"
+"PO-Revision-Date: 2017-07-25 13:03+0200\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 "Language: de\n"
-"X-Generator: Poedit 2.0.2\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #: ../lecture.py:79
 msgid "(Example 1: maximum participants 12)(Example 2: Participation only for students of the ethics master)"
@@ -58,7 +58,7 @@ msgstr "Einzelne Lehrveranstaltung"
 msgid "Actions"
 msgstr "Aktionen"
 
-#: ../browser/course-view.pt:223 ../lecture_templates/view.pt:206
+#: ../browser/course-view.pt:222 ../lecture_templates/view.pt:206
 msgid "Add attachment"
 msgstr "Neuen Dateianhang erstellen"
 
@@ -66,7 +66,7 @@ msgstr "Neuen Dateianhang erstellen"
 msgid "Add file attachment"
 msgstr "Dateianhang anlegen"
 
-#: ../browser/coursemoduleeditor.pt:171
+#: ../browser/coursemoduleeditor.pt:167
 msgid "Add module"
 msgstr "Module hinzufügen"
 
@@ -95,7 +95,7 @@ msgstr "Archiv"
 msgid "Attachement edit has been cancelled."
 msgstr "Die Bearbeitung der Datei wurde abgebrochen."
 
-#: ../browser/course-view.pt:196 ../lecture_templates/view.pt:179
+#: ../browser/course-view.pt:195 ../lecture_templates/view.pt:179
 msgid "Attachements"
 msgstr "Materialien"
 
@@ -143,7 +143,7 @@ msgstr "Kolloquien"
 msgid "Content item factory has been cancelled."
 msgstr "Das Erstellen neuer Inhalte wurde abgebrochen."
 
-#: ../browser/course-view.pt:160 ../coursedetails.py:26
+#: ../browser/course-view.pt:159 ../coursedetails.py:26
 #: ../factory_templates/lectureeditor.pt:44
 msgid "Course Aims"
 msgstr "Ziele"
@@ -160,27 +160,27 @@ msgstr "Details"
 msgid "Course Duration"
 msgstr "Dauer"
 
-#: ../browser/course-view.pt:185 ../coursedetails.py:46
+#: ../browser/course-view.pt:184 ../coursedetails.py:46
 #: ../factory_templates/lectureeditor.pt:69
 msgid "Course Literature"
 msgstr "Literatur"
 
-#: ../browser/course-view.pt:165 ../coursedetails.py:30
+#: ../browser/course-view.pt:164 ../coursedetails.py:30
 #: ../factory_templates/lectureeditor.pt:49
 msgid "Course Method"
 msgstr "Methode"
 
-#: ../browser/course-view.pt:190 ../coursedetails.py:50
+#: ../browser/course-view.pt:189 ../coursedetails.py:50
 #: ../factory_templates/lectureeditor.pt:74
 msgid "Course Notes"
 msgstr "Anmerkung der Kanzlerin"
 
-#: ../browser/course-view.pt:170 ../coursedetails.py:34
+#: ../browser/course-view.pt:169 ../coursedetails.py:34
 #: ../factory_templates/lectureeditor.pt:54
 msgid "Course Prerequirements"
 msgstr "Voraussetzungen"
 
-#: ../browser/course-view.pt:175 ../coursedetails.py:38
+#: ../browser/course-view.pt:174 ../coursedetails.py:38
 #: ../factory_templates/lectureeditor.pt:59
 msgid "Course Qualification"
 msgstr "Qualifikation"
@@ -193,12 +193,12 @@ msgstr "Raum"
 msgid "Course Semester"
 msgstr "Semester"
 
-#: ../browser/course-view.pt:180 ../coursedetails.py:42
+#: ../browser/course-view.pt:179 ../coursedetails.py:42
 #: ../factory_templates/lectureeditor.pt:64
 msgid "Course Target"
 msgstr "Zielgruppe"
 
-#: ../browser/course-view.pt:155 ../coursedetails.py:22
+#: ../browser/course-view.pt:154 ../coursedetails.py:22
 #: ../factory_templates/lectureeditor.pt:39
 msgid "Course Theme"
 msgstr "Thematik"
@@ -633,7 +633,7 @@ msgstr "Datei zum Hochladen auswählen"
 msgid "Show integration options"
 msgstr "Optionen zur Einbindung anzeigen"
 
-#: ../browser/course-view.pt:220 ../lecture_templates/view.pt:203
+#: ../browser/course-view.pt:219 ../lecture_templates/view.pt:203
 msgid "Since you are signed in as editor you can add file attachments to this content item"
 msgstr "Da Sie als CMS-Redakteur angemeldet sind, können Sie Datein zu diesem Inhalt hochladen."
 
@@ -702,7 +702,7 @@ msgstr "Veranstaltungstyp"
 msgid "View"
 msgstr "Ansicht"
 
-#: ../browser/course-view.pt:143 ../lecture_templates/view.pt:126
+#: ../browser/course-view.pt:142 ../lecture_templates/view.pt:126
 msgid "View lecture in moodle"
 msgstr "Besuchen Sie die Veranstaltung bei Moodle"
 
@@ -783,6 +783,6 @@ msgstr "pro‐philosophia‐extra"
 msgid "remove filter"
 msgstr "Filter entfernen"
 
-#: ../browser/course.py:113 ../coursefolder.py:54 ../lecture.py:210
+#: ../browser/course.py:121 ../coursefolder.py:54 ../lecture.py:210
 msgid "undefined"
 msgstr "undefiniert"
