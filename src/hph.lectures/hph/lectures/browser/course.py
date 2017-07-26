@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module providing lecture views"""
 from Acquisition import aq_inner
+from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
 from hph.lectures.interfaces import ICourseModuleTool
 from plone import api
@@ -186,7 +187,9 @@ class CoursePreview(BrowserView):
         for item in stored_data['items']:
             if 'degree-course' in item:
                 course_identifier = item['degree-course']
-                course_module = str(item['module'])
+                course_module_value = item['module']
+                course_module = str(
+                    course_module_value.encode('utf-8'))
                 course_theme = None
                 if 'course-theme' in item:
                     course_theme = item['course-theme']

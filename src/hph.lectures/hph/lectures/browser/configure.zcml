@@ -22,6 +22,14 @@
     />
 
     <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="module-storage-cleanup"
+            class=".coursemodules.CourseModuleStorageCleanup"
+            permission="cmf.ModifyPortalContent"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <browser:page
             for="hph.lectures.lecture.ILecture"
             name="course-view"
             class=".course.CourseView"
