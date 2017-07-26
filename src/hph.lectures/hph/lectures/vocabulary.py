@@ -70,7 +70,7 @@ def learning_modules_bachelor():
         'wp-nature-philosophy': _(u"WP Nature Philosophy"),
         'wp-logic': _(u"WP Logic"),
         'wp-media': _(u"WP Media"),
-        'wp-cultural-admission': _(u"WP Culturel Admission"),
+        'wp-cultural-admission': _(u"WP Cultural Admission"),
         'wp-education': _(u"WP Education"),
         'wp-internship': _(u"WP Internship"),
     }

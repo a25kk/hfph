@@ -130,7 +130,7 @@
                                                 <option tal:define="token python:options[value]"
                                                          tal:attributes="value string:${token};
                                                                 name string:course:${token}">
-                                                        ${token}
+                                                        ${token} - ${value}
                                                 </option>
                                             </tal:block>
                                         </select>

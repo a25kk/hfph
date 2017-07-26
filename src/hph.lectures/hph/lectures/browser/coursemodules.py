@@ -6,6 +6,7 @@ from Acquisition import aq_inner
 from AccessControl import Unauthorized
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
+from hph.lectures.lecture import ILecture
 from plone import api
 from plone.protect.utils import addTokenToUrl
 from zope.component import getUtility
@@ -15,6 +16,7 @@ from zope.interface import implementer
 
 from hph.lectures import vocabulary
 from hph.lectures.interfaces import ICourseModuleTool
+from hph.lectures.lecture import ILecture
 
 from hph.lectures import MessageFactory as _
 
@@ -166,5 +168,52 @@ class CourseModuleEditorRemove(BrowserView):
         )
         api.portal.show_message(
             message=_(u"Course module successfully removed"),
+            request=self.request)
+        return self.request.response.redirect(next_url)
+
+
+class CourseModuleStorageCleanup(BrowserView):
+    """ Cleanup stored module data """
+
+    def __call__(self):
+        return self.render()
+
+    @staticmethod
+    def learning_modules_bachelor():
+        learning_modules = vocabulary.learning_modules_bachelor()
+        sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
+        return sorted_items
+
+    def render(self):
+        context = aq_inner(self.context)
+        authenticator = getMultiAdapter((context, self.request),
+                                        name=u"authenticator")
+        catalog = api.portal.get_tool('portal_catalog')
+        obj_provides = ILecture.__identifier__
+        courses = catalog(
+            object_provides=obj_provides,
+            path=dict(query='/'.join(context.getPhysicalPath()),
+                      depth=1),
+            sort_on='courseNumber'
+        )
+        for course in courses:
+            context_uid = api.content.get_uuid(obj=course.getObject())
+            tool = getUtility(ICourseModuleTool)
+            stored_data = tool.read(context_uid)
+            if 'items' in stored_data:
+                updated_data = stored_data['items']
+                for item in updated_data:
+                    if 'degree-course' in item:
+                        module_name = item['module']
+                        for key, value in self.learning_modules_bachelor().items():
+                            if value == module_name:
+                                item['module'] = key
+                tool.update(context_uid, updated_data)
+        next_url = '{0}?_authenticator={1}'.format(
+            context.absolute_url(),
+            authenticator.token()
+        )
+        api.portal.show_message(
+            message=_(u"Course module storages successfully cleaned"),
             request=self.request)
         return self.request.response.redirect(next_url)
