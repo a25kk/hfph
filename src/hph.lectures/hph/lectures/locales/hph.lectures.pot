@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-07-25 10:44+0000\n"
+"POT-Creation-Date: 2017-07-26 14:09+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: hph.lectures\n"
 
-#: ./../lecture.py:79
+#: ./../lecture.py:81
 msgid "(Example 1: maximum participants 12)(Example 2: Participation only for students of the ethics master)"
 msgstr ""
 
-#: ./../lecture.py:74
+#: ./../lecture.py:76
 msgid "(Example: register until 19.01.2017 via example.tld)"
 msgstr ""
 
-#: ./../browser/courselisting.pt:95
+#: ./../browser/courselisting.pt:101
 #: ./../browser/coursemoduleeditor.pt:92
 msgid "-- select an option --"
 msgstr ""
@@ -72,17 +72,17 @@ msgid "Add module"
 msgstr ""
 
 #: ./../interfaces.py:132
-#: ./../lecture.py:102
+#: ./../lecture.py:104
 msgid "Additional Information"
 msgstr ""
 
-#: ./../browser/course-view.pt:68
+#: ./../browser/course-view.pt:69
 #: ./../factory_templates/lecturefactory.pt:82
 #: ./../interfaces.py:136
 msgid "Additional Lecturer"
 msgstr ""
 
-#: ./../configure.zcml:45
+#: ./../configure.zcml:48
 msgid "Additional information on a specific lecture or course"
 msgstr ""
 
@@ -124,7 +124,7 @@ msgid "Basic module"
 msgstr ""
 
 #: ./../interfaces.py:124
-#: ./../lecture.py:86
+#: ./../lecture.py:88
 msgid "Block Lecture"
 msgstr ""
 
@@ -136,7 +136,7 @@ msgstr ""
 msgid "Check to mark this item as current"
 msgstr ""
 
-#: ./../browser/courselisting.pt:168
+#: ./../browser/courselisting.pt:204
 msgid "Clear filter"
 msgstr ""
 
@@ -155,7 +155,7 @@ msgid "Course Aims"
 msgstr ""
 
 #: ./../interfaces.py:151
-#: ./../lecture.py:65
+#: ./../lecture.py:67
 msgid "Course Dates"
 msgstr ""
 
@@ -164,7 +164,7 @@ msgid "Course Details"
 msgstr ""
 
 #: ./../interfaces.py:146
-#: ./../lecture.py:60
+#: ./../lecture.py:62
 msgid "Course Duration"
 msgstr ""
 
@@ -199,12 +199,12 @@ msgid "Course Qualification"
 msgstr ""
 
 #: ./../interfaces.py:169
-#: ./../lecture.py:69
+#: ./../lecture.py:71
 msgid "Course Room"
 msgstr ""
 
 #: ./../interfaces.py:159
-#: ./../lecture.py:138
+#: ./../lecture.py:140
 msgid "Course Semester"
 msgstr ""
 
@@ -221,45 +221,49 @@ msgid "Course Theme"
 msgstr ""
 
 #: ./../interfaces.py:155
-#: ./../lecture.py:133
+#: ./../lecture.py:135
 msgid "Course Time"
 msgstr ""
 
-#: ./../lecture.py:52
+#: ./../lecture.py:54
 msgid "Course Title"
 msgstr ""
 
 #: ./../interfaces.py:140
-#: ./../lecture.py:46
+#: ./../lecture.py:48
 msgid "Course Type"
 msgstr ""
 
 #: ./../interfaces.py:165
-#: ./../lecture.py:145
+#: ./../lecture.py:147
 msgid "Course Year"
 msgstr ""
 
-#: ./../lecture.py:98
+#: ./../lecture.py:100
 msgid "Course cancelled"
 msgstr ""
 
-#: ./../configure.zcml:51
+#: ./../configure.zcml:54
 msgid "Course module data grid behavior"
 msgstr ""
 
-#: ./../browser/coursemodules.py:168
+#: ./../browser/coursemodules.py:219
+msgid "Course module storages successfully cleaned"
+msgstr ""
+
+#: ./../browser/coursemodules.py:170
 msgid "Course module successfully removed"
 msgstr ""
 
-#: ./../lecture.py:78
+#: ./../lecture.py:80
 msgid "Course participation restricted"
 msgstr ""
 
-#: ./../lecture.py:73
+#: ./../lecture.py:75
 msgid "Course registration required"
 msgstr ""
 
-#: ./../configure.zcml:45
+#: ./../configure.zcml:48
 msgid "CourseDetails"
 msgstr ""
 
@@ -267,11 +271,10 @@ msgstr ""
 msgid "CourseFolder"
 msgstr ""
 
-#: ./../configure.zcml:51
+#: ./../configure.zcml:54
 msgid "CourseModules"
 msgstr ""
 
-#: ./../browser/course-view.pt:81
 #: ./../lecture_templates/view.pt:81
 msgid "Dates"
 msgstr ""
@@ -285,7 +288,7 @@ msgid "Description"
 msgstr ""
 
 #: ./../interfaces.py:176
-#: ./../lecture.py:114
+#: ./../lecture.py:116
 msgid "Display Selection"
 msgstr ""
 
@@ -314,7 +317,7 @@ msgstr ""
 msgid "Exercise"
 msgstr ""
 
-#: ./../configure.zcml:37
+#: ./../configure.zcml:40
 msgid "Extension profile for HPH listing of lectures"
 msgstr ""
 
@@ -338,7 +341,7 @@ msgstr ""
 msgid "Global Solidarity"
 msgstr ""
 
-#: ./../configure.zcml:37
+#: ./../configure.zcml:40
 msgid "HPH listing of lectures"
 msgstr ""
 
@@ -458,7 +461,7 @@ msgid "Lectures"
 msgstr ""
 
 #: ./../interfaces.py:112
-#: ./../lecture.py:56
+#: ./../lecture.py:58
 msgid "Lecure Number"
 msgstr ""
 
@@ -546,7 +549,7 @@ msgstr ""
 msgid "Module Studies Personal Development"
 msgstr ""
 
-#: ./../lecture.py:121
+#: ./../lecture.py:123
 msgid "Module Studies Recommendations"
 msgstr ""
 
@@ -558,7 +561,7 @@ msgstr ""
 msgid "Module bearbeiten"
 msgstr ""
 
-#: ./../lecture.py:106
+#: ./../lecture.py:108
 msgid "Moodle Link"
 msgstr ""
 
@@ -569,7 +572,7 @@ msgid "Note:"
 msgstr ""
 
 #: ./../interfaces.py:128
-#: ./../lecture.py:90
+#: ./../lecture.py:92
 msgid "Online Lecture"
 msgstr ""
 
@@ -585,8 +588,12 @@ msgstr ""
 msgid "Philosophy & Leadership Certificate"
 msgstr ""
 
-#: ./../lecture.py:107
+#: ./../lecture.py:109
 msgid "Please enter absolute link to moodle representation"
+msgstr ""
+
+#: ./../lecture.py:43
+msgid "Please enter the prefix that you want to be displayed as well, e.g. additional lecturer"
 msgstr ""
 
 #: ./../coursemodules.py:20
@@ -602,12 +609,12 @@ msgid "Please select the 3rd party project and copy the integration code"
 msgstr ""
 
 #: ./../interfaces.py:160
-#: ./../lecture.py:139
+#: ./../lecture.py:141
 msgid "Please select the course semester for filtering"
 msgstr ""
 
 #: ./../interfaces.py:141
-#: ./../lecture.py:47
+#: ./../lecture.py:49
 msgid "Please select the course type."
 msgstr ""
 
@@ -627,7 +634,6 @@ msgstr ""
 msgid "RV"
 msgstr ""
 
-#: ./../browser/course-view.pt:78
 #: ./../lecture_templates/view.pt:78
 msgid "Raum"
 msgstr ""
@@ -698,12 +704,12 @@ msgid "The item has successfully been updated"
 msgstr ""
 
 #: ./../interfaces.py:174
-#: ./../lecture.py:112
+#: ./../lecture.py:114
 msgid "Third Party Project Display"
 msgstr ""
 
 #: ./../browser/courselisting.py:51
-#: ./../browser/coursemodules.py:47
+#: ./../browser/coursemodules.py:49
 #: ./../factory.py:138
 msgid "This field is required"
 msgstr ""
@@ -746,7 +752,7 @@ msgid "WIR"
 msgstr ""
 
 #: ./../vocabulary.py:73
-msgid "WP Culturel Admission"
+msgid "WP Cultural Admission"
 msgstr ""
 
 #: ./../vocabulary.py:67
@@ -810,7 +816,7 @@ msgstr ""
 msgid "edit modules"
 msgstr ""
 
-#: ./../lecture.py:94
+#: ./../lecture.py:96
 msgid "pro‐philosophia‐extra"
 msgstr ""
 
@@ -820,8 +826,8 @@ msgstr ""
 msgid "remove filter"
 msgstr ""
 
-#: ./../browser/course.py:121
+#: ./../browser/course.py:138
 #: ./../coursefolder.py:54
-#: ./../lecture.py:210
+#: ./../lecture.py:212
 msgid "undefined"
 msgstr ""

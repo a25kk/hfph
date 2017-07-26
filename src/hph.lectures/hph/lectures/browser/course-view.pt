@@ -66,8 +66,7 @@
                     </tal:comment>
 
                     <p tal:condition="context/lecturerAdditional">
-                        <span i18n:translate="">Additional Lecturer</span>
-                        <span tal:replace="context/lecturerAdditional" />
+                            ${context/lecturerAdditional}
                     </p>
                     <p class="text-muted"
                              tal:define="duration context/courseDuration;
@@ -76,21 +75,20 @@
                         <span tal:replace="context/courseTime" />
                     </p>
                     <p class="text-muted">
-                        <span i18n:translate="">Raum</span>
-                        <span tal:replace="context/courseRoom" />
+                        Raum: <span tal:replace="context/courseRoom" />
                     <p class="text-muted">
-                        <span i18n:translate="">Dates</span>:
-                        <span tal:replace="context/courseDates" />
+                        Termine: <span tal:replace="context/courseDates" />
+                    </p>
 
                     <div class="app-lecture__detail" tal:condition="context/courseRegistration">
-                        Anmeldung erforderlich ##
+                        Anmeldung erforderlich: <span tal:replace="context/courseRegistration" />
                     </div>
 
                     <div class="app-lecture__detail" tal:condition="context/courseRestricted">
-                        Teilnehmerbeschr&auml;nkung ##
+                        Teilnehmerbeschr&auml;nkung: <span tal:replace="context/courseRestricted" />
                     </div>
 
-                    <div class="lecture__detail" tal:condition="context/courseRegistration">
+                    <div class="lecture__detail" tal:condition="context/proPhilosophiaExtra">
                         - pro philosophia extra: für Mitglieder von pro philosophia e.V. frei -
                     </div>
 
@@ -112,12 +110,8 @@
                                     <div class="course__module" tal:define="item_details python:module_data[item]">
                                         <span tal:replace="python:view.get_degree_course_title(item)" />:
                                         <span tal:repeat="detail item_details">
-                                            ${detail}
-                                                <tal:detail_info tal:condition="python:item_details[detail]">
-                                                (<tal:info_theme tal:repeat="theme python:item_details[detail]">${theme}<tal:separator condition="not:repeat/theme/end">,</tal:separator></tal:info_theme>)
-                                                </tal:detail_info>
-                                            <tal:separator condition="not:repeat/detail/end">,</tal:separator>
-                                        </span>
+                        <span tal:define="module_name python:view.get_learning_modules(item, detail)">${module_name}</span><tal:detail_info tal:condition="python:item_details[detail]">(<tal:info_theme tal:repeat="theme python:item_details[detail]">${theme}<tal:separator condition="not:repeat/theme/end">,</tal:separator></tal:info_theme>)</tal:detail_info><tal:separator condition="not:repeat/detail/end">,</tal:separator>
+                    </span>
                                     </div>
                                 </tal:block>
                             </div>

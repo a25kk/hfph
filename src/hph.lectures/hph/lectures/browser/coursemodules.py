@@ -80,6 +80,14 @@ class CourseModuleEditor(BrowserView):
         return course_names[course]
 
     @staticmethod
+    def get_learning_modules(course, module):
+        if course == 'ba':
+            modules = vocabulary.learning_modules_bachelor()
+        else:
+            modules = vocabulary.learning_modules_master()
+        return modules[module]
+
+    @staticmethod
     def learning_modules_master():
         learning_modules = vocabulary.learning_modules_master()
         sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
@@ -208,6 +216,8 @@ class CourseModuleStorageCleanup(BrowserView):
                         for key, value in self.learning_modules_bachelor().items():
                             if value == module_name:
                                 item['module'] = key
+                            if value == 'WP Culturel Admission':
+                                item['module'] = 'wp-cultural-admission'
                 tool.update(context_uid, updated_data)
         next_url = '{0}?_authenticator={1}'.format(
             context.absolute_url(),
