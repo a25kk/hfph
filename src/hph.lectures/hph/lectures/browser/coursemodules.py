@@ -80,7 +80,6 @@ class CourseModuleEditor(BrowserView):
         return course_names[course]
 
     @staticmethod
-    @staticmethod
     def get_learning_modules(course, module):
         if course == 'ba':
             modules = vocabulary.learning_modules_bachelor()
