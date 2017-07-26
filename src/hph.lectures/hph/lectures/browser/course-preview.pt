@@ -21,8 +21,7 @@
     <tal:comment tal:content="nothing"><p tal:condition="exists:context/subtitle" tal:content="context/subtitle" /></tal:comment>
 
     <p tal:condition="context/lecturerAdditional">
-        <span i18n:translate="">Additional Lecturer:</span>
-        <span tal:replace="context/lecturerAdditional" />
+        ${context/lecturerAdditional}
     </p>
     <p class="text-muted"
              tal:define="duration context/courseDuration;
@@ -34,7 +33,7 @@
         <span i18n:translate="">Raum:</span>
         <span tal:replace="context/courseRoom" />
     <p class="text-muted">
-        <span i18n:translate="">Termine:</span>:
+        <span i18n:translate="">Termine:</span>
         <span tal:replace="context/courseDates" />
 
     <tal:modules tal:condition="context/moduleInformation">
@@ -79,14 +78,14 @@
              tal:content="context/Description" />
 
     <div class="app-lecture__detail" tal:condition="context/courseRegistration">
-        Anmeldung erforderlich ##
+        Anmeldung erforderlich: <span tal:replace="context/courseRegistration" />
     </div>
 
     <div class="app-lecture__detail" tal:condition="context/courseRestricted">
-        Teilnehmerbeschr&auml;nkung ##
+        Teilnehmerbeschr&auml;nkung: <span tal:replace="context/courseRestricted" />
     </div>
 
-    <div class="lecture__detail" tal:condition="context/courseRegistration">
+    <div class="lecture__detail" tal:condition="context/proPhilosophiaExtra">
         - pro philosophia extra: für Mitglieder von pro philosophia e.V. frei -
     </div>
 

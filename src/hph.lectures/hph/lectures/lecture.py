@@ -40,6 +40,8 @@ class ILecture(model.Schema, IImageScaleTraversable):
     )
     lecturerAdditional = schema.TextLine(
         title=_(u"Additional Lecturer"),
+        description=_(u"Please enter the prefix that you want to be "
+                      u"displayed as well, e.g. additional lecturer"),
         required=False,
     )
     courseType = schema.Choice(
