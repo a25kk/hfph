@@ -122,6 +122,14 @@ class CourseView(BrowserView):
         course_names = vocabulary.degree_courses_tokens()
         return course_names[course]
 
+    @staticmethod
+    def get_learning_modules(course, module):
+        if course == 'ba':
+            modules = vocabulary.learning_modules_bachelor()
+        else:
+            modules = vocabulary.learning_modules_master()
+        return modules[module]
+
     def has_module_data(self):
         return len(self.module_data()) > 0
 
