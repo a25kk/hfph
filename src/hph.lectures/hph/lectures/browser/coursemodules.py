@@ -80,6 +80,14 @@ class CourseModuleEditor(BrowserView):
         return course_names[course]
 
     @staticmethod
+    def get_learning_modules(course, module):
+        if course == 'ba':
+            modules = vocabulary.learning_modules_bachelor()
+        else:
+            modules = vocabulary.learning_modules_master()
+        return modules[module]
+
+    @staticmethod
     def learning_modules_master():
         learning_modules = vocabulary.learning_modules_master()
         sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
