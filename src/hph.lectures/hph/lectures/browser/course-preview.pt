@@ -53,8 +53,7 @@
                         ${detail}
                         <tal:detail_info tal:condition="python:item_details[detail]">
                             (<tal:info_theme tal:repeat="theme python:item_details[detail]">${theme}<tal:separator condition="not:repeat/theme/end">,</tal:separator></tal:info_theme>)
-                        </tal:detail_info>
-                        <tal:separator condition="not:repeat/detail/end">,</tal:separator>
+                        </tal:detail_info><tal:separator condition="not:repeat/detail/end">,</tal:separator>
                     </span>
                 </div>
             </tal:block>
