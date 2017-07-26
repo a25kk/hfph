@@ -208,6 +208,8 @@ class CourseModuleStorageCleanup(BrowserView):
                         for key, value in self.learning_modules_bachelor().items():
                             if value == module_name:
                                 item['module'] = key
+                            if value == 'WP Culturel Admission':
+                                item['module'] = 'wp-cultural-admission'
                 tool.update(context_uid, updated_data)
         next_url = '{0}?_authenticator={1}'.format(
             context.absolute_url(),
