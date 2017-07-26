@@ -228,7 +228,11 @@ class CoursePreview(BrowserView):
             modules = vocabulary.learning_modules_bachelor()
         else:
             modules = vocabulary.learning_modules_master()
-        return modules[module]
+        try:
+            module_title = modules[module]
+        except KeyError:
+            module_title = module
+        return module_title
 
     def has_module_data(self):
         return len(self.module_data()) > 0
