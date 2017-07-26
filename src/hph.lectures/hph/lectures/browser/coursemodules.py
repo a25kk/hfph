@@ -212,16 +212,17 @@ class CourseModuleStorageCleanup(BrowserView):
             context_uid = api.content.get_uuid(obj=course.getObject())
             tool = getUtility(ICourseModuleTool)
             stored_data = tool.read(context_uid)
+            learning_modules = self.learning_modules_bachelor()
             if 'items' in stored_data:
                 updated_data = stored_data['items']
                 for item in updated_data:
                     if 'degree-course' in item:
                         module_name = item['module']
-                        for key, value in self.learning_modules_bachelor().items():
+                        for key, value in learning_modules.items():
                             if value == module_name:
                                 item['module'] = key
-                            if value == 'WP Culturel Admission':
-                                item['module'] = 'wp-cultural-admission'
+                        if module_name == 'WP Culturel Admission':
+                            item['module'] = 'wp-cultural-admission'
                 tool.update(context_uid, updated_data)
         next_url = '{0}?_authenticator={1}'.format(
             context.absolute_url(),
