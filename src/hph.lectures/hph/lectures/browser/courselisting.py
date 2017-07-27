@@ -1,16 +1,21 @@
 # -*- coding: utf-8 -*-
 """Module providing course listings"""
 import collections
+import hashlib
+import json
+import uuid
 
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
+from hph.lectures.interfaces import ICourseFilterTool
 from hph.lectures.lecture import ILecture
 from plone import api
 from plone.app.contentlisting.interfaces import IContentListing
+from plone.keyring import django_random
 
-from zope.component import getMultiAdapter
+from zope.component import getMultiAdapter, getUtility
 from zope.schema.vocabulary import getVocabularyRegistry
 
 from hph.lectures import vocabulary
@@ -30,6 +35,8 @@ class CourseListing(BrowserView):
         self.has_archives = len(self.contained_course_folders()) > 0
         self.query = self._base_query()
         self.query.update(kw)
+        self.results = self.lectures()
+        self.result_count = len(self.results)
         return self.render()
 
     def update(self):
@@ -94,6 +101,17 @@ class CourseListing(BrowserView):
         self.query['courseModules'] = [
             value for value in form_data.values()
         ]
+        filter_data = form_data
+        tool = getUtility(ICourseFilterTool)
+        if not self.has_active_session():
+            session_token = self.generate_session_token()
+            filter_data['token'] = session_token
+            session_data = tool.create_record(session_token, filter_data)
+        else:
+            session_data = tool.get()
+            session_data['filters'] = filter_data
+        name = 'course-filter'
+        tool.add(name, session_data)
         return
 
     def contained_course_folders(self):
@@ -160,6 +178,7 @@ class CourseListing(BrowserView):
             if project_filter is not None:
                 query['externalFundsProject'] = project_filter
         results = catalog.searchResults(query)
+        # import pdb; pdb.set_trace()
         return IContentListing(results)
 
     def _base_query(self):
@@ -182,6 +201,26 @@ class CourseListing(BrowserView):
         context = aq_inner(context)
         template = context.restrictedTraverse('@@course-filter-bar')()
         return template
+
+    @staticmethod
+    def generate_session_token():
+        random_salt = django_random.get_random_string()
+        return hashlib.sha1(str(uuid.uuid4()) + random_salt).hexdigest()
+
+    def has_active_session(self):
+        active = False
+        try:
+            session = self.stored_filters()
+        except KeyError:
+            session = None
+        if session:
+            active = True
+        return active
+
+    @staticmethod
+    def stored_filters():
+        tool = getUtility(ICourseFilterTool)
+        return tool.get()
 
 
 class CourseFilter(BrowserView):
@@ -301,3 +340,33 @@ class CourseFilterSelectBox(BrowserView):
             map_key = 'core-theme-{0}'.format(theme_key)
             field_map[map_key] = theme_value
         return field_map
+
+
+class CourseFilterStorageInfo(BrowserView):
+
+    def __call__(self):
+        return self.render()
+
+    @staticmethod
+    def get_session_data():
+        tool = getUtility(ICourseFilterTool)
+        data = tool.get()
+        return data
+
+    def render(self):
+        data = self.get_session_data()
+        return json.dumps(data)
+
+
+class CourseFilterStorageCleanup(BrowserView):
+
+    def __call__(self):
+        return self.render()
+
+    def render(self):
+        context = aq_inner(self.context)
+        tool = getUtility(ICourseFilterTool)
+        tool.destroy()
+        api.portal.show_message(
+            message=_(u"Session cleared"), request=self.request)
+        return self.request.response.redirect(context.absolute_url())

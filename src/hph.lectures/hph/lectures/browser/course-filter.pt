@@ -84,8 +84,8 @@
                     <span tal:omit-tag="" i18n:translate="">Filter zurücksetzen</span>
                 </a>
             </div>
-            <div class="filter__block filter__block--action">
-                <button class="app-btn app-btn--default app-btn--lg"
+            <div class="filter__block filter__block--action filter__block--hidden" id="filter__action--main">
+                <button class="app-btn app-btn--default app-btn--lg filter__action filter__action--hidden"
                         name="form.button.Submit"
                         id="form.button.Submit">
                     <span tal:omit-tag="" i18n:translate="">Filter anwenden</span>

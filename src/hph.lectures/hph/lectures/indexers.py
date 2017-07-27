@@ -52,7 +52,7 @@ def SearchableText(obj):
     ))
 
 
-def course_information(obj):
+def get_course_information(obj):
     context = aq_inner(obj)
     context_uid = api.content.get_uuid(obj=context)
     tool = getUtility(ICourseModuleTool)
@@ -60,27 +60,27 @@ def course_information(obj):
     return data
 
 
-@staticmethod
 def get_degree_course_title(course):
     course_names = vocabulary.degree_courses_tokens()
     return course_names[course]
 
 
 def course_module_information(obj):
-    stored_data = self.course_information(obj)
+    stored_data = get_course_information(obj)
     storage_blacklist = ('degree', 'info', 'theme')
     data = list()
-    for item in stored_data['items']:
-        if 'degree-course' in item:
-            for key, value in item.items():
-                if key not in storage_blacklist:
-                    if key == 'degree-course':
-                        value = self.get_degree_course_title(value)
-                    # if value not in data:
-                    data.append(value)
-    # Remove possible duplicates
-    module_information = list(set(data))
-    return module_information
+    if 'items' in stored_data:
+        for item in stored_data['items']:
+            if 'degree-course' in item:
+                for key, value in item.items():
+                    if key not in storage_blacklist:
+                        if key == 'degree-course':
+                            data.append(get_degree_course_title(value))
+                        # if value not in data:
+                        data.append(value)
+        # Remove possible duplicates
+        module_information = list(set(data))
+        return module_information
 
 
 @indexer(ILecture)
