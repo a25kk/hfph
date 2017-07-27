@@ -24,10 +24,12 @@ class CourseListing(BrowserView):
         self.context = context
         self.request = request
 
-    def __call__(self):
+    def __call__(self, **kw):
         self.errors = {}
         self.filter = self.request.get('content_filter', None)
         self.has_archives = len(self.contained_course_folders()) > 0
+        self.query = self._base_query()
+        self.query.update(kw)
         return self.render()
 
     def update(self):
@@ -65,7 +67,7 @@ class CourseListing(BrowserView):
             if errorIdx > 0:
                 self.errors = form_errors
             else:
-                self.filter_courses(form_data)
+                self._update_query(form_data)
 
     def render(self):
         self.update()
@@ -87,6 +89,12 @@ class CourseListing(BrowserView):
                 if role in admin_roles:
                     allowed = True
         return allowed
+
+    def _update_query(self, form_data):
+        self.query['courseModules'] = [
+            value for value in form_data.values()
+        ]
+        return
 
     def contained_course_folders(self):
         context = aq_inner(self.context)
@@ -143,7 +151,7 @@ class CourseListing(BrowserView):
 
     def lectures(self):
         catalog = api.portal.get_tool(name='portal_catalog')
-        query = self._base_query()
+        query = self.query
         project_filter = self.request.get('project', None)
         course_filter = self.request.get('courseType', None)
         if self.filter is not None:
@@ -174,9 +182,6 @@ class CourseListing(BrowserView):
         context = aq_inner(context)
         template = context.restrictedTraverse('@@course-filter-bar')()
         return template
-
-    def filter_courses(self, data):
-        return
 
 
 class CourseFilter(BrowserView):
