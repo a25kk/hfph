@@ -56,6 +56,9 @@
         border: 1px solid $gray-lighter;
         border-top: 4px solid $app-secondary;
     }
+    &--bordered-top {
+        border-top: 4px solid $app-secondary;
+    }
 }
 
 //** Card footer

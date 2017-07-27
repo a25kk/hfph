@@ -3,8 +3,9 @@
 //------------------------------------
 
 
-// Standard applciation button styles
-.app-btn {
+// Standard application button styles
+.app-btn,
+.app-button {
     @extend .btn;
     @include button-variant(#333, $gray-lighter, #333);
     @include button-outline-variant($gray);

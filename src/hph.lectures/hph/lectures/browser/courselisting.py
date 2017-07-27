@@ -169,6 +169,12 @@ class CourseListing(BrowserView):
         template = context.restrictedTraverse('@@course-card')()
         return template
 
+    @staticmethod
+    def rendered_course_filter_bar(context):
+        context = aq_inner(context)
+        template = context.restrictedTraverse('@@course-filter-bar')()
+        return template
+
     def filter_courses(self, data):
         return
 
@@ -276,8 +282,12 @@ class CourseFilterSelectBox(BrowserView):
         return vocabulary.course_core_themes()
 
     def field_data_map(self):
+        degree_courses = self.degree_courses()
+        courses = {}
+        for key, value in degree_courses.items():
+            courses[value] = self.get_degree_course_title(value)
         field_map = {
-            'courses': self.degree_courses(),
+            'courses': courses,
             'modules-ba': self.learning_modules_bachelor(),
             'modules-ma': self.learning_modules_master(),
             'core-themes': self.course_core_themes()

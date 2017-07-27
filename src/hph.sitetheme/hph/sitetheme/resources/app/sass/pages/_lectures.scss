@@ -66,13 +66,18 @@
 }
 
 .filter__items {
+    width: 100%;
     display: flex;
     flex-direction: row;
     &--unit {
     }
 }
 
-.filter__item--action {
-    @include make-col(8);
-    text-align: right;
+.filter__item {
+    @include make-col(4);
+}
+
+.form-field__select--hidden {
+    opacity: 0;
+    display: none;
 }
