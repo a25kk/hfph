@@ -92,9 +92,9 @@
                         tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                                     b_size python:int(request.get('b_size', 20));
                                     b_start python:int(request.get('b_start', 0));
-                                    results view/lectures;
+                                    results view/results;
                                     batch python:Batch(results, b_size, b_start);">
-                        <article class="app-list__item" tal:repeat="item batch">
+                        <article class="app-list__item" tal:repeat="item results">
                             <div class="app-list__item-details" tal:define="item_uuid item/UID">
                                 <span tal:replace="structure python:view.rendered_course_card(item_uuid)" />
                             </div>

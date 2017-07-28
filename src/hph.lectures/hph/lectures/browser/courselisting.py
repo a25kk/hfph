@@ -322,6 +322,33 @@ class CourseFilterSelectBox(BrowserView):
     def render(self):
         return self.index()
 
+    def has_active_session(self):
+        active = False
+        try:
+            session = self.stored_filters()
+        except KeyError:
+            session = None
+        if session:
+            active = True
+        return active
+
+    @staticmethod
+    def stored_filters():
+        tool = getUtility(ICourseFilterTool)
+        return tool.get()
+
+    def is_selected_option(self, filter_value):
+        if self.has_active_session():
+            filter_data = self.stored_filters()['course-filter']
+            try:
+                active_filters = filter_data['filter']
+            except KeyError:
+                return False
+            for item in active_filters:
+                if filter_value in item.values():
+                    return True
+        return False
+
     @staticmethod
     def degree_courses():
         courses = vocabulary.degree_courses()
@@ -379,6 +406,23 @@ class CourseFilterStorageInfo(BrowserView):
     def render(self):
         data = self.get_session_data()
         return json.dumps(data)
+
+
+class CourseFilterStorageReset(BrowserView):
+
+    def __call__(self):
+        return self.render()
+
+    def render(self):
+        context = aq_inner(self.context)
+        tool = getUtility(ICourseFilterTool)
+        session = tool.get()
+        session_data = self.stored_filters()['course-filter']
+        session_data['filters'] = list()
+        tool.add('course-filter', session_data)
+        api.portal.show_message(
+            message=_(u"Session reset"), request=self.request)
+        return self.request.response.redirect(context.absolute_url())
 
 
 class CourseFilterStorageCleanup(BrowserView):

@@ -2,6 +2,7 @@
     tal:define="course_cancelled context/courseCancelled"
     tal:attributes="class python:course_cancelled and 'course-card course-card--muted' or 'course-card'"
     i18n:domain="hph.lectures">
+
     <div class="course-card__overlay" tal:condition="context/courseCancelled">
         <div class="course-card__overlay-title">
             <div class="app-callout app-callout-default">Kurs entfällt</div>
