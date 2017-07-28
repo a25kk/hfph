@@ -160,11 +160,11 @@ class CourseFilterTool(object):
             "_runtime": "0.00000000000000000001",
             "created": datetime.datetime.now().isoformat(),
             "token": token,
-            "filter": []
+            "filter": dict()
         }
         # Add potential initial data
         if data:
-            records['filter'].append(data)
+            records['filter'] = data
         return records
 
 
@@ -177,7 +177,7 @@ class CourseFilterUpdater(object):
             "timestamp": str(int(time.time())),
             "_runtime": "0.00000000000000000001",
             "created": datetime.datetime.now().isoformat(),
-            "filter": []
+            "filter": dict()
         }
         # Add potential initial data
         if data:
