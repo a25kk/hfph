@@ -264,6 +264,35 @@ class CourseFilter(BrowserView):
         self.context = context
         self.request = request
 
+    def has_active_session(self):
+        active = False
+        try:
+            session = self.stored_filters()
+        except KeyError:
+            session = None
+        if session:
+            active = True
+        return active
+
+    @staticmethod
+    def stored_filters():
+        tool = getUtility(ICourseFilterTool)
+        return tool.get()
+
+    def active_filters(self):
+        stored_data = self.stored_filters()
+        if 'course-filter' in stored_data:
+            filter_data = stored_data['course-filter']
+            if 'filter' in filter_data:
+                active_filters = dict()
+                filters = filter_data['filter']
+                for key, value in filters.items():
+                    if key != 'token':
+                        active_filters[key] = value
+                return active_filters
+            else:
+                return None
+
     @staticmethod
     def degree_courses():
         courses = vocabulary.degree_courses()
@@ -381,6 +410,15 @@ class CourseFilterSelectBox(BrowserView):
         sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
         return sorted_items
 
+    def course_types(self):
+        context = aq_inner(self.context)
+        vr = getVocabularyRegistry()
+        vocab = vr.get(context, 'hph.lectures.CourseType')
+        course_types = dict()
+        for term in vocab:
+            course_types[term.value] = term.title
+        return course_types
+
     @staticmethod
     def course_core_themes():
         return vocabulary.course_core_themes()
@@ -394,7 +432,8 @@ class CourseFilterSelectBox(BrowserView):
             'courses': courses,
             'modules-ba': self.learning_modules_bachelor(),
             'modules-ma': self.learning_modules_master(),
-            'core-themes': self.course_core_themes()
+            'core-themes': self.course_core_themes(),
+            'course-types': self.course_types()
         }
         for theme_key, theme_value in self.course_core_themes().items():
             map_key = 'core-theme-{0}'.format(theme_key)

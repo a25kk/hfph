@@ -29,12 +29,38 @@
             </div>
         </tal:can_edit>
 
-        <div class="app-page__header hiddenStructure">
-            <h1 i18n:translate="">Lectures</h1>
-            <p class="app-page__abstract">${context/Title}</p>
+        <div class="app-page__header">
+            <h1 class="app-page__title">${context/Title}</h1>
         </div>
 
-        <div class="app-section">
+        <hr>
+
+        <div class="app-page__body">
+            <section class="app-page__section course-filter" tal:condition="context/is_current_semester">
+                <div class="app-list__filter-bar filter-bar">
+                    <span tal:replace="structure python:view.rendered_course_filter_bar(context)" />
+                </div>
+                <div class="app-list__result-count">${view/result_count} Einträge</div>
+            </section>
+
+            <section class="app-page__section app-list" id="content-core"
+                     tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                            b_size python:int(request.get('b_size', 20));
+                                    b_start python:int(request.get('b_start', 0));
+                                            results view/results;
+                                                    batch python:Batch(results, b_size, b_start);">
+                <article class="app-list__item" tal:repeat="item results">
+                    <div class="app-list__item-details" tal:define="item_uuid item/UID">
+                        <span tal:replace="structure python:view.rendered_course_card(item_uuid)" />
+                    </div>
+                </article>
+                <tal:block tal:content="nothing">
+                    <div metal:use-macro="context/batch_macros/macros/navigation" />
+                </tal:block>
+            </section>
+        </div>
+
+        <div class="app-section" hidden>
             <div class="app-section__aside">
                 <div class="app-card app-card--lectures">
                     <div class="app-card__header">
