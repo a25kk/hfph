@@ -49,7 +49,6 @@
                 </tal:can_edit>
 
                 <div class="app-list-item">
-
                     <div class="app-list-item-kicker">
                         <span tal:replace="context/courseNumber" /><span tal:condition="context/blockLecture">*</span><span tal:condition="context/onlineLecture">@</span>
                         <tal:lecturer tal:condition="context/lecturer">
@@ -96,6 +95,7 @@
                         <div class="app-inline-edit-bar" tal:condition="view/can_edit">
                             <a class="app-btn app-btn-inline-edit" href="${context/absolute_url}/@@module-editor" i18n:translate="">edit modules</a>
                         </div>
+
                         <tal:modules tal:condition="context/moduleInformation">
                             <p class="text-muted" tal:condition="not:view/has_module_data"
                                      tal:define="stored_data view/course_information;
@@ -108,7 +108,7 @@
                                      tal:define="module_data view/module_data">
                                 <tal:block tal:repeat="item module_data">
                                     <div class="course__module" tal:define="item_details python:module_data[item]">
-                                        <span tal:replace="python:view.get_degree_course_title(item)" />:
+                                        <span tal:replace="python:view.get_degree_course_title(item)" /><tal:separator condition="python:len(item_details)">:</tal:separator>
                                         <span tal:repeat="detail item_details">
                         <span tal:define="module_name python:view.get_learning_modules(item, detail)">${module_name}</span><tal:detail_info tal:condition="python:item_details[detail]">(<tal:info_theme tal:repeat="theme python:item_details[detail]">${theme}<tal:separator condition="not:repeat/theme/end">,</tal:separator></tal:info_theme>)</tal:detail_info><tal:separator condition="not:repeat/detail/end">,</tal:separator>
                     </span>
