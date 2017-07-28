@@ -81,7 +81,7 @@
             <div class="app-section__main">
 
                 <div class="app-page__body">
-                    <section class="app-page__section course-filter" tal:condition="context/is_current_semester">
+                    <section class="app-page__section course-filter" tal:condition="context/is_current_semester" hidden>
                             <div class="app-list__filter-bar filter-bar">
                                 <span tal:replace="structure python:view.rendered_course_filter_bar(context)" />
                             </div>
