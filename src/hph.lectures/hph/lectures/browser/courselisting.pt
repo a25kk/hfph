@@ -99,7 +99,9 @@
                                 <span tal:replace="structure python:view.rendered_course_card(item_uuid)" />
                             </div>
                         </article>
-                        <div metal:use-macro="context/batch_macros/macros/navigation" />
+                        <tal:block tal:content="nothing">
+                            <div metal:use-macro="context/batch_macros/macros/navigation" />
+                        </tal:block>
                     </section>
                 </div>
 
