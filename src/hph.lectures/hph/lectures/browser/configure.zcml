@@ -59,6 +59,14 @@
 
     <browser:page
             for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-folder-view"
+            class=".coursefolder.CourseFolderView"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
             name="course-filter-bar"
             class=".courselisting.CourseFilter"
             template="course-filter.pt"

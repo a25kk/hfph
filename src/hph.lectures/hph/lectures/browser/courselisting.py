@@ -37,7 +37,14 @@ class CourseListing(BrowserView):
         self.query.update(kw)
         self.results = self.lectures()
         self.result_count = len(self.results)
-        return self.render()
+        if self.is_current_semester():
+            return self.render()
+        else:
+            if self.has_archives:
+                current_semester_folder = self.get_highlighted_container()
+                next_url = current_semester_folder.getURL()
+                return self.request.response.redirect(next_url)
+            return self.render()
 
     def update(self):
         translation_service = api.portal.get_tool(name="translation_service")
@@ -97,6 +104,11 @@ class CourseListing(BrowserView):
                     allowed = True
         return allowed
 
+    def is_current_semester(self):
+        context = aq_inner(self.context)
+        current_marker = getattr(context, 'is_current_semester', None)
+        return current_marker
+
     def _update_query(self, form_data):
         self.query['courseModules'] = [
             value for value in form_data.values()
@@ -120,6 +132,15 @@ class CourseListing(BrowserView):
             portal_type='hph.lectures.coursefolder',
             review_state='published')
         return folders
+
+    def get_highlighted_container(self):
+        sub_folders = self.contained_course_folders()
+        for folder in sub_folders:
+            container = folder.getObject()
+            current_marker = getattr(container, 'is_current_semester', None)
+            if current_marker:
+                return folder
+        return sub_folders[0]
 
     def is_current_view_context(self, container):
         context = aq_inner(self.context)
@@ -193,7 +214,9 @@ class CourseListing(BrowserView):
     @staticmethod
     def rendered_course_card(uuid):
         context = api.content.get(UID=uuid)
-        template = context.restrictedTraverse('@@course-card')()
+        template = context.restrictedTraverse('@@course-card')(
+            preview=True
+        )
         return template
 
     @staticmethod
