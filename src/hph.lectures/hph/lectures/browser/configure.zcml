@@ -103,6 +103,14 @@
     <!-- Filter session cleanup -->
     <browser:page
             for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-filter-storage-reset"
+            class=".courselisting.CourseFilterStorageCleanup"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
             name="course-filter-storage-cleanup"
             class=".courselisting.CourseFilterStorageCleanup"
             permission="zope2.View"

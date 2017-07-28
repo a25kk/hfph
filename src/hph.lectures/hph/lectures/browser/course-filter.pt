@@ -79,7 +79,7 @@
         <div class="filter__section">
             <div class="filter__block filter__block--master">
                 <a class="app-btn app-btn--link"
-                         tal:attributes="href string:${context/absolute_url}">
+                         tal:attributes="href string:${context/absolute_url}/@@course-filter-storage-reset">
                     <i class="ion ion-ios-close-circle-outline pp-icon pp-icon-sm"></i>
                     <span tal:omit-tag="" i18n:translate="">Filter zurücksetzen</span>
                 </a>

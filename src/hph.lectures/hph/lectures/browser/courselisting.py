@@ -113,6 +113,7 @@ class CourseListing(BrowserView):
         self.query['courseModules'] = [
             value for value in form_data.values()
         ]
+        name = 'course-filter'
         filter_data = form_data
         tool = getUtility(ICourseFilterTool)
         if not self.has_active_session():
@@ -121,8 +122,7 @@ class CourseListing(BrowserView):
             session_data = tool.create_record(session_token, filter_data)
         else:
             session_data = tool.get()
-            session_data['filters'] = filter_data
-        name = 'course-filter'
+            session_data[name]['filters'] = filter_data
         tool.add(name, session_data)
         return
 
@@ -193,11 +193,22 @@ class CourseListing(BrowserView):
         query = self.query
         project_filter = self.request.get('project', None)
         course_filter = self.request.get('courseType', None)
+        if self.has_active_session():
+            blacklist = ('token', )
+            filter_data = self.stored_filters()['course-filter']
+            if 'filter' in filter_data:
+                filter_list = list()
+                for stored_filter in filter_data['filter']:
+                    for key, value in stored_filter.items():
+                        if key not in blacklist:
+                            filter_list.append(value)
+                query['courseModules'] = filter_list
         if self.filter is not None:
             if course_filter is not None:
                 query['courseType'] = course_filter
             if project_filter is not None:
                 query['externalFundsProject'] = project_filter
+        print(query)
         results = catalog.searchResults(query)
         # import pdb; pdb.set_trace()
         return IContentListing(results)
@@ -322,6 +333,33 @@ class CourseFilterSelectBox(BrowserView):
     def render(self):
         return self.index()
 
+    def has_active_session(self):
+        active = False
+        try:
+            session = self.stored_filters()
+        except KeyError:
+            session = None
+        if session:
+            active = True
+        return active
+
+    @staticmethod
+    def stored_filters():
+        tool = getUtility(ICourseFilterTool)
+        return tool.get()
+
+    def is_selected_option(self, filter_value):
+        if self.has_active_session():
+            filter_data = self.stored_filters()['course-filter']
+            try:
+                active_filters = filter_data['filter']
+            except KeyError:
+                return False
+            for item in active_filters:
+                if filter_value in item.values():
+                    return True
+        return False
+
     @staticmethod
     def degree_courses():
         courses = vocabulary.degree_courses()
@@ -379,6 +417,23 @@ class CourseFilterStorageInfo(BrowserView):
     def render(self):
         data = self.get_session_data()
         return json.dumps(data)
+
+
+class CourseFilterStorageReset(BrowserView):
+
+    def __call__(self):
+        return self.render()
+
+    def render(self):
+        context = aq_inner(self.context)
+        tool = getUtility(ICourseFilterTool)
+        session = tool.get()
+        session_data = self.stored_filters()['course-filter']
+        session_data['filters'] = list()
+        tool.add('course-filter', session_data)
+        api.portal.show_message(
+            message=_(u"Session reset"), request=self.request)
+        return self.request.response.redirect(context.absolute_url())
 
 
 class CourseFilterStorageCleanup(BrowserView):
