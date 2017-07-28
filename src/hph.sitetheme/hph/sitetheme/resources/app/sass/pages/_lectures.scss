@@ -3,7 +3,7 @@
 }
 
 .course-filter {
-    margin-bottom: 4rem;
+    margin-bottom: 1rem;
 }
 
 .course__modules {
@@ -44,24 +44,21 @@
 
 //== Course list filter bar
 .filter__section {
-    @include make-row();
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    // margin-bottom: 2rem;
 }
 
 .filter__block {
-    @include make-col-ready();
-    @include make-col(12);
-    @include media-breakpoint-up(lg) {
-        @include make-col(9);
-        &--master {
-            @include make-col(3);
-        }
-    }
+    flex: 1 0 0%;
     &--action {
         text-align: right;
     }
     &--container {
         border: 1px solid $gray-lighter;
+    }
+    &--hidden {
+        display: none;
     }
 }
 
@@ -74,7 +71,7 @@
 }
 
 .filter__item {
-    @include make-col(4);
+    @include make-col(3);
 }
 
 .form-field__select--hidden {
