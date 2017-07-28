@@ -193,7 +193,9 @@ class CourseListing(BrowserView):
     @staticmethod
     def rendered_course_card(uuid):
         context = api.content.get(UID=uuid)
-        template = context.restrictedTraverse('@@course-card')()
+        template = context.restrictedTraverse('@@course-card')(
+            preview=True
+        )
         return template
 
     @staticmethod

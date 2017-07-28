@@ -63,6 +63,14 @@ class CourseView(BrowserView):
             portal_type=['File'])
         return items
 
+    @staticmethod
+    def rendered_course_card(uuid):
+        context = api.content.get(UID=uuid)
+        template = context.restrictedTraverse('@@course-card')(
+            preview=False
+        )
+        return template
+
     def course_information(self):
         context = aq_inner(self.context)
         context_uid = api.content.get_uuid(obj=context)
@@ -184,6 +192,31 @@ class CoursePreview(BrowserView):
     def __init__(self, context, request):
         self.context = context
         self.request = request
+
+    def __call__(self, preview=False, **kw):
+        self.is_preview_card = preview
+        return self.render()
+
+    def render(self):
+        return self.index()
+
+    def can_edit(self):
+        if api.user.is_anonymous():
+            return False
+        allowed = False
+        context = aq_inner(self.context)
+        user = api.user.get_current()
+        user_id = user.getId()
+        if user_id == 'zope-admin':
+            allowed = True
+        else:
+            admin_roles = ('Manager', 'Site Administrator',
+                           'StaffMember', 'Owner')
+            roles = api.user.get_roles(username=user_id, obj=context)
+            for role in roles:
+                if role in admin_roles:
+                    allowed = True
+        return allowed
 
     def course_information(self):
         context = aq_inner(self.context)

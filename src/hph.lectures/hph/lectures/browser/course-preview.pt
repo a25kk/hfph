@@ -1,6 +1,7 @@
 <div class="course-card"
     tal:define="course_cancelled context/courseCancelled"
-    tal:attributes="class python:course_cancelled and 'course-card course-card--muted' or 'course-card'">
+    tal:attributes="class python:course_cancelled and 'course-card course-card--muted' or 'course-card'"
+    i18n:domain="hph.lectures">
     <div class="course-card__overlay" tal:condition="context/courseCancelled">
         <div class="course-card__overlay-title">
             <div class="app-callout app-callout-default">Kurs entfällt</div>
@@ -10,13 +11,15 @@
         <span tal:replace="context/courseNumber" /><span tal:condition="context/blockLecture">*</span><span tal:condition="context/onlineLecture">@</span>
         <tal:lecturer tal:condition="context/lecturer">
             <tal:contexts tal:repeat="node context/lecturer">
-                <a tal:attributes="href node/to_object/absolute_url | nothing" tal:content="node/to_object/Title | nothing" /><tal:separator condition="not: repeat/node/end">,</tal:separator>
+                <a tal:attributes="href node/to_object/absolute_url | nothing" tal:content="node/to_object/Title | nothing"  tal:condition="view/is_preview_card" /><span tal:condition="not:view/is_preview_card" tal:replace="node/to_object/Title | nothing" /><tal:separator condition="not: repeat/node/end">,</tal:separator>
             </tal:contexts>
         </tal:lecturer>
     </div>
-    <h2>
-        <a tal:attributes="href context/absolute_url"
-                 tal:content="context/Title" />
+    <h2 class="course-card__title">
+        <a tal:condition="view/is_preview_card"
+           tal:attributes="href context/absolute_url"
+           tal:content="context/Title" />
+        <span tal:condition="not:view/is_preview_card" tal:omit-tag="">${context/Title}</span>
     </h2>
     <tal:comment tal:content="nothing"><p tal:condition="exists:context/subtitle" tal:content="context/subtitle" /></tal:comment>
 
@@ -36,6 +39,11 @@
         <span i18n:translate="">Termine:</span>
         <span tal:replace="context/courseDates" />
 
+    <div class="app-course-modules app-inline-editable" tal:condition="not:view/is_preview_card">
+        <div class="app-inline-edit-bar" tal:condition="view/can_edit">
+            <a class="app-btn app-btn-inline-edit" href="${context/absolute_url}/@@module-editor" i18n:translate="">edit modules</a>
+        </div>
+    </div>
     <tal:modules tal:condition="context/moduleInformation">
         <p class="text-muted" tal:condition="not:view/has_module_data"
                  tal:define="stored_data view/course_information;
