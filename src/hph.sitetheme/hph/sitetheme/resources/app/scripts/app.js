@@ -20,8 +20,12 @@ if ($tickerBar.length) {
 }
 
 // Interdependent selection boxes
-function interdependentSelect($elementClass) {
-    var $selectBoxes = $($elementClass);
+var _interdependent_select_defaults = {
+    selector: 'js-module-selector'
+};
+function interdependentSelect(_options) {
+    var options = $.extend({}, _interdependent_select_defaults, _options);
+    var $selectBoxes = $(options.selector);
     $selectBoxes.each(function (){
         var $el = $(this);
         $el.on('change', function(e){
@@ -30,9 +34,10 @@ function interdependentSelect($elementClass) {
                 $selectorType = $(this).data('selector');
             if ($selectorType === 'master') {
                 // Hide all visible selects on change
-                var $visibleBoxes = $('.module__select--visible');
-                $visibleBoxes.addClass('module__select--hidden');
-                $visibleBoxes.removeClass('module__select--visible');
+                var $visibleBoxes = $('.' + options.classVisible.split(' ', 1));
+                console.log($visibleBoxes);
+                $visibleBoxes.addClass(options.classHidden);
+                $visibleBoxes.removeClass(options.classVisible);
                 if ($selectedValue !== 'ba') {
                     var $targetSelectorId = $connectedSelect + '--master';
                 } else {
@@ -42,24 +47,40 @@ function interdependentSelect($elementClass) {
                 var $targetSelectorId = $connectedSelect;
             }
             var $targetSelector = $($targetSelectorId);
-            $targetSelector.removeClass('module__select--hidden');
-            $targetSelector.addClass('module__select--visible');
-            // Handle additionalcourse theme select boxes
+            $targetSelector.removeClass(options.classHidden);
+            $targetSelector.addClass(options.classVisible);
+            // Handle additional course theme select boxes
             if ($selectedValue !== 'ba') {
-                var $themeSelectorId = '#selector__course-theme--' + $selectedValue,
+                var $themeSelectorId = options.themeSelectorBaseId + $selectedValue,
                     $themeSelector = $($themeSelectorId);
                 console.log($themeSelectorId);
-                $themeSelector.addClass('module__select--visible');
-                $themeSelector.removeClass('module__select--hidden');
+                $themeSelector.addClass(options.classVisible);
+                $themeSelector.removeClass(options.classHidden);
             }
         })
     });
 }
 
+// Default interdependent select boxes used in module editor
+var _selector_defaults = {
+    selector: '.js-module-selector',
+    classVisible: 'module__select--visible fadeInDown',
+    classHidden: 'module__select--hidden fadeOutUp',
+    themeSelectorBaseId: '#selector__core-theme--'
+};
+interdependentSelect(_selector_defaults);
 
+// Course filter select boxes
+var _selector_filter = {
+    selector: '.js-filter-box',
+    classVisible: 'form-field__select--visible fadeIn',
+    classHidden: 'form-field__select--hidden fadeOut',
+    themeSelectorBaseId: '#selector__core-theme--'
+};
+interdependentSelect(_selector_filter);
 
-var $moduleSelectorClass = '.js-module-selector';
-interdependentSelect($moduleSelectorClass);
+// var $moduleSelectorClass = '.js-module-selector';
+// interdependentSelect($moduleSelectorClass);
 
 
 var $ajaxContainer = $('#appui-container');

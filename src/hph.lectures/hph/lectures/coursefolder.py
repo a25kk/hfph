@@ -12,6 +12,7 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 
 from plone.app.contentlisting.interfaces import IContentListing
 from zope.component import getUtility
+from zope.interface import implementer
 
 from hph.lectures.lecture import ILecture
 from hph.lectures.interfaces import ICourseModuleTool
@@ -33,8 +34,8 @@ class ICourseFolder(form.Schema, IImageScaleTraversable):
     )
 
 
+@implementer(ICourseFolder)
 class CourseFolder(Container):
-    grok.implements(ICourseFolder)
     pass
 
 

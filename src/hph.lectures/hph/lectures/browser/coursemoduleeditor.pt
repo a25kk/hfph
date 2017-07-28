@@ -56,10 +56,14 @@
                                     <tr tal:repeat="item python:stored_data['items']">
                                         <th scope="row">${repeat/item/number}</th>
                                         <td><span tal:condition="exists:item/degree">${item/degree}</span>
-                                            <span tal:condition="exists:item/degree-course">${item/degree-course}</span>
+                                            <span tal:condition="exists:item/degree-course">
+                                                <span tal:define="degree_course item/degree-course; degree_title python:view.get_degree_course_title(degree_course)">${degree_title}</span>
+                                            </span>
                                         </td>
                                         <td><span tal:condition="exists:item/info">${item/info}</span>
-                                            <span tal:condition="exists:item/module">${item/module}</span>
+                                            <span tal:condition="exists:item/module">
+                                                <span tal:define="degree_course item/degree-course; item_module item/module; module_name python:view.get_learning_modules(degree_course, item_module)">${module_name}</span>
+                                            </span>
                                         </td>
                                         <td><span tal:condition="exists:item/course-theme">${item/course-theme}</span>
                                             <small tal:condition="not:exists:item/course-theme">keine Auswahl</small>
@@ -114,8 +118,8 @@
                                             <option disabled selected value i18n:translate=""> -- select an option -- </option>
                                             <tal:block tal:repeat="value options">
                                                 <option tal:define="token python:options[value]"
-                                                         tal:attributes="value string:${token};
-                                                                name string:course:${token}">
+                                                         tal:attributes="value string:${value};
+                                                                name string:course:${value}">
                                                         ${token}
                                                 </option>
                                             </tal:block>
@@ -128,8 +132,8 @@
                                             <option disabled selected value i18n:translate=""> -- select an option -- </option>
                                             <tal:block tal:repeat="value options">
                                                 <option tal:define="token python:options[value]"
-                                                         tal:attributes="value string:${token};
-                                                                name string:course:${token}">
+                                                         tal:attributes="value string:${value};
+                                                                name string:course:${value}">
                                                         ${token}
                                                 </option>
                                             </tal:block>
@@ -142,7 +146,7 @@
                                                          theme_groups view/course_core_themes">
                                         <tal:course-themes tal:repeat="theme_group theme_groups">
                                             <select class="form-control form__control form__control--themes module__select module__select--hidden js-module-selector js-selector-course-theme form__control--themes-${theme_group}"
-                                                    id="selector__course-theme--${theme_group}"
+                                                    id="selector__core-theme--${theme_group}"
                                                     name="course-theme"
                                                     tal:define="options python:theme_groups[theme_group]">
                                                 <option disabled selected value i18n:translate=""> -- select an option -- </option>

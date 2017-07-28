@@ -17,6 +17,7 @@ from z3c.relationfield.schema import RelationList
 from zope import schema
 from zope.schema.vocabulary import getVocabularyRegistry
 from zope.component import getUtility
+from zope.interface import implementer
 
 from hph.lectures.interfaces import ICourseModuleTool
 
@@ -40,6 +41,8 @@ class ILecture(model.Schema, IImageScaleTraversable):
     )
     lecturerAdditional = schema.TextLine(
         title=_(u"Additional Lecturer"),
+        description=_(u"Please enter the prefix that you want to be "
+                      u"displayed as well, e.g. additional lecturer"),
         required=False,
     )
     courseType = schema.Choice(
@@ -158,8 +161,8 @@ def externalFundsProjectIndexer(obj):
 grok.global_adapter(externalFundsProjectIndexer, name="externalFundsProject")
 
 
+@implementer(ILecture)
 class Lecture(Container):
-    grok.implements(ILecture)
     pass
 
 
