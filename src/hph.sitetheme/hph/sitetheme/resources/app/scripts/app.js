@@ -51,7 +51,7 @@ function interdependentSelect(_options) {
             $targetSelector.addClass(options.classVisible);
             // Handle additional course theme select boxes
             if ($selectedValue !== 'ba') {
-                var $themeSelectorId = '#selector__core-theme--' + $selectedValue,
+                var $themeSelectorId = options.themeSelectorBaseId + $selectedValue,
                     $themeSelector = $($themeSelectorId);
                 console.log($themeSelectorId);
                 $themeSelector.addClass(options.classVisible);
@@ -66,6 +66,7 @@ var _selector_defaults = {
     selector: '.js-module-selector',
     classVisible: 'module__select--visible fadeInDown',
     classHidden: 'module__select--hidden fadeOutUp',
+    themeSelectorBaseId: '#selector__core-theme--'
 };
 interdependentSelect(_selector_defaults);
 
@@ -74,6 +75,7 @@ var _selector_filter = {
     selector: '.js-filter-box',
     classVisible: 'form-field__select--visible fadeIn',
     classHidden: 'form-field__select--hidden fadeOut',
+    themeSelectorBaseId: '#selector__core-theme--'
 };
 interdependentSelect(_selector_filter);
 

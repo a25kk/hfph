@@ -100,12 +100,14 @@ class CourseFilterTool(object):
     """
 
     @staticmethod
-    def create():
+    def get(key=None):
         """ Create module filter session """
         portal = api.portal.get()
         session_id = 'hph.lectures.filter.{0}'.format(
             '.'.join(portal.getPhysicalPath())
         )
+        if key:
+            session_id = 'hph.lectures.filter.{0}'.format(key)
         session = ISession(getRequest())
         if session_id not in session:
             session[session_id] = dict()
@@ -113,16 +115,57 @@ class CourseFilterTool(object):
         return session[session_id]
 
     @staticmethod
-    def destroy():
+    def destroy(key=None):
         """ Destroy module filter session """
         portal = api.portal.get()
         session_id = 'hph.lectures.filter.{0}'.format(
             '.'.join(portal.getPhysicalPath())
         )
+        if key:
+            session_id = 'hph.lectures.filter.{0}'.format(key)
         session = ISession(getRequest())
         if session_id in session:
             del session[session_id]
             session.save()
+
+    def add(self, key, data=None):
+        """
+            Add item to survey session
+        """
+        survey = self.get()
+        item = self.update(key, data)
+        if not item:
+            survey[key] = data
+            return survey[key]
+
+    def update(self, key, data):
+        survey = self.get()
+        item_id = key
+        if item_id in survey:
+            survey[item_id] = data
+            return survey[item_id]
+        return None
+
+    def remove(self, key):
+        survey = self.get()
+        if key in survey:
+            del survey[key]
+            return key
+
+    @staticmethod
+    def create_record(token, data):
+        records = {
+            "id": str(uuid_tool.uuid4()),
+            "timestamp": str(int(time.time())),
+            "_runtime": "0.00000000000000000001",
+            "created": datetime.datetime.now().isoformat(),
+            "token": token,
+            "filter": []
+        }
+        # Add potential initial data
+        if data:
+            records['filter'].append(data)
+        return records
 
 
 class CourseFilterUpdater(object):
@@ -138,5 +181,5 @@ class CourseFilterUpdater(object):
         }
         # Add potential initial data
         if data:
-            records['items'].append(data)
+            records['filter'].append(data)
         return records

@@ -84,4 +84,21 @@
             layer="..interfaces.IHPHLecturesLayer"
     />
 
+    <!-- Filter session storage views -->
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-filter-storage"
+            class=".courselisting.CourseFilterStorageInfo"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+    <!-- Filter session cleanup -->
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-filter-storage-cleanup"
+            class=".courselisting.CourseFilterStorageCleanup"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
 </configure>

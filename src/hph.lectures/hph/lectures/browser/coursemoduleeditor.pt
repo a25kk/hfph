@@ -146,7 +146,7 @@
                                                          theme_groups view/course_core_themes">
                                         <tal:course-themes tal:repeat="theme_group theme_groups">
                                             <select class="form-control form__control form__control--themes module__select module__select--hidden js-module-selector js-selector-course-theme form__control--themes-${theme_group}"
-                                                    id="selector__course-theme--${theme_group}"
+                                                    id="selector__core-theme--${theme_group}"
                                                     name="course-theme"
                                                     tal:define="options python:theme_groups[theme_group]">
                                                 <option disabled selected value i18n:translate=""> -- select an option -- </option>

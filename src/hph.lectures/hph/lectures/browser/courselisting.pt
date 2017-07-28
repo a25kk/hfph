@@ -24,6 +24,9 @@
                          i18n:translate="">
                     Show integration options</a>
             </div>
+            <div class="app-callout app-callout--default" tal:condition="view/has_active_session">
+                <pre tal:content="view/stored_filters"></pre>
+            </div>
         </tal:can_edit>
 
         <div class="app-page__header hiddenStructure">
@@ -82,6 +85,7 @@
                             <div class="app-list__filter-bar filter-bar">
                                 <span tal:replace="structure python:view.rendered_course_filter_bar(context)" />
                             </div>
+                            <div class="app-list__result-count">${view/result_count} Einträge</div>
                     </section>
 
                     <section class="app-page__section app-list" id="content-core"

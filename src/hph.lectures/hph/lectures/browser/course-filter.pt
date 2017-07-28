@@ -44,10 +44,10 @@
                             <tal:block tal:define="template python:context.restrictedTraverse('@@course-filter-select')(selector='child', identifier='core-theme--macon', target=None, data_set='core-theme-macon', visibility='hidden');">
                                 <span tal:replace="structure template" />
                             </tal:block>
-                            <tal:block tal:define="template python:context.restrictedTraverse('@@course-filter-select')(selector='master', identifier='core-theme--ma-ethic', target=None, data_set='core-theme-ma-ethic', visibility='hidden');">
+                            <tal:block tal:define="template python:context.restrictedTraverse('@@course-filter-select')(selector='child', identifier='core-theme--ma-ethic', target=None, data_set='core-theme-ma-ethic', visibility='hidden');">
                                 <span tal:replace="structure template" />
                             </tal:block>
-                            <tal:block tal:define="template python:context.restrictedTraverse('@@course-filter-select')(selector='master', identifier='core-theme--ma-ib', target=None, data_set='core-theme-ma-ib', visibility='hidden');">
+                            <tal:block tal:define="template python:context.restrictedTraverse('@@course-filter-select')(selector='child', identifier='core-theme--ma-ib', target=None, data_set='core-theme-ma-ib', visibility='hidden');">
                                 <span tal:replace="structure template" />
                             </tal:block>
                         </div>
@@ -84,8 +84,8 @@
                     <span tal:omit-tag="" i18n:translate="">Filter zurücksetzen</span>
                 </a>
             </div>
-            <div class="filter__block filter__block--action">
-                <button class="app-btn app-btn--default app-btn--lg"
+            <div class="filter__block filter__block--action filter__block--hidden" id="filter__action--main">
+                <button class="app-btn app-btn--default app-btn--lg filter__action filter__action--hidden"
                         name="form.button.Submit"
                         id="form.button.Submit">
                     <span tal:omit-tag="" i18n:translate="">Filter anwenden</span>

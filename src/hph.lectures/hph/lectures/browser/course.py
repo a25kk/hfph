@@ -81,23 +81,27 @@ class CourseView(BrowserView):
         for item in stored_data['items']:
             if 'degree-course' in item:
                 course_identifier = item['degree-course']
-                course_module = item['module']
+                try:
+                    course_module = item['module']
+                except KeyError:
+                    course_module = None
                 course_theme = None
                 if 'course-theme' in item:
                     course_theme = item['course-theme']
                 if course_identifier in data:
                     course_data = data[course_identifier]
                 else:
-                    course_data = {
-                        item['module']: list()
-                    }
-                if course_module in course_data:
-                    module_info = course_data[course_module]
-                else:
-                    module_info = list()
-                if course_theme:
-                    module_info.append(course_theme)
-                course_data[course_module] = module_info
+                    # Add empty dictionary if course identifier
+                    # does not yet exist
+                    course_data = {}
+                if course_module:
+                    if course_module in course_data:
+                        module_info = course_data[course_module]
+                    else:
+                        module_info = list()
+                    if course_theme:
+                        module_info.append(course_theme)
+                    course_data[course_module] = module_info
                 data[course_identifier] = course_data
         return data
 
@@ -123,15 +127,15 @@ class CourseView(BrowserView):
         return course_names[course]
 
     @staticmethod
-    def get_learning_modules(course, module):
+    def get_learning_modules(course, course_module):
         if course == 'ba':
             modules = vocabulary.learning_modules_bachelor()
         else:
             modules = vocabulary.learning_modules_master()
         try:
-            module_title = modules[module]
+            module_title = modules[course_module]
         except KeyError:
-            module_title = module
+            module_title = course_module
         return module_title
 
     def has_module_data(self):
@@ -199,25 +203,27 @@ class CoursePreview(BrowserView):
         for item in stored_data['items']:
             if 'degree-course' in item:
                 course_identifier = item['degree-course']
-                course_module_value = item['module']
-                course_module = str(
-                    course_module_value.encode('utf-8'))
+                try:
+                    course_module = item['module']
+                except KeyError:
+                    course_module = None
                 course_theme = None
                 if 'course-theme' in item:
                     course_theme = item['course-theme']
                 if course_identifier in data:
                     course_data = data[course_identifier]
                 else:
-                    course_data = {
-                        item['module']: list()
-                    }
-                if course_module in course_data:
-                    module_info = course_data[course_module]
-                else:
-                    module_info = list()
-                if course_theme:
-                    module_info.append(course_theme)
-                course_data[course_module] = module_info
+                    # Add empty dictionary if course identifier
+                    # does not yet exist
+                    course_data = {}
+                if course_module:
+                    if course_module in course_data:
+                        module_info = course_data[course_module]
+                    else:
+                        module_info = list()
+                    if course_theme:
+                        module_info.append(course_theme)
+                    course_data[course_module] = module_info
                 data[course_identifier] = course_data
         return data
 

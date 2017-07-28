@@ -101,7 +101,7 @@ def deploy(actor=None):
     msg = '[hph] *%(sitename)s* deployed by %(actor)s' % opts
     user = 'fabric'
     icon = ':shipit:'
-    slack.chat.post_message('#general', msg, username=user, icon_emoji=icon)
+    slack.chat.post_message('#development', msg, username=user, icon_emoji=icon)
 
 
 @task
@@ -120,7 +120,7 @@ def stage(actor=None):
     msg = ('[z3] *%(sitename)s* deployed to *staging* by %(actor)s' % opts)
     user = 'fabric'
     icon = ':shipit:'
-    slack.chat.post_message('#general', msg, username=user, icon_emoji=icon)
+    slack.chat.post_message('#development', msg, username=user, icon_emoji=icon)
 
 
 @task
