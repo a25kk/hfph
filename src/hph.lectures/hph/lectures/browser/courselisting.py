@@ -122,6 +122,7 @@ class CourseListing(BrowserView):
             session_data = tool.create_record(session_token, filter_data)
         else:
             session_data = tool.get()
+            import pdb; pdb.set_trace()
             session_data[name]['filters'] = filter_data
         tool.add(name, session_data)
         return
@@ -198,10 +199,9 @@ class CourseListing(BrowserView):
             filter_data = self.stored_filters()['course-filter']
             if 'filter' in filter_data:
                 filter_list = list()
-                for stored_filter in filter_data['filter']:
-                    for key, value in stored_filter.items():
-                        if key not in blacklist:
-                            filter_list.append(value)
+                for key, value in filter_data['filter'].items():
+                    if key not in blacklist:
+                        filter_list.append(value)
                 query['courseModules'] = filter_list
         if self.filter is not None:
             if course_filter is not None:
@@ -355,9 +355,8 @@ class CourseFilterSelectBox(BrowserView):
                 active_filters = filter_data['filter']
             except KeyError:
                 return False
-            for item in active_filters:
-                if filter_value in item.values():
-                    return True
+            if filter_value in active_filters.values():
+                return True
         return False
 
     @staticmethod
