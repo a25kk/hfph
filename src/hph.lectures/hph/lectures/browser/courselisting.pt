@@ -24,7 +24,7 @@
                          i18n:translate="">
                     Show integration options</a>
             </div>
-            <div class="app-callout app-callout--default" tal:condition="view/has_active_session">
+            <div class="app-callout app-callout--default" tal:condition="view/has_active_session" hidden>
                 <pre tal:content="view/stored_filters"></pre>
             </div>
         </tal:can_edit>
@@ -40,7 +40,21 @@
                 <div class="app-list__filter-bar filter-bar">
                     <span tal:replace="structure python:view.rendered_course_filter_bar(context)" />
                 </div>
-                <div class="app-list__result-count">${view/result_count} Einträge</div>
+                <div class="app-list__result" tal:condition="view/has_active_session"
+                         tal:define="active_filters view/active_filters">
+                    <div class="app-list__result-count">
+                        <strong>${view/result_count} Einträge für</strong>
+                        <span tal:condition="view/active_type_filter">Veranstaltungstyp: ${view/active_type_filter} &ndash;</span>
+                        <span tal:condition="view/active_course_filter">Studiengang: ${view/active_course_filter}</span>
+                        <span tal:condition="view/active_course_module_filter">&ndash; Modul: ${view/active_course_module_filter}</span>
+                        <span tal:condition="view/active_course_theme_filter">&ndash; Schwerpunkt: ${view/active_course_theme_filter}</span>
+                    </div>
+                    <a class="app-btn app-btn--link"
+                             tal:attributes="href string:${context/absolute_url}/@@course-filter-storage-cleanup">
+                        <i class="ion ion-ios-close-circle-outline pp-icon pp-icon-sm"></i>
+                        <span tal:omit-tag="" i18n:translate="">Filter zurücksetzen</span>
+                    </a>
+                </div>
             </section>
 
             <section class="app-page__section app-list" id="content-core"

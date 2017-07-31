@@ -78,3 +78,9 @@
     opacity: 0;
     display: none;
 }
+
+// Result counter and clear filter actions
+.app-list__result {
+    display: flex;
+    justify-content: space-between;
+}
