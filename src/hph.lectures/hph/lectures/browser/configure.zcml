@@ -104,7 +104,7 @@
     <browser:page
             for="hph.lectures.coursefolder.ICourseFolder"
             name="course-filter-storage-reset"
-            class=".courselisting.CourseFilterStorageCleanup"
+            class=".courselisting.CourseFilterStorageReset"
             permission="zope2.View"
             layer="..interfaces.IHPHLecturesLayer"
     />

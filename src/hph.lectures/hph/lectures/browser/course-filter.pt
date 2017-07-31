@@ -105,22 +105,5 @@
                 </button>
             </div>
         </div>
-        <div class="filter__section">
-            <div class="filter__block filter__block--master filter__block filter__block--visible animated fadeIn js-filter-action" id="filter__action--clear">
-                <tal:block tal:condition="view/has_active_session"
-                         tal:define="active_filters view/active_filters">
-                    <strong>Ansicht:</strong>
-                    <tal:filters tal:repeat="active_filter active_filters">
-                        <span>${active_filter}</span>:
-                        <small tal:content="python:active_filters[active_filter]" /><tal:separator condition="not: repeat/active_filter/end">,</tal:separator>
-                    </tal:filters>
-                    <a class="app-btn app-btn--link"
-                             tal:attributes="href string:${context/absolute_url}/@@course-filter-storage-reset">
-                        <i class="ion ion-ios-close-circle-outline pp-icon pp-icon-sm"></i>
-                        <span tal:omit-tag="" i18n:translate="">Filter zurücksetzen</span>
-                    </a>
-                </tal:block>
-            </div>
-        </div>
     </form>
 </section>

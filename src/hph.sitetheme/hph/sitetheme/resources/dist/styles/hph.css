@@ -21216,6 +21216,15 @@ app-fonts-loaded .app-page-abstract
     opacity: 0;
 }
 
+.app-list__result
+{
+    display: -ms-flexbox;
+    display: flex;
+
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
 .app-module-editor
 {
     padding-top: 1rem;
