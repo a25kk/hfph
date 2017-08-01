@@ -74,7 +74,7 @@
             </section>
         </div>
 
-        <div class="app-section" hidden>
+        <div class="app-section hiddenStructure" hidden>
             <div class="app-section__aside">
                 <div class="app-card app-card--lectures">
                     <div class="app-card__header">
