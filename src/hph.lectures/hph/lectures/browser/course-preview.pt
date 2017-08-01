@@ -10,9 +10,12 @@
     </div>
     <div class="app-list-context-kicker">
         <span tal:replace="context/courseNumber" /><span tal:condition="context/blockLecture">*</span><span tal:condition="context/onlineLecture">@</span>
-        <tal:lecturer tal:condition="context/lecturer">
-            <tal:contexts tal:repeat="node context/lecturer">
-                <a tal:attributes="href node/to_object/absolute_url | nothing" tal:content="node/to_object/Title | nothing"  tal:condition="view/is_preview_card" /><span tal:condition="not:view/is_preview_card" tal:replace="node/to_object/Title | nothing" /><tal:separator condition="not: repeat/node/end">,</tal:separator>
+        <tal:lecturer tal:condition="view/has_related_lecturers">
+            <tal:contexts tal:repeat="lecturer view/related_lecturers">
+                <a tal:condition="view/is_preview_card" href="lecturer/getURL">
+                    ${lecturer/Title}
+                </a>
+                <span tal:condition="not:view/is_preview_card" tal:replace="lecturer/Title" /><tal:separator condition="not: repeat/lecturer/end">,</tal:separator>
             </tal:contexts>
         </tal:lecturer>
     </div>

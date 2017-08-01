@@ -2,6 +2,20 @@ var font = new FontFaceObserver('Open Sans');
 font.load().then(function () {
     document.documentElement.className += " app-fonts-loaded";
 });
+
+
+// Warning Duplicate IDs
+var ids = {};
+var found = false;
+$('[id]').each(function() {
+    if (this.id && ids[this.id]) {
+        found = true;
+        console.warn('Duplicate ID #'+this.id);
+    }
+    ids[this.id] = 1;
+});
+if (!found) console.log('No duplicate IDs found');
+
 // $('.js-ticker').marquee({ speed: 5000 });
 // Integrate carousel for news ticekr content
 var $tickerBar = document.querySelectorAll('.js-ticker');

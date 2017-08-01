@@ -9,6 +9,7 @@ from zope.component import getUtility
 from zope.schema.vocabulary import getVocabularyRegistry
 
 from hph.lectures import MessageFactory as _, vocabulary
+from AccessControl import Unauthorized
 
 
 class CourseView(BrowserView):
@@ -217,6 +218,26 @@ class CoursePreview(BrowserView):
                 if role in admin_roles:
                     allowed = True
         return allowed
+
+    def related_lecturers(self):
+        """Returns a list of brains of related items."""
+        results = []
+        catalog = api.portal.get_tool('portal_catalog')
+        for rel in self.context.lecturer:
+            if rel.isBroken():
+                # skip broken relations
+                continue
+            # query by path so we don't have to wake up any objects
+            try:
+                brains = catalog(path={'query': rel.to_path, 'depth': 0})
+                results.append(brains[0])
+            except Unauthorized:
+                print(rel.from_object.Title)
+                pass
+        return results
+
+    def has_related_lecturers(self):
+        return len(self.related_lecturers()) > 0
 
     def course_information(self):
         context = aq_inner(self.context)
