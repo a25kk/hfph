@@ -47,7 +47,8 @@
     </div>
     <tal:modules tal:condition="context/moduleInformation">
         <p class="text-muted" tal:condition="not:view/has_module_data"
-                 tal:define="stored_data view/course_information; courses stored_data/items">
+                 tal:define="stored_data view/course_information;
+                courses stored_data/items">
             <tal:items tal:repeat="item python:stored_data['items']">
             ${item/degree}: ${item/info}<tal:separator condition="not: repeat/item/end"><br></tal:separator>
             </tal:items>
