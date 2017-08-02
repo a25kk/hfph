@@ -307,7 +307,7 @@ class CourseListing(BrowserView):
             return filter_token
         if active_filters and 'course-modules--bachelor' in active_filters:
             filter_token = active_filters['course-modules--bachelor']
-            filter_term = self.learning_modules_bachelor(filter_token)
+            filter_term = self.learning_modules_bachelor()[filter_token]
             return filter_term
         return None
 
