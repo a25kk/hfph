@@ -20,7 +20,8 @@
 	font-size: 2rem;
 }
 
-.app-page-abstract {
+.app-page-abstract,
+.app-page__abstract {
     font-weight: 700;
     @include when-inside('app-fonts-loaded') {
         font-weight: 600;

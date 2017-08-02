@@ -8,7 +8,7 @@
         <option disabled selected value i18n:translate=""> -- select an option -- </option>
         <tal:block tal:repeat="value options">
             <option tal:define="token python:options[value]"
-                     tal:attributes="value string:${value}; selected python:view.is_selected_option(value)">
+                     tal:attributes="value string:${value}">
                     ${token}
             </option>
         </tal:block>

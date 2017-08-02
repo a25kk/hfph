@@ -12,7 +12,6 @@ from Products.Five import BrowserView
 from hph.lectures.interfaces import ICourseFilterTool
 from hph.lectures.lecture import ILecture
 from plone import api
-from plone.app.contentlisting.interfaces import IContentListing
 from plone.keyring import django_random
 
 from zope.component import getMultiAdapter, getUtility
@@ -117,15 +116,21 @@ class CourseListing(BrowserView):
         if not self.has_active_session():
             session_token = self.generate_session_token()
             filter_data['token'] = session_token
-            session_data = tool.create_record(session_token, filter_data)
+            stored_data = tool.create_record(session_token, filter_data)
         else:
             session_data = tool.get()
-            updated_filters = session_data[name]['filter']
-            for key, value in form_data.items():
+            stored_data = session_data[name]
+        updated_filters = stored_data['filter']
+        for key, value in form_data.items():
+            if key == 'degree-course':
+                # Clean possible duplicates
+                if not isinstance(value, basestring):
+                    updated_filters[key] = list(set(value))
+            else:
                 updated_filters[key] = value
-            session_data[name]['filter'] = updated_filters
-        if session_data:
-            tool.add(name, session_data)
+        if updated_filters:
+            stored_data['filter'] = updated_filters
+            tool.add(name, stored_data)
         return self.request.response.redirect(context.absolute_url())
 
     def contained_course_folders(self):
@@ -219,7 +224,7 @@ class CourseListing(BrowserView):
                         query['courseModules'] = filter_list
         results = catalog.searchResults(query)
         # import pdb; pdb.set_trace()
-        return IContentListing(results)
+        return results
 
     def _base_query(self):
         context = aq_inner(self.context)
@@ -280,7 +285,7 @@ class CourseListing(BrowserView):
 
     def active_type_filter(self):
         active_filters = self.active_filters()
-        if 'course-types' in active_filters:
+        if active_filters and 'course-types' in active_filters:
             filter_options = self.filter_options()
             course_type = active_filters['course-types']
             filter_term = filter_options.getTermByToken(course_type)
@@ -289,7 +294,7 @@ class CourseListing(BrowserView):
 
     def active_course_filter(self):
         active_filters = self.active_filters()
-        if 'degree-course' in active_filters:
+        if active_filters and 'degree-course' in active_filters:
             filter_token = active_filters['degree-course']
             filter_term = self.get_degree_course_title(filter_token)
             return filter_term
@@ -297,10 +302,10 @@ class CourseListing(BrowserView):
 
     def active_course_module_filter(self):
         active_filters = self.active_filters()
-        if 'course-modules--master' in active_filters:
+        if active_filters and 'course-modules--master' in active_filters:
             filter_token = active_filters['course-modules--master']
             return filter_token
-        if 'course-modules--bachelor' in active_filters:
+        if active_filters and 'course-modules--bachelor' in active_filters:
             filter_token = active_filters['course-modules--bachelor']
             filter_term = self.learning_modules_bachelor(filter_token)
             return filter_term
@@ -308,12 +313,13 @@ class CourseListing(BrowserView):
 
     def active_course_theme_filter(self):
         active_filters = self.active_filters()
-        for filter_item in active_filters:
-            if filter_item.startswith('core-theme'):
-                filter_token = active_filters[filter_item]
-                theme_id = filter_item.split('--')[1]
-                theme_list = self.course_core_themes()[theme_id]
-                return theme_list[filter_token]
+        if active_filters:
+            for filter_item in active_filters:
+                if filter_item.startswith('core-theme'):
+                    filter_token = active_filters[filter_item]
+                    theme_id = filter_item.split('--')[1]
+                    theme_list = self.course_core_themes()[theme_id]
+                    return theme_list[filter_token]
         return None
 
 

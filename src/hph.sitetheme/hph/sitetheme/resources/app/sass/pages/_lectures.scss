@@ -46,13 +46,14 @@
 .filter__section {
     display: flex;
     flex-direction: row;
-    // margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .filter__block {
     flex: 1 0 0%;
     &--action {
         text-align: right;
+        padding-right: 1rem;
     }
     &--container {
         border: 1px solid $gray-lighter;
@@ -79,8 +80,20 @@
     display: none;
 }
 
+
+.app-list {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 // Result counter and clear filter actions
 .app-list__result {
     display: flex;
     justify-content: space-between;
+}
+.result-count {
+    font-weight: 300;
+}
+
+.app-button--filter-reset {
+    margin-right: 1rem;
 }

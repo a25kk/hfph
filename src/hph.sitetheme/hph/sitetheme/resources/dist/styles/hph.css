@@ -20967,11 +20967,14 @@ app-fonts-loaded .app-bulletin__abstract
     font-size: 2rem;
 }
 
-.app-page-abstract
+.app-page-abstract,
+.app-page__abstract
 {
     font-weight: 700;
 }
-app-fonts-loaded .app-page-abstract
+app-fonts-loaded .app-page-abstract,
+app-fonts-loaded
+  .app-page__abstract
 {
     font-weight: 600;
 }
@@ -21167,7 +21170,9 @@ app-fonts-loaded .app-page-abstract
 {
     display: -ms-flexbox;
     display: flex;
-        flex-direction: row; 
+        flex-direction: row;
+
+    margin-bottom: 1rem; 
 
     -ms-flex-direction: row;
 }
@@ -21179,6 +21184,8 @@ app-fonts-loaded .app-page-abstract
 }
 .filter__block--action
 {
+    padding-right: 1rem; 
+
     text-align: right;
 }
 .filter__block--container
@@ -21216,6 +21223,12 @@ app-fonts-loaded .app-page-abstract
     opacity: 0;
 }
 
+.app-list
+{
+    padding-right: 1rem; 
+    padding-left: 1rem;
+}
+
 .app-list__result
 {
     display: -ms-flexbox;
@@ -21223,6 +21236,16 @@ app-fonts-loaded .app-page-abstract
 
     -ms-flex-pack: justify;
     justify-content: space-between;
+}
+
+.result-count
+{
+    font-weight: 300;
+}
+
+.app-button--filter-reset
+{
+    margin-right: 1rem;
 }
 
 .app-module-editor
@@ -22533,6 +22556,10 @@ app-fonts-loaded .app-page-abstract
     .app-contact-panel,
     .app-contact-actions,
     .app-footer
+    {
+        display: none;
+    }
+    .app-list__filter-bar
     {
         display: none;
     }
