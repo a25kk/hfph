@@ -11,6 +11,5 @@
             class=".lectures.CourseView"
             template="lectures.pt"
             permission="zope2.View"
-            layer="..interfaces.IHPHLecturesLayer"
     />
 </configure>
