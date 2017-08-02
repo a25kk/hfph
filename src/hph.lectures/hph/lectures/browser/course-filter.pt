@@ -92,16 +92,17 @@
                 <button class="app-btn app-btn--default app-btn--lg filter__action filter__action--hidden"
                         name="form.button.Submit"
                         id="form.button.Submit">
-                    <span tal:omit-tag="" i18n:translate="">Filter aktualisieren</span>
                     <i class="ion ion-ios-arrow-dropright-outline pp-icon pp-icon-sm"></i>
+                    <span tal:omit-tag="" i18n:translate="">Filter aktualisieren</span>
                 </button>
             </div>
-            <div class="filter__block filter__block--action filter__block--hidden animated fadeIn js-filter-action" id="filter__action--main">
+            <div class="filter__block filter__block--action filter__block--hidden animated fadeIn js-filter-action" id="filter__action--main"
+                     tal:condition="not:view/has_active_session">
                 <button class="app-btn app-btn--default app-btn--lg filter__action filter__action--hidden"
                         name="form.button.Submit"
                         id="form.button.Submit">
-                    <span tal:omit-tag="" i18n:translate="">Filter anwenden</span>
                     <i class="ion ion-ios-arrow-dropright-outline pp-icon pp-icon-sm"></i>
+                    <span tal:omit-tag="" i18n:translate="">Filter anwenden</span>
                 </button>
             </div>
         </div>
