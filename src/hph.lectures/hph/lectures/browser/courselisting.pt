@@ -24,7 +24,7 @@
                          i18n:translate="">
                     Show integration options</a>
             </div>
-            <div class="app-callout app-callout--default" tal:condition="view/has_active_session">
+            <div class="app-callout app-callout--default" tal:condition="view/has_active_session" tal:content="nothing" tal:omit-tag="">
                 <pre tal:content="view/stored_filters"></pre>
             </div>
         </tal:can_edit>
