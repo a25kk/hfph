@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-07-26 14:09+0000\n"
+"POT-Creation-Date: 2017-08-02 10:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,15 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: hph.lectures\n"
 
-#: ./../lecture.py:81
+#: ./../lecture.py:82
 msgid "(Example 1: maximum participants 12)(Example 2: Participation only for students of the ethics master)"
 msgstr ""
 
-#: ./../lecture.py:76
+#: ./../lecture.py:77
 msgid "(Example: register until 19.01.2017 via example.tld)"
 msgstr ""
 
-#: ./../browser/courselisting.pt:101
-#: ./../browser/coursemoduleeditor.pt:92
+#: ./../browser/coursemoduleeditor.pt:96
 msgid "-- select an option --"
 msgstr ""
 
@@ -58,7 +57,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: ./../browser/course-view.pt:222
+#: ./../browser/course-view.pt:127
 #: ./../lecture_templates/view.pt:206
 msgid "Add attachment"
 msgstr ""
@@ -67,18 +66,18 @@ msgstr ""
 msgid "Add file attachment"
 msgstr ""
 
-#: ./../browser/coursemoduleeditor.pt:167
+#: ./../browser/coursemoduleeditor.pt:171
 msgid "Add module"
 msgstr ""
 
 #: ./../interfaces.py:132
-#: ./../lecture.py:104
+#: ./../lecture.py:105
 msgid "Additional Information"
 msgstr ""
 
-#: ./../browser/course-view.pt:69
 #: ./../factory_templates/lecturefactory.pt:82
 #: ./../interfaces.py:136
+#: ./../lecture.py:43
 msgid "Additional Lecturer"
 msgstr ""
 
@@ -90,15 +89,11 @@ msgstr ""
 msgid "Advanced seminar"
 msgstr ""
 
-#: ./../browser/courselisting.pt:63
-msgid "Archiv"
-msgstr ""
-
 #: ./../factory.py:236
 msgid "Attachement edit has been cancelled."
 msgstr ""
 
-#: ./../browser/course-view.pt:195
+#: ./../browser/course-view.pt:100
 #: ./../lecture_templates/view.pt:179
 msgid "Attachements"
 msgstr ""
@@ -124,7 +119,7 @@ msgid "Basic module"
 msgstr ""
 
 #: ./../interfaces.py:124
-#: ./../lecture.py:88
+#: ./../lecture.py:89
 msgid "Block Lecture"
 msgstr ""
 
@@ -132,12 +127,8 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ./../coursefolder.py:28
+#: ./../coursefolder.py:29
 msgid "Check to mark this item as current"
-msgstr ""
-
-#: ./../browser/courselisting.pt:204
-msgid "Clear filter"
 msgstr ""
 
 #: ./../vocabulary.py:201
@@ -148,14 +139,14 @@ msgstr ""
 msgid "Content item factory has been cancelled."
 msgstr ""
 
-#: ./../browser/course-view.pt:159
+#: ./../browser/course-view.pt:64
 #: ./../coursedetails.py:26
 #: ./../factory_templates/lectureeditor.pt:44
 msgid "Course Aims"
 msgstr ""
 
 #: ./../interfaces.py:151
-#: ./../lecture.py:67
+#: ./../lecture.py:68
 msgid "Course Dates"
 msgstr ""
 
@@ -164,82 +155,82 @@ msgid "Course Details"
 msgstr ""
 
 #: ./../interfaces.py:146
-#: ./../lecture.py:62
+#: ./../lecture.py:63
 msgid "Course Duration"
 msgstr ""
 
-#: ./../browser/course-view.pt:184
+#: ./../browser/course-view.pt:89
 #: ./../coursedetails.py:46
 #: ./../factory_templates/lectureeditor.pt:69
 msgid "Course Literature"
 msgstr ""
 
-#: ./../browser/course-view.pt:164
+#: ./../browser/course-view.pt:69
 #: ./../coursedetails.py:30
 #: ./../factory_templates/lectureeditor.pt:49
 msgid "Course Method"
 msgstr ""
 
-#: ./../browser/course-view.pt:189
+#: ./../browser/course-view.pt:94
 #: ./../coursedetails.py:50
 #: ./../factory_templates/lectureeditor.pt:74
 msgid "Course Notes"
 msgstr ""
 
-#: ./../browser/course-view.pt:169
+#: ./../browser/course-view.pt:74
 #: ./../coursedetails.py:34
 #: ./../factory_templates/lectureeditor.pt:54
 msgid "Course Prerequirements"
 msgstr ""
 
-#: ./../browser/course-view.pt:174
+#: ./../browser/course-view.pt:79
 #: ./../coursedetails.py:38
 #: ./../factory_templates/lectureeditor.pt:59
 msgid "Course Qualification"
 msgstr ""
 
 #: ./../interfaces.py:169
-#: ./../lecture.py:71
+#: ./../lecture.py:72
 msgid "Course Room"
 msgstr ""
 
 #: ./../interfaces.py:159
-#: ./../lecture.py:140
+#: ./../lecture.py:141
 msgid "Course Semester"
 msgstr ""
 
-#: ./../browser/course-view.pt:179
+#: ./../browser/course-view.pt:84
 #: ./../coursedetails.py:42
 #: ./../factory_templates/lectureeditor.pt:64
 msgid "Course Target"
 msgstr ""
 
-#: ./../browser/course-view.pt:154
+#: ./../browser/course-view.pt:59
 #: ./../coursedetails.py:22
 #: ./../factory_templates/lectureeditor.pt:39
 msgid "Course Theme"
 msgstr ""
 
 #: ./../interfaces.py:155
-#: ./../lecture.py:135
+#: ./../lecture.py:136
 msgid "Course Time"
 msgstr ""
 
-#: ./../lecture.py:54
+#: ./../lecture.py:55
 msgid "Course Title"
 msgstr ""
 
 #: ./../interfaces.py:140
-#: ./../lecture.py:48
+#: ./../lecture.py:49
 msgid "Course Type"
 msgstr ""
 
 #: ./../interfaces.py:165
-#: ./../lecture.py:147
+#: ./../lecture.py:148
 msgid "Course Year"
 msgstr ""
 
-#: ./../lecture.py:100
+#: ./../lecture.py:101
 msgid "Course cancelled"
 msgstr ""
 
@@ -247,19 +238,19 @@ msgstr ""
 msgid "Course module data grid behavior"
 msgstr ""
 
-#: ./../browser/coursemodules.py:219
+#: ./../browser/coursemodules.py:232
 msgid "Course module storages successfully cleaned"
 msgstr ""
 
-#: ./../browser/coursemodules.py:170
+#: ./../browser/coursemodules.py:182
 msgid "Course module successfully removed"
 msgstr ""
 
-#: ./../lecture.py:80
+#: ./../lecture.py:81
 msgid "Course participation restricted"
 msgstr ""
 
-#: ./../lecture.py:75
+#: ./../lecture.py:76
 msgid "Course registration required"
 msgstr ""
 
@@ -288,7 +279,7 @@ msgid "Description"
 msgstr ""
 
 #: ./../interfaces.py:176
-#: ./../lecture.py:116
+#: ./../lecture.py:117
 msgid "Display Selection"
 msgstr ""
 
@@ -456,12 +447,8 @@ msgstr ""
 msgid "Lecture Factory"
 msgstr ""
 
-#: ./../browser/courselisting.pt:30
-msgid "Lectures"
-msgstr ""
-
 #: ./../interfaces.py:112
-#: ./../lecture.py:58
+#: ./../lecture.py:59
 msgid "Lecure Number"
 msgstr ""
 
@@ -549,7 +536,7 @@ msgstr ""
 msgid "Module Studies Personal Development"
 msgstr ""
 
-#: ./../lecture.py:123
+#: ./../lecture.py:124
 msgid "Module Studies Recommendations"
 msgstr ""
 
@@ -561,7 +548,7 @@ msgstr ""
 msgid "Module bearbeiten"
 msgstr ""
 
-#: ./../lecture.py:108
+#: ./../lecture.py:109
 msgid "Moodle Link"
 msgstr ""
 
@@ -572,7 +559,7 @@ msgid "Note:"
 msgstr ""
 
 #: ./../interfaces.py:128
-#: ./../lecture.py:92
+#: ./../lecture.py:93
 msgid "Online Lecture"
 msgstr ""
 
@@ -588,11 +575,11 @@ msgstr ""
 msgid "Philosophy & Leadership Certificate"
 msgstr ""
 
-#: ./../lecture.py:109
+#: ./../lecture.py:110
 msgid "Please enter absolute link to moodle representation"
 msgstr ""
 
-#: ./../lecture.py:43
+#: ./../lecture.py:44
 msgid "Please enter the prefix that you want to be displayed as well, e.g. additional lecturer"
 msgstr ""
 
@@ -600,7 +587,7 @@ msgstr ""
 msgid "Please select module degree"
 msgstr ""
 
-#: ./../lecture.py:33
+#: ./../lecture.py:34
 msgid "Please select one or more lecturers for this course"
 msgstr ""
 
@@ -609,12 +596,12 @@ msgid "Please select the 3rd party project and copy the integration code"
 msgstr ""
 
 #: ./../interfaces.py:160
-#: ./../lecture.py:141
+#: ./../lecture.py:142
 msgid "Please select the course semester for filtering"
 msgstr ""
 
 #: ./../interfaces.py:141
-#: ./../lecture.py:49
+#: ./../lecture.py:50
 msgid "Please select the course type."
 msgstr ""
 
@@ -638,11 +625,15 @@ msgstr ""
 msgid "Raum"
 msgstr ""
 
+#: ./../browser/course-preview.pt:40
+msgid "Raum:"
+msgstr ""
+
 #: ./../vocabulary.py:203
 msgid "Reading course"
 msgstr ""
 
-#: ./../lecture.py:36
+#: ./../lecture.py:37
 msgid "Related lecturer"
 msgstr ""
 
@@ -666,11 +657,19 @@ msgstr ""
 msgid "Select file to upload to this lecture object"
 msgstr ""
 
+#: ./../browser/courselisting.py:551
+msgid "Session cleared"
+msgstr ""
+
+#: ./../browser/courselisting.py:537
+msgid "Session reset"
+msgstr ""
+
 #: ./../browser/courselisting.pt:22
 msgid "Show integration options"
 msgstr ""
 
-#: ./../browser/course-view.pt:219
+#: ./../browser/course-view.pt:124
 #: ./../lecture_templates/view.pt:203
 msgid "Since you are signed in as editor you can add file attachments to this content item"
 msgstr ""
@@ -691,6 +690,10 @@ msgstr ""
 msgid "Summer Semester"
 msgstr ""
 
+#: ./../browser/course-preview.pt:43
+msgid "Termine:"
+msgstr ""
+
 #: ./../factory.py:251
 msgid "The attachment has successfully been added"
 msgstr ""
@@ -704,11 +707,11 @@ msgid "The item has successfully been updated"
 msgstr ""
 
 #: ./../interfaces.py:174
-#: ./../lecture.py:114
+#: ./../lecture.py:115
 msgid "Third Party Project Display"
 msgstr ""
 
-#: ./../browser/courselisting.py:51
+#: ./../browser/courselisting.py:67
 #: ./../browser/coursemodules.py:49
 #: ./../factory.py:138
 msgid "This field is required"
@@ -734,15 +737,10 @@ msgstr ""
 msgid "VV"
 msgstr ""
 
-#: ./../browser/courselisting.pt:38
-msgid "Veranstaltungstyp"
-msgstr ""
-
 #: ./../browser/coursemoduleeditor.pt:28
 msgid "View"
 msgstr ""
 
-#: ./../browser/course-view.pt:142
 #: ./../lecture_templates/view.pt:126
 msgid "View lecture in moodle"
 msgstr ""
@@ -791,7 +789,7 @@ msgstr ""
 msgid "WP Theology"
 msgstr ""
 
-#: ./../coursefolder.py:29
+#: ./../coursefolder.py:30
 msgid "When activated the item will be displayed as current lecture listing. This settings automatically enables the module filter and search indexing."
 msgstr ""
 
@@ -807,27 +805,26 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
-#: ./../browser/coursemoduleeditor.pt:71
+#: ./../browser/coursemoduleeditor.pt:75
 msgid "delete"
 msgstr ""
 
-#: ./../browser/course-view.pt:98
+#: ./../browser/course-preview.pt:48
 #: ./../lecture_templates/view.pt:98
 msgid "edit modules"
 msgstr ""
 
-#: ./../lecture.py:96
+#: ./../lecture.py:97
 msgid "pro‐philosophia‐extra"
 msgstr ""
 
 #: ./../browser/course-view.pt:32
-#: ./../browser/courselisting.pt:57
 #: ./../lecture_templates/view.pt:34
 msgid "remove filter"
 msgstr ""
 
-#: ./../browser/course.py:138
-#: ./../coursefolder.py:54
-#: ./../lecture.py:212
+#: ./../browser/course.py:163
+#: ./../coursefolder.py:55
+#: ./../lecture.py:213
 msgid "undefined"
 msgstr ""
