@@ -8,7 +8,7 @@
     <browser:page
             for="hph.faculty.facultymember.IFacultyMember"
             name="associated-lectures"
-            class=".coursemodules.CourseModuleEditor"
+            class=".lectures.CourseView"
             template="lectures.pt"
             permission="zope2.View"
             layer="..interfaces.IHPHLecturesLayer"
