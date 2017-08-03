@@ -37,7 +37,11 @@
         display: none;
     }
     // Lecture listing defaults
-    .app-list__filter-bar {
+    .app-list__filter-bar,
+    .app-list__result-index {
+        display: none;
+    }
+    .app-btn {
         display: none;
     }
 }
