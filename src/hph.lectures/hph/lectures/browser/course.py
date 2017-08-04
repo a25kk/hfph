@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 """Module providing lecture views"""
+from AccessControl import Unauthorized
 from Acquisition import aq_inner
-from Products.CMFPlone.utils import safe_unicode
-from Products.Five import BrowserView
 from hph.lectures.interfaces import ICourseModuleTool
 from plone import api
+from Products.Five import BrowserView
 from zope.component import getUtility
 from zope.schema.vocabulary import getVocabularyRegistry
 
-from hph.lectures import MessageFactory as _, vocabulary
-from AccessControl import Unauthorized
+from hph.lectures.interfaces import ICourseFilterTool
+from hph.lectures import vocabulary
+from hph.lectures import MessageFactory as _
 
 
 class CourseView(BrowserView):
@@ -115,9 +116,26 @@ class CourseView(BrowserView):
         return data
 
     def module_index_data(self):
-        stored_data = self.course_information()
+        context = aq_inner(self.context)
+        uid = context.UID()
+        tool = getUtility(ICourseModuleTool)
+        stored_data = tool.get_record(uid)
         storage_blacklist = ('degree', 'info', 'theme')
         data = list()
+        for course_key, course_value in stored_data.items():
+            course_title = self.get_degree_course_title(course_key)
+            course_name = str(course_title)
+            if course_value:
+                module_titles = list()
+                for module_name, module_theme in course_value.items():
+                    module_title = str(module_name)
+                    if module_theme:
+                        module_title = '{0} ({1})'.format(
+                            module_title,
+                            ', '.split(module_theme)
+                        )
+                    course_name += ': {0}'.format(module_title)
+                data.append(course_name)
         for item in stored_data['items']:
             if 'degree-course' in item:
                 for key, value in item.items():

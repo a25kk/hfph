@@ -3,15 +3,17 @@
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
-from hph.lectures import vocabulary
-from hph.lectures.interfaces import ICourseModuleTool
 from plone import api
 from plone.app.contenttypes.behaviors.richtext import IRichText
 from plone.app.textfield.value import IRichTextValue
 from plone.indexer.decorator import indexer
-
-from hph.lectures.lecture import ILecture
 from zope.component import getUtility
+
+from hph.lectures import vocabulary
+from hph.lectures.interfaces import ICourseFilterTool
+from hph.lectures.interfaces import ICourseModuleTool
+from hph.lectures.lecture import ILecture
+
 
 
 def _unicode_save_string_concat(*args):

@@ -70,6 +70,36 @@ class CourseModuleTool(object):
             item.reindexObject(idxs='modified')
         return uuid
 
+    def get_record(self, uuid):
+        stored_data = self.read(uuid)
+        data = dict()
+        for item in stored_data['items']:
+            if 'degree-course' in item:
+                course_identifier = item['degree-course']
+                try:
+                    course_module = item['module']
+                except KeyError:
+                    course_module = None
+                course_theme = None
+                if 'course-theme' in item:
+                    course_theme = item['course-theme']
+                if course_identifier in data:
+                    course_data = data[course_identifier]
+                else:
+                    # Add empty dictionary if course identifier
+                    # does not yet exist
+                    course_data = {}
+                if course_module:
+                    if course_module in course_data:
+                        module_info = course_data[course_module]
+                    else:
+                        module_info = list()
+                    if course_theme:
+                        module_info.append(course_theme)
+                    course_data[course_module] = module_info
+                data[course_identifier] = course_data
+        return data
+
     def _create_record(self, uuid, item, data):
         records = {
             "id": str(uuid_tool.uuid4()),
