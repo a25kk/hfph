@@ -85,4 +85,6 @@ def course_module_information(obj):
 
 @indexer(ILecture)
 def index_lecture_course_modules(obj):
-    return course_module_information(obj)
+    course_information = course_module_information(obj)
+    indexed_data = ','.join(map(str, course_information))
+    return indexed_data
