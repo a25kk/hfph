@@ -11,7 +11,7 @@
     <metal:content-core define-macro="main">
 
         <tal:can_edit tal:condition="view/can_edit">
-            <div class="app-callout app-callout-warning">
+            <div class="app-callout app-callout-warning app-print--hidden">
                 <h4 i18n:translate="">Note:</h4>
                 <p i18n:translate="">
                     It appears that you are logged in as staff member. Use the

@@ -119,34 +119,8 @@ class CourseView(BrowserView):
         context = aq_inner(self.context)
         uid = context.UID()
         tool = getUtility(ICourseModuleTool)
-        stored_data = tool.get_record(uid)
-        storage_blacklist = ('degree', 'info', 'theme')
-        data = list()
-        for course_key, course_value in stored_data.items():
-            course_title = self.get_degree_course_title(course_key)
-            course_name = str(course_title)
-            if course_value:
-                module_titles = list()
-                for module_name, module_theme in course_value.items():
-                    module_title = str(module_name)
-                    if module_theme:
-                        module_title = '{0} ({1})'.format(
-                            module_title,
-                            ', '.split(module_theme)
-                        )
-                    course_name += ': {0}'.format(module_title)
-                data.append(course_name)
-        for item in stored_data['items']:
-            if 'degree-course' in item:
-                for key, value in item.items():
-                    if key not in storage_blacklist:
-                        if key == 'degree-course':
-                            value = self.get_degree_course_title(value)
-                        # if value not in data:
-                        data.append(value)
-        # Remove possible duplicates
-        module_data = list(set(data))
-        return module_data
+        stored_data = tool.get_record_index(uid)
+        return stored_data
 
     @staticmethod
     def get_degree_course_title(course):

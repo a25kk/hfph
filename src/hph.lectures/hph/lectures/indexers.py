@@ -68,25 +68,15 @@ def get_degree_course_title(course):
 
 
 def course_module_information(obj):
-    stored_data = get_course_information(obj)
-    storage_blacklist = ('degree', 'info', 'theme')
-    data = list()
-    if 'items' in stored_data:
-        for item in stored_data['items']:
-            if 'degree-course' in item:
-                for key, value in item.items():
-                    if key not in storage_blacklist:
-                        if key == 'degree-course':
-                            data.append(get_degree_course_title(value))
-                        # if value not in data:
-                        data.append(value)
-        # Remove possible duplicates
-        module_information = list(set(data))
-        return module_information
+    context = aq_inner(obj)
+    context_uid = api.content.get_uuid(obj=context)
+    tool = getUtility(ICourseModuleTool)
+    data = tool.get_record_index(context_uid)
+    return data
 
 
 @indexer(ILecture)
 def index_lecture_course_modules(obj):
     course_information = course_module_information(obj)
-    indexed_data = ','.join(map(str, course_information))
+    indexed_data = tuple(safe_unicode(s.strip()) for s in course_information)
     return indexed_data
