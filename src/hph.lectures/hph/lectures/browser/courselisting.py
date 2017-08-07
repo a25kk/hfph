@@ -294,8 +294,8 @@ class CourseListing(BrowserView):
 
     def active_course_filter(self):
         active_filters = self.active_filters()
-        if active_filters and 'degree-course' in active_filters:
-            filter_token = active_filters['degree-course']
+        if active_filters and 'degree-courses' in active_filters:
+            filter_token = active_filters['degree-courses']
             filter_term = self.get_degree_course_title(filter_token)
             return filter_term
         return None
