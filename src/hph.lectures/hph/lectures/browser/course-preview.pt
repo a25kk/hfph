@@ -12,7 +12,7 @@
         <span tal:replace="context/courseNumber" /><span tal:condition="context/blockLecture">*</span><span tal:condition="context/onlineLecture">@</span>
         <tal:lecturer tal:condition="view/has_related_lecturers">
             <tal:contexts tal:repeat="lecturer view/related_lecturers">
-                <a tal:condition="view/is_preview_card" href="lecturer/getURL">
+                <a tal:condition="view/is_preview_card" href="${lecturer/getURL}">
                     ${lecturer/Title}
                 </a>
                 <span tal:condition="not:view/is_preview_card" tal:replace="lecturer/Title" /><tal:separator condition="not: repeat/lecturer/end">,</tal:separator>
