@@ -42,6 +42,10 @@
                                     tal:attributes="href string:${context/absolute_url}/@@publications"
                                     i18n:translate="">Publications</a>
                             </li>
+                            <li class="app-nav-list-item">
+                                <a class="app-nav-list-link" tal:attributes="href string:${context/absolute_url}/@@associated-lectures"
+                                         i18n:translate="">Lehrveranstaltungen</a>
+                            </li>
                             <tal:block tal:repeat="item subcontents">
                                 <li class="app-nav-list-item" tal:define="item_url item/getURL">
                                     <a data-appui="pjaxed"

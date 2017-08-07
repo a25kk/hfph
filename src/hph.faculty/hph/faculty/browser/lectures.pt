@@ -4,13 +4,95 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
          metal:use-macro="context/main_template/macros/master"
-         i18n:domain="hph.lectures">
+         i18n:domain="hph.publications">
 <body>
 
 <metal:main fill-slot="main">
     <metal:content-core define-macro="main">
-        <div class="app-section"></div>
+
+        <div class="app-section">
+            <div class="app-section-aside">
+                <aside class="app-aside" id="app-sidebar"
+                         tal:define="subcontents python:context.restrictedTraverse('@@folderListing')(portal_type=['Folder', 'hph.sitecontent.contentpage'])">
+
+                    <div class="app-card app-card-nav app-card-faculty">
+
+                        <div class="app-card-main">
+                            <ul class="app-nav-list">
+                                <tal:block tal:repeat="filter view/filter_options">
+                                    <li class="app-nav-list-item" tal:define="filter_value filter/value"
+                                             tal:attributes="class python:view.computed_klass(filter_value)">
+                                        <a class="app-nav-list-link"
+                                                 tal:attributes="href string:${view/parent_url}?content_filter=1&amp;academicRole=${filter/value}"
+                                                 tal:content="filter/title">Filter option</a>
+                                    </li>
+                                </tal:block>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="app-card app-card-nav app-card-faculty"
+                             tal:condition="subcontents">
+                        <div class="app-card-header">
+                            <h3 class="app-card-title" tal:content="context/lastname">
+                                Additional Information
+                            </h3>
+                        </div>
+                        <div class="app-card-main">
+                            <ul class="app-nav-list">
+                                <li class="app-nav-list-item" tal:condition="context/associatedPublications">
+                                    <a class="app-nav-list-link" tal:attributes="href string:${context/absolute_url}/@@publications"
+                                             i18n:translate="">Publikationen</a>
+                                </li>
+                                <li class="app-nav-list-item app-nav-list-item-active" tal:condition="view/related_courses">
+                                    <a class="app-nav-list-link" tal:attributes="href string:${context/absolute_url}/@@associated-lectures"
+                                             i18n:translate="">Lehrveranstaltungen</a>
+                                </li>
+                                <tal:block tal:repeat="item subcontents">
+                                    <li class="app-nav-list-item">
+                                        <a class="app-nav-list-link" tal:attributes="href item/getURL"
+                                                 tal:content="item/Title">Filter option</a>
+                                    </li>
+                                </tal:block>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="app-section-main">
+                <article class="tile-content" id="tile-content">
+                    <header class="app-page-header" tal:define="course_folder view/get_current_course_folder">
+                        <h1 class="app-page-title" tal:content="context/Title">Title inserted here</h1>
+                        <p class="app-page__abstract">
+                            Lehrveranstaltungen ${course_folder/Title}
+                        </p>
+                    </header>
+
+                    <section class="app-page-content" id="app-page-content">
+                        <div class="app-callout app-callout-default" tal:condition="not:view/related_courses">
+                            <h4>Note:</h4>
+                            <p>There are no publications available yet</p>
+                        </div>
+
+                        <tal:block tal:condition="view/related_courses">
+                            <div class="app-content-body">
+                                <div class="app-list">
+                                    <article class="app-list__item" tal:repeat="item_uuid view/related_courses">
+                                        <div class="app-list__item-details">
+                                            <span tal:replace="structure python:view.rendered_course_card(item_uuid)" />
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </tal:block>
+                    </section>
+                </article>
+            </div>
+        </div>
+
     </metal:content-core>
 </metal:main>
+
 </body>
 </html>
+
