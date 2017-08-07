@@ -213,15 +213,23 @@ class CourseListing(BrowserView):
                 blacklist = ('token', )
                 stored_data = self.stored_filters()['course-filter']
                 if 'filter' in stored_data:
-                    filter_list = list()
-                    for key, value in stored_data['filter'].items():
-                        if key not in blacklist:
-                            if key == 'course-types':
-                                query['courseType'] = value
-                            else:
-                                filter_list.append(value)
-                    if filter_list:
-                        query['courseModules'] = filter_list
+                    stored_filters = stored_data['filter']
+                    for key, value in stored_filters.items():
+                        if key == 'course-types':
+                            query['courseType'] = value
+                    if self.active_course_filter():
+                        module_filter = self.active_course_filter()
+                        if self.active_course_module_filter():
+                            module_filter = '{0}: {1}'.format(
+                                module_filter,
+                                self.active_course_module_filter()
+                            )
+                        if self.active_course_theme_filter():
+                            module_filter = '{0} ({1})'.format(
+                                module_filter,
+                                self.active_course_theme_filter()
+                            )
+                        query['courseModules'] = module_filter
         results = catalog.searchResults(query)
         # import pdb; pdb.set_trace()
         return results
@@ -294,8 +302,8 @@ class CourseListing(BrowserView):
 
     def active_course_filter(self):
         active_filters = self.active_filters()
-        if active_filters and 'degree-course' in active_filters:
-            filter_token = active_filters['degree-course']
+        if active_filters and 'degree-courses' in active_filters:
+            filter_token = active_filters['degree-courses']
             filter_term = self.get_degree_course_title(filter_token)
             return filter_term
         return None

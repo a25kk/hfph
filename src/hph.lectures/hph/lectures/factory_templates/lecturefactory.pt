@@ -77,7 +77,7 @@
                 <h2>
                     <span tal:content="item/Title" />
                 </h2>
-                <p tal:content="item/subtitle" />
+                <tal:comment tal:content="nothing"><p tal:condition="exists:context/subtitle" tal:content="context/subtitle" /></tal:comment>
                 <p tal:condition="item/lecturerAdditional">
                     <span i18n:translate="">Additional Lecturer</span>
                     <span tal:replace="item/lecturerAdditional" />
