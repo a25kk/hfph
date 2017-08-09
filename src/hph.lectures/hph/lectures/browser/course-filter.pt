@@ -86,5 +86,6 @@
                 </button>
             </div>
         </div>
+        <span tal:replace="structure context/@@authenticator/authenticator"/>
     </form>
 </section>
