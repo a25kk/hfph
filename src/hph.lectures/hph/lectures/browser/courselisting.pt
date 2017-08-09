@@ -11,7 +11,7 @@
     <metal:content-core define-macro="main">
 
         <tal:can_edit tal:condition="view/can_edit">
-            <div class="app-callout app-callout-warning">
+            <div class="app-callout app-callout-warning app-print--hidden">
                 <h4 i18n:translate="">Note:</h4>
                 <p i18n:translate="">
                     It appears that you are logged in as staff member. Use the
@@ -24,89 +24,68 @@
                          i18n:translate="">
                     Show integration options</a>
             </div>
-            <div class="app-callout app-callout--default" tal:condition="view/has_active_session">
+            <div class="app-callout app-callout--default" tal:condition="view/has_active_session" tal:content="nothing" tal:omit-tag="">
                 <pre tal:content="view/stored_filters"></pre>
             </div>
         </tal:can_edit>
 
-        <div class="app-page__header hiddenStructure">
-            <h1 i18n:translate="">Lectures</h1>
-            <p class="app-page__abstract">${context/Title}</p>
+        <div class="app-page__header app-page__header-section">
+            <h1 class="app-page__title">${context/Title}</h1>
+            <div class="app-page__header-action">
+                <a class="app-button app-button--link" href="javascript:window.print()">
+                    <i class="ion ion-ios-print-outline pp-icon pp-icon-sm"></i>
+                    <span tal:omit-tag="" i18n:translate="">Drucken</span>
+                </a>
+            </div>
+        </div>
+        <div class="app-page__abstract app-list__result" tal:condition="view/has_active_session"
+                 tal:define="active_filters view/active_filters">
+            <div class="app-list__result-count">
+                <span tal:condition="view/active_type_filter">Veranstaltungstyp: ${view/active_type_filter} &ndash;</span>
+                <span tal:condition="view/active_course_filter">Studiengang: ${view/active_course_filter}</span>
+                <span tal:condition="view/active_course_module_filter">&ndash; Modul: ${view/active_course_module_filter}</span>
+                <span tal:condition="view/active_course_theme_filter">&ndash; Schwerpunkt: ${view/active_course_theme_filter}</span>
+            </div>
+            <a class="app-btn app-btn--default app-button--filter-reset"
+                     tal:attributes="href string:${context/absolute_url}/@@course-filter-storage-cleanup">
+                <i class="ion ion-ios-close-circle-outline pp-icon pp-icon-sm"></i>
+                <span tal:omit-tag="" i18n:translate="">Filter zurücksetzen</span>
+            </a>
+        </div>
+        <div class="app-list__result-index" tal:condition="view/has_active_session">
+            <span class="result-count">${view/result_count} Suchreffer</span>
         </div>
 
-        <div class="app-section">
-            <div class="app-section__aside">
-                <div class="app-card app-card--lectures">
-                    <div class="app-card__header">
-                        <div class="app-card__heading" i18n:translate="">
-                            Veranstaltungstyp
-                        </div>
-                    </div>
-                    <div class="app-card__main app-card__main--bordered">
-                        <ul class="app-nav-list">
-                            <tal:block tal:repeat="filter view/filter_options">
-                                <li tal:define="filter_value filter/value"
-                                         tal:attributes="class python:view.computed_class(filter_value)">
-                                    <a class="app-nav-list-link"
-                                             tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;courseType=${filter/value}"
-                                             tal:content="filter/title">Filter option</a>
-                                </li>
-                            </tal:block>
-                        </ul>
-                    </div>
-                    <div class="app-card__footer">
-                        <a class="btn btn-danger btn-sm"
-                                 tal:attributes="href string:${context/absolute_url}">
-                            &times; <span i18n:translate="">remove filter</span></a>
-                    </div>
-                </div>
-                <div class="app-card app-card--nav app-card--lectures"
-                         tal:condition="view/has_archives">
-                    <div class="app-card__header">
-                        <div class="app-card__heading" i18n:translate="">Archiv</div>
-                    </div>
-                    <div class="app-card__main app-card__main--bordered">
-                        <ul class="app-nav-list">
-                            <tal:block tal:repeat="folder view/contained_course_folders">
-                                <li class="app-nav-list-item" tal:define="filter_active python:view.is_current_view_context(folder)">
-                                    <a class="app-nav-list-link"
-                                             tal:attributes="href folder/getURL"
-                                             tal:content="folder/Title">Archive folder</a>
-                                </li>
-                            </tal:block>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="app-section__main">
+        <hr>
 
-                <div class="app-page__body">
-                    <section class="app-page__section course-filter" tal:condition="context/is_current_semester" hidden>
-                            <div class="app-list__filter-bar filter-bar">
-                                <span tal:replace="structure python:view.rendered_course_filter_bar(context)" />
-                            </div>
-                            <div class="app-list__result-count">${view/result_count} Einträge</div>
-                    </section>
+        <div class="app-page__body">
+            <section class="app-page__section course-filter" tal:condition="context/is_current_semester">
+                <div class="app-list__filter-bar filter-bar">
+                    <span tal:replace="structure python:view.rendered_course_filter_bar(context)" />
+                </div>
+            </section>
 
-                    <section class="app-page__section app-list" id="content-core"
-                        tal:define="Batch python:modules['Products.CMFPlone'].Batch;
-                                    b_size python:int(request.get('b_size', 20));
+            <hr>
+
+            <section class="app-page__section app-list" id="content-core"
+                     tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                            b_size python:int(request.get('b_size', 20));
                                     b_start python:int(request.get('b_start', 0));
-                                    results view/results;
-                                    batch python:Batch(results, b_size, b_start);">
-                        <article class="app-list__item" tal:repeat="item results">
-                            <div class="app-list__item-details" tal:define="item_uuid item/UID">
-                                <span tal:replace="structure python:view.rendered_course_card(item_uuid)" />
-                            </div>
-                        </article>
-                        <tal:block tal:content="nothing">
-                            <div metal:use-macro="context/batch_macros/macros/navigation" />
-                        </tal:block>
-                    </section>
+                                            results view/results;
+                                                    batch python:Batch(results, b_size, b_start);">
+                <div class="app-list">
+                    <article class="app-list__item" tal:repeat="item results">
+                        <div class="app-list__item-details" tal:define="item_uuid item/UID">
+                            <span tal:replace="structure python:view.rendered_course_card(item_uuid)" />
+                        </div>
+                    </article>
                 </div>
-
-            </div>
+                <tal:block tal:content="nothing">
+                    <div metal:use-macro="context/batch_macros/macros/navigation" />
+                </tal:block>
+            </section>
         </div>
+
 
     </metal:content-core>
 </metal:main>

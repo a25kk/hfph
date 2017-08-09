@@ -15,6 +15,7 @@ var font = new FontFaceObserver('Open Sans');
 font.load().then(function () {
     document.documentElement.className += " app-fonts-loaded";
 });
+
 // $('.js-ticker').marquee({ speed: 5000 });
 // Integrate carousel for news ticekr content
 var $tickerBar = document.querySelectorAll('.js-ticker');
@@ -38,10 +39,11 @@ var _interdependent_select_defaults = {
 };
 function interdependentSelect(_options) {
     var options = $.extend({}, _interdependent_select_defaults, _options);
-    var $selectBoxes = $(options.selector);
+    var $selectBoxes = $(options.selector),
+        $filterActions = $(options.filterFormAction);
     $selectBoxes.each(function (){
         var $el = $(this);
-        $el.on('change', function(e){
+        $el.on('change', function(e) {
             var $selectedValue = $(this).find(":selected").val(),
                 $connectedSelect = $(this).data('target-list'),
                 $selectorType = $(this).data('selector');
@@ -64,12 +66,18 @@ function interdependentSelect(_options) {
             $targetSelector.addClass(options.classVisible);
             // Handle additional course theme select boxes
             if ($selectedValue !== 'ba') {
-                var $themeSelectorId = '#selector__core-theme--' + $selectedValue,
+                var $themeSelectorId = options.themeSelectorBaseId + $selectedValue,
                     $themeSelector = $($themeSelectorId);
                 console.log($themeSelectorId);
                 $themeSelector.addClass(options.classVisible);
                 $themeSelector.removeClass(options.classHidden);
             }
+            // Show actions after successful selection
+            $filterActions.each(function() {
+                var $el = $(this);
+                $el.removeClass(options.filterFormActionHidden);
+                $el.addClass(options.filterFormActionVisible);
+            });
         })
     });
 }
@@ -79,6 +87,10 @@ var _selector_defaults = {
     selector: '.js-module-selector',
     classVisible: 'module__select--visible fadeInDown',
     classHidden: 'module__select--hidden fadeOutUp',
+    themeSelectorBaseId: '#selector__core-theme--',
+    filterFormAction: '.js-filter-action',
+    filterFormActionHidden: 'filter__block--hidden',
+    filterFormActionVisible: 'filter__block--visible'
 };
 interdependentSelect(_selector_defaults);
 
@@ -87,6 +99,10 @@ var _selector_filter = {
     selector: '.js-filter-box',
     classVisible: 'form-field__select--visible fadeIn',
     classHidden: 'form-field__select--hidden fadeOut',
+    themeSelectorBaseId: '#selector__core-theme--',
+    filterFormAction: '.js-filter-action',
+    filterFormActionHidden: 'filter__block--hidden',
+    filterFormActionVisible: 'filter__block--visible'
 };
 interdependentSelect(_selector_filter);
 

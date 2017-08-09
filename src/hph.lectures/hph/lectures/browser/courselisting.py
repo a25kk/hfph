@@ -12,7 +12,6 @@ from Products.Five import BrowserView
 from hph.lectures.interfaces import ICourseFilterTool
 from hph.lectures.lecture import ILecture
 from plone import api
-from plone.app.contentlisting.interfaces import IContentListing
 from plone.keyring import django_random
 
 from zope.component import getMultiAdapter, getUtility
@@ -110,21 +109,29 @@ class CourseListing(BrowserView):
         return current_marker
 
     def _update_query(self, form_data):
-        self.query['courseModules'] = [
-            value for value in form_data.values()
-        ]
+        context = aq_inner(self.context)
         name = 'course-filter'
         filter_data = form_data
         tool = getUtility(ICourseFilterTool)
         if not self.has_active_session():
             session_token = self.generate_session_token()
             filter_data['token'] = session_token
-            session_data = tool.create_record(session_token, filter_data)
+            stored_data = tool.create_record(session_token, filter_data)
         else:
             session_data = tool.get()
-            session_data[name]['filters'] = filter_data
-        tool.add(name, session_data)
-        return
+            stored_data = session_data[name]
+        updated_filters = stored_data['filter']
+        for key, value in form_data.items():
+            if key == 'degree-course':
+                # Clean possible duplicates
+                if not isinstance(value, basestring):
+                    updated_filters[key] = list(set(value))
+            else:
+                updated_filters[key] = value
+        if updated_filters:
+            stored_data['filter'] = updated_filters
+            tool.add(name, stored_data)
+        return self.request.response.redirect(context.absolute_url())
 
     def contained_course_folders(self):
         context = aq_inner(self.context)
@@ -193,25 +200,39 @@ class CourseListing(BrowserView):
         query = self.query
         project_filter = self.request.get('project', None)
         course_filter = self.request.get('courseType', None)
-        if self.has_active_session():
-            blacklist = ('token', )
-            filter_data = self.stored_filters()['course-filter']
-            if 'filter' in filter_data:
-                filter_list = list()
-                for stored_filter in filter_data['filter']:
-                    for key, value in stored_filter.items():
-                        if key not in blacklist:
-                            filter_list.append(value)
-                query['courseModules'] = filter_list
+        # URL parameter bases content filters have presence of stored
+        # or preselected values inside the session
         if self.filter is not None:
             if course_filter is not None:
                 query['courseType'] = course_filter
             if project_filter is not None:
                 query['externalFundsProject'] = project_filter
-        print(query)
+        else:
+            # Use stored filter session
+            if self.has_active_session():
+                blacklist = ('token', )
+                stored_data = self.stored_filters()['course-filter']
+                if 'filter' in stored_data:
+                    stored_filters = stored_data['filter']
+                    for key, value in stored_filters.items():
+                        if key == 'course-types':
+                            query['courseType'] = value
+                    if self.active_course_filter():
+                        module_filter = self.active_course_filter()
+                        if self.active_course_module_filter():
+                            module_filter = '{0}: {1}'.format(
+                                module_filter,
+                                self.active_course_module_filter()
+                            )
+                        if self.active_course_theme_filter():
+                            module_filter = '{0} ({1})'.format(
+                                module_filter,
+                                self.active_course_theme_filter()
+                            )
+                        query['courseModules'] = module_filter
         results = catalog.searchResults(query)
         # import pdb; pdb.set_trace()
-        return IContentListing(results)
+        return results
 
     def _base_query(self):
         context = aq_inner(self.context)
@@ -256,6 +277,59 @@ class CourseListing(BrowserView):
         tool = getUtility(ICourseFilterTool)
         return tool.get()
 
+    def active_filters(self):
+        stored_data = self.stored_filters()
+        if 'course-filter' in stored_data:
+            filter_data = stored_data['course-filter']
+            if 'filter' in filter_data:
+                active_filters = dict()
+                filters = filter_data['filter']
+                for key, value in filters.items():
+                    if key != 'token':
+                        active_filters[key] = value
+                return active_filters
+            else:
+                return None
+
+    def active_type_filter(self):
+        active_filters = self.active_filters()
+        if active_filters and 'course-types' in active_filters:
+            filter_options = self.filter_options()
+            course_type = active_filters['course-types']
+            filter_term = filter_options.getTermByToken(course_type)
+            return filter_term.title
+        return None
+
+    def active_course_filter(self):
+        active_filters = self.active_filters()
+        if active_filters and 'degree-courses' in active_filters:
+            filter_token = active_filters['degree-courses']
+            filter_term = self.get_degree_course_title(filter_token)
+            return filter_term
+        return None
+
+    def active_course_module_filter(self):
+        active_filters = self.active_filters()
+        if active_filters and 'course-modules--master' in active_filters:
+            filter_token = active_filters['course-modules--master']
+            return filter_token
+        if active_filters and 'course-modules--bachelor' in active_filters:
+            filter_token = active_filters['course-modules--bachelor']
+            filter_term = self.learning_modules_bachelor()[filter_token]
+            return filter_term
+        return None
+
+    def active_course_theme_filter(self):
+        active_filters = self.active_filters()
+        if active_filters:
+            for filter_item in active_filters:
+                if filter_item.startswith('core-theme'):
+                    filter_token = active_filters[filter_item]
+                    theme_id = filter_item.split('--')[1]
+                    theme_list = self.course_core_themes()[theme_id]
+                    return theme_list[filter_token]
+        return None
+
 
 class CourseFilter(BrowserView):
     """ Edit course module data via basic form """
@@ -263,6 +337,35 @@ class CourseFilter(BrowserView):
     def __init__(self, context, request):
         self.context = context
         self.request = request
+
+    def has_active_session(self):
+        active = False
+        try:
+            session = self.stored_filters()
+        except KeyError:
+            session = None
+        if session:
+            active = True
+        return active
+
+    @staticmethod
+    def stored_filters():
+        tool = getUtility(ICourseFilterTool)
+        return tool.get()
+
+    def active_filters(self):
+        stored_data = self.stored_filters()
+        if 'course-filter' in stored_data:
+            filter_data = stored_data['course-filter']
+            if 'filter' in filter_data:
+                active_filters = dict()
+                filters = filter_data['filter']
+                for key, value in filters.items():
+                    if key != 'token':
+                        active_filters[key] = value
+                return active_filters
+            else:
+                return None
 
     @staticmethod
     def degree_courses():
@@ -355,9 +458,8 @@ class CourseFilterSelectBox(BrowserView):
                 active_filters = filter_data['filter']
             except KeyError:
                 return False
-            for item in active_filters:
-                if filter_value in item.values():
-                    return True
+            if filter_value in active_filters.values():
+                return True
         return False
 
     @staticmethod
@@ -382,6 +484,15 @@ class CourseFilterSelectBox(BrowserView):
         sorted_items = collections.OrderedDict(sorted(learning_modules.items()))
         return sorted_items
 
+    def course_types(self):
+        context = aq_inner(self.context)
+        vr = getVocabularyRegistry()
+        vocab = vr.get(context, 'hph.lectures.CourseType')
+        course_types = dict()
+        for term in vocab:
+            course_types[term.value] = term.title
+        return course_types
+
     @staticmethod
     def course_core_themes():
         return vocabulary.course_core_themes()
@@ -395,7 +506,8 @@ class CourseFilterSelectBox(BrowserView):
             'courses': courses,
             'modules-ba': self.learning_modules_bachelor(),
             'modules-ma': self.learning_modules_master(),
-            'core-themes': self.course_core_themes()
+            'core-themes': self.course_core_themes(),
+            'course-types': self.course_types()
         }
         for theme_key, theme_value in self.course_core_themes().items():
             map_key = 'core-theme-{0}'.format(theme_key)
@@ -428,7 +540,7 @@ class CourseFilterStorageReset(BrowserView):
         context = aq_inner(self.context)
         tool = getUtility(ICourseFilterTool)
         session = tool.get()
-        session_data = self.stored_filters()['course-filter']
+        session_data = session['course-filter']
         session_data['filters'] = list()
         tool.add('course-filter', session_data)
         api.portal.show_message(

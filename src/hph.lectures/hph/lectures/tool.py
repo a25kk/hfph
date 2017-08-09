@@ -6,6 +6,7 @@ import time
 import uuid as uuid_tool
 from Products.CMFPlone.utils import safe_unicode
 from collective.beaker.interfaces import ISession
+from hph.lectures import vocabulary
 from plone import api
 from plone.memoize.view import memoize
 from zope.globalrequest import getRequest
@@ -70,6 +71,71 @@ class CourseModuleTool(object):
             item.reindexObject(idxs='modified')
         return uuid
 
+    def get_record(self, uuid):
+        data = dict()
+        stored_data = self.read(uuid)
+        if stored_data:
+            for item in stored_data['items']:
+                if 'degree-course' in item:
+                    course_identifier = item['degree-course']
+                    try:
+                        course_module = item['module']
+                    except KeyError:
+                        course_module = None
+                    course_theme = None
+                    if 'course-theme' in item:
+                        course_theme = item['course-theme']
+                    if course_identifier in data:
+                        course_data = data[course_identifier]
+                    else:
+                        # Add empty dictionary if course identifier
+                        # does not yet exist
+                        course_data = {}
+                    if course_module:
+                        if course_module in course_data:
+                            module_info = course_data[course_module]
+                        else:
+                            module_info = list()
+                        if course_theme:
+                            module_info.append(course_theme)
+                        course_data[course_module] = module_info
+                    data[course_identifier] = course_data
+        return data
+
+    def get_record_index(self, uuid):
+        stored_data = self.get_record(uuid)
+        storage_blacklist = ('degree', 'info', 'theme')
+        data = list()
+        for course_key, course_value in stored_data.items():
+            course_title = self.get_degree_course_title(course_key)
+            course_name = str(course_title)
+            if course_value:
+                module_titles = list()
+                for module_name, module_theme in course_value.items():
+                    module_name_rendered = self.get_learning_modules(
+                        course_key,
+                        module_name
+                    )
+                    module_title = module_name_rendered
+                    module_titles.append(module_title)
+                    if module_theme:
+                        for theme in module_theme:
+                            module_title_and_theme = '{0} ({1})'.format(
+                                module_title,
+                                theme
+                            )
+                            module_titles.append(module_title_and_theme)
+                if module_titles:
+                    for title in module_titles:
+                        course_name_item = '{0}: {1}'.format(
+                            course_name,
+                            str(title.encode('utf-8'))
+                        )
+                        data.append(course_name_item)
+            data.append(course_name)
+        module_data = list(set(sorted(data)))
+        return module_data
+
     def _create_record(self, uuid, item, data):
         records = {
             "id": str(uuid_tool.uuid4()),
@@ -90,6 +156,23 @@ class CourseModuleTool(object):
         """
         su = safe_unicode(value)
         return su.encode('utf-8')
+
+    @staticmethod
+    def get_degree_course_title(course):
+        course_names = vocabulary.degree_courses_tokens()
+        return course_names[course]
+
+    @staticmethod
+    def get_learning_modules(course, course_module):
+        if course == 'ba':
+            modules = vocabulary.learning_modules_bachelor()
+        else:
+            modules = vocabulary.learning_modules_master()
+        try:
+            module_title = modules[course_module]
+        except KeyError:
+            module_title = course_module
+        return module_title
 
 
 class CourseFilterTool(object):

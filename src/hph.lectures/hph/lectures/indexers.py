@@ -3,15 +3,17 @@
 from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
-from hph.lectures import vocabulary
-from hph.lectures.interfaces import ICourseModuleTool
 from plone import api
 from plone.app.contenttypes.behaviors.richtext import IRichText
 from plone.app.textfield.value import IRichTextValue
 from plone.indexer.decorator import indexer
-
-from hph.lectures.lecture import ILecture
 from zope.component import getUtility
+
+from hph.lectures import vocabulary
+from hph.lectures.interfaces import ICourseFilterTool
+from hph.lectures.interfaces import ICourseModuleTool
+from hph.lectures.lecture import ILecture
+
 
 
 def _unicode_save_string_concat(*args):
@@ -66,23 +68,15 @@ def get_degree_course_title(course):
 
 
 def course_module_information(obj):
-    stored_data = get_course_information(obj)
-    storage_blacklist = ('degree', 'info', 'theme')
-    data = list()
-    if 'items' in stored_data:
-        for item in stored_data['items']:
-            if 'degree-course' in item:
-                for key, value in item.items():
-                    if key not in storage_blacklist:
-                        if key == 'degree-course':
-                            data.append(get_degree_course_title(value))
-                        # if value not in data:
-                        data.append(value)
-        # Remove possible duplicates
-        module_information = list(set(data))
-        return module_information
+    context = aq_inner(obj)
+    context_uid = api.content.get_uuid(obj=context)
+    tool = getUtility(ICourseModuleTool)
+    data = tool.get_record_index(context_uid)
+    return data
 
 
 @indexer(ILecture)
 def index_lecture_course_modules(obj):
-    return course_module_information(obj)
+    course_information = course_module_information(obj)
+    indexed_data = tuple(safe_unicode(s.strip()) for s in course_information)
+    return indexed_data

@@ -28,12 +28,21 @@
     }
 
     // Hide components
+    .app-print--hidden,
     .app-header,
     .app-pathbar,
     .app-main-aside,
     .app-contact-panel,
     .app-contact-actions,
     .app-footer {
+        display: none;
+    }
+    // Lecture listing defaults
+    .app-list__filter-bar,
+    .app-list__result-index {
+        display: none;
+    }
+    .app-btn {
         display: none;
     }
 }

@@ -15,12 +15,20 @@
     border-bottom: 1px solid $gray-lighter;
 }
 
+.app-page__header-section {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+    border-bottom: 1px solid $gray-lighter;
+}
+
 .app-page-headline,
 .app-page-title {
 	font-size: 2rem;
 }
 
-.app-page-abstract {
+.app-page-abstract,
+.app-page__abstract {
     font-weight: 700;
     @include when-inside('app-fonts-loaded') {
         font-weight: 600;

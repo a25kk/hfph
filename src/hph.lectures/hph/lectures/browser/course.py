@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
 """Module providing lecture views"""
+from AccessControl import Unauthorized
 from Acquisition import aq_inner
-from Products.CMFPlone.utils import safe_unicode
-from Products.Five import BrowserView
 from hph.lectures.interfaces import ICourseModuleTool
 from plone import api
+from Products.Five import BrowserView
 from zope.component import getUtility
 from zope.schema.vocabulary import getVocabularyRegistry
 
-from hph.lectures import MessageFactory as _, vocabulary
+from hph.lectures.interfaces import ICourseFilterTool
+from hph.lectures import vocabulary
+from hph.lectures import MessageFactory as _
 
 
 class CourseView(BrowserView):
@@ -114,20 +116,11 @@ class CourseView(BrowserView):
         return data
 
     def module_index_data(self):
-        stored_data = self.course_information()
-        storage_blacklist = ('degree', 'info', 'theme')
-        data = list()
-        for item in stored_data['items']:
-            if 'degree-course' in item:
-                for key, value in item.items():
-                    if key not in storage_blacklist:
-                        if key == 'degree-course':
-                            value = self.get_degree_course_title(value)
-                        # if value not in data:
-                        data.append(value)
-        # Remove possible duplicates
-        module_data = list(set(data))
-        return module_data
+        context = aq_inner(self.context)
+        uid = context.UID()
+        tool = getUtility(ICourseModuleTool)
+        stored_data = tool.get_record_index(uid)
+        return stored_data
 
     @staticmethod
     def get_degree_course_title(course):
@@ -217,6 +210,26 @@ class CoursePreview(BrowserView):
                 if role in admin_roles:
                     allowed = True
         return allowed
+
+    def related_lecturers(self):
+        """Returns a list of brains of related items."""
+        results = []
+        catalog = api.portal.get_tool('portal_catalog')
+        for rel in self.context.lecturer:
+            if rel.isBroken():
+                # skip broken relations
+                continue
+            # query by path so we don't have to wake up any objects
+            try:
+                brains = catalog(path={'query': rel.to_path, 'depth': 0})
+                results.append(brains[0])
+            except Unauthorized:
+                print(rel.from_object.Title)
+                pass
+        return results
+
+    def has_related_lecturers(self):
+        return len(self.related_lecturers()) > 0
 
     def course_information(self):
         context = aq_inner(self.context)
