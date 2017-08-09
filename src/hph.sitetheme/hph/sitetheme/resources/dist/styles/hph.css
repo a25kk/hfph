@@ -20961,6 +20961,19 @@ app-fonts-loaded .app-bulletin__abstract
     border-bottom: 1px solid #eceeef;
 }
 
+.app-page__header-section
+{
+    display: -ms-flexbox;
+    display: flex;
+
+    margin: 2rem 0;
+
+    border-bottom: 1px solid #eceeef; 
+
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
 .app-page-headline,
 .app-page-title
 {

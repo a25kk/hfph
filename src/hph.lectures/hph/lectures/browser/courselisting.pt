@@ -29,8 +29,14 @@
             </div>
         </tal:can_edit>
 
-        <div class="app-page__header">
+        <div class="app-page__header app-page__header-section">
             <h1 class="app-page__title">${context/Title}</h1>
+            <div class="app-page__header-action">
+                <a class="app-button app-button--link" href="javascript:window.print()">
+                    <i class="ion ion-ios-print-outline pp-icon pp-icon-sm"></i>
+                    <span tal:omit-tag="" i18n:translate="">Drucken</span>
+                </a>
+            </div>
         </div>
         <div class="app-page__abstract app-list__result" tal:condition="view/has_active_session"
                  tal:define="active_filters view/active_filters">
