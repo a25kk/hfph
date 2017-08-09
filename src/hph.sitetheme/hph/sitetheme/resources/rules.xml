@@ -329,6 +329,10 @@
           </xsl:choose>
         </replace>
 
+        <before css:theme-children="#content"
+               css:content=".portalMessage"
+               css:if-content=".portalMessage" />
+
 
         <!-- Form transforms -->
 
