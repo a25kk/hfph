@@ -74,7 +74,7 @@
     <theme href="dist/signin/index.html" css:if-content="body.template-login_failed" />
     <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_form" />
     <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_response" />
-    <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_form" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-passwordreset" />
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
     <theme href="dist/signin/index.html" css:if-content="body.template-useraccount" />
     <theme href="dist/signin/index.html" css:if-content="body.template-useraccount-error" />
@@ -212,7 +212,7 @@
                  css:if-content="body.template-mail_password_response" />
         <replace css:content-children="#content"
                  css:theme-children="#app-signin-content"
-                 css:if-content="body.template-pwreset_form" />
+                 css:if-content="body.template-passwordreset" />
         <replace css:content-children="#content"
                  css:theme-children="#app-signin-content"
                  css:if-content="body.template-pwreset_finish" />
