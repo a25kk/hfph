@@ -48,7 +48,7 @@ def learning_modules_bachelor():
     """
     modules = {
         'I/1':  _(u"I/1"),
-        'I/2"': _(u"I/2"),
+        'I/2': _(u"I/2"),
         'I/3':  _(u"I/3"),
         'I/4':  _(u"I/4"),
         'I/5':  _(u"I/5"),
