@@ -32,7 +32,8 @@
                 </div>
 
                 <div class="app-card app-card-nav app-card-faculty"
-                    tal:condition="subcontents">
+                     tal:define="associated_publications python:context.associatedPublications"
+                     tal:condition="python:subcontents or associated_publications">
                     <div class="app-card-header">
                     </div>
                     <div class="app-card-main">
@@ -46,16 +47,18 @@
                                 <a class="app-nav-list-link" tal:attributes="href string:${context/absolute_url}/@@associated-lectures"
                                          i18n:translate="">Lehrveranstaltungen</a>
                             </li>
-                            <tal:block tal:repeat="item subcontents">
-                                <li class="app-nav-list-item" tal:define="item_url item/getURL">
-                                    <a data-appui="pjaxed"
-                                       class="app-nav-list-link"
-                                        tal:attributes="href item_url;
+                            <tal:sub_contents tal:condition="subcontents">
+                                <tal:block tal:repeat="item subcontents">
+                                    <li class="app-nav-list-item" tal:define="item_url item/getURL">
+                                        <a data-appui="pjaxed"
+                                           class="app-nav-list-link"
+                                                 tal:attributes="href item_url;
                                                         data-source-url string:${item_url}?ajax_load=1#content-core;
-                                                        data-appui-hide string:#page-content"
-                                        tal:content="item/Title">Filter option</a>
-                                </li>
-                            </tal:block>
+                                                data-appui-hide string:#page-content"
+                                                 tal:content="item/Title">Filter option</a>
+                                    </li>
+                                </tal:block>
+                            </tal:sub_contents>
                         </ul>
                     </div>
                     <div class="app-box-footer hide" id="app-box-footer">

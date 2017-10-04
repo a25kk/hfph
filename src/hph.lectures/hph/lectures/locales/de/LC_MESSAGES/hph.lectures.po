@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2017-08-02 10:24+0000\n"
-"PO-Revision-Date: 2017-08-02 12:29+0200\n"
+"POT-Creation-Date: 2017-10-04 15:02+0000\n"
+"PO-Revision-Date: 2017-10-04 17:11+0200\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 "Language: de\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.0.4\n"
 
 #: ../lecture.py:82
 msgid "(Example 1: maximum participants 12)(Example 2: Participation only for students of the ethics master)"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "(Example: register until 19.01.2017 via example.tld)"
 msgstr "(Beispiel: bis: 19.01.2017, unter: Ignatius.Dampf@hfph.de)"
 
-#: ../browser/coursemoduleeditor.pt:96
+#: ../browser/course-select-box.pt:9 ../browser/coursemoduleeditor.pt:96
 msgid "-- select an option --"
 msgstr "— Bitte wählen —"
 
@@ -165,7 +165,7 @@ msgstr "Methode"
 #: ../browser/course-view.pt:94 ../coursedetails.py:50
 #: ../factory_templates/lectureeditor.pt:74
 msgid "Course Notes"
-msgstr "Anmerkung der Kanzlerin"
+msgstr "Anmerkung der Hochschulleitung"
 
 #: ../browser/course-view.pt:74 ../coursedetails.py:34
 #: ../factory_templates/lectureeditor.pt:54
@@ -263,6 +263,10 @@ msgstr "Beschreibung"
 msgid "Display Selection"
 msgstr "Auswahl"
 
+#: ../browser/courselisting.pt:37
+msgid "Drucken"
+msgstr "Drucken"
+
 #: ../vocabulary.py:89
 msgid "EG"
 msgstr "Ethik und Gesellschaft (EG)"
@@ -302,6 +306,10 @@ msgstr "Datei"
 #: ../coursefolder_templates/xhrintegration.pt:51
 msgid "Filter course listing on <code>${filter/value}</code>: <a href=\"${context/absolute_url}?content_filter=1&amp;project=${filter/value}\">Preview</a>"
 msgstr "Liste filtern nach <code>${filter/value}</code>: <a href=\"${context/absolute_url}?content_filter=1&amp;project=${filter/value}\">Vorschau</a>"
+
+#: ../browser/courselisting.py:135
+msgid "Filter successfully updated"
+msgstr "Filter erfolgreich aktualisiert"
 
 #: ../vocabulary.py:87
 msgid "GN"
@@ -629,11 +637,11 @@ msgstr "Schwerpunkt"
 msgid "Select file to upload to this lecture object"
 msgstr "Datei zum Hochladen auswählen"
 
-#: ../browser/courselisting.py:551
+#: ../browser/courselisting.py:571
 msgid "Session cleared"
 msgstr "Filter wurden bereinigt"
 
-#: ../browser/courselisting.py:537
+#: ../browser/courselisting.py:557
 msgid "Session reset"
 msgstr "Filter zurückgesetzt"
 
@@ -681,7 +689,7 @@ msgstr "Der Inhalt wurde erfolgrich aktualisiert"
 msgid "Third Party Project Display"
 msgstr "Drittmittelprojekte"
 
-#: ../browser/courselisting.py:67 ../browser/coursemodules.py:49
+#: ../browser/courselisting.py:66 ../browser/coursemodules.py:49
 #: ../factory.py:138
 msgid "This field is required"
 msgstr "Dieses Feld ist ein Pflichtfeld"
@@ -790,6 +798,6 @@ msgstr "pro‐philosophia‐extra"
 msgid "remove filter"
 msgstr "Filter entfernen"
 
-#: ../browser/course.py:163 ../coursefolder.py:55 ../lecture.py:213
+#: ../browser/course.py:155 ../coursefolder.py:55 ../lecture.py:213
 msgid "undefined"
 msgstr "undefiniert"
