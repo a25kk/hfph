@@ -17512,6 +17512,7 @@ a:hover
     visibility: hidden;
 }
 
+.hide,
 .hiddenStructure
 {
     position: absolute;
@@ -21406,6 +21407,33 @@ app-fonts-loaded
 .panelpage-label + .panelpage-label
 {
     margin-left: 2rem;
+}
+
+.ppe-toggle
+{
+    display: table; 
+
+    color: #575757;
+}
+.ppe-toggle:before,
+.ppe-toggle:after
+{
+    display: table-cell;
+
+    width: 50%;
+
+    content: '';
+
+    background-image: linear-gradient(transparent 40%, #87a 40%, #87a 60%, transparent 60%);
+    background-clip: padding;
+}
+.ppe-toggle:before
+{
+    border-left: 1.5em solid transparent;
+}
+.ppe-toggle:after
+{
+    border-right: 1.5em solid transparent;
 }
 
 .ppe-header

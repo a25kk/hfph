@@ -31,14 +31,12 @@
                     </div>
                 </div>
 
-                <div class="app-card app-card-nav app-card-faculty"
-                     tal:define="associated_publications python:context.associatedPublications"
-                     tal:condition="python:subcontents or associated_publications">
+                <div class="app-card app-card-nav app-card-faculty">
                     <div class="app-card-header">
                     </div>
                     <div class="app-card-main">
                         <ul class="app-nav-list">
-                            <li class="app-nav-list-item" tal:condition="context/associatedPublications">
+                            <li class="app-nav-list-item" tal:condition="python:view.has_publications()">
                                 <a class="app-nav-list-link"
                                     tal:attributes="href string:${context/absolute_url}/@@publications"
                                     i18n:translate="">Publications</a>
@@ -47,7 +45,7 @@
                                 <a class="app-nav-list-link" tal:attributes="href string:${context/absolute_url}/@@associated-lectures"
                                          i18n:translate="">Lehrveranstaltungen</a>
                             </li>
-                            <tal:sub_contents tal:condition="subcontents">
+                            <tal:sub_contents tal:condition="python:subcontents">
                                 <tal:block tal:repeat="item subcontents">
                                     <li class="app-nav-list-item" tal:define="item_url item/getURL">
                                         <a data-appui="pjaxed"

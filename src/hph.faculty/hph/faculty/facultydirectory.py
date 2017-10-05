@@ -55,7 +55,9 @@ class View(grok.View):
         return dict(object_provides=obj_provides,
                     path=query_path,
                     review_state='published',
-                    sort_on='lastname')
+                    sort_on='lastname',
+                    academicRole='professor'
+                    )
 
 
 class ContentFilter(grok.View):
@@ -71,7 +73,9 @@ class ContentFilter(grok.View):
 
     def computed_klass(self, value):
         active_filter = self.request.get('academicRole', None)
-        klass = 'nav-item-plain'
+        klass = 'app-nav-list-item'
+        if value == 'professor' and not active_filter:
+            klass = 'app-nav-list-item-active'
         if active_filter == value:
-            klass = 'active'
+            klass = 'app-nav-list-item-active'
         return klass

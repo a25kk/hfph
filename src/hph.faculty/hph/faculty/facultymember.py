@@ -160,6 +160,16 @@ class View(grok.View):
             display = True
         return display
 
+    def has_publications(self):
+        context = aq_inner(self.context)
+        try:
+            content = context.associatedPublications
+        except AttributeError:
+            content = None
+        if content is not None:
+            return True
+        return False
+
 
 class Publications(grok.View):
     grok.context(IFacultyMember)
