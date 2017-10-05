@@ -42,7 +42,7 @@
                             Weitere Termine
                         </a>
                         <a class="app-btn app-btn-sm"
-                            href="${portal_url}/studium/studiengaenge/termine">
+                            href="${portal_url}/studium/semester/zeittafel/termine">
                             Studientermine</a>
                     </div>
                 </div>
