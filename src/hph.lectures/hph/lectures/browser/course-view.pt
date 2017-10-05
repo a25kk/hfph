@@ -48,6 +48,13 @@
                     </div>
                 </tal:can_edit>
 
+                <div class="app-page-section" tal:define="theme_names view/get_course_theme_names">
+                    <tal:block tal:repeat="name theme_names">
+                        <p tal:content="python:theme_names[name]"></p>
+                    </tal:block>
+                </div>
+
+
                 <article class="app-list__item">
                     <div class="app-list__item-details" tal:define="item_uuid context/UID">
                         <span tal:replace="structure python:view.rendered_course_card(item_uuid)" />
