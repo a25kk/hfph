@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2017-10-05 10:02+0000\n"
-"PO-Revision-Date: 2017-10-05 12:06+0200\n"
+"PO-Revision-Date: 2017-10-05 12:14+0200\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "Language: de\n"
@@ -278,7 +278,7 @@ msgstr "Drucken"
 
 #: ../vocabulary.py:89
 msgid "EG"
-msgstr "Ethik und Gesellschaft (EG)"
+msgstr "EG"
 
 #: ../vocabulary.py:156
 msgid "Economic Ethics"
@@ -330,7 +330,7 @@ msgstr "Filter erfolgreich aktualisiert"
 
 #: ../vocabulary.py:87
 msgid "GN"
-msgstr "Geist und Natur (GN)"
+msgstr "GN"
 
 #: ../vocabulary.py:139
 msgid "Global Solidarity"
@@ -370,7 +370,7 @@ msgstr "I/6"
 
 #: ../vocabulary.py:97
 msgid "IE"
-msgstr "Interkulturelle Erwachsenenbildung (IE)"
+msgstr "IE"
 
 #: ../vocabulary.py:34
 msgid "II"
@@ -506,11 +506,11 @@ msgstr "MAkons (konsekutiver Master)"
 
 #: ../vocabulary.py:93
 msgid "MED"
-msgstr "Medienethik (MED)"
+msgstr "MED"
 
 #: ../vocabulary.py:94
 msgid "MEZ"
-msgstr "Medizinethik (MEZ)"
+msgstr "MEZ"
 
 #: ../vocabulary.py:240
 msgid "Mag"
@@ -587,7 +587,7 @@ msgstr "Online-Kurs"
 
 #: ../vocabulary.py:100
 msgid "PB"
-msgstr "Persönlichkeitsbildung im interkulturellen Kontext (PB)"
+msgstr "PB"
 
 #: ../vocabulary.py:121
 msgid "Personal Development (PB)"
@@ -649,7 +649,7 @@ msgstr "Integrationsauswahl beenden"
 
 #: ../vocabulary.py:88
 msgid "RV"
-msgstr "Religion und Vernunft (RV)"
+msgstr "RV"
 
 #: ../lecture_templates/view.pt:78
 msgid "Raum"
@@ -673,7 +673,7 @@ msgstr "Religion und Vernunft (RV)"
 
 #: ../vocabulary.py:99
 msgid "SC"
-msgstr "Spiritual Care (SC)"
+msgstr "SC"
 
 #: ../factory.py:75
 msgid "Save"
@@ -791,7 +791,7 @@ msgstr "VII"
 
 #: ../vocabulary.py:98
 msgid "VV"
-msgstr "Völkerverständigung (VV)"
+msgstr "VV"
 
 #: ../browser/coursemoduleeditor.pt:28
 msgid "View"
@@ -803,7 +803,7 @@ msgstr "Besuchen Sie die Veranstaltung bei Moodle"
 
 #: ../vocabulary.py:92
 msgid "WIR"
-msgstr "Wirtschaftsethik (WIR)"
+msgstr "WIR"
 
 #: ../vocabulary.py:73
 msgid "WP Cultural Admission"
