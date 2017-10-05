@@ -38,8 +38,8 @@
                         <ul class="app-nav-list">
                             <li class="app-nav-list-item" tal:condition="python:view.has_publications()">
                                 <a class="app-nav-list-link"
-                                    tal:attributes="href string:${context/absolute_url}/@@publications"
-                                    i18n:translate="">Publications</a>
+                                    tal:attributes="href string:${context/absolute_url}/@@publications">
+                                    Publikationen</a>
                             </li>
                             <li class="app-nav-list-item">
                                 <a class="app-nav-list-link" tal:attributes="href string:${context/absolute_url}/@@associated-lectures"

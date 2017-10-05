@@ -31,30 +31,36 @@
                     </div>
                 </div>
 
-                <div class="app-card app-card-nav app-card-faculty"
-                    tal:condition="subcontents">
-                    <div class="app-card-header">
-                        <h3 class="app-card-title" tal:content="context/lastname">
-                            Additional Information
-                        </h3>
-                    </div>
+                <div class="app-card app-card-nav app-card-faculty">
                     <div class="app-card-main">
                         <ul class="app-nav-list">
-                            <li class="app-nav-list-item app-nav-list-item-active" tal:condition="context/associatedPublications">
-                                <a class="app-nav-list-link" tal:attributes="href string:${context/absolute_url}/@@publications"
-                                    i18n:translate="">Publications</a>
+                            <li class="app-nav-list-item app-nav-list-item-active" tal:condition="python:view.has_publications">
+                                <a class="app-nav-list-link"
+                                         tal:attributes="href string:${context/absolute_url}/@@publications"
+                                         >Publikationen</a>
                             </li>
                             <li class="app-nav-list-item">
                                 <a class="app-nav-list-link" tal:attributes="href string:${context/absolute_url}/@@associated-lectures"
                                          i18n:translate="">Lehrveranstaltungen</a>
                             </li>
-                            <tal:block tal:repeat="item subcontents">
-                                <li class="app-nav-list-item">
-                                    <a class="app-nav-list-link" tal:attributes="href item/getURL"
-                                        tal:content="item/Title">Filter option</a>
-                                </li>
-                            </tal:block>
+                            <tal:sub_contents tal:condition="python:subcontents">
+                                <tal:block tal:repeat="item subcontents">
+                                    <li class="app-nav-list-item" tal:define="item_url item/getURL">
+                                        <a data-appui="pjaxed"
+                                           class="app-nav-list-link"
+                                                 tal:attributes="href item_url;
+                                                        data-source-url string:${item_url}?ajax_load=1#content-core;
+                                                data-appui-hide string:#page-content"
+                                                 tal:content="item/Title">Filter option</a>
+                                    </li>
+                                </tal:block>
+                            </tal:sub_contents>
                         </ul>
+                    </div>
+                    <div class="app-box-footer hide" id="app-box-footer">
+                        <a class="btn btn-danger btn-sm"
+                                 tal:attributes="href string:${context/absolute_url}">
+                            &times; <span i18n:translate="">remove filter</span></a>
                     </div>
                 </div>
             </aside>
