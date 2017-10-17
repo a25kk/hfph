@@ -8,11 +8,11 @@
   .sortable-placeholder {
     @include size(100%, 8rem);
     margin: $spacer 0;
-    border: 2px solid $state-warning-border-color;
-    background: $state-warning-bg;
+    border: 2px solid $yellow;
+    background: $yellow;
   }
   .sortable-dragging {
-    border: 1px solid $state-danger-border-color;
+    border: 1px solid $red;
     background: #f2f2f2;
     opacity: 1;
   }
@@ -21,7 +21,7 @@
 .ppe-col-info {
     padding-top: ceil(($spacer * .75));
     font-size: $font-size-base;
-    color: $gray-light;
+    color: $gray-300;
     text-transform: uppercase;
 }
 
@@ -32,7 +32,7 @@
   margin-left: floor(($spacer));
   line-height: 1;
   &.ppe-action-primary {
-    color: darken($gray-light, 10%);
+    color: darken($gray-300, 10%);
   }
   &.ppe-action-close {
     opacity: .5;
@@ -44,7 +44,7 @@
   &.ppe-action-remove {
     margin-right: ceil(($spacer * 2 ));
     padding-right: .5rem;
-    border-right: 1px solid $gray-lighter;
+    border-right: 1px solid $gray-300;
   }
 }
 
@@ -65,12 +65,12 @@
   &.ppe-col-bordered {
     padding-top: .25rem;
     padding-bottom: .25rem;
-    border-left: 1px solid $gray-light;
+    border-left: 1px solid $gray-300;
   }
 }
 
 .ppe-col-action {
-  background-color: $gray;
+  background-color: $gray-600;
   border-right: 1px solid $body-color;
   .ppe-link {
     text-align: center;
@@ -80,11 +80,11 @@
 
 .ppe-panel {
   // padding-top: $spacer;
-  border-top: 2px solid $gray;
+  border-top: 2px solid $gray-600;
   .ppe-panel-icon {
     margin-right: ceil(($spacer / 2));
     padding: 0 ceil(($spacer / 2));
-    border-right: 1px solid $gray;
+    border-right: 1px solid $gray-600;
   }
   .pp-panel-title {
     margin-bottom: 0;
@@ -99,7 +99,7 @@
       opacity: 0;
   }
   .ppe-panel-preview {
-    color: $gray;
+    color: $gray-300;
       padding: 1rem;
   }
   &:hover {
@@ -123,8 +123,8 @@
   display: block;
   clear:both;
   min-height: 1.5rem;
-  border-top: 1px solid $gray-dark;
-  color: $gray-dark;
+  border-top: 1px solid $gray-800;
+  color: $gray-800;
 }
 
 .contentpanel-editbar {
@@ -136,7 +136,7 @@
     height:100%;
     padding: ceil($spacer * 1.5) ceil($spacer / 2);
     background:rgba(255, 255, 255, 0.5);
-    border-left: 2px solid $gray-dark;
+    border-left: 2px solid $gray-800;
     text-align:left;
     color: $body-color !important;
     z-index:2;

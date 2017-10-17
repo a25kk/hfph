@@ -27,17 +27,17 @@
 
 // Callout variants used as addon classes
 .app-callout-default {
-  @include alert-variant($gray-lighter, $gray-light, $gray);
+    @include alert-variant($gray-300, $gray-500, $black);
 }
 
 .app-callout-success {
-    @include alert-variant($alert-success-bg, $alert-success-border-color, $alert-success-text);
+    @include alert-variant($gray-200, $green, $green);
 }
 
 .app-callout-danger {
-    @include alert-variant($alert-danger-bg, $alert-danger-border-color, $alert-danger-text);
+    @include alert-variant($gray-200, $red, $red);
 }
 
 .app-callout-warning {
-    @include alert-variant($alert-warning-bg, $alert-warning-border-color, $alert-warning-text);
+    @include alert-variant($gray-200, $yellow, $yellow);
 }

@@ -14,7 +14,7 @@
 
 .panelpage-type {
     padding: $spacer;
-    border: 1px solid $gray;
+    border: 1px solid $gray-600;
     background: #fff;
     .ppt {
         margin-bottom: floor($spacer / 4);
@@ -22,21 +22,21 @@
             width: 70%;
             height: ceil(($spacer * 0.75));
             margin-bottom: floor($spacer * 0.75);
-            background: $gray-light;
+            background: $gray-300;
         }
         &.ppt-lead {
             height: floor($spacer / 2);
             margin-bottom: floor($spacer * 0.5);
-            background: $gray-lighter;
+            background: $gray-100;
         }
         &.ppt-text {
             height: floor($spacer / 4);
-            background: $gray-lighter;
+            background: $gray-100;
         }
         &.ppt-media {
             height: 6rem;
-            background: $gray-lighter;
-            border: 1px solid $gray-light;
+            background: $gray-100;
+            border: 1px solid $gray-300;
         }
     }
 }
@@ -51,10 +51,10 @@
 .panelpage-label {
     font-weight: 400;
     &.level-1 {
-        color: $gray-light;
+        color: $gray-300;
     }
     &.level-2 {
-        color: $gray-lighter;
+        color: $gray-100;
     }
 }
 
@@ -87,8 +87,8 @@
     padding: $modal-header-padding;
     border-bottom: 1px solid rgba(252,252,252,0.1);
     min-height: ($modal-header-padding + $modal-title-line-height);
-    background: $gray-lighter;
-    color: $gray;
+    background: $gray-100;
+    color: $gray-600;
     .ppe-close {
         margin-right: $spacer;
         // font-size: 1.5rem;
@@ -116,7 +116,7 @@
     color: #666;
     &.ppe-subtitle-default {
         margin-bottom: $spacer;
-        background: $gray-lighter;
+        background: $gray-100;
     }
 }
 
@@ -124,8 +124,8 @@
     display: block;
     margin-bottom: $spacer;
     padding-left: .25rem;
-    border-bottom: 1px solid $gray-lighter;
-    border-right: ceil(($spacer / 3)) solid $gray-lighter;
+    border-bottom: 1px solid $gray-100;
+    border-right: ceil(($spacer / 3)) solid $gray-100;
     color: $body-color;
     &-grid {
         @include make-row();
@@ -135,9 +135,9 @@
     }
     a {
         display: inline-block;
-        color: $gray-light;
+        color: $gray-300;
         &:hover {
-            color: $gray;
+            color: $gray-600;
         }
     }
     &.no-border {
@@ -145,16 +145,16 @@
     }
     &.ppe-block-hidden,
     &.ppe-block-private {
-        border-left: ceil(($spacer / 3)) solid $alert-danger-border-color;
+        border-left: ceil(($spacer / 3)) solid $red;
         .ppe-block-state {
-            color: $alert-danger-text;
+            color: $red;
         }
     }
     &.ppe-block-visible,
     &.ppe-block-published {
         // border-right: ceil(($spacer / 3)) solid $alert-success-border;
         .ppe-block-state {
-            color: $alert-success-text;
+            color: $green;
         }
     }
     .ppe-block-title {
@@ -183,18 +183,18 @@
     display: inline-block;
     @include size(4rem, 4rem);
     padding: ceil($spacer / 2);
-    color: $gray-lighter;
+    color: $gray-100;
     font-size: 2rem;
     text-align: center;
     line-height: 1;
 }
 .ppe-sign-ratio {
-    color: $gray;
-    border: 1px solid $gray;
+    color: $gray-600;
+    border: 1px solid $gray-600;
     border-radius: 50%;
 }
 .ppe-sign-draggable {
-    color: $gray;
+    color: $gray-600;
     border: none;
 }
 .ppe-icon-bar {
@@ -202,7 +202,7 @@
     width: 22px;
     height: 2px;
     border-radius: 1px;
-    border-color: $gray-dark;
+    border-color: $gray-800;
     background-color: $navbar-default-toggle-icon-bar-bg;
 }
 .ppe-icon-bar + .ppe-icon-bar {
@@ -213,17 +213,17 @@
 .ppe-block-placeholder {
     margin: $spacer 0;
     padding: ceil($spacer / 2);
-    border: 1px solid $gray-lighter;
-    color: $gray-light;
+    border: 1px solid $gray-100;
+    color: $gray-300;
     text-align: center;
      .placeholder-sign {
         display: block;
         @include size(4rem);
         margin:0 auto;
         padding:ceil($spacer / 2);
-        border:5px solid $gray-lighter;
+        border:5px solid $gray-100;
         border-radius: 2rem;
-        color:$gray-lighter;
+        color:$gray-100;
         font-size:$spacer;
         text-align:center;
         line-height:1
@@ -238,16 +238,16 @@
         }
     }
     &.placeholder-error {
-        background: $alert-danger-bg;
-        border-color: $state-danger-border-color;
+        background: $red;
+        border-color: $red;
         .placeholder-sign {
-            color: $state-danger-text;
+            color: $red;
         }
     }
     &.placeholder-get-started {
         text-align: center;
         padding: 4rem;
-        color: $gray;
+        color: $gray-600;
         .placeholder-sign {
             margin:$spacer auto 0;
         }
@@ -255,7 +255,7 @@
 }
 
 .btn-ppe {
-    @include button-variant($gray-lighter, $gray, $gray-dark);
+    @include button-variant($gray-100, $gray-600, $gray-800);
     border-radius: 0;
     &.btn-ppe-boxed {
         position:absolute;
