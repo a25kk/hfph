@@ -241,7 +241,6 @@ class CourseListing(BrowserView):
                             )
                         query['courseModules'] = module_filter
         results = catalog.searchResults(query)
-        # import pdb; pdb.set_trace()
         return results
 
     def _base_query(self):
