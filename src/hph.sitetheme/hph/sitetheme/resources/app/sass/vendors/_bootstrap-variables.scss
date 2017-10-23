@@ -28,6 +28,16 @@ $enable-grid-classes:       true;
 $brand-primary:                 $app-primary;
 $link-color:                    #5896c8;
 
+// Redefine default colors
+$primary:       $app-primary;
+$secondary:     $app-secondary;
+$success:       $app-green;
+$info:          $app-blue-secondary;
+$warning:       $app-brown;
+$danger:        $app-red;
+$light:         $app-gray-light;
+$dark:          $app-gray;
+
 
 $font-size-base:                14px;
 

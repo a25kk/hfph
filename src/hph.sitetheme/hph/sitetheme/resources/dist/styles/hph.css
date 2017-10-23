@@ -18066,6 +18066,38 @@ div.riform .label
     border-color: transparent;
 }
 
+.app-button--primary
+{
+    color: #fff;
+    border-color: #036; 
+    background-color: #036;
+}
+.app-button--primary:hover
+{
+    color: #fff;
+    border-color: #001a33; 
+    background-color: #002040;
+}
+.app-button--primary:focus,
+.app-button--primary.focus
+{
+    box-shadow: 0 0 0 3px rgba(0, 51, 102, .5);
+}
+.app-button--primary.disabled,
+.app-button--primary:disabled
+{
+    border-color: #036; 
+    background-color: #036;
+}
+.app-button--primary:not([disabled]):not(.disabled):active,
+.app-button--primary:not([disabled]):not(.disabled).active,
+.show > .app-button--primary.dropdown-toggle
+{
+    border-color: #001a33; 
+    background-color: #002040;
+    background-image: none;
+}
+
 label
 {
     font-weight: 700;
@@ -18097,7 +18129,7 @@ select[multiple]
 
     display: block;
 
-    color: #dee2e6;
+    color: #5a5f64;
 }
 
 [id='form-widgets-groups'] .option
@@ -20491,6 +20523,12 @@ app-fonts-loaded
   .app-page__abstract
 {
     font-weight: 600;
+}
+
+.app-page__section,
+.app-page-section
+{
+    margin-bottom: 1.5rem;
 }
 
 .discreet,

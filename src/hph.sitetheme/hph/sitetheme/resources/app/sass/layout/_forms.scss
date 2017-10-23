@@ -17,6 +17,10 @@
     }
 }
 
+.app-button--primary {
+    @include button-variant($primary, $primary);
+}
+
 //** Webfont specific adjustments
 label {
   font-weight: 700;
@@ -65,7 +69,7 @@ select[multiple] {
     display: block;
     font-size: .85rem;
     font-weight: 300;
-    color: $gray-300;
+    color: $app-gray;
 }
 
 [id="form-widgets-groups"] .option {
