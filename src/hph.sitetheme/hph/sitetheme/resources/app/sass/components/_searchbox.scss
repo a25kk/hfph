@@ -16,9 +16,9 @@
 
 .app-searchbox-field {
     @extend .form-control;
-    border-color: $gray-light;
+    border-color: $gray-300;
     &::placeholder {
-        color: $gray-light;
+        color: $gray-300;
         // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
         opacity: 1;
     }
@@ -35,9 +35,9 @@
         z-index: 3;
     }
     @extend .form-control;
-    border-color: $gray-light;
+    border-color: $gray-300;
     &::placeholder {
-        color: $gray-light;
+        color: $gray-600;
         // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
         opacity: 1;
     }
@@ -54,7 +54,7 @@
     position: relative;
     font-size: 1rem;
     @extend .btn;
-    @include button-variant(#000, #fff, $gray-light);
+    @include button-variant($gray-300, $gray-300, $gray-300);
     // Bring the "active" button to the front
     @include hover-focus-active {
         z-index: 3;

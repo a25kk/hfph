@@ -10,7 +10,7 @@
 .app-event-nav {
     @extend .navbar;
     @extend .navbar-light;
-    border: 1px solid $app-gray-light;
+    border: 1px solid $gray-100;
     margin-bottom: 1rem;
 }
 .app-event-nav-list {
@@ -27,7 +27,7 @@
     @include hover-focus {
         text-decoration: none;
     }
-    color: $app-gray;
+    color: $gray-600;
 }
 
 // Event listing
@@ -50,7 +50,7 @@
         padding-bottom: 2rem;
         text-align: center;
         font-weight: 300;
-        background-color: $gray-lighter;
+        background-color: $gray-100;
     }
 }
 

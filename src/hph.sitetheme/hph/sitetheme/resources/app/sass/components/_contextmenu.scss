@@ -3,34 +3,34 @@
 // --------------------------------------------
 
 .cbp-spmenu {
-  background: $gray-light;
+  background: $gray-300;
   position: fixed;
 }
 
 .cbp-spmenu h3 {
-  color: $gray-lighter;
+  color: $gray-300;
   font-size: 1.9em;
   padding: $spacer;
   margin: 0;
   font-weight: 300;
   //background: #0d77b6;
-  background: $gray;
+  background: $gray-300;
 }
 
 .cbp-spmenu a {
   display: block;
-  color: $gray-lighter;
+  color: $gray-300;
   font-size: 1.1em;
   font-weight: 300;
 }
 
 .cbp-spmenu a:hover {
   color: #fff;
-  background: lighten($gray, 5%);
+  background: lighten($gray-300, 5%);
 }
 
 .cbp-spmenu-delete a:hover {
-  background: $brand-danger;
+  background: $app-danger;
 }
 
 .cbp-spmenu a:active {
@@ -51,7 +51,7 @@
 }
 
 .cbp-spmenu-vertical a {
-  border-bottom: 1px solid $gray-lighter;
+  border-bottom: 1px solid $gray-300;
   padding: 1em;
   &.cbp-spmenu-discard {
     padding: 0;
@@ -65,7 +65,7 @@
 .cbp-spmenu-vertical p {
   margin-bottom: 0;
   padding: $spacer;
-  border-bottom: 1px solid $gray-lighter;
+  border-bottom: 1px solid $gray-300;
 }
 
 .cbp-spmenu-horizontal {

@@ -5,8 +5,9 @@
 .app-actionbar {
     display: block;
     margin-top: -5px;
-    border: 1px solid $gray-light;
-    border-top: 5px solid $gray-light;
+    border: 1px solid $gray-600;
+    border-top: 5px solid $gray-600;
+    background: $gray-600;
     @include media-breakpoint-up(lg) {
         padding-left: 1rem;
         padding-right: 1rem;
@@ -23,10 +24,13 @@
         @include make-row();
     }
     font-size: 0.85rem;
+    border: 1px solid $gray-600;
+    border-bottom: 0;
 }
 
 .app-action {
     @include make-col(12);
+    background: #fff;
     @include media-breakpoint-up(sm) {
         @include make-col(6);
     }
@@ -73,11 +77,12 @@
 }
 
 .app-action-search-content {
-    padding-left: $spacer;
-    padding-right: $spacer;
-    background: $gray-light;
+    padding-left: 0;
+    padding-right: 0;
+    background: $gray-600;
     @include media-breakpoint-up(md) {
         margin-right: $spacer;
+        padding-left: $spacer;
     }
     @include media-breakpoint-up(lg) {
         margin-right: 0;

@@ -7,10 +7,10 @@
 .app-btn,
 .app-button {
     @extend .btn;
-    @include button-variant(#333, $gray-lighter, #333);
-    @include button-outline-variant($gray);
+    @include button-variant(#333, $gray-600, #333);
+    @include button-outline-variant($gray-600);
     &-sm {
-        @include button-size($input-btn-padding-y-sm, $input-btn-padding-x-sm, $font-size-sm, $line-height-sm, $btn-border-radius-sm);
+        @include button-size($input-btn-padding-y-sm, $input-btn-padding-x-sm, $font-size-sm, $input-btn-line-height-sm, $btn-border-radius-sm);
     }
     &--link {
         border-color: transparent;
@@ -65,7 +65,7 @@ select[multiple] {
     display: block;
     font-size: .85rem;
     font-weight: 300;
-    color: $gray-light;
+    color: $gray-300;
 }
 
 [id="form-widgets-groups"] .option {
@@ -161,7 +161,7 @@ select[multiple] {
 .app-field-editable {
     padding: .5rem;
     margin-bottom: 1rem;
-    border: 1px solid $gray-lighter;
+    border: 1px solid $gray-300;
     &:hover {
         border-color: $color-sun-glow;
     }
