@@ -34,6 +34,7 @@ class PublicationSeriesVocabulary(object):
             _(u"Contexts"): 'contexts',
             _(u"Munich Philosophy"): 'munich',
             _(u"Theology"): 'theology',
+            _(u"Practical Philosophy"): 'practical-philosophy',
         }
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2016-09-09 07:29+0000\n"
-"PO-Revision-Date: 2016-09-09 10:04+0200\n"
+"POT-Creation-Date: 2017-11-08 15:47+0000\n"
+"PO-Revision-Date: 2017-11-08 16:49+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -14,17 +14,17 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 "Language: de\n"
-"X-Generator: Poedit 1.8.9\n"
+"X-Generator: Poedit 2.0.4\n"
 
 #: ../profiles/default/types/hph.publications.publicationfolder.xml
 msgid "A  central collection of publications with filter functionality"
 msgstr "Eine zentrale Sammlung von Publikationen mit Filterfunktion"
 
-#: ../publication_templates/view.pt:67
+#: ../publication_templates/view.pt:69
 msgid "A publication can be associated with one or more faculty members"
 msgstr "Eine Publikation kann mit einem oder mehreren Lehrenden verknüpft werden"
 
-#: ../publication_templates/view.pt:55
+#: ../publication_templates/view.pt:57
 msgid "A publication will only be displayed inside the filterable listing view and therefore no dedicated information available here"
 msgstr "Eine Publikation wird nur in der übergeordnetetn Liste angezeigt und benötigt deshalb keine dedizierte Einzelansicht"
 
@@ -36,7 +36,7 @@ msgstr "Eine einzelne Publikation wie ein Buch, eine DVD oder ein Magazin"
 msgid "Assign faculty member to this publication"
 msgstr "Lehrenden mit dieser Publikation verknüpfen"
 
-#: ../publication_templates/view.pt:69
+#: ../publication_templates/view.pt:71
 msgid "Assign faculty members"
 msgstr "Lehrende verknüpfen"
 
@@ -44,7 +44,7 @@ msgstr "Lehrende verknüpfen"
 msgid "Assignment"
 msgstr "Zuweisung"
 
-#: ../publication_templates/view.pt:64
+#: ../publication_templates/view.pt:66
 msgid "Associate faculty members"
 msgstr "Lehrenden zuweisen"
 
@@ -64,7 +64,7 @@ msgstr "Autor 3"
 msgid "Author Two"
 msgstr "Autor 2"
 
-#: ../publication_templates/view.pt:45
+#: ../publication_templates/view.pt:47
 msgid "Back to publication listing"
 msgstr "Zurück zur Liste der Publikationen"
 
@@ -156,9 +156,13 @@ msgstr "Bitte wählen Sie den Lehrenden aus, dem diese Publikation zugeordnet we
 msgid "Please upload a cover image"
 msgstr "Bitte laden Sie ein Coverbild hoch"
 
+#: ../vocabulary.py:37
+msgid "Practical Philosophy"
+msgstr "Jahrbuch Praktische Philosophie"
+
 #: ../browser/assignment.pt:40
 #: ../profiles/default/types/hph.publications.publication.xml
-#: ../publication_templates/view.pt:50
+#: ../publication_templates/view.pt:52
 msgid "Publication"
 msgstr "Publikation"
 
