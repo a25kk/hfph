@@ -22075,6 +22075,10 @@ app-fonts-loaded
         padding-top: 0;
         padding-bottom: 0;
     }
+    .course-card--muted
+    {
+        display: none;
+    }
 }
 
 .app-table-actions-cell
