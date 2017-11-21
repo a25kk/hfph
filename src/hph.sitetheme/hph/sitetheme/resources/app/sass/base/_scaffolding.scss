@@ -140,3 +140,11 @@ div.riform .label {
 .link-location {
     display: block;
 }
+
+// Combat updated bootstrap upstream classes
+.collapse {
+    display: none;
+    &.in {
+        display: block;
+    }
+}

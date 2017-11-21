@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# b5 Taskfile, see https://git.team23.de/build/b5 for details
+
+b5:module_load fabric_compat

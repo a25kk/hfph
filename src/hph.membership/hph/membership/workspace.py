@@ -117,9 +117,25 @@ class View(grok.View):
         brains = catalog(Creator=userid)
         return IContentListing(brains[:10])
 
+    def course_folders():
+        context = api.content.get(UID='66f5d7ff29ae45779726e640d5a57e55')
+        folders = context.restrictedTraverse('@@folderListing')(
+            portal_type='hph.lectures.coursefolder',
+            review_state='published')
+        return folders
+
+    def get_current_semester_lectures_container(self):
+        sub_folders = self.course_folders()
+        for folder in sub_folders:
+            container = folder.getObject()
+            current_marker = getattr(container, 'is_current_semester', None)
+            if current_marker:
+                return folder
+        return sub_folders[0]
+
     @memoize
     def _lectures(self):
-        container = api.content.get(UID='66f5d7ff29ae45779726e640d5a57e55')
+        container = self.get_current_semester_lectures_container()
         catalog = api.portal.get_tool(name='portal_catalog')
         items = catalog(object_provides=ILecture.__identifier__,
                         path=dict(query='/'.join(container.getPhysicalPath()),

@@ -236,7 +236,7 @@ class MemberTool(grok.GlobalUtility):
     def _make_base_query(self):
         api_uri = self.get_stored_records(token='ip')
         api_key = self.get_stored_records(token='key')
-        base_uri = 'http://{0}:8080/{1}/1.1/json'.format(api_uri, api_key)
+        base_uri = 'https://{0}:4438/{1}/1.1/json'.format(api_uri, api_key)
         return base_uri
 
     def get_stored_records(self, token):
