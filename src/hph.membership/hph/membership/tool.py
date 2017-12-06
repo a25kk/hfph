@@ -166,12 +166,14 @@ class MemberTool(grok.GlobalUtility):
         base_url = self._make_base_query()
         url = '{0}/{1}'.format(base_url, query_type)
         if query_type == DEFAULT_SERVICE_URI:
-            with contextlib.closing(requests.get(url)) as response:
+            with contextlib.closing(requests.get(url, verify=False)
+                                    ) as response:
                 r = response
                 if r.status_code == requests.codes.ok:
                     return r.json()
         else:
-            with contextlib.closing(requests.get(url)) as response:
+            with contextlib.closing(requests.get(url, verify=False)
+                                    ) as response:
                 r = response
                 if r.status_code == requests.codes.ok:
                     return r.json()
