@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-09-09 07:29+0000\n"
+"POT-Creation-Date: 2017-11-08 15:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "A  central collection of publications with filter functionality"
 msgstr ""
 
-#: ./../publication_templates/view.pt:67
+#: ./../publication_templates/view.pt:69
 msgid "A publication can be associated with one or more faculty members"
 msgstr ""
 
-#: ./../publication_templates/view.pt:55
+#: ./../publication_templates/view.pt:57
 msgid "A publication will only be displayed inside the filterable listing view and therefore no dedicated information available here"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Assign faculty member to this publication"
 msgstr ""
 
-#: ./../publication_templates/view.pt:69
+#: ./../publication_templates/view.pt:71
 msgid "Assign faculty members"
 msgstr ""
 
@@ -45,7 +45,7 @@ msgstr ""
 msgid "Assignment"
 msgstr ""
 
-#: ./../publication_templates/view.pt:64
+#: ./../publication_templates/view.pt:66
 msgid "Associate faculty members"
 msgstr ""
 
@@ -65,7 +65,7 @@ msgstr ""
 msgid "Author Two"
 msgstr ""
 
-#: ./../publication_templates/view.pt:45
+#: ./../publication_templates/view.pt:47
 msgid "Back to publication listing"
 msgstr ""
 
@@ -157,9 +157,13 @@ msgstr ""
 msgid "Please upload a cover image"
 msgstr ""
 
+#: ./../vocabulary.py:37
+msgid "Practical Philosophy"
+msgstr ""
+
 #: ./../browser/assignment.pt:40
 #: ./../profiles/default/types/hph.publications.publication.xml
-#: ./../publication_templates/view.pt:50
+#: ./../publication_templates/view.pt:52
 msgid "Publication"
 msgstr ""
 

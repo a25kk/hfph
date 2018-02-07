@@ -50,7 +50,6 @@ function interdependentSelect(_options) {
             if ($selectorType === 'master') {
                 // Hide all visible selects on change
                 var $visibleBoxes = $('.' + options.classVisible.split(' ', 1));
-                console.log($visibleBoxes);
                 $visibleBoxes.addClass(options.classHidden);
                 $visibleBoxes.removeClass(options.classVisible);
                 if ($selectedValue !== 'ba') {

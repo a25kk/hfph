@@ -48,7 +48,7 @@ def learning_modules_bachelor():
     """
     modules = {
         'I/1':  _(u"I/1"),
-        'I/2"': _(u"I/2"),
+        'I/2': _(u"I/2"),
         'I/3':  _(u"I/3"),
         'I/4':  _(u"I/4"),
         'I/5':  _(u"I/5"),
@@ -99,6 +99,26 @@ def course_core_themes():
             'sc': _('SC'),
             'pb': _('PB')
         }
+    }
+    return themes
+
+
+def course_core_theme_names():
+    """
+    Core themes for each degree course
+    :return: dictionary
+    """
+    themes = {
+        'gn': _('Spirit and Nature (GN)'),
+        'rv': _('Religion and Reason (RV)'),
+        'eg': _('Ethics and Society (EG)'),
+        'wir': _('Business Ethics (WIR)'),
+        'med': _('Media Ethics (MED)'),
+        'mez': _('Medicine Ethics (MEZ)'),
+        'ie': _('Intercultural Education (IE)'),
+        'vv': _('International Understanding (VV)'),
+        'sc': _('Spiritual Care (SC)'),
+        'pb': _('Personal Development (PB)')
     }
     return themes
 

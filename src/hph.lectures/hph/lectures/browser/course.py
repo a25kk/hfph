@@ -178,6 +178,11 @@ class CourseView(BrowserView):
             css_class = 'app-nav-list-item app-nav-list-item-active'
         return css_class
 
+    @staticmethod
+    def get_course_theme_names():
+        course_names = vocabulary.course_core_theme_names()
+        return course_names
+
 
 class CoursePreview(BrowserView):
     """ Embeddable course preview snippet """

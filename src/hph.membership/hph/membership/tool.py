@@ -166,12 +166,14 @@ class MemberTool(grok.GlobalUtility):
         base_url = self._make_base_query()
         url = '{0}/{1}'.format(base_url, query_type)
         if query_type == DEFAULT_SERVICE_URI:
-            with contextlib.closing(requests.get(url)) as response:
+            with contextlib.closing(requests.get(url, verify=False)
+                                    ) as response:
                 r = response
                 if r.status_code == requests.codes.ok:
                     return r.json()
         else:
-            with contextlib.closing(requests.get(url)) as response:
+            with contextlib.closing(requests.get(url, verify=False)
+                                    ) as response:
                 r = response
                 if r.status_code == requests.codes.ok:
                     return r.json()
@@ -236,7 +238,7 @@ class MemberTool(grok.GlobalUtility):
     def _make_base_query(self):
         api_uri = self.get_stored_records(token='ip')
         api_key = self.get_stored_records(token='key')
-        base_uri = 'http://{0}:8080/{1}/1.1/json'.format(api_uri, api_key)
+        base_uri = 'https://{0}:4438/{1}/1.1/json'.format(api_uri, api_key)
         return base_uri
 
     def get_stored_records(self, token):

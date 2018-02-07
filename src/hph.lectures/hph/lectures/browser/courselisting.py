@@ -65,7 +65,7 @@ class CourseListing(BrowserView):
                         error = {}
                         error_msg = _(u"This field is required")
                         error['active'] = True
-                        error['msg'] = translation_service.translate(
+                        error['msg'] = i18n_service.translate(
                             error_msg,
                             'hph.lectures',
                             target_language=api.portal.get_default_language()
@@ -110,6 +110,7 @@ class CourseListing(BrowserView):
 
     def _update_query(self, form_data):
         context = aq_inner(self.context)
+        i18n_service = api.portal.get_tool(name="translation_service")
         name = 'course-filter'
         filter_data = form_data
         tool = getUtility(ICourseFilterTool)
@@ -131,6 +132,15 @@ class CourseListing(BrowserView):
         if updated_filters:
             stored_data['filter'] = updated_filters
             tool.add(name, stored_data)
+        success_message = _(u"Filter successfully updated")
+        message = i18n_service.translate(
+            success_message,
+            'hph.lectures',
+            target_language=api.portal.get_default_language()
+        )
+        api.portal.show_message(message=message,
+                                request=self.request,
+                                type='info')
         return self.request.response.redirect(context.absolute_url())
 
     def contained_course_folders(self):
@@ -231,7 +241,6 @@ class CourseListing(BrowserView):
                             )
                         query['courseModules'] = module_filter
         results = catalog.searchResults(query)
-        # import pdb; pdb.set_trace()
         return results
 
     def _base_query(self):

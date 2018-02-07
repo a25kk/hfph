@@ -45,6 +45,32 @@
     .app-btn {
         display: none;
     }
+
+    .app-page__header-section {
+        margin: 0;
+        border-bottom: 0;
+    }
+
+    .app-page__title {
+        margin-bottom: 0;
+    }
+
+    .course-card__title {
+        font-size: 1rem;
+    }
+
+    .text-muted {
+        margin-bottom: 0;
+    }
+
+    .course__modules {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .course-card--muted {
+        display: none;
+    }
 }
 
 

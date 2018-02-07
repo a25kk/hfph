@@ -23,26 +23,26 @@
         </div>
         <div class="app-section-aside" id="app-content-aside">
             <aside class="app-fp-tile" id="app-sidebar" >
-                <div class="app-box app-box-striped app-box-events">
-                    <div class="app-box-header">
-                        <h4 class="app-box-heading">
+                <div class="app-card app-card-striped app-card-events">
+                    <div class="app-card-header">
+                        <h4 class="app-card-title">
                             <a href="#" tal:define="portal_url context/portal_url"
-                                tal:attributes="href python:portal_url + '/termine'">
+                                     tal:attributes="href python:portal_url + '/termine'">
                                 Aktuelle Termine</a>
                         </h4>
                     </div>
-                    <div class="app-box-content" id="app-event-box"
-                        data-appui="eventbox"
-                        tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
+                    <div class="app-card-main"
+                         data-appui="eventbox"
+                             tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
                     </div>
-                    <div class="app-box-footer text-right"
-                        tal:define="portal_url context/portal_url">
-                        <a class="app-btn app-btn-sm" href="#"
-                            tal:attributes="href python:portal_url + '/termine'">
+                    <div class="app-card-footer text-md-right">
+                        <a class="btn btn-secondary btn-sm" href="#"
+                                 tal:define="portal_url context/portal_url"
+                                 tal:attributes="href python:portal_url + '/termine'">
                             Weitere Termine
                         </a>
                         <a class="app-btn app-btn-sm"
-                            href="${portal_url}/studium/studiengaenge/termine">
+                           href="${portal_url}/studium/semester/zeittafel/termine">
                             Studientermine</a>
                     </div>
                 </div>

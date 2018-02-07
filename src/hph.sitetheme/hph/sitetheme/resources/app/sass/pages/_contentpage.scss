@@ -12,14 +12,14 @@
 
 .app-page-header {
     margin: 2rem 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid $gray-100;
 }
 
 .app-page__header-section {
     display: flex;
     justify-content: space-between;
     margin: 2rem 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid $gray-100;
 }
 
 .app-page-headline,
@@ -33,6 +33,11 @@
     @include when-inside('app-fonts-loaded') {
         font-weight: 600;
     }
+}
+
+.app-page__section,
+.app-page-section {
+    margin-bottom: 1.5rem;
 }
 
 .discreet,

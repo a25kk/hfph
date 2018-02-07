@@ -74,7 +74,7 @@
     <theme href="dist/signin/index.html" css:if-content="body.template-login_failed" />
     <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_form" />
     <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_response" />
-    <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_form" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-passwordreset" />
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
     <theme href="dist/signin/index.html" css:if-content="body.template-useraccount" />
     <theme href="dist/signin/index.html" css:if-content="body.template-useraccount-error" />
@@ -212,7 +212,7 @@
                  css:if-content="body.template-mail_password_response" />
         <replace css:content-children="#content"
                  css:theme-children="#app-signin-content"
-                 css:if-content="body.template-pwreset_form" />
+                 css:if-content="body.template-passwordreset" />
         <replace css:content-children="#content"
                  css:theme-children="#app-signin-content"
                  css:if-content="body.template-pwreset_finish" />
@@ -329,6 +329,10 @@
           </xsl:choose>
         </replace>
 
+        <before css:theme-children="#content"
+               css:content=".portalMessage"
+               css:if-content=".portalMessage" />
+
 
         <!-- Form transforms -->
 
@@ -396,16 +400,19 @@
                         <xsl:copy-of select="@*" />
                         <xsl:choose>
                             <xsl:when css:test=".delete, .destructive, [value='Delete']">
-                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> btn btn-danger</xsl:attribute>
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> app-button app-button--danger</xsl:attribute>
                             </xsl:when>
                             <xsl:when css:test=".searchButton, .context">
-                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> btn btn-primary</xsl:attribute>
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> app-button app-button--primary</xsl:attribute>
                             </xsl:when>
                             <xsl:when css:test=".standalone, .submit, .submit-widget, [type='file']">
-                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> app-btn app-btn-default</xsl:attribute>
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> app-button app-button--default</xsl:attribute>
+                            </xsl:when>
+                            <xsl:when css:test="[type='file']">
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> app-button app-button--upload</xsl:attribute>
                             </xsl:when>
                             <xsl:otherwise>
-                              <xsl:attribute name="class"><xsl:value-of select="./@class" /> app-btn app-btn-default</xsl:attribute>
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> app-button app-button--default</xsl:attribute>
                             </xsl:otherwise>
                         </xsl:choose>
                         <xsl:value-of select="./@value"/>
@@ -414,14 +421,21 @@
                 <xsl:when css:test="[type='text'][name$='.title'],#title, textarea">
                     <xsl:copy>
                         <xsl:copy-of select="@*" />
-                        <xsl:attribute name="class"><xsl:value-of select="./@class" /> form-control</xsl:attribute>
+                        <xsl:attribute name="class"><xsl:value-of select="./@class" /> form__control</xsl:attribute>
                         <xsl:apply-templates />
                     </xsl:copy>
                 </xsl:when>
                 <xsl:when css:test="[type='checkbox']">
                     <xsl:copy>
                         <xsl:copy-of select="@*" />
-                        <xsl:attribute name="class"><xsl:value-of select="./@class" /> form__control form__control--checkbox</xsl:attribute>
+                        <xsl:attribute name="class">form__control form__control--checkbox</xsl:attribute>
+                        <xsl:apply-templates />
+                    </xsl:copy>
+                </xsl:when>
+                <xsl:when css:test="[type='file']">
+                    <xsl:copy>
+                        <xsl:copy-of select="@*" />
+                        <xsl:attribute name="class">form__control form__control--file</xsl:attribute>
                         <xsl:apply-templates />
                     </xsl:copy>
                 </xsl:when>
