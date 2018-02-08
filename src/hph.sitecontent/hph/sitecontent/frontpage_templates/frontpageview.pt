@@ -35,7 +35,7 @@
                          data-appui="eventbox"
                              tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
                     </div>
-                    <div class="app-card-footer text-md-right">
+                    <div class="app-card-footer app-card__footer--actions text-md-right">
                         <a class="btn btn-secondary btn-sm" href="#"
                                  tal:define="portal_url context/portal_url"
                                  tal:attributes="href python:portal_url + '/termine'">
