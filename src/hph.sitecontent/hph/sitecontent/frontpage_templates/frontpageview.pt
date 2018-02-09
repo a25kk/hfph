@@ -41,7 +41,7 @@
                                  tal:attributes="href python:portal_url + '/termine'">
                             Weitere Termine
                         </a>
-                        <a class="app-btn app-btn-sm"
+                        <a class="app-btn app-btn-sm app-btn--standalone"
                            href="${portal_url}/studium/semester/zeittafel/termine">
                             Studientermine</a>
                     </div>
