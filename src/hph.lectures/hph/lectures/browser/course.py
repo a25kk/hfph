@@ -122,7 +122,7 @@ class CourseView(BrowserView):
         stored_data = tool.get_record_index(uid)
         return stored_data
 
-    @staticmethod
+    @staticmethod<
     def get_degree_course_title(course):
         course_names = vocabulary.degree_courses_tokens()
         return course_names[course]
