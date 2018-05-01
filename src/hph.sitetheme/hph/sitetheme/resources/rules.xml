@@ -521,6 +521,11 @@
             </div>
         </replace>
 
+        <!-- Support cookie consent -->
+        <after css:theme-children="#app-footer"
+               css:content="#cookie-consent"
+               css:if-content="#cookie-consent" />
+
     </rules>
 
 </rules>
