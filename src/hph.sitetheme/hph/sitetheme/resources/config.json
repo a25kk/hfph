@@ -2,6 +2,7 @@
     "name": "hph",
     "paths": {
         "app": "app/",
+        "base": "../",
         "dev": "_site/",
         "dist": "dist/",
         "diazoPrefix": "/++theme++pkg.name.sitetheme/",
@@ -19,5 +20,105 @@
         "revisionKey": "iet7OjeChoz1",
         "html": "_includes/base/head.html",
         "htmlDist": "_includes/base/"
+    },
+    "scripts": {
+        "app": [
+            "scripts/a25.js",
+            "scripts/a25.helpers.js",
+            "scripts/a25.navbar.js",
+            "scripts/app.js"
+        ],
+        "src": [
+            "JVFloat/jvfloat.js",
+            "flickity/dist/flickity.pkgd.js",
+            "fontfaceobserver/fontfaceobserver.js",
+            "hideShowPassword/hideShowPassword.js",
+            "lazysizes/lazysizes-umd.js",
+            "lazysizes/plugins/parent-fit/ls.parent-fit.js",
+            "mailcheck/src/mailcheck.js",
+            "requirejs/require.js",
+            "respimage/respimage.js"
+
+        ],
+        "base": [
+            "JVFloat/jvfloat.js",
+            "flickity/dist/flickity.pkgd.js",
+            "fontfaceobserver/fontfaceobserver.js",
+            "hideShowPassword/hideShowPassword.js",
+            "jquery/dist/jquery.js",
+            "lazysizes/lazysizes.js",
+            "lazysizes/plugins/ls.parent-fit.js",
+            "mailcheck/src/mailcheck.js",
+            "requirejs/require.js",
+            "respimage/respimage.js"
+        ]
+    },
+    "replacementPatterns": {
+        "base": [
+            {
+                "match": "/../dist/styles/",
+                "replacement": "/styles/"
+            },
+            {
+                "match": "/dist/styles/",
+                "replacement": "/styles/"
+            }
+        ],
+        "server": [
+            {
+                "match": "../../assets/",
+                "replacement": "../assets/"
+            },
+            {
+                "match": "../../dist/styles/",
+                "replacement": "/styles/"
+            },
+            {
+                "match": "../dist/styles/",
+                "replacement": "/styles/"
+            },
+            {
+                "match": "../../dist/scripts/",
+                "replacement": "/scripts/"
+            },
+            {
+                "match": "../dist/scripts/",
+                "replacement": "/scripts/"
+            }
+        ],
+        "pat": [
+            {
+                "match": "/../dist/",
+                "replacement": "/++theme++hph.sitetheme/dist/++theme++hph.sitetheme/dist/"
+            },
+            {
+                "match": "../assets/",
+                "replacement": "assets/"
+            },
+            {
+                "match": "assets/",
+                "replacement": "/++theme++hph.sitetheme//dist/assets/"
+            },
+            {
+                "match": "../styles/",
+                "replacement": "/++theme++hph.sitetheme/dist/styles/"
+            },
+            {
+                "match": "styles/",
+                "replacement": "/++theme++hph.sitetheme/dist/styles/"
+            },
+            {
+                "match": "/styles/",
+                "replacement": "/++theme++hph.sitetheme/dist/styles/"
+            },
+            {
+                "match": "../scripts/",
+                "replacement": "/++theme++hph.sitetheme/scripts/"
+            },
+            {
+                "match": "scripts/",
+                "replacement": "/++theme++dhp.sitetheme/scripts/"
+            }
+        ]
     }
 }
