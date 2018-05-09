@@ -13,7 +13,6 @@ define(["jquery",
         eventBoxes.forEach(function(eventBox) {
             var sourceUrl = eventBox.dataset.source,
                 targetEl = eventBox;
-            targetEl.innerHtml = '<div class="app-card__section"></div>'
             var request = new XMLHttpRequest();
             request.open('GET', sourceUrl, true);
 
@@ -30,9 +29,21 @@ define(["jquery",
                             content += '<time class="app-card-date app-card__date h5">' + item.date + '</time>';
                             content += '<p>' + item.title + '</p>';
                             content += '</a>';
+                            // Rebuild
+                            var link = document.createElement('a'),
+                                timeStamp = document.createElement('time'),
+                                timeStampText = document.createTextNode(item.date),
+                                linkText = document.createElement('p'),
+                                linkTextContent = document.createTextNode(item.title)
+                            ;
+                            timeStamp.setAttribute('class', 'app-card__date');
+                            timeStamp.appendChild(timeStampText);
+                            linkText.appendChild(linkTextContent);
+                            link.setAttribute('href', item.url);
+                            link.appendChild(timeStamp);
+                            link.appendChild(linkText);
+                            targetEl.appendChild(link);
                         });
-                        console.log(e);
-                        targetEl.innerHtml += content;
                     }
                     // callback(JSON.parse(response), element);
                 } else {
