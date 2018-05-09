@@ -1,5 +1,5 @@
 define(["jquery",
-    ], function($) {
+], function($) {
 
     var eventBox = {};
 
@@ -10,27 +10,29 @@ define(["jquery",
     function eventLoader(_options, callback) {
         var options = $.extend({}, _defaults, _options);
         var eventBoxes = Array.prototype.slice.call(document.querySelectorAll(options.eventBoxIdentifier));
-        eventBoxes.forEach(function(element) {
-            var sourceUrl = element.dataset.source,
-                targetEl = element;
+        eventBoxes.forEach(function(eventBox) {
+            var sourceUrl = eventBox.dataset.source,
+                targetEl = eventBox;
+            targetEl.innerHtml = '<div class="app-card__section"></div>'
             var request = new XMLHttpRequest();
             request.open('GET', sourceUrl, true);
 
-            request.onload = function() {
+            request.onload = function(e) {
                 if (request.status >= 200 && request.status < 400) {
                     // Success!
                     var response = request.responseText,
                         returnData = JSON.parse(response);
-                    console.log("Data: " + response);
-                    if (returnData !== null) {
+                    console.log("Data: " + returnData.items);
+                    if (returnData.items && returnData.items.length) {
                         var content = '';
-                        returnData.forEach(function(item) {
+                        returnData.items.forEach(function(item) {
                             content += '<a class="app-card-item app-card__item"  href="' + item.url + '">';
                             content += '<time class="app-card-date app-card__date h5">' + item.date + '</time>';
                             content += '<p>' + item.title + '</p>';
                             content += '</a>';
                         });
-                        element.innerHtml(content);
+                        console.log(e);
+                        targetEl.innerHtml += content;
                     }
                     // callback(JSON.parse(response), element);
                 } else {
@@ -55,19 +57,7 @@ define(["jquery",
     eventBox.init = function (_options) {
         // Initialize here
         var options = $.extend({}, _defaults, _options);
-        return eventLoader(options, function(returnData, element) {
-            console.log(typeof(returnData));
-            if (returnData !== null) {
-                var content = '';
-                returnData.forEach(function(item) {
-                    content += '<a class="app-card-item app-card__item"  href="' + item.url + '">';
-                    content += '<time class="app-card-date app-card__date h5">' + item.date + '</time>';
-                    content += '<p>' + item.title + '</p>';
-                    content += '</a>';
-                });
-                element.innerHtml(content);
-            }
-        });
+        return eventLoader(options);
     };
 
     // return init;
