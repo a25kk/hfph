@@ -31,7 +31,8 @@
                                 Aktuelle Termine</a>
                         </h4>
                     </div>
-                    <div class="app-card-main"
+                    <div class="app-card-main js-event-box"
+                         id="app-event-box"
                          data-appui="eventbox"
                              tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
                     </div>
