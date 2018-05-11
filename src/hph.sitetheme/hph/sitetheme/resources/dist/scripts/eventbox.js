@@ -21,7 +21,6 @@ define(["jquery",
                     // Success!
                     var response = request.responseText,
                         returnData = JSON.parse(response);
-                    console.log("Data: " + returnData.items);
                     if (returnData.items && returnData.items.length) {
                         var content = '';
                         returnData.items.forEach(function(item) {

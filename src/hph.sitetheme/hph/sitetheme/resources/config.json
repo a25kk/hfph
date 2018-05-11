@@ -28,6 +28,7 @@
             "scripts/a25.slider.js",
             "scripts/a25.navbar.js",
             "scripts/eventbox.js",
+            "scripts/interdependentselect.js",
             "scripts/app.js"
         ],
         "src": [
