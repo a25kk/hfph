@@ -7,13 +7,17 @@
 .app-btn,
 .app-button {
     @extend .btn;
+    @include button-size($input-btn-padding-y, $input-btn-padding-x, $font-size-base, $input-btn-line-height, $btn-border-radius);
     @include button-variant(#333, $gray-600, #333);
     @include button-outline-variant($gray-600);
     &-sm {
-        @include button-size($input-btn-padding-y-sm, $input-btn-padding-x-sm, $font-size-sm, $input-btn-line-height-sm, $btn-border-radius-sm);
+        @include button-size(.5rem, .5rem, $font-size-sm, $input-btn-line-height-sm, $btn-border-radius-sm);
     }
     &--link {
         border-color: transparent;
+    }
+    &--standalone {
+        margin-bottom: 1rem;
     }
 }
 

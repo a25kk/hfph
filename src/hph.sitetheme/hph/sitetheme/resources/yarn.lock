@@ -5828,9 +5828,9 @@ modernizr@^3.0.0-alpha, modernizr@^3.2.0:
     requirejs "2.1.22"
     yargs "7.0.2"
 
-moment@^2.13.0:
-  version "2.19.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.19.1.tgz#56da1a2d1cbf01d38b7e1afc31c10bcfa1929167"
+moment@^2.20.1:
+  version "2.22.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.1.tgz#529a2e9bf973f259c9643d237fda84de3a26e8ad"
 
 morgan@^1.6.1:
   version "1.9.0"

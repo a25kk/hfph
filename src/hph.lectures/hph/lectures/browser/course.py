@@ -228,7 +228,7 @@ class CoursePreview(BrowserView):
             try:
                 brains = catalog(path={'query': rel.to_path, 'depth': 0})
                 results.append(brains[0])
-            except Unauthorized:
+            except (Unauthorized, IndexError):
                 print(rel.from_object.Title)
                 pass
         return results

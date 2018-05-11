@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# b5 Taskfile, see https://git.team23.de/build/b5 for details
+
+task:install() {
+# virtualenv:install
+    pipenv:install
+    docker:install
+}
+
+task:update() {
+# virtualenv:update
+    docker:update
+}
+
+task:deploy() {
+    if [ -z "${1:-}" ]
+    then
+        echo "Please specify deployment target. ABORTING!"
+        exit 1
+    fi
+    virtualenv:run fab "${1}" "deploy:${2}"
+}
+
+task:css() {
+    virtualenv:run fab css
+}
+
+task:watch() {
+    virtualenv:run fab watch
+}
+
+task:fab() {
+    pipenv:run fab "$@"
+}
+
+# docker
+task:run() {
+    docker:docker-compose up "$@"
+}
+
+task:halt() {
+    docker:docker-compose down "$@"
+}
+
+task:shell() {
+    docker:container_run web /bin/bash --login
+}
+

@@ -31,17 +31,18 @@
                                 Aktuelle Termine</a>
                         </h4>
                     </div>
-                    <div class="app-card-main"
+                    <div class="app-card-main js-event-box"
+                         id="app-event-box"
                          data-appui="eventbox"
                              tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
                     </div>
                     <div class="app-card-footer app-card__footer--actions text-md-right">
-                        <a class="btn btn-secondary btn-sm" href="#"
+                        <a class="app-btn app-btn-secondary app-btn-sm app-btn--standalone" href="#"
                                  tal:define="portal_url context/portal_url"
                                  tal:attributes="href python:portal_url + '/termine'">
                             Weitere Termine
                         </a>
-                        <a class="app-btn app-btn-sm"
+                        <a class="app-btn app-btn-sm app-btn--standalone"
                            href="${portal_url}/studium/semester/zeittafel/termine">
                             Studientermine</a>
                     </div>
