@@ -21,3 +21,9 @@
 .app-table-actions-cell {
     padding-top: 1.5rem !important;
 }
+
+
+// Override Mailchimp settings
+#mc_embed_signup form {
+	padding: 0 !important;
+}
