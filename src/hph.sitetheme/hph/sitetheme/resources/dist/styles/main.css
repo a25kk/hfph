@@ -18862,3 +18862,7 @@ input[type="color"]:last-child,
 .collapse.in {
   display: block;
 }
+
+iframe {
+  border: none;
+}
