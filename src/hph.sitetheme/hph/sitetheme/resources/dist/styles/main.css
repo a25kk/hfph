@@ -18854,3 +18854,11 @@ input[type="color"]:last-child,
 #mc_embed_signup form {
   padding: 0 !important;
 }
+
+.collapse {
+  display: none;
+}
+
+.collapse.in {
+  display: block;
+}
