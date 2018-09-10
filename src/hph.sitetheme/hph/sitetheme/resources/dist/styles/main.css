@@ -18850,3 +18850,19 @@ input[type="color"]:last-child,
 .app-table-actions-cell {
   padding-top: 1.5rem !important;
 }
+
+#mc_embed_signup form {
+  padding: 0 !important;
+}
+
+.collapse {
+  display: none;
+}
+
+.collapse.in {
+  display: block;
+}
+
+iframe {
+  border: none;
+}
