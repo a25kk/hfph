@@ -1,0 +1,111 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <section id="news-listing" class="app-page"
+                 tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+            <header class="app-page-header">
+                <h1 tal:content="context/Title" />
+            </header>
+
+            <tal:news-items tal:condition="view/has_content">
+
+                <div class="app-page__header app-page__header-section">
+                    <h1 class="app-page__title">${context/Title}</h1>
+                </div>
+
+                <div class="app-page__abstract" tal:condition="context/Description">
+                        ${context/Description}
+                </div>
+
+                <div class="app-page__body">
+                    <section class="app-page__section app-list" id="content-core"
+                             tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                                         b_size python:int(request.get('b_size', 20));
+                                         b_start python:int(request.get('b_start', 0));
+                                         results view/news_items;
+                                         batch python:Batch(results, b_size, b_start);">
+                        <div class="app-list">
+                            <article class="app-list__item" tal:repeat="item results">
+                                <div class="app-list__item-details" tal:define="item_uuid item/uuid">
+                                    <span tal:replace="structure python:view.rendered_news_entry_card(item_uuid)" />
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-2">
+                                               Image Placeholder
+                                            </div>
+                                            <div class="col-xs-12 col-sm-10">
+                                                <h4><a href="" tal:content="item/title"
+                                                         tal:attributes="href item/url" /></h4>
+                                                <p tal:condition="item/description"
+                                                         tal:content="item/description" />
+                                                <p class="discreet"
+                                                         tal:define="date item/timestamp">
+                                                    <span>(Erstellt am</span>
+                                                    <span tal:attributes="datetime date"
+                                                             tal:content="python:toLocalizedTime(date)" />)
+                                                </p>
+                                            </div>
+                                        </div>
+                                </div>
+                            </article>
+                        </div>
+                        <tal:block tal:content="nothing">
+                            <div metal:use-macro="context/batch_macros/macros/navigation" />
+                        </tal:block>
+                    </section>
+                </div>
+
+
+            </tal:news-items>
+
+            <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                    b_size python:int(request.get('b_size', 20));
+                    b_start python:int(request.get('b_start', 0));
+                    results python:context.restrictedTraverse('@@folderListing')(batch=True, b_size=b_size, b_start=b_start, sort_on='effective', sort_order='reverse', review_state='published');
+                    batch python:Batch(results, b_size, b_start);">
+                <article tal:repeat="item batch">
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-2">
+                            <img tal:condition="item/image"
+                                     tal:define="item_obj item/getObject;
+                                    scales item_obj/@@images"
+                                     tal:replace="structure python: scales.tag('image',
+                                            width=200,
+                                            height=200,
+                                            css_class='app-img',
+                                            direction='down')" />
+                        </div>
+                        <div class="col-xs-12 col-sm-10">
+                            <h4><a href="" tal:content="item/Title"
+                                     tal:attributes="href item/getURL" /></h4>
+                            <p tal:condition="item/Description"
+                                     tal:content="item/Description" />
+                            <p class="discreet"
+                                     tal:define="date item/effective">
+                                <span>(Erstellt am</span>
+                                <span tal:attributes="datetime date"
+                                         tal:content="python:toLocalizedTime(date)" />)
+                            </p>
+                        </div>
+                    </div>
+                    <hr />
+                </article>
+                <div metal:use-macro="context/batch_macros/macros/navigation" />
+            </div>
+        </section>
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

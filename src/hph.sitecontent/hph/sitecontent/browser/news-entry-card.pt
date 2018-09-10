@@ -1,0 +1,19 @@
+<article class="app-card news-entry-card"
+         i18n:domain="hph.sitecontent">
+    <div class="media-item">
+        <aside class="media-item__aside">
+
+        </aside>
+        <section class="media-item__main">
+            <header class="media-item__header">
+                <h4 class="media-item__title"><a href="" tal:content="context/Title"
+                         tal:attributes="href context/absolute_url" /></h4>
+            </header>
+        </section>
+    </div>
+    <header class="app-card__header">
+        <div class="app-card__title" tal:content="context/Title">
+            Card Title
+        </div>
+    </header>
+</article>
