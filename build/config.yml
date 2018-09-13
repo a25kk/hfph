@@ -2,7 +2,7 @@
 # the Taskfile, too. See $CONFIG_application_web_path for example.
 project:
   name: Hochschule für Philosophie München
-  key: hfph
+  key: hph
   url: https://www.hfph.de/
 paths:
   web: ../

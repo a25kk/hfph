@@ -10,6 +10,7 @@ var hub = new HubRegistry([
     './tasks/clean.js',
     './tasks/collect.js',
     './tasks/favicon.js',
+    './tasks/sprite.js',
     './tasks/jekyll.js',
     './tasks/styles.js',
     './tasks/inject.js',
@@ -122,7 +123,7 @@ gulp.task('dev:watch:styles', function () {
 gulp.task('dev:watch', function () {
     gulp.watch(cfg.paths.app + "sass/**/*.scss", gulp.series(
         'styles:dist'
-    )
+        )
     );
     gulp.watch(cfg.paths.app + "scripts/**/*.js", gulp.series(
         'collect:scripts:app'
@@ -135,7 +136,7 @@ gulp.task('dev:watch', function () {
 });
 
 // Run development build
-// gulp.task('develop', ['build:dev']);
+gulp.task('collect', buildCollect);
 
 // Build distribution versions of styles and scripts
 gulp.task('dist', buildDistBase);

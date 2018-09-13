@@ -8,7 +8,6 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik_gateway
-      - traefik.frontend.rule=HostRegexp:web.hph.{domain},{something:[a-z]+}.web.hph.{domain}
 networks:
   default:
   traefik_gateway:

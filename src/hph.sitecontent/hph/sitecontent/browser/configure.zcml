@@ -1,0 +1,24 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser"
+        xmlns:z3c="http://namespaces.zope.org/z3c"
+        i18n_domain="hph.lectures">
+
+    <!-- News item listing -->
+    <browser:page
+        for="hph.sitecontent.newsfolder.INewsFolder"
+        name="news-listing"
+        class=".news.NewsListView"
+        template="news-listing.pt"
+        permission="zope2.View"
+    />
+
+    <browser:page
+            for="hph.sitecontent.newsentry.INewsEntry"
+            name="news-entry-card"
+            class=".news.NewsEntryCard"
+            template="news-entry-card.pt"
+            permission="zope2.View"
+    />
+
+</configure>
