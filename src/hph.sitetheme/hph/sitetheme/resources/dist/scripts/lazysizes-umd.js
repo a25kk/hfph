@@ -1,17 +1,18 @@
 (function(window, factory) {
 	var lazySizes = factory(window, window.document);
-	window.lazySizes = lazySizes;
 	if(typeof module == 'object' && module.exports){
 		module.exports = lazySizes;
 	} else if (typeof define == 'function' && define.amd) {
 		define(lazySizes);
+	} else {
+		window.lazySizes = lazySizes;
 	}
 }(window, function l(window, document) {
 	'use strict';
 	/*jshint eqnull:true */
 	if(!document.getElementsByClassName){return;}
 
-	var lazySizesConfig;
+	var lazysizes, lazySizesConfig;
 
 	var docElem = document.documentElement;
 
@@ -72,7 +73,13 @@
 	var triggerEvent = function(elem, name, detail, noBubbles, noCancelable){
 		var event = document.createEvent('CustomEvent');
 
-		event.initCustomEvent(name, !noBubbles, !noCancelable, detail || {});
+		if(!detail){
+			detail = {};
+		}
+
+		detail.instance = lazysizes;
+
+		event.initCustomEvent(name, !noBubbles, !noCancelable, detail);
 
 		elem.dispatchEvent(event);
 		return event;
@@ -81,6 +88,9 @@
 	var updatePolyfill = function (el, full){
 		var polyfill;
 		if( !supportPicture && ( polyfill = (window.picturefill || lazySizesConfig.pf) ) ){
+			if(full && full.src && !el[_getAttribute]('srcset')){
+				el.setAttribute('srcset', full.src);
+			}
 			polyfill({reevaluate: true, elements: [el]});
 		} else if(full && full.src){
 			el.src = full.src;
@@ -104,24 +114,30 @@
 
 	var rAF = (function(){
 		var running, waiting;
-		var fns = [];
+		var firstFns = [];
+		var secondFns = [];
+		var fns = firstFns;
 
 		var run = function(){
-			var fn;
+			var runFns = fns;
+
+			fns = firstFns.length ? secondFns : firstFns;
+
 			running = true;
 			waiting = false;
-			while(fns.length){
-				fn = fns.shift();
-				fn[0].apply(fn[1], fn[2]);
+
+			while(runFns.length){
+				runFns.shift()();
 			}
+
 			running = false;
 		};
 
-		var rafBatch = function(fn){
-			if(running){
+		var rafBatch = function(fn, queue){
+			if(running && !queue){
 				fn.apply(this, arguments);
 			} else {
-				fns.push([fn, this, arguments]);
+				fns.push(fn);
 
 				if(!waiting){
 					waiting = true;
@@ -153,21 +169,21 @@
 	var throttle = function(fn){
 		var running;
 		var lastTime = 0;
-		var gDelay = 125;
-		var RIC_DEFAULT_TIMEOUT = 666;
-		var rICTimeout = RIC_DEFAULT_TIMEOUT;
+		var gDelay = lazySizesConfig.throttleDelay;
+		var rICTimeout = lazySizesConfig.ricTimeout;
 		var run = function(){
 			running = false;
 			lastTime = Date.now();
 			fn();
 		};
-		var idleCallback = requestIdleCallback ?
+		var idleCallback = requestIdleCallback && rICTimeout > 49 ?
 			function(){
 				requestIdleCallback(run, {timeout: rICTimeout});
-				if(rICTimeout !== RIC_DEFAULT_TIMEOUT){
-					rICTimeout = RIC_DEFAULT_TIMEOUT;
+
+				if(rICTimeout !== lazySizesConfig.ricTimeout){
+					rICTimeout = lazySizesConfig.ricTimeout;
 				}
-			}:
+			} :
 			rAFIt(function(){
 				setTimeout(run);
 			}, true)
@@ -175,8 +191,9 @@
 
 		return function(isPriority){
 			var delay;
+
 			if((isPriority = isPriority === true)){
-				rICTimeout = 44;
+				rICTimeout = 33;
 			}
 
 			if(running){
@@ -191,7 +208,7 @@
 				delay = 0;
 			}
 
-			if(isPriority || (delay < 9 && requestIdleCallback)){
+			if(isPriority || delay < 9){
 				idleCallback();
 			} else {
 				setTimeout(idleCallback, delay);
@@ -226,9 +243,51 @@
 		};
 	};
 
+	(function(){
+		var prop;
+
+		var lazySizesDefaults = {
+			lazyClass: 'lazyload',
+			loadedClass: 'lazyloaded',
+			loadingClass: 'lazyloading',
+			preloadClass: 'lazypreload',
+			errorClass: 'lazyerror',
+			//strictClass: 'lazystrict',
+			autosizesClass: 'lazyautosizes',
+			srcAttr: 'data-src',
+			srcsetAttr: 'data-srcset',
+			sizesAttr: 'data-sizes',
+			//preloadAfterLoad: false,
+			minSize: 40,
+			customMedia: {},
+			init: true,
+			expFactor: 1.5,
+			hFac: 0.8,
+			loadMode: 2,
+			loadHidden: true,
+			ricTimeout: 0,
+			throttleDelay: 125,
+		};
+
+		lazySizesConfig = window.lazySizesConfig || window.lazysizesConfig || {};
+
+		for(prop in lazySizesDefaults){
+			if(!(prop in lazySizesConfig)){
+				lazySizesConfig[prop] = lazySizesDefaults[prop];
+			}
+		}
+
+		window.lazySizesConfig = lazySizesConfig;
+
+		setTimeout(function(){
+			if(lazySizesConfig.init){
+				init();
+			}
+		});
+	})();
 
 	var loader = (function(){
-		var lazyloadElems, preloadElems, isCompleted, resetPreloadingTimer, loadMode, started;
+		var preloadElems, isCompleted, resetPreloadingTimer, loadMode, started;
 
 		var eLvW, elvH, eLtop, eLleft, eLright, eLbottom;
 
@@ -237,7 +296,7 @@
 		var regImg = /^img$/i;
 		var regIframe = /^iframe$/i;
 
-		var supportScroll = ('onscroll' in window) && !(/glebot/.test(navigator.userAgent));
+		var supportScroll = ('onscroll' in window) && !(/(gle|ing)bot/.test(navigator.userAgent));
 
 		var shrinkExpand = 0;
 		var currentExpand = 0;
@@ -259,7 +318,7 @@
 		var isNestedVisible = function(elem, elemExpand){
 			var outerRect;
 			var parent = elem;
-			var visible = getCSS(document.body, 'visibility') == 'hidden' || getCSS(elem, 'visibility') != 'hidden';
+			var visible = getCSS(document.body, 'visibility') == 'hidden' || (getCSS(elem.parentNode, 'visibility') != 'hidden' && getCSS(elem, 'visibility') != 'hidden');
 
 			eLtop -= elemExpand;
 			eLbottom += elemExpand;
@@ -284,6 +343,8 @@
 
 		var checkElements = function() {
 			var eLlen, i, rect, autoLoadElem, loadedSomething, elemExpand, elemNegativeExpand, elemExpandVal, beforeExpandVal;
+
+			var lazyloadElems = lazysizes.elements;
 
 			if((loadMode = lazySizesConfig.loadMode) && isLoading < 8 && (eLlen = lazyloadElems.length)){
 
@@ -333,6 +394,7 @@
 						(eLright = rect.right) >= elemNegativeExpand * hFac &&
 						(eLleft = rect.left) <= eLvW &&
 						(eLbottom || eLright || eLleft || eLtop) &&
+						(lazySizesConfig.loadHidden || getCSS(lazyloadElems[i], 'visibility') != 'hidden') &&
 						((isCompleted && isLoading < 3 && !elemExpandVal && (loadMode < 3 || lowRuns < 4)) || isNestedVisible(lazyloadElems[i], elemExpand))){
 						unveilElement(lazyloadElems[i]);
 						loadedSomething = true;
@@ -357,6 +419,7 @@
 			addClass(e.target, lazySizesConfig.loadedClass);
 			removeClass(e.target, lazySizesConfig.loadingClass);
 			addRemoveLoadEvents(e.target, rafSwitchLoadingClass);
+			triggerEvent(e.target, 'lazyloaded');
 		};
 		var rafedSwitchLoadingClass = rAFIt(switchLoadingClass);
 		var rafSwitchLoadingClass = function(e){
@@ -372,7 +435,7 @@
 		};
 
 		var handleSources = function(source){
-			var customMedia, parent;
+			var customMedia;
 
 			var sourceSrcset = source[_getAttribute](lazySizesConfig.srcsetAttr);
 
@@ -382,13 +445,6 @@
 
 			if(sourceSrcset){
 				source.setAttribute('srcset', sourceSrcset);
-			}
-
-			//https://bugzilla.mozilla.org/show_bug.cgi?id=1170572
-			if(customMedia){
-				parent = source.parentNode;
-				parent.insertBefore(source.cloneNode(), source);
-				parent.removeChild(source);
 			}
 		};
 
@@ -440,18 +496,18 @@
 					}
 				}
 
-				if(srcset || isPicture){
+				if(isImg && (srcset || isPicture)){
 					updatePolyfill(elem, {src: src});
 				}
 			}
 
-			rAF(function(){
-				if(elem._lazyRace){
-					delete elem._lazyRace;
-				}
-				removeClass(elem, lazySizesConfig.lazyClass);
+			if(elem._lazyRace){
+				delete elem._lazyRace;
+			}
+			removeClass(elem, lazySizesConfig.lazyClass);
 
-				if( !firesLoad || elem.complete ){
+			rAF(function(){
+				if( !firesLoad || (elem.complete && elem.naturalWidth > 1)){
 					if(firesLoad){
 						resetPreloading(event);
 					} else {
@@ -459,7 +515,7 @@
 					}
 					switchLoadingClass(event);
 				}
-			});
+			}, true);
 		});
 
 		var unveilElement = function (elem){
@@ -471,7 +527,7 @@
 			var sizes = isImg && (elem[_getAttribute](lazySizesConfig.sizesAttr) || elem[_getAttribute]('sizes'));
 			var isAuto = sizes == 'auto';
 
-			if( (isAuto || !isCompleted) && isImg && (elem.src || elem.srcset) && !elem.complete && !hasClass(elem, lazySizesConfig.errorClass)){return;}
+			if( (isAuto || !isCompleted) && isImg && (elem[_getAttribute]('src') || elem.srcset) && !elem.complete && !hasClass(elem, lazySizesConfig.errorClass) && hasClass(elem, lazySizesConfig.lazyClass)){return;}
 
 			detail = triggerEvent(elem, 'lazyunveilread').detail;
 
@@ -514,7 +570,7 @@
 			_: function(){
 				started = Date.now();
 
-				lazyloadElems = document.getElementsByClassName(lazySizesConfig.lazyClass);
+				lazysizes.elements = document.getElementsByClassName(lazySizesConfig.lazyClass);
 				preloadElems = document.getElementsByClassName(lazySizesConfig.lazyClass + ' ' + lazySizesConfig.preloadClass);
 				hFac = lazySizesConfig.hFac;
 
@@ -545,8 +601,9 @@
 					setTimeout(onload, 20000);
 				}
 
-				if(lazyloadElems.length){
+				if(lazysizes.elements.length){
 					checkElements();
+					rAF._lsFlush();
 				} else {
 					throttledCheckElements();
 				}
@@ -628,47 +685,7 @@
 		}
 	};
 
-	(function(){
-		var prop;
-
-		var lazySizesDefaults = {
-			lazyClass: 'lazyload',
-			loadedClass: 'lazyloaded',
-			loadingClass: 'lazyloading',
-			preloadClass: 'lazypreload',
-			errorClass: 'lazyerror',
-			//strictClass: 'lazystrict',
-			autosizesClass: 'lazyautosizes',
-			srcAttr: 'data-src',
-			srcsetAttr: 'data-srcset',
-			sizesAttr: 'data-sizes',
-			//preloadAfterLoad: false,
-			minSize: 40,
-			customMedia: {},
-			init: true,
-			expFactor: 1.5,
-			hFac: 0.8,
-			loadMode: 2
-		};
-
-		lazySizesConfig = window.lazySizesConfig || window.lazysizesConfig || {};
-
-		for(prop in lazySizesDefaults){
-			if(!(prop in lazySizesConfig)){
-				lazySizesConfig[prop] = lazySizesDefaults[prop];
-			}
-		}
-
-		window.lazySizesConfig = lazySizesConfig;
-
-		setTimeout(function(){
-			if(lazySizesConfig.init){
-				init();
-			}
-		});
-	})();
-
-	return {
+	lazysizes = {
 		cfg: lazySizesConfig,
 		autoSizer: autoSizer,
 		loader: loader,
@@ -681,5 +698,7 @@
 		gW: getWidth,
 		rAF: rAF,
 	};
+
+	return lazysizes;
 }
 ));

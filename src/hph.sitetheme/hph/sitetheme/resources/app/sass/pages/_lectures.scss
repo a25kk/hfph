@@ -84,6 +84,9 @@
 .app-list {
     padding-left: 1rem;
     padding-right: 1rem;
+    &--no-gutter {
+        padding: 0;
+    }
 }
 // Result counter and clear filter actions
 .app-list__result {

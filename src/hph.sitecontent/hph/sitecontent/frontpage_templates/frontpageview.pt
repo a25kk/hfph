@@ -37,12 +37,12 @@
                              tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
                     </div>
                     <div class="app-card-footer app-card__footer--actions text-md-right">
-                        <a class="app-btn app-btn-secondary app-btn-sm app-btn--standalone" href="#"
+                        <a class="app-button app-button--sm app-button--standalone" href="#"
                                  tal:define="portal_url context/portal_url"
                                  tal:attributes="href python:portal_url + '/termine'">
                             Weitere Termine
                         </a>
-                        <a class="app-btn app-btn-sm app-btn--standalone"
+                        <a class="app-button app-button--sm app-button--standalone"
                            href="${portal_url}/studium/semester/zeittafel/termine">
                             Studientermine</a>
                     </div>

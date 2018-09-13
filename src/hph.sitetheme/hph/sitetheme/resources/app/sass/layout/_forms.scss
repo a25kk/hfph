@@ -8,9 +8,10 @@
 .app-button {
     @extend .btn;
     @include button-size($input-btn-padding-y, $input-btn-padding-x, $font-size-base, $input-btn-line-height, $btn-border-radius);
-    @include button-variant(#333, $gray-600, #333);
+    // @include button-variant(#333, $gray-600, #333);
     @include button-outline-variant($gray-600);
-    &-sm {
+    &-sm,
+    &--sm {
         @include button-size(.5rem, .5rem, $font-size-sm, $input-btn-line-height-sm, $btn-border-radius-sm);
     }
     &--link {
@@ -23,6 +24,10 @@
 
 .app-button--primary {
     @include button-variant($primary, $primary);
+}
+
+.app-button--secondary {
+    @include button-variant($secondary, $secondary);
 }
 
 //** Webfont specific adjustments
