@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
-  Ionicons, v4.4.2
+  Ionicons, v4.4.5
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
   https://twitter.com/benjsperry  https://twitter.com/ionicframework
   MIT License: https://github.com/driftyco/ionicons
@@ -12,8 +12,8 @@
 */
 @font-face {
   font-family: "Ionicons";
-  src: url("../assets/fonts/ionicons.eot?v=4.4.2");
-  src: url("../assets/fonts/ionicons.eot?v=4.4.2#iefix") format("embedded-opentype"), url("../assets/fonts/ionicons.woff2?v=4.4.2") format("woff2"), url("../assets/fonts/ionicons.woff?v=4.4.2") format("woff"), url("../assets/fonts/ionicons.ttf?v=4.4.2") format("truetype"), url("../assets/fonts/ionicons.svg?v=4.4.2#Ionicons") format("svg");
+  src: url("../assets/fonts/ionicons.eot?v=4.4.5");
+  src: url("../assets/fonts/ionicons.eot?v=4.4.5#iefix") format("embedded-opentype"), url("../assets/fonts/ionicons.woff2?v=4.4.5") format("woff2"), url("../assets/fonts/ionicons.woff?v=4.4.5") format("woff"), url("../assets/fonts/ionicons.ttf?v=4.4.5") format("truetype"), url("../assets/fonts/ionicons.svg?v=4.4.5#Ionicons") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -5630,26 +5630,6 @@ input[type="color"]::-webkit-input-placeholder, .app-searchbox-field::-webkit-in
   opacity: 1;
 }
 
-.form-control:-ms-input-placeholder, select:-ms-input-placeholder,
-textarea:-ms-input-placeholder,
-input[type="text"]:-ms-input-placeholder,
-input[type="password"]:-ms-input-placeholder,
-input[type="datetime"]:-ms-input-placeholder,
-input[type="datetime-local"]:-ms-input-placeholder,
-input[type="date"]:-ms-input-placeholder,
-input[type="month"]:-ms-input-placeholder,
-input[type="time"]:-ms-input-placeholder,
-input[type="week"]:-ms-input-placeholder,
-input[type="number"]:-ms-input-placeholder,
-input[type="email"]:-ms-input-placeholder,
-input[type="url"]:-ms-input-placeholder,
-input[type="search"]:-ms-input-placeholder,
-input[type="tel"]:-ms-input-placeholder,
-input[type="color"]:-ms-input-placeholder, .app-searchbox-field:-ms-input-placeholder, .app-searchbox-control:-ms-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
 .form-control::-ms-input-placeholder, select::-ms-input-placeholder,
 textarea::-ms-input-placeholder,
 input[type="text"]::-ms-input-placeholder,
@@ -7032,19 +7012,15 @@ fieldset:disabled a.app-searchbox-btn {
 .btn-link {
   font-weight: 400;
   color: #5896c8;
-  background-color: transparent;
 }
 
 .btn-link:hover {
   color: #0056b3;
   text-decoration: underline;
-  background-color: transparent;
-  border-color: transparent;
 }
 
 .btn-link:focus, .btn-link.focus {
   text-decoration: underline;
-  border-color: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -7296,6 +7272,7 @@ input[type="button"].btn-block {
 
 .dropdown-item.disabled, .dropdown-item:disabled {
   color: #6c757d;
+  pointer-events: none;
   background-color: transparent;
 }
 
@@ -8002,6 +7979,16 @@ input[type="button"].btn-block {
 .input-group-append .app-searchbox-btn {
   position: relative;
   z-index: 2;
+}
+
+.input-group-prepend .btn:focus, .input-group-prepend .searchButton:focus, .input-group-prepend .app-btn:focus,
+.input-group-prepend .app-button:focus, .input-group-prepend .app-searchbox-btn:focus,
+.input-group-append .btn:focus,
+.input-group-append .searchButton:focus,
+.input-group-append .app-btn:focus,
+.input-group-append .app-button:focus,
+.input-group-append .app-searchbox-btn:focus {
+  z-index: 3;
 }
 
 .input-group-prepend .btn + .btn, .input-group-prepend .searchButton + .btn, .input-group-prepend .app-btn + .btn, .input-group-prepend .app-button + .btn, .input-group-prepend .app-searchbox-btn + .btn, .input-group-prepend .btn + .searchButton, .input-group-prepend .searchButton + .searchButton, .input-group-prepend .app-btn + .searchButton, .input-group-prepend .app-button + .searchButton, .input-group-prepend .app-searchbox-btn + .searchButton, .input-group-prepend .btn + .app-btn, .input-group-prepend .searchButton + .app-btn, .input-group-prepend .app-btn + .app-btn, .input-group-prepend .app-button + .app-btn, .input-group-prepend .app-searchbox-btn + .app-btn,
@@ -9514,6 +9501,7 @@ input[type="button"].btn-block {
 
 .list-group-item.disabled, .list-group-item:disabled {
   color: #6c757d;
+  pointer-events: none;
   background-color: #fff;
 }
 
@@ -11028,6 +11016,14 @@ button.bg-dark:focus {
   .float-xl-none {
     float: none !important;
   }
+}
+
+.overflow-auto {
+  overflow: auto !important;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
 }
 
 .position-static {
@@ -16332,11 +16328,6 @@ img[data-sizes="auto"] {
   opacity: 1;
 }
 
-.app-searchbox-field:-ms-input-placeholder {
-  color: #dee2e6;
-  opacity: 1;
-}
-
 .app-searchbox-field::-ms-input-placeholder {
   color: #dee2e6;
   opacity: 1;
@@ -16364,11 +16355,6 @@ img[data-sizes="auto"] {
 }
 
 .app-searchbox-control::-webkit-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
-.app-searchbox-control:-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
@@ -16659,7 +16645,7 @@ body.template-frontpage-view .app-pathbar {
 
 .app-panel-news .app-card-header, .app-panel-news
 .app-card__header {
-  min-height: 3.75rem;
+  min-height: 4.5rem;
 }
 
 .app-card-main-boxed, .app-card-main--bordered,
@@ -17532,9 +17518,9 @@ app-fonts-loaded .app-page-abstract, app-fonts-loaded
 
 .ppe-header {
   margin-bottom: 0;
-  padding: 1rem;
+  padding: 1rem 1rem;
   border-bottom: 1px solid rgba(252, 252, 252, 0.1);
-  min-height: 2.5rem;
+  min-height: 1rem 1rem1.5;
   background: #f8f9fa;
   color: #6c757d;
 }
