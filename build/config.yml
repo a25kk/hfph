@@ -8,6 +8,7 @@ paths:
   web: ../
   db: ../_db
   docker_data: ../_docker_data
+  site_theme: ../src/hph.sitetheme/hph/sitetheme/resources
 modules:
   virtualenv:
     python_bin: python2
@@ -15,3 +16,5 @@ modules:
       data_path: ../_docker_data
       docker_compose_config_overrides: localhost
   pipenv:
+  npm:
+    base_path: ../src/hph.sitetheme/hph/sitetheme/resources

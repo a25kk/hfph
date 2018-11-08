@@ -1,28 +1,47 @@
 #!/usr/bin/env bash
 # b5 Taskfile, see https://git.team23.de/build/b5 for details
+SITE_THEME="${CONFIG_paths_site_theme:-'I have no theme configuration'}"
 
 task:install() {
-# virtualenv:install
-    pipenv:install
+    cd .. && chmod 775 ./bootstrap.sh && ./bootstrap.sh
+    virtualenv:install
     docker:install
+    npm:install
+}
+
+task:install:theme() {
+    npm:install
 }
 
 task:update() {
-# virtualenv:update
+    virtualenv:update
     docker:update
 }
 
+task:update:theme() {
+    npm:install
+}
+
 task:deploy() {
-    if [ -z "${1:-}" ]
-    then
-        echo "Please specify deployment target. ABORTING!"
-        exit 1
-    fi
-    virtualenv:run fab "${1}" "deploy:${2}"
+    cd .. && bin/fab deploy
+}
+
+task:build() {
+    cd ../ && bin/buildout -Nc development.cfg
+}
+
+task:plone() {
+    cd ../ && bin/instance-debug fg
 }
 
 task:css() {
-    virtualenv:run fab css
+    cd ${SITE_THEME} && npm:run gulp css
+    cd ..
+}
+
+task:gulp() {
+    cd ${SITE_THEME} && npm:run gulp "$@"
+    cd ..
 }
 
 task:watch() {
@@ -30,7 +49,7 @@ task:watch() {
 }
 
 task:fab() {
-    pipenv:run fab "$@"
+    virtualenv:run fab "$@"
 }
 
 # docker
@@ -45,4 +64,3 @@ task:halt() {
 task:shell() {
     docker:container_run web /bin/bash --login
 }
-
