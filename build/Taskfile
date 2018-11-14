@@ -26,6 +26,27 @@ task:deploy() {
     cd .. && bin/fab deploy
 }
 
+# Run fabric based deployment
+task:deployer() {
+    if [ -z "${1:-}" ]
+    then
+        echo "Usage: b5 deploy <servername> [options]"
+        echo ""
+        b5:abort "Argument missing: server name"
+    fi
+    virtualenv:run fab "$1" deploy:"${2:-}"
+}
+
+task:status() {
+    if [ -z "${1:-}" ]
+    then
+        echo "Usage: b5 status <servername> [options]"
+        echo ""
+        b5:abort "Argument missing: server name"
+    fi
+    virtualenv:run fab "$1" server_status
+}
+
 task:build() {
     cd ../ && bin/buildout -Nc development.cfg
 }
