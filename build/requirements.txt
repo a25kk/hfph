@@ -1,3 +1,5 @@
 watchdog
 fabdeploit
-fabric
+fabric<2.0
+requests[security]
+git+git://github.com/ade25/ade25.fabfiles@master#egg=ade25.fabfiles
