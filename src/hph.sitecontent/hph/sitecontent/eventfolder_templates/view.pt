@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+   <section class="app-page" id="news-listing"
+    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+    <header class="app-page-header">
+        <h1 tal:content="context/Title" />
+    </header>
+    <div class="app-page-content" tal:define="items context/@@folderListing">
+        <article tal:repeat="item items">
+            <h4><a href="" tal:content="item/Title"
+                    tal:attributes="href item/getURL" /></h4>
+            <p class="text-muted"
+                tal:define="date item/effective">
+                <span tal:attributes="datetime date"
+                    tal:content="python:toLocalizedTime(date)" />
+            </p>
+        </article>
+    </div>
+  </section>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

@@ -1,0 +1,87 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <article classs="app-content" id="app-content">
+        <section class="app-page">
+            <header class="app-page-header">
+              <h1 class="app-page-headline" tal:content="context/Title">Title</h1>
+            </header>
+            <div class="app-section">
+                <div class="app-section-aside">
+                    <div class="app-figure">
+                        <img tal:condition="context/image"
+                                 tal:define="scales context/@@images"
+                                 tal:replace="structure python: scales.tag('image',
+                                        width=200,
+                                        height=200,
+                                        css_class='app-img',
+                                        direction='down')" />
+                    </div>
+                </div>
+                <div class="app-section-main">
+            <article class="page-content">
+                <div tal:condition="context/text"
+                    tal:content="structure context/text/output" />
+
+                <div tal:condition="view/has_files">
+                    <ul class="list-group">
+                        <li class="list-group-item" tal:repeat="item context/@@folderListing">
+                            <tal:item
+                                tal:define="item_obj item/getObject;
+                                            content_type item/file/contentType|nothing;
+                                            v python:context.restrictedTraverse('contenttype_utils');">
+                                <p>
+                                    <a tal:attributes="href string:${item/getURL}/@@download/file/${item/file/filename}">
+                                        <img tal:attributes="src python: v.getMimeTypeIcon(item.file);
+                                                             alt content_type;" border="0"  />
+                                        <tal:name tal:content="item/file/filename" >Filename</tal:name>
+                                    </a>
+                                    <span class="discreet"
+                                          tal:define="size item/file/getSize;
+                                                      kb python:size/1024">
+                                          &mdash; <span tal:replace="kb" /> KB</span>
+                                </p>
+                            </tal:item>
+                        </li>
+                    </ul>
+                </div>
+
+                <p class="text-xs-right">
+                    <a href="" class="app-btn app-btn-primary"
+                        tal:define="portal_url context/portal_url"
+                        tal:attributes="href view/parent_url">
+                        Weitere Nachrichten</a>
+                </p>
+
+                <div class="visualClear" tal:condition="view/can_edit">
+                    <div class="app-callout app-callout-default">
+                        <p i18n:translate="">
+                        Since you are signed in as editor you can add file
+                        attachments to this news entry</p>
+                        <a class="app-btn app-btn-default app-btn-sm"
+                        i18n:translate=""
+                        tal:attributes="href string:${context/absolute_url}/++add++File">
+                        add attachment</a>
+                    </div>
+                </div>
+            </article>
+            </div>
+            </div>
+        </section>
+    </article>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

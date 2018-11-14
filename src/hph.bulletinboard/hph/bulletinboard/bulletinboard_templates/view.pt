@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.bulletinboard">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <section class="app-blackboard" id="bulletin-listing">
+      <header class="app-page-header">
+          <h2>
+              <div class="app-blackboard__title">
+                  <i class="ion ion-ios-alert-outline app-icon app-icon--lg app-ticker__icon"></i>
+                  Wichtige Hinweise
+              </div>
+          </h2>
+      </header>
+        <div class="app-callout app-callout-default" tal:condition="not:view/has_bulletins">
+            Im Moment liegen keine aktuellen Meldungen vor.
+        </div>
+
+      <tal:block tal:condition="view/has_bulletins">
+
+        <div class="app-blackboard__item app-bulletin" tal:repeat="item view/active_bulletins">
+            <header class="app-bulletin__header">
+                <h2 class="app-bulletin__title" tal:content="item/Title" />
+            </header>
+            <div class="app-bulletin__main">
+                <p class="app-bulletin__abstract" tal:condition="item/Description"
+                    tal:content="item/Description" />
+                <div class="app-bulletin__body" tal:condition="item/text"
+                         tal:content="structure item/text/output" />
+            </div>
+        </div>
+      </tal:block>
+    </section>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

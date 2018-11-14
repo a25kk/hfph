@@ -1,0 +1,119 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+        <div class="tile-content">
+
+            <section id="content-core"
+                tal:define="user view/get_user_details;
+                            toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+                <div class="app-page-header">
+                    <div class="btn-group pull-right">
+                        <a class="app-btn app-btn-primary pull-right"
+                                 tal:attributes="href string:${context/absolute_url}/@@user-management">
+                            <i class="ion ion-ios-arrow-dropleft-outline app-icon"></i>
+                            Zurück zur Benutzersuche
+                        </a>
+                    </div>
+
+                    <h1 class="app-page-headline" i18n:translate="">User Manager</h1>
+                </div>
+                <hr>
+                <div class="app-page-body">
+
+                    <div class="list-group">
+                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">${user/name}</h5>
+                                <small tal:define="timestamp user/login_time">
+                                    Zuletzt angemeldet: <span tal:replace="python:toLocalizedTime(timestamp, long_format=True)" /> Uhr
+                                </small>
+                            </div>
+                            <p class="mb-1">${user/email}</p>
+                            <small tal:condition="exists:user/groups">
+                                Gruppen:
+                                <tal:items tal:repeat="group user/groups">
+                                    <span tal:content="group" /><tal:separator condition="not: repeat/group/end">,</tal:separator>
+                                </tal:items>
+                            </small>
+                        </div>
+                        <div class="list-group-item list-group-item-action flex-column align-items-start"
+                                 tal:define="record_enabled user/enabled">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">Benutzerstatus</h5>
+                                <small>
+                                    <i class="icon ion ion-ios-checkmark-circle-outline app-icon--md text-success" tal:condition="python:record_enabled == True"></i>
+                                    <i class="icon ion ion-ios-radio-button-off-outline app-icon--md app-icon--disabled" tal:condition="python:record_enabled == False"></i>
+                                </small>
+                            </div>
+                            <p class="mb-1" tal:condition="python:record_enabled == True">Der Benutzer ist aktiv und kann sich im Portal anmelden.</p>
+                            <p class="mb-1" tal:condition="python:record_enabled == False">Der Benutzer ist deaktiviert und kann sich nicht im Portal anmelden.</p>
+                            <a class="app-btn app-btn-sm"
+                                tal:condition="python:record_enabled == True"
+                                tal:define="url string:${context/absolute_url}/@@user-disable?user-id=${user/user_id}"
+                                tal:attributes="href python:view.protect_url(url)">
+                                Deaktivieren</a>
+                            <a class="app-btn app-btn-sm"
+                                     tal:condition="python:record_enabled == False"
+                                     tal:define="url string:${context/absolute_url}/@@user-enable?user-id=${user/user_id}"
+                                     tal:attributes="href python:view.protect_url(url)">
+                                Aktivieren</a>
+                        </div>
+                        <div class="list-group-item list-group-item-action flex-column align-items-start"
+                                 tal:define="record_confirmed user/confirmed">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">Verifizierter Account</h5>
+                                <small>
+                                    <i class="icon ion ion-ios-checkmark-circle-outline app-icon--md text-success" tal:condition="python:record_confirmed == True"></i>
+                                    <i class="icon ion ion-ios-radio-button-off-outline app-icon--md app-icon--disabled" tal:condition="python:record_confirmed == False"></i>
+                                </small>
+                            </div>
+                            <p class="mb-1" tal:condition="python:record_confirmed == True">Der Benutzerzugang ist über die E-Mail-Adresse verifiziert.</p>
+                            <p class="mb-1" tal:condition="python:record_confirmed == False">Dieser Benutzer hat sich noch nicht verifiziert</p>
+                            <a class="app-btn app-btn-sm"
+                                     tal:condition="python:record_confirmed == False"
+                                     tal:define="url string:${context/absolute_url}/@@user-invitation?userid=${user/user_id}"
+                                     tal:attributes="href python:view.protect_url(url)">
+                                Neue Einladung versenden</a>
+                        </div>
+                        <div class="list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1 text-danger">Danger Zone</h5>
+                                <small class="text-danger">
+                                    <i class="icon ion ion-ios-warning app-icon--md"></i>
+                                </small>
+                            </div>
+                            <p class="mt-3 mb-1">Vorsicht, die nachfolgenden Aktionen können nicht rückgängig gemacht werden.</p>
+                            <div class="d-flex w-100 justify-content-between">
+                                <a class="app-btn app-btn-sm"
+                                         tal:define="reset_url view/compose_pwreset_link"
+                                         tal:attributes="href reset_url">
+                                    Passwort zur&uuml;cksetzen
+                                </a>
+                                <a class="app-btn app-btn-sm"
+                                         tal:define="url string:${context/absolute_url}/@@user-remove?user-id=${user/user_id}"
+                                         tal:attributes="href python:view.protect_url(url)">
+                                    Benutzer entfernen</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

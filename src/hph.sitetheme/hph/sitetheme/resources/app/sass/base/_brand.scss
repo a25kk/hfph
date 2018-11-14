@@ -1,0 +1,36 @@
+//
+// Brand
+// --------------------------------------------
+
+
+//== Site section utility classes and mixins
+//
+//## Site section specific color definitions
+//## intendend to be used as mixin or modifier classes
+
+
+//** Default brand color scheme
+.app-default {
+  color: $app-default;
+}
+
+//** Primary brand color scheme
+.app-primary-darker {
+
+}
+.app-primary-dark {
+
+}
+.app-primary {
+  background-color: $app-primary;
+}
+.app-primary-light {
+
+}
+.app-primary-lighter {
+
+}
+
+.app-default-bg {
+  background-color: $app-section-default;
+}

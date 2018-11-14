@@ -1,0 +1,55 @@
+// Media list
+//
+//== Used in panel page list panels
+
+.media-item {
+    @include make-row();
+    margin-bottom: 1rem;
+}
+
+.media-item__aside,
+.media-item__main {
+    @include make-col-ready();
+}
+
+.media-item__aside {
+    @include media-breakpoint-up(sm) {
+        @include make-col(3);
+    }
+    @include media-breakpoint-up(lg) {
+        @include make-col(2);
+    }
+}
+
+.media-item__main {
+    @include media-breakpoint-up(sm) {
+        @include make-col(9);
+    }
+    @include media-breakpoint-up(lg) {
+        @include make-col(10);
+    }
+}
+
+.media-item__content {
+    @include media-breakpoint-up(lg) {
+        padding: 1rem 1rem 1rem 0;
+    }
+}
+
+.media-item__abstract {
+    margin-bottom: 1.5rem;
+}
+
+.media-item__meta {
+    font-size: $font-size-sm;
+}
+
+.media-item__figure {
+    margin-bottom: .5rem;
+    line-height: 1;
+    background-color: $gray-300;
+    border-top: 4px solid $app-secondary;
+    @include when-inside('.subsection-institute-globalefragen') {
+        border-color: $app-color-igp;
+    }
+}

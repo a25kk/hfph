@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <section class="app-page" id="news-listing"
+                 tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+            <header class="app-page-header">
+                <h1 tal:content="context/Title" />
+                <div class="app-page__abstract" tal:condition="context/Description">
+                        ${context/Description}
+                </div>
+            </header>
+
+            <tal:news-items tal:condition="view/has_content">
+
+                <div class="app-page__body">
+                    <section class="app-page__section app-list" id="content-core"
+                             tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                                         b_size python:int(request.get('b_size', 20));
+                                         b_start python:int(request.get('b_start', 0));
+                                         results view/news_items;
+                                         batch python:Batch(results, b_size, b_start);">
+                        <div class="app-list app-list--no-gutter">
+                            <article class="app-list__item" tal:repeat="item results">
+                                <div class="app-list__item-details" tal:define="item_uuid item/uuid">
+                                    <span tal:replace="structure python:view.rendered_news_entry_card(item_uuid)" />
+                                </div>
+                            </article>
+                        </div>
+                        <tal:block tal:content="nothing">
+                            <div metal:use-macro="context/batch_macros/macros/navigation" />
+                        </tal:block>
+                    </section>
+                </div>
+            </tal:news-items>
+
+        </section>
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

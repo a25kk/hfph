@@ -1,0 +1,120 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser"
+        xmlns:z3c="http://namespaces.zope.org/z3c"
+        i18n_domain="hph.lectures">
+
+    <!-- Page section snippet -->
+    <browser:page
+            for="hph.lectures.lecture.ILecture"
+            name="module-editor"
+            class=".coursemodules.CourseModuleEditor"
+            template="coursemoduleeditor.pt"
+            permission="cmf.ModifyPortalContent"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+    <browser:page
+            for="hph.lectures.lecture.ILecture"
+            name="module-editor-remove"
+            class=".coursemodules.CourseModuleEditorRemove"
+            permission="cmf.ModifyPortalContent"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="module-storage-cleanup"
+            class=".coursemodules.CourseModuleStorageCleanup"
+            permission="cmf.ModifyPortalContent"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <browser:page
+            for="hph.lectures.lecture.ILecture"
+            name="course-view"
+            class=".course.CourseView"
+            template="course-view.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <browser:page
+            for="hph.lectures.lecture.ILecture"
+            name="course-card"
+            class=".course.CoursePreview"
+            template="course-preview.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <!-- Filterable course listing -->
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-listing"
+            class=".courselisting.CourseListing"
+            template="courselisting.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-folder-view"
+            class=".coursefolder.CourseFolderView"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-filter-bar"
+            class=".courselisting.CourseFilter"
+            template="course-filter.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-filter-view"
+            class=".courselisting.CourseFilterView"
+            template="course-filter-view.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-filter-select"
+            class=".courselisting.CourseFilterSelectBox"
+            template="course-select-box.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <!-- Filter session storage views -->
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-filter-storage"
+            class=".courselisting.CourseFilterStorageInfo"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+    <!-- Filter session cleanup -->
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-filter-storage-reset"
+            class=".courselisting.CourseFilterStorageReset"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+    <browser:page
+            for="hph.lectures.coursefolder.ICourseFolder"
+            name="course-filter-storage-cleanup"
+            class=".courselisting.CourseFilterStorageCleanup"
+            permission="zope2.View"
+            layer="..interfaces.IHPHLecturesLayer"
+    />
+
+</configure>

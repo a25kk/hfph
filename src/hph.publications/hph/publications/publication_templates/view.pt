@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.publications">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <article class="app-page" id="publication-view">
+
+      <tal:can_edit tal:condition="view/item_contributor">
+          <div class="app-callout app-callout-warning">
+              <a class="btn btn-warning pull-right"
+                  tal:attributes="href string:${context/absolute_url}/@@edit"
+                  i18n:translate="">
+                  Edit</a>
+              <h4 i18n:translate="">Note:</h4>
+              <p i18n:translate="">
+                  It appears that you are a contributor to this content item
+              </p>
+          </div>
+      </tal:can_edit>
+
+        <div class="app-section">
+            <div class="app-section-main">
+                <header class="page-header">
+                    <p class="muted">
+                        <span tal:replace="context/authorOne" /><span tal:condition="context/authorTwo">, <span tal:replace="context/authorTwo" /></span><span tal:condition="context/authorThree">, <span tal:replace="context/authorThree" /></span>
+                        <span tal:condition="context/authorPlus">u.a.</span>
+                        <span tal:condition="context/editor">(Hrsg.)</span>:
+                    </p>
+                    <h1 tal:content="context/Title" />
+                </header>
+                <section id="content-core">
+                    <div tal:condition="context/summary"
+                             tal:content="structure context/summary/output" />
+                </section>
+                <hr>
+                <a class="app-btn"
+                   tal:define="parent context/@@plone_context_state/parent;
+                               parent_url parent/absolute_url"
+                         tal:attributes="href string:${parent_url}">
+                    <span i18n:translate="">Back to publication listing</span></a>
+            </div>
+            <div class="app-section-aside">
+                <div class="app-box app-box-workspaces">
+                    <div class="app-box-header">
+                        <h2 class="app-box-heading" i18n:translate="">
+                            Publication
+                        </h2>
+                    </div>
+                    <div class="app-box-content">
+                        <p i18n:translate="">A publication will only be displayed inside
+                            the filterable listing view and therefore no dedicated
+                            information available here</p>
+                        <a class="app-btn app-btn-default"
+                                 tal:attributes="href string:${context/absolute_url}/edit"
+                                 i18n:translate="">Edit</a>
+                    </div>
+                    <div class="app-box-content">
+                        <hr>
+                        <p class="app-page-abstract" i18n:translate="">
+                            Associate faculty members
+                        </p>
+                        <p i18n:translate="">A publication can be associated with one or
+                        more faculty members</p>
+                        <a class="app-btn app-btn-default"
+                                 tal:attributes="href string:${context/absolute_url}/@@faculty-member-assignment"
+                                 i18n:translate="">Assign faculty members</a>
+                    </div>
+                    <div class="app-box-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </article>
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

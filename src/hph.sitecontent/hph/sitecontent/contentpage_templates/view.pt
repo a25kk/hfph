@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+  <section class="app-page" id="app-content-page-view">
+    <header class="app-page-header">
+        <h1 class="app-page-title" tal:condition="context/headline"
+            tal:content="context/headline" />
+        <h1 class="app-page-title" tal:condition="not:context/headline"
+            tal:content="context/Title" />
+    </header>
+
+    <section id="content-core">
+      <p class="app-page-abstract" tal:condition="context/Description"
+        tal:content="context/Description" />
+
+      <div class="app-page-body" tal:condition="context/text"
+        tal:content="structure context/text/output" />
+    </section>
+
+    <div tal:replace="structure provider:plone.belowcontentbody" />
+
+  </section>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>

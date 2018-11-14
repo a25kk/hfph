@@ -1,0 +1,33 @@
+//
+// Header
+// ------------------------------------------
+
+
+.app-header {
+
+}
+
+.app-header-content {
+  	margin-left: auto;
+  	margin-right: auto;
+  	@include make-container-max-widths();
+}
+
+.app-header-content + .app-header-content {
+  margin-top: 1.5rem;
+}
+
+.app-header-actionbar {
+	text-align: right;
+}
+
+.app-header-brandbar {
+	padding: 1rem;
+}
+
+.app-section-marker {
+	color: $gray-600;
+	font-size: 2rem;
+	text-align: right;
+	font-weight: 400;
+}

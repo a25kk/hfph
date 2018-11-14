@@ -1,0 +1,98 @@
+//
+// Main site navigation bar
+// -----------------------------------------------------------
+
+
+.app-navbar {
+    background: @app-yellow;
+    border-radius: 0;
+    padding: 0px;
+    margin-bottom: 0px;
+    .navbar-brand {
+        height: 50px;
+        background: @app-blue;
+        color: #fff;
+        margin-left: 0px;
+        margin-right: 0px;
+        //margin: 10px 0px 0;
+        z-index: @zindex-dropdown;
+    }
+    .navbar-collapse {
+        padding-right: 0;
+    }
+}
+
+.app-navbar-main {
+    padding-right: 0;
+    > .navitem {
+        a {
+            // font-size: (@font-size-base - 1);
+            font-weight: 700;
+            color: @app-blue;
+            text-transform: uppercase;
+            padding: ceil((@navbar-height - @line-height-computed) / 2) ceil((@line-height-computed / 3));
+            &:hover {
+                background-color: @app-blue;
+                color: #fff;
+            }
+            @media (min-width: @screen-sm) {
+                border-left: 2px solid rgba(255,255,255,.75);
+                border-right: 1px solid rgba(0,0,0,.1);
+                //.box-shadow(inset 0 1px 3px rgba(0,0,0,.25));
+            }
+        }
+
+        &.active a,
+        &.selected a {
+            background-color: @app-blue;
+            color: #fff;
+        }
+
+    }
+}
+// Subnavigation
+
+.app-subnavbar {
+    .app-subnav > li > a:hover,
+    .app-subnav > li > a:focus {
+        border-radius: 0;
+    }
+    .app-subnav > li.active > a,
+    .app-subnav > li.active > a:hover,
+    .app-subnav > li.active > a:focus {
+        background-color: @app-blue;
+        border-radius: 0;
+    }
+}
+
+// Navtree box/portlet
+// We asume an unordered list
+.navTree {
+    .nav();
+    .navTreeCurrentNode,
+    .navTreeItemInPath {
+        a,
+        a:hover,
+        a:focus {
+            text-decoration: none;
+            background-color: @gray-lighter;
+        }
+    }
+    &.navTreeLevel1 {
+        li.navTreeCurrentNode {
+            a,
+            a:hover,
+            a:focus {
+                background-color: transparent;
+                border-right: 1px solid @gray;
+                font-size: @font-size-small;
+            }
+        }
+    }
+}
+
+// Reset the navbar toggle color
+.navbar-default .navbar-toggle .icon-bar {
+    color: @navbar-inverse-link-color;
+}
+

@@ -1,0 +1,37 @@
+/*
+ * Callouts
+ *
+ * Not quite alerts, but custom and helpful notes for folks reading the docs.
+ * Requires a base and modifier class.
+ */
+
+/* Common styles for all types */
+.app-callout {
+  padding: @line-height-computed;
+  margin: @line-height-computed 0;
+  border-left: ceil((@line-height-computed / 4)) solid #eee;
+}
+.app-callout h4 {
+  margin-top: 0;
+  margin-bottom: ceil((@line-height-computed / 4));
+}
+.app-callout p:last-child {
+  margin-bottom: 0;
+}
+.app-callout code {
+  background-color: #fff;
+}
+
+.app-callout-default {
+  .alert-variant(@gray-lighter; @gray-light; @text-color);
+}
+
+.app-callout-success {
+  .alert-variant(@alert-success-bg; @alert-success-border; @alert-success-text);
+}
+.app-callout-danger {
+  .alert-variant(@alert-danger-bg; @alert-danger-border; @alert-danger-text);
+}
+.app-callout-warning {
+  .alert-variant(@alert-warning-bg; @alert-warning-border; @alert-warning-text);
+}

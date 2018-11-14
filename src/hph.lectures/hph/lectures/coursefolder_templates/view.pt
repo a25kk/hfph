@@ -1,0 +1,155 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.lectures">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-3">
+            <aside class="app-aside" id="app-sidebar">
+                <div class="app-card app-card-nav app-card-lecture"
+                    tal:define="active_filter request/courseType | nothing">
+                    <div class="app-card-header">
+                    </div>
+                    <div class="app-card-main">
+                        <ul class="app-nav-list">
+                            <tal:block tal:repeat="filter view/filter_options">
+                                <li tal:define="filter_value filter/value"
+                                    tal:attributes="class python:view.computed_klass(filter_value)">
+                                    <a class="app-nav-list-link"
+                                            tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;courseType=${filter/value}"
+                                        tal:content="filter/title">Filter option</a>
+                                </li>
+                            </tal:block>
+                        </ul>
+                    </div>
+                    <div class="app-card-footer">
+                        <a class="btn btn-danger btn-sm" tal:condition="active_filter"
+                            tal:attributes="href string:${context/absolute_url}">
+                            &times; <span i18n:translate="">remove filter</span></a>
+                    </div>
+                </div>
+                <div class="app-card app-card-nav app-card-lecture"
+                    tal:condition="view/has_archives">
+                    <div class="app-card-header">
+                        <div class="app-box-heading" i18n:translate="">Archive</div>
+                    </div>
+                    <div class="app-card-main">
+                        <ul class="app-nav-list">
+                            <tal:block tal:repeat="folder view/subfolders">
+                                <li class="app-nav-list-item" tal:define="filter_active python:view.is_active_folder(folder)">
+                                    <a class="app-nav-list-link"
+                                            tal:attributes="href folder/getURL"
+                                        tal:content="folder/Title">Archive folder</a>
+                                </li>
+                            </tal:block>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+            <div class="tile-content"
+                tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+
+            <tal:can_edit tal:condition="view/can_edit">
+                <div class="app-callout app-callout-warning">
+                    <a class="btn btn-warning pull-right"
+                        tal:attributes="href string:${context/absolute_url}/@@xhr-integration"
+                        i18n:translate="">
+                        Show integration options</a>
+                    <h4 i18n:translate="">Note:</h4>
+                    <p i18n:translate="">
+                        It appears that you are logged in as staff member. Use the
+                        link <em>XHR integrations</em> to open an overview of
+                        code snippets that can be used to integrate 3rd party project
+                        course listings via ajax
+                    </p>
+                </div>
+            </tal:can_edit>
+
+                <div class="app-content-core" id="content-core">
+                    <div tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                        b_size python:int(request.get('b_size', 20));
+                        b_start python:int(request.get('b_start', 0));
+                        results view/contained_items;
+                        batch python:Batch(results, b_size, b_start);">
+                        <article class="app-contentlisting" tal:repeat="item batch">
+                            <div class="app-list-item">
+                                <div class="app-list-item-kicker">
+                                    <span tal:replace="item/courseNumber" /><span tal:condition="item/blockLecture">*</span><span tal:condition="item/onlineLecture">@</span>
+                                    <tal:lecturer tal:condition="item/lecturer">
+                                        <tal:items tal:repeat="node item/lecturer">
+                                            <a tal:attributes="href node/to_object/absolute_url | nothing" tal:content="node/to_object/Title | nothing" /><tal:separator condition="not: repeat/node/end">,</tal:separator>
+                                        </tal:items>
+                                    </tal:lecturer>
+                                </div>
+                                <h2>
+                                    <a tal:attributes="href item/getURL"
+                                        tal:content="item/Title" />
+                                </h2>
+                                <p tal:condition="exists:item/subtitle" tal:content="item/subtitle" />
+                                <p tal:condition="item/lecturerAdditional">
+                                    <span i18n:translate="">Additional Lecturer:</span>
+                                    <span tal:replace="item/lecturerAdditional" />
+                                </p>
+                                <p class="text-muted"
+                                    tal:define="duration item/courseDuration;
+                                                pretty_duration python:view.prettify_duration(duration)">
+                                    <span tal:content="pretty_duration" i18n:translate="">Duration</span>
+                                    <span tal:replace="item/courseTime" />
+                                </p>
+                                <p class="text-muted">
+                                    <span i18n:translate="">Raum</span>
+                                    <span tal:replace="item/courseRoom" />
+                                <p class="text-muted">
+                                    <span i18n:translate="">Dates</span>:
+                                    <span tal:replace="item/courseDates" />
+
+                                <tal:modules tal:condition="item/moduleInformation">
+                                <p class="text-muted" tal:define="item_uid item/UID;
+                                                                  stored_data python:view.course_information(item_uid)">
+                                    <tal:items tal:repeat="item python:stored_data['items']">
+                                    ${item/degree}: ${item/info}<tal:separator condition="not: repeat/item/end"><br></tal:separator>
+                                    </tal:items>
+                                </p>
+                                </tal:modules>
+                                <tal:nomodules tal:condition="not:item/moduleInformation">
+                                    <p class="text-muted" tal:condition="item/moduledetails">
+                                        <tal:items tal:repeat="node item/moduledetails">
+                                        <span tal:define="degree node/degree;
+                                                pretty_degree python:view.prettify_degree(degree)"
+                                                 tal:content="pretty_degree"
+                                                 i18n:translate="" />:
+                                            <span tal:replace="node/info" />
+                                            <tal:separator condition="not: repeat/node/end"><br></tal:separator>
+                                        </tal:items>
+                                    </p>
+                                </tal:nomodules>
+
+
+                                <p class="text-discreet text-muted"
+                                    tal:condition="item/Description"
+                                    tal:content="item/Description" />
+                                <hr>
+                            </div>
+                        </article>
+                        <div metal:use-macro="context/batch_macros/macros/navigation" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

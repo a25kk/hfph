@@ -1,0 +1,78 @@
+//
+// Actionbar including meta nav and search box
+// -------------------------------------------------
+
+
+// Add border to wrapper div
+.app-header-content {
+    border-top: ceil((@line-height-computed / 4)) solid @app-blue;
+}
+
+// Adjust top margin to compensate for border
+.app-actionbar {
+    margin-top: ceil(-(@line-height-computed / 4));
+    margin-right: 0;
+    @media (min-width: @screen-md) {
+        margin-right: ceil((@line-height-computed * 2));
+    }
+
+}
+
+.app-actionbar-nav {
+    margin: 0;
+    padding-right: @line-height-computed;
+    font-size: @font-size-small;
+    text-transform: uppercase;
+    border: 0px solid @gray-light;
+    border-width: 6px 1px 1px 1px;
+    text-align: center;
+    > li > a {
+        border-radius: 0;
+        padding: (@line-height-computed / 2.5);
+        border: 0;
+        outline: none;
+    }
+    > li > a:hover {
+        background: none;
+        border: 0;
+        color: @app-blue;
+    }
+    @media (min-width: @screen-sm) {
+        margin-right: -(@line-height-computed * 1.5);
+    }
+    @media (min-width: @screen-md) {
+        text-align: left;
+    }
+}
+
+.app-actionbar-nav > li.active > a,
+.app-actionbar-nav > li.active > a:hover,
+.app-actionbar-nav > li.active > a:focus {
+    border: 0;
+    color: @text-color;
+    background: transparent;
+}
+
+.app-actionbar-form {
+    width: 100%;
+    background: @gray-light;
+    padding: (@padding-small-vertical - 2)  @line-height-computed (@padding-small-vertical - 1);
+    border-top: 2px solid @gray-light;
+    border-radius: 0;
+    .btn-sm {
+        background: white;
+        border: 0;
+    }
+    .input-sm {
+        border-color: @gray-light;
+        border-left: none;
+        .input-size(@input-height-small; @padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+    }
+}
+
+// Make the nav align with the search bar on larger screens
+@media (min-width: @screen-sm) {
+  .app-actionbar-nav {
+    .pull-right();
+  }
+}

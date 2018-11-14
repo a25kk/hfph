@@ -1,0 +1,34 @@
+//
+// Application footer
+// ---------------------------------
+
+
+.app-footer {
+    margin-top: ceil((@line-height-computed / 4));
+    margin-bottom: @line-height-computed;
+
+}
+
+.app-footer-content {
+    padding: 0;
+    .nav {
+        padding: @line-height-computed;
+        margin: -(@padding-small-vertical) auto;
+        text-transform: uppercase;
+        border-top: 5px solid @app-blue;
+        background: white;
+        font-size: (@font-size-base - 2);
+        .box-shadow(0 0 5px 5px rgba(0,0,0,.05));
+        li > a:hover {
+            background-color: transparent;
+        }
+        li > a:focus {
+            background-color: transparent;
+        }
+    }
+    // Custom styles for donation link in footer navigation
+    .link-donation {
+        background:url(../assets/img/donation.gif)  no-repeat 0 10px;
+        padding-left: 25px;
+    }
+}

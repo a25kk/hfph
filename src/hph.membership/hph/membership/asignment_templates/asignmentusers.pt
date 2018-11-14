@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <div class="app-section">
+      <div class="app-section-aside">
+          <div class="app-box app-box-workspaces">
+              <div class="app-box-header">
+                  <h2 class="app-box-heading" i18n:translate="">
+                      Asignment
+                  </h2>
+              </div>
+              <div class="app-box-content">
+                  <p class="lead" i18n:translate="">
+                    Please select the user to update from the list
+                  </p>
+                  <p i18n:translate="">Only one action can be performed due to
+                    security reindexing taking place. Please be patient.
+                  </p>
+              </div>
+              <div class="app-box-footer">
+                  <a class="btn btn-danger btn-sm"
+                      tal:attributes="href string:${context/absolute_url}/@@asignment-view">
+                      &times; <span i18n:translate="">Quit user selection</span></a>
+              </div>
+          </div>
+      </div>
+      <div class="app-section-main">
+        <div class="app-page-header">
+            <h1 i18n:translate="">User Selection</h1>
+            <p class="lead" tal:content="context/Title">Context title</p>
+        </div>
+        <div class="app-page-body">
+            <div class="list-group">
+                <tal:block tal:repeat="item view/selectable_users">
+                  <tal:item tal:define="user_id item/userid;
+                                        worklist item/worklist;
+                                        active python:view.get_asignment(user_id, worklist)">
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"
+                        tal:condition="not:active"
+                        tal:attributes="href string:${context/absolute_url}/@@asignment/${user_id}/asign">
+                      <h4 class="list-group-item-heading"
+                        tal:content="item/fullname">
+                        List group item heading
+                      </h4>
+                      <p i18n:translate="">Allow user to contribute in this context</p>
+                    </a>
+                    <a href="#" class="list-group-item active"
+                        tal:condition="active"
+                        tal:attributes="href string:${context/absolute_url}/@@asignment/${user_id}/revoke">
+                      <span class="badge" i18n:translate="">asigned</span>
+                      <h4 class="list-group-item-heading"
+                        tal:content="item/fullname">
+                        List group item heading
+                      </h4>
+                      <p i18n:translate="">Klick to remove user asignment</p>
+                    </a>
+                  </tal:item>
+                </tal:block>
+            </div>
+        </div>
+      </div>
+    </div>
+  </metal:content-core>
+</metal:main>
+</body>
+</html>

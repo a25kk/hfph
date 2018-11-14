@@ -1,0 +1,67 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+    <div class="tile-content">
+        <section id="content-core">
+          <h2 i18n:translate="">Activate account</h2>
+          <p i18n:translate="">
+            Please set a password to finalize and activate your account.
+          </p>
+          <p class="text-discreet" i18n:translate="">
+            Passwords require a minimum length of 8 characters.
+          </p>
+            <hr>
+            <tal:valid tal:condition="view/can_set_password">
+              <form class="app-form"
+                  method="post" role="form"
+                  tal:attributes="action request/URL">
+                  <span tal:replace="structure context/@@authenticator/authenticator"/>
+                  <div class="field">
+                      <label for="password" i18n:translate="">New Password</label>
+                      <input class="form-control"
+                          id="password"
+                          name="password"
+                          type="text"
+                          pattern=".{3,}"
+                          title="8 characters minimum"
+                          required />
+                  </div>
+                  <div class="field">
+                      <label for="confirm" i18n:translate="">Confirm</label>
+                      <input class="form-control"
+                          id="confirm"
+                          name="confirm"
+                          type="text"
+                          required />
+                  </div>
+                   <button class="btn btn-danger"
+                       name="form.button.Submit"
+                       id="form.button.Submit"
+                       i18n:translate="">Save</button>
+              </form>
+            </tal:valid>
+            <tal:invalid tal:condition="not:view/can_set_password">
+              <div class="app-callout app-callout-danger">
+                <h4 i18n:translate="">Unauthorized</h4>
+                <p i18n:translate="">We are sorry to inform you that this request can not be resolved.</p>
+              </div>
+              <p i18n:translate="">Please check wether the requested URL is complete and contains the required
+                access token to verify your identity. If the url is correct and the error persists it is
+                most likely due to an incorrectly gernerated user account. Please contact our team if you
+                have any questions.
+              </p>
+            </tal:invalid>
+          </section>
+        </div>
+  </metal:content-core>
+</metal:main>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <div class="tile-content">
+
+        <section id="content-core"
+            tal:define="userid request/user_id | nothing">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="app-box app-box-workspaces">
+                        <div class="app-box-header">
+                            <h1 class="app-box-heading" i18n:translate="">
+                                User Invitations
+                            </h1>
+                        </div>
+                        <div class="app-box-content">
+                            <div class="alert alert-danger">
+                                Send invitation emails users asking them
+                                to set a password for accessing the site.
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary btn-block"
+                        tal:attributes="href string:${context/absolute_url}/ws/@@user-manager"
+                        i18n:translate="">
+                        User Manager</a>
+                </div>
+                <div class="col-xs-12 col-sm-8">
+                    <div class="app-page-header">
+                        <h2>Send invitation</h2>
+                    </div>
+                    <div class="app-callout app-callout-danger"
+                        tal:condition="not:view/requested_user_id">
+                        You did not pass a valid user id while
+                        calling this view
+                    </div>
+                    <div tal:condition="view/requested_user_id">
+                        <a class="btn btn-danger"
+                            tal:attributes="href string:${context/portal_url}/@@invite-new-user?userid=${request/userid}">
+                            Send invitation to <span tal:replace="request/userid" />
+                        </a>
+                         <h4>Preview the constructed reset email now</h4>
+                        <a class="btn btn-default"
+                            tal:attributes="href string:${context/absolute_url}/@@invitation-email?userid=${request/userid}">
+                            Show reset mail</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

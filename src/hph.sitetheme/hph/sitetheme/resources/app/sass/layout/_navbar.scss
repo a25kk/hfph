@@ -1,0 +1,282 @@
+//
+// Navbar
+// -----------------------------------------
+
+.app-navbar {
+    background: $app-secondary;
+    line-height: ($spacer / 2);
+    padding-left: 0;
+    padding-right: 0;
+    &-sub {
+        background-color: #fff;
+    }
+    @include media-breakpoint-up(sm) {
+        display: flex;
+    }
+}
+
+//== Navbar header
+//
+//## Default display of global site navigation
+//## Hidden on larger displays
+.app-navbar-header {
+    flex: 0 0 50px;
+    padding: 0;
+    background: transparent;
+    @include media-breakpoint-up(sm) {
+        display: none;
+    }
+    @include media-breakpoint-up(xl) {
+        display: block;
+    }
+    &-sub {
+        display: block;
+        @include media-breakpoint-up(sm) {
+            display: none;
+        }
+        @include media-breakpoint-up(xl) {
+            display: none;
+        }
+    }
+}
+
+.app-navbar-header-title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    background-color: $app-primary;
+    &:hover {
+        background-color: $app-secondary;
+    }
+    @include media-breakpoint-up(xl) {
+        justify-content: center;
+    }
+
+}
+
+.app-navbar-brand {
+    margin-left: 1rem;
+    max-width: 50%;
+    @include media-breakpoint-up(md) {
+        margin-left: 0;
+    }
+}
+
+.app-navbar-brand-title {
+    color: #fff;
+    @include media-breakpoint-up(sm) {
+        display: none;
+    }
+}
+
+.app-navbar-brand-icon {
+    display: none;
+    color: #fff;
+    @include media-breakpoint-up(sm) {
+        display: block;
+    }
+}
+
+.app-navbar-header-toggle {
+    float: right;
+    margin-top: -3rem;
+    @include media-breakpoint-up(lg) {
+        display: none;
+    }
+}
+
+// Navbar toggle button visible on small displays
+// Custom override for
+.navbar-toggleable {
+    &-xs {
+        @include media-breakpoint-up(sm) {
+            display: block !important;
+        }
+    }
+    &-sm {
+        @include media-breakpoint-up(md) {
+            display: block !important;
+        }
+    }
+    &-md {
+        @include media-breakpoint-up(lg) {
+            display: block !important;
+        }
+    }
+}
+
+// Navbar toggle
+//
+// Custom button for toggling the `.navbar-collapse`, powered by the collapse
+// Bootstrap JavaScript plugin.
+
+.navbar-toggler {
+    padding: .5rem .5rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    background: none;
+    color: #fff;
+    border: $border-width solid transparent;
+    @include border-radius($btn-border-radius);
+    @include hover-focus {
+        text-decoration: none;
+    }
+}
+
+$app-nav-bar-title-width: 50px;
+.app-navbar-collapse {
+    // Mock standard browser calculation behavior
+    // flex: 0 0 calc(100% - 50px);
+    // Fixes IE10-11 layout issues
+    // @each $breakpoint, $container-max-width in $container-max-widths {
+    //     @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+    //         flex: 0 0 ($container-max-width - $app-nav-bar-title-width);
+    //     }
+    // }
+    flex: 0 0 100%;
+    @include media-breakpoint-up(xl) {
+        flex: 0 0 1090px;
+    }
+    &-secondary {
+        flex: 0 0 100%;
+    }
+}
+
+// Unordered list main navigation
+.app-navbar-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 0;
+    padding: 0;
+    list-style: none;
+    @include media-breakpoint-up(sm) {
+        padding: 0;
+        flex-wrap: nowrap;
+    }
+    @extend .clearfix;
+    @include media-breakpoint-up(md) {
+        justify-content: space-around;
+    }
+}
+
+.app-navbar-nav-sub {
+    width: 100%;
+    @include media-breakpoint-up(sm) {
+        // height: 50px;
+        min-height: 50px;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        justify-content: flex-start;
+    }
+}
+
+//== Navitems
+//
+//## Color coded based on addon classes
+.app-navitem {
+    width: 100%;
+    max-width: 100%;
+    @include media-breakpoint-up(md) {
+        width: auto;
+        flex: 1 1 25%;
+        @include when-inside('.template-frontpage-view') {
+            flex: 0 0 25%;
+        }
+        padding-right: 0px;
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+}
+
+.app-navitem-sub {
+    flex: 1 1 auto;
+}
+
+
+.app-navitem-tab {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    color: $app-primary;
+    background-color: $app-secondary;
+    font-weight: 700;
+    font-size: .8rem;
+    line-height: 1;
+    text-transform: uppercase;
+    // text-align: center;
+    transition: background-color 0.5s ease;
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    border-left: 1px solid rgba(255, 255, 255, .75);
+    &-last {
+        border-right: none;
+    }
+    &:hover {
+      color: #fff;
+      background-color: darken($app-primary, 6.5%);
+      text-decoration: none;
+    }
+    @include when-inside('.active') {
+        color: #fff;
+        background-color: darken($app-primary, 6.5%);
+    }
+    > span {
+        display: block;
+        margin-left: $spacer;
+        @include media-breakpoint-up(md) {
+            margin: 0 auto;
+        }
+    }
+    @include media-breakpoint-up(md) {
+        height: 50px;
+        min-height: 50px;
+        text-align: center;
+        font-size: 1rem;
+    }
+    @include when-inside('.app-navitem-home') {
+        content: "\f24f";
+        font-family: "ionicons";
+    }
+}
+
+.app-navitem-tab-base {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    color: $app-primary;
+    font-weight: 400;
+    font-size: 0.9rem;
+    line-height: 1;
+    transition: background-color 0.5s ease;
+    @include when-inside('.app-navbar-nav-sub') {
+        color: $app-blue-secondary;
+    }
+    &:hover {
+        color: #fff;
+        background-color: darken($app-primary, 6.5%);
+        text-decoration: none;
+    }
+    @include when-inside('.active') {
+        color: #fff;
+        background-color: darken($app-primary, 6.5%);
+    }
+    > span {
+        display: block;
+        margin-left: $spacer;
+        @include media-breakpoint-up(md) {
+            margin: 0 auto;
+        }
+    }
+    @include media-breakpoint-up(md) {
+        height: 50px;
+        min-height: 50px;
+        text-align: center;
+    }
+}

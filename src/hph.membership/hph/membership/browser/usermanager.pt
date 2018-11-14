@@ -1,0 +1,125 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <div class="tile-content">
+
+            <section id="content-core" tal:condition="not:view/can_manage_users">
+                <div class="app-page-header">
+                    <h1 class="app-page-headline" i18n:translate="">User Manager</h1>
+                </div>
+                <div class="app-page-body">
+                    <div class="app-callout app-callout-danger">
+                        <div class="app-callout-title">Verzeihung</div>
+                        <p>Der Benutzer, mit dem Sie angemeldet sind, ist leider nicht Mitglied der
+                            Benutzergruppen, die Zugriff auf den User Manager habe.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="content-core" tal:condition="view/can_manage_users">
+                <div class="app-page-header">
+                    <div class="pull-right">
+                        <a class="app-btn app-btn-primary"
+                                 tal:attributes="href string:${context/absolute_url}/@@add-new-user">
+                            <i class="ion ion-ios-add-circle-outline app-icon--sm"></i>
+                            Add user
+                        </a>
+                    </div>
+
+                    <h1 class="app-page-headline" i18n:translate="">User Manager</h1>
+                </div>
+
+                <div class="app-page-header" tal:condition="not: view/submitted">
+                    <metal:block use-macro="context/@@ploneform-macros/titlelessform" />
+                </div>
+                <hr>
+                <tal:results tal:condition="view/submitted">
+                    <div class="app-page-body app-listing-members"
+                        tal:define="listing_allowed python: checkPermission('List portal members', here);
+                                    results python:listing_allowed and view.results;
+                                    Batch python:modules['Products.CMFPlone'].Batch;
+                                    DateTime python:modules['DateTime'].DateTime;
+                                    b_size python:12;b_start python:0;b_start request/b_start | b_start;">
+
+                        <div class="app-callout app-callout-default" tal:condition="not: listing_allowed"
+                                 i18n:translate="member_listing_not_allowed">
+                            You are not allowed to list portal members.
+                        </div>
+                        <div class="app-callout app-callout-default">
+                            <div class="pull-right"><a class="app-btn app-btn-default" href="${context/absolute_url}/@@user-management">Neue Suche</a></div>
+                            <strong i18n:translate="batch_x_items_matching_your_criteria">
+                                <span i18n:name="number" tal:omit-tag="" tal:content="python:len(results)">234</span> Benutzer wurden gefunden.
+                            </strong>
+                        </div>
+                        <tal:block condition="python: results and listing_allowed">
+                            <div tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1)">
+                                <div class="app-listing-table" tal:define="search_results batch;">
+                                    <table class="table table-sm table-striped table-hover app-table-usermanager" id="table-usermanager">
+                                        <thead class="thead-inverse">
+                                        <tr>
+                                            <th scope="row">Userrecord</th>
+                                            <th>E-Mail</th>
+                                            <th>E-Mail best&auml;tigt</th>
+                                            <th>Aktiv</th>
+                                            <th>More</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tal:user tal:repeat="user_record batch">
+                                            <tr class="app-contentlisting"
+                                                     tal:define="item user_record">
+                                                <td class="app-list-item app-td-first">
+                                                    <a tal:condition="item/has_workspace"
+                                                            href="${item/workspace_url}">
+                                                        <strong tal:content="item/name" />
+                                                    </a>
+                                                    <strong tal:condition="not:item/has_workspace" tal:content="item/name" /><br>
+                                                </td>
+                                                <td>
+                                                    <small tal:content="item/email" />
+                                                </td>
+                                                <td tal:define="record_confirmed item/confirmed">
+                                                    <i class="icon ion ion-ios-checkmark-circle-outline app-icon--md" tal:condition="python:record_confirmed == True"></i>
+                                                    <i class="icon ion ion-ios-radio-button-off-outline app-icon--md app-icon--disabled" tal:condition="python:record_confirmed == False"></i>
+                                                </td>
+                                                <td tal:define="record_enabled item/enabled">
+                                                    <i class="icon ion ion-ios-checkmark-circle-outline app-icon--md" tal:condition="python:record_enabled == True"></i>
+                                                    <i class="icon ion ion-ios-radio-button-off-outline app-icon--md app-icon--disabled" tal:condition="python:record_enabled == False"></i>
+                                                </td>
+
+                                                <td>
+                                                    <a href="${item/details_link}">Details</a>
+                                                </td>
+                                            </tr>
+                                        </tal:user>
+
+                                        </tbody>
+                                    </table>
+                                    <tal:batchnavigation
+                                            define="batchnavigation nocall:context/@@batchnavigation"
+                                            replace="structure python:batchnavigation(batch)" />
+                                </div>
+                            </div>
+                        </tal:block>
+                    </div>
+                </tal:results>
+            </section>
+        </div>
+
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

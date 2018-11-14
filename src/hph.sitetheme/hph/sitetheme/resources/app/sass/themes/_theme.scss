@@ -1,0 +1,64 @@
+//
+// Main site theme
+// --------------------------------------
+
+
+//== Main content area
+//
+//## Provides optional fullscreen layouts
+.app-main-content {
+  @extend .container;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+// Sidebar support in content area
+.app-main-content-columns {
+    @include when-inside('.app-main-content-gutter') {
+        @include make-row();
+    }
+}
+
+// Add column layout
+.app-page-aside,
+.app-page-main {
+    @include make-col(12);
+}
+
+.app-page-aside {
+    @include media-breakpoint-up(md) {
+        @include make-col(3);
+    }
+}
+
+.app-page-main {
+    @include media-breakpoint-up(md) {
+        @include make-col(9);
+    }
+}
+
+//** Add full height to layout components
+.app-section {
+    @include make-row()
+}
+
+.app-section-aside,
+.app-section__aside {
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+        @include make-col(3);
+        padding: 0 1rem 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.app-section-main,
+.app-section__main {
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+        @include make-col(9);
+        padding: 0 1rem 0 0;
+    }
+}
+

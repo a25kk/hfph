@@ -1,0 +1,82 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <div class="tile-content">
+
+        <section id="content-core"
+            tal:define="userid request/userid | context/getId | nothing">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="app-box app-box-workspaces">
+                        <div class="app-box-header">
+                            <h1 class="app-box-heading" i18n:translate="">
+                                User Invitations
+                            </h1>
+                        </div>
+                        <div class="app-box-content">
+                            <p class="text-muted" i18n:translate="">
+                                Invite new users by passing a list of email addresses
+                            </p>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary"
+                        tal:attributes="href string:${context/absolute_url}/@@user-manager"
+                        i18n:translate="">
+                        Back to user manager</a>
+                </div>
+                <div class="col-xs-12 col-sm-8">
+                    <div class="app-page-header">
+                        <h2>Send invitation</h2>
+                    </div>
+                    <div class="app-callout app-callout-default"
+                        tal:condition="not:request/userid">
+                        <h4>Heads up:</h4>
+                        <p>The import of user records coming from the external api
+                            should normally not trigger a mass mailing therefore we
+                            use this temporary view to push the initial kickoff mails</p>
+                    </div>
+
+                    <form class="app-form"
+                        method="post" role="form"
+                        tal:attributes="action request/URL">
+                        <span tal:replace="structure context/@@authenticator/authenticator"/>
+                        <div class="input-group">
+                            <span class="input-group-addon">User ID</span>
+                            <input class="form-control"
+                                name="title" id="title"
+                                type="text"
+                                tal:attributes="value userid" />
+                        </div>
+                        <div class="alert alert-danger">
+                            <h4>Dangerzone!</h4>
+                            <p>This user account will be disabled as long
+                                as a password reset is pending and will only
+                                be able to login after a successful attempt.</p>
+                            <p>If this function fails for whatever reason we
+                                will need to issue a <strong>new</strong> invitation</p>
+                            <button class="btn btn-danger"
+                                name="form.button.Submit"
+                                id="form.button.Submit"
+                                i18n:translate="">Send password reset mails</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

@@ -1,0 +1,72 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+  <section class="app-section" id="app-content"
+    tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+                portal_url context/portal_url">
+      <div class="app-section-main">
+          <figure class="app-image">
+                <tal:img tal:condition="context/image">
+                    <img tal:define="img view/banner_image"
+                        tal:attributes="class string:app-img app-img-section img-fluid;
+                                        src img/url;
+                                        width img/width;
+                                        height img/height" />
+                </tal:img>
+                <img class="img-section"
+                    tal:condition="not:context/image"
+                    tal:define="portal_url context/portal_url"
+                    tal:attributes="src python:portal_url + '/++theme++hph.corporatetheme/assets/img/banner-dummy.jpg'" />
+          </figure>
+      </div>
+      <div class="app-section-aside">
+        <div class="app-card app-card-striped app-card-events">
+          <div class="app-card-header">
+              <h4 class="app-card-title">
+                  <a href="#" tal:define="portal_url context/portal_url"
+                      tal:attributes="href python:portal_url + '/termine'">
+                      Aktuelle Termine</a>
+              </h4>
+          </div>
+          <div class="app-card-main"
+              data-appui="eventbox"
+              tal:attributes="data-source python:portal_url + '/@@json-eventlist'">
+          </div>
+          <div class="app-card-footer text-md-right">
+              <a class="btn btn-secondary btn-sm" href="#"
+                  tal:define="portal_url context/portal_url"
+                  tal:attributes="href python:portal_url + '/termine'">
+                  Weitere Termine
+              </a>
+          </div>
+        </div>
+      </div>
+  </section> <!-- /container app-content -->
+
+    <aside class="app-content" id="app-content-2">
+      <section class="app-tile app-content-body" id="app-aside-content">
+        <section class="app-page">
+          <header class="app-page-header">
+            <h1 tal:content="context/Title">Title</h1>
+          </header>
+          <article class="app-page-content">
+            <div tal:replace="structure provider:plone.belowcontentbody" />
+          </article>
+        </section>
+      </section>
+    </aside>
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

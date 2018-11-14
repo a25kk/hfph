@@ -1,0 +1,101 @@
+<div class="course-card"
+    tal:define="course_cancelled context/courseCancelled"
+    tal:attributes="class python:course_cancelled and 'course-card course-card--muted' or 'course-card'"
+    i18n:domain="hph.lectures">
+
+    <div class="course-card__overlay" tal:condition="context/courseCancelled">
+        <div class="course-card__overlay-title">
+            <div class="app-callout app-callout-default">Kurs entfällt</div>
+        </div>
+    </div>
+    <div class="app-list-context-kicker">
+        <span tal:replace="context/courseNumber" /><span tal:condition="context/blockLecture">*</span><span tal:condition="context/onlineLecture">@</span>
+        <tal:lecturer tal:condition="view/has_related_lecturers">
+            <tal:contexts tal:repeat="lecturer view/related_lecturers">
+                <a tal:condition="view/is_preview_card" href="${lecturer/getURL}">
+                    ${lecturer/Title}
+                </a>
+                <span tal:condition="not:view/is_preview_card" tal:replace="lecturer/Title" /><tal:separator condition="not: repeat/lecturer/end">,</tal:separator>
+            </tal:contexts>
+        </tal:lecturer>
+    </div>
+    <h2 class="course-card__title">
+        <a tal:condition="view/is_preview_card"
+           tal:attributes="href context/absolute_url"
+           tal:content="context/Title" />
+        <span tal:condition="not:view/is_preview_card" tal:omit-tag="">${context/Title}</span>
+    </h2>
+    <tal:comment tal:content="nothing"><p tal:condition="exists:context/subtitle" tal:content="context/subtitle" /></tal:comment>
+
+    <p tal:condition="context/lecturerAdditional">
+        ${context/lecturerAdditional}
+    </p>
+    <p class="text-muted"
+             tal:define="duration context/courseDuration;
+            pretty_duration python:view.prettify_duration(duration)">
+        <span tal:content="pretty_duration" i18n:translate="">Duration</span>
+        <span tal:replace="context/courseTime" />
+    </p>
+    <p class="text-muted">
+        <span i18n:translate="">Raum:</span>
+        <span tal:replace="context/courseRoom" />
+    <p class="text-muted">
+        <span i18n:translate="">Termine:</span>
+        <span tal:replace="context/courseDates" />
+
+    <div class="app-course-modules app-inline-editable" tal:condition="not:view/is_preview_card">
+        <div class="app-inline-edit-bar" tal:condition="view/can_edit">
+            <a class="app-btn app-btn-inline-edit" href="${context/absolute_url}/@@module-editor" i18n:translate="">edit modules</a>
+        </div>
+    </div>
+    <tal:modules tal:condition="context/moduleInformation">
+        <p class="text-muted" tal:condition="not:view/has_module_data"
+                 tal:define="stored_data view/course_information;
+                courses stored_data/items">
+            <tal:items tal:repeat="item python:stored_data['items']">
+            ${item/degree}: ${item/info}<tal:separator condition="not: repeat/item/end"><br></tal:separator>
+            </tal:items>
+        </p>
+        <div class="course__modules" tal:condition="view/has_module_data"
+                 tal:define="module_data view/module_data">
+            <tal:block tal:repeat="item module_data">
+                <div class="course__module" tal:define="item_details python:module_data[item]">
+                    <span tal:replace="python:view.get_degree_course_title(item)" /><tal:separator condition="python:len(item_details)">:</tal:separator>
+                    <span tal:repeat="detail item_details">
+                        <span tal:define="module_name python:view.get_learning_modules(item, detail)">${module_name}</span> <tal:detail_info tal:condition="python:item_details[detail]">(<tal:info_theme tal:repeat="theme python:item_details[detail]">${theme}<tal:separator condition="not:repeat/theme/end">,</tal:separator></tal:info_theme>)</tal:detail_info><tal:separator condition="not:repeat/detail/end">,</tal:separator>
+                    </span>
+                </div>
+            </tal:block>
+        </div>
+    </tal:modules>
+    <tal:nomodules tal:condition="not:context/moduleInformation">
+        <p class="text-muted" tal:condition="context/moduledetails">
+            <tal:contexts tal:repeat="node context/moduledetails">
+                                        <span tal:define="degree node/degree;
+                                                pretty_degree python:view.prettify_degree(degree)"
+                                                 tal:content="pretty_degree"
+                                                 i18n:translate="" />:
+                <span tal:replace="node/info" />
+                <tal:separator condition="not: repeat/node/end"><br></tal:separator>
+            </tal:contexts>
+        </p>
+    </tal:nomodules>
+
+    <p class="text-discreet text-muted"
+             tal:condition="context/Description"
+             tal:content="context/Description" />
+
+    <div class="app-lecture__detail" tal:condition="context/courseRegistration">
+        Anmeldung erforderlich: <span tal:replace="context/courseRegistration" />
+    </div>
+
+    <div class="app-lecture__detail" tal:condition="context/courseRestricted">
+        Teilnehmerbeschr&auml;nkung: <span tal:replace="context/courseRestricted" />
+    </div>
+
+    <div class="lecture__detail" tal:condition="context/proPhilosophiaExtra">
+        - pro philosophia extra: für Mitglieder von pro philosophia e.V. frei -
+    </div>
+
+    <hr>
+</div>
