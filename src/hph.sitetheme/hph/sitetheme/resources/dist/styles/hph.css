@@ -5794,7 +5794,7 @@ section
 body
 {
     font-family: Trebuchet MS, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
 
@@ -8162,7 +8162,7 @@ input[type='color'],
 .app-searchbox-field,
 .app-searchbox-control
 {
-    font-size: 14px;
+    font-size: 1rem;
     line-height: 1.5;
 
     display: block;
@@ -9350,7 +9350,7 @@ input.is-invalid[type='color'] ~ .invalid-tooltip,
 .app-button,
 .app-searchbox-btn
 {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
 
@@ -10225,7 +10225,7 @@ input[type='button'].btn-block
 
 .dropdown-menu
 {
-    font-size: 14px;
+    font-size: 1rem;
 
     position: absolute;
     z-index: 1000;
@@ -11403,7 +11403,7 @@ input[type='button'].btn-block
 
 .input-group-text
 {
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
 
@@ -18876,62 +18876,16 @@ div.riform .label
 .app-btn,
 .app-button
 {
-    font-size: 14px;
+    font-size: 1rem;
     line-height: 1.5;
 
     padding: .375rem .75rem;
 
-    color: #fff;
     color: #6c757d;
-    border-color: #6c757d;
     border-color: #6c757d; 
     border-radius: 0;
-    background-color: #333;
     background-color: transparent;
     background-image: none;
-}
-.app-btn:hover,
-.app-button:hover
-{
-    color: #fff;
-    border-color: #545b62; 
-    background-color: #333;
-}
-.app-btn:focus,
-.app-btn.focus,
-.app-button:focus,
-.app-button.focus
-{
-    box-shadow: 0 0 0 .2rem rgba(108, 117, 125, .5);
-}
-.app-btn.disabled,
-.app-btn:disabled,
-.app-button.disabled,
-.app-button:disabled
-{
-    color: #fff;
-    border-color: #6c757d; 
-    background-color: #333;
-}
-.app-btn:not(:disabled):not(.disabled):active,
-.app-btn:not(:disabled):not(.disabled).active,
-.show > .app-btn.dropdown-toggle,
-.app-button:not(:disabled):not(.disabled):active,
-.app-button:not(:disabled):not(.disabled).active,
-.show > .app-button.dropdown-toggle
-{
-    color: #fff;
-    border-color: #4e555b; 
-    background-color: #1a1919;
-}
-.app-btn:not(:disabled):not(.disabled):active:focus,
-.app-btn:not(:disabled):not(.disabled).active:focus,
-.show > .app-btn.dropdown-toggle:focus,
-.app-button:not(:disabled):not(.disabled):active:focus,
-.app-button:not(:disabled):not(.disabled).active:focus,
-.show > .app-button.dropdown-toggle:focus
-{
-    box-shadow: 0 0 0 .2rem rgba(108, 117, 125, .5);
 }
 .app-btn:hover,
 .app-button:hover
@@ -18976,7 +18930,9 @@ div.riform .label
     box-shadow: 0 0 0 .2rem rgba(108, 117, 125, .5);
 }
 .app-btn-sm,
-.app-button-sm
+.app-btn--sm,
+.app-button-sm,
+.app-button--sm
 {
     font-size: .875rem;
     line-height: 1.5;
@@ -19033,6 +18989,45 @@ div.riform .label
 .show > .app-button--primary.dropdown-toggle:focus
 {
     box-shadow: 0 0 0 .2rem rgba(0, 51, 102, .5);
+}
+
+.app-button--secondary
+{
+    color: #212529;
+    border-color: #fc3; 
+    background-color: #fc3;
+}
+.app-button--secondary:hover
+{
+    color: #212529;
+    border-color: #ffbf00; 
+    background-color: #ffc20d;
+}
+.app-button--secondary:focus,
+.app-button--secondary.focus
+{
+    box-shadow: 0 0 0 .2rem rgba(255, 204, 51, .5);
+}
+.app-button--secondary.disabled,
+.app-button--secondary:disabled
+{
+    color: #212529;
+    border-color: #fc3; 
+    background-color: #fc3;
+}
+.app-button--secondary:not(:disabled):not(.disabled):active,
+.app-button--secondary:not(:disabled):not(.disabled).active,
+.show > .app-button--secondary.dropdown-toggle
+{
+    color: #212529;
+    border-color: #f2b600; 
+    background-color: #ffbf00;
+}
+.app-button--secondary:not(:disabled):not(.disabled):active:focus,
+.app-button--secondary:not(:disabled):not(.disabled).active:focus,
+.show > .app-button--secondary.dropdown-toggle:focus
+{
+    box-shadow: 0 0 0 .2rem rgba(255, 204, 51, .5);
 }
 
 label
@@ -19340,7 +19335,7 @@ select[multiple]
 
 .app-icon
 {
-    font-size: 14px;
+    font-size: 1rem;
 }
 
 .app-icon--sm
@@ -19877,7 +19872,7 @@ select[multiple]
 
 .ppe-col-info
 {
-    font-size: 14px;
+    font-size: 1rem;
 
     padding-top: 1rem;
 
@@ -21148,6 +21143,30 @@ body.template-frontpage-view .app-pathbar
     }
 }
 
+.media-item__abstract
+{
+    margin-bottom: 1.5rem;
+}
+
+.media-item__meta
+{
+    font-size: .875rem;
+}
+
+.media-item__figure
+{
+    line-height: 1;
+
+    margin-bottom: .5rem;
+
+    border-top: 4px solid #fc3; 
+    background-color: #dee2e6;
+}
+.subsection-institute-globalefragen .media-item__figure
+{
+    border-color: #ef7d00;
+}
+
 .app-bulletin
 {
     margin-bottom: 2rem;
@@ -21724,6 +21743,10 @@ app-fonts-loaded
     padding-right: 1rem; 
     padding-left: 1rem;
 }
+.app-list--no-gutter
+{
+    padding: 0;
+}
 
 .app-list__result
 {
@@ -22215,19 +22238,19 @@ app-fonts-loaded
 
 .pp-icon
 {
-    font-size: 14px;
+    font-size: 1rem;
 }
 .pp-icon.pp-icon-md
 {
-    font-size: 28px;
+    font-size: 2rem;
 }
 .pp-icon.pp-icon-mlg
 {
-    font-size: 42px;
+    font-size: 3rem;
 }
 .pp-icon.pp-icon-lg
 {
-    font-size: 56px;
+    font-size: 4rem;
 }
 
 .app-main-content
@@ -23040,5 +23063,19 @@ app-fonts-loaded
 #mc_embed_signup form
 {
     padding: 0 !important;
+}
+
+.collapse
+{
+    display: none;
+}
+.collapse.in
+{
+    display: block;
+}
+
+iframe
+{
+    border: none;
 }
 /*# sourceMappingURL=hph.css.map */
