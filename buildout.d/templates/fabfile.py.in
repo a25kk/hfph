@@ -163,7 +163,7 @@ def ctl(*cmd):
 
 
 @task
-def deploy(*args):
+def deploy(actor=None, *args):
     """ Deploy current master to production server """
     opts = dict(
         sitename=env.get('sitename'),
