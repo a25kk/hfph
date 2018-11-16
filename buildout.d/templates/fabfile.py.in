@@ -6,11 +6,10 @@ from fabric.api import env
 from fabric.api import run
 from fabric.api import roles
 from fabric.api import require
-from fabric.api import execute
+from fabric.api import execute as fab_execute
 
 from ade25.fabfiles import project
-from ade25.fabfiles.server import controls
-
+from ade25.fabfiles.server import status
 from ade25.fabfiles.server import controls
 
 from slacker import Slacker
@@ -39,8 +38,8 @@ env.actor = ${settings:username}
 
 
 env.roledefs = {
-    'production': ['hph'],
-    'staging': ['z3']
+    'production': ['${fabric:host}'],
+    'staging': ['${fabric:host_staging}']
 }
 
 ###################################################
@@ -89,7 +88,7 @@ def deploy_apply_files():
 @task
 def staging():
     """ Execute task on staging environment """
-    fab.env.git = _deploy_git_factory()(
+    env.git = _deploy_git_factory()(
         remote_repository_path='${fabric:directory_staging}',
         release_branch='staging',
     )
@@ -99,7 +98,7 @@ def staging():
 @task
 def production():
     """ Execute task on production environment """
-    fab.env.git = _deploy_git_factory()(
+    env.git = _deploy_git_factory()(
         remote_repository_path='${fabric:directory}',
         release_branch='production',
     )
@@ -111,10 +110,10 @@ def production():
 
 @task
 def deploy_setup(*args):
-    fab.execute(deploy_push_files)
-    fab.execute(deploy_apply_files)
+    fab_execute(deploy_push_files)
+    fab_execute(deploy_apply_files)
     print("-" * 70)
-    print("Next: Setup LocalConfiguration.php, .htaccess, set the correct permissions and initialize the database")
+    print("Next: Setup secret.cfg and run build")
     print("-" * 70)
 
 
@@ -164,7 +163,7 @@ def ctl(*cmd):
 
 
 @task
-def deploy(*args):
+def deploy(actor=None, *args):
     """ Deploy current master to production server """
     opts = dict(
         sitename=env.get('sitename'),
