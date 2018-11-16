@@ -38,8 +38,8 @@ env.actor = ${settings:username}
 
 
 env.roledefs = {
-    'production': ['hph'],
-    'staging': ['z3']
+    'production': ['${fabric:host}'],
+    'staging': ['${fabric:host_staging}']
 }
 
 ###################################################
