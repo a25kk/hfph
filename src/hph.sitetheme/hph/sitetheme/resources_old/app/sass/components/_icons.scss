@@ -1,0 +1,22 @@
+.app-icon {
+    font-size: $font-size-base;
+}
+
+// Size modifier
+.app-icon--sm {
+    font-size: 1.5rem;
+}
+.app-icon--md {
+    font-size: 2rem;
+}
+.app-icon--lg {
+    font-size: 3rem;
+}
+.app-icon--xl {
+    font-size: 4rem;
+}
+// State modifier
+.app-icon--disabled {
+    opacity: .5;
+}
+

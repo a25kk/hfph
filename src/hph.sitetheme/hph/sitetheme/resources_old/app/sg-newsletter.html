@@ -1,0 +1,34 @@
+---
+layout: styleguide
+title: Styleguide Newsletter
+slug: sg-newsletter
+lead: "Styleguide for brand usage"
+base_url: "../../"
+---
+<main class="app-page" id="content">
+  <div class="app-page-header">
+      <div class="app-page-title">
+          <h1 class="app-page-headline">Newsletter
+          </h1>
+      </div>
+      <p class="app-page-abstract">
+          Newsletter Formular
+      </p>
+  </div>
+  <div class="app-page-body">
+  <p>Die Newsletteranmeldung erfolgt über ein statisch integriertes Anmeldeformular, das von MailChimp bereitgestellt wird.</p>
+
+  <div class="sg-example">
+    {% include components/newsletter.html %}
+{% highlight html lineos %}
+<div class="app-newsletter" id="app-newsletter">
+    <div class="app-newsletter-content">
+      <div class="app-newsletter-registration">
+          ...
+      </div>
+    </div>
+</div>
+{% endhighlight %}
+  </div>
+
+</main>
