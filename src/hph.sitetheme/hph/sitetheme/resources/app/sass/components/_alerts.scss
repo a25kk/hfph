@@ -1,0 +1,43 @@
+//
+// Callouts
+// --------------------------------------------------
+
+
+.app-alert {
+    padding: 0.5rem 1rem 1rem;
+    margin: $spacer 0;
+    border-left: 5px solid #eee;
+}
+
+// Common spacing and style resets
+.app-alert__title {
+    margin-top: 0;
+    margin-bottom: .25rem;
+}
+
+.app-alert p:last-child {
+    margin-bottom: 0;
+}
+
+// Custom button styles
+.app-alert__button {
+    float: right;
+    margin-bottom: .5rem;
+}
+
+// Callout variants used as addon classes
+.app-alert--default {
+    @include alert-variant($gray-300, $gray-500, $black);
+}
+
+.app-alert--success {
+    @include alert-variant($gray-200, $green, $green);
+}
+
+.app-alert--danger {
+    @include alert-variant($gray-200, $red, $red);
+}
+
+.app-alert--warning {
+    @include alert-variant($gray-200, $yellow, $yellow);
+}

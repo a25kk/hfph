@@ -1,0 +1,259 @@
+//
+// CMS Toolbar
+// --------------------------------------------
+
+//== Plone variables
+//
+//## Integrate Plone editbar
+//## These should be generalized
+$plone-gray-light:                          lighten(#000, 46.5%);
+$plone-link-color:                          #007bb3; //plone blue
+$plone-gray-lighter:                        lighten(#000, 80%);   // #ccc //disableds like
+
+//*// TOOLBAR
+$plone-toolbar-bg:                          rgba(0,0,0,.9);
+$plone-toolbar-submenu-bg:                  rgba(20,20,20,.95);
+$plone-toolbar-font-primary:                $font-family-base;
+$plone-toolbar-font-secundary:              $font-family-base;
+$plone-toolbar-separator-color:             rgba(255,255,255,.17);
+$plone-toolbar-link:                        $plone-link-color;
+$plone-toolbar-text-color:                  rgba(255,255,255,.9);
+$plone-toolbar-submenu-text-color:          #ffffff;
+$plone-toolbar-submenu-header-color:        $plone-gray-light;
+$plone-toolbar-published-color:             $plone-link-color; //published and external same color
+$plone-toolbar-draft-color:                 #fab82a; // lime-yellow //draft is visible
+$plone-toolbar-pending-color:               #e2e721; // orange
+$plone-toolbar-private-color:               #c4183c; // red
+$plone-toolbar-internal-color:              #fab82a; // is draft
+$plone-toolbar-internally-published-color:  #883dfa; // is intranet
+$plone-screen-xs-min:              480px;
+$plone-screen-xs-max:              480px;
+$plone-screen-sm-min:              768px;
+$plone-screen-md-min:              992px;
+$plone-screen-lg-min:              1200px;
+
+//== Toolbar
+//
+//== Mix plone styles with basic formatting
+.app-toolbar {
+    @include media-breakpoint-up(sm) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 120px;
+        background: $plone-toolbar-bg;
+    }
+}
+
+//** Toolbar header with brand and/or cms title information
+.app-toolbar-header {
+    margin-bottom: 1rem;
+    padding: .25rem;
+    color: #f2f2f2;
+    border-bottom: 1px solid $gray-500;
+}
+
+//== Toolbar nav
+//
+//## The navigation consists of an unordered list and the styling
+//## is optimized for the German language version which requires
+//## more horizontal space due to extended word length
+.app-toolbar-nav {
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    li > a {
+        color: #fff;
+    }
+}
+
+
+
+//== Plone Toolbar
+//
+//## Default Plone edit zone
+.plone-toolbar {
+    position: fixed;
+    height: 100%;
+    width: 60px;
+    top:0;
+    left:0;
+    z-index: 3;
+    font-weight: 300;
+    color: $gray-300;
+    background: $gray-500;
+}
+
+//** Inline Plone SVG logo
+.plone-toolbar-logo {
+    background: darken(#007bb3, 10%);
+    height: 50px;
+    padding-left: 18px;
+    padding-right: 18px;
+    cursor: pointer;
+    display: table-cell;
+    vertical-align: middle;
+    width: 60px;
+    &:after {
+        content: "";
+        border-top: 4px solid darken(#007bb3, 10%);
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        position: absolute;
+        left: 25px;
+        top:50px;
+    }
+    &:hover {
+        background: #007bb3;
+        transition: background .35s;
+        &:after {
+            border-top: 4px solid #007bb3;
+            transition: border-top .35s;
+        }
+    }
+}
+
+.plone-toolbar-nav {
+    font-family: $plone-toolbar-font-primary;
+    font-size: 12px;
+    list-style: none;
+    margin:0;
+    padding: 0;
+    [class^="icon"] {
+        font-size: 20px;
+    }
+    a {
+        position:relative;
+        color: $plone-toolbar-text-color;
+        overflow: hidden;
+        height: 50px;
+        &:hover > span {
+            margin-top: -50px;
+            transition: margin-top .35s;
+        }
+        &:hover > span.plone-toolbar-caret {
+            opacity: 1;
+        }
+        > span {
+            display: block; text-align: center; height: 50px; width:60px;
+            &:before {line-height: 50px;}
+        }
+        > span + span {display: table-cell; text-align: center; padding: 0 8px; height: 50px; width:60px; vertical-align: middle; background: $plone-toolbar-link; line-height: 1em; }
+    }
+    /*states on first level*/
+    // a.label-state-published > span:before, a.label-state-external > span:before {color: $plone-toolbar-published-color; }
+    // a.label-state-published > span + span, a.label-state-external > span:before { background: $plone-toolbar-published-color; }
+    // a.label-state-internally_published > span:before {color: $plone-toolbar-internally-published-color; }
+    // a.label-state-internally_published > span + span { background: $plone-toolbar-internally-published-color; }
+    // a.label-state-pending > span:before {color: $plone-toolbar-pending-color; }
+    // a.label-state-pending > span + span { background: $plone-toolbar-pending-color; }
+    //     a.label-state-pending > span { color:(#fff - $plone-toolbar-text-color) !important;} //contrast
+    // a.label-state-draft > span:before, a.label-state-internal > span:before {color: $plone-toolbar-draft-color; }
+    // a.label-state-draft > span + span, a.label-state-internal > span + span  { background: $plone-toolbar-draft-color; }
+    // a.label-state-private > span:before {color: $plone-toolbar-private-color; }
+    // a.label-state-private > span + span { background: $plone-toolbar-private-color; }
+
+}
+
+.plone-toolbar-subnav {
+    display: none;
+    position: absolute;
+    left: 60px;
+    background: $plone-toolbar-submenu-bg;
+    top: 0;
+    overflow-y: auto;
+    font-family:$plone-toolbar-font-secundary; font-size: 14px; list-style: none; padding:0; margin:0; line-height: 30px;
+    a {
+        color: $plone-toolbar-submenu-text-color;
+        &:hover {
+            color: darken($plone-toolbar-submenu-text-color, 15%);
+            background: lighten($plone-toolbar-bg, 10%);
+        }
+    }
+    li:last-child {margin-bottom: 5px; }
+    li > span {display: block;}
+    .plone-toolbar-submenu-header > a {
+        color: $plone-toolbar-link; font-weight: 500;
+        &:hover {color: darken($plone-toolbar-link, 15%);}
+    }
+    .plone-toolbar-submenu-header > span {font-weight: 500; color: $plone-toolbar-submenu-header-color;}
+    li:not(.plone-toolbar-submenu-header) > a:before {content:"•"; left: 15px; color: $plone-toolbar-link; position: absolute;}
+    li:not(.plone-toolbar-submenu-header) > span:before {content:"•"; left: 15px; color: darken($plone-toolbar-text-color,70%); position: absolute;}
+    li:not(.plone-toolbar-submenu-header) > a:hover:before {color: lighten($plone-toolbar-link, 25%);}
+    .actionMenuSelected {
+        color: $plone-toolbar-text-color; font-weight: 500;
+        &:hover {color: $plone-toolbar-text-color; background: none; cursor: default;}
+        &:before {content:"✓" !important; margin-left: -3px;}
+    }
+    .actionMenuSelected:hover {color: $plone-toolbar-text-color; background: none; cursor: default;}
+    li:not(.plone-toolbar-submenu-header) > a.actionMenuSelected:before {color: $plone-toolbar-text-color;}
+    li {width: 180px}
+    li > a, li > span {padding: 5px 15px; height: auto; line-height: 20px;}
+    li:not(.plone-toolbar-submenu-header) > a, li:not(.plone-toolbar-submenu-header) > span {padding: 5px 15px 5px 30px; height: auto;}
+    li:not(.plone-toolbar-submenu-header) > span { color: $plone-toolbar-text-color; font-weight: 100;}
+    .plone-toolbar-submenu-header {border-top: 1px solid $plone-toolbar-separator-color; padding: 5px 0 0;margin: 5px 0 0;}
+    .plone-toolbar-submenu-header:first-child {border-top:0; margin:0;}
+    [class^="icon"] {
+        display: inline !important; line-height: 0;
+        &:before {font-size: 10px;line-height: 18px;position: absolute;right: 10px;color: $plone-toolbar-private-color; margin-top: 7px; top:0;}
+    }
+    /*state marker*/
+    //dictionary translate flow into state
+    // $flow-private:              'workflow-transition-reject';
+    // $flow-published:            'workflow-transition-publish';
+    // $flow-pending:              'workflow-transition-submit';
+    // $flow-internally_published: 'workflow-transition-show_internally';
+    // $flow-internal:             'workflow-transition-hide';
+
+    //states
+    //.state-published:after, .state-external:after, #${flow-published}:after  {right:15px; content:"•"; color:$plone-toolbar-published-color; position: absolute; font-size: 20px;}
+    //.state-internally_published:after, #${flow-internally_published}:after {right:15px; content:"•"; color:$plone-toolbar-internally-published-color; position: absolute; font-size: 20px;}
+    //.state-pending:after, #${flow-pending}:after {right:15px; content:"•"; color:$plone-toolbar-pending-color; position: absolute; font-size: 20px;}
+    //.state-draft:after, .state-internal:after, #${flow-internal}:after {right:15px; content:"•"; color:$plone-toolbar-draft-color; position: absolute; font-size: 20px;}
+    //.state-private:after, #${flow-private}:after {right:15px; content:"•"; color:$plone-toolbar-private-color; position: absolute; font-size: 20px;}
+
+
+    /*current*/
+    .plone-toolbar-submenu-header :after {font-size: 30px; right:13px;}
+}
+
+//** Toolbar separator caret
+.plone-toolbar-separator {
+    border-bottom: 1px solid $plone-toolbar-separator-color;
+}
+.plone-toolbar-caret {
+    border-left: 4px solid;
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+    position: absolute;
+    right: 0;
+    background: transparent !important;
+    margin-top: 0 !important;
+    top: 21px;
+    opacity: .67;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    right: 2px;
+    padding: 0;
+    vertical-align: middle;
+}
+
+
+//** Toolbar switcher below the logo component
+.plone-toolbar-switcher {
+    position: absolute;
+    width: 10px; height: 10px;
+    background: rgba(0,0,0,.2);
+    border-radius: 0 0 100% 0;
+    top: 0;
+    cursor: pointer;
+    span {font-size: 0;}
+}
+
+// Space left by the body for the toolbar
+.plone-toolbar-left-default { padding-left: 60px; }
+.plone-toolbar-left-expanded { padding-left: 120px; }
+.plone-toolbar-top-default { margin-top: 60px; }
+.plone-toolbar-top-expanded { margin-top: 60px; }
+.plone-toolbar-compressed { margin-top: 0px; margin-left: 0px; }

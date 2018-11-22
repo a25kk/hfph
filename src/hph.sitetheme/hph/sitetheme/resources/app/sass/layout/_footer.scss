@@ -1,0 +1,13 @@
+//
+// Footer
+// -----------------------------------
+
+.app-footer {
+    padding-top: $spacer;
+    padding-bottom: $spacer;
+}
+
+.app-footer__content {
+  @include make-container();
+  @include make-container-max-widths();
+}
