@@ -1,0 +1,146 @@
+//
+// Navbar
+// -----------------------------------------
+
+.app-navbar {
+}
+
+//== Navbar header
+//
+//## Default display of global site navigation
+//## Hidden on larger displays
+.app-navbar-header {
+  @include clearfix;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: $app-primary;
+}
+
+//** Navbar toggle text
+.app-navbar-header-title {
+  flex: 0 0 75%;
+}
+
+//** Icon bar navigation toggle
+.app-navbar-header-toggle {
+  flex: 0 0 25%;
+  text-align: center;
+}
+
+// Navbar toggle button visible on small displays
+.app-navbar-toggle {
+  width: 100%;
+  border-color: transparent;
+  background: transparent;
+  text-align: right;
+  &:hover,
+  &:focus {
+    background: transparent;
+    border-color: transparent;
+  }
+  .icon-bar {
+    background-color: gray('200');
+  }
+  // Bars
+  .icon-bar {
+    display: block;
+    width: 44px;
+    height: 2px;
+    border-radius: 1px;
+  }
+  .icon-bar + .icon-bar {
+    margin-top: 12px;
+  }
+}
+
+// Navbar toggle button visible on small displays
+// Custom override for
+.navbar-toggleable {
+    &-xs {
+        @include media-breakpoint-up(sm) {
+            display: block !important;
+        }
+    }
+    &-sm {
+        @include media-breakpoint-up(md) {
+            display: block !important;
+        }
+    }
+    &-md {
+        @include media-breakpoint-up(lg) {
+            display: block !important;
+        }
+    }
+}
+
+// Navbar toggle
+//
+// Custom button for toggling the `.navbar-collapse`, powered by the collapse
+// Bootstrap JavaScript plugin.
+
+.navbar-toggler {
+    padding: .5rem .75rem;
+    font-size: $font-size-lg;
+    line-height: 1;
+    background: none;
+    border: $border-width solid transparent;
+    @include border-radius($btn-border-radius);
+
+    @include hover-focus {
+        text-decoration: none;
+    }
+}
+
+// Unordered list main navigation
+.app-navbar-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  padding-left: 0; // Override default ul/ol
+  list-style: none;
+}
+
+//== Navitems
+//
+//## Color coded based on addon classes
+.app-navitem {
+  width: 100%;
+  @include media-breakpoint-up(md) {
+    padding-right: 2px;
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+.app-navitem-tab {
+    color: #fff;
+    background-color: $app-primary;
+    font-weight: 400;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+    transition: background-color 0.5s ease;
+    &:hover {
+      color: #fff;
+      background-color: darken($app-primary, 6.5%);
+      text-decoration: none;
+    }
+    > span {
+      display: block;
+      margin: 0 auto;
+    }
+    @include media-breakpoint-up(md) {
+        display: flex;
+        align-items: center;
+    }
+    @include when-inside('.active') {
+        color: $app-primary;
+        background-color: transparent;
+        text-decoration: none;
+    }
+}

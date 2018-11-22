@@ -1,0 +1,22 @@
+//
+// Header
+// ------------------------------------------
+
+
+.app-header {
+  padding-top: 3rem;
+  @include media-breakpoint-up(md) {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid gray("200");
+  }
+}
+
+.app-header__content {
+  @include make-container();
+  @include make-container-max-widths();
+}
+
+.app-header__section {
+    display: block;
+    position: relative;
+}

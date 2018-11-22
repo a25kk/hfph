@@ -1,0 +1,15 @@
+// Reuse bs v4 breadcrumb component
+// to keep styles concise
+.app-breadcrumbs {
+    @include make-container();
+    @include make-container-max-widths();
+    @extend .breadcrumb;
+    padding-left: 30px;
+}
+
+.app-breadcrumbs-item {
+    @extend .breadcrumb-item;
+    > a {
+        color: gray('200');
+    }
+}

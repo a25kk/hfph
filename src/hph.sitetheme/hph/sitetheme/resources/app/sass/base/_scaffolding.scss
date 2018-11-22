@@ -1,0 +1,128 @@
+//
+// Basic scaffolding and resets
+// ----------------------------------
+
+
+//** Adjust font weight for initialized webfonts
+body {
+    @include when-inside('.fonts--loaded') {
+        font-weight: 300;
+    }
+    &.no-scroll {
+        /* disable scrollbar on both x and y axis */
+        overflow: hidden;
+        /* disable scroll */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        /* OPTIONAL: none of dom element will be click-able */
+        pointer-events: none;
+    }
+}
+
+// prevent fake bolds
+b,
+strong {
+    font-weight: 700;
+    @include when-inside('.font__primary--loaded') {
+        font-weight: 600;
+    }
+}
+
+// Transistion link color on :hover state
+a:hover {
+    transition: color 0.5s linear;
+    color: #000;
+}
+
+// Optional plone settings and adjustments
+// ---------------------------------------
+
+// Combat plone hidden element class via mixin
+.hidden,
+.hiddenStructure {
+    visibility: hidden;
+}
+
+// Only display content to screen readers
+//
+// See: http://a11yproject.com/posts/how-to-hide-content/
+
+.hiddenStructure {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+    color: #fff;
+    background-color: #000;
+}
+.hiddenStructure a {
+    color: #fff;
+    background-color: #000;
+}
+
+
+// Fix structure pattern
+.pat-structure .navbar {
+    display: block;
+    > .btn-group,
+    > .navbar-search {
+        margin-top: 1rem;
+    }
+    > .btn {
+        display: inline-block;
+    }
+}
+
+// Reenable type selection in navigation control panel
+// Hidden by bootstrap label component
+.template-navigation-controlpanel .label:empty {
+    display: inline;
+}
+
+// Reset widget styling
+.mce-edit-area,
+#content .field textarea,
+#content .field input[type="text"] {
+    background: #fff;
+    background-image: none;
+}
+
+// Fix recurrence widget overlay styling
+div.riform .label {
+    float: none;
+}
+// Fix datepicker header year + month select
+.pattern-pickadate-wrapper .picker__select--month,
+.pattern-pickadate-wrapper .picker__select--year {
+    display: inline-block;
+}
+
+// Force search button to display styled
+.searchButton {
+    @extend .button;
+}
+
+// Reset tiny mce content body styling for better readability
+.mceContentBody {
+    padding: $spacer;
+}
+
+// Toolbar icon for new contributing view
+.icon-contributing {
+    &:before {
+        content: '\e820';
+    }
+}
+
+// Quick fix for missing default styles
+.link-location {
+    display: block;
+}

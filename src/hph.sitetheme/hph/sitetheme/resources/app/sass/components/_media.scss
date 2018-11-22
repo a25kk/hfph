@@ -1,0 +1,136 @@
+//
+// Media and images
+//
+
+//
+// Aspect ratio
+//
+
+// Prevent page reflow issues by utilizing the
+// CSS instinct ration scaling technique
+.ratio-container {
+    position: relative;
+}
+.ratio-container::after {
+    content: '';
+    display: block;
+    height: 0;
+    width: 100%;
+    content: "";
+}
+
+// Use delimiter class for alternative formats
+.ratio-container-base::after {
+    /* 1:1 = 100% = calc(1 / 1 * 100%) */
+    padding-bottom: 100%;
+}
+.ratio-container-2-1::after {
+    /* 2:1 = 50% = calc(1 / 2 * 100%) */
+    padding-bottom: 50%;
+}
+.ratio-container-1-2::after {
+    /* 1:2 = 200% = calc(2 / 1 * 100%) */
+    padding-bottom: 200%;
+}
+.ratio-container-4-3::after {
+    /* 4:3 = 75% = calc(3 / 4 * 100%) */
+    padding-bottom: 75%;
+}
+.ratio-container-16-9::after {
+    /* 16:9 = 56.25% = calc(9 / 16 * 100%) */
+    padding-bottom: 56.25%;
+}
+
+.ratio-container > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+// Unknown ration variation
+//
+// Should deal gracefully
+// with autocalculated image sizes
+.unknown-ratio-container > * {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+
+
+//== Lazy load image
+img[data-sizes="auto"] {
+    display: block;
+    width: 100%;
+}
+
+//== Image blur effect
+// Reveal low quality image placeholders by applying a filter and
+// removing blur when the high quality images have lazy loaded
+.image--lazy-load {
+    filter: blur(10px);
+    transition: filter 400ms;
+}
+
+.image--loaded {
+    filter: blur(0);
+}
+
+
+//== Page figure element
+// Embedded media variant
+.app-figure__embedded {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+
+    &::before {
+        display: block;
+        content: "";
+    }
+
+    iframe,
+    embed,
+    object,
+    video {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        margin-bottom: 1rem;
+    }
+}
+
+.app-figure__embedded--21by9 {
+    &::before {
+        padding-top: percentage(9 / 21);
+    }
+}
+
+.app-figure__embedded--16by9 {
+    &::before {
+        padding-top: percentage(9 / 16);
+    }
+}
+
+.app-figure__embedded--4by3 {
+    &::before {
+        padding-top: percentage(3 / 4);
+    }
+}
+
+.app-figure__embedded--1by1 {
+    &::before {
+        padding-top: percentage(1 / 1);
+    }
+}
