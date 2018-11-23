@@ -1,0 +1,35 @@
+@mixin font-heading-default() {
+    font-family: $font-family-heading-default;
+    font-size: 3rem;
+    font-weight: 400;
+    color: $text-color--headings;
+}
+
+@mixin font-heading-primary() {
+    font-family: $font-family-heading-primary;
+    font-size: 3rem;
+    font-weight: 400;
+    color: $text-color--headings;
+}
+
+@mixin font-h1-desktop() {
+    font-family: $font-family-heading;
+    font-size: 3rem;
+    font-weight: 400;
+    color: $text-color--headings;
+}
+
+@mixin font-h2-desktop() {
+    font-family: $font-family-heading-secondary;
+    font-size: 3rem;
+    font-weight: 400;
+    color: $text-color--headings;
+}
+
+@mixin font-type-legal() {
+    @include inuit-font-size(14px, 22px);
+    color: $color-gray;
+    font-style: italic;
+    font-family: $font-family-sans-serif;
+    font-weight: 300;
+}
