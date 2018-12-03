@@ -35,3 +35,8 @@ src/sauna.reload
 src/vwc.*
 var
 secret.cfg
+local.cfg
+# Enable nginx specific settings
+!cache_control_assets.conf
+!disable_logging.conf
+!proxy_settings.conf
