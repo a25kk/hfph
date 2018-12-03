@@ -73,6 +73,7 @@ def _deploy_base_env():
 @task
 def deploy_push_files():
     require('git')
+    dir_ensure(env.code_root)
     env.git.pull()
     env.git.create_release_commit()
     env.git.push()
@@ -169,8 +170,14 @@ def deploy(actor=None, *args):
         sitename=env.get('sitename'),
         actor=actor or env.get('actor') or getpass.getuser(),
     )
-    controls.update()
-    controls.build()
+    fab_execute(deploy_push_files)
+    fab_execute(deploy_apply_files)
+    if 'develop' in args:
+        project.site.develop()
+    if 'build' in args:
+        project.site.build()
+    if 'rebuild' in args:
+        project.site.build_full()
     project.cluster.restart_clients()
     msg = '[hph] *%(sitename)s* deployed by %(actor)s' % opts
     user = 'fabric'
