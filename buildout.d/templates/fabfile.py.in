@@ -131,8 +131,12 @@ def develop():
 
 @task
 def restart():
-    """ Restart all """
-    project.cluster.restart_clients()
+    """ Restart clients """
+    with cd(env.git.remote_repository_path):
+            run('nice bin/supervisorctl restart instance1')
+            run('nice bin/supervisorctl restart instance2')
+            run('nice bin/supervisorctl restart instance3')
+            run('nice bin/supervisorctl restart instance4')
 
 
 @task
@@ -185,7 +189,7 @@ def deploy(*args):
     if 'rebuild' in args:
         with cd(env.git.remote_repository_path):
             run('bin/buildout -c deployment.cfg')
-    project.cluster.restart_clients()
+    restart()
     msg = '[hph] *%(sitename)s* deployed by %(actor)s' % opts
     user = 'fabric'
     icon = ':shipit:'
