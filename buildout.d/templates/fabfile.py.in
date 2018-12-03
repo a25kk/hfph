@@ -78,7 +78,6 @@ def _deploy_base_env():
 @task
 def deploy_push_files():
     require('git')
-    dir_ensure(env.code_root)
     env.git.pull()
     env.git.create_release_commit()
     env.git.push()
