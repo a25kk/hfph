@@ -13,33 +13,3 @@
 //
 // See: http://csswizardry.com/2013/04/shame-css/
 // -----------------------------------------------------
-
-
-// Override bootstrap table cell padding
-// The component styles basically use too much specificity be declaring
-// the padding with .table-sm td {}
-.app-table-actions-cell {
-    padding-top: 1.5rem !important;
-}
-
-
-// Override Mailchimp settings
-#mc_embed_signup form {
-	padding: 0 !important;
-}
-
-// Bootstrap collapse class backport
-//
-// Plone uses an outdated version of the bootstrap collapsible
-// javascript version and therefore the actual set classes do not
-// match the now required bs4 conventions
-.collapse {
-    display: none;
-    &.in {
-        display: block;
-    }
-}
-
-iframe {
-	border: none;
-}

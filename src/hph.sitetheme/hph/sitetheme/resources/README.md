@@ -1,104 +1,78 @@
-# Compiling theme components
+#  Documentation
 
-## Status Note
+This theme project uses the Gulp task-runner as a build system to compile a production ready distribution.
 
-This project is undergoing major changes and must be considered alpha state right now. The relevant parts under consideration are
+While the setup builds upon a production ready closed standalone static application it can also generate a Plone deployment build and provide a development environment for Plone integration via Diazo transform engine and integration via *plone.app.theming*.
 
-- LESS to SASS migration
-- Grunt to Gulp migration
-- styleguide integration
+**Note:** the best way to develop this theme is by using a local proxy server inside a docker container.
 
 
-## Documentation (DEPRECATED)
+## Getting Started
 
-This theme project uses the Grunt task-runner as a build system to compile a production ready distribution.
+The different gulp tasks are located in dedicated task specific files that can be found inside the themes 'tasks' subdirectory. The tasks are organized for separation of concerns and can all be run individually though in practice you will most of the time stick to the prepared top level tasks documented here that are configured to run corresponding sub tasks in a predefined specific order to provide complete builds ready for deployment.
 
-While the setup builds upon a production ready closed standalone static application it can also generate a Plone deployment build and provide a development environment for Plone integration via Diazo transform engine.
+An overview of all available tasks can be found by running
 
-## Available Grunt commands
+````bash
+gulp --tasks
+````
 
-### grunt dist (Build production ready distribution)
+The usual workflow when starting development on a new theme would be:
 
-Regenerates the /dist/ directory with compiled and minified CSS and JavaScript files and builds the index files via Jekyll task. Includes revved css and js resources for cache busting optimized for pagespeed and performance.
+1. Initialize the build directory and compile all theme assets via `gulp init`
+2. Start working on the new theme by executing `gulp serve`
 
-**Note**: this task should ideally only be run prior to pushing and deploying changes to the production server and is not suitable for development use since it might require extensive processing time.
-
-```bash
-$ grunt dist
-```
-
-### grunt dev (Just compile CSS and JavaScript)
-
-- compile less files to css
-- concat javascript resources
-- build html theme templates
+Using the recommended setup including a docker container containing a web server acting as a proxy to a running zope instance running a development environment would look something like this (example):
 
 ```bash
-$ grunt dev
-```
-
-### grunt watch (Watch)
-
-Watches the Less source files and automatically recompiles them to CSS whenever you save a change.
-
-```bash
-$ grunt watch
-```
-
-### grunt test (Run tests **deprecated**)
-
-Runs JSHint and runs the QUnit tests headlessly in PhantomJS.
-grunt docs (Build & test the docs assets)
-
-Builds and tests CSS, JavaScript, and other assets which are used when running the documentation locally via jekyll serve.
-
-```bash
-$ grunt test
-```
-
-### grunt serve (Run server with livereload)
-
-Compiles and minifies CSS and JavaScript, builds the templates. Than a browser
-tab is opened and the site served from `http://localhost:9000`. The watch task rebuilds all css and html when code is modified.
-
-Note: install the *livereload* extension in your browser of choice (available for Firefox and Chrome) to enabled autoreload.
-
-```bash
-$ grunt serve
-```
-
-## Diazo theme development
-
-When working on a Plone Diazo theme and testing the integration via rules, you might need a local development setup tailored for this purpose. YOu have several options:
-
-### grunt pat (Build theme for *plone.app.theming* use)
-
-Compiles all css and javascript and replaces the path to assets with the automatically configured diazo theme prefix (e.g. `/++theme++project.sitetheme/dist/`) and allows to serve the theme resources directly through plone. This might require a Plone Resource Registry setup to function propertly. You have been warned.
-
-```bash
-$ grunt pat
-```
-
-### grunt diazo (Build theme for diazo server)
-
-Compiles all css and javascript and replaces the path to assets with the hostname and port url of the grunt/node server. This allowes for complete control while developing a Diazo theme.
-
-```bash
-$ grunt diazo
-```
-
-### grunt serve:diazo (Livereload enabled server for diazo development)
-
-Uses `grunt diazo` under the hood to start a server listening on `http://localhost:9000` and providing the compiled assets to the theme templates while served from Plone. The server also watches for changes so you can adjust the theme on the fly.
-
-1. Start the plone instance in the foreground
-2. Start the theme server
-
-```bash
-$ grunt serve:diazo
+$ cd project
+$ docker-compose up -f build/docker-compose.yml  # Requires a running traefik setup
+$ bin/instance fg  # start plone
+$ cd src/project.sitetheme/project/sitetheme/resources
+$ gulp build  # build a distribution
+$ gulp watch  # automatically compile assets when changes are detected
+...
+$ gulp dist  # build revisions of assets ready for deployment
 ```
 
 
-## Troubleshooting
+## Build tasks
 
-Should you encounter problems with installing dependencies or running Grunt commands, first delete the /node_modules/ directory generated by npm. Then, rerun npm install.
+### `init` - Initialize a production theme build
+
+Completely erase the `./dist` directory if available and prepare a fresh build by collecting the static resources and assets needed for a successful build like *fonts* or *images*.
+
+```bash
+$ gulp init
+$ (alias) gulp build:init
+```
+
+### `build` - Build production ready distribution
+
+Regenerates the __/dist/__ directory with compiled and minified CSS and JavaScript files and builds the index files via Jekyll task. Includes revved css and js resources for cache busting optimized for page speed and performance.
+
+**Note**: this task should ideally only be run prior to pushing and deploying changes to the production server and is not suitable for development use since it might require extensive processing time. Ideally it is only necessary to run this task once for the initial deployment and the follow up changes can be build through the more dedicated and light weight specific tasks.
+
+```bash
+$ gulp build
+$ (alias) gulp build:dist:full
+```
+
+### `dist`  - Build production ready distribution assets
+
+Builds theme style and script dependencies with cache busting parameters for production deployment
+
+**Note**: this task does not rebuild the whole theme distribution like the corresponding legacy grunt task did, since most of the time we only care for updated styles and javascript resources. Therefore the dist task only adds updated assets with cache busting parameters.
+
+```bash
+$ gulp dist
+$ (alias) gulp build:dist:base
+```
+
+## Development tasks
+
+TODO: document all development tasks like serve, watch etc
+
+### Troubleshooting
+
+Should you encounter problems with installing dependencies or running build commands, first delete the /node_modules/ directory generated by npm and then, rerun npm install.

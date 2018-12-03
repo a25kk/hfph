@@ -1,20 +1,14 @@
 <header class="app-header" id="app-header" role="banner">
-  <div class="app-header-content app-panel app-panel-main">
-    <div class="app-header-actionbar">
-      {% include components/actionbar.html %}
-    </div>
-    <div class="app-header-brandbar">
-        {% if page.theme == "default" %}
-            {% include components/brandbar.html %}
-        {% endif %}
-        {% if page.theme == "igp" %}
-            {% include components/brandbar-igp.html %}
-        {% endif %}
-    </div>
-    {% include components/navbar.html %}
+  <div class="app-header__content">
+      <section class="app-header__section">
+          <div class="app-header-panels">
+              <div class="app-header-panel app-header-brandbar">
+                  {% include components/brandpanel.html %}
+              </div>
+          </div>
+      </section>
+      <section class="app-header__section">
+          {% include components/navbar.html %}
+      </section>
   </div>
-  <div class="app-header-content app-panel" id="app-header-content-subnavbar">
-    {% include components/navbar-sub.html %}
-  </div>
-  {% include components/pathbar.html %}
 </header>

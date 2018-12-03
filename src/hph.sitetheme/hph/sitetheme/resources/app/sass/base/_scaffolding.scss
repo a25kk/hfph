@@ -2,69 +2,14 @@
 // Basic scaffolding and resets
 // ----------------------------------
 
-.app-fonts-loaded,
-.fonts--loaded {
-    font-family: $app-font-family-base;
-    font-size: 14px;
-}
-
-//** Adjust font weight for initialized webfonts
-body {
-    background-color: $app-gray-light;
-    font-family: $font-family-base;
-    .wf-active &,
-    .app-fonts-loaded & {
-        font-family: $app-font-family-base !important;
-        font-weight: 300;
-    }
-    @include when-inside('.fonts--loaded') {
-        font-family: $app-font-family-base;
-        font-weight: 300;
-    }
-    &.template-theming-controlpanel .row {
-        // Fix theming control panel
-        margin: 0 $spacer;
-    }
-}
-
-// Set font weights if webfont is active
-.wf-active,
-.app-fonts-loaded {
-    b,
-    strong {
-        font-weight: 600;
-    }
-}
-
-// prevent fake bolds
-b,
-strong {
-    font-weight: 700;
-    .wf-active &,
-    .app-fonts-loaded & {
-        font-weight: 600;
-    }
-}
-
-em {
-    font-weight: 400;
-}
-
-// Remove dotted outline
-a {
-    outline: 0;
-}
-
 // Transistion link color on :hover state
 a:hover {
     transition: color 0.5s linear;
+    color: #000;
 }
-
 
 // Optional plone settings and adjustments
 // ---------------------------------------
-// Combat plone.app.widget styling (also using bootstrap) and correct
-// display errors caused by grid system inconsistencies
 
 // Combat plone hidden element class via mixin
 .hidden,
@@ -75,7 +20,7 @@ a:hover {
 // Only display content to screen readers
 //
 // See: http://a11yproject.com/posts/how-to-hide-content/
-.hide,
+
 .hiddenStructure {
     position: absolute;
     width: 1px;
@@ -93,10 +38,16 @@ a:hover {
     background-color: #000;
 }
 
+
+// Fix structure pattern
 .pat-structure .navbar {
     display: block;
-    > .btn-group {
+    > .btn-group,
+    > .navbar-search {
         margin-top: 1rem;
+    }
+    > .btn {
+        display: inline-block;
     }
 }
 
@@ -126,7 +77,7 @@ div.riform .label {
 
 // Force search button to display styled
 .searchButton {
-    @extend .btn;
+    @extend .button;
 }
 
 // Reset tiny mce content body styling for better readability
@@ -144,12 +95,4 @@ div.riform .label {
 // Quick fix for missing default styles
 .link-location {
     display: block;
-}
-
-// Combat updated bootstrap upstream classes
-.collapse {
-    display: none;
-    &.in {
-        display: block;
-    }
 }

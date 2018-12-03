@@ -3,16 +3,12 @@
 // ---------------------------------------------------
 
 .app-layout-simple {
-    background: $gray-800;
+    background: gray('800');
 }
 
 .app-signin-wrapper {
-    margin: 2rem auto;
-    padding: $spacer;
+    margin: 0 auto;
     max-width: 480px;
-    background-color: #fff;
-    border: 1px solid #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .app-signin {
@@ -49,12 +45,12 @@
     &.app-signin-group-text {
         margin-top: $spacer;
         padding: $spacer 0;
-        border-top: 1px dotted $gray-100;
+        border-top: 1px dotted gray('400');
     }
     label,
     .signin-label {
         font-weight: 300;
-        color: $gray-600;
+        color: gray('600');
     }
 }
 
@@ -65,7 +61,7 @@
 .app-signin-control {
     padding-bottom: 1rem;
     &.app-signin-control-bordered {
-        border-bottom: 1px dotted $gray-100;
+        border-bottom: 1px dotted gray('400');
     }
 }
 
@@ -75,7 +71,7 @@
 }
 
 .page-signin {
-    color: $gray-600;
+    color: gray('400');
 }
 
 .page-signin .documentDescription {
@@ -88,7 +84,7 @@
 // registration
 .app-register {
     margin-bottom: ($spacer * 2);
-    border-bottom: 5px solid $green;
+    border-bottom: 5px solid theme-color('success');
 }
 
 .app-signin-actions,
@@ -114,11 +110,11 @@
     width: 260px;
     margin-top: 5px;
     padding: 0.5rem 5px;
-    color: $gray-100 !important;
+    color: gray('300') !important;
     font-size: 0.75rem;
     text-align: center;
     text-decoration: none;
-    background-color: $gray-800;
+    background-color: gray('800');
     &:hover {
         color: #fff !important;
     }
@@ -147,7 +143,7 @@
     top: -10px;
     left: 0;
     font-weight: 400;
-    color: $gray-300;
+    color: gray('600');
     transform: translate(0, 0);
     transition: transform 150ms, opacity 100ms, visibility 100ms;
     opacity: 0;

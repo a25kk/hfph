@@ -1,0 +1,19 @@
+//** Adjust font weight for initialized webfonts
+body {
+    @include when-inside('.fonts--loaded') {
+        font-weight: 300;
+    }
+    &.no-scroll {
+        /* disable scrollbar on both x and y axis */
+        overflow: hidden;
+        /* disable scroll */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        /* OPTIONAL: none of dom element will be click-able */
+        pointer-events: none;
+    }
+}

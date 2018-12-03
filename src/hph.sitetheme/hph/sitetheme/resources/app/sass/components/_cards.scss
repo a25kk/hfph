@@ -7,102 +7,71 @@
 //
 //## Use a grid layout for card listings
 .app-cards {
+    // Fallback for browsers lacking flexbox support
+    @include when-inside('.no-flexbox') {
+        display: table;
+    }
+    // Make flex row
     @include make-row();
 }
 
 //** Base card styles
 .app-card {
-    display: block;
-    width: 100%;
-    padding: .5rem;
-    background-color: #fff;
+    @include when-inside('.no-flexbox') {
+        // Fallback
+        display: table-cell;
+    }
     @include when-inside('.app-cards') {
+        @include make-col-ready();
         @include make-col(12);
         @include media-breakpoint-up(sm) {
             @include make-col(6);
         }
         @include media-breakpoint-up(md) {
-            @include make-col(3);
-            &--filter {
-                @include make-col(4);
-            }
+            @include make-col(4);
         }
     }
 }
 
-// Offset card to make it stand out
-.app-card--offset {
-    margin-top: 2rem;
-}
-
-//== Card layout
-//
-//## Reflow card contents based on viewport size
-.app-card-header,
-.app-card__header {
-  padding: 0 .5rem .5rem;
-  font-family: $headings-font-family;
-    @include when-inside('.app-panel-news') {
-        min-height: 4.5rem;
-    }
-}
-
-//** Card content
-.app-card-main,
-.app-card__main {
-  // border-top: 4px solid $app-secondary;
-    &-boxed,
-    &--bordered {
-        border: 1px solid $gray-300;
-        border-top: 4px solid $app-secondary;
-    }
-    &--bordered-top {
-        border-top: 4px solid $app-secondary;
-    }
-}
-
-//** Card footer
-.app-card-footer,
-.app-card__footer {
-  padding: .5rem;
-    @include when-inside('.app-box-events') {
-        font-size: $font-size-sm;
-    }
-}
-
-// Card content blocks
-.app-card-block,
-.app-card__block {
-    padding: .5rem .25rem;
-}
-
-.app-card-item,
-.app-card__item {
-    font-size: $font-size-sm;
-    @include media-breakpoint-up(xl) {
-        font-size: 1rem;
-    }
-}
-
-.app-card__date {
-    font-family: $headings-font-family;
-    font-weight: 500;
-}
 
 //== Gutter
 //
 //## Add spacing to cards
 .app-card-gutter {
-    margin: -1rem 0 0 -1rem;
-    .app-card {
-        padding: 1rem 0 0 1rem;
-    }
+  margin-left: -1rem;
+  margin-right: -1rem;
+  .app-card {
+      margin-left: 1rem;
+      margin-right: 1rem;
+  }
 }
+
+
+//== Card layout
+//
+//## Reflow card contents based on viewport size
+.app-card__header {
+  @include clearfix;
+  padding: $card-spacer-y $card-spacer-x;
+  background: $card-cap-bg;
+}
+
+//** Card content
+.app-card__main {
+  @include clearfix;
+  padding: $card-spacer-y $card-spacer-x;
+}
+
+//** Card footer
+.app-card__footer {
+  padding: $card-spacer-y $card-spacer-x;
+}
+
 
 //== Embedded card
 //
 //## Remove spacing for card inside card usecase
-.app-subcard {
+.app-card--level-2 {
   margin-left: 0;
   margin-right: 0;
   margin-bottom: 0;
@@ -113,23 +82,15 @@
 //== Card title
 //
 //## Title is used inside the card-main container
-.app-card-title {
+.app-card__title {
   font-size: 1.25rem;
   font-weight: 500;
 }
 
 //** Set card content specific styles
-.app-card-content {
-  padding: .5rem;
+.app-card__content {
+  padding-top: 1rem;
   font-size: 1rem;
-  address {
-    margin-bottom: 0.75rem;
-  }
-  a {
-    font-weight: 400;
-    text-decoration: underline;
-    color: #fff;
-  }
 }
 
 
@@ -137,7 +98,7 @@
 //
 //## Provide call to actions and descriptions on empty cards
 //## by providing highlighted card content
-.app-card-placeholder {
+.app-card__placeholder {
   margin: 0.5rem auto;
   padding: 1rem;
   text-align: center;
@@ -148,12 +109,12 @@
 }
 
 //** Round hellip sign
-.app-card-placeholder-sign {
+.app-card__placeholder--sign {
   @include size(4rem);
   margin: 0 auto;
   padding-top: 0.5rem;
   border-radius: 50%;
-  border: 1px solid $gray-300;
-  color: $gray-300;
+  border: 1px solid gray('400');
+  color: gray('400');
   font-size: 2rem;
 }

@@ -3,59 +3,38 @@
 // ----------------------------------------------
 
 
-@import 'utils/variables';
-@import 'utils/functions';
-@import 'utils/mixins.scss';
+@import 'tools/variables';
+@import 'tools/functions';
+@import 'tools/mixins.scss';
 
-@import 'vendors/ionicons';
 @import 'vendors/bootstrap';
-@import 'vendors/flickity';
-@import 'vendors/medium-editor';
+// @import 'vendors/flickity';
 
-@import 'base/fonts';
 @import 'base/syntax';
 @import 'base/animation';
+@import 'base/fonts';
 @import 'base/scaffolding';
 @import 'base/brand';
-@import 'base/panels';
 
 @import 'layout/header';
-@import 'layout/brandbar';
-@import 'layout/navbar';
 @import 'layout/footer';
 @import 'layout/forms';
+@import 'layout/navbar';
 
-@import 'components/spinner';
-@import 'components/icons';
-@import 'components/contextmenu';
-@import 'components/callouts';
-@import 'components/brand';
-@import 'components/configlets';
-@import 'components/paneleditor';
+@import 'components/toolbar';
+@import 'components/buttons';
 @import 'components/media';
-@import 'components/actionbar';
-@import 'components/tickerbar';
-@import 'components/searchbox';
-@import 'components/banner';
-@import 'components/callouts';
+@import 'components/alerts';
 @import 'components/pathbar';
-@import 'components/cards';
+@import 'components/brand';
 @import 'components/navlist';
-@import 'components/listing';
-@import 'components/bulletin';
+@import 'components/nav-bar';
+@import 'components/banner';
+@import 'components/cards';
 
 @import 'pages/signin';
-@import 'pages/frontpage';
 @import 'pages/contentpage';
-@import 'pages/events';
-@import 'pages/search';
-@import 'pages/lectures';
-@import 'pages/moduleeditor';
-@import 'pages/panelpage';
 
 @import 'themes/theme';
-@import 'themes/_igp';
-@import 'themes/styleguide';
-@import 'themes/print';
 
 @import 'shame.scss';

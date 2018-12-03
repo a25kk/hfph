@@ -1,0 +1,90 @@
+//
+// Actionbar
+// -------------------------------------
+
+.app-actionbar {
+    display: block;
+    margin-top: -5px;
+    border: 1px solid $gray-600;
+    border-top: 5px solid $gray-600;
+    background: $gray-600;
+    @include media-breakpoint-up(lg) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-left: 33.3333%;
+        margin-right: 1rem;
+        @include when-inside('.template-frontpage-view') {
+            margin-left: 50%;
+        }
+    }
+}
+
+.app-actions {
+    @include media-breakpoint-up(sm) {
+        @include make-row();
+    }
+    font-size: 0.85rem;
+    border: 1px solid $gray-600;
+    border-bottom: 0;
+}
+
+.app-action {
+    @include make-col(12);
+    background: #fff;
+    @include media-breakpoint-up(sm) {
+        @include make-col(6);
+    }
+    padding: 0;
+    text-align: center;
+}
+
+// Global section and language switcher
+.app-actionbar-nav {
+    @extend .nav;
+    justify-content: center;
+    font-size: .8rem;
+    @include media-breakpoint-up(md) {
+        font-size: .9rem;
+    }
+}
+
+.app-actionbar-nav-item {
+    display: inline-block;
+    &:not(:last-child) {
+        margin-right: .25rem;
+    }
+}
+
+.app-actionbar-nav-link {
+    display: block;
+    padding: .5rem;
+    text-transform: uppercase;
+    @include when-inside('.app-actionbar-nav-item-section') {
+        padding-right: .1rem;
+        padding-left: .1rem;
+    }
+}
+
+.app-action-search {
+    //@include make-col(12);
+    //@include media-breakpoint-up(sm) {
+    //    @include make-col(6);
+    //}
+    padding-left: 0;
+    padding-right: 0;
+    color: $app-primary;
+
+}
+
+.app-action-search-content {
+    padding-left: 0;
+    padding-right: 0;
+    background: $gray-600;
+    @include media-breakpoint-up(md) {
+        margin-right: $spacer;
+        padding-left: $spacer;
+    }
+    @include media-breakpoint-up(lg) {
+        margin-right: 0;
+    }
+}

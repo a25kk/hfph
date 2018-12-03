@@ -1,0 +1,9 @@
+a {
+    color: $anchor-color-default;
+    &:hover {
+        color: $anchor-color-highlight;
+        @if $anchor-transitions-active == true {
+            transition: $anchor-transition;
+        }
+    }
+}
