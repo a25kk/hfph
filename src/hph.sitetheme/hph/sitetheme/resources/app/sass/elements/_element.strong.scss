@@ -1,0 +1,8 @@
+// Prevent fake bolds
+b,
+strong {
+    font-weight: 700;
+    @include when-inside('.font__primary--loaded') {
+        font-weight: 600;
+    }
+}

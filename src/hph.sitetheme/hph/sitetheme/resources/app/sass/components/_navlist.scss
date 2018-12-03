@@ -1,47 +1,76 @@
 //
-// Navlist based on portlet-navigation
+// Navigation Card Styles
 // ------------------------------------------------------
 
-.app-card-nav,
-.app-card--nav {
-	.app-card-main {
-		padding: 0;
-        border: 1px solid $gray-300;
-        border-top: 4px solid $app-secondary;
-	}
-}
 
-.app-nav-list {
-	padding-left: 0;
-	list-style: none;
-}
-
-.app-nav-list-item {
-	margin-left: 0;
-	//padding: .5rem .25rem;
-	&:not(last) {
-		margin-bottom: 0;
-		border-bottom: 1px solid #fff;
-	}
-}
-
-.app-nav-list-link {
-	color: $link-color !important;
-	padding: .5rem 1rem;
-	border: 0px solid red;
-	display: inline-block;
-	width: 100% !important;
-	&:hover {
-		color: lighten(#000, 10%) !important;
-		text-decoration: none;
-		background: $gray-300;
-	}
-	&.navTreeCurrentNode {
-		color: #000 !important;
-        background: $gray-300;
-	}
-    @include when-inside('.app-nav-list-item-active') {
-        color: #fff !important;
-        background: $link-color;
+.app-nav-tree {
+    display: none;
+    background-color: transparent;
+    font-weight: 500;
+    @include media-breakpoint-up(lg) {
+        display: block;
     }
+}
+
+
+.app-nav__list {
+    padding-left: 0;
+    list-style: none;
+    &--level-1,
+    &--level-2 {
+        margin-left: .5rem;
+    }
+}
+
+.app-nav-tree-list {
+    padding-left: 0;
+    list-style: none;
+    li {
+        width: 100%;
+    }
+}
+
+.app-nav__list-item {
+    text-transform: uppercase;
+    margin-left: 0;
+    padding: .5rem .25rem;
+    &:not(last) {
+        margin-bottom: .25rem;
+        border-bottom: 1px solid $app-gray;
+    }
+    &:last-of-type {
+        border-bottom: 0px;
+    }
+}
+
+.app-nav__list-link {
+    color: #000;
+    &:hover {
+        color: darken($app-primary, 10%);
+    }
+    &.navTreeCurrentNode {
+        color: $app-gray;
+    }
+}
+
+.app-nav__list-link--open {
+    color: $app-primary;
+}
+
+.app-nav__list-link--active {
+    color: $app-primary;
+}
+
+.app-nav__list--level-0 {
+    margin-bottom: 0;
+}
+
+.app-nav__list--level-1 {
+    margin-left: 0;
+    //margin-top: 1rem;
+}
+
+
+.app-nav__list--level-2 {
+    //border: 1px solid red;
 }

@@ -123,7 +123,7 @@ gulp.task('dev:watch:styles', function () {
 gulp.task('dev:watch', function () {
     gulp.watch(cfg.paths.app + "sass/**/*.scss", gulp.series(
         'styles:dist'
-        )
+    )
     );
     gulp.watch(cfg.paths.app + "scripts/**/*.js", gulp.series(
         'collect:scripts:app'

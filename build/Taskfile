@@ -66,7 +66,7 @@ task:plone() {
 }
 
 task:css() {
-    cd ${SITE_THEME} && npm:run gulp css
+    cd ${SITE_THEME} && npm:run gulp dist
     cd ..
 }
 

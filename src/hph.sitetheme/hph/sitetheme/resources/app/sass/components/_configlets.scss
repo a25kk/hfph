@@ -1,15 +1,33 @@
 // Site setup configlets - plone control panel
 .configlets {
-  list-style: none;
+	list-style: none;
 }
 
 .inner-configlet {
 	margin-bottom: .5rem;
-  padding: .25rem;
-  border: 1px solid #fff;
-  text-align: center;
-  font-size: .9rem;
-  > a > span {
-  	display: block;
-  }
+  	padding: .25rem;
+  	border: 1px solid $app-primary;
+  	background: $app-primary;
+  	text-align: center;
+  	font-size: 1rem;
+  		a {
+  			color: #fff;
+  			font-size: .8rem;
+  		}
+  		> a > span {
+  		display: block;
+  		color: #fff;
+  	}
+}
+
+.template-overview-controlpanel {
+	ul {
+		padding-left: 1rem;
+		padding-right: 1rem;
+		list-style: none;
+		li {
+			display: inline;
+			width: 25%;
+		}	
+	}
 }

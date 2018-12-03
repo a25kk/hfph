@@ -6,13 +6,21 @@
 //
 // Quickly modify global styling by enabling or disabling optional features.
 
-$enable-flex:               true;
+$enable-caret:              false;
 $enable-rounded:            false;
 $enable-shadows:            false;
 $enable-gradients:          false;
-$enable-transitions:        false;
-$enable-hover-media-query:  false;
+$enable-transitions:        true;
+$enable-hover-media-query:  false; // Deprecated, no longer affects any compiled CSS
 $enable-grid-classes:       true;
+$enable-print-styles:       true;
+
+// Colors
+$theme-colors: (
+    "primary": $app-primary,
+    "secondary": $app-secondary,
+    "danger": $app-red
+);
 
 // Custom webfonts
 // $app-font-family-light:     "DINRoundWeb-Light";
@@ -26,27 +34,8 @@ $enable-grid-classes:       true;
 
 //## Reset and adjust existing variables
 $brand-primary:                 $app-primary;
-$link-color:                    #5896c8;
+$link-color:                    $app-primary;
 
-// Redefine default colors
-$primary:       $app-primary;
-$secondary:     $app-secondary;
-$success:       $app-green;
-$info:          $app-blue-secondary;
-$warning:       $app-brown;
-$danger:        $app-red;
-$light:         $app-gray-light;
-$dark:          $app-gray;
-
-
-$font-size-base:                1rem;
-
-$font-size-h1:                  2rem;
-$font-size-h2:                  1.75rem;
-$font-size-h3:                  1.5rem;
-$font-size-h4:                  1.25rem;
-$font-size-h5:                  1.15rem;
-$font-size-h6:                  1rem;
 
 //** Navbar toggle
 $navbar-default-toggle-hover-bg:           #ddd;
@@ -54,11 +43,5 @@ $navbar-default-toggle-icon-bar-bg:        #888;
 $navbar-default-toggle-border-color:       #ddd;
 
 //** Button primary uses default link color not brand primary
-$btn-primary-bg:                 $app-primary;
-$font-family-base:              Trebuchet MS, $font-family-sans-serif;
-$font-family-serif:             Georgia,'Times New Roman',Times,serif;
-
-$app-font-family-base:          'Open Sans', $font-family-base;
-
-// Reset headings font-family to serif
-$headings-font-family: 			$font-family-serif;
+$btn-primary-bg:                        $app-primary;
+$btn-primary-border: 			        $app-primary;

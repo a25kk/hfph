@@ -34,9 +34,9 @@
   padding-left: 1rem;
   padding-right: 1rem;
   line-height: 1.25;
-  color: $gray-300;
+  color: gray('400');
   a {
-    color: $gray-300;
+    color: gray('400');
     text-decoration: underline;
   }
 }

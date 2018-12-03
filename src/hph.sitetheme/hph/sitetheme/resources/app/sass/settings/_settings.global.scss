@@ -1,0 +1,31 @@
+///* ========================================================================
+//   #GLOBAL
+//   ======================================================================== */
+// The global settings file contains any project-wide variables; things that
+// need to be made available to the entire codebase.
+
+$font-size-small: 13px !default;
+$font-size-normal: 16px !default;
+$font-size-large: 24px !default;
+
+$inuit-font-size-h1:  36px !default;
+$inuit-font-size-h2:  28px !default;
+$inuit-font-size-h3:  $font-size-large !default;
+$inuit-font-size-h4:  20px !default;
+$inuit-font-size-h5:  18px !default;
+$inuit-font-size-h6:  $font-size-normal !default;
+
+// Font family
+$font-family-sans-serif:    "Open Sans", sans-serif !default;
+$font-family-base:          $font-family-sans-serif;
+
+$font-family-heading:               "Amatic SC", sans-serif !default;
+$font-family-heading-default:       $font-family-heading !default;
+$font-family-heading-primary:       $font-family-heading !default;
+$font-family-heading-secondary:     $font-family-heading !default;
+
+$font-family-heading-teasers:       $font-family-heading !default;
+
+$font-family-header-bold:               $font-family-heading-default !default;
+$font-family-heading-newsletter-form:   $font-family-heading-default !default;
+

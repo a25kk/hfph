@@ -36,21 +36,22 @@ $plone-screen-lg-min:              1200px;
 //
 //== Mix plone styles with basic formatting
 .app-toolbar {
-    @extend .hidden-xs;
-    position: fixed;
-    top:0;
-    left:0;
-    height: 100%;
-    width: 120px;
-    background: $navbar-inverse-bg;
+    @include media-breakpoint-up(sm) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 120px;
+        background: $plone-toolbar-bg;
+    }
 }
 
 //** Toolbar header with brand and/or cms title information
 .app-toolbar-header {
-    margin-bottom: $line-height-computed;
-    padding: $nav-link-padding;
+    margin-bottom: 1rem;
+    padding: .25rem;
     color: #f2f2f2;
-    border-bottom: 1px solid $navbar-inverse-color;
+    border-bottom: 1px solid $gray-500;
 }
 
 //== Toolbar nav
@@ -59,11 +60,10 @@ $plone-screen-lg-min:              1200px;
 //## is optimized for the German language version which requires
 //## more horizontal space due to extended word length
 .app-toolbar-nav {
-    @extend .nav;
-    margin-bottom: $line-height-computed;
+    margin-bottom: 1rem;
     font-size: 0.75rem;
     li > a {
-        color: $navbar-inverse-color;
+        color: #fff;
     }
 }
 
@@ -80,8 +80,8 @@ $plone-screen-lg-min:              1200px;
     left:0;
     z-index: 3;
     font-weight: 300;
-    color: $navbar-inverse-color;
-    background: $navbar-inverse-bg;
+    color: $gray-300;
+    background: $gray-500;
 }
 
 //** Inline Plone SVG logo
@@ -111,10 +111,6 @@ $plone-screen-lg-min:              1200px;
             transition: border-top .35s;
         }
     }
-}
-&.expanded .plone-toolbar-logo {
-    width: 120px;
-    span {display: inline;}
 }
 
 .plone-toolbar-nav {
