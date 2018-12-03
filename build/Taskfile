@@ -22,12 +22,12 @@ task:update:theme() {
     npm:install
 }
 
-task:deploy() {
+task:deploy:legacy() {
     cd .. && bin/fab deploy
 }
 
 # Run fabric based deployment
-task:deployer() {
+task:deploy() {
     if [ -z "${1:-}" ]
     then
         echo "Usage: b5 deploy <servername> [options]"
