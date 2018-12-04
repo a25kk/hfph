@@ -25,7 +25,8 @@
     "app": [
             "scripts/a25.js",
             "scripts/a25.helpers.js",
-            "scripts/main.js"
+            "scripts/a25.navbar.js",
+            "scripts/app.js"
         ],
     "src": [
         "JVFloat/jvfloat.js",
@@ -35,7 +36,6 @@
         "lazysizes/lazysizes-umd.js",
         "lazysizes/plugins/parent-fit/ls.parent-fit.js",
         "mailcheck/src/mailcheck.js",
-        "requirejs/requires.js",
         "respimage/respimage.js"
 
     ],
