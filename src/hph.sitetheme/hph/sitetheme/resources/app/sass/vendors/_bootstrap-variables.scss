@@ -28,8 +28,8 @@ $theme-colors: (
 // $app-font-family-strong:    "DINRoundWeb";
 
 
-// $font-family-base:            $app-font-family-light, Arial, sans-serif;
-// $headings-font-family:        $app-font-family-medium, $font-family-base;
+$font-family-base:            $app-font-family-base, Georgia, sans-serif;
+$headings-font-family:        $app-font-family-strong, $font-family-base;
 // $headings-font-weight:        normal;
 
 //## Reset and adjust existing variables

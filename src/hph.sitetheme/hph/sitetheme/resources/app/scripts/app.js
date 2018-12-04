@@ -19,12 +19,12 @@ requirejs(['require',
 
 
         // Trigger font face observer protection
-        //var fontPrimary = new FontFaceObserver('Raleway');
+        var fontPrimary = new FontFaceObserver('EB Garamond');
         //var fontSecondary = new FontFaceObserver('Special Elite');
 
-        //fontPrimary.load().then(function () {
-        //    document.documentElement.className += " font__primary--loaded";
-        //});
+        fontPrimary.load().then(function () {
+            document.documentElement.className += " font__primary--loaded";
+        });
 
         //fontSecondary.load().then(function () {
         //    document.documentElement.className += " font__secondary--loaded";

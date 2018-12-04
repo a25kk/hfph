@@ -25,16 +25,16 @@
 
 // Objects
 
-@import 'layout/header';
-@import 'layout/footer';
-@import 'layout/forms';
-@import 'layout/navbar';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/forms';
+@import 'components/navbar';
 
 // Components
 @import 'components/toolbar';
 @import 'components/buttons';
 @import 'components/media';
-@import 'components/alerts';
+@import 'components/component.alerts';
 @import 'components/pathbar';
 @import 'components/brand';
 @import 'components/navlist';
