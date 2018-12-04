@@ -29,6 +29,7 @@
         "gulp-concat": "2.6.1",
         "gulp-cssnano": "^2.1.0",
         "gulp-eslint": "^5.0.0",
+        "gulp-google-webfonts": "^2.0.0",
         "gulp-htmlmin": "^4.0.0",
         "gulp-hub": "^4.2.0",
         "gulp-if": "^2.0.0",
