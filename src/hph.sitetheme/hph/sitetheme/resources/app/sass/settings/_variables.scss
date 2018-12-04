@@ -12,6 +12,29 @@ $color-powderblue:              rgba(176,224,230,1) !default; // #B0E0E6
 
 $color-firebrick:               rgba(139, 0, 0, 1) !default; // #8b0000
 
+//== Colors
+//
+//## Brand colors used across the project
+$color-midnight-blue:          rgba(0, 51, 102, 1); // #003366;
+$color-sun-glow:               rgba(255, 204, 51, 1); // #ffcc33
+$color-tundora:                rgba(64, 64, 64, 1); // #404040
+$color-shuttle-gray:            rgba(90, 95, 100, 1); // #5A5F64
+
+$app-blue-primary:            rgba(5, 81, 125, 1);
+$app-blue-secondary:          rgba(55, 116, 151, 1);
+$app-brown:                   rgba(159, 123, 15, 1);
+$app-green:                   rgba(9, 130, 39, 1);
+$app-red:                     rgba(144, 7, 7, 1);
+$app-violet:                  rgba(71, 19, 123, 1);
+$app-purple:                  rgba(126, 4, 167, 1);
+
+// Gray baseline
+$app-gray:                      $color-shuttle-gray;
+$app-gray-light:				#eee;
+
+$color-jackson-purple:          rgba(24, 47, 122, 1) !default; // #182F7A
+$color-ronchi:                  rgba(238, 211, 67, 1) !default; // #EED343
+
 // Brand colors
 // Jacksons Purple #182F7A RGB: 24, 47, 122
 // Ronchi #EED343 RGB: 238, 211, 67
