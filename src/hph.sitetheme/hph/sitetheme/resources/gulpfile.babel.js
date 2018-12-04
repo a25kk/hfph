@@ -10,6 +10,7 @@ var hub = new HubRegistry([
     './tasks/clean.js',
     './tasks/collect.js',
     './tasks/favicon.js',
+    './tasks/fonts.js',
     './tasks/sprite.js',
     './tasks/jekyll.js',
     './tasks/styles.js',

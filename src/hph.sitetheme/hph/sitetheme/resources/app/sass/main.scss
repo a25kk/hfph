@@ -2,25 +2,35 @@
 // Main application stylesheet
 // ----------------------------------------------
 
+// Settings
+@import 'settings/variables';
 
-@import 'tools/variables';
-@import 'tools/functions';
-@import 'tools/mixins.scss';
+// Tools
+@import 'tools/_tools.animations.scss';
+@import 'tools/functions.bootstrap';
+@import 'tools/functions.color';
+@import 'tools/mixins.font.scss';
+@import 'tools/mixins.parentselector.scss';
+
+// Generic
+@import 'generic/_generic.fonts.scss';
+@import 'generic/_generic.syntax.scss';
 
 @import 'vendors/bootstrap';
 // @import 'vendors/flickity';
 
-@import 'base/syntax';
-@import 'base/animation';
-@import 'base/fonts';
 @import 'base/scaffolding';
-@import 'base/brand';
+
+// Elements
+
+// Objects
 
 @import 'layout/header';
 @import 'layout/footer';
 @import 'layout/forms';
 @import 'layout/navbar';
 
+// Components
 @import 'components/toolbar';
 @import 'components/buttons';
 @import 'components/media';
@@ -37,4 +47,5 @@
 
 @import 'themes/theme';
 
+// Utilities
 @import 'shame.scss';
