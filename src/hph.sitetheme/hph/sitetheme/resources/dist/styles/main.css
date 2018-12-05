@@ -8824,11 +8824,16 @@ label:hover:before {
 }
 
 .c-identifier {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1002;
   padding: .25rem 1rem;
   color: #182f7a;
   background-color: #eed343;
   font-size: 13px;
   border-bottom: 1px solid #182f7a;
+  border-left: 1px solid #182f7a;
 }
 
 .c-identifier__content {
