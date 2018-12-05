@@ -20,19 +20,20 @@ requirejs(['require',
 
         // Trigger font face observer protection
         var fontPrimary = new FontFaceObserver('EB Garamond');
-        //var fontSecondary = new FontFaceObserver('Special Elite');
+        var fontSecondary = new FontFaceObserver('TAZ Semibold');
 
         fontPrimary.load().then(function () {
             document.documentElement.className += " font__primary--loaded";
         });
 
-        //fontSecondary.load().then(function () {
-        //    document.documentElement.className += " font__secondary--loaded";
-        //});
+        fontSecondary.load().then(function () {
+            document.documentElement.className += " font__secondary--loaded";
+        });
 
-        //Promise.all([fontPrimary.load(), fontSecondary.load()]).then(function () {
-        //    document.documentElement.className += " fonts--loaded";
-        //});
+        Promise.all([fontPrimary.load(null, 5000), fontSecondary.load()])
+            .then(function () {
+                document.documentElement.className += " fonts--loaded";
+        });
 
         var $bannerBar = document.querySelector('.app-js-carousel'),
             $galleryContainer = document.querySelector('.js-gallery');
