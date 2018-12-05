@@ -3,7 +3,13 @@
 // ----------------------------------------------
 
 // Settings
+// TODO: refactor variables into details separate settings
 @import 'settings/variables';
+
+@import 'settings/settings.config.scss';
+@import 'settings/settings.global.scss';
+@import 'settings/settings.mq.scss';
+@import 'settings/settings.identifier.scss';
 
 // Tools
 @import 'tools/_tools.animations.scss';
@@ -31,6 +37,7 @@
 @import 'components/navbar';
 
 // Components
+@import 'components/component.identifier.scss';
 @import 'components/toolbar';
 @import 'components/buttons';
 @import 'components/media';

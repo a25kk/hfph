@@ -21,7 +21,7 @@ export function inject() {
             {read: false}),
             {relative: false},
             {removeTags: true},
-            {ignorePath: ['../','../../','../../../','dist/']}
+            {ignorePath: ['../','../../','../../../', '/dist/', 'dist/']}
         ))
         // Output the file back into it's directory
         .pipe(gulp.dest(cfg.paths.dev))
@@ -34,7 +34,7 @@ export function injectStyles(cb) {
                 {read: false}),
                 {relative: false},
                 {removeTags: true},
-                {ignorePath: ['../','../../','../../../','dist/']}
+                {ignorePath: ['../','../../','../../../','dist/', '/dist/']}
             ),
             gulp.dest(cfg.paths.dev)
         ],
