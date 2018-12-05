@@ -57,6 +57,10 @@
             {
                 "match": "/../dist/styles/",
                 "replacement": "/styles/"
+            },
+            {
+                "match": "/dist/styles/",
+                "replacement": "/styles/"
             }
         ],
         "server": [

@@ -1,0 +1,11 @@
+.c-identifier {
+    padding: .25rem 1rem;
+    color: $identifier-color;
+    background-color: $identifier-bg-color;
+    font-size: $font-size-small;
+    border-bottom: 1px solid $identifier-border-color;
+}
+
+.c-identifier__content {
+    font-size: $font-size-small;
+}
