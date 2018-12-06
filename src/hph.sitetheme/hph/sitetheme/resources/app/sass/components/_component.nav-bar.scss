@@ -1,7 +1,11 @@
 // Main site nav bar
-.app-nav-bar {
-    position: relative;
-    right: -100%;
+.c-nav-bar {
+    position: fixed;
+    @if $nav-bar-overlay-ltr == true {
+        left: $nav-bar-position-default;
+    } @else {
+        right: $nav-bar-position-default;
+    }
     &--overlay {
         pointer-events: all;
         position: fixed;
@@ -14,47 +18,50 @@
         background-color: #fff;
         box-shadow: 0 1rem 2rem rgba(0,0,0,0.25), 0 .65rem .65rem rgba(0,0,0,0.22);
         transition:right .5s linear;
-        @include media-breakpoint-up(md) {
+        @include mq($from: md) {
             width: 50vw;
         }
     }
-    @include media-breakpoint-up(lg) {
+    @include mq($from: navbar) {
+        position: relative;
         display: block;
         right: 0;
+        min-height: 3rem;
+        background: $gray-600;
     }
 }
 
-.app-nav-bar--hidden {
+.c-nav-bar--hidden {
     height: 0;
 }
 
-.app-nav-bar__header {
+.c-nav-bar__header {
     display: flex;
     margin-bottom: 1rem;
-    background: #000;
-    color: #fff;
+    background-color: $color-white;
+    color: $body-color;
     @include media-breakpoint-up(lg) {
         display: none;
     }
 }
 
-.app-nav-bar__title {
+.c-nav-bar__title {
     width: 100%;
     padding: 1rem;
-    font-family: Raleway;
+    font-family: $font-family-base;
     text-transform: uppercase;
     font-size: 1.25rem;
     //display: none;
 }
 
-.app-nav-bar__toggle {
+.c-nav-bar__toggle {
     width: 4rem;
     align-self: flex-end;
     line-height: 1;
     background: transparent; // remove default button style
     border: 1px solid transparent; // remove default button style
     font-size: 3rem;
-    color: #fff;
+    color: $color-jackson-purple;
 }
 
 .app-nav {

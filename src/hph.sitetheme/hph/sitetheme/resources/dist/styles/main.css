@@ -141,6 +141,46 @@
   src: local("TAZ Semibold"), local("TAZ-Semibold"), url("../assets/fonts/taz-semibold-webfont.woff") format("woff");
 }
 
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 400;
+  src: url(../assets/fonts/EB_Garamond-italic-400.woff) format("woff");
+  unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../assets/fonts/EB_Garamond-normal-400.woff) format("woff");
+  unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 500;
+  src: url(../assets/fonts/EB_Garamond-normal-500.woff) format("woff");
+  unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 600;
+  src: url(../assets/fonts/EB_Garamond-normal-600.woff) format("woff");
+  unicode-range: U+0-10FFFF;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../assets/fonts/EB_Garamond-normal-700.woff) format("woff");
+  unicode-range: U+0-10FFFF;
+}
+
 .hll {
   background-color: #ffffcc;
 }
@@ -442,7 +482,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "EB Garamont", Georgia, sans-serif;
+  font-family: "EB Garamond", Georgia, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -741,7 +781,7 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: "TAZ Semibold", "EB Garamont", Georgia, sans-serif;
+  font-family: "TAZ Semibold", "EB Garamond", Georgia, sans-serif;
   font-weight: 500;
   line-height: 1.2;
   color: inherit;
@@ -8298,6 +8338,31 @@ div.riform .label {
   display: block;
 }
 
+.o-burger__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid transparent;
+}
+
+.o-burger__text {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-size: 1.5rem;
+  color: #182f7a;
+}
+
+.o-burger__icon {
+  font-size: 1.5rem;
+  color: #182f7a;
+}
+
 .app-header {
   position: fixed;
   top: 0;
@@ -8314,7 +8379,42 @@ div.riform .label {
   }
 }
 
+.c-header {
+  padding-top: 1.5rem;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .c-header {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .c-header {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .c-header {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .c-header {
+    max-width: 1140px;
+  }
+}
+
 .app-header__content {
+  display: grid;
+  grid-template-columns: 50% 1fr 1fr;
   padding-top: 1.5rem;
   width: 100%;
   padding-right: 15px;
@@ -8350,6 +8450,12 @@ div.riform .label {
 .app-header__section {
   display: block;
   position: relative;
+}
+
+.app-header__section:not(:first-child) {
+  justify-self: end;
+  -ms-flex-item-align: end;
+      align-self: end;
 }
 
 .app-footer {
@@ -8827,8 +8933,9 @@ label:hover:before {
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 1002;
+  z-index: 102;
   padding: .25rem 1rem;
+  width: 100vw;
   color: #182f7a;
   background-color: #eed343;
   font-size: 13px;
@@ -8915,7 +9022,7 @@ label:hover:before {
 }
 
 .plone-toolbar-nav {
-  font-family: "EB Garamont", Georgia, sans-serif;
+  font-family: "EB Garamond", Georgia, sans-serif;
   font-size: 12px;
   list-style: none;
   margin: 0;
@@ -8974,7 +9081,7 @@ label:hover:before {
   background: rgba(20, 20, 20, 0.95);
   top: 0;
   overflow-y: auto;
-  font-family: "EB Garamont", Georgia, sans-serif;
+  font-family: "EB Garamond", Georgia, sans-serif;
   font-size: 14px;
   list-style: none;
   padding: 0;
@@ -9724,12 +9831,12 @@ img[data-sizes="auto"] {
   margin-left: 0;
 }
 
-.app-nav-bar {
-  position: relative;
+.c-nav-bar {
+  position: fixed;
   right: -100%;
 }
 
-.app-nav-bar--overlay {
+.c-nav-bar--overlay {
   pointer-events: all;
   position: fixed;
   top: 0;
@@ -9746,47 +9853,50 @@ img[data-sizes="auto"] {
   transition: right .5s linear;
 }
 
-@media (min-width: 768px) {
-  .app-nav-bar--overlay {
+@media (min-width: 48em) {
+  .c-nav-bar--overlay {
     width: 50vw;
   }
 }
 
-@media (min-width: 992px) {
-  .app-nav-bar {
+@media (min-width: 277777.75em) {
+  .c-nav-bar {
+    position: relative;
     display: block;
     right: 0;
+    min-height: 3rem;
+    background: #6c757d;
   }
 }
 
-.app-nav-bar--hidden {
+.c-nav-bar--hidden {
   height: 0;
 }
 
-.app-nav-bar__header {
+.c-nav-bar__header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 1rem;
-  background: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #212529;
 }
 
 @media (min-width: 992px) {
-  .app-nav-bar__header {
+  .c-nav-bar__header {
     display: none;
   }
 }
 
-.app-nav-bar__title {
+.c-nav-bar__title {
   width: 100%;
   padding: 1rem;
-  font-family: Raleway;
+  font-family: "EB Garamond", Georgia, sans-serif;
   text-transform: uppercase;
   font-size: 1.25rem;
 }
 
-.app-nav-bar__toggle {
+.c-nav-bar__toggle {
   width: 4rem;
   -ms-flex-item-align: end;
       align-self: flex-end;
@@ -9794,7 +9904,7 @@ img[data-sizes="auto"] {
   background: transparent;
   border: 1px solid transparent;
   font-size: 3rem;
-  color: #fff;
+  color: #182f7a;
 }
 
 .app-nav {
@@ -9888,7 +9998,7 @@ img[data-sizes="auto"] {
   display: block;
   text-decoration: none;
   color: #000;
-  font-family: "EB Garamont";
+  font-family: "EB Garamond";
   text-transform: none;
   font-weight: 400;
   line-height: 1;

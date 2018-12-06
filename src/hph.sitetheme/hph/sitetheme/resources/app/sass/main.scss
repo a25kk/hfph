@@ -1,6 +1,14 @@
 //
 // Main application stylesheet
 // ----------------------------------------------
+// Tools
+@import 'tools/_tools.animations.scss';
+@import 'tools/functions.bootstrap';
+@import 'tools/functions.color';
+@import 'tools/mixins.font.scss';
+@import 'tools/mixins.parentselector.scss';
+
+@import 'vendors/mq';
 
 // Settings
 // TODO: refactor variables into details separate settings
@@ -10,17 +18,12 @@
 @import 'settings/settings.global.scss';
 @import 'settings/settings.mq.scss';
 @import 'settings/settings.identifier.scss';
-
-// Tools
-@import 'tools/_tools.animations.scss';
-@import 'tools/functions.bootstrap';
-@import 'tools/functions.color';
-@import 'tools/mixins.font.scss';
-@import 'tools/mixins.parentselector.scss';
+@import 'settings/settings.nav-bar.scss';
 
 // Generic
-@import 'generic/_generic.fonts.scss';
-@import 'generic/_generic.syntax.scss';
+@import 'generic/generic.fonts';
+@import 'generic/generic.fonts.custom';
+@import 'generic/generic.syntax';
 
 @import 'vendors/bootstrap';
 // @import 'vendors/flickity';
@@ -30,8 +33,9 @@
 // Elements
 
 // Objects
+@import 'objects/object.burger';
 
-@import 'components/header';
+@import 'components/component.app-header';
 @import 'components/footer';
 @import 'components/forms';
 @import 'components/navbar';
@@ -45,7 +49,7 @@
 @import 'components/pathbar';
 @import 'components/brand';
 @import 'components/navlist';
-@import 'components/nav-bar';
+@import 'components/component.nav-bar';
 @import 'components/banner';
 @import 'components/cards';
 

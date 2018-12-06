@@ -23,10 +23,14 @@
   },
   "scripts": {
     "app": [
-            "scripts/a25.js",
-            "scripts/a25.helpers.js",
-            "scripts/a25.navbar.js",
-            "scripts/app.js"
+        "scripts/a25.js",
+        "scripts/a25.helpers.js",
+        "scripts/a25.slider.js",
+        "scripts/a25.navbar.js",
+        "scripts/navbar.js",
+        "scripts/eventbox.js",
+        "scripts/interdependentselect.js",
+        "scripts/app.js"
         ],
     "src": [
         "JVFloat/jvfloat.js",

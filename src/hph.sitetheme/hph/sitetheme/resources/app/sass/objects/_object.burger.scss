@@ -1,0 +1,22 @@
+.o-burger {
+
+}
+
+.o-burger__button {
+    display: flex;
+    flex-direction: row-reverse;
+    line-height: 1;
+    background: transparent; // remove default button style
+    border: 1px solid transparent; // remove default button style
+}
+
+.o-burger__text {
+    align-self: flex-end;
+    font-size: 1.5rem;
+    color: $color-jackson-purple;
+}
+
+.o-burger__icon {
+    font-size: 1.5rem;
+    color: $color-jackson-purple;
+}
