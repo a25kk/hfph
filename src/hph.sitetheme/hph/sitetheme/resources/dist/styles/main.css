@@ -8867,6 +8867,17 @@ div.riform .label {
 }
 
 .app-footer__content {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.app-footer__content--primary {
+  color: #fff;
+  background-color: #182f7a;
+}
+
+.app-copyright,
+.c-footer-nav {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -8875,25 +8886,29 @@ div.riform .label {
 }
 
 @media (min-width: 576px) {
-  .app-footer__content {
+  .app-copyright,
+  .c-footer-nav {
     max-width: 540px;
   }
 }
 
 @media (min-width: 768px) {
-  .app-footer__content {
+  .app-copyright,
+  .c-footer-nav {
     max-width: 720px;
   }
 }
 
 @media (min-width: 992px) {
-  .app-footer__content {
+  .app-copyright,
+  .c-footer-nav {
     max-width: 960px;
   }
 }
 
 @media (min-width: 1200px) {
-  .app-footer__content {
+  .app-copyright,
+  .c-footer-nav {
     max-width: 1140px;
   }
 }
@@ -10036,7 +10051,7 @@ img[data-sizes="auto"] {
   width: 100%;
   list-style: none;
   padding: 0 1rem;
-  background-color: #fff;
+  background-color: #182f7a;
 }
 
 @media (min-width: 277777.75em) {
@@ -10257,6 +10272,40 @@ img[data-sizes="auto"] {
   -webkit-transition: right .25s linear;
   -o-transition: right .25s linear;
   transition: right .25s linear;
+}
+
+.c-quick-links {
+  display: block;
+}
+
+.c-quick-links__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+.c-quick-links__text {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-family: "TAZ";
+  font-size: 1.45rem;
+  color: #182f7a;
+  text-transform: uppercase;
+}
+
+.c-quick-links__icon {
+  margin-right: .25rem;
+  margin-bottom: .075rem;
+  font-size: 1.5rem;
+  color: #182f7a;
 }
 
 .app-cards {

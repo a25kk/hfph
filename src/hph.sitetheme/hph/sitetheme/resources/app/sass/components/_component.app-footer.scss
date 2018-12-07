@@ -1,0 +1,24 @@
+//
+// Footer
+// -----------------------------------
+
+.app-footer {
+    padding-top: $spacer;
+    padding-bottom: $spacer;
+}
+
+.app-footer__content {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    &--primary {
+        color: $white;
+        background-color: $app-color-primary;
+    }
+}
+
+// TODO: Refactor as compontent and remove
+.app-copyright,
+.c-footer-nav {
+    @include make-container();
+    @include make-container-max-widths();
+}

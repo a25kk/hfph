@@ -29,8 +29,9 @@
 @import 'settings/settings.object.burger';
 
 // Component Settings
-@import 'settings/settings.identifier.scss';
-@import 'settings/settings.nav-bar.scss';
+@import 'settings/settings.identifier';
+@import 'settings/settings.quick-links';
+@import 'settings/settings.nav-bar';
 
 // Generic
 @import 'generic/generic.fonts';
@@ -51,7 +52,7 @@
 
 // Components
 @import 'components/component.app-header';
-@import 'components/footer';
+@import 'components/component.app-footer';
 @import 'components/forms';
 // @import 'components/navbar';
 
@@ -64,6 +65,7 @@
 // @import 'components/brand';
 @import 'components/component.navlist';
 @import 'components/component.nav-bar';
+@import 'components/component.quick-links';
 // @import 'components/banner';
 @import 'components/cards';
 
