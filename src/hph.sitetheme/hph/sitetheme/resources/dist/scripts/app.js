@@ -25,16 +25,16 @@ requirejs(['require',
         });
         var fontSecondary = new FontFaceObserver('TAZ');
 
-        fontPrimary.load(null, 10000).then(function () {
+        fontPrimary.load(null, 3000).then(function () {
             document.documentElement.className += " font__primary--loaded";
         });
 
-        fontSecondary.load(null, 5000).then(function () {
+        fontSecondary.load(null, 3000).then(function () {
             document.documentElement.className += " font__secondary--loaded";
         });
 
-        Promise.all([fontPrimary.load(null, 5000),
-                     fontSecondary.load(null, 5000)
+        Promise.all([fontPrimary.load(null, 3000),
+                     fontSecondary.load(null, 3000)
         ])
             .then(function () {
                 document.documentElement.className += " fonts--loaded";

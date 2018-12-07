@@ -5,8 +5,8 @@
     position: fixed;
     top: 0;
     width: 100vw;
-    z-index: 1001;
-    background-color: $color-white;
+    z-index: 100;
+    background-color: $app-color-white;
     @include media-breakpoint-up(md) {
         margin-bottom: 1rem;
         padding-bottom: 1rem;

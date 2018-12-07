@@ -39,12 +39,13 @@ define(["jquery",
             $menuContainerActiveClass = options.menuContainerActive,
             $navBar = document.querySelector(options.navBar);
         if ($navBar !== null) {
-            $navBar.classList.add(options.navBarOverlay);
-            $navBar.classList.remove(options.navBarHidden);
+            $navBar.classList.toggle(options.navBarOverlay);
+            $navBar.classList.toggle(options.navBarHidden);
         }
         // $(options.navBar).toggleClass("c-nav-bar--overlay");
         // $(options.navBar).toggleClass("c-nav-bar--hidden");
         $menuContainer.toggleClass($menuContainerActiveClass);
+        $menuContainer.toggleClass("u-backdrop");
         $("body").toggleClass("no-scroll");
         $(this).toggleClass("c-nav-bar__toggle--active");
         $(".app-nav__link--open").removeClass("app-nav__link--open");
