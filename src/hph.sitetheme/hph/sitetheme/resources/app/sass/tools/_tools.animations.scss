@@ -9,6 +9,33 @@
 
 // Fades
 // ----------------------------------------
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.fadeOut {
+    animation-name: fadeOut;
+}
 
 @keyframes fadeInDown {
     0% {
@@ -40,6 +67,22 @@
 
 .fadeOutUp {
     animation-name: fadeOutUp;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInRight {
+    animation-name: fadeInRight;
 }
 
 
@@ -89,4 +132,22 @@
 
 .app-dlay-3 {
     transition-delay: 1.8s;
+}
+
+// Background fade
+@-o-keyframes backgroundFade {
+    0%   { background-color: #FFFFFF; }
+    50%  { background-color: #AD301B; }
+    100% { background-color: #FFFFFF; }
+}
+@keyframes backgroundFade {
+    0%   { background-color: #FFFFFF; }
+    50%  { background-color: #AD301B; }
+    100% { background-color: #FFFFFF; }
+}
+
+.backgroundAnimated{
+    background-image:none !important;
+    -o-animation: backgroundFade 5s ease-in-out;
+    animation: backgroundFade 5s ease-in-out;
 }

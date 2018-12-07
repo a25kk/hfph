@@ -1,0 +1,38 @@
+//
+// Header
+// ------------------------------------------
+.app-header {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 100;
+    background-color: $app-color-white;
+    @include media-breakpoint-up(md) {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid gray("200");
+    }
+}
+
+.c-header {
+    padding-top: 1.5rem;
+    @include make-container();
+    @include make-container-max-widths();
+}
+
+.app-header__content {
+    display: grid;
+    grid-template-columns: 50% 1fr 1fr;
+    padding-top: 1.5rem;
+    @include make-container();
+    @include make-container-max-widths();
+}
+
+.app-header__section {
+    display: block;
+    position: relative;
+    &:not(:first-child) {
+        justify-self: end;
+        align-self: end;
+    }
+}

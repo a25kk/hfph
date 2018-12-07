@@ -1,16 +1,6 @@
 //
 // Main application stylesheet
 // ----------------------------------------------
-
-// Settings
-// TODO: refactor variables into details separate settings
-@import 'settings/variables';
-
-@import 'settings/settings.config.scss';
-@import 'settings/settings.global.scss';
-@import 'settings/settings.mq.scss';
-@import 'settings/settings.identifier.scss';
-
 // Tools
 @import 'tools/_tools.animations.scss';
 @import 'tools/functions.bootstrap';
@@ -18,9 +8,35 @@
 @import 'tools/mixins.font.scss';
 @import 'tools/mixins.parentselector.scss';
 
+@import 'vendors/mq';
+
+// Settings
+// TODO: refactor variables into details separate settings
+// @import 'settings/variables';
+
+// Global settings
+@import 'settings/settings.config';
+@import 'settings/settings.global';
+@import 'settings/settings.mq';
+
+// Project colors
+@import 'settings/settings.color';
+
+@import 'settings/settings.font.base';
+@import 'settings/settings.font.custom';
+
+// Object Settings
+@import 'settings/settings.object.burger';
+
+// Component Settings
+@import 'settings/settings.identifier';
+@import 'settings/settings.quick-links';
+@import 'settings/settings.nav-bar';
+
 // Generic
-@import 'generic/_generic.fonts.scss';
-@import 'generic/_generic.syntax.scss';
+@import 'generic/generic.fonts';
+@import 'generic/generic.fonts.custom';
+@import 'generic/generic.syntax';
 
 @import 'vendors/bootstrap';
 // @import 'vendors/flickity';
@@ -30,29 +46,35 @@
 // Elements
 
 // Objects
-
-@import 'components/header';
-@import 'components/footer';
-@import 'components/forms';
-@import 'components/navbar';
+@import 'objects/object.grid';
+@import 'objects/object.brand';
+@import 'objects/object.burger';
 
 // Components
-@import 'components/component.identifier.scss';
+@import 'components/component.app-header';
+@import 'components/component.app-footer';
+@import 'components/forms';
+// @import 'components/navbar';
+
+@import 'components/component.identifier';
 @import 'components/toolbar';
 @import 'components/buttons';
 @import 'components/media';
 @import 'components/component.alerts';
 @import 'components/pathbar';
-@import 'components/brand';
-@import 'components/navlist';
-@import 'components/nav-bar';
-@import 'components/banner';
+// @import 'components/brand';
+@import 'components/component.navlist';
+@import 'components/component.nav-bar';
+@import 'components/component.quick-links';
+// @import 'components/banner';
 @import 'components/cards';
 
-@import 'pages/signin';
+// @import 'pages/signin';
 @import 'pages/contentpage';
 
 @import 'themes/theme';
 
 // Utilities
+@import 'utililties/_util.visibility';
+@import 'utililties/_util.backdrop';
 @import 'shame.scss';

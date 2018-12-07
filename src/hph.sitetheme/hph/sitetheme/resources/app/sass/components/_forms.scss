@@ -66,7 +66,7 @@ label {
 }
 
 .error {
-    color: $app-primary;
+    color: $app-color-primary;
     font-weight: 500;
     &:before {
       content: "!";
@@ -75,7 +75,7 @@ label {
 }
 
 code {
-  color: $app-primary;
+  color: $app-color-primary;
 }
 
 [id="form-widgets-groups"] .option {
@@ -242,7 +242,7 @@ label:hover:before {
 
 .app-field-required .required-icon .text {
   margin: -3px 0 0 12px;
-  color: $app-danger;
+  color: $app-color-danger;
   font-size: 2.25rem;
   font-weight: 300;
 }

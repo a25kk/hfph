@@ -2,7 +2,6 @@
 // Navigation Card Styles
 // ------------------------------------------------------
 
-
 .app-nav-tree {
     display: none;
     background-color: transparent;
@@ -36,7 +35,7 @@
     padding: .5rem .25rem;
     &:not(last) {
         margin-bottom: .25rem;
-        border-bottom: 1px solid $app-gray;
+        border-bottom: 1px solid $app-color-gray;
     }
     &:last-of-type {
         border-bottom: 0px;
@@ -46,19 +45,19 @@
 .app-nav__list-link {
     color: #000;
     &:hover {
-        color: darken($app-primary, 10%);
+        color: darken($app-color-primary, 10%);
     }
     &.navTreeCurrentNode {
-        color: $app-gray;
+        color: $app-color-gray;
     }
 }
 
 .app-nav__list-link--open {
-    color: $app-primary;
+    color: $app-color-primary;
 }
 
 .app-nav__list-link--active {
-    color: $app-primary;
+    color: $app-color-primary;
 }
 
 .app-nav__list--level-0 {

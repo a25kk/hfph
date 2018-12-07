@@ -1,5 +1,8 @@
 requirejs(['require',
         '/scripts/flickity.pkgd.js',
+        '/scripts/eventbox.js',
+        '/scripts/interdependentselect.js',
+        '/scripts/navbar.js',
         '/scripts/fontfaceobserver.js',
         '/scripts/hideShowPassword.js',
         '/scripts/jvfloat.js',
@@ -7,33 +10,70 @@ requirejs(['require',
         '/scripts/ls.parent-fit.js',
         '/scripts/lazysizes-umd.js',
         '/scripts/a25.js',
-        '/scripts/a25.helpers.js',
-        '/scripts/a25.navbar.js'
+        '/scripts/a25.helpers.js'
     ],
-    function(require, Flickity) {
+    function(require, Flickity, eventbox, interdependentselect, navbar) {
         'use strict';
 
         if (typeof a25 == 'undefined') {
             var a25 = {};
-        }
-
+    }
 
         // Trigger font face observer protection
-        var fontPrimary = new FontFaceObserver('EB Garamond');
-        //var fontSecondary = new FontFaceObserver('Special Elite');
+        var fontPrimary = new FontFaceObserver('EB Garamond', {
+            weight: 400
+        });
+        var fontSecondary = new FontFaceObserver('TAZ');
 
-        fontPrimary.load().then(function () {
+        fontPrimary.load(null, 3000).then(function () {
             document.documentElement.className += " font__primary--loaded";
         });
 
-        //fontSecondary.load().then(function () {
-        //    document.documentElement.className += " font__secondary--loaded";
-        //});
+        fontSecondary.load(null, 3000).then(function () {
+            document.documentElement.className += " font__secondary--loaded";
+        });
 
-        //Promise.all([fontPrimary.load(), fontSecondary.load()]).then(function () {
-        //    document.documentElement.className += " fonts--loaded";
-        //});
+        Promise.all([fontPrimary.load(null, 3000),
+                     fontSecondary.load(null, 3000)
+        ])
+            .then(function () {
+                document.documentElement.className += " fonts--loaded";
+        });
 
+        // Nav Bar
+        navbar.init({
+            backdropDisplay: true
+        });
+
+        // Initialize XHR Event Box
+        eventbox.init();
+
+        // Default interdependent select boxes used in module editor
+        var _selector_defaults = {
+            selector: '.js-module-selector',
+            classVisible: 'module__select--visible fadeInDown',
+            classHidden: 'module__select--hidden fadeOutUp',
+            themeSelectorBaseId: '#selector__core-theme--',
+            filterFormAction: '.js-filter-action',
+            filterFormActionHidden: 'filter__block--hidden',
+            filterFormActionVisible: 'filter__block--visible'
+        };
+        interdependentselect.init(_selector_defaults);
+
+        // Course filter select boxes
+        var _selector_filter = {
+            selector: '.js-filter-box',
+            classVisible: 'form-field__select--visible fadeIn',
+            classHidden: 'form-field__select--hidden fadeOut',
+            themeSelectorBaseId: '#selector__core-theme--',
+            filterFormAction: '.js-filter-action',
+            filterFormActionHidden: 'filter__block--hidden',
+            filterFormActionVisible: 'filter__block--visible'
+        };
+        interdependentselect.init(_selector_filter);
+
+        // Banner
+        // TODO: refactor as independent script
         var $bannerBar = document.querySelector('.app-js-carousel'),
             $galleryContainer = document.querySelector('.js-gallery');
         if ($bannerBar !== null) {
