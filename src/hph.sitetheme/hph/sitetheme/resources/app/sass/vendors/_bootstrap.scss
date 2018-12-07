@@ -3,7 +3,8 @@
 
 @import "bootstrap/scss/variables";
 
-@import "bootstrap-variables.scss";
+@import "../settings/settings.vendor.bootstrap";
+// @import "bootstrap-variables.scss";
 
 @import "bootstrap/scss/mixins";
 

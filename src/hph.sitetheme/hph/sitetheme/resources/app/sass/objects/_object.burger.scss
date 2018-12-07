@@ -1,0 +1,27 @@
+.o-burger {
+    display: $o-burger-display;
+}
+
+.o-burger__button {
+    display: flex;
+    flex-direction: $o-burger-flex-direction;
+    line-height: 1;
+    background: $o-burger-background-color; // remove default button style
+    border: $o-burger-border-width $o-burger-border-style $o-burger-border-color; // remove default button style
+    cursor: pointer;
+}
+
+.o-burger__text {
+    align-self: flex-end;
+    font-family: $o-burger-font;
+    font-size: $o-burger-text-font-size;
+    color: $o-burger-text-color;
+    text-transform: $o-burger-text-transform;
+}
+
+.o-burger__icon {
+    margin-right: .25rem;
+    margin-bottom: .075rem;
+    font-size: $o-burger-icon-font-size;
+    color: $o-burger-icon-color;
+}
