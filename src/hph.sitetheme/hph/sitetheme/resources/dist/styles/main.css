@@ -560,7 +560,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Open Sans", sans-serif;
+  --font-family-sans-serif: "EB Garamond", Trebuchet MS;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -589,7 +589,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "EB Garamond", Trebuchet MS, "Open Sans", sans-serif;
+  font-family: "EB Garamond", "EB Garamond", Trebuchet MS;
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.5;
@@ -9279,7 +9279,7 @@ label:hover:before {
 }
 
 .plone-toolbar-nav {
-  font-family: "EB Garamond", Trebuchet MS, "Open Sans", sans-serif;
+  font-family: "EB Garamond", "EB Garamond", Trebuchet MS;
   font-size: 12px;
   list-style: none;
   margin: 0;
@@ -9338,7 +9338,7 @@ label:hover:before {
   background: rgba(20, 20, 20, 0.95);
   top: 0;
   overflow-y: auto;
-  font-family: "EB Garamond", Trebuchet MS, "Open Sans", sans-serif;
+  font-family: "EB Garamond", "EB Garamond", Trebuchet MS;
   font-size: 14px;
   list-style: none;
   padding: 0;
