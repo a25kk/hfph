@@ -142,7 +142,8 @@
 
         <!-- Global navigation -->
         <!-- Off Canvas slide out navigation -->
-        <replace css:theme="#app-nav-bar" css:content="#app-nav-bar" />
+        <!-- TODO: Refactor to use properly formatted navigation -->
+        <replace css:theme="#app-nav" css:content="#app-nav" />
 
         <drop css:theme="#app-banner"
               css:if-not-content="#app-banner" />

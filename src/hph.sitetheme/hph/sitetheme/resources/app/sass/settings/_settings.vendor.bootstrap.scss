@@ -26,10 +26,12 @@ $theme-colors: (
 // $app-font-family-light:     "DINRoundWeb-Light";
 // $app-font-family-medium:    "DINRoundWeb-Medium";
 // $app-font-family-strong:    "DINRoundWeb";
+$app-font-family-sans-serif:        Trebuchet MS, $font-family-sans-serif;
+$app-font-family-serif:             Georgia,'Times New Roman',Times,serif;
 
-
-$font-family-base:            $app-font-family-base, Georgia, sans-serif;
-$headings-font-family:        $app-font-family-strong, $font-family-base;
+$font-size-base:                    $app-font-size-base;
+$font-family-base:                  $app-font-family-base, $app-font-family-sans-serif;
+$headings-font-family:              $app-font-family-strong, $app-font-family-serif;
 // $headings-font-weight:        normal;
 
 //## Reset and adjust existing variables
