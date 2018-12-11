@@ -168,7 +168,7 @@
 }
 
 .app-nav__link--has-icon {
-    @include mq($until: lg) {
+    @include mq($until: navbar) {
         display: flex;
     }
 }
@@ -202,7 +202,7 @@
             display: inline-block;
         }
     }
-    @include media-breakpoint-up(lg) {
+    @include mq($from: navbar) {
         padding: 0;
     }
 }
