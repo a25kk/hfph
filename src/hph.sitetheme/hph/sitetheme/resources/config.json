@@ -27,10 +27,13 @@
         "scripts/a25.helpers.js",
         "scripts/a25.slider.js",
         "scripts/a25.navbar.js",
-        "scripts/navbar.js",
+        "scripts/app.js",
+        "scripts/dropdown.js",
         "scripts/eventbox.js",
         "scripts/interdependentselect.js",
-        "scripts/app.js"
+        "scripts/navbar.js",
+        "scripts/slider.js",
+        "scripts/utils.js"
         ],
     "src": [
         "flickity/dist/flickity.pkgd.js",

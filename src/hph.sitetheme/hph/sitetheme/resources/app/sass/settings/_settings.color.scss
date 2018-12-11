@@ -14,10 +14,11 @@ $color-jackson-purple:          rgba(24, 47, 122, 1) !default; // #182F7A
 $color-ronchi:                  rgba(238, 211, 67, 1) !default; // #EED343
 
 // Adjusted brand color versions for better contrast and visibility
-$color-midnight-blue:          rgba(0, 51, 102, 1); // #003366;
-$color-sun-glow:               rgba(255, 204, 51, 1); // #ffcc33
-$color-tundora:                rgba(64, 64, 64, 1); // #404040
-$color-shuttle-gray:            rgba(90, 95, 100, 1); // #5A5F64
+$color-midnight-blue:               rgba(0, 51, 102, 1); // #003366;
+$color-sun-glow:                    rgba(255, 204, 51, 1); // #ffcc33
+$color-tundora:                     rgba(64, 64, 64, 1); // #404040
+$color-shuttle-gray:                rgba(90, 95, 100, 1); // #5A5F64
+$color-gallery:                     rgba(239, 239, 239, 1); // #5A5F64
 
 $app-color-blue-primary:            rgba(5, 81, 125, 1);
 $app-color-blue-secondary:          rgba(55, 116, 151, 1);
@@ -28,7 +29,7 @@ $app-color-violet:                  rgba(71, 19, 123, 1);
 $app-color-purple:                  rgba(126, 4, 167, 1);
 
 // Gray baseline
-$app-color-gray-base:                       rgba(237, 234, 234, 1);
+$app-color-gray-base:                       $color-gallery;
 $app-color-gray:                            $color-shuttle-gray;
 $app-color-gray-light:				        #eee;
 
