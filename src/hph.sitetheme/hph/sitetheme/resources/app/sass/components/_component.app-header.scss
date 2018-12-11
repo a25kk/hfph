@@ -7,6 +7,7 @@
     width: 100vw;
     z-index: 100;
     background-color: $app-color-white;
+    background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
     @include media-breakpoint-up(md) {
         margin-bottom: 1rem;
         padding-bottom: 1rem;
@@ -21,11 +22,14 @@
 }
 
 .app-header__content {
-    display: grid;
+    display: block;
     grid-template-columns: 50% 1fr 1fr;
     padding-top: 1.5rem;
     @include make-container();
     @include make-container-max-widths();
+    @include mq($from: md) {
+        display: grid;
+    }
 }
 
 .app-header__section {

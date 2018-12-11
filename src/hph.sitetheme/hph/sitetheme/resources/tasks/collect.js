@@ -32,6 +32,9 @@ gulp.task('collect:scripts:vendor',
 scriptCollectionApp.forEach(function (libName) {
     gulp.task( 'scripts:'+libName, function () {
         return gulp.src(scriptSourcesApp[libName], {'cwd': cfg.paths.app })
+            // .pipe(babel({
+            //     presets: ['@babel/env']
+            // }))
             .pipe(gulp.dest(cfg.paths.dist + 'scripts/'));
     });
 });

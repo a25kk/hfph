@@ -8783,9 +8783,16 @@ a:hover {
 
 .o-brand {
   display: block;
-  width: 225px;
-  height: 90px;
   margin: 1rem 1rem 0 0;
+  width: 100px;
+  height: 40px;
+}
+
+@media (min-width: 48em) {
+  .o-brand {
+    width: 225px;
+    height: 90px;
+  }
 }
 
 .o-burger {
@@ -8822,12 +8829,40 @@ a:hover {
   color: #182f7a;
 }
 
+.o-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #efefef;
+}
+
+.o-dropdown--hidden {
+  display: none;
+}
+
+.o-dropdown--active {
+  display: block;
+}
+
+.o-dropdown__list {
+  list-style: none;
+  padding: 1rem .5rem;
+}
+
+.o-dropdown__item {
+  padding: .25rem;
+}
+
 .app-header {
   position: fixed;
   top: 0;
   width: 100vw;
   z-index: 100;
   background-color: #fff;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#efefef));
+  background: -webkit-linear-gradient(white, #efefef);
+  background: -o-linear-gradient(white, #efefef);
+  background: linear-gradient(white, #efefef);
 }
 
 @media (min-width: 768px) {
@@ -8872,7 +8907,7 @@ a:hover {
 }
 
 .app-header__content {
-  display: grid;
+  display: block;
   grid-template-columns: 50% 1fr 1fr;
   padding-top: 1.5rem;
   width: 100%;
@@ -8903,6 +8938,12 @@ a:hover {
 @media (min-width: 1200px) {
   .app-header__content {
     max-width: 1140px;
+  }
+}
+
+@media (min-width: 48em) {
+  .app-header__content {
+    display: grid;
   }
 }
 
@@ -10026,21 +10067,20 @@ img[data-sizes="auto"] {
 
 .c-nav-bar {
   position: fixed;
-  right: -100%;
-}
-
-.c-nav-bar--overlay {
-  pointer-events: all;
-  position: fixed;
   top: 0;
-  right: 0;
   z-index: 1001;
   width: 90vw;
   height: 100vh;
+  right: -100%;
   border-top: 0px solid #212529;
   background-color: #182f7a;
   -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25), 0 0.65rem 0.65rem rgba(0, 0, 0, 0.22);
           box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25), 0 0.65rem 0.65rem rgba(0, 0, 0, 0.22);
+}
+
+.c-nav-bar--overlay {
+  pointer-events: all;
+  right: 0;
   -webkit-transition: right .5s linear;
   -o-transition: right .5s linear;
   transition: right .5s linear;
@@ -10063,7 +10103,6 @@ img[data-sizes="auto"] {
 }
 
 .c-nav-bar--hidden {
-  height: 0;
   -webkit-transition: right .5s linear;
   -o-transition: right .5s linear;
   transition: right .5s linear;
@@ -10332,6 +10371,7 @@ img[data-sizes="auto"] {
 
 .c-quick-links {
   display: block;
+  position: relative;
 }
 
 .c-quick-links__button {

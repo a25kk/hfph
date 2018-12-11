@@ -1,0 +1,23 @@
+.o-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: $app-color-gray-base;
+    &--hidden {
+        display: none;
+    }
+}
+
+.o-dropdown--active {
+    display: block;
+}
+
+.o-dropdown__list {
+    list-style: none;
+    padding: 1rem .5rem;
+
+}
+
+.o-dropdown__item {
+    padding: .25rem;
+}
