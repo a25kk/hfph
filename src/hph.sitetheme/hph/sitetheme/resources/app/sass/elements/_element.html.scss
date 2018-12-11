@@ -1,17 +1,17 @@
 html {
-    font-size: ($inuit-global-font-size / 16px) * 1em; /* [1] */
-    line-height: $inuit-global-line-height / $inuit-global-font-size; /* [1] */
+    font-size: $app-font-size-base; /* [1] */
+    // line-height: $inuit-global-line-height / $inuit-global-font-size; /* [1] */
     overflow-y: scroll; /* [2] */
     min-height: 100%; /* [3] */
     //own:
-    color: $color-gray--dark;
+    color: $gray-600;
     width: 100%;
-    font-family: $font-family-sans-serif;
+    font-family: $app-font-family-base;
     font-weight: 300;
     -webkit-text-size-adjust: 100%; // 4
     -ms-text-size-adjust: 100%; // 4
     -ms-overflow-style: scrollbar; // 5
-    -webkit-tap-highlight-color: rgba($color-black, 0); // 6
+    -webkit-tap-highlight-color: rgba($black, 0); // 6
 }
 
 * {

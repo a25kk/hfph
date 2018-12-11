@@ -6,3 +6,7 @@ $app-font-family-base:              "EB Garamond";
 $app-font-family-light:             "EB Garamond";
 $app-font-family-medium:            "EB Garamond";
 $app-font-family-strong:            "TAZ";
+
+// Configure site font stack
+$app-font-family-sans-serif:        $app-font-family-base, Trebuchet MS;
+$app-font-family-serif:             Georgia, 'Times New Roman', Times,serif;

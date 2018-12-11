@@ -1,4 +1,5 @@
 requirejs(['require',
+        '/scripts/svg4everybody.js',
         '/scripts/flickity.pkgd.js',
         '/scripts/eventbox.js',
         '/scripts/interdependentselect.js',
@@ -12,12 +13,15 @@ requirejs(['require',
         '/scripts/a25.js',
         '/scripts/a25.helpers.js'
     ],
-    function(require, Flickity, eventbox, interdependentselect, navbar) {
+    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar) {
         'use strict';
 
         if (typeof a25 == 'undefined') {
             var a25 = {};
-    }
+        }
+
+        // SVG Sprite polyfill
+        svg4everybody();
 
         // Trigger font face observer protection
         var fontPrimary = new FontFaceObserver('EB Garamond', {

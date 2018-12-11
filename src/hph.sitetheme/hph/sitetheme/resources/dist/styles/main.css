@@ -8445,6 +8445,41 @@ div.riform .label {
   display: block;
 }
 
+html {
+  font-size: 1.125rem;
+  /* [1] */
+  overflow-y: scroll;
+  /* [2] */
+  min-height: 100%;
+  /* [3] */
+  color: #6c757d;
+  width: 100%;
+  font-family: "EB Garamond";
+  font-weight: 300;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.u-no-scroll {
+  /* disable scrollbar on both x and y axis */
+  overflow: hidden;
+  /* disable scroll */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* OPTIONAL: none of dom element will be click-able */
+  pointer-events: none;
+}
+
 .o-grid {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10184,7 +10219,7 @@ img[data-sizes="auto"] {
   height: 3rem;
 }
 
-@media (max-width: 61.99em) {
+@media (max-width: 277777.74em) {
   .app-nav__link--has-icon {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -10233,7 +10268,7 @@ img[data-sizes="auto"] {
   display: inline-block;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 277777.75em) {
   .app-nav__tab {
     padding: 0;
   }
