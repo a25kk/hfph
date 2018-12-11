@@ -4,6 +4,7 @@ requirejs(['require',
         '/scripts/eventbox.js',
         '/scripts/interdependentselect.js',
         '/scripts/navbar.js',
+        '/scripts/dropdown.js',
         '/scripts/fontfaceobserver.js',
         '/scripts/hideShowPassword.js',
         '/scripts/jvfloat.js',
@@ -13,7 +14,7 @@ requirejs(['require',
         '/scripts/a25.js',
         '/scripts/a25.helpers.js'
     ],
-    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar) {
+    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown) {
         'use strict';
 
         if (typeof a25 == 'undefined') {
@@ -47,6 +48,11 @@ requirejs(['require',
         // Nav Bar
         navbar.init({
             backdropDisplay: true
+        });
+
+        // Quick links
+        dropdown.init({
+
         });
 
         // Initialize XHR Event Box
