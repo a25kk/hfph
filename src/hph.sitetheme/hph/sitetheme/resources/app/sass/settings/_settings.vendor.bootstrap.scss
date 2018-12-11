@@ -22,17 +22,21 @@ $theme-colors: (
     "danger": $app-color-danger
 );
 
-// Custom webfonts
-// $app-font-family-light:     "DINRoundWeb-Light";
-// $app-font-family-medium:    "DINRoundWeb-Medium";
-// $app-font-family-strong:    "DINRoundWeb";
-$app-font-family-sans-serif:        Trebuchet MS, $font-family-sans-serif;
-$app-font-family-serif:             Georgia,'Times New Roman',Times,serif;
-
-$font-size-base:                    $app-font-size-base;
+// Font family definitions
+$font-family-sans-serif:            $app-font-family-sans-serif;
 $font-family-base:                  $app-font-family-base, $app-font-family-sans-serif;
 $headings-font-family:              $app-font-family-strong, $app-font-family-serif;
-// $headings-font-weight:        normal;
+
+// Font size base
+$font-size-base:                    $app-font-size-base;
+
+// Headings font sizes
+$h1-font-size:                      $app-font-size-h1;
+$h2-font-size:                      $app-font-size-h2;
+$h3-font-size:                      $app-font-size-h3;
+$h4-font-size:                      $app-font-size-h4;
+$h5-font-size:                      $app-font-size-h5;
+$h6-font-size:                      $app-font-size-h6;
 
 //## Reset and adjust existing variables
 $brand-primary:                 $app-color-primary;

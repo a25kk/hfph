@@ -33,14 +33,15 @@
         "scripts/app.js"
         ],
     "src": [
-        "JVFloat/jvfloat.js",
         "flickity/dist/flickity.pkgd.js",
         "fontfaceobserver/fontfaceobserver.js",
         "hideShowPassword/hideShowPassword.js",
+        "JVFloat/jvfloat.js",
         "lazysizes/lazysizes-umd.js",
         "lazysizes/plugins/parent-fit/ls.parent-fit.js",
         "mailcheck/src/mailcheck.js",
-        "respimage/respimage.js"
+        "respimage/respimage.js",
+        "svg4everybody/dist/svg4everybody.js"
 
     ],
     "base": [
@@ -119,5 +120,16 @@
                 "replacement": "/++theme++hfph.sitetheme/scripts/"
             }
         ]
+    },
+    "sprite": {
+        "mode": {
+            "inline": true,
+            "symbol": {
+                "example": true,
+                "render": {
+                    "scss": true
+                }
+            }
+        }
     }
 }

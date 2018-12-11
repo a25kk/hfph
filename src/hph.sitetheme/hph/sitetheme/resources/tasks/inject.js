@@ -43,6 +43,22 @@ export function injectStyles(cb) {
 };
 
 
+export function injectSprite() {
+    return gulp.src(cfg.paths.dev + '**/*.html')
+    // Look for any CSS files in the 'stylesheets' directory
+    // Don't read the files for performance and ignore the base directory
+        .pipe($.inject(gulp.src(cfg.paths.dist + 'assets/symbol/svg/' + '*.svg',
+            {read: false}),
+            {relative: false},
+            {removeTags: true},
+            {ignorePath: ['../','../../','../../../', '/dist/', 'dist/']}
+        ))
+        // Output the file back into it's directory
+        .pipe(gulp.dest(cfg.paths.dev))
+};
+
+
 gulp.task('inject:head', inject);
 gulp.task('inject:head:styles', injectStyles);
+gulp.task('inject:head:sprite', injectSprite);
 

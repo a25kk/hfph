@@ -1,0 +1,9 @@
+// Strong text
+
+
+// Anchor element
+$anchor-color-default:          $app-color-primary;
+$anchor-color-highlight:        $app-color-primary-darker;
+$anchor-text-transform:         underline;
+$anchor-transitions-active:     true;
+$anchor-transition:             color 0.5s linear;

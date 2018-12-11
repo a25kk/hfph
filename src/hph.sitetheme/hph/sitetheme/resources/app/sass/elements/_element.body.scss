@@ -3,7 +3,7 @@ body {
     @include when-inside('.fonts--loaded') {
         // font-weight: 400;
     }
-    &.no-scroll {
+    &.u-no-scroll {
         /* disable scrollbar on both x and y axis */
         overflow: hidden;
         /* disable scroll */

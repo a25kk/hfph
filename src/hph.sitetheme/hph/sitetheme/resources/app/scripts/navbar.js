@@ -4,21 +4,23 @@ define(["jquery",
     var navBar = {};
 
     var _defaults = {
+        backdropClass: "u-backdrop",
+        backdropDisplay: false,
+        bodyMarkerClass: "u-no-scroll",
+        containedDropdownClass: "app-nav__item--has-dropdown",
         drawerCloseTrigger: ".js-drawer-close",
         drawerToggle: '[data-toggle="fly-out"]',
+        dropdownOpenClass: "app-nav__link--open",
+        menu: ".app-nav",
         menuContainer: ".app-header",
         menuContainerActive: "app-header--overlay",
         menuDropdown: "app-nav__dropdown",
         menuDropdownDisabled: "app-nav__dropdown--hidden",
-        menu: ".app-nav",
         navBar: ".c-nav-bar",
-        navBarToggle: ".js-nav-toggle",
-        navBarOverlay: "c-nav-bar--overlay",
         navBarHidden: "c-nav-bar--hidden",
-        dropdownOpenClass: "app-nav__link--open",
-        containedDropdownClass: "app-nav__item--has-dropdown",
-        backdropClass: ".o-backdrop",
-        backdropDisplay: false
+        navBarOverlay: "c-nav-bar--overlay",
+        navBarToggle: ".js-nav-toggle",
+        navBarToggleActiveClass: ".js-nav-toggle--active"
     };
 
     function extend_defaults(){
@@ -35,24 +37,26 @@ define(["jquery",
     }
 
     function navigationToggleHandler(element, options) {
-        var $menuContainer = $(options.menuContainer),
+        var $elBody = document.getElementsByTagName('body')[0],
+            $menuContainer = document.querySelector(options.menuContainer),
             $menuContainerActiveClass = options.menuContainerActive,
             $navBar = document.querySelector(options.navBar);
         if ($navBar !== null) {
             $navBar.classList.toggle(options.navBarOverlay);
             $navBar.classList.toggle(options.navBarHidden);
+            $menuContainer.classList.toggle($menuContainerActiveClass);
+            $elBody.classList.toggle(options.bodyMarkerClass);
+            if (options.backdropDisplay === true) {
+                $menuContainer.classList.toggle(options.backdropClass);
+            }
+            element.classList.toggle(options.navBarToggleActiveClass);
+            // TODO: Refactor active dropdown handler
+            $(".app-nav__link--open").removeClass("app-nav__link--open");
+            $("." + options.menuDropdown).removeClass(options.menuDropdown);
+            $("." + options.containedDropdownClass).removeClass(
+                options.containedDropdownClass
+            );
         }
-        // $(options.navBar).toggleClass("c-nav-bar--overlay");
-        // $(options.navBar).toggleClass("c-nav-bar--hidden");
-        $menuContainer.toggleClass($menuContainerActiveClass);
-        $menuContainer.toggleClass("u-backdrop");
-        $("body").toggleClass("no-scroll");
-        $(this).toggleClass("c-nav-bar__toggle--active");
-        $(".app-nav__link--open").removeClass("app-nav__link--open");
-        $("." + options.menuDropdown).removeClass(options.menuDropdown);
-        $("." + options.containedDropdownClass).removeClass(
-            options.containedDropdownClass
-        );
     }
 
     function toggleNavigation(options) {

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<script src="https://rawgit.com/jonathantneal/svg4everybody/master/dist/svg4everybody.js"></script>
+		<script>svg4everybody();</script>
+		<title>SVG &lt;symbol&gt; sprite preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+		
+<!--
+	
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as inline SVG, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-icon-check-dims { width: 18px; height: 14px; }
+	.svg-icon-dots-dims { width: 36px; height: 36px; }
+	.svg-icon-menu-dims { width: 36px; height: 36px; }
+	.svg-icon-plone-dims { width: 36px; height: 36px; }
+	.svg-icon-ui-link-dims { width: 64px; height: 64px; }
+	.svg-icon-warning-dims { width: 36px; height: 36px; }
+</style>
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+	
+<!--
+	
+Inline <symbol> SVG sprite
+====================================================================================================
+This is an inlined version of the generated SVG sprite. The single images may be <use>d everywhere
+below within this document. Please see
+
+	https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md#defs--symbol-mode
+
+for further details on how to create this embeddable sprite variant.
+
+-->
+
+<svg width="0" height="0" style="position:absolute">
+		<symbol viewBox="0 0 18 14" id="icon-check" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="#FFF" stroke-width="2" d="M1 7.644l4.7 4.73L17 1"/></symbol>
+		<symbol viewBox="0 0 36 36" id="icon-dots" xmlns="http://www.w3.org/2000/svg"><path d="M8 16c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4M8 26c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4M8 6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 36 36" id="icon-menu" xmlns="http://www.w3.org/2000/svg"><path d="M6 7a1 1 0 0 0 0 2h24a1 1 0 0 0 0-2H6zm24 4H6c-1.654 0-3-1.346-3-3s1.346-3 3-3h24c1.654 0 3 1.346 3 3s-1.346 3-3 3zM6 17a1 1 0 0 0 0 2h24a1 1 0 0 0 0-2H6zm24 4H6c-1.654 0-3-1.346-3-3s1.346-3 3-3h24c1.654 0 3 1.346 3 3s-1.346 3-3 3zM6 27a1 1 0 0 0 0 2h24a1 1 0 0 0 0-2H6zm24 4H6c-1.654 0-3-1.346-3-3s1.346-3 3-3h24c1.654 0 3 1.346 3 3s-1.346 3-3 3z" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 36 36" id="icon-plone" xmlns="http://www.w3.org/2000/svg"><g fill-rule="evenodd"><path d="M18.5 30C12.159 30 7 24.841 7 18.5S12.159 7 18.5 7 30 12.159 30 18.5 24.841 30 18.5 30m0-26C10.505 4 4 10.505 4 18.5S10.505 33 18.5 33 33 26.495 33 18.5 26.495 4 18.5 4"/><path d="M16.5 15.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6m0 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6m6-6a3 3 0 1 0 0 6 3 3 0 0 0 0-6"/></g></symbol>
+		<symbol id="icon-ui-link" xml:space="preserve" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><style>.est3{fill:none;stroke:#4a4a4a;stroke-width:2;stroke-miterlimit:10}</style><path class="est3" d="M32.077 32.077a9.339 9.339 0 0 1 0-13.207l3.551-3.551a9.339 9.339 0 0 1 13.207 13.207l-3.551 3.551a9.339 9.339 0 0 1-13.207 0z"/><path class="est3" d="M15.166 48.68a9.339 9.339 0 0 1 0-13.207l3.551-3.551a9.339 9.339 0 0 1 13.207 13.207l-3.551 3.551a9.339 9.339 0 0 1-13.207 0zM23.252 40.905L40.15 24.007"/></symbol>
+		<symbol viewBox="0 0 36 36" id="icon-warning" xmlns="http://www.w3.org/2000/svg"><g fill-rule="evenodd"><path d="M6.714 29h22.572L18 9.032 6.714 29zm26 2H3.286L18 4.968 32.714 31z"/><path d="M19.5 26a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 19.5 26zM17 23h2v-9h-2z"/></g></symbol>
+</svg>
+
+<!--
+====================================================================================================
+-->
+		
+		<header>
+			<h1>SVG <code>&lt;symbol&gt;</code> sprite preview</h1>
+			<p>This preview features two methods of using the generated sprite in conjunction with inline SVG. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-html5" target="_blank">support inline SVG</a> for these techniques to work.</li>
+				<li>The embedded sprite (A) slightly differs from the generated external one. Please <a href="https://github.com/jkphl/svg-sprite/blob/master/docs/configuration.md#defs--symbol-mode" target="_blank">see the documentation</a> for details on how to create such an embeddable sprite.</li>
+				<li>Internet Explorer up to version 11 doesn't support external sprites for use with inline SVG. For IE 9-11, you may polyfill this functionality with <a href="https://github.com/jonathantneal/svg4everybody" target="_blank">SVG for Everybody</a>.</li>
+			</ul>
+		</header>
+		<section>
+
+<!--
+	
+A) Inline SVG with embedded sprite
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) and are extracted out of the inline sprite
+embedded above. They may be styled via CSS.
+
+-->
+
+			<h3>A) Inline SVG with embedded sprite</h3>
+			<ul>
+
+				<li title="icon-check">
+					<div class="icon-box">
+						
+						<!-- icon-check -->
+						<svg class="svg-icon-check-dims">
+							<use xlink:href="#icon-check"></use>
+						</svg>
+						
+					</div>
+					<h2>icon-check</h2>
+				</li>
+				<li title="icon-dots">
+					<div class="icon-box">
+						
+						<!-- icon-dots -->
+						<svg class="svg-icon-dots-dims">
+							<use xlink:href="#icon-dots"></use>
+						</svg>
+						
+					</div>
+					<h2>icon-dots</h2>
+				</li>
+				<li title="icon-menu">
+					<div class="icon-box">
+						
+						<!-- icon-menu -->
+						<svg class="svg-icon-menu-dims">
+							<use xlink:href="#icon-menu"></use>
+						</svg>
+						
+					</div>
+					<h2>icon-menu</h2>
+				</li>
+				<li title="icon-plone">
+					<div class="icon-box">
+						
+						<!-- icon-plone -->
+						<svg class="svg-icon-plone-dims">
+							<use xlink:href="#icon-plone"></use>
+						</svg>
+						
+					</div>
+					<h2>icon-plone</h2>
+				</li>
+				<li title="icon-ui-link">
+					<div class="icon-box">
+						
+						<!-- icon-ui-link -->
+						<svg class="svg-icon-ui-link-dims">
+							<use xlink:href="#icon-ui-link"></use>
+						</svg>
+						
+					</div>
+					<h2>icon-ui-link</h2>
+				</li>
+				<li title="icon-warning">
+					<div class="icon-box">
+						
+						<!-- icon-warning -->
+						<svg class="svg-icon-warning-dims">
+							<use xlink:href="#icon-warning"></use>
+						</svg>
+						
+					</div>
+					<h2>icon-warning</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<section>
+
+<!--
+	
+B) Inline SVG with external sprite (IE 9-11 with polyfill only)
+====================================================================================================
+These SVG images make use of an URL + fragment identifiers (IDs) and refer to the regular external
+SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
+
+-->
+
+			<h3>B) Inline SVG with external sprite (IE 9-11 with polyfill only)</h3>
+			<ul>
+				
+				<li title="icon-check">
+					<div class="icon-box">
+						
+						<!-- icon-check -->
+						<svg class="svg-icon-check-dims">
+							<use xlink:href="svg/sprite.symbol.svg#icon-check"></use>
+						</svg>
+						
+					</div>
+					<h2>icon-check</h2>
+				</li>
+				<li title="icon-dots">
+					<div class="icon-box">
+						
+						<!-- icon-dots -->
+						<svg class="svg-icon-dots-dims">
+							<use xlink:href="svg/sprite.symbol.svg#icon-dots"></use>
+						</svg>
+						
+					</div>
+					<h2>icon-dots</h2>
+				</li>
+				<li title="icon-menu">
+					<div class="icon-box">
+						
+						<!-- icon-menu -->
+						<svg class="svg-icon-menu-dims">
+							<use xlink:href="svg/sprite.symbol.svg#icon-menu"></use>
+						</svg>
+						
+					</div>
+					<h2>icon-menu</h2>
+				</li>
+				<li title="icon-plone">
+					<div class="icon-box">
+						
+						<!-- icon-plone -->
+						<svg class="svg-icon-plone-dims">
+							<use xlink:href="svg/sprite.symbol.svg#icon-plone"></use>
+						</svg>
+						
+					</div>
+					<h2>icon-plone</h2>
+				</li>
+				<li title="icon-ui-link">
+					<div class="icon-box">
+						
+						<!-- icon-ui-link -->
+						<svg class="svg-icon-ui-link-dims">
+							<use xlink:href="svg/sprite.symbol.svg#icon-ui-link"></use>
+						</svg>
+						
+					</div>
+					<h2>icon-ui-link</h2>
+				</li>
+				<li title="icon-warning">
+					<div class="icon-box">
+						
+						<!-- icon-warning -->
+						<svg class="svg-icon-warning-dims">
+							<use xlink:href="svg/sprite.symbol.svg#icon-warning"></use>
+						</svg>
+						
+					</div>
+					<h2>icon-warning</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Tue, 11 Dec 2018 09:59:38 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>
