@@ -78,6 +78,7 @@
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
 
     <!--<theme href="dist/frontpage/index.html" css:if-content="body.template-frontpage-view" />-->
+    <theme href="dist/theme/index.html" css:if-content="body.section-relaunch-theme" />
 
     <!-- Rules applying to a standard Plone web page -->
     <rules css:if-content="#visual-portal-wrapper">

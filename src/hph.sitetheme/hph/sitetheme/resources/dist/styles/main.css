@@ -8480,6 +8480,27 @@ body.u-no-scroll {
   pointer-events: none;
 }
 
+b,
+strong {
+  font-weight: 700;
+}
+
+.font__primary--loaded b, .font__primary--loaded
+strong {
+  font-weight: 600;
+}
+
+a {
+  color: #182f7a;
+}
+
+a:hover {
+  color: #0b163a;
+  -webkit-transition: color 0.5s linear;
+  -o-transition: color 0.5s linear;
+  transition: color 0.5s linear;
+}
+
 .o-grid {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10540,6 +10561,18 @@ img[data-sizes="auto"] {
 
 .embed-responsive {
   margin-bottom: 1rem;
+}
+
+.sg-example {
+  border: 1px solid #e9ecef;
+  padding: 1.5rem;
+}
+
+.highlight {
+  padding: .5rem;
+  text-align: left;
+  background-color: #f8f9fa;
+  border: 1px solid #6c757d;
 }
 
 .app-main {
