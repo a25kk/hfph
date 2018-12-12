@@ -1,0 +1,15 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser">
+
+    <!-- Nav Tree Content Provider -->
+    <adapter
+            factory=".navtree.NavTreeProvider"
+            for="*
+             *
+             *"
+            name="hph.navtree"
+            provides="zope.contentprovider.interfaces.IContentProvider"
+    />
+
+</configure>
