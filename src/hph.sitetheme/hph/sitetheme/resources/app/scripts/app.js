@@ -5,6 +5,8 @@ requirejs(['require',
         '/scripts/interdependentselect.js',
         '/scripts/navbar.js',
         '/scripts/dropdown.js',
+        '/scripts/x-ray.js',
+        '/scripts/dropmic.js',
         '/scripts/fontfaceobserver.js',
         '/scripts/hideShowPassword.js',
         '/scripts/jvfloat.js',
@@ -14,15 +16,12 @@ requirejs(['require',
         '/scripts/a25.js',
         '/scripts/a25.helpers.js'
     ],
-    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown) {
+    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, xray, Dropmic) {
         'use strict';
 
         if (typeof a25 == 'undefined') {
             var a25 = {};
         }
-
-        // SVG Sprite polyfill
-        svg4everybody();
 
         // Trigger font face observer protection
         var fontPrimary = new FontFaceObserver('EB Garamond', {
@@ -45,15 +44,28 @@ requirejs(['require',
                 document.documentElement.className += " fonts--loaded";
         });
 
+        // SVG Sprite polyfill
+        svg4everybody();
+
+        xray.init();
+
+        // Drop mic initialization
+        var dropmic = new Dropmic(document.querySelector('[data-dropmic="quick-link-menu"]'), {
+            onOpen: function() {
+                // dropmic.updateTargetBtn("Click to close");
+            },
+            onClose: function() {
+                // dropmic.updateTargetBtn("Bottom right (default)");
+            }
+        });
+
         // Nav Bar
         navbar.init({
             backdropDisplay: true
         });
 
         // Quick links
-        dropdown.init({
-
-        });
+        // dropdown.init({});
 
         // Initialize XHR Event Box
         eventbox.init();
