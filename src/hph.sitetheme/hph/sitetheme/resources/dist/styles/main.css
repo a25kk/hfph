@@ -10699,6 +10699,8 @@ img[data-sizes="auto"] {
   margin-bottom: .075rem;
   font-size: 1.5rem;
   color: #182f7a;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .app-cards {
