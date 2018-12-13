@@ -9414,7 +9414,7 @@ fonts--loaded .form__field--checkbox > .option > label {
 }
 
 .form__control--checkbox + label:after {
-  content: url("../assets/images/check.svg");
+  content: url("../assets/images/icon-check.svg");
   position: absolute;
   top: .2rem;
   left: .2rem;
