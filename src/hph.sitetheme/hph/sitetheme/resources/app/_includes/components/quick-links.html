@@ -1,12 +1,16 @@
-<div class="c-quick-links">
-    <a class="c-quick-links__button js-dropdown-toggle" id="js-quick-link-toggle"
-        data-dropdown="o-dropdown-01">
+<div class="c-quick-links dropmic"
+     data-dropmic="quick-link-menu"
+     data-dropmic-direction="bottom-right">
+    <button class="c-quick-links__button js-dropdown-toggle"
+            id="js-quick-link-toggle"
+            type="button"
+            data-dropmic-btn>
         <span class="c-quick-links__text">Quick-Links</span>
         <span class="c-quick-links__icon" id="c-quick-links-icon">
             ☰
         </span>
-    </a>
-    <div class="o-dropdown o-dropdown--hidden js-dropdown" id="o-dropdown-01">
+    </button>
+    <div class="dropmic-menu o-dropdown" aria-hidden="true">
         <div class="o-dropdown__content">
             <ul class="o-dropdown__list">
                 <li class="o-dropdown__list-item">
