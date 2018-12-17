@@ -27,5 +27,5 @@ a25.helpers = (function($, undefined) {
 })(jQuery);
 
 jQuery(function() {
-    a25.helpers.init();
+    // a25.helpers.init();
 });
