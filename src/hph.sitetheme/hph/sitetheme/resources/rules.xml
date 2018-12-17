@@ -243,6 +243,10 @@
             </div>
         </replace>
 
+        <!-- Cleanup unwanted inline styles -->
+        <drop attributes="align style" css:content="p" />
+        <drop attributes="align style" css:content="ul" />
+
         <!-- Support contact card viewlet -->
         <after css:theme="#content"
           css:content="#app-contact-viewlet-elements"
