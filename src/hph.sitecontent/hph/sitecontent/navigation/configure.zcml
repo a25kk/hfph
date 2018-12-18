@@ -12,4 +12,14 @@
             provides="zope.contentprovider.interfaces.IContentProvider"
     />
 
+    <!-- Site navigation -->
+    <browser:viewlet
+            name="hph-site-navigation-viewlet"
+            manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+            for="*"
+            class="hph.sitecontent.navigation.viewlet.SiteNavigationViewlet"
+            template="navigation.pt"
+            permission="zope2.View"
+    />
+
 </configure>
