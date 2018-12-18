@@ -2,7 +2,7 @@
         xmlns="http://namespaces.zope.org/zope"
         xmlns:browser="http://namespaces.zope.org/browser"
         xmlns:z3c="http://namespaces.zope.org/z3c"
-        i18n_domain="hph.lectures">
+        i18n_domain="hph.sitecontent">
 
     <!-- Control panels -->
     <browser:page
@@ -11,6 +11,14 @@
             class="hph.sitecontent.browser.controlpanel.HphBaseSettings"
             permission="cmf.ManagePortal"
             template="settings.pt"
+    />
+
+    <browser:page
+            name="hph-settings-navigation"
+            for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+            class="hph.sitecontent.browser.controlpanel.HphBaseSettingsNavigation"
+            template="settings-navigation.pt"
+            permission="cmf.ManagePortal"
     />
 
     <!-- News item listing -->
