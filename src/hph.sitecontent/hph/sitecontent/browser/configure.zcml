@@ -4,6 +4,15 @@
         xmlns:z3c="http://namespaces.zope.org/z3c"
         i18n_domain="hph.lectures">
 
+    <!-- Control panels -->
+    <browser:page
+            name="hph-base-controlpanel"
+            for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+            class="hph.sitecontent.browser.controlpanel.HphBaseSettings"
+            permission="cmf.ManagePortal"
+            template="settings.pt"
+    />
+
     <!-- News item listing -->
     <browser:page
         for="hph.sitecontent.newsfolder.INewsFolder"

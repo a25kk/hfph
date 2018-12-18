@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/prefs_main_template/macros/master"
+         i18n:domain="ade25.base">
+
+<body>
+
+<div metal:fill-slot="prefs_configlet_main">
+
+    <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+        Portal status message
+    </div>
+
+    <div class="o-page--control-panel configlet">
+        <div class="o-page__header">
+            <h1 class="o-page__title o-page__title--primary" i18n:translate="">
+                HfPH Site Settings
+            </h1>
+            <p class="app-page__abstract">
+                Configure basic site functionality like navigation depth.
+            </p>
+            <a id="setup-link" class="c-button c-button--default link-parent"
+                     tal:attributes="href string:${portal_url}/@@overview-controlpanel"
+                     i18n:translate="label_up_to_plone_setup">
+                Up to Site Setup
+            </a>
+        </div>
+
+        <div class="app-page__main">
+            <h2 class="app-page__title app-page__title--secondary">
+                Control panels
+            </h2>
+            <div class="app-control-panels">
+                <div class="app-control-panel">
+                    <h3 class="app-control-panel__title">
+                        Site navigation
+                    </h3>
+                    <p>Configure responsive navigation behavior like e.g. types that should show up</p>
+                    <div class="app-control-panel__action">
+                        <a class="c-button c-button--default link-parent"
+                                 tal:attributes="href string:${portal_url}/@@hph-base-settings-navigation"
+                                 i18n:translate="">
+                            Configure
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
