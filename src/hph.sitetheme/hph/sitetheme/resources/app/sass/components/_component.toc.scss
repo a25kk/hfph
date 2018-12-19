@@ -1,0 +1,40 @@
+$c-toc-display:						block;
+$c-toc-flex-direction:				row;
+
+$c-toc-link-color:					#fff;
+
+$c-toc-font:						$app-font-family-strong;
+$c-toc-item-text-transform:			uppercase;
+$c-toc-item-font-size:				.9rem;
+
+
+
+.c-toc {
+	display: $c-toc-display;
+    position: relative;
+    display: flex;
+    flex-direction: $c-toc-flex-direction;
+    list-style: none;
+    padding-left: 0;
+    font-family: $c-toc-font;
+    font-size: $c-toc-item-font-size;
+    
+}
+
+.c-toc__item {
+	line-height: 2rem;
+	text-transform: $c-toc-item-text-transform;
+	@include when-inside('.c-toc--level-1') {
+        text-transform: none;
+    }
+}
+
+.c-toc--level-1 {
+	display: block;
+	text-transform: none;
+	font-family: $app-font-family-base;
+}
+
+.c-toc__link {
+	color: $c-toc-link-color;
+}
