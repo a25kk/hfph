@@ -387,19 +387,19 @@
                         <xsl:copy-of select="@*" />
                         <xsl:choose>
                             <xsl:when css:test=".delete, .destructive, [value='Delete']">
-                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> button button--danger</xsl:attribute>
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> c-button c-button--danger</xsl:attribute>
                             </xsl:when>
                             <xsl:when css:test=".searchButton, .context">
-                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> button button--primary</xsl:attribute>
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> c-button c-button--primary</xsl:attribute>
                             </xsl:when>
                             <xsl:when css:test=".standalone, .submit, .submit-widget, [type='file']">
-                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> button button--default</xsl:attribute>
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> c-button c-button--default</xsl:attribute>
                             </xsl:when>
                             <xsl:when css:test="[type='file']">
-                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> button button--upload</xsl:attribute>
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> c-button c-button--upload</xsl:attribute>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> button button--default</xsl:attribute>
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> c-button c-button--default</xsl:attribute>
                             </xsl:otherwise>
                         </xsl:choose>
                         <xsl:value-of select="./@value"/>

@@ -26,7 +26,7 @@
 @import 'settings/settings.font.base';
 @import 'settings/settings.font.custom';
 
-// Elemetn settings
+// Element settings
 @import 'settings/settings.elements';
 
 // Object Settings
@@ -36,6 +36,8 @@
 @import 'settings/settings.identifier';
 @import 'settings/settings.quick-links';
 @import 'settings/settings.nav-bar';
+@import 'settings/settings.panels';
+@import 'settings/settings.toc';
 
 // Generic
 @import 'generic/generic.fonts';
@@ -79,9 +81,10 @@
 @import 'components/component.navlist';
 @import 'components/component.nav-bar';
 @import 'components/component.quick-links';
-// @import 'components/banner';
+@import 'components/component.banner';
 @import 'components/component.panels';
 @import 'components/component.cards';
+@import 'components/component.toc';
 
 // @import 'pages/signin';
 @import 'pages/contentpage';

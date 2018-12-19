@@ -31,9 +31,11 @@ $app-color-purple:                  rgba(126, 4, 167, 1);
 // Gray baseline
 $app-color-gray-base:                       $color-gallery;
 $app-color-gray:                            $color-shuttle-gray;
-$app-color-gray-light:				        #eee;
+$app-color-gray-light:				        $color-gallery;
 
 $app-color-white:                   #fff !default;
+
+$app-color-text:                        #545454;
 
 
 //== Brand and Section specific variables

@@ -1,0 +1,16 @@
+.c-banner {
+
+}
+
+// TODO: refactor when implementing real widget code
+.c-banner--front-page {
+    margin-top: 8rem;
+
+}
+
+.c-banner__content {
+    padding: 6rem 0;
+    border: 1px solid $app-color-gray;
+    text-align: center;
+    background-color: $app-color-white;
+}

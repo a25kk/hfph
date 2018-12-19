@@ -1,0 +1,28 @@
+.c-toc {
+    @include list-reset();
+	display: $c-toc-display;
+    position: relative;
+    display: flex;
+    flex-direction: $c-toc-flex-direction;
+    font-family: $c-toc-font;
+    font-size: $c-toc-item-font-size;
+
+}
+
+.c-toc__item {
+	line-height: 2rem;
+	text-transform: $c-toc-item-text-transform;
+	@include when-inside('.c-toc--level-1') {
+        text-transform: none;
+    }
+}
+
+.c-toc--level-1 {
+	display: block;
+	text-transform: none;
+	font-family: $app-font-family-base;
+}
+
+.c-toc__link {
+	color: $c-toc-link-color;
+}
