@@ -95,3 +95,13 @@ task:halt() {
 task:shell() {
     docker:container_run web /bin/bash --login
 }
+
+task:db:download() {
+    if [ -z "${1:-}" ]
+    then
+        echo "Usage: b5 download <servername> [options]"
+        echo ""
+        b5:abort "Argument missing: server name"
+    fi
+    virtualenv:run fab "$1" download:"${2:-}"
+}

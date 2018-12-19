@@ -1,0 +1,20 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:i18n="http://namespaces.zope.org/i18n"
+        xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+        i18n_domain="hph.sitecontent">
+
+    <genericsetup:upgradeSteps
+            source="1"
+            destination="1001"
+            profile="hph.sitecontent:default">
+
+        <genericsetup:upgradeDepends
+                title="Apply registry.xml to enable custom control panel"
+                import_profile="hph.sitecontent:default"
+                import_steps="plone.app.registry"
+        />
+
+    </genericsetup:upgradeSteps>
+
+</configure>
