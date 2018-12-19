@@ -1,24 +1,12 @@
-$c-toc-display:						block;
-$c-toc-flex-direction:				row;
-
-$c-toc-link-color:					#fff;
-
-$c-toc-font:						$app-font-family-strong;
-$c-toc-item-text-transform:			uppercase;
-$c-toc-item-font-size:				.9rem;
-
-
-
 .c-toc {
+    @include list-reset();
 	display: $c-toc-display;
     position: relative;
     display: flex;
     flex-direction: $c-toc-flex-direction;
-    list-style: none;
-    padding-left: 0;
     font-family: $c-toc-font;
     font-size: $c-toc-item-font-size;
-    
+
 }
 
 .c-toc__item {

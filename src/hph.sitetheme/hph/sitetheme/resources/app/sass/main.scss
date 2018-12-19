@@ -6,6 +6,7 @@
 @import 'tools/functions.bootstrap';
 @import 'tools/functions.color';
 @import 'tools/mixins.font.scss';
+@import 'tools/mixins.list-reset.scss';
 @import 'tools/mixins.parentselector.scss';
 
 @import 'vendors/mq';
@@ -25,7 +26,7 @@
 @import 'settings/settings.font.base';
 @import 'settings/settings.font.custom';
 
-// Elemetn settings
+// Element settings
 @import 'settings/settings.elements';
 
 // Object Settings
@@ -35,6 +36,8 @@
 @import 'settings/settings.identifier';
 @import 'settings/settings.quick-links';
 @import 'settings/settings.nav-bar';
+@import 'settings/settings.panels';
+@import 'settings/settings.toc';
 
 // Generic
 @import 'generic/generic.fonts';
@@ -57,10 +60,13 @@
 @import 'objects/object.grid';
 @import 'objects/object.brand';
 @import 'objects/object.burger';
+@import 'objects/object.placeholder';
+@import 'objects/object.menu';
 @import 'objects/object.dropdown';
 
 // Components
 @import 'components/component.app-header';
+@import 'components/component.app-main';
 @import 'components/component.app-footer';
 @import 'components/forms';
 // @import 'components/navbar';
@@ -75,14 +81,15 @@
 @import 'components/component.navlist';
 @import 'components/component.nav-bar';
 @import 'components/component.quick-links';
-// @import 'components/banner';
-@import 'components/cards';
+@import 'components/component.banner';
+@import 'components/component.panels';
+@import 'components/component.cards';
 @import 'components/component.toc';
 
 // @import 'pages/signin';
 @import 'pages/contentpage';
 
-@import 'themes/theme';
+// @import 'themes/theme';
 
 // Utilities
 @import 'utililties/_util.visibility';
