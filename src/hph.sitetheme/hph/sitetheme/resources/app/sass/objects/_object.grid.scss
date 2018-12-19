@@ -15,7 +15,7 @@
 }
 
 .o-grid__item {
-    @include when-inside('.o-card-list--gutter') {
+    @include when-inside('.o-grid--gutter') {
         padding-right: .25rem;
         padding-left: .25rem;
     }

@@ -11,7 +11,7 @@ from fabric.api import execute as fab_execute
 from fabric.contrib.console import confirm
 from fabric.contrib import project
 
-from ade25.fabfiles import project
+#from ade25.fabfiles import project
 from ade25.fabfiles.server import status
 from ade25.fabfiles.server import controls
 

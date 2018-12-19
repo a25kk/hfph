@@ -11,7 +11,7 @@
     <metal:content-core define-macro="main">
 
         <tal:can_edit tal:condition="view/can_edit">
-            <div class="app-callout app-callout-warning app-print--hidden">
+            <div class="c-alert c-alert--default c-alert--dismissable app-print--hidden">
                 <h4 i18n:translate="">Note:</h4>
                 <p i18n:translate="">
                     It appears that you are logged in as staff member. Use the
@@ -19,12 +19,12 @@
                     code snippets that can be used to integrate 3rd party project
                     course listings via ajax
                 </p>
-                <a class="btn btn-warning pull-right"
+                <a class="c-button c-button--default pull-right"
                          tal:attributes="href string:${context/absolute_url}/@@xhr-integration"
                          i18n:translate="">
                     Show integration options</a>
             </div>
-            <div class="app-callout app-callout--default" tal:condition="view/has_active_session" tal:content="nothing" tal:omit-tag="">
+            <div class="c-alert c-alert--default c-alert--dismissable" tal:condition="view/has_active_session" tal:content="nothing" tal:omit-tag="">
                 <pre tal:content="view/stored_filters"></pre>
             </div>
         </tal:can_edit>

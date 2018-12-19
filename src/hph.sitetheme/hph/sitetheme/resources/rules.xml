@@ -279,16 +279,16 @@
             <xsl:choose>
                 <xsl:when css:test=".portalMessage[style]"/>
                 <xsl:when css:test=".portalMessage">
-                    <div class="app-callout app-callout-default alert-dismissable" role="alert">
+                    <div class="c-alert c-alert--default c-alert--dismissable" role="alert">
                         <xsl:choose>
                             <xsl:when css:test=".info">
-                                <xsl:attribute name="class">app-callout app-callout-success alert-dismissable</xsl:attribute>
+                                <xsl:attribute name="class">c-alert c-alert--success c-alert--dismissable</xsl:attribute>
                             </xsl:when>
                             <xsl:when css:test=".error">
-                                <xsl:attribute name="class">app-callout app-callout-danger alert-dismissable</xsl:attribute>
+                                <xsl:attribute name="class">c-alert c-alert--danger ac-alert-dismissable</xsl:attribute>
                             </xsl:when>
                             <xsl:when css:test=".warning">
-                                <xsl:attribute name="class">app-callout app-callout-warning alert-dismissable</xsl:attribute>
+                                <xsl:attribute name="class">c-alert c-alert--warning c-alert--dismissable</xsl:attribute>
                             </xsl:when>
                         </xsl:choose>
                         <h4><xsl:apply-templates select="./dt/*"/></h4>
