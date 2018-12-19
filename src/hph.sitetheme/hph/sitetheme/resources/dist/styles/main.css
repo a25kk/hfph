@@ -8818,7 +8818,7 @@ a:hover {
   margin-left: -.25rem;
 }
 
-.o-card-list--gutter .o-grid__item {
+.o-grid--gutter .o-grid__item {
   padding-right: .25rem;
   padding-left: .25rem;
 }
@@ -9268,6 +9268,38 @@ a:hover {
 .app-footer__content--primary {
   color: #fff;
   background-color: #182f7a;
+}
+
+.app-footer__main {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .app-footer__main {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .app-footer__main {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .app-footer__main {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .app-footer__main {
+    max-width: 1140px;
+  }
 }
 
 .app-copyright,
