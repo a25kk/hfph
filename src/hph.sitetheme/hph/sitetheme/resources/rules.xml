@@ -77,7 +77,7 @@
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_form" />
     <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
 
-    <!--<theme href="dist/frontpage/index.html" css:if-content="body.template-frontpage-view" />-->
+    <theme href="dist/front-page/index.html" css:if-content="body.template-frontpage-view" />
     <theme href="dist/theme/index.html" css:if-content="body.section-relaunch-theme" />
 
     <!-- Rules applying to a standard Plone web page -->
@@ -252,21 +252,23 @@
           css:content="#app-contact-viewlet-elements"
           css:if-content="#app-contact-viewlet-elements" />
 
-        <rules css:if-not-content="#portal-column-one">
-            <drop css:theme="#app-content-aside" />
-            <replace css:content-children="#content"
-                     css:theme-children="#content"
-            />
-        </rules>
-        <rules css:if-content="#portal-column-one">
-            <before css:theme-children="#app-content-main" method="raw">
-                <xsl:attribute name="class">app-content-main app-content-main-sm</xsl:attribute>
-            </before>
-            <replace css:content-children="#portal-column-one > *"
-                     css:theme-children="#app-content-aside" />
-            <replace css:content-children="#content"
-                     css:theme-children="#content"
-            />
+        <rules css:if-not-content=".template-frontpage-view, .section-newsletter">
+            <rules css:if-not-content="#portal-column-one">
+                <drop css:theme="#app-content-aside" />
+                <replace css:content-children="#content"
+                         css:theme-children="#content"
+                />
+            </rules>
+            <rules css:if-content="#portal-column-one">
+                <before css:theme-children="#app-content-main" method="raw">
+                    <xsl:attribute name="class">app-content-main app-content-main-sm</xsl:attribute>
+                </before>
+                <replace css:content-children="#portal-column-one > *"
+                         css:theme-children="#app-content-aside" />
+                <replace css:content-children="#content"
+                         css:theme-children="#content"
+                />
+            </rules>
         </rules>
 
         <!-- Drop cards -->
@@ -385,19 +387,19 @@
                         <xsl:copy-of select="@*" />
                         <xsl:choose>
                             <xsl:when css:test=".delete, .destructive, [value='Delete']">
-                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> button button--danger</xsl:attribute>
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> c-button c-button--danger</xsl:attribute>
                             </xsl:when>
                             <xsl:when css:test=".searchButton, .context">
-                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> button button--primary</xsl:attribute>
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> c-button c-button--primary</xsl:attribute>
                             </xsl:when>
                             <xsl:when css:test=".standalone, .submit, .submit-widget, [type='file']">
-                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> button button--default</xsl:attribute>
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> c-button c-button--default</xsl:attribute>
                             </xsl:when>
                             <xsl:when css:test="[type='file']">
-                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> button button--upload</xsl:attribute>
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> c-button c-button--upload</xsl:attribute>
                             </xsl:when>
                             <xsl:otherwise>
-                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> button button--default</xsl:attribute>
+                                <xsl:attribute name="class"><xsl:value-of select="./@class" /> c-button c-button--default</xsl:attribute>
                             </xsl:otherwise>
                         </xsl:choose>
                         <xsl:value-of select="./@value"/>

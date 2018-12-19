@@ -1,0 +1,18 @@
+.c-panel {
+    @include clearfix();
+    padding: $c-panel-padding-top $c-panel-padding-right $c-panel-padding-bottom $c-panel-padding-left;
+}
+
+.c-panel--primary {
+    color: $c-panel-primary-color;
+    background-color: $c-panel-primary-bg-color;
+}
+
+.c-panel__main {
+    width: $c-panel-width;
+    margin-left: auto;
+    margin-right: auto;
+    &--centered {
+        @include make-container-max-widths();
+    }
+}
