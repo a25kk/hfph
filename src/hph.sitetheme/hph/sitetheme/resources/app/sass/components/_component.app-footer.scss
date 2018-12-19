@@ -16,9 +16,12 @@
     }
 }
 
-// TODO: Refactor as compontent and remove
-.app-copyright,
-.c-footer-nav {
+.app-footer__main {
+    @include make-container();
+    @include make-container-max-widths();
+}
+
+.app-footer__aside {
     @include make-container();
     @include make-container-max-widths();
 }
