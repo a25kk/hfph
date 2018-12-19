@@ -1,0 +1,7 @@
+.c-panel {
+    @include clearfix();
+    @include make-container();
+    &--default {
+        @include make-container-max-widths();
+    }
+}
