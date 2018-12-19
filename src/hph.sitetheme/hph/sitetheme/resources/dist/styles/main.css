@@ -9302,8 +9302,7 @@ a:hover {
   }
 }
 
-.app-copyright,
-.c-footer-nav {
+.app-footer__aside {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -9312,29 +9311,25 @@ a:hover {
 }
 
 @media (min-width: 576px) {
-  .app-copyright,
-  .c-footer-nav {
+  .app-footer__aside {
     max-width: 540px;
   }
 }
 
 @media (min-width: 768px) {
-  .app-copyright,
-  .c-footer-nav {
+  .app-footer__aside {
     max-width: 720px;
   }
 }
 
 @media (min-width: 992px) {
-  .app-copyright,
-  .c-footer-nav {
+  .app-footer__aside {
     max-width: 960px;
   }
 }
 
 @media (min-width: 1200px) {
-  .app-copyright,
-  .c-footer-nav {
+  .app-footer__aside {
     max-width: 1140px;
   }
 }

@@ -21,9 +21,7 @@
     @include make-container-max-widths();
 }
 
-// TODO: Refactor as component and remove
-.app-copyright,
-.c-footer-nav {
+.app-footer__aside {
     @include make-container();
     @include make-container-max-widths();
 }
