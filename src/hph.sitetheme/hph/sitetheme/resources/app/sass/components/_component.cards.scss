@@ -2,7 +2,39 @@
 // Cards displaying thumbnails and data collections
 // ------------------------------------------------------
 
+//== Card layout
+//
+//## Reflow card contents based on viewport size
+.c-card__header {
+    @include clearfix;
+    padding: $card-spacer-y $card-spacer-x;
+    background: $card-cap-bg;
+}
 
+//** Card content
+.c-card__main {
+    @include clearfix;
+    padding: $card-spacer-y $card-spacer-x;
+}
+
+//** Card footer
+.c-card__footer {
+    padding: $card-spacer-y $card-spacer-x;
+}
+
+// Card contents
+.c-card__title {
+    text-align: center;
+}
+
+.c-card__section {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+
+
+// TODO: DEPRECATED - Remove or refactor the following parts
 //== Card lists
 //
 //## Use a grid layout for card listings
@@ -47,27 +79,6 @@
 }
 
 
-//== Card layout
-//
-//## Reflow card contents based on viewport size
-.app-card__header {
-  @include clearfix;
-  padding: $card-spacer-y $card-spacer-x;
-  background: $card-cap-bg;
-}
-
-//** Card content
-.app-card__main {
-  @include clearfix;
-  padding: $card-spacer-y $card-spacer-x;
-}
-
-//** Card footer
-.app-card__footer {
-  padding: $card-spacer-y $card-spacer-x;
-}
-
-
 //== Embedded card
 //
 //## Remove spacing for card inside card usecase
@@ -93,28 +104,3 @@
   font-size: 1rem;
 }
 
-
-//== Placeholder for missing card content
-//
-//## Provide call to actions and descriptions on empty cards
-//## by providing highlighted card content
-.app-card__placeholder {
-  margin: 0.5rem auto;
-  padding: 1rem;
-  text-align: center;
-  @include media-breakpoint-up(sm) {
-    padding: 2rem 3rem;
-    width: 66.66%;
-  }
-}
-
-//** Round hellip sign
-.app-card__placeholder--sign {
-  @include size(4rem);
-  margin: 0 auto;
-  padding-top: 0.5rem;
-  border-radius: 50%;
-  border: 1px solid gray('400');
-  color: gray('400');
-  font-size: 2rem;
-}
