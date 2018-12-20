@@ -9243,6 +9243,12 @@ a:hover {
   font-family: "TAZ";
 }
 
+.o-form__help {
+  display: block;
+  font-size: 1rem;
+  color: #5a5f64;
+}
+
 .o-form__actions {
   padding: 1rem;
 }
@@ -10079,6 +10085,12 @@ label:hover:before {
   padding: 1rem;
   border: 1px solid #efefef;
   background: #fff;
+}
+
+@media (min-width: 36em) {
+  .c-sign-in {
+    width: 576px;
+  }
 }
 
 .c-sign-in__header {
