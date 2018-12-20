@@ -35,7 +35,8 @@ $app-color-gray-light:				        $color-gallery;
 
 $app-color-white:                   #fff !default;
 
-$app-color-text:                        #545454;
+// Main text color value (initially setup to mirror bootstraps gray 900 color
+$app-color-text:                        #212529;
 
 
 //== Brand and Section specific variables
