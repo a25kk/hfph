@@ -8648,6 +8648,12 @@ a.text-danger:hover, a.text-danger:focus {
   color: #000;
 }
 
+.c-password-toggle {
+  padding-top: .25rem;
+  text-align: right;
+  font-size: 0.85rem;
+}
+
 /*	Hide show/hide labels by default */
 .x-ray,
 .x-ray-show,
@@ -8794,6 +8800,28 @@ a:hover {
   -webkit-transition: color 0.5s linear;
   -o-transition: color 0.5s linear;
   transition: color 0.5s linear;
+}
+
+.o-page {
+  display: block;
+}
+
+.o-page--sign-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#efefef));
+  background: -webkit-linear-gradient(white, #efefef);
+  background: -o-linear-gradient(white, #efefef);
+  background: linear-gradient(white, #efefef);
 }
 
 .o-grid {
@@ -9203,6 +9231,22 @@ a:hover {
   padding: .25rem;
 }
 
+.o-form {
+  width: 100%;
+}
+
+.o-form__group {
+  margin-bottom: 1rem;
+}
+
+.o-form__label {
+  font-family: "TAZ";
+}
+
+.o-form__actions {
+  padding: 1rem;
+}
+
 .app-header {
   position: fixed;
   top: 0;
@@ -9327,6 +9371,10 @@ a:hover {
 
 .template-frontpage-view .app-main {
   padding-top: 0;
+}
+
+.app-main--fullscreen {
+  padding: 0;
 }
 
 .app-footer {
@@ -10026,6 +10074,18 @@ label:hover:before {
   margin-left: 0px;
 }
 
+.c-sign-in {
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #efefef;
+  background: #fff;
+}
+
+.c-sign-in__header {
+  padding: 2rem;
+  text-align: center;
+}
+
 .c-button {
   display: inline-block;
   font-weight: 400;
@@ -10160,6 +10220,10 @@ fieldset[disabled] a.c-button {
 
 .c-button + .c-button {
   margin-right: 1rem;
+}
+
+.c-button--sm {
+  font-size: 0.85rem;
 }
 
 .ratio-container {

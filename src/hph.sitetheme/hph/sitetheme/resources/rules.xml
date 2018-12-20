@@ -69,6 +69,7 @@
 
 
     <!-- Setup custom login form -->
+    <theme href="dist/signin/index.html" css:if-content="body.template-login" />
     <theme href="dist/signin/index.html" css:if-content="body.template-login_form" />
     <theme href="dist/signin/index.html" css:if-content="body.template-logged_out" />
     <theme href="dist/signin/index.html" css:if-content="body.template-login_failed" />
@@ -198,6 +199,11 @@
                  css:theme-children="#app-signin-content"
                  css:if-content="body.template-pwreset_finish" />
 
+        <replace css:content="#came_from">
+            <p>This is a passowrd field</p>
+            <xsl:apply-templates />
+        </replace>
+
         <!-- Document First Heading -->
         <replace css:content=".documentFirstHeading">
             <div class="app-page-header">
@@ -320,6 +326,16 @@
             </table>
         </replace>
 
+        <!-- Form styles -->
+
+        <replace css:content="form">
+            <xsl:copy>
+                <xsl:copy-of select="@*" />
+                <xsl:attribute name="class"><xsl:value-of select="./@class" /> o-form</xsl:attribute>
+                <xsl:apply-templates />
+            </xsl:copy>
+        </replace>
+
         <replace css:content=".formHelp">
             <xsl:copy>
                 <xsl:copy-of select="@*" />
@@ -365,6 +381,9 @@
                         <xsl:when css:test="[type='file']">
                             <xsl:attribute name="class">form__group form__field form__field--file-input</xsl:attribute>
                         </xsl:when>
+                        <xsl:when css:test="[type='password']">
+                            <xsl:attribute name="class">form__group form__field form__field--password</xsl:attribute>
+                        </xsl:when>
                     </xsl:choose>
                 </xsl:if>
                 <xsl:apply-templates />
@@ -375,6 +394,14 @@
             <xsl:copy>
                 <xsl:copy-of select="@*" />
                 <xsl:attribute name="class"><xsl:value-of select="./@class" /> custom-select</xsl:attribute>
+                <xsl:apply-templates />
+            </xsl:copy>
+        </replace>
+
+        <replace css:content="label">
+            <xsl:copy>
+                <xsl:copy-of select="@*" />
+                <xsl:attribute name="class"><xsl:value-of select="./@class" /> o-form__label</xsl:attribute>
                 <xsl:apply-templates />
             </xsl:copy>
         </replace>
@@ -424,6 +451,19 @@
                         <xsl:copy-of select="@*" />
                         <xsl:attribute name="class">form__control form__control--file</xsl:attribute>
                         <xsl:apply-templates />
+                    </xsl:copy>
+                </xsl:when>
+                <xsl:when css:test="[type='password']">
+                    <xsl:copy>
+                        <xsl:copy-of select="@*" />
+                        <xsl:attribute name="class">c-form__control c-form__control--password</xsl:attribute>
+                        <xsl:apply-templates />
+                        <div class="c-password-toggle">
+                            <button class="x-ray c-button c-button-default c-button--sm" data-x-ray="#__ac_password" data-default="show">
+                                <span class="x-ray-show" data-x-ray-show="show">Show Password</span>
+                                <span class="x-ray-hide" data-x-ray-hide="hide">Hide Password</span>
+                            </button>
+                        </div>
                     </xsl:copy>
                 </xsl:when>
                 <xsl:otherwise>
