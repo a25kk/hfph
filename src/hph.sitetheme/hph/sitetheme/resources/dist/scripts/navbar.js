@@ -14,6 +14,7 @@ define(["jquery",
         menu: ".app-nav",
         menuContainer: ".app-header",
         menuContainerActive: "app-header--overlay",
+        menuContainerOffsetMarker: "app-header--offset",
         menuDropdown: "app-nav__dropdown",
         menuDropdownDisabled: "app-nav__dropdown--hidden",
         navBar: ".c-nav-bar",
@@ -70,9 +71,22 @@ define(["jquery",
         });
     }
 
+    function navigationOffsetMarker(options) {
+        var $menuContainer = document.querySelector(options.menuContainer),
+            $menuContainerScrolled = $menuContainer.offsetTop;
+        window.addEventListener("scroll", function() {
+            if (window.pageYOffset > $menuContainerScrolled) {
+                $menuContainer.classList.add(options.menuContainerOffsetMarker);
+            } else {
+                $menuContainer.classList.remove(options.menuContainerOffsetMarker);
+            }
+        })
+    }
+
     navBar.init = function (_options) {
         // Initialize here
         var options = extend_defaults(_defaults, _options);
+        navigationOffsetMarker(options);
         return toggleNavigation(options);
     };
 
