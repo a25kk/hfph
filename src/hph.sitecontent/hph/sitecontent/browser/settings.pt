@@ -41,7 +41,7 @@
                     <p>Configure responsive navigation behavior like e.g. types that should show up</p>
                     <div class="app-control-panel__action">
                         <a class="c-button c-button--default link-parent"
-                                 tal:attributes="href string:${portal_url}/@@hph-base-settings-navigation"
+                                 tal:attributes="href string:${portal_url}/@@hph-settings-navigation"
                                  i18n:translate="">
                             Configure
                         </a>

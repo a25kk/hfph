@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module providing catalog query based nav trees"""
-from Products.CMFPlone.interfaces import INavigationSchema
 from Products.CMFPlone.utils import safe_unicode
+from hph.sitecontent.browser.controlpanel import IHphBaseControlPanelNavigation
 from plone import api
 from plone.app.layout.navigation.root import getNavigationRoot
 from plone.i18n.normalizer import IIDNormalizer
@@ -19,7 +19,9 @@ class NavTreeProvider(ContentProviderBase):
     @property
     def settings(self):
         registry = getUtility(IRegistry)
-        settings = registry.forInterface(INavigationSchema, prefix='plone')
+        settings = registry.forInterface(
+            IHphBaseControlPanelNavigation,
+            prefix='hph.base')
         return settings
 
     @property
@@ -46,7 +48,9 @@ class NavTreeProvider(ContentProviderBase):
         if self._nav_tree is not None:
             return self._nav_tree
 
-        types = api.portal.get_registry_record('plone.displayed_types')
+        types = api.portal.get_registry_record(
+            name='hph.base.listed_content_types'
+        )
         lang_current = api.portal.get_current_language()
 
         query = {

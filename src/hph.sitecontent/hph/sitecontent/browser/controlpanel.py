@@ -66,7 +66,7 @@ class IHphBaseControlPanelNavigation(Interface):
 
 class HphBaseControlPanelNavigationForm(RegistryEditForm):
     schema = IHphBaseControlPanelNavigation
-    schema_prefix = "hph.sitecontent"
+    schema_prefix = "hph.base"
     label = u'HfPH Responsive Navigation Settings'
 
 
