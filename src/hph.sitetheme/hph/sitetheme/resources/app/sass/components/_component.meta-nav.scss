@@ -1,0 +1,31 @@
+$c-meta-nav-display:                block;
+$c-meta-nav-item-display:           inline-block;
+
+$c-meta-nav-color:                  $app-color-text;
+$c-meta-nav-color-highlight:        darken($c-meta-nav-color, 15%);
+
+$c-meta-nav-font-family:            $app-font-family-strong;
+$c-meta-nav-font-size:              .9rem;
+
+.c-meta-nav {
+    display: $c-meta-nav-display;
+}
+
+.c-meta-nav__item {
+    display: $c-meta-nav-item-display;
+    &:not(:last-child):after {
+        content:'\00B7';
+        display: inline-block;
+        margin-left: .125rem;
+        margin-right: .125rem;
+    }
+}
+
+.c-meta-nav__link {
+    color: $c-meta-nav-color;
+    font-family: $c-meta-nav-font-family;
+    font-size: $c-meta-nav-font-size;
+    &:hover {
+        color: $c-meta-nav-color-highlight;
+    }
+}

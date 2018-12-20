@@ -6,6 +6,11 @@
 .c-panel--primary {
     color: $c-panel-primary-color;
     background-color: $c-panel-primary-bg-color;
+    background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
+}
+
+.c-panel--secondary {
+    background-color: $c-panel-primary-bg-color;
 }
 
 .c-panel__main {

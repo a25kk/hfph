@@ -1,19 +1,29 @@
 .c-toc {
-    @include list-reset();
-	display: $c-toc-display;
     position: relative;
-    display: flex;
-    flex-direction: $c-toc-flex-direction;
+	display: $c-toc-display;
+    @if $c-toc-display == flex {
+        flex-direction: $c-toc-flex-direction;
+    }
+    @include list-reset();
     font-family: $c-toc-font;
     font-size: $c-toc-item-font-size;
-
 }
 
 .c-toc__item {
-	line-height: 2rem;
+    display: $c-toc-item-display;
+    @if $c-toc-item-display == flex {
+        flex-direction: $c-toc-item-flex-direction;
+    }
+    padding: .25rem 0;
+    margin-bottom: 1.5rem;
 	text-transform: $c-toc-item-text-transform;
+    line-height: $c-toc-item-line-height;
 	@include when-inside('.c-toc--level-1') {
         text-transform: none;
+        margin-bottom: 0;
+    }
+    @include mq($from: lg) {
+        margin-bottom: 0;
     }
 }
 
@@ -24,5 +34,17 @@
 }
 
 .c-toc__link {
+    display: inline-block;
+    height: 1.5rem;
+    @include mq($from: lg) {
+        height: 2.5rem;
+    }
 	color: $c-toc-link-color;
+    @include when-inside('.c-toc--level-1') {
+        height: auto;
+    }
+    &:hover {
+        color: $c-toc-link-color--hover;
+    }
+
 }
