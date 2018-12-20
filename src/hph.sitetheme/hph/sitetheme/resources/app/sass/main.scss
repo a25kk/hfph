@@ -57,12 +57,14 @@
 @import 'elements/element.a';
 
 // Objects
+@import 'objects/object.page';
 @import 'objects/object.grid';
 @import 'objects/object.brand';
 @import 'objects/object.burger';
 @import 'objects/object.placeholder';
 @import 'objects/object.menu';
 @import 'objects/object.dropdown';
+@import 'objects/object.form';
 
 // Components
 @import 'components/component.app-header';
@@ -73,6 +75,7 @@
 
 @import 'components/component.identifier';
 @import 'components/toolbar';
+@import 'components/component.sign-in';
 @import 'components/component.buttons';
 @import 'components/media';
 @import 'components/component.alerts';
