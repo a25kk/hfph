@@ -57,3 +57,7 @@ fieldset[disabled] a.c-button {
 .c-button + .c-button {
     margin-right: 1rem;
 }
+
+.c-button--sm {
+    font-size: $app-font-size-sm;
+}
