@@ -2,20 +2,38 @@
 """Module providing custom navigation strategy"""
 from plone import api
 from plone.app.layout.viewlets import ViewletBase
+from plone.registry.interfaces import IRegistry
+from zope.component import getUtility
+
+from hph.sitecontent import config as hph_config
+from hph.sitecontent.browser.controlpanel import IHphBaseControlPanelNavigation
 
 
 class SiteNavigationViewlet(ViewletBase):
     """ Context aware responsive navigation viewlet """
 
-    @staticmethod
-    def section_types():
+    @property
+    def settings(self):
+        registry = getUtility(IRegistry)
+        settings = registry.forInterface(
+            IHphBaseControlPanelNavigation,
+            prefix='hph.base')
+        return settings
+
+    def section_types(self):
         section_types = list()
-        settings = api.portal.get_registry_record(
-            name='ade25.base.listed_content_types'
-        )
-        if settings:
-            section_types = settings
+        configured_types = self.settings.listed_content_types
+        if configured_types:
+            section_types = configured_types
         return section_types
+
+    @property
+    def nav_tree_element_close(self):
+        try:
+            navigation_close = self.settings.navigation_element_close
+        except AttributeError:
+            navigation_close = hph_config.navigation_elements(action='close')
+        return navigation_close
 
     def available(self):
         if self.section_types():

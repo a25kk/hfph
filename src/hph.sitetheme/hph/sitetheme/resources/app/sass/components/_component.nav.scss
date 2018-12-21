@@ -1,8 +1,12 @@
 // TODO: refactor styles
 .c-nav {
+    position: absolute;
+    top: 90px;
     width: 100%;
-    list-style: none;
+    height: calc(100% - 90px);
+    overflow-y: scroll;
     padding: 0 1rem;
+    list-style: none;
     background-color: $app-color-primary;
     @include mq($from: navbar) {
         display: flex;
@@ -56,6 +60,7 @@
 
 .c-nav__item--has-children {
     position: relative;
+    display: flex;
 }
 
 .c-nav__link {
@@ -97,6 +102,14 @@
             display: none;
         }
     }
+    @include when-inside('.c-nav__item--has-children') {
+        flex: 1 0 75%;
+    }
+}
+
+.c-nav__link--action {
+    flex: 1 0 25%;
+    align-self: flex-end;
 }
 
 .c-nav__link--back-link {
@@ -144,8 +157,22 @@
     }
 }
 
+.c-nav__toggle {
+    display: inline-block;
+    margin-top: .5rem;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    @include mq($from: navbar) {
+        display: none;
+    }
+    @include when-inside('.app-nav__link--back-link') {
+        display: inline-block;
+    }
+}
+
 // Dropdown menus
-.app-nav__dropdown {
+.c-nav__dropdown {
     // display: block;
     position: fixed;
     top: 4rem;
@@ -169,7 +196,7 @@
     }
 }
 
-.app-nav__dropdown--hidden {
+.c-nav__dropdown--hidden {
     right: -100%;
     transition:right .25s linear;
 }
