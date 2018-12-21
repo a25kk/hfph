@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 """Module providing catalog query based nav trees"""
-from Products.CMFPlone.interfaces import INavigationSchema
 from Products.CMFPlone.utils import safe_unicode
+from hph.sitecontent.browser.controlpanel import IHphBaseControlPanelNavigation
 from plone import api
 from plone.app.layout.navigation.root import getNavigationRoot
 from plone.i18n.normalizer import IIDNormalizer
 from plone.registry.interfaces import IRegistry
 from zope.component import getUtility
 from zope.contentprovider.provider import ContentProviderBase
+
+from hph.sitecontent import config as hph_config
 
 
 class NavTreeProvider(ContentProviderBase):
@@ -19,7 +21,9 @@ class NavTreeProvider(ContentProviderBase):
     @property
     def settings(self):
         registry = getUtility(IRegistry)
-        settings = registry.forInterface(INavigationSchema, prefix='plone')
+        settings = registry.forInterface(
+            IHphBaseControlPanelNavigation,
+            prefix='hph.base')
         return settings
 
     @property
@@ -37,6 +41,14 @@ class NavTreeProvider(ContentProviderBase):
         return navigation_depth
 
     @property
+    def nav_tree_element_open(self):
+        try:
+            navigation_element = self.settings.navigation_element_open
+        except AttributeError:
+            navigation_element = hph_config.navigation_elements(action='open')
+        return navigation_element
+
+    @property
     def enableDesc(self):
         return True
 
@@ -46,7 +58,9 @@ class NavTreeProvider(ContentProviderBase):
         if self._nav_tree is not None:
             return self._nav_tree
 
-        types = api.portal.get_registry_record('plone.displayed_types')
+        types = api.portal.get_registry_record(
+            name='hph.base.listed_content_types'
+        )
         lang_current = api.portal.get_current_language()
 
         query = {
@@ -87,9 +101,10 @@ class NavTreeProvider(ContentProviderBase):
             sub = self.build_tree(path + '/' + it['id'],
                                   first_run=False,
                                   iteration=iteration+1)
-            opener = u"""<input id="navitem-{uid}" type="checkbox" class="opener">
-                         </input><label for="navitem-{uid}"></label>""".format(
-                uid=it['uid']
+            opener = u'<a class="c-nav__link c-nav__link--action" id="navitem-{uid}" href="#{id}"><span class="c-nav__toggle c-nav__toggle--open">{el}</span></a>'.format(  #noqa
+                uid=it['uid'],
+                el=self.nav_tree_element_open,
+                id=it['id']
             ) if sub else ''
             out += u'<li class="c-nav__item c-nav__item--{id}{has_sub_class}">'.format(
                 id=normalizer.normalize(it['id']),
@@ -105,7 +120,7 @@ class NavTreeProvider(ContentProviderBase):
             out += u'</li>'
 
         if not first_run:
-            base_list = u'<ul class="c-nav c-nav--level-1 c-nav--level-{0} has_subtree dropdown">'.format(
+            base_list = u'<ul class="c-nav c-nav--level-1 c-nav--level-{0} c-nav__dropdown c-nav__dropdown--hidden has_subtree dropdown">'.format(
                 iteration
             )
             out = base_list + out + u'</ul>' if out else ''

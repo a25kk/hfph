@@ -21,6 +21,14 @@
             permission="cmf.ManagePortal"
     />
 
+    <browser:page
+            for="hph.sitecontent.mainsection.IMainSection"
+            name="section-view"
+            class=".section.MainSectionView"
+            template="section.pt"
+            permission="zope2.View"
+    />
+
     <!-- News item listing -->
     <browser:page
         for="hph.sitecontent.newsfolder.INewsFolder"
