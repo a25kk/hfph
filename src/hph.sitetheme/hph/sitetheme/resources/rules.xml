@@ -70,15 +70,11 @@
 
     <!-- Setup custom login form -->
     <theme href="dist/signin/index.html" css:if-content="body.template-login" />
-    <theme href="dist/signin/index.html" css:if-content="body.template-login_form" />
-    <theme href="dist/signin/index.html" css:if-content="body.template-logged_out" />
-    <theme href="dist/signin/index.html" css:if-content="body.template-login_failed" />
-    <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_form" />
-    <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_response" />
-    <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_form" />
-    <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-login-help" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-passwordreset" />
 
     <theme href="dist/front-page/index.html" css:if-content="body.template-frontpage-view" />
+
     <theme href="dist/theme/index.html" css:if-content="body.section-relaunch-theme" />
 
     <!-- Rules applying to a standard Plone web page -->
@@ -145,7 +141,7 @@
         <!-- Global navigation -->
         <!-- Off Canvas slide out navigation -->
         <!-- TODO: Refactor to use properly formatted navigation -->
-        <replace css:theme="#app-nav" css:content="#app-nav" />
+        <replace css:theme="#app-nav" css:content="#c-nav-list" />
 
         <drop css:theme="#app-banner"
               css:if-not-content="#app-banner" />
@@ -176,45 +172,19 @@
         </replace>
         <replace css:theme-children="#app-pathbar" css:content="#portal-breadcrumbs" />
 
-        <!-- Login form rules -->
-        <replace css:content-children="#content-core"
-                 css:theme-children="#app-signin-content"
-                 css:if-content="body.template-login_form" />
-        <replace css:content-children="#content-core"
-                 css:theme-children="#app-signin-content"
-                 css:if-content="body.template-login_failed" />
-        <replace css:content-children="#content-core"
-                 css:theme-children="#app-signin-content"
-                 css:if-content="body.template-logged_out" />
-        <replace css:content-children="#content"
-                 css:theme-children="#app-signin-content"
-                 css:if-content="body.template-mail_password_form" />
-        <replace css:content-children="#content"
-                 css:theme-children="#app-signin-content"
-                 css:if-content="body.template-mail_password_response" />
-        <replace css:content-children="#content"
-                 css:theme-children="#app-signin-content"
-                 css:if-content="body.template-pwreset_form" />
-        <replace css:content-children="#content"
-                 css:theme-children="#app-signin-content"
-                 css:if-content="body.template-pwreset_finish" />
-
-        <replace css:content="#came_from">
-            <p>This is a passowrd field</p>
-            <xsl:apply-templates />
-        </replace>
+        <!-- PAGE RULES -->
 
         <!-- Document First Heading -->
         <replace css:content=".documentFirstHeading">
-            <div class="app-page-header">
-                <h1 class="app-page-title">
+            <div class="o-page__header">
+                <h1 class="o-page__title">
                     <xsl:apply-templates />
                 </h1>
             </div>
         </replace>
         <!-- Document lead description -->
         <replace css:content=".documentDescription">
-            <p class="app-page-abstract">
+            <p class="o-page__abstract">
                 <xsl:apply-templates />
             </p>
         </replace>
@@ -339,7 +309,7 @@
         <replace css:content=".formHelp">
             <xsl:copy>
                 <xsl:copy-of select="@*" />
-                <xsl:attribute name="class"><xsl:value-of select="./@class" /> form__help-block</xsl:attribute>
+                <xsl:attribute name="class"><xsl:value-of select="./@class" /> o-form__help</xsl:attribute>
                 <xsl:apply-templates />
             </xsl:copy>
         </replace>
@@ -364,10 +334,10 @@
                 <xsl:copy-of select="@*" />
                 <xsl:choose>
                     <xsl:when css:test=".error">
-                        <xsl:attribute name="class"><xsl:value-of select="./@class" /> form__group form__group--has-error</xsl:attribute>
+                        <xsl:attribute name="class"><xsl:value-of select="./@class" /> o-form__group form__group--has-error</xsl:attribute>
                     </xsl:when>
                     <xsl:otherwise>
-                        <xsl:attribute name="class"><xsl:value-of select="./@class" /> form__group</xsl:attribute>
+                        <xsl:attribute name="class"><xsl:value-of select="./@class" /> o-form__group</xsl:attribute>
                     </xsl:otherwise>
                 </xsl:choose>
                 <xsl:if test="not(*[@class='widget']) and not(table)">
@@ -393,7 +363,7 @@
         <replace css:content="select">
             <xsl:copy>
                 <xsl:copy-of select="@*" />
-                <xsl:attribute name="class"><xsl:value-of select="./@class" /> custom-select</xsl:attribute>
+                <xsl:attribute name="class"><xsl:value-of select="./@class" /> o-select</xsl:attribute>
                 <xsl:apply-templates />
             </xsl:copy>
         </replace>
@@ -481,8 +451,12 @@
         </replace>
 
         <replace css:content=".configlets">
-            <ul class="nav nav-list">
-                <xsl:apply-templates />
+            <ul class="o-menu">
+                <li class="o-menu__item">
+                    <div class="c-configlet">
+                        <xsl:apply-templates select="./li/*"/>
+                    </div>
+                </li>
             </ul>
         </replace>
 
@@ -505,17 +479,17 @@
 
         <!-- Portlets-->
         <replace css:content=".portletNavigationTree" css:if-content=".template-overview-controlpanel">
-            <div class="app-card">
+            <div class="c-card">
                 <xsl:for-each css:select=".portlet > *">
                     <div>
                         <xsl:if test="@class[contains(.,'portletHeader')]">
-                            <xsl:attribute name="class">app-card__header</xsl:attribute>
+                            <xsl:attribute name="class">c-card__header</xsl:attribute>
                         </xsl:if>
                         <xsl:if test="@class[contains(.,'portletContent')]">
-                            <xsl:attribute name="class">app-card__main app-card__main--plain</xsl:attribute>
+                            <xsl:attribute name="class">c-card__main c-card__main--plain</xsl:attribute>
                         </xsl:if>
                         <xsl:if test="@class[contains(.,'portletFooter')]">
-                            <xsl:attribute name="class">app-card__footer</xsl:attribute>
+                            <xsl:attribute name="class">c-card__footer</xsl:attribute>
                         </xsl:if>
                         <xsl:copy-of select="node()"/>
                     </div>
@@ -524,18 +498,18 @@
         </replace>
 
         <!-- Portlets-->
-        <replace css:content=".portlet:not(.portletNavigationTree)">
-            <div class="app-card">
+        <replace css:content=".portlet:not(.portletNavigationTree)" css:if-not-content=".template-prefs_install_products_form">
+            <div class="c-card">
                 <xsl:for-each css:select=".portlet > *">
                     <div>
                         <xsl:if test="@class[contains(.,'portletHeader')]">
-                            <xsl:attribute name="class">app-card__header</xsl:attribute>
+                            <xsl:attribute name="class">c-card__header</xsl:attribute>
                         </xsl:if>
                         <xsl:if test="@class[contains(.,'portletContent')]">
-                            <xsl:attribute name="class">app-card__main</xsl:attribute>
+                            <xsl:attribute name="class">c-card__main</xsl:attribute>
                         </xsl:if>
                         <xsl:if test="@class[contains(.,'portletFooter')]">
-                            <xsl:attribute name="class">app-card__footer</xsl:attribute>
+                            <xsl:attribute name="class">c-card__footer</xsl:attribute>
                         </xsl:if>
                         <xsl:copy-of select="node()"/>
                     </div>

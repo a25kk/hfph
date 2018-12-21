@@ -16,6 +16,12 @@ $o-form-font-family-highlight:          $app-font-family-strong;
     font-family: $o-form-font-family-highlight;
 }
 
+.o-form__help {
+    display: block;
+    font-size: 1rem;
+    color: $app-color-gray;
+}
+
 .o-form__control {
 
 }

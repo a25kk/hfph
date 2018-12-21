@@ -1,79 +1,12 @@
-// Main site nav bar
-.c-nav-bar {
-    position: fixed;
-    top: 0;
-    z-index: 1001;
-    width: 90vw;
-    height: 100vh;
-    @if $nav-bar-overlay-ltr == true {
-        left: $nav-bar-position-default;
-    } @else {
-        right: $nav-bar-position-default;
-    }
-    border-top: 0px solid $gray-900;
-    background-color: $app-color-primary;
-    box-shadow: 0 1rem 2rem rgba(0,0,0,0.25), 0 .65rem .65rem rgba(0,0,0,0.22);
-    &--overlay {
-        pointer-events: all;
-        right: 0;
-        transition:right .5s linear;
-        @include mq($from: md) {
-            width: 50vw;
-        }
-    }
-    @include mq($from: navbar) {
-        position: relative;
-        display: block;
-        right: 0;
-        min-height: 3rem;
-        background: $gray-600;
-    }
-}
-
-.c-nav-bar--hidden {
-    // height: 0;
-    transition: right .5s linear;
-}
-
-.c-nav-bar__header {
-    display: flex;
-    margin-bottom: 1rem;
-    background-color: $app-color-primary;
-    color: $white;
-    border-bottom: 1px solid $app-color-gray-light;
-}
-
-.c-nav-bar__title {
+// TODO: refactor styles
+.c-nav {
+    position: absolute;
+    top: 90px;
     width: 100%;
-    padding: 1rem;
-    font-family: $app-font-family-strong;
-    text-transform: uppercase;
-    font-size: 1.25rem;
-    //display: none;
-}
-
-.c-nav-bar__toggle {
-    width: 4rem;
-    align-self: flex-end;
-    line-height: 1;
-    background: transparent; // remove default button style
-    border: 1px solid transparent; // remove default button style
-    font-size: 3rem;
-    color: $white;
-}
-
-.app-nav__toggle-icon {
-    > polygon {
-        fill: $app-color-white;
-    }
-}
-
-
-// TODO: Remove after completing refactored component implementation
-.app-nav {
-    width: 100%;
-    list-style: none;
+    height: calc(100% - 90px);
+    overflow-y: scroll;
     padding: 0 1rem;
+    list-style: none;
     background-color: $app-color-primary;
     @include mq($from: navbar) {
         display: flex;
@@ -91,7 +24,7 @@
     }
 }
 
-.app-nav--level-1 {
+.c-nav--level-1 {
     position: relative;
     right: -100%;
     @include mq($from: navbar) {
@@ -100,7 +33,7 @@
     }
 }
 
-.app-nav__item {
+.c-nav__item {
     position: relative;
     overflow: visible;
     width: 100%;
@@ -110,7 +43,7 @@
     background-color: $app-color-primary;
     @include mq($from: navbar) {
         width: auto;
-        flex: 1 0 0%;
+        flex: 1 0 0;
         padding: 1rem 0;
         margin-right: 1rem;
         border: none;
@@ -125,12 +58,15 @@
     }
 }
 
-.app-nav__item--has-children {
+.c-nav__item--has-children {
     position: relative;
+    display: flex;
 }
 
-.app-nav__link {
+.c-nav__link {
     display: block;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
     text-decoration: none;
     color: $white;
     font-family: $app-font-family-base;
@@ -145,6 +81,7 @@
     &:hover {
         text-decoration: none;
         background: transparent;
+        color: $app-color-secondary;
     }
     &--active,
     &--open {
@@ -165,14 +102,22 @@
             display: none;
         }
     }
+    @include when-inside('.c-nav__item--has-children') {
+        flex: 1 0 75%;
+    }
 }
 
-.app-nav__link--back-link {
+.c-nav__link--action {
+    flex: 1 0 25%;
+    align-self: flex-end;
+}
+
+.c-nav__link--back-link {
     height: 3rem;
     // margin-top: .5rem;
 }
 
-.app-nav__link--has-icon {
+.c-nav__link--has-icon {
     @include mq($until: navbar) {
         display: flex;
     }
@@ -212,8 +157,22 @@
     }
 }
 
+.c-nav__toggle {
+    display: inline-block;
+    margin-top: .5rem;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    @include mq($from: navbar) {
+        display: none;
+    }
+    @include when-inside('.app-nav__link--back-link') {
+        display: inline-block;
+    }
+}
+
 // Dropdown menus
-.app-nav__dropdown {
+.c-nav__dropdown {
     // display: block;
     position: fixed;
     top: 4rem;
@@ -237,7 +196,7 @@
     }
 }
 
-.app-nav__dropdown--hidden {
+.c-nav__dropdown--hidden {
     right: -100%;
     transition:right .25s linear;
 }
