@@ -1,32 +1,51 @@
+# -*- coding: utf-8 -*-
+"""Module providing section container content type"""
 from Acquisition import aq_inner
 from five import grok
-from plone.directives import dexterity, form
-from zope.component import getMultiAdapter
-
-from zope import schema
-
-from z3c.form import group, field
-
-from plone.namedfile.interfaces import IImageScaleTraversable
+from plone.app.z3cform.widget import LinkFieldWidget
+from plone.autoform import directives
+from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobImage
-
-from plone.app.textfield import RichText
+from plone.namedfile.interfaces import IImageScaleTraversable
+from plone.supermodel import model
+from zope import schema
+from zope.component import getMultiAdapter
+from zope.interface import implementer
 
 from hph.sitecontent import MessageFactory as _
 
 
-class IMainSection(form.Schema, IImageScaleTraversable):
+class IMainSection(model.Schema, IImageScaleTraversable):
     """
-    Forder to represent the main site sections
+    Folder to represent the site sections
     """
     image = NamedBlobImage(
         title=_(u"Banner image"),
         required=False,
     )
 
+    model.fieldset(
+        'redirect',
+        label=u"Redirect",
+        fields=['link', ]
+    )
 
-class MainSection(dexterity.Container):
-    grok.implements(IMainSection)
+    directives.widget(link=LinkFieldWidget)
+    link = schema.TextLine(
+        title=_(u"Link"),
+        description=_(u"Optional internal or external link that will be "
+                      u"used as redirection target when section is accessed."
+                      u"Logged in users will see the target link instead."),
+        required=False,
+    )
+
+
+@implementer(IMainSection)
+class MainSection(Container):
+
+    def canSetDefaultPage(self):
+        return False
+
 
 
 class View(grok.View):

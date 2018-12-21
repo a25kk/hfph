@@ -30,6 +30,7 @@
 @import 'settings/settings.elements';
 
 // Object Settings
+@import 'settings/settings.object.page';
 @import 'settings/settings.object.burger';
 @import 'settings/settings.object.select';
 
@@ -80,10 +81,12 @@
 @import 'components/component.buttons';
 @import 'components/media';
 @import 'components/component.alerts';
+@import 'components/component.configlets';
 @import 'components/pathbar';
 // @import 'components/brand';
 @import 'components/component.navlist';
 @import 'components/component.nav-bar';
+@import 'components/component.nav';
 @import 'components/component.quick-links';
 @import 'components/component.banner';
 @import 'components/component.panels';

@@ -19,7 +19,7 @@
             <h1 class="o-page__title o-page__title--primary" i18n:translate="">
                 HfPH Site Settings
             </h1>
-            <p class="app-page__abstract">
+            <p class="o-page__abstract">
                 Configure basic site functionality like navigation depth.
             </p>
             <a id="setup-link" class="c-button c-button--default link-parent"
@@ -29,8 +29,8 @@
             </a>
         </div>
 
-        <div class="app-page__main">
-            <h2 class="app-page__title app-page__title--secondary">
+        <div class="o-page__main">
+            <h2 class="o-page__title o-page__title--secondary">
                 Control panels
             </h2>
             <div class="app-control-panels">
@@ -41,7 +41,7 @@
                     <p>Configure responsive navigation behavior like e.g. types that should show up</p>
                     <div class="app-control-panel__action">
                         <a class="c-button c-button--default link-parent"
-                                 tal:attributes="href string:${portal_url}/@@hph-base-settings-navigation"
+                                 tal:attributes="href string:${portal_url}/@@hph-settings-navigation"
                                  i18n:translate="">
                             Configure
                         </a>

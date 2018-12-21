@@ -141,7 +141,7 @@
         <!-- Global navigation -->
         <!-- Off Canvas slide out navigation -->
         <!-- TODO: Refactor to use properly formatted navigation -->
-        <replace css:theme="#app-nav" css:content="#app-nav" />
+        <replace css:theme="#app-nav" css:content="#c-nav-list" />
 
         <drop css:theme="#app-banner"
               css:if-not-content="#app-banner" />
@@ -451,8 +451,12 @@
         </replace>
 
         <replace css:content=".configlets">
-            <ul class="nav nav-list">
-                <xsl:apply-templates />
+            <ul class="o-menu">
+                <li class="o-menu__item">
+                    <div class="c-configlet">
+                        <xsl:apply-templates select="./li/*"/>
+                    </div>
+                </li>
             </ul>
         </replace>
 
@@ -475,17 +479,17 @@
 
         <!-- Portlets-->
         <replace css:content=".portletNavigationTree" css:if-content=".template-overview-controlpanel">
-            <div class="app-card">
+            <div class="c-card">
                 <xsl:for-each css:select=".portlet > *">
                     <div>
                         <xsl:if test="@class[contains(.,'portletHeader')]">
-                            <xsl:attribute name="class">app-card__header</xsl:attribute>
+                            <xsl:attribute name="class">c-card__header</xsl:attribute>
                         </xsl:if>
                         <xsl:if test="@class[contains(.,'portletContent')]">
-                            <xsl:attribute name="class">app-card__main app-card__main--plain</xsl:attribute>
+                            <xsl:attribute name="class">c-card__main c-card__main--plain</xsl:attribute>
                         </xsl:if>
                         <xsl:if test="@class[contains(.,'portletFooter')]">
-                            <xsl:attribute name="class">app-card__footer</xsl:attribute>
+                            <xsl:attribute name="class">c-card__footer</xsl:attribute>
                         </xsl:if>
                         <xsl:copy-of select="node()"/>
                     </div>
@@ -494,18 +498,18 @@
         </replace>
 
         <!-- Portlets-->
-        <replace css:content=".portlet:not(.portletNavigationTree)">
-            <div class="app-card">
+        <replace css:content=".portlet:not(.portletNavigationTree)" css:if-not-content=".template-prefs_install_products_form">
+            <div class="c-card">
                 <xsl:for-each css:select=".portlet > *">
                     <div>
                         <xsl:if test="@class[contains(.,'portletHeader')]">
-                            <xsl:attribute name="class">app-card__header</xsl:attribute>
+                            <xsl:attribute name="class">c-card__header</xsl:attribute>
                         </xsl:if>
                         <xsl:if test="@class[contains(.,'portletContent')]">
-                            <xsl:attribute name="class">app-card__main</xsl:attribute>
+                            <xsl:attribute name="class">c-card__main</xsl:attribute>
                         </xsl:if>
                         <xsl:if test="@class[contains(.,'portletFooter')]">
-                            <xsl:attribute name="class">app-card__footer</xsl:attribute>
+                            <xsl:attribute name="class">c-card__footer</xsl:attribute>
                         </xsl:if>
                         <xsl:copy-of select="node()"/>
                     </div>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+    <layer
+            name="hph.sitecontent"
+            interface="hph.sitecontent.interfaces.IHphSiteContentLayer"
+    />
+</layers>
