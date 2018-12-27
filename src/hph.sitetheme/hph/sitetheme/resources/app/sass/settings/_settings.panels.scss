@@ -10,3 +10,25 @@ $c-panel-margin-bottom:                 2rem;
 // Colors
 $c-panel-primary-color:                 $app-color-text;
 $c-panel-primary-bg-color:              $app-color-gray-light;
+
+// Panel actions
+$c-panel-actions-padding-x:                 0;
+$c-panel-actions-padding-y:                 .5rem;
+$c-panel-actions-border-width:              .125rem;
+
+$c-panel-action-display:                    flex;
+$c-panel-action-width:                      2rem;
+$c-panel-action-height:                     2rem;
+$c-panel-action-position-top:               50%;
+$c-panel-action-position-left:              0%;
+
+$c-panel-action-text-color:                 $app-color-white;
+$c-panel-action-text-color-hover:           $app-color-secondary;
+$c-panel-action-background-color:           $c-panel-primary-color;
+$c-panel-action-border-width:               .125rem;
+$c-panel-action-border-style:               solid;
+$c-panel-action-border-color:               $c-panel-primary-color;
+$c-panel-action-border-radius:              50%;
+$c-panel-action-font-size:                  $app-font-size-sm;
+$c-panel-action-font-family:                $app-font-family-strong;
+

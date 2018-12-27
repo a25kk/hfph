@@ -1,9 +1,12 @@
-$o-form-font-family-default:            $app-font-family-base;
-$o-form-font-family-highlight:          $app-font-family-strong;
-
 //
 // Forms
 //------------------------------------
+
+// Generic resets for cross browser consistency
+input, button, select, textarea {
+    font-family: $o-form-font-family-default;
+}
+
 .o-form {
     width: 100%;
 }

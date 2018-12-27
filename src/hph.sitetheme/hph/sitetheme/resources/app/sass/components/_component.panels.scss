@@ -21,3 +21,48 @@
         @include make-container-max-widths();
     }
 }
+
+.c-panel__actions {
+    position: relative;
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+    width: $c-panel-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding: $c-panel-actions-padding-y $c-panel-actions-padding-x;
+    @include make-container-max-widths();
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: calc(#{$c-panel-action-position-top} - #{$c-panel-actions-border-width});
+        left: $c-panel-action-position-left;
+        width: $c-panel-width;
+        height: $c-panel-actions-border-width;
+        background-color: $c-panel-primary-color;
+    }
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.c-panel__action {
+    position: relative;
+    left: calc(100% - #{$c-panel-action-width});
+    display: $c-panel-action-display;
+    @if $c-panel-action-display == flex {
+        align-items: center;
+        justify-content: center;
+    }
+    width: $c-panel-action-width;
+    height: $c-panel-action-height;
+    border: $c-panel-action-border-width $c-panel-action-border-style $c-panel-action-border-color;
+    border-radius: $c-panel-action-border-radius;
+    color: $c-panel-action-text-color;
+    background-color: $c-panel-action-background-color;
+    font-size: $c-panel-action-font-size;
+    font-family: $c-panel-action-font-family;
+    &:hover {
+        color: $c-panel-action-text-color-hover;
+    }
+}

@@ -32,6 +32,7 @@
 // Object Settings
 @import 'settings/settings.object.page';
 @import 'settings/settings.object.burger';
+@import 'settings/settings.object.form';
 @import 'settings/settings.object.select';
 
 // Component Settings
@@ -56,7 +57,11 @@
 @import 'elements/element.html';
 @import 'elements/element.body';
 @import 'elements/element.strong';
+@import 'elements/element.button';
 @import 'elements/element.a';
+@import 'elements/element.img';
+@import 'elements/element.p';
+
 
 // Objects
 @import 'objects/object.page';

@@ -8791,6 +8791,13 @@ strong {
   font-weight: 600;
 }
 
+button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: transparent;
+}
+
 a {
   color: #182f7a;
 }
@@ -8800,6 +8807,16 @@ a:hover {
   -webkit-transition: color 0.5s linear;
   -o-transition: color 0.5s linear;
   transition: color 0.5s linear;
+}
+
+img {
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+p {
+  word-break: break-all;
 }
 
 .o-page {
@@ -9242,6 +9259,10 @@ a:hover {
 
 .o-dropdown__item {
   padding: .25rem;
+}
+
+input, button, select, textarea {
+  font-family: "EB Garamond";
 }
 
 .o-form {
@@ -10872,7 +10893,7 @@ img[data-sizes="auto"] {
   top: 90px;
   width: 100%;
   height: calc(100% - 90px);
-  overflow-y: scroll;
+  overflow: auto;
   padding: 0 1rem;
   list-style: none;
   background-color: #182f7a;
@@ -11235,6 +11256,83 @@ img[data-sizes="auto"] {
   .c-panel__main--centered {
     max-width: 1140px;
   }
+}
+
+.c-panel__actions {
+  position: relative;
+  opacity: 0;
+  -webkit-transition: opacity .25s ease-in-out;
+  -o-transition: opacity .25s ease-in-out;
+  transition: opacity .25s ease-in-out;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem 0;
+}
+
+@media (min-width: 576px) {
+  .c-panel__actions {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .c-panel__actions {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .c-panel__actions {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .c-panel__actions {
+    max-width: 1140px;
+  }
+}
+
+.c-panel__actions::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(50% - 0.125rem);
+  left: 0%;
+  width: 100%;
+  height: 0.125rem;
+  background-color: #212529;
+}
+
+.c-panel__actions:hover {
+  opacity: 1;
+}
+
+.c-panel__action {
+  position: relative;
+  left: calc(100% - 2rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 0.125rem solid #212529;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #212529;
+  font-size: 0.85rem;
+  font-family: "TAZ";
+}
+
+.c-panel__action:hover {
+  color: #eed343;
 }
 
 .c-card__header {
