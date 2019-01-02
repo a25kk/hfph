@@ -1,17 +1,18 @@
+# -*- coding: utf-8 -*-
+"""Module providing content page type"""
 from five import grok
-from plone import api
-from zope import schema
-from plone.directives import dexterity, form
-
-from plone.namedfile.interfaces import IImageScaleTraversable
-from plone.namedfile.field import NamedBlobImage
-
 from plone.app.textfield import RichText
+from plone.dexterity.content import Container
+from plone.namedfile.field import NamedBlobImage
+from plone.namedfile.interfaces import IImageScaleTraversable
+from plone.supermodel import model
+from zope import schema
+from zope.interface import implementer
 
 from hph.sitecontent import MessageFactory as _
 
 
-class IContentPage(form.Schema, IImageScaleTraversable):
+class IContentPage(model.Schema, IImageScaleTraversable):
     """
     A content page type including fulltext and preview image
     """
@@ -33,8 +34,9 @@ class IContentPage(form.Schema, IImageScaleTraversable):
     )
 
 
-class ContentPage(dexterity.Container):
-    grok.implements(IContentPage)
+@implementer(IContentPage)
+class ContentPage(Container):
+    pass
 
 
 class View(grok.View):
