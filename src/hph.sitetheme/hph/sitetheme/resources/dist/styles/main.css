@@ -9277,6 +9277,63 @@ input, button, select, textarea {
   font-family: "TAZ";
 }
 
+.o-form__label--float {
+  color: #432e2e;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  font-size: .65rem;
+  font-weight: normal;
+  line-height: 1;
+  opacity: 0;
+  overflow: hidden;
+  padding: .5rem 1rem;
+  pointer-events: none;
+  position: absolute;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  top: 0rem;
+  text-align: left;
+  -webkit-transform: translateY(3px);
+      -ms-transform: translateY(3px);
+          transform: translateY(3px);
+  -webkit-transition: all .2s ease-out;
+  -o-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  white-space: nowrap;
+  width: 100%;
+  z-index: 1;
+}
+
+.form__field--not-empty .o-form__label--float {
+  opacity: 1;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+}
+
+.o-form__group--not-empty .o-form__label--float {
+  opacity: 1;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+}
+
+.o-form__label--float--postfix {
+  top: 0;
+  opacity: 1;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+  padding: 0 0 0 1rem;
+  font-size: 1rem;
+  margin-bottom: .5rem;
+}
+
 .o-form__help {
   display: block;
   font-size: 1rem;

@@ -13,7 +13,7 @@ var pkg = require('./../package.json');
 // Styles build task
 export function styles(cb) {
     pump([
-        gulp.src(cfg.paths.app + 'sass/main.scss'),
+        gulp.src(cfg.paths.app + 'scss/main.scss'),
         $.plumber(),
         $.sourcemaps.init(),
         $.sass.sync({
@@ -38,7 +38,7 @@ styles.description = 'Compile stylesheet from sass partials and minimize for pro
 
 
 export function stylesDev() {
-    return gulp.src(cfg.paths.app + 'sass/main.scss')
+    return gulp.src(cfg.paths.app + 'scss/main.scss')
         .pipe($.plumber())
         .pipe($.sourcemaps.init())
         .pipe($.sass.sync({
@@ -60,6 +60,34 @@ export function stylesDev() {
 stylesDev.description = 'Compile stylesheet from sass partials';
 
 
+// Styles build task
+export function stylesEditor(cb) {
+    pump([
+        gulp.src(cfg.paths.app + 'scss/wysiwyg.scss'),
+        $.plumber(),
+        $.sourcemaps.init(),
+        $.sass.sync({
+            outputStyle: 'expanded',
+            precision: 10,
+            includePaths: [cfg.paths.src]
+        }).on('error', $.sass.logError),
+        $.autoprefixer({browsers: ['last 4 version']}),
+        gulp.dest(cfg.paths.dist + 'styles/'),
+        $.cssnano(),
+        $.rename({
+            basename: 'wysiwyg',
+            suffix: '.min'
+        }),
+        $.sourcemaps.write(),
+        gulp.dest(cfg.paths.dist + 'styles/'),
+        browserSync.reload({stream: true})
+    ], cb);
+};
+
+stylesEditor.description = 'Compile stylesheet for wysiwyg editor';
+
+
 // Stylesheet builds
 gulp.task('styles:dev', stylesDev);
 gulp.task('styles:dist', styles);
+gulp.task('styles:editor', stylesEditor);
