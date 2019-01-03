@@ -1,7 +1,9 @@
 // Site setup configlets - plone control panel
-.c-configlet {
+.c-configlet,
+.configlets {
 	padding-top: 1rem;
     padding-bottom: 1rem;
+    @include list-reset();
     > form {
         padding-top: 1rem;
         margin-top: 1.5rem;

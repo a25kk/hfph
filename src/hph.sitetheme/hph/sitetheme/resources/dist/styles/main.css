@@ -10520,12 +10520,17 @@ img[data-sizes="auto"] {
   color: #d39e00;
 }
 
-.c-configlet {
+.c-configlet,
+.configlets {
   padding-top: 1rem;
   padding-bottom: 1rem;
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
 }
 
-.c-configlet > form {
+.c-configlet > form,
+.configlets > form {
   padding-top: 1rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
