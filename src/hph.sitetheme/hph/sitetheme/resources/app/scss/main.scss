@@ -37,6 +37,7 @@
 
 // Component Settings
 @import 'settings/settings.identifier';
+@import 'settings/settings.component.widgets';
 @import 'settings/settings.quick-links';
 @import 'settings/settings.nav-bar';
 @import 'settings/settings.panels';
@@ -100,6 +101,7 @@
 @import 'components/component.meta-nav';
 
 @import 'components/component.widget.base';
+@import 'components/component.widget.placeholder';
 
 // @import 'pages/signin';
 @import 'pages/contentpage';
