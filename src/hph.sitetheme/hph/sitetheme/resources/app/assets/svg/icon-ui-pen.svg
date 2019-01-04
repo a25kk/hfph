@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Ebene_1" width="64" height="64" viewBox="0 0 64 64">
+    <style>
+        .st7{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:currentColor;stroke-width:2;stroke-miterlimit:10}
+    </style>
+    <path d="M27.925 46.229L17.771 36.075M44.818 29.336L34.664 19.182l4.979-4.979a4.22 4.22 0 0 1 5.966 0l4.188 4.188a4.22 4.22 0 0 1 0 5.966l-4.979 4.979z" class="st7"/>
+    <path d="M27.925 46.229l-14.957 4.803 4.803-14.957 16.893-16.893 10.154 10.154-16.893 16.893zM15.609 42.806l5.585 5.585" class="st7"/>
+</svg>

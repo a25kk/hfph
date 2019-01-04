@@ -45,7 +45,8 @@ class IHphBaseControlPanelNavigation(Interface):
         ),
         default=list(),
 
-        required=False,missing_value=list(),
+        required=False,
+        missing_value=list(),
     )
 
     navigation_root = schema.TextLine(

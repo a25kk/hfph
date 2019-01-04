@@ -445,7 +445,7 @@
         <replace css:content=".formControls">
             <xsl:copy>
                 <xsl:copy-of select="@*" />
-                <xsl:attribute name="class"><xsl:value-of select="./@class" /> form__actions</xsl:attribute>
+                <xsl:attribute name="class"><xsl:value-of select="./@class" /> o-form__actions</xsl:attribute>
                 <xsl:apply-templates />
             </xsl:copy>
         </replace>
