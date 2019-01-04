@@ -14,13 +14,16 @@ $c-panel-primary-bg-color:              $app-color-gray-light;
 // Panel actions
 $c-panel-actions-padding-x:                 0;
 $c-panel-actions-padding-y:                 0;
-$c-panel-actions-border-width:              .125rem;
+$c-panel-actions-border-width:              .2rem;
 
 $c-panel-action-display:                    flex;
 $c-panel-action-width:                      2rem;
 $c-panel-action-height:                     2rem;
 $c-panel-action-position-top:               50%;
-$c-panel-action-position-left:              0%;
+$c-panel-action-position-right:             0;
+$c-panel-action-position-right-active:      100%;
+$c-panel-action-position-bottom:            0;
+$c-panel-action-position-left:              0;
 
 $c-panel-action-text-color:                 $app-color-white;
 $c-panel-action-text-color-hover:           $app-color-secondary;

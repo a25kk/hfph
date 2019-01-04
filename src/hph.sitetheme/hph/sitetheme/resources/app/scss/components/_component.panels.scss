@@ -25,8 +25,7 @@
 .c-panel__actions {
     position: relative;
     opacity: 0;
-    transition: opacity .25s ease-in-out, height 0.5s linear;
-    height: 300px;
+    transition: opacity .25s ease-in-out;
     width: $c-panel-width;
     overflow-y: hidden;
     margin-left: auto;
@@ -39,18 +38,23 @@
         position: absolute;
         top: calc(#{$c-panel-action-position-top} - #{$c-panel-actions-border-width});
         left: $c-panel-action-position-left;
-        width: $c-panel-width;
+        overflow: hidden;
+        width: 0;
         height: $c-panel-actions-border-width;
         background-color: $c-panel-primary-color;
+        transition: width .25s ease;
     }
     &:hover {
         opacity: 1;
+        &::before {
+            width: $c-panel-width;
+        }
     }
 }
 
 .c-panel__action {
     position: relative;
-    left: calc(100% - #{$c-panel-action-width});
+    left: 0;
     display: $c-panel-action-display;
     @if $c-panel-action-display == flex {
         align-items: center;
