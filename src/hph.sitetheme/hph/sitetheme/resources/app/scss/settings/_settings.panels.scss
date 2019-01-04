@@ -1,15 +1,28 @@
-$c-panel-width:                         100%;
+$c-panel-width:                             100%;
 
-$c-panel-padding-top:                   1rem;
-$c-panel-padding-right:                 0rem;
-$c-panel-padding-bottom:                0rem;
-$c-panel-padding-left:                  0rem;
-$c-panel-margin-bottom:                 2rem;
+$c-panel-padding-top:                       0;
+$c-panel-padding-right:                     0;
+$c-panel-padding-bottom:                    0;
+$c-panel-padding-left:                      0;
+$c-panel-margin-bottom:                     2rem;
 
 
 // Colors
-$c-panel-primary-color:                 $app-color-text;
-$c-panel-primary-bg-color:              $app-color-gray-light;
+$c-panel-primary-color:                     $app-color-text;
+$c-panel-primary-bg-color:                  $app-color-gray-light;
+
+// Panel controls
+$c-panel-controls-position-top:             0;
+$c-panel-controls-position-left:            50%;
+$c-panel-controls-border-width:             .2rem;
+
+// Panel header
+$c-panel-header-position:                   absolute;
+$c-panel-header-position-top:               0;
+$c-panel-header-position-right:             0;
+$c-panel-header-position-bottom:            0;
+$c-panel-header-position-left:              100%;
+
 
 // Panel actions
 $c-panel-actions-padding-x:                 0;

@@ -1,6 +1,25 @@
 .c-panel {
+    position: relative;
     @include clearfix();
     padding: $c-panel-padding-top $c-panel-padding-right $c-panel-padding-bottom $c-panel-padding-left;
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        z-index: 100;
+        background-color: $c-panel-action-background-color;
+        transition: opacity .25s ease-in-out;
+    }
+    &:hover {
+        &::before {
+            opacity: .125;
+        }
+    }
 }
 
 .c-panel--primary {
@@ -13,6 +32,26 @@
     background-color: $c-panel-primary-bg-color;
 }
 
+.c-panel--disabled {
+    opacity: .5;
+}
+
+.c-panel__header {
+    // Includes panel edit toolbar
+    position: $c-panel-header-position;
+    top: $c-panel-header-position-top;
+    right: $c-panel-header-position-right;
+    bottom: $c-panel-header-position-bottom;
+    left: calc(#{$c-panel-header-position-left} - 1rem);
+    width: 2rem;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    @include when-inside('.c-panel:hover') {
+        opacity: 1;
+    }
+}
+
 .c-panel__main {
     width: $c-panel-width;
     margin-left: auto;
@@ -22,7 +61,61 @@
     }
 }
 
-.c-panel__actions {
+.c-panel__footer {
+    // Includes panel add action
+}
+
+.c-panel__icon {
+    display: $c-panel-action-display;
+    @if $c-panel-action-display == flex {
+        align-items: center;
+        justify-content: center;
+    }
+    width: $c-panel-action-width;
+    height: $c-panel-action-height;
+    z-index: 1001;
+    border: $c-panel-action-border-width $c-panel-action-border-style $c-panel-action-border-color;
+    border-radius: $c-panel-action-border-radius;
+    color: $c-panel-action-text-color !important;
+    background-color: $c-panel-action-background-color;
+    font-size: $c-panel-action-font-size;
+    font-family: $c-panel-action-font-family;
+    &:hover {
+        color: $c-panel-action-text-color-hover;
+    }
+}
+
+$c-panel-controls-width: 2rem;
+$c-panel-controls-display:  flex;
+
+.c-panel__controls {
+    // Panel + widget edit bar
+    position: relative;
+    display: $c-panel-controls-display;
+    width: $c-panel-controls-width;
+    height: 100%;
+    color: #fff;
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: $c-panel-controls-position-top;
+        left: calc(#{$c-panel-controls-position-left} - #{$c-panel-controls-border-width} / 2);
+        overflow: hidden;
+        width: $c-panel-actions-border-width;
+        height: 0;
+        background-color: $c-panel-primary-color;
+        transition: height .25s ease;
+    }
+    @include when-inside('.c-panel:hover') {
+        opacity: 1;
+        &::before {
+            height: 100%;
+        }
+    }
+}
+
+.c-panel-factory {
     position: relative;
     opacity: 0;
     transition: opacity .25s ease-in-out;
@@ -36,7 +129,7 @@
         content: "";
         display: block;
         position: absolute;
-        top: calc(#{$c-panel-action-position-top} - #{$c-panel-actions-border-width});
+        top: calc(#{$c-panel-action-position-top} - #{$c-panel-actions-border-width} / 2);
         left: $c-panel-action-position-left;
         overflow: hidden;
         width: 0;
@@ -52,7 +145,7 @@
     }
 }
 
-.c-panel__action {
+.c-panel-factory__action {
     position: relative;
     left: 0;
     display: $c-panel-action-display;
