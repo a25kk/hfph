@@ -12,6 +12,21 @@ $c-toolbar-background:          $app-color-text;
 
 $c-toolbar-item-display:        flex;
 
+// Grow
+@keyframes toolBarEntrance {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: $c-toolbar-height;
+    }
+}
+
+.u-animation--grow {
+    animation-name: toolBarEntrance;
+}
+
 
 .c-toolbar {
     display: block;
@@ -19,9 +34,12 @@ $c-toolbar-item-display:        flex;
     top: $c-toolbar-position-top;
     left: $c-toolbar-position-left;
     width: $c-toolbar-width;
-    height: $c-toolbar-height;
+    height: 0;
     color: $c-toolbar-color;
     background-color: $c-toolbar-background;
+    animation-name: toolBarEntrance;
+    animation-duration: 1s;
+    animation-fill-mode: both;
 }
 
 .c-toolbar + .o-page__header {
