@@ -9369,6 +9369,65 @@ input, button, select, textarea {
   padding: 1rem;
 }
 
+.o-switch {
+  position: relative;
+  display: block;
+  min-height: 1.6875rem;
+}
+
+.o-switch__control {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.o-switch__label {
+  position: relative;
+  margin-bottom: 0;
+  vertical-align: top;
+}
+
+.o-switch__label:before {
+  content: "";
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 200px;
+  height: 100px;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: absolute;
+}
+
+.o-switch__label:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  border-radius: 90px;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.o-switch:checked + .o-switch__label:before {
+  background: #bada55;
+}
+
+.o-switch:checked + .o-switch__label:after {
+  left: calc(100% - 5px);
+  -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+.o-switch__label:active:after {
+  width: 130px;
+}
+
 .app-header {
   position: fixed;
   top: 0;
@@ -11595,6 +11654,11 @@ img[data-sizes="auto"] {
 
 .c-panel-factory__action:hover {
   color: #eed343;
+}
+
+.c-panel-editor {
+  position: relative;
+  padding-top: 6rem;
 }
 
 .c-card__header {
