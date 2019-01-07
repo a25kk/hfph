@@ -64,7 +64,8 @@
 }
 
 .c-nav__link {
-    display: block;
+    display: flex;
+    align-items: center;
     padding-top: .75rem;
     padding-bottom: .75rem;
     text-decoration: none;
@@ -108,7 +109,7 @@
 }
 
 .c-nav__link--action {
-    flex: 1 0 25%;
+    flex: 1 0 25% !important;
     align-self: flex-end;
 }
 

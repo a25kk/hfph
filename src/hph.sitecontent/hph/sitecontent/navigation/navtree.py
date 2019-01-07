@@ -101,7 +101,7 @@ class NavTreeProvider(ContentProviderBase):
             sub = self.build_tree(path + '/' + it['id'],
                                   first_run=False,
                                   iteration=iteration+1)
-            opener = u'<a class="c-nav__link c-nav__link--action" id="navitem-{uid}" href="#{id}"><span class="c-nav__toggle c-nav__toggle--open">{el}</span></a>'.format(  #noqa
+            opener = u'<a class="c-nav__link c-nav__link--action js-dropdown-toggle" id="navitem-{uid}" href="#{id}"><span class="c-nav__toggle c-nav__toggle--open">{el}</span></a>'.format(  #noqa
                 uid=it['uid'],
                 el=self.nav_tree_element_open,
                 id=it['id']
@@ -110,7 +110,7 @@ class NavTreeProvider(ContentProviderBase):
                 id=normalizer.normalize(it['id']),
                 has_sub_class=' c-nav__item--has-children' if sub else '',
             )
-            out += u'<a href="{url}" class="c-nav__link c-nav__link--state-{review_state}">{title}</a>{opener}'.format(  # noqa
+            out += u'<a href="{url}" class="c-nav__link c-nav__link--default c-nav__link--state-{review_state}">{title}</a>{opener}'.format(  # noqa
                 url=it['url'],
                 review_state=it['review_state'],
                 title=safe_unicode(it['title']),

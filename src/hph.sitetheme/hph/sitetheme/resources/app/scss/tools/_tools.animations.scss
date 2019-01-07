@@ -2,7 +2,8 @@
 // CSS animations
 // ----------------------------------------------
 
-.animated {
+.animated,
+.u-animated {
   animation-duration: 1s;
   animation-fill-mode: both;
 }
@@ -150,4 +151,19 @@
     background-image:none !important;
     -o-animation: backgroundFade 5s ease-in-out;
     animation: backgroundFade 5s ease-in-out;
+}
+
+// Grow
+@keyframes grow {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+
+.u-animation--grow {
+    animation-name: grow;
 }
