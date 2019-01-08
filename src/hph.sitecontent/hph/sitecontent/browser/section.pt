@@ -10,6 +10,31 @@
 <metal:main fill-slot="main">
     <metal:content-core define-macro="main">
 
+        <section class="o-page__section">
+            <h2 class="o-page__section-title">Page Header Section Panels</h2>
+            <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context.UID(), section='header', mode='view')"></tal:content-panels>
+        </section>
+
+        <div class="c-panel-editor__header">
+            <div class="c-toolbar c-toolbar--primary">
+                <div class="c-toolbar__content">
+                    <div class="c-toolbar__item">
+                        <div class="c-toolbar__title">
+                            Panel Page
+                        </div>
+                    </div>
+                    <div class="c-toolbar__item">
+                        <div class="c-toolbar__actions">
+                            <a class="c-toolbar__action c-button c-button--default" href="/@@panels-cancel"
+                                     tal:attributes="href python:context.absolute_url() + '/@@panel-page-view'" i18n:translate="">
+                                Edit
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <header class="o-page__header">
             <div class="o-page__title">
                 <h1 class="o-page__headline" tal:content="context/Title">
@@ -20,22 +45,6 @@
                     ${context/Description}
             </p>
         </header>
-
-        <section class="o-page__section">
-            <tal:redirect tal:condition="view/has_link_action">
-                <div class="app-alert app-alert--default" tal:condition="python:view.is_authenticated">
-                    <div class="app-alert__title">
-                        <div class="app-alert__headline" i18n:translate="">Note</div>
-                    </div>
-                    <p i18n:translate="">This section is configured to automatically redirect. Since you are logged in as editor you are presented the link target instead.</p>
-                    <p><strong i18n:translate="">Link location:</strong>
-                        <a href="${view/get_link_action}">
-                                ${view/get_link_action}
-                        </a>
-                    </p>
-                </div>
-            </tal:redirect>
-        </section>
 
         <section class="o-page__section">
            <div class="c-alert c-alert--default">
@@ -53,18 +62,15 @@
         <div class="o-page__main" tal:define="context_uid context/UID">
 
             <section class="o-page__section">
-                <h2 class="o-page__section-title">Page Header Section Panels</h2>
-                <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context_uid, section='header')"></tal:content-panels>
-            </section>
-
-            <section class="o-page__section">
                 <h2 class="o-page__section-title">Page Main Section Panels</h2>
-                <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context_uid, section='main')"></tal:content-panels>
+                <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context.UID(), section='main', mode='view')"></tal:content-panels>
             </section>
+        </div>
 
+        <div class="o-page__footer">
             <section class="o-page__section">
                 <h2 class="o-page__section-title">Page Footer Section Panels</h2>
-                <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context_uid, section='footer')"></tal:content-panels>
+                <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context.UID(), section='footer', mode='view')"></tal:content-panels>
             </section>
         </div>
 
