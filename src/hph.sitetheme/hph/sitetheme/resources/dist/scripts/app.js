@@ -66,7 +66,6 @@ requirejs(['require',
 
         // Quick links
         // dropdown.init({});
-
         // Initialize XHR Event Box
         eventbox.init();
 

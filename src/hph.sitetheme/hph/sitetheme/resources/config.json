@@ -39,13 +39,11 @@
         "dropmic/dist/dropmic.js",
         "flickity/dist/flickity.pkgd.js",
         "fontfaceobserver/fontfaceobserver.js",
-        "hideShowPassword/hideShowPassword.js",
-        "JVFloat/jvfloat.js",
         "lazysizes/lazysizes-umd.js",
         "lazysizes/plugins/parent-fit/ls.parent-fit.js",
-        "mailcheck/src/mailcheck.js",
         "respimage/respimage.js",
         "svg4everybody/dist/svg4everybody.js",
+        "vh-check/dist/vh-check.min.js",
         "x-ray/dist/js/x-ray.js"
     ],
     "base": [
@@ -62,6 +60,12 @@
         "respimage/respimage.js",
         "x-ray/dist/js/x-ray.js"
     ]
+  },
+  "styles": {
+      "src": [
+          "rfs/scss/_rfs.scss",
+          "sass-mq/_mq.scss"
+      ]
   },
   "replacementPatterns": {
         "base": [

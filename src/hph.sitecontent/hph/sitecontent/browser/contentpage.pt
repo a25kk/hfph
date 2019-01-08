@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="ade25.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <header class="o-page__header">
+            <div class="o-page__title">
+                <h1 class="o-page__headline" tal:condition="not:python:context.headline"
+                         tal:content="context/Title">
+                        Title
+                </h1>
+                <h1 class="o-page__headline" tal:condition="python:context.headline"
+                         tal:content="python:context.headline">
+                        Headline
+                </h1>
+            </div>
+            <p class="o-page__abstract" tal:condition="context/Description">
+                    ${context/Description}
+            </p>
+        </header>
+
+        <section class="o-page__section">
+            <div class="o-page__lead-image" tal:condition="view/has_leadimage">
+                <div class="o-page__asset"
+                         tal:define="responsive_image python:context.restrictedTraverse('@@figure')(image_field_name='image', caption_field_name='image_caption', scale='default', lqip=True, lazy_load=True)">
+                    <span tal:replace="structure responsive_image" />
+                </div>
+            </div>
+        </section>
+
+        <section class="o-page__section">
+            <div class="o-page__body-text" id="parent-fieldname-text"
+                     tal:condition="context/text"
+                     tal:content="structure context/text/output" />
+        </section>
+
+        <section class="o-page__section" tal:condition="view/display_cards">
+            <div class="c-page-listing" tal:condition="view/has_contained_pages">
+                <tal:widget tal:replace="structure python:context.restrictedTraverse('@@content-widget-listing-cards')(widget_data=dict(limit=None))"></tal:widget>
+            </div>
+        </section>
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>

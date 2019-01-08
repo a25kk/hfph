@@ -24,8 +24,16 @@
     <browser:page
             for="hph.sitecontent.mainsection.IMainSection"
             name="section-view"
-            class=".section.MainSectionView"
+            class="hph.sitecontent.browser.section.MainSectionView"
             template="section.pt"
+            permission="zope2.View"
+    />
+
+    <browser:page
+            for="hph.sitecontent.contentpage.IContentPage"
+            name="content-page-view"
+            class="hph.sitecontent.browser.contentpage.ContentPageView"
+            template="contentpage.pt"
             permission="zope2.View"
     />
 

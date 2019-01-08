@@ -32,10 +32,12 @@
 // Object Settings
 @import 'settings/settings.object.page';
 @import 'settings/settings.object.burger';
+@import 'settings/settings.object.form';
 @import 'settings/settings.object.select';
 
 // Component Settings
 @import 'settings/settings.identifier';
+@import 'settings/settings.component.widgets';
 @import 'settings/settings.quick-links';
 @import 'settings/settings.nav-bar';
 @import 'settings/settings.panels';
@@ -56,7 +58,11 @@
 @import 'elements/element.html';
 @import 'elements/element.body';
 @import 'elements/element.strong';
+@import 'elements/element.button';
 @import 'elements/element.a';
+@import 'elements/element.img';
+@import 'elements/element.p';
+
 
 // Objects
 @import 'objects/object.page';
@@ -67,6 +73,7 @@
 @import 'objects/object.menu';
 @import 'objects/object.dropdown';
 @import 'objects/object.form';
+@import 'objects/object.switch';
 
 // Components
 @import 'components/component.app-header';
@@ -89,12 +96,16 @@
 @import 'components/component.nav';
 @import 'components/component.quick-links';
 @import 'components/component.banner';
+@import 'components/component.toolbar';
 @import 'components/component.panels';
 @import 'components/component.cards';
 @import 'components/component.toc';
 @import 'components/component.meta-nav';
 
+// Widget Component
 @import 'components/component.widget.base';
+@import 'components/component.widget.placeholder';
+@import 'components/component.widget.selector';
 
 // @import 'pages/signin';
 @import 'pages/contentpage';

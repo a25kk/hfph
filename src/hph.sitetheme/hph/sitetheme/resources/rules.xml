@@ -214,7 +214,7 @@
 
         <!-- Add classes to content core -->
         <replace css:content="#content-core">
-            <div class="app-page-content" id="content-core">
+            <div class="o-page__content" id="content-core">
                 <xsl:apply-templates />
             </div>
         </replace>
@@ -409,7 +409,7 @@
                         <xsl:apply-templates />
                     </xsl:copy>
                 </xsl:when>
-                <xsl:when css:test="[type='checkbox']">
+                <xsl:when css:test="[type='checkbox']:not(.o-switch__control)">
                     <xsl:copy>
                         <xsl:copy-of select="@*" />
                         <xsl:attribute name="class">form__control form__control--checkbox</xsl:attribute>
@@ -445,7 +445,7 @@
         <replace css:content=".formControls">
             <xsl:copy>
                 <xsl:copy-of select="@*" />
-                <xsl:attribute name="class"><xsl:value-of select="./@class" /> form__actions</xsl:attribute>
+                <xsl:attribute name="class"><xsl:value-of select="./@class" /> o-form__actions</xsl:attribute>
                 <xsl:apply-templates />
             </xsl:copy>
         </replace>

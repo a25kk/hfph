@@ -1,0 +1,76 @@
+//
+// Forms
+//------------------------------------
+
+// Generic resets for cross browser consistency
+input, button, select, textarea {
+    font-family: $o-form-font-family-default;
+}
+
+.o-form {
+    width: 100%;
+}
+
+.o-form__group {
+    margin-bottom: 1rem;
+}
+
+.o-form__label {
+    font-family: $o-form-font-family-highlight;
+}
+
+.o-form__label--float {
+    color: #432e2e;
+    box-sizing: border-box;
+    display: block;
+    font-size: .65rem;
+    font-weight: normal;
+    line-height: 1;
+    opacity: 0;
+    overflow: hidden;
+    padding: .5rem 1rem;
+    pointer-events: none;
+    position: absolute;
+    text-overflow: ellipsis;
+    top: 0rem;
+    text-align: left;
+    transform: translateY(3px);
+    transition: all .2s ease-out;
+    user-select: none;
+    white-space: nowrap;
+    width: 100%;
+    z-index: 1;
+    .form__field--not-empty & {
+        opacity: 1;
+        transform: none;
+    }
+    @include when-inside('.o-form__group--not-empty') {
+        opacity: 1;
+        transform: none;
+    }
+    &--postfix {
+        top: 0;
+        opacity: 1;
+        transform: none;
+        // border: 1px solid red;
+        padding: 0 0 0 1rem;
+        font-size: 1rem;
+        margin-bottom: .5rem;
+    }
+}
+
+
+.o-form__help {
+    display: block;
+    font-size: 1rem;
+    color: $app-color-gray;
+}
+
+.o-form__control {
+
+}
+
+.o-form__actions {
+    padding: 1rem;
+}
+

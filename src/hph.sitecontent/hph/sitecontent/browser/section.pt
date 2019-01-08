@@ -38,11 +38,35 @@
         </section>
 
         <section class="o-page__section">
-            <h2 class="o-headline--secondary">Panel Page and Widget Debugger</h2>
-            <pre tal:condition="exists:context/contentPanelsHeader" tal:content="context/contentPanelsHeader"></pre>
-            <pre tal:condition="exists:context/contentPanelsMain" tal:content="context/contentPanelsMain"></pre>
-            <pre tal:condition="exists:context/contentPanelsFooter" tal:content="context/contentPanelsFooter"></pre>
+           <div class="c-alert c-alert--default">
+               <h4 class="c-alert__title">Content Panels</h4>
+               <p>Preview a panel page editor preview click dummy:</p>
+               <p>
+                   <a class="c-button c-button--default"
+                            tal:attributes="href python:context.absolute_url() + '/@@panel-page-view'">
+                       Edit Content Panels (Demo)
+                   </a>
+               </p>
+           </div>
         </section>
+
+        <div class="o-page__main" tal:define="context_uid context/UID">
+
+            <section class="o-page__section">
+                <h2 class="o-page__section-title">Page Header Section Panels</h2>
+                <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context_uid, section='header')"></tal:content-panels>
+            </section>
+
+            <section class="o-page__section">
+                <h2 class="o-page__section-title">Page Main Section Panels</h2>
+                <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context_uid, section='main')"></tal:content-panels>
+            </section>
+
+            <section class="o-page__section">
+                <h2 class="o-page__section-title">Page Footer Section Panels</h2>
+                <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context_uid, section='footer')"></tal:content-panels>
+            </section>
+        </div>
 
 
     </metal:content-core>

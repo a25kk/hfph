@@ -1,6 +1,17 @@
 //
 // Cards displaying thumbnails and data collections
 // ------------------------------------------------------
+$c-card-display-default:                block;
+$c-card-width-default:                  100%;
+$c-card-font-family-base:               $app-font-family-strong;
+$c-card-font-family-highlight:          $c-card-font-family-base;
+
+$c-card-cap-bg:                         transparent;
+
+.c-card {
+    display: $c-card-display-default;
+    width: $c-card-width-default;
+}
 
 //== Card layout
 //
@@ -8,7 +19,8 @@
 .c-card__header {
     @include clearfix;
     padding: $card-spacer-y $card-spacer-x;
-    background: $card-cap-bg;
+    background: $c-card-cap-bg;
+    font-family: $c-card-font-family-highlight;
 }
 
 //** Card content
@@ -20,6 +32,7 @@
 //** Card footer
 .c-card__footer {
     padding: $card-spacer-y $card-spacer-x;
+    font-family: $c-card-font-family-base;
 }
 
 // Card contents
@@ -32,6 +45,15 @@
     margin-bottom: 1rem;
 }
 
+
+// Alternative card styles and versions
+.c-card--banner {
+    // A banner card consists of a banner element eg a picture and a caption
+    .c-card__header,
+    .c-card__footer {
+        text-align: center;
+    }
+}
 
 
 // TODO: DEPRECATED - Remove or refactor the following parts
