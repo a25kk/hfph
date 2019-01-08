@@ -50,6 +50,24 @@
            </div>
         </section>
 
+        <div class="o-page__main" tal:define="context_uid context/UID">
+
+            <section class="o-page__section">
+                <h2 class="o-page__section-title">Page Header Section Panels</h2>
+                <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context_uid, section='header')"></tal:content-panels>
+            </section>
+
+            <section class="o-page__section">
+                <h2 class="o-page__section-title">Page Main Section Panels</h2>
+                <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context_uid, section='main')"></tal:content-panels>
+            </section>
+
+            <section class="o-page__section">
+                <h2 class="o-page__section-title">Page Footer Section Panels</h2>
+                <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context_uid, section='footer')"></tal:content-panels>
+            </section>
+        </div>
+
 
     </metal:content-core>
 </metal:main>

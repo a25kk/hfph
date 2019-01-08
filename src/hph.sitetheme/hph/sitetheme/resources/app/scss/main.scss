@@ -102,8 +102,10 @@
 @import 'components/component.toc';
 @import 'components/component.meta-nav';
 
+// Widget Component
 @import 'components/component.widget.base';
 @import 'components/component.widget.placeholder';
+@import 'components/component.widget.selector';
 
 // @import 'pages/signin';
 @import 'pages/contentpage';

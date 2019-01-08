@@ -11139,7 +11139,7 @@ img[data-sizes="auto"] {
   padding-bottom: .75rem;
   text-decoration: none;
   color: #fff;
-  font-family: "EB Garamond";
+  font-family: "TAZ";
   text-transform: none;
   font-weight: 400;
   line-height: 1;
@@ -11278,7 +11278,7 @@ img[data-sizes="auto"] {
   top: 4rem;
   right: 0;
   z-index: 1002;
-  width: 90vw;
+  width: 50vw;
   height: calc(100vh - 60px);
   margin: 2rem 0 0;
   background-color: #fff;
@@ -11287,18 +11287,6 @@ img[data-sizes="auto"] {
   -webkit-transition: right .25s linear;
   -o-transition: right .25s linear;
   transition: right .25s linear;
-}
-
-@media (min-width: 277777.75em) {
-  .c-nav__dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    float: left;
-    width: 50vw;
-  }
 }
 
 .c-nav__dropdown--hidden {
@@ -11657,9 +11645,15 @@ img[data-sizes="auto"] {
   min-height: 4rem;
 }
 
+.c-card {
+  display: block;
+  width: 100%;
+}
+
 .c-card__header {
   padding: 0.75rem 1.25rem;
-  background: rgba(0, 0, 0, 0.03);
+  background: transparent;
+  font-family: "TAZ";
 }
 
 .c-card__header::after {
@@ -11680,6 +11674,7 @@ img[data-sizes="auto"] {
 
 .c-card__footer {
   padding: 0.75rem 1.25rem;
+  font-family: "TAZ";
 }
 
 .c-card__title {
@@ -11689,6 +11684,11 @@ img[data-sizes="auto"] {
 .c-card__section {
   text-align: center;
   margin-bottom: 1rem;
+}
+
+.c-card--banner .c-card__header,
+.c-card--banner .c-card__footer {
+  text-align: center;
 }
 
 .app-cards {
@@ -12067,6 +12067,25 @@ img[data-sizes="auto"] {
     -webkit-transform: translate3d(30%, 0, 0);
             transform: translate3d(30%, 0, 0);
   }
+}
+
+.c-widget-selector {
+  display: block;
+}
+
+.c-widget-selector__section {
+  margin-bottom: 1;
+}
+
+.c-widget-selector__header {
+  padding: .5rem;
+  margin-bottom: 1rem;
+  border-bottom: 0.0125rem solid #d9d9d9;
+}
+
+.c-widget-selector__headline {
+  font-family: "TAZ";
+  text-transform: uppercase;
 }
 
 .app-page {
