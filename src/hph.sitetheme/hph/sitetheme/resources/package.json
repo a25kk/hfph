@@ -70,6 +70,7 @@
         "JVFloat": "github:maman/JVFloat.js",
         "bootstrap": "github:twbs/bootstrap#v4-dev",
         "dropmic": "^0.3.0",
+        "element-closest": "^3.0.0",
         "flickity": "^2.1.2",
         "fontfaceobserver": "^2.0.13",
         "hideshowpassword": "^2.1.1",
@@ -81,8 +82,8 @@
         "requirejs": "^2.3.1",
         "respimage": "^1.4.2",
         "rfs": "^7.1.9",
-        "svg4everybody": "^2.1.9",
         "sass-mq": "^5.0.0",
+        "svg4everybody": "^2.1.9",
         "tether": "^1.3.7",
         "vh-check": "^2.0.5",
         "x-ray": "github:cferdinandi/x-ray"
