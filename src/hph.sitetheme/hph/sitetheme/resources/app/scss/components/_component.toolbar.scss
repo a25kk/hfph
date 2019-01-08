@@ -30,16 +30,19 @@ $c-toolbar-item-display:        flex;
 
 .c-toolbar {
     display: block;
-    position: $c-toolbar-position;
-    top: $c-toolbar-position-top;
-    left: $c-toolbar-position-left;
-    width: $c-toolbar-width;
-    height: 0;
-    color: $c-toolbar-color;
-    background-color: $c-toolbar-background;
-    animation-name: toolBarEntrance;
-    animation-duration: 1s;
-    animation-fill-mode: both;
+    &--default {
+        margin-bottom: 1.5rem;
+    }
+    &--primary {
+        position: $c-toolbar-position;
+        top: $c-toolbar-position-top;
+        left: $c-toolbar-position-left;
+        width: $c-toolbar-width;
+        height: 0;
+        animation-name: toolBarEntrance;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
 }
 
 .c-toolbar + .o-page__header {
@@ -49,6 +52,8 @@ $c-toolbar-item-display:        flex;
 .c-toolbar__content {
     display: flex;
     padding: $c-toolbar-padding-x $c-toolbar-padding-y;
+    color: $c-toolbar-color;
+    background-color: $c-toolbar-background;
 }
 
 .c-toolbar__item {
