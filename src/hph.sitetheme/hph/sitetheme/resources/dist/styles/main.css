@@ -8839,10 +8839,6 @@ img {
      object-fit: cover;
 }
 
-p {
-  word-break: break-all;
-}
-
 .o-page {
   display: block;
   position: relative;
