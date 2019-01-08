@@ -120,7 +120,7 @@ class NavTreeProvider(ContentProviderBase):
             out += u'</li>'
 
         if not first_run:
-            base_list = u'<ul class="c-nav c-nav--level-1 c-nav--level-{0} c-nav__dropdown c-nav__dropdown--hidden has_subtree dropdown">'.format(
+            base_list = u'<ul class="c-nav c-nav--level-{0} c-nav__dropdown c-nav__dropdown--hidden has_subtree dropdown">'.format(
                 iteration
             )
             out = base_list + out + u'</ul>' if out else ''

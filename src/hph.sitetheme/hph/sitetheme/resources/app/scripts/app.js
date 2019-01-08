@@ -64,9 +64,6 @@ requirejs(['require',
             backdropDisplay: true
         });
 
-        // Dropdown handler
-        dropdown.init();
-
         // Quick links
         // dropdown.init({});
         // Initialize XHR Event Box

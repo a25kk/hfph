@@ -1,5 +1,7 @@
-define(["jquery",
-], function($) {
+define([
+    "jquery",
+    "/scripts/utils.js"
+], function($, utils) {
 
     var navBar = {};
 
@@ -7,16 +9,16 @@ define(["jquery",
         backdropClass: "u-backdrop",
         backdropDisplay: false,
         bodyMarkerClass: "u-no-scroll",
-        containedDropdownClass: "app-nav__item--has-dropdown",
+        containedDropdownClass: "c-nav__item--has-dropdown",
         drawerCloseTrigger: ".js-drawer-close",
-        drawerToggle: '[data-toggle="fly-out"]',
-        dropdownOpenClass: "app-nav__link--open",
-        menu: ".app-nav",
+        drawerToggle: '.js-dropdown-toggle',
+        dropdownOpenClass: "c-nav__link--open",
+        menu: ".c-nav",
         menuContainer: ".app-header",
         menuContainerActive: "app-header--overlay",
         menuContainerOffsetMarker: "app-header--offset",
-        menuDropdown: "app-nav__dropdown",
-        menuDropdownDisabled: "app-nav__dropdown--hidden",
+        menuDropdown: "c-nav__dropdown",
+        menuDropdownDisabled: "c-nav__dropdown--hidden",
         navBar: ".c-nav-bar",
         navBarHidden: "c-nav-bar--hidden",
         navBarOverlay: "c-nav-bar--overlay",
@@ -24,17 +26,16 @@ define(["jquery",
         navBarToggleActiveClass: ".js-nav-toggle--active"
     };
 
-    function extend_defaults(){
-        for(var i=1; i<arguments.length; i++)
-            for(var key in arguments[i])
-                if(arguments[i].hasOwnProperty(key)) {
-                    if (typeof arguments[0][key] === 'object'
-                        && typeof arguments[i][key] === 'object')
-                        extend(arguments[0][key], arguments[i][key]);
-                    else
-                        arguments[0][key] = arguments[i][key];
-                }
-        return arguments[0];
+    function navigationOffsetMarker(options) {
+        var $menuContainer = document.querySelector(options.menuContainer),
+            $menuContainerScrolled = $menuContainer.offsetTop;
+        window.addEventListener("scroll", function() {
+            if (window.pageYOffset > $menuContainerScrolled) {
+                $menuContainer.classList.add(options.menuContainerOffsetMarker);
+            } else {
+                $menuContainer.classList.remove(options.menuContainerOffsetMarker);
+            }
+        })
     }
 
     function navigationToggleHandler(element, options) {
@@ -51,16 +52,70 @@ define(["jquery",
                 $menuContainer.classList.toggle(options.backdropClass);
             }
             element.classList.toggle(options.navBarToggleActiveClass);
-            // TODO: Refactor active dropdown handler
-            $(".app-nav__link--open").removeClass("app-nav__link--open");
-            $("." + options.menuDropdown).removeClass(options.menuDropdown);
-            $("." + options.containedDropdownClass).removeClass(
-                options.containedDropdownClass
-            );
+            let $activeNavLink = document.querySelector(options.dropdownOpenClass),
+                $menuDropDown = document.querySelector(options.menuDropdown),
+                $menuDropDownContained = document.querySelector(options.containedDropdownClass);
+            if ($activeNavLink !== null) {
+                $activeNavLink.classList.remove(options.dropdownOpenClass);
+                $menuDropDown.classList.remove(options.menuDropdown);
+                $menuDropDownContained.classList.remove(options.containedDropdownClass);
+            }
         }
     }
 
+    function navigationDrawerOpen(options) {
+        // Initialize drop down menu
+        let $dropdownToggle = document.querySelectorAll(options.drawerToggle),
+            isCurrentToggle = false;
+        [].forEach.call($dropdownToggle, function(element) {
+            element.addEventListener('click', function(event) {
+                let currentDropDown = event.target.nextElementSibling;
+                isCurrentToggle = !isCurrentToggle;
+                element.classList.toggle(options.dropdownOpenClass);
+                console.log(event.target.nextElementSibling);
+                if (currentDropDown.matches('.c-nav--level-1')) {
+                    event.preventDefault();
+                    console.log("Navigation Dropdown Open Event");
+                    currentDropDown.classList.remove(options.menuDropdownDisabled);
+                } else {
+                    if (element !== element) {
+
+                    }
+                }
+
+            })
+        })
+
+    }
+
+    function navigationDrawerClose(options) {
+        // Close open active sub level navigation drawers
+        [].forEach.call(document.querySelectorAll(options.drawerCloseTrigger), function(el) {
+            el.addEventListener('click', function() {
+                event.preventDefault();
+                event.stopPropagation();
+                console.log("Drawer close triggered");
+                let $elementParent = el.closest(options.menu),
+                    $activeNavLink = document.querySelector(options.dropdownOpenClass),
+                    $menuDropDownContained = document.querySelector(options.containedDropdownClass);
+                $elementParent.classList.add(options.menuDropdownDisabled);
+                setTimeout(function() {
+                    $elementParent.classList.remove(options.menuDropdown);
+                    if ($activeNavLink !== null) {
+                        $activeNavLink.classList.remove(options.dropdownOpenClass);
+                        $menuDropDownContained.classList.remove(options.containedDropdownClass);
+                    }
+                }, 250);
+            })
+        })
+    }
+
     function toggleNavigation(options) {
+        // Add navigation marker
+        navigationOffsetMarker(options);
+        // Sub Navigation drawer
+        navigationDrawerOpen(options);
+        navigationDrawerClose(options);
         // Nav bar toggle
         var navBarToggle = Array.prototype.slice.call(document.querySelectorAll(options.navBarToggle));
         navBarToggle.forEach(function(el) {
@@ -71,22 +126,10 @@ define(["jquery",
         });
     }
 
-    function navigationOffsetMarker(options) {
-        var $menuContainer = document.querySelector(options.menuContainer),
-            $menuContainerScrolled = $menuContainer.offsetTop;
-        window.addEventListener("scroll", function() {
-            if (window.pageYOffset > $menuContainerScrolled) {
-                $menuContainer.classList.add(options.menuContainerOffsetMarker);
-            } else {
-                $menuContainer.classList.remove(options.menuContainerOffsetMarker);
-            }
-        })
-    }
-
     navBar.init = function (_options) {
         // Initialize here
-        var options = extend_defaults(_defaults, _options);
-        navigationOffsetMarker(options);
+        let options = utils.extendDefaultOptions(_defaults, _options);
+        // navigationOffsetMarker(options);
         return toggleNavigation(options);
     };
 
