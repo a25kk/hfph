@@ -17,27 +17,6 @@
     opacity: .5;
 }
 
-.c-panel--xeditable {
-    &::before {
-        content: "";
-        display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        opacity: 0;
-        z-index: 100;
-        background-color: $c-panel-action-background-color;
-        transition: opacity .25s ease-in-out;
-    }
-    &:hover {
-        &::before {
-            opacity: .125;
-        }
-    }
-}
-
 .c-panel__header {
     // Includes panel edit toolbar
     position: $c-panel-header-position;
@@ -185,5 +164,10 @@ $c-panel-controls-display:  flex;
 
 .c-panel-editor {
     position: relative;
-    padding-top: 6rem;
+}
+
+.c-panel-editor__header {
+    // position: absolute;
+    height: 4rem;
+    min-height: 4rem;
 }

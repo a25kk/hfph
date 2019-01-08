@@ -11381,13 +11381,18 @@ img[data-sizes="auto"] {
 
 .c-toolbar {
   display: block;
+}
+
+.c-toolbar--default {
+  margin-bottom: 1.5rem;
+}
+
+.c-toolbar--primary {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 0;
-  color: #d9d9d9;
-  background-color: #212529;
   -webkit-animation-name: toolBarEntrance;
           animation-name: toolBarEntrance;
   -webkit-animation-duration: 1s;
@@ -11405,6 +11410,8 @@ img[data-sizes="auto"] {
   display: -ms-flexbox;
   display: flex;
   padding: 0.5rem 1rem;
+  color: #d9d9d9;
+  background-color: #212529;
 }
 
 .c-toolbar__item {
@@ -11453,26 +11460,6 @@ img[data-sizes="auto"] {
 
 .c-panel--disabled {
   opacity: .5;
-}
-
-.c-panel--xeditable::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  z-index: 100;
-  background-color: #212529;
-  -webkit-transition: opacity .25s ease-in-out;
-  -o-transition: opacity .25s ease-in-out;
-  transition: opacity .25s ease-in-out;
-}
-
-.c-panel--xeditable:hover::before {
-  opacity: .125;
 }
 
 .c-panel__header {
@@ -11663,7 +11650,11 @@ img[data-sizes="auto"] {
 
 .c-panel-editor {
   position: relative;
-  padding-top: 6rem;
+}
+
+.c-panel-editor__header {
+  height: 4rem;
+  min-height: 4rem;
 }
 
 .c-card__header {
@@ -11900,6 +11891,14 @@ img[data-sizes="auto"] {
 .c-widget__icon--centered {
   margin-left: auto;
   margin-right: auto;
+}
+
+.c-widget__editor {
+  display: block;
+}
+
+.c-widget__editor:hover {
+  cursor: text;
 }
 
 .ph-item {

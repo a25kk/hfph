@@ -32,3 +32,10 @@
         margin-right: auto;
     }
 }
+
+.c-widget__editor {
+    display: block;
+    &:hover {
+        cursor: text;
+    }
+}
