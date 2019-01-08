@@ -47,6 +47,7 @@
 @import 'generic/generic.fonts';
 @import 'generic/generic.fonts.custom';
 @import 'generic/generic.syntax';
+@import 'generic/generic.aspect-ratio';
 
 @import 'vendors/bootstrap';
 @import 'vendors/dropmic';
@@ -74,6 +75,7 @@
 @import 'objects/object.dropdown';
 @import 'objects/object.form';
 @import 'objects/object.switch';
+@import 'objects/object.figure';
 
 // Components
 @import 'components/component.app-header';
@@ -96,6 +98,7 @@
 @import 'components/component.nav';
 @import 'components/component.quick-links';
 @import 'components/component.banner';
+@import 'components/component.snippet';
 @import 'components/component.toolbar';
 @import 'components/component.panels';
 @import 'components/component.cards';
