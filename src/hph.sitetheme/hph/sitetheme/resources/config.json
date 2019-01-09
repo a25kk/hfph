@@ -135,6 +135,7 @@
         "mode": {
             "inline": true,
             "symbol": {
+                "prefix": "o-",
                 "example": true,
                 "render": {
                     "scss": true

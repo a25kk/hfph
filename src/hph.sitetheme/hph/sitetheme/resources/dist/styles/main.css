@@ -11584,6 +11584,35 @@ img[data-sizes="auto"] {
   padding: 0 0 0 0;
 }
 
+.c-panel--centered {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .c-panel--centered {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .c-panel--centered {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .c-panel--centered {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .c-panel--centered {
+    max-width: 1140px;
+  }
+}
+
 .c-panel--primary {
   color: #212529;
   background-color: #efefef;
