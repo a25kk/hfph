@@ -11842,18 +11842,32 @@ img[data-sizes="auto"] {
   display: block;
   padding: .25rem 0;
   margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  line-height: 1.25;
+  text-transform: none;
+  line-height: 1.5;
 }
 
 .c-toc--level-1 .c-toc__item {
   text-transform: none;
   margin-bottom: 0;
+  border-right: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 @media (min-width: 62em) {
   .c-toc__item {
     margin-bottom: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .c-toc__item:first-of-type {
+    padding-left: 0;
+  }
+  .c-toc__item:not(last) {
+    border-right: 1px solid #fff;
+  }
+  .c-toc__item:last-of-type {
+    border-right: 0;
   }
 }
 
