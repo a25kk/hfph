@@ -77,6 +77,9 @@ define([
                     event.preventDefault();
                     console.log("Navigation Dropdown Open Event");
                     currentDropDown.classList.remove(options.menuDropdownDisabled);
+                    let backLink = '<li class="c-nav__item c.nav__item--parent">Parent Link (X)</li>',
+                        backLinkElement = document.createElement(backLink);
+                    currentDropDown.insertBefore(backLinkElement, currentDropDown.firstChild);
                 } else {
                     if (element !== element) {
 

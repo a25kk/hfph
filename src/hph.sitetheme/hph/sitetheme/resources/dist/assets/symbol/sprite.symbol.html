@@ -19,19 +19,21 @@ They might well be outsourced to an external stylesheet of course.
 -->
 
 <style type="text/css">
-	o-icon-check-dims { width: 18px; height: 14px; }
-	o-icon-dots-dims { width: 36px; height: 36px; }
-	o-icon-menu-dims { width: 36px; height: 36px; }
-	o-icon-plone-dims { width: 36px; height: 36px; }
-	o-icon-ui-hide-dims { width: 64px; height: 64px; }
-	o-icon-ui-link-dims { width: 64px; height: 64px; }
-	o-icon-ui-pen-dims { width: 64px; height: 64px; }
-	o-icon-ui-plus-dims { width: 64px; height: 64px; }
-	o-icon-ui-plus-sign-dims { width: 64px; height: 64px; }
-	o-icon-ui-see-dims { width: 64px; height: 64px; }
-	o-icon-ui-tile-dims { width: 100px; height: 100px; }
-	o-icon-warning-dims { width: 36px; height: 36px; }
-	o-icon-widget-text-block-dims { width: 64px; height: 64px; }
+	o-icon__icon-check-dims { width: 18px; height: 14px; }
+	o-icon__icon-dots-dims { width: 36px; height: 36px; }
+	o-icon__icon-menu-dims { width: 36px; height: 36px; }
+	o-icon__icon-plone-dims { width: 36px; height: 36px; }
+	o-icon__icon-ui-hide-dims { width: 64px; height: 64px; }
+	o-icon__icon-ui-link-dims { width: 64px; height: 64px; }
+	o-icon__icon-ui-pen-dims { width: 64px; height: 64px; }
+	o-icon__icon-ui-plus-dims { width: 64px; height: 64px; }
+	o-icon__icon-ui-plus-sign-dims { width: 64px; height: 64px; }
+	o-icon__icon-ui-see-dims { width: 64px; height: 64px; }
+	o-icon__icon-ui-tile-dims { width: 100px; height: 100px; }
+	o-icon__icon-widget-text-block-dims { width: 64px; height: 64px; }
+	o-icon__ui--dots-dims { width: 36px; height: 36px; }
+	o-icon__ui--warning-dims { width: 36px; height: 36px; }
+	o-icon__widget--text-block-dims { width: 64px; height: 64px; }
 </style>
 <!--
 ====================================================================================================
@@ -65,8 +67,10 @@ for further details on how to create this embeddable sprite variant.
 		<symbol id="icon-ui-plus-sign" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><style>.ist4{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#4a4a4a;stroke-width:2;stroke-miterlimit:10}</style><circle cx="32" cy="32" r="19.677" fill="none" stroke="#4a4a4a" stroke-miterlimit="10" stroke-width="2"/><path d="M23.337 32h17.326M32 23.337v17.326" class="ist4"/></symbol>
 		<symbol id="icon-ui-see" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><style>.jst3{fill:none;stroke:#4a4a4a;stroke-width:2;stroke-miterlimit:10}</style><path d="M54.094 32S44.202 45.824 32 45.824 9.906 32 9.906 32 19.798 18.176 32 18.176 54.094 32 54.094 32z" class="jst3"/><circle cx="32" cy="32" r="13.824" class="jst3"/><circle cx="32" cy="32" r="3.206" fill="#4a4a4a"/></symbol>
 		<symbol class="ko-icon--svg" id="icon-ui-tile" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><style>.ko-icon__tile--path{fill:none;stroke:currentColor;stroke-width:2;stroke-miterlimit:10}</style><path d="M13 13h16.215v16.858H13zm21.785 0H51v16.858H34.785zM13 34.142h16.215V51H13zm21.785 0H51V51H34.785z" class="ko-icon__tile--path"/></symbol>
-		<symbol viewBox="0 0 36 36" id="icon-warning" xmlns="http://www.w3.org/2000/svg"><g fill-rule="evenodd"><path d="M6.714 29h22.572L18 9.032 6.714 29zm26 2H3.286L18 4.968 32.714 31z"/><path d="M19.5 26a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 19.5 26zM17 23h2v-9h-2z"/></g></symbol>
 		<symbol viewBox="0 0 64 64" id="icon-widget-text-block" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M49.29 11.052H14.71v7.773h13.728v34.123h7.772V18.825h13.08z"/></symbol>
+		<symbol viewBox="0 0 36 36" id="ui--dots" xmlns="http://www.w3.org/2000/svg"><path d="M8 16c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4M8 26c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4M8 6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4" fill-rule="evenodd"/></symbol>
+		<symbol viewBox="0 0 36 36" id="ui--warning" xmlns="http://www.w3.org/2000/svg"><g fill-rule="evenodd"><path d="M6.714 29h22.572L18 9.032 6.714 29zm26 2H3.286L18 4.968 32.714 31z"/><path d="M19.5 26a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 19.5 26zM17 23h2v-9h-2z"/></g></symbol>
+		<symbol viewBox="0 0 64 64" id="widget--text-block" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M49.29 11.052H14.71v7.773h13.728v34.123h7.772V18.825h13.08z"/></symbol>
 </svg>
 
 <!--
@@ -100,7 +104,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 						
 						<!-- icon-check -->
-						<svg class="o-icon-check-dims">
+						<svg class="o-icon__icon-check-dims">
 							<use xlink:href="#icon-check"></use>
 						</svg>
 						
@@ -111,7 +115,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 						
 						<!-- icon-dots -->
-						<svg class="o-icon-dots-dims">
+						<svg class="o-icon__icon-dots-dims">
 							<use xlink:href="#icon-dots"></use>
 						</svg>
 						
@@ -122,7 +126,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 						
 						<!-- icon-menu -->
-						<svg class="o-icon-menu-dims">
+						<svg class="o-icon__icon-menu-dims">
 							<use xlink:href="#icon-menu"></use>
 						</svg>
 						
@@ -133,7 +137,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 						
 						<!-- icon-plone -->
-						<svg class="o-icon-plone-dims">
+						<svg class="o-icon__icon-plone-dims">
 							<use xlink:href="#icon-plone"></use>
 						</svg>
 						
@@ -144,7 +148,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 						
 						<!-- icon-ui-hide -->
-						<svg class="o-icon-ui-hide-dims">
+						<svg class="o-icon__icon-ui-hide-dims">
 							<use xlink:href="#icon-ui-hide"></use>
 						</svg>
 						
@@ -155,7 +159,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 						
 						<!-- icon-ui-link -->
-						<svg class="o-icon-ui-link-dims">
+						<svg class="o-icon__icon-ui-link-dims">
 							<use xlink:href="#icon-ui-link"></use>
 						</svg>
 						
@@ -166,7 +170,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 						
 						<!-- icon-ui-pen -->
-						<svg class="o-icon-ui-pen-dims">
+						<svg class="o-icon__icon-ui-pen-dims">
 							<use xlink:href="#icon-ui-pen"></use>
 						</svg>
 						
@@ -177,7 +181,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 						
 						<!-- icon-ui-plus -->
-						<svg class="o-icon-ui-plus-dims">
+						<svg class="o-icon__icon-ui-plus-dims">
 							<use xlink:href="#icon-ui-plus"></use>
 						</svg>
 						
@@ -188,7 +192,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 						
 						<!-- icon-ui-plus-sign -->
-						<svg class="o-icon-ui-plus-sign-dims">
+						<svg class="o-icon__icon-ui-plus-sign-dims">
 							<use xlink:href="#icon-ui-plus-sign"></use>
 						</svg>
 						
@@ -199,7 +203,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 						
 						<!-- icon-ui-see -->
-						<svg class="o-icon-ui-see-dims">
+						<svg class="o-icon__icon-ui-see-dims">
 							<use xlink:href="#icon-ui-see"></use>
 						</svg>
 						
@@ -210,34 +214,56 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 						
 						<!-- icon-ui-tile -->
-						<svg class="o-icon-ui-tile-dims">
+						<svg class="o-icon__icon-ui-tile-dims">
 							<use xlink:href="#icon-ui-tile"></use>
 						</svg>
 						
 					</div>
 					<h2>icon-ui-tile</h2>
 				</li>
-				<li title="icon-warning">
-					<div class="icon-box">
-						
-						<!-- icon-warning -->
-						<svg class="o-icon-warning-dims">
-							<use xlink:href="#icon-warning"></use>
-						</svg>
-						
-					</div>
-					<h2>icon-warning</h2>
-				</li>
 				<li title="icon-widget-text-block">
 					<div class="icon-box">
 						
 						<!-- icon-widget-text-block -->
-						<svg class="o-icon-widget-text-block-dims">
+						<svg class="o-icon__icon-widget-text-block-dims">
 							<use xlink:href="#icon-widget-text-block"></use>
 						</svg>
 						
 					</div>
 					<h2>icon-widget-text-block</h2>
+				</li>
+				<li title="ui--dots">
+					<div class="icon-box">
+						
+						<!-- ui--dots -->
+						<svg class="o-icon__ui--dots-dims">
+							<use xlink:href="#ui--dots"></use>
+						</svg>
+						
+					</div>
+					<h2>ui--dots</h2>
+				</li>
+				<li title="ui--warning">
+					<div class="icon-box">
+						
+						<!-- ui--warning -->
+						<svg class="o-icon__ui--warning-dims">
+							<use xlink:href="#ui--warning"></use>
+						</svg>
+						
+					</div>
+					<h2>ui--warning</h2>
+				</li>
+				<li title="widget--text-block">
+					<div class="icon-box">
+						
+						<!-- widget--text-block -->
+						<svg class="o-icon__widget--text-block-dims">
+							<use xlink:href="#widget--text-block"></use>
+						</svg>
+						
+					</div>
+					<h2>widget--text-block</h2>
 				</li>
 			</ul>
 
@@ -264,7 +290,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 						
 						<!-- icon-check -->
-						<svg class="o-icon-check-dims">
+						<svg class="o-icon__icon-check-dims">
 							<use xlink:href="svg/sprite.symbol.svg#icon-check"></use>
 						</svg>
 						
@@ -275,7 +301,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 						
 						<!-- icon-dots -->
-						<svg class="o-icon-dots-dims">
+						<svg class="o-icon__icon-dots-dims">
 							<use xlink:href="svg/sprite.symbol.svg#icon-dots"></use>
 						</svg>
 						
@@ -286,7 +312,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 						
 						<!-- icon-menu -->
-						<svg class="o-icon-menu-dims">
+						<svg class="o-icon__icon-menu-dims">
 							<use xlink:href="svg/sprite.symbol.svg#icon-menu"></use>
 						</svg>
 						
@@ -297,7 +323,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 						
 						<!-- icon-plone -->
-						<svg class="o-icon-plone-dims">
+						<svg class="o-icon__icon-plone-dims">
 							<use xlink:href="svg/sprite.symbol.svg#icon-plone"></use>
 						</svg>
 						
@@ -308,7 +334,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 						
 						<!-- icon-ui-hide -->
-						<svg class="o-icon-ui-hide-dims">
+						<svg class="o-icon__icon-ui-hide-dims">
 							<use xlink:href="svg/sprite.symbol.svg#icon-ui-hide"></use>
 						</svg>
 						
@@ -319,7 +345,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 						
 						<!-- icon-ui-link -->
-						<svg class="o-icon-ui-link-dims">
+						<svg class="o-icon__icon-ui-link-dims">
 							<use xlink:href="svg/sprite.symbol.svg#icon-ui-link"></use>
 						</svg>
 						
@@ -330,7 +356,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 						
 						<!-- icon-ui-pen -->
-						<svg class="o-icon-ui-pen-dims">
+						<svg class="o-icon__icon-ui-pen-dims">
 							<use xlink:href="svg/sprite.symbol.svg#icon-ui-pen"></use>
 						</svg>
 						
@@ -341,7 +367,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 						
 						<!-- icon-ui-plus -->
-						<svg class="o-icon-ui-plus-dims">
+						<svg class="o-icon__icon-ui-plus-dims">
 							<use xlink:href="svg/sprite.symbol.svg#icon-ui-plus"></use>
 						</svg>
 						
@@ -352,7 +378,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 						
 						<!-- icon-ui-plus-sign -->
-						<svg class="o-icon-ui-plus-sign-dims">
+						<svg class="o-icon__icon-ui-plus-sign-dims">
 							<use xlink:href="svg/sprite.symbol.svg#icon-ui-plus-sign"></use>
 						</svg>
 						
@@ -363,7 +389,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 						
 						<!-- icon-ui-see -->
-						<svg class="o-icon-ui-see-dims">
+						<svg class="o-icon__icon-ui-see-dims">
 							<use xlink:href="svg/sprite.symbol.svg#icon-ui-see"></use>
 						</svg>
 						
@@ -374,34 +400,56 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 						
 						<!-- icon-ui-tile -->
-						<svg class="o-icon-ui-tile-dims">
+						<svg class="o-icon__icon-ui-tile-dims">
 							<use xlink:href="svg/sprite.symbol.svg#icon-ui-tile"></use>
 						</svg>
 						
 					</div>
 					<h2>icon-ui-tile</h2>
 				</li>
-				<li title="icon-warning">
-					<div class="icon-box">
-						
-						<!-- icon-warning -->
-						<svg class="o-icon-warning-dims">
-							<use xlink:href="svg/sprite.symbol.svg#icon-warning"></use>
-						</svg>
-						
-					</div>
-					<h2>icon-warning</h2>
-				</li>
 				<li title="icon-widget-text-block">
 					<div class="icon-box">
 						
 						<!-- icon-widget-text-block -->
-						<svg class="o-icon-widget-text-block-dims">
+						<svg class="o-icon__icon-widget-text-block-dims">
 							<use xlink:href="svg/sprite.symbol.svg#icon-widget-text-block"></use>
 						</svg>
 						
 					</div>
 					<h2>icon-widget-text-block</h2>
+				</li>
+				<li title="ui--dots">
+					<div class="icon-box">
+						
+						<!-- ui--dots -->
+						<svg class="o-icon__ui--dots-dims">
+							<use xlink:href="svg/sprite.symbol.svg#ui--dots"></use>
+						</svg>
+						
+					</div>
+					<h2>ui--dots</h2>
+				</li>
+				<li title="ui--warning">
+					<div class="icon-box">
+						
+						<!-- ui--warning -->
+						<svg class="o-icon__ui--warning-dims">
+							<use xlink:href="svg/sprite.symbol.svg#ui--warning"></use>
+						</svg>
+						
+					</div>
+					<h2>ui--warning</h2>
+				</li>
+				<li title="widget--text-block">
+					<div class="icon-box">
+						
+						<!-- widget--text-block -->
+						<svg class="o-icon__widget--text-block-dims">
+							<use xlink:href="svg/sprite.symbol.svg#widget--text-block"></use>
+						</svg>
+						
+					</div>
+					<h2>widget--text-block</h2>
 				</li>
 			</ul>
 
@@ -411,7 +459,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 
 		</section>
 		<footer>
-			<p>Generated at Wed, 09 Jan 2019 12:27:11 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+			<p>Generated at Thu, 10 Jan 2019 11:47:58 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
 		</footer>
 	</body>
 </html>

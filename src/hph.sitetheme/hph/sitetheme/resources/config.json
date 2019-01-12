@@ -133,9 +133,8 @@
     },
     "sprite": {
         "mode": {
-            "inline": true,
             "symbol": {
-                "prefix": "o-",
+                "prefix": "o-icon__",
                 "example": true,
                 "render": {
                     "scss": true
