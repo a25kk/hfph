@@ -37,6 +37,7 @@
 
 // Component Settings
 @import 'settings/settings.identifier';
+@import 'settings/settings.component.pagination';
 @import 'settings/settings.component.widgets';
 @import 'settings/settings.quick-links';
 @import 'settings/settings.nav-bar';
@@ -91,11 +92,13 @@
 @import 'components/media';
 @import 'components/component.alerts';
 @import 'components/component.configlets';
+@import 'components/component.pagination';
 @import 'components/pathbar';
 // @import 'components/brand';
 @import 'components/component.navlist';
 @import 'components/component.nav-bar';
 @import 'components/component.nav';
+@import 'components/component.nav-list';
 @import 'components/component.quick-links';
 @import 'components/component.banner';
 @import 'components/component.snippet';

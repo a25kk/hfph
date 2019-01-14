@@ -67,6 +67,37 @@
         </a>
     </xsl:template>
 
+    <xsl:template name="pagination-list">
+        <ul class="c-pagination__list">
+            <xsl:apply-templates />
+        </ul>
+    </xsl:template>
+    <xsl:template name="pagination-list-item">
+        <li class="c-pagination__list-item">
+            <xsl:choose>
+                <xsl:when css:test=".active">
+                    <xsl:attribute name="class">c-pagination__list-item c-pagination__list-item--active</xsl:attribute>
+                </xsl:when>
+                <xsl:when css:test=".previous">
+                    <xsl:attribute name="class">c-pagination__list-item c-pagination__list-item--previous</xsl:attribute>
+                </xsl:when>
+                <xsl:when css:test=".next">
+                    <xsl:attribute name="class">c-pagination__list-item c-pagination__list-item--next</xsl:attribute>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:attribute name="class">c-pagination__list-item</xsl:attribute>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:apply-templates />
+        </li>
+    </xsl:template>
+    <xsl:template name="pagination-link">
+        <a class="c-pagination__link">
+            <xsl:attribute name="href"><xsl:value-of select="@href" /></xsl:attribute>
+            <xsl:apply-templates />
+        </a>
+    </xsl:template>
+
 
     <!-- Setup custom login form -->
     <theme href="dist/signin/index.html" css:if-content="body.template-login" />
@@ -171,6 +202,24 @@
             </ol>
         </replace>
         <replace css:theme-children="#app-pathbar" css:content="#portal-breadcrumbs" />
+
+        <!-- pagination -->
+        <replace css:content=".pagination > ul">
+            <xsl:call-template name="pagination-list" />
+        </replace>
+        <replace css:content=".pagination > ul > li">
+            <xsl:call-template name="pagination-list-item" />
+        </replace>
+        <replace css:content=".pagination > ul > li > a">
+            <xsl:call-template name="pagination-link" />
+        </replace>
+
+        <replace css:content=".pagination">
+            <div class="c-pagination">
+                    <xsl:apply-templates />
+            </div>
+        </replace>
+
 
         <!-- PAGE RULES -->
 
@@ -474,8 +523,8 @@
             <xsl:call-template name="nav-tree-item" />
         </replace>
         <replace css:content=".navTreeItem > a">
-            <xsl:call-template name="nav-tree-link" />
-        </replace>
+        <xsl:call-template name="nav-tree-link" />
+    </replace>
 
         <!-- Portlets-->
         <replace css:content=".portletNavigationTree" css:if-content=".template-overview-controlpanel">
