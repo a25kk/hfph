@@ -11263,7 +11263,7 @@ img[data-sizes="auto"] {
   }
 }
 
-.c-nav__item--back-link {
+.c-nav__item--back-link, .c-nav__item--parent {
   background-color: #dee2e6;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11431,7 +11431,7 @@ img[data-sizes="auto"] {
   width: 50vw;
   height: calc(100vh - 60px);
   margin: 2rem 0 0;
-  background-color: #fff;
+  background-color: #182f7a;
   -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
           box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   -webkit-transition: right .25s linear;
