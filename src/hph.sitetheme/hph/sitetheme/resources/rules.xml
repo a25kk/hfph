@@ -7,11 +7,11 @@
 
     <!-- Template for navigation tree rewrites -->
     <xsl:template name="nav-tree">
-        <div class="app-card app-card--nav app-nav-list">
-            <div class="app-card__header app-card__header--nav-list app-card__header--hidden">
+        <div class="c-card c-card--nav c-nav-list">
+            <div class="c-card__header c-card__header--nav-list c-card__header--hidden">
                 Navigation
             </div>
-            <div class="app-card__main">
+            <div class="c-card__main">
                 <nav class="app-nav-tree">
                     <xsl:apply-templates select="./nav/*"/>
                 </nav>
@@ -64,6 +64,37 @@
             <xsl:copy-of select="./a/@*[local-name() != 'class']"/>
             <!--<xsl:attribute name="class"><xsl:value-of select="./@class" /> app-nav-list-link</xsl:attribute>-->
             <xsl:copy-of select="./text()" />
+        </a>
+    </xsl:template>
+
+    <xsl:template name="pagination-list">
+        <ul class="c-pagination__list">
+            <xsl:apply-templates />
+        </ul>
+    </xsl:template>
+    <xsl:template name="pagination-list-item">
+        <li class="c-pagination__list-item">
+            <xsl:choose>
+                <xsl:when css:test=".active">
+                    <xsl:attribute name="class">c-pagination__list-item c-pagination__list-item--active</xsl:attribute>
+                </xsl:when>
+                <xsl:when css:test=".previous">
+                    <xsl:attribute name="class">c-pagination__list-item c-pagination__list-item--previous</xsl:attribute>
+                </xsl:when>
+                <xsl:when css:test=".next">
+                    <xsl:attribute name="class">c-pagination__list-item c-pagination__list-item--next</xsl:attribute>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:attribute name="class">c-pagination__list-item</xsl:attribute>
+                </xsl:otherwise>
+            </xsl:choose>
+            <xsl:apply-templates />
+        </li>
+    </xsl:template>
+    <xsl:template name="pagination-link">
+        <a class="c-pagination__link">
+            <xsl:attribute name="href"><xsl:value-of select="@href" /></xsl:attribute>
+            <xsl:apply-templates />
         </a>
     </xsl:template>
 
@@ -172,6 +203,24 @@
         </replace>
         <replace css:theme-children="#app-pathbar" css:content="#portal-breadcrumbs" />
 
+        <!-- pagination -->
+        <replace css:content=".pagination > ul">
+            <xsl:call-template name="pagination-list" />
+        </replace>
+        <replace css:content=".pagination > ul > li">
+            <xsl:call-template name="pagination-list-item" />
+        </replace>
+        <replace css:content=".pagination > ul > li > a">
+            <xsl:call-template name="pagination-link" />
+        </replace>
+
+        <replace css:content=".pagination">
+            <div class="c-pagination">
+                    <xsl:apply-templates />
+            </div>
+        </replace>
+
+
         <!-- PAGE RULES -->
 
         <!-- Document First Heading -->
@@ -192,21 +241,21 @@
         <replace css:content=".image-inline">
             <xsl:copy>
                 <xsl:copy-of select="@*" />
-                <xsl:attribute name="class">app-img app-page__image</xsl:attribute>
+                <xsl:attribute name="class">o-image app-page__image</xsl:attribute>
                 <xsl:apply-templates />
             </xsl:copy>
         </replace>
         <replace css:content=".image-left">
             <xsl:copy>
                 <xsl:copy-of select="@*" />
-                <xsl:attribute name="class">app-img app-page__image</xsl:attribute>
+                <xsl:attribute name="class">o-image app-page__image</xsl:attribute>
                 <xsl:apply-templates />
             </xsl:copy>
         </replace>
         <replace css:content=".image-right">
             <xsl:copy>
                 <xsl:copy-of select="@*" />
-                <xsl:attribute name="class">app-img app-page__image</xsl:attribute>
+                <xsl:attribute name="class">o-image app-page__image</xsl:attribute>
                 <xsl:apply-templates />
             </xsl:copy>
         </replace>
@@ -343,16 +392,16 @@
                 <xsl:if test="not(*[@class='widget']) and not(table)">
                     <xsl:choose>
                         <xsl:when css:test="[type='radio']">
-                            <xsl:attribute name="class">form__group form__field form__field--radio</xsl:attribute>
+                            <xsl:attribute name="class">o-form__group form__field form__field--radio</xsl:attribute>
                         </xsl:when>
                         <xsl:when css:test="[type='checkbox']">
-                            <xsl:attribute name="class">form__group form__field form__field--checkbox</xsl:attribute>
+                            <xsl:attribute name="class">o-form__group form__field form__field--checkbox</xsl:attribute>
                         </xsl:when>
                         <xsl:when css:test="[type='file']">
-                            <xsl:attribute name="class">form__group form__field form__field--file-input</xsl:attribute>
+                            <xsl:attribute name="class">o-form__group form__field form__field--file-input</xsl:attribute>
                         </xsl:when>
                         <xsl:when css:test="[type='password']">
-                            <xsl:attribute name="class">form__group form__field form__field--password</xsl:attribute>
+                            <xsl:attribute name="class">o-form__group form__field form__field--password</xsl:attribute>
                         </xsl:when>
                     </xsl:choose>
                 </xsl:if>
@@ -405,7 +454,7 @@
                 <xsl:when css:test="[type='text'][name$='.title'],#title, textarea">
                     <xsl:copy>
                         <xsl:copy-of select="@*" />
-                        <xsl:attribute name="class"><xsl:value-of select="./@class" /> form__control</xsl:attribute>
+                        <xsl:attribute name="class"><xsl:value-of select="./@class" /> o-form__control o-form__control--text</xsl:attribute>
                         <xsl:apply-templates />
                     </xsl:copy>
                 </xsl:when>
@@ -445,7 +494,7 @@
         <replace css:content=".formControls">
             <xsl:copy>
                 <xsl:copy-of select="@*" />
-                <xsl:attribute name="class"><xsl:value-of select="./@class" /> o-form__actions</xsl:attribute>
+                <xsl:attribute name="class"><xsl:value-of select="./@class" /> c-form__actions</xsl:attribute>
                 <xsl:apply-templates />
             </xsl:copy>
         </replace>
@@ -474,8 +523,8 @@
             <xsl:call-template name="nav-tree-item" />
         </replace>
         <replace css:content=".navTreeItem > a">
-            <xsl:call-template name="nav-tree-link" />
-        </replace>
+        <xsl:call-template name="nav-tree-link" />
+    </replace>
 
         <!-- Portlets-->
         <replace css:content=".portletNavigationTree" css:if-content=".template-overview-controlpanel">

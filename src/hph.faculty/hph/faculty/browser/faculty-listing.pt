@@ -1,0 +1,88 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.faculty">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+        <div class="o-page__content o-grid o-grid--gutter">
+            <div class="o-grid__item o-grid__item--width-25">
+                <aside class="o-aside" id="app-sidebar">
+                    <div tal:replace="structure python:context.restrictedTraverse('@@faculty-listing-filter')()" />
+                </aside>
+            </div>
+            <div class="o-grid__item o-grid__item--width-75">
+                <header class="o-page__header">
+                    <div class="o-page__title">
+                        <h1 class="o-page__headline" tal:content="context/Title">
+                            Title
+                        </h1>
+                    </div>
+                    <p class="o-page__abstract" tal:condition="context/Description">
+                            ${context/Description}
+                    </p>
+                </header>
+                <div class="o-page__main">
+                    <div class="o-page__section">
+                        <div class="c-list" tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                                                        b_size python:int(request.get('b_size', 5));
+                                                        b_start python:int(request.get('b_start', 0));
+                                                        results view/faculty_members;
+                                                        batch python:Batch(results, b_size, b_start);">
+                            <tal:list tal:repeat="item batch">
+                                <div class="c-list__item">
+                                    <div class="c-snippet c-snippet--default c-snippet--${item/UID}">
+                                        <div class="c-snippet__main">
+                                            <div class="app-snippet__section">
+                                                <div class="app-snippet__title">
+                                                    <a class="app-snippet__link" href="${item/getURL}">
+                                                            ${item/Title}
+                                                    </a>
+                                                </div>
+                                                <div class="app-snippet__abstract" tal:condition="context/Description">
+                                                    <a class="app-snippet__link" href="${item/getURL}">
+                                                            ${item/Description}
+                                                    </a>
+                                                </div>
+                                                <div class="c-snippet__section">
+                                                    <p class="app-page-department" tal:condition="item/department"
+                                                             tal:content="item/department" />
+                                                    <p tal:condition="item/sidenote"
+                                                             tal:content="item/sidenote" />
+                                                </div>
+                                            </div>
+                                            <div class="c-snippet__footer">
+                                                <a class="c-snippet__link" tal:attributes="href string:mailto:${item/email}"
+                                                         tal:content="item/email" />
+                                            </div>
+                                        </div>
+                                        <div class="c-snippet__aside" tal:condition="python:item.image">
+                                            <div class="o-figure c-snippet__figure"
+                                                     tal:define="responsive_image python:item.getObject().restrictedTraverse('@@figure')(image_field_name='image', caption_field__name='image', scale='default', lqip=True, lazy_load=True)">
+                                                <a class="c-snippet__link c-snippet__link--figure" href="${item/getURL}">
+                                                    <span tal:replace="structure responsive_image" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </tal:list>
+                            <tal:batchnavigation
+                                    define="batchnavigation nocall:context/@@batchnavigation"
+                                    replace="structure python:batchnavigation(batch)" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

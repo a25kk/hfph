@@ -37,6 +37,7 @@
 
 // Component Settings
 @import 'settings/settings.identifier';
+@import 'settings/settings.component.pagination';
 @import 'settings/settings.component.widgets';
 @import 'settings/settings.quick-links';
 @import 'settings/settings.nav-bar';
@@ -47,6 +48,7 @@
 @import 'generic/generic.fonts';
 @import 'generic/generic.fonts.custom';
 @import 'generic/generic.syntax';
+@import 'generic/generic.aspect-ratio';
 
 @import 'vendors/bootstrap';
 @import 'vendors/dropmic';
@@ -74,6 +76,7 @@
 @import 'objects/object.dropdown';
 @import 'objects/object.form';
 @import 'objects/object.switch';
+@import 'objects/object.figure';
 
 // Components
 @import 'components/component.app-header';
@@ -89,13 +92,16 @@
 @import 'components/media';
 @import 'components/component.alerts';
 @import 'components/component.configlets';
+@import 'components/component.pagination';
 @import 'components/pathbar';
 // @import 'components/brand';
 @import 'components/component.navlist';
 @import 'components/component.nav-bar';
 @import 'components/component.nav';
+@import 'components/component.nav-list';
 @import 'components/component.quick-links';
 @import 'components/component.banner';
+@import 'components/component.snippet';
 @import 'components/component.toolbar';
 @import 'components/component.panels';
 @import 'components/component.cards';
