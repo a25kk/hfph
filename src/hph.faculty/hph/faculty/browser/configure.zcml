@@ -14,10 +14,18 @@
     />
 
     <browser:page
-            for="hph.faculty.facultydirectory.IFacultyDirectory"
+            for="*"
             name="faculty-listing-filter"
             class=".faculty.FacultyListingFilter"
             template="faculty-listing-filter.pt"
+            permission="zope2.View"
+    />
+
+    <browser:page
+            for="hph.faculty.facultymember.IFacultyMember"
+            name="faculty-member"
+            class=".faculty.FacultyMember"
+            template="faculty-member.pt"
             permission="zope2.View"
     />
 

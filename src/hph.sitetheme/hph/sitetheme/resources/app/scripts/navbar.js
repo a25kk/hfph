@@ -12,12 +12,14 @@ define([
         containedDropdownClass: "c-nav__item--has-dropdown",
         drawerCloseTrigger: ".js-drawer-close",
         drawerToggle: '.js-dropdown-toggle',
+        drawerToggleClass: 'js-dropdown-toggle',
         dropdownOpenClass: "c-nav__link--open",
         menu: ".c-nav",
         menuContainer: ".app-header",
         menuContainerActive: "app-header--overlay",
         menuContainerOffsetMarker: "app-header--offset",
-        menuDropdown: "c-nav__dropdown",
+        menuDropdown: ".c-nav__dropdown",
+        menuDropdownOpen: "c-nav__dropdown--open",
         menuDropdownDisabled: "c-nav__dropdown--hidden",
         navBar: ".c-nav-bar",
         navBarHidden: "c-nav-bar--hidden",
@@ -63,7 +65,7 @@ define([
         }
     }
 
-    function navigationDrawerOpen(options) {
+    function navigationDrawerToggle(options) {
         // Initialize drop down menu
         let $dropdownToggle = document.querySelectorAll(options.drawerToggle),
             isCurrentToggle = false;
@@ -77,6 +79,13 @@ define([
                     event.preventDefault();
                     console.log("Navigation Dropdown Open Event");
                     currentDropDown.classList.remove(options.menuDropdownDisabled);
+                    currentDropDown.classList.add(options.menuDropdownOpen);
+                    let backLinkElement = document.createElement('li'),
+                        backLinkText = document.createTextNode('Parent Link (X)');
+                    backLinkElement.classList.add('c-nav__item');
+                    backLinkElement.classList.add('c-nav__item--parent');
+                    backLinkElement.appendChild(backLinkText);
+                    currentDropDown.insertBefore(backLinkElement, currentDropDown.firstChild);
                 } else {
                     if (element !== element) {
 
@@ -89,24 +98,63 @@ define([
     }
 
     function navigationDrawerClose(options) {
-        // Close open active sub level navigation drawers
-        [].forEach.call(document.querySelectorAll(options.drawerCloseTrigger), function(el) {
-            el.addEventListener('click', function() {
-                event.preventDefault();
-                event.stopPropagation();
-                console.log("Drawer close triggered");
-                let $elementParent = el.closest(options.menu),
-                    $activeNavLink = document.querySelector(options.dropdownOpenClass),
-                    $menuDropDownContained = document.querySelector(options.containedDropdownClass);
-                $elementParent.classList.add(options.menuDropdownDisabled);
-                setTimeout(function() {
-                    $elementParent.classList.remove(options.menuDropdown);
-                    if ($activeNavLink !== null) {
-                        $activeNavLink.classList.remove(options.dropdownOpenClass);
-                        $menuDropDownContained.classList.remove(options.containedDropdownClass);
-                    }
-                }, 250);
-            })
+        let $activeNavLink = document.querySelector(options.dropdownOpenClass),
+            $menuDropDownContained = document.querySelector(options.containedDropdownClass);
+        //$dropdownElements.classList.add(options.menuDropdownDisabled);
+        [].forEach.call(document.getElementsByClassName(options.menuDropdownOpen), function(el) {
+            el.classList.remove(options.menuDropdownOpen);
+            el.classList.add(options.menuDropdownDisabled);
+        });
+        setTimeout(function() {
+            if ($activeNavLink !== null) {
+                $activeNavLink.classList.remove(options.dropdownOpenClass);
+                $menuDropDownContained.classList.remove(options.containedDropdownClass);
+            }
+        }, 250);
+    }
+
+    function navigationDrawerOpen(el, options) {
+        // Toggle sub level navigation drawers
+        let $dropdownToggle = el,
+            $elementParent = el.closest(options.menu),
+            currentDropDown = el.nextElementSibling,
+            $activeNavLink = document.querySelector(options.dropdownOpenClass),
+            $menuDropDownContained = document.querySelector(options.containedDropdownClass);
+        currentDropDown.classList.remove(options.menuDropdownDisabled);
+        currentDropDown.classList.add(options.menuDropdownOpen);
+        setTimeout(function() {
+            $elementParent.classList.remove(options.menuDropdown);
+            if ($activeNavLink !== null) {
+                $activeNavLink.classList.remove(options.dropdownOpenClass);
+                $menuDropDownContained.classList.remove(options.containedDropdownClass);
+            }
+        }, 250);
+    }
+
+    function navigationDrawer(options) {
+        let navItem = document.getElementsByClassName('c-nav__item--has-children');
+        [].forEach.call(navItem, function(el) {
+            // Setup parent Links
+            let navLink = el.firstChild,
+                navLinkNode = navLink.cloneNode(true),
+                backLinkElement = document.createElement('li'),
+                currentDropDown = el.querySelector(options.menuDropdown);
+            backLinkElement.classList.add('c-nav__item');
+            backLinkElement.classList.add('c-nav__item--parent');
+            navLinkNode.removeAttribute('aria-haspopup');
+            backLinkElement.appendChild(navLinkNode);
+            currentDropDown.insertBefore(backLinkElement, currentDropDown.firstChild);
+        });
+        document.addEventListener('click', function(event) {
+            let element = event.target;
+            console.log(event.target.classList);
+            if (!event.target.classList.contains(options.drawerToggleClass)) {
+                console.log('Close all navigation drawers');
+                navigationDrawerClose(options);
+            } else {
+                console.log('Open navigation drawer');
+                navigationDrawerOpen(element, options);
+            }
         })
     }
 
@@ -114,8 +162,9 @@ define([
         // Add navigation marker
         navigationOffsetMarker(options);
         // Sub Navigation drawer
-        navigationDrawerOpen(options);
-        navigationDrawerClose(options);
+        navigationDrawer(options);
+        //navigationDrawerOpen(options);
+        // navigationDrawerClose(options);
         // Nav bar toggle
         var navBarToggle = Array.prototype.slice.call(document.querySelectorAll(options.navBarToggle));
         navBarToggle.forEach(function(el) {

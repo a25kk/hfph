@@ -110,7 +110,7 @@ class NavTreeProvider(ContentProviderBase):
                 id=normalizer.normalize(it['id']),
                 has_sub_class=' c-nav__item--has-children' if sub else '',
             )
-            out += u'<a href="{url}" class="c-nav__link c-nav__link--default c-nav__link--state-{review_state}">{title}</a>{opener}'.format(  # noqa
+            out += u'<a href="{url}" class="c-nav__link c-nav__link--default c-nav__link--state-{review_state}" aria-haspopup="true">{title}</a>{opener}'.format(  # noqa
                 url=it['url'],
                 review_state=it['review_state'],
                 title=safe_unicode(it['title']),
@@ -120,7 +120,7 @@ class NavTreeProvider(ContentProviderBase):
             out += u'</li>'
 
         if not first_run:
-            base_list = u'<ul class="c-nav c-nav--level-{0} c-nav__dropdown c-nav__dropdown--hidden has_subtree dropdown">'.format(
+            base_list = u'<ul class="c-nav c-nav--level-{0} c-nav__dropdown c-nav__dropdown--hidden has_subtree dropdown" aria-label="submenu">'.format(
                 iteration
             )
             out = base_list + out + u'</ul>' if out else ''

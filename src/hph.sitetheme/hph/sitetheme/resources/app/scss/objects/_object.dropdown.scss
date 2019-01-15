@@ -1,8 +1,11 @@
+$o-dropdown-font:                     $app-font-family-strong;
+
 .o-dropdown {
     position: absolute;
     top: 100%;
     left: 0;
     background-color: $app-color-gray-base;
+    font-family: $o-dropdown-font;
     &--hidden {
         display: none;
     }
@@ -14,12 +17,31 @@
 
 .o-dropdown__list {
     list-style: none;
-    padding: 1rem .5rem;
+    padding: 1rem;
     width: 10rem;
     min-width: 10rem;
 
 }
 
-.o-dropdown__item {
+.o-dropdown__list-item {
     padding: .25rem;
+    &:not(last) {
+        border-bottom: 1px solid $app-color-gray;
+    }
+    &:last-of-type {
+        border-bottom: 0px;
+    }
+}
+
+.o-dropdown__link {
+    color: $app-color-gray;
+    text-transform: uppercase;
+    &:after {
+        content: ">";
+        float: right;
+    }
+}
+
+.o-dropdown__link:hover {
+    text-decoration: none;
 }
