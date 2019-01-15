@@ -1,6 +1,22 @@
+.c-panels {
+    display: block;
+    width: 100%;
+}
+
+.c-panels--header {
+    background-color: $c-panel-primary-bg-color;
+    background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
+}
+
 .c-panel {
     position: relative;
     padding: $c-panel-padding-top $c-panel-padding-right $c-panel-padding-bottom $c-panel-padding-left;
+}
+
+.c-panel--centered {
+    margin-right: auto;
+    margin-left: auto;
+    @include make-container-max-widths();
 }
 
 .c-panel--primary {

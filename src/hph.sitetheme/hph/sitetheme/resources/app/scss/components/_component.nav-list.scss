@@ -1,0 +1,7 @@
+.c-nav-list {
+    @include list-reset();
+}
+
+.c-nav-list__item {
+    padding: .5rem 0;
+}

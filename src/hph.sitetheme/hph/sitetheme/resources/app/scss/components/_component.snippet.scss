@@ -1,0 +1,33 @@
+$c-snippet-display:                 flex;
+$c-snippet-aside-width:             33.3333%;
+$c-snippet-main-width:              66.6666%;
+$c-snippet-flex-direction:          row-reverse;
+$c-snippet-width:                   100%;
+$c-snippet-padding:                 1rem;
+
+.c-snippet {
+    width: $c-snippet-width;
+    display: $c-snippet-display;
+    flex-direction: column-reverse;
+    @include mq($from: lg) {
+        flex-direction: $c-snippet-flex-direction;
+        flex-wrap: wrap;
+    }
+}
+
+.c-snippet__aside {
+    flex: 1 0 100%;
+    @include mq($from: lg) {
+        flex: 1 0 $c-snippet-aside-width;
+        max-width: $c-snippet-aside-width;
+    }
+    padding-right: $c-snippet-padding;
+}
+
+.c-snippet__main {
+    flex: 1 0 100%;
+    @include mq($from: lg) {
+        flex: 1 0 $c-snippet-main-width;
+        max-width: $c-snippet-main-width;
+    }
+}

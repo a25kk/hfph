@@ -1,0 +1,26 @@
+<div class="c-card c-card-nav c-card--faculty"
+         i18n:domain="hph.faculty"
+         tal:define="active_filter request/academicRole | nothing">
+    <div class="c-card__header c-card__header--faculty">
+        Filter
+    </div>
+    <div class="c-card__main">
+        <ul class="c-nav-list">
+            <tal:block tal:repeat="filter view/filter_options">
+                <li class="c-nav-list__item"
+                         tal:define="filter_value filter/value;
+                        is_active python:active_filter == filter_value"
+                         tal:attributes="class python:view.computed_klass(filter_value)">
+                    <a class="c-nav-list__link"
+                             tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;academicRole=${filter/value}"
+                             tal:content="filter/title">Filter option</a>
+                </li>
+            </tal:block>
+        </ul>
+    </div>
+    <div class="c-card__footer">
+        <a class="c-button c-button--danger c-button--sm" tal:condition="active_filter"
+                 tal:attributes="href string:${context/absolute_url}">
+            &times; <span i18n:translate="">remove filter</span></a>
+    </div>
+</div>
