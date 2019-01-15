@@ -30,4 +30,14 @@
 
     </genericsetup:upgradeSteps>
 
+    <genericsetup:upgradeSteps
+            title="Update and cleanup five:grok"
+            description="Update typeinfo and register content widgets'"
+            source="1002"
+            destination="1003"
+            profile="hph.sitecontent:default"
+            handler="hph.sitecontent.upgrades.upgrade_1003"
+            sortkey="1"
+    />
+
 </configure>
