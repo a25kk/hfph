@@ -54,8 +54,7 @@
         "jquery/dist/jquery.js",
         "JVFloat/jvfloat.js",
         "lazysizes/lazysizes.js",
-        "lazysizes/plugins/ls.parent-fit.js",
-        "mailcheck/src/mailcheck.js",
+        "lazysizes/plugins/parent-fit/ls.parent-fit.js",
         "requirejs/require.js",
         "respimage/respimage.js",
         "x-ray/dist/js/x-ray.js"
