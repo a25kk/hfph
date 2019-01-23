@@ -12357,6 +12357,18 @@ img[data-sizes="auto"] {
   text-transform: uppercase;
 }
 
+.c-widget-selector__item {
+  opacity: .8;
+}
+
+.c-widget-selector__item:hover {
+  opacity: 1;
+}
+
+.c-widget-selector__item--selected {
+  border: 0.0125rem solid #212529;
+}
+
 .app-page {
   width: 100%;
   padding-right: 15px;

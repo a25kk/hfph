@@ -22,3 +22,13 @@ $c-widget-font-family-highlight:          $c-card-font-family-base;
     font-family: $c-widget-font-family-highlight;
     text-transform: uppercase;
 }
+
+.c-widget-selector__item {
+    opacity: .8;
+    &:hover {
+        opacity: 1;
+    }
+    &--selected {
+        border: .0125rem solid $c-toolbar-background;
+    }
+}
