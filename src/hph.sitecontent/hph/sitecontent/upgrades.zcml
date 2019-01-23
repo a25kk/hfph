@@ -30,7 +30,7 @@
 
     </genericsetup:upgradeSteps>
 
-    <genericsetup:upgradeSteps
+    <genericsetup:upgradeStep
             title="Update and cleanup five:grok"
             description="Update typeinfo and register content widgets'"
             source="1002"
