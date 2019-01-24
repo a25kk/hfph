@@ -23,15 +23,16 @@
   },
   "scripts": {
     "app": [
-        "scripts/a25.js",
         "scripts/a25.helpers.js",
-        "scripts/a25.slider.js",
+        "scripts/a25.js",
         "scripts/a25.navbar.js",
+        "scripts/a25.slider.js",
         "scripts/app.js",
         "scripts/dropdown.js",
         "scripts/eventbox.js",
         "scripts/interdependentselect.js",
         "scripts/navbar.js",
+        "scripts/paneleditor.js",
         "scripts/slider.js",
         "scripts/utils.js"
         ],
@@ -54,8 +55,7 @@
         "jquery/dist/jquery.js",
         "JVFloat/jvfloat.js",
         "lazysizes/lazysizes.js",
-        "lazysizes/plugins/ls.parent-fit.js",
-        "mailcheck/src/mailcheck.js",
+        "lazysizes/plugins/parent-fit/ls.parent-fit.js",
         "requirejs/require.js",
         "respimage/respimage.js",
         "x-ray/dist/js/x-ray.js"

@@ -15,10 +15,20 @@ $c-widget-font-family-highlight:          $c-card-font-family-base;
 .c-widget-selector__header {
     padding: .5rem;
     margin-bottom: 1rem;
-    border-bottom: .0125rem solid $c-toolbar-color;
+    border-bottom: .0125rem solid $c-toolbar-background;
 }
 
 .c-widget-selector__headline {
     font-family: $c-widget-font-family-highlight;
     text-transform: uppercase;
+}
+
+.c-widget-selector__item {
+    opacity: .8;
+    &:hover {
+        opacity: 1;
+    }
+    &--selected {
+        border: .0125rem solid $c-toolbar-background;
+    }
 }

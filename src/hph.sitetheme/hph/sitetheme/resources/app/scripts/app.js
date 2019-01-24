@@ -5,6 +5,7 @@ requirejs(['require',
         '/scripts/interdependentselect.js',
         '/scripts/navbar.js',
         '/scripts/dropdown.js',
+        '/scripts/paneleditor.js',
         '/scripts/x-ray.js',
         '/scripts/dropmic.js',
         '/scripts/fontfaceobserver.js',
@@ -16,7 +17,7 @@ requirejs(['require',
         '/scripts/a25.js',
         '/scripts/a25.helpers.js'
     ],
-    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, xray, Dropmic) {
+    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, panelEditor, xray, Dropmic) {
         'use strict';
 
         if (typeof a25 == 'undefined') {
@@ -68,6 +69,9 @@ requirejs(['require',
         // dropdown.init({});
         // Initialize XHR Event Box
         eventbox.init();
+
+        // Panel page and widget editor
+        panelEditor.init();
 
         // Default interdependent select boxes used in module editor
         var _selector_defaults = {

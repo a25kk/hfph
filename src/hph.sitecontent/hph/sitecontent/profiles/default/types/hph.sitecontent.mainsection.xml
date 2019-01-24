@@ -10,14 +10,14 @@
   <property name="icon_expr">string:${portal_url}/folder_icon.png</property>
   <property name="factory">hph.sitecontent.mainsection</property>
   <property name="global_allow">True</property>
-  <property name="filter_content_types">True</property>  
+  <property name="filter_content_types">True</property>
   <property name="allowed_content_types">
     <element value="hph.sitecontent.contentpage" />
   </property>
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">hph.sitecontent.mainsection.IMainSection</property> 
+  <property name="schema">hph.sitecontent.mainsection.IMainSection</property>
   <property name="klass">hph.sitecontent.mainsection.MainSection</property>
 
   <property name="behaviors">
@@ -28,9 +28,9 @@
   <!-- View information -->
   <property name="link_target"></property>
   <property name="immediate_view">view</property>
-  <property name="default_view">view</property>
+  <property name="default_view">section-view</property>
   <property name="view_methods">
-   <element value="view"/>
+   <element value="section-view"/>
   </property>
   <property name="default_view_fallback">False</property>
   <property name="add_permission">cmf.AddPortalContent</property>

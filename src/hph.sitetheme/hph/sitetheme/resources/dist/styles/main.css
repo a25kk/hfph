@@ -12349,12 +12349,24 @@ img[data-sizes="auto"] {
 .c-widget-selector__header {
   padding: .5rem;
   margin-bottom: 1rem;
-  border-bottom: 0.0125rem solid #d9d9d9;
+  border-bottom: 0.0125rem solid #212529;
 }
 
 .c-widget-selector__headline {
   font-family: "TAZ";
   text-transform: uppercase;
+}
+
+.c-widget-selector__item {
+  opacity: .8;
+}
+
+.c-widget-selector__item:hover {
+  opacity: 1;
+}
+
+.c-widget-selector__item--selected {
+  border: 0.0125rem solid #212529;
 }
 
 .app-page {
