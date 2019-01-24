@@ -26,9 +26,9 @@
   <!-- View information -->
   <property name="link_target"></property>
   <property name="immediate_view">view</property>
-  <property name="default_view">view</property>
+  <property name="default_view">faculty-listing</property>
   <property name="view_methods">
-   <element value="view"/>
+   <element value="faculty-listing"/>
   </property>
   <property name="default_view_fallback">False</property>
   <property name="add_permission">cmf.AddPortalContent</property>

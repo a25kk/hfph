@@ -1,0 +1,10 @@
+//
+// Horizontal rules
+//
+
+hr {
+    margin-top: $app-hr-margin;
+    margin-bottom: $app-hr-margin;
+    border: 0;
+    border-top: $app-hr-border-width solid $app-hr-border-color;
+}
