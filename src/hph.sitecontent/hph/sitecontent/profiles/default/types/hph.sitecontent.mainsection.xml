@@ -23,6 +23,9 @@
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+      <element value="ade25.panelpage.behaviors.storage.IContentPanelStorage" />
+      <element value="ade25.panelpage.interfaces.IContentPanelStorageSupport" />
+     <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation" />
    </property>
 
   <!-- View information -->

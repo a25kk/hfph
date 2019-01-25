@@ -10643,6 +10643,40 @@ fieldset[disabled] a.c-button {
           box-shadow: 0 0 0 0.2rem rgba(90, 95, 100, 0.5);
 }
 
+.c-button--danger {
+  color: #900707;
+  border-color: #900707;
+}
+
+.c-button--danger:hover {
+  color: #fff;
+  background-color: #900707;
+  border-color: #900707;
+}
+
+.c-button--danger:focus, .c-button--danger.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(144, 7, 7, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(144, 7, 7, 0.5);
+}
+
+.c-button--danger.disabled, .c-button--danger:disabled {
+  color: #900707;
+  background-color: transparent;
+}
+
+.c-button--danger:not(:disabled):not(.disabled):active, .c-button--danger:not(:disabled):not(.disabled).active,
+.show > .c-button--danger.dropdown-toggle {
+  color: #fff;
+  background-color: #900707;
+  border-color: #900707;
+}
+
+.c-button--danger:not(:disabled):not(.disabled):active:focus, .c-button--danger:not(:disabled):not(.disabled).active:focus,
+.show > .c-button--danger.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(144, 7, 7, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(144, 7, 7, 0.5);
+}
+
 .c-button--primary {
   color: #fff;
   background-color: #5a5f64;
@@ -10783,6 +10817,24 @@ img[data-sizes="auto"] {
   color: #d39e00;
 }
 
+.c-control-panel__header {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-top: 3rem;
+  color: #fff;
+  background: #182f7a;
+  font-family: "TAZ";
+  font-size: 2rem;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+@media (max-width: 1200px) {
+  .c-control-panel__header {
+    font-size: calc(1.2rem + 1.0666666667vw) ;
+  }
+}
+
 .c-configlet,
 .configlets {
   padding-top: 1rem;
@@ -10797,7 +10849,17 @@ img[data-sizes="auto"] {
   padding-top: 1rem;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
+
+.c-configlet > form:not(:first-child),
+.configlets > form:not(:first-child) {
   border-top: 1px solid #5a5f64;
+}
+
+.c-configlet > form > button,
+.configlets > form > button {
+  float: right;
+  width: auto;
 }
 
 .c-pagination {
