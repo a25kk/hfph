@@ -61,6 +61,10 @@ task:build() {
     cd ../ && bin/buildout -Nc development.cfg
 }
 
+task:build:full() {
+    cd ../ && bin/buildout -c development.cfg
+}
+
 task:plone() {
     cd ../ && bin/instance-debug fg
 }

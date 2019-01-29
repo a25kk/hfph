@@ -10,15 +10,15 @@
 @import 'tools/mixins.parentselector.scss';
 
 @import 'vendors/mq';
+@import 'vendors/rfs';
 
 // Settings
-// TODO: refactor variables into details separate settings
-// @import 'settings/variables';
 
 // Global settings
 @import 'settings/settings.config';
 @import 'settings/settings.global';
-@import 'settings/settings.mq';
+@import 'settings/settings.vendor.mq';
+@import 'settings/settings.vendor.rfs';
 
 // Project colors
 @import 'settings/settings.color';
@@ -59,11 +59,13 @@
 // Elements
 @import 'elements/element.html';
 @import 'elements/element.body';
+@import 'elements/element.hr';
 @import 'elements/element.strong';
 @import 'elements/element.button';
 @import 'elements/element.a';
 @import 'elements/element.img';
 @import 'elements/element.p';
+@import 'elements/element.headings';
 
 
 // Objects

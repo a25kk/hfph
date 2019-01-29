@@ -37,15 +37,22 @@
 
 .c-nav-bar__header {
     display: flex;
+    padding-left: 1rem;
+    padding-right: 1rem;
     margin-bottom: 1rem;
     background-color: $app-color-primary;
     color: $white;
     border-bottom: 1px solid $app-color-gray-light;
+    @include mq($from: md) {
+        padding-left: 1rem;
+    }
 }
 
 .c-nav-bar__title {
     width: 100%;
-    padding: 1rem;
+    // padding: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
     font-family: $app-font-family-strong;
     text-transform: uppercase;
     font-size: 1.25rem;
@@ -54,11 +61,11 @@
 
 .c-nav-bar__toggle {
     width: 4rem;
-    align-self: flex-end;
+    // align-self: flex-end;
     line-height: 1;
     background: transparent; // remove default button style
     border: 1px solid transparent; // remove default button style
-    font-size: 3rem;
+    // font-size: 3rem;
     color: $white;
 }
 

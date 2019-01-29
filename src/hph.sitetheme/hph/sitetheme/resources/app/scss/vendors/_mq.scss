@@ -1,5 +1,5 @@
 @charset "UTF-8"; // Fixes an issue where Ruby locale is not set properly
-// See https://github.com/sass-mq/sass-mq/pull/10
+                  // See https://github.com/sass-mq/sass-mq/pull/10
 
 /// Base font size on the `<body>` element
 /// @type Number (unit)
@@ -63,10 +63,6 @@ $mq-static-breakpoint: desktop !default;
 /// If you want to display the currently active breakpoint in the top
 /// right corner of your site during development, add the breakpoints
 /// to this list, ordered by width, e.g. (mobile, tablet, desktop).
-///
-/// @example scss
-///   $mq-show-breakpoints: (mobile, tablet, desktop);
-///   @import 'path/to/mq';
 ///
 /// @type map
 $mq-show-breakpoints: () !default;
@@ -215,7 +211,7 @@ $mq-media-type: all !default;
         }
     }
 
-        // Responsive support is enabled, output rules inside @media queries
+    // Responsive support is enabled, output rules inside @media queries
     @else {
         @if $min-width != 0 { $media-query: '#{$media-query} and (min-width: #{$min-width})'; }
         @if $max-width != 0 { $media-query: '#{$media-query} and (max-width: #{$max-width})'; }

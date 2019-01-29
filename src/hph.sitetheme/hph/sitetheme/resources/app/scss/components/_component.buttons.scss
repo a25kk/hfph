@@ -50,6 +50,10 @@ fieldset[disabled] a.c-button {
     @include button-outline-variant($app-color-gray, $white);
 }
 
+.c-button--danger {
+    @include button-outline-variant($app-color-danger, $white);
+}
+
 .c-button--primary {
     @include button-variant($app-color-gray, $app-color-gray);
 }
