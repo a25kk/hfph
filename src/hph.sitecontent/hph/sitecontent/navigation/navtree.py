@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module providing catalog query based nav trees"""
-from Products.CMFPlone.utils import safe_unicode
+from Products.CMFPlone import utils
 from hph.sitecontent.browser.controlpanel import IHphBaseControlPanelNavigation
 from plone import api
 from plone.app.layout.navigation.root import getNavigationRoot
@@ -67,13 +67,25 @@ class NavTreeProvider(ContentProviderBase):
             'path': {'query': self.nav_tree_path, 'depth': self.nav_tree_depth},
             'portal_type': {'query': types},
             'exclude_from_nav': False,
+            'review_state': 'published',
             'Language': lang_current,
-            'sort_on': 'getObjPositionInParent',
+            'sort_on': 'getObjPositionInParent'
         }
         res = api.content.find(**query)
 
         ret = {}
+
+        # Get current object path for later determine if it's current
+        context_physical_path = self.context.getPhysicalPath()
+        if utils.isDefaultPage(self.context, self.request):
+            context_physical_path = context_physical_path[:-1]
+        context_path = '/'.join(context_physical_path)
+
         for it in res:
+            is_current = False
+            if context_path is not None:
+                # Determine if it's current object
+                is_current = context_path == it.getPath()
             path_key = '/'.join(it.getPath().split('/')[:-1])
             entry = {
                 'id': it.id,
@@ -81,6 +93,7 @@ class NavTreeProvider(ContentProviderBase):
                 'url': it.getURL(),
                 'title': it.Title,
                 'review_state': it.review_state,
+                'is_current': is_current
             }
             if path_key in ret:
                 ret[path_key].append(entry)
@@ -101,26 +114,35 @@ class NavTreeProvider(ContentProviderBase):
             sub = self.build_tree(path + '/' + it['id'],
                                   first_run=False,
                                   iteration=iteration+1)
-            opener = u'<a class="c-nav__link c-nav__link--action js-dropdown-toggle" id="navitem-{uid}" href="#{id}"><span class="c-nav__toggle c-nav__toggle--open">{el}</span></a>'.format(  #noqa
+            opener = u"""<a class="c-nav__link c-nav__link--action 
+                         js-dropdown-toggle" id="navitem-{uid}" href="#{id}">
+                         <span class="c-nav__toggle c-nav__toggle--open">
+                         {el}</span></a>""".format(  #noqa
                 uid=it['uid'],
                 el=self.nav_tree_element_open,
                 id=it['id']
             ) if sub else ''
-            out += u'<li class="c-nav__item c-nav__item--{id}{has_sub_class}">'.format(
+            out += u"""<li class="c-nav__item 
+                    c-nav__item--{id}{has_sub_class}{is_current}">""".format(
                 id=normalizer.normalize(it['id']),
                 has_sub_class=' c-nav__item--has-children' if sub else '',
+                is_current=' c-nav__item--current' if it['is_current'] else ''
             )
-            out += u'<a href="{url}" class="c-nav__link c-nav__link--default c-nav__link--state-{review_state}" aria-haspopup="true">{title}</a>{opener}'.format(  # noqa
+            out += u"""<a href="{url}" class="c-nav__link c-nav__link--default 
+                    c-nav__link--state-{review_state}" aria-haspopup="true">
+                    {title}</a>{opener}""".format(
                 url=it['url'],
                 review_state=it['review_state'],
-                title=safe_unicode(it['title']),
+                title=utils.safe_unicode(it['title']),
                 opener=opener if sub else ''
             )
             out += sub
             out += u'</li>'
 
         if not first_run:
-            base_list = u'<ul class="c-nav c-nav--level-{0} c-nav__dropdown c-nav__dropdown--hidden has_subtree dropdown" aria-label="submenu">'.format(
+            base_list = u"""<ul class="c-nav c-nav--level-{0} c-nav__dropdown 
+                        c-nav__dropdown--hidden has_subtree dropdown" 
+                        aria-label="submenu">""".format(
                 iteration
             )
             out = base_list + out + u'</ul>' if out else ''
