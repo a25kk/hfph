@@ -1,13 +1,17 @@
 // TODO: refactor styles
 .c-nav {
     position: absolute;
-    top: 90px;
+    top: 120px;
     width: 100%;
-    height: calc(100% - 90px);
+    height: calc(100% - 120px);
     overflow: auto;
     padding: 0 1rem;
     list-style: none;
     background-color: $app-color-primary;
+    @include mq($from: md) {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
     @include mq($from: navbar) {
         display: flex;
         flex-direction: row;
@@ -53,9 +57,11 @@
     }
     &--back-link,
     &--parent {
-        background-color: $gray-300;
+        // background-color: lighten($app-color-primary, 10%);
+        border-bottom: .125rem solid $gray-300;
         display: flex;
         padding: 0;
+        margin-bottom: 1rem;
     }
 }
 
@@ -161,10 +167,14 @@
 
 .c-nav__toggle {
     display: inline-block;
-    margin-top: .5rem;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
     padding: 0;
     width: 2rem;
     height: 2rem;
+    border: 1px solid $gray-300;
+    border-radius: 50%;
     @include mq($from: navbar) {
         display: none;
     }
@@ -180,14 +190,17 @@
     top: 4rem;
     right: 0;
     z-index: 1002;
-    width: 50vw;
+    width: 90vw;
     height: calc(100vh - 60px);
     margin: 2rem 0 0;
     background-color: $app-color-primary;
     // box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     transition:right .25s linear;
-    // @include mq($from: navbar) {
+    @include mq($from: md) {
+        width: 50vw;
+    }
+    @include mq($from: navbar) {
     //     display: none;
     //     position: absolute;
     //     top: 100%;
@@ -195,7 +208,7 @@
     //     z-index: $zindex-dropdown;
     //     float: left;
     //     width: 50vw;
-    // }
+    }
 }
 
 .c-nav__dropdown--hidden {

@@ -16,8 +16,8 @@ define([
         [].forEach.call(widgetSelect, function(element) {
             element.addEventListener('click', function(event) {
                 console.log('Selected: ' + event.target);
-            };
-        };
+            });
+        });
     }
 
     function initializePanelEditor(options) {
