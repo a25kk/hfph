@@ -11,29 +11,12 @@
     <metal:content-core define-macro="main">
 
         <section class="o-page__section">
-            <h2 class="o-page__section-title">Page Header Section Panels</h2>
             <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context.UID(), section='header', mode='view')"></tal:content-panels>
         </section>
 
-        <div class="c-panel-editor__header">
-            <div class="c-toolbar c-toolbar--primary">
-                <div class="c-toolbar__content">
-                    <div class="c-toolbar__item">
-                        <div class="c-toolbar__title">
-                            Panel Page
-                        </div>
-                    </div>
-                    <div class="c-toolbar__item">
-                        <div class="c-toolbar__actions">
-                            <a class="c-toolbar__action c-button c-button--default" href="/@@panels-cancel"
-                                     tal:attributes="href python:context.absolute_url() + '/@@panel-page-view'" i18n:translate="">
-                                Edit
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <tal:toolbar tal:replace="structure python:context.restrictedTraverse('@@panel-editor-toolbar')()">
+            Content Panel Toolbar
+        </tal:toolbar>
 
         <header class="o-page__header">
             <div class="o-page__title">
@@ -46,30 +29,15 @@
             </p>
         </header>
 
-        <section class="o-page__section">
-           <div class="c-alert c-alert--default">
-               <h4 class="c-alert__title">Content Panels</h4>
-               <p>Preview a panel page editor preview click dummy:</p>
-               <p>
-                   <a class="c-button c-button--default"
-                            tal:attributes="href python:context.absolute_url() + '/@@panel-page-view'">
-                       Edit Content Panels (Demo)
-                   </a>
-               </p>
-           </div>
-        </section>
-
         <div class="o-page__main" tal:define="context_uid context/UID">
 
             <section class="o-page__section">
-                <h2 class="o-page__section-title">Page Main Section Panels</h2>
                 <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context.UID(), section='main', mode='view')"></tal:content-panels>
             </section>
         </div>
 
         <div class="o-page__footer">
             <section class="o-page__section">
-                <h2 class="o-page__section-title">Page Footer Section Panels</h2>
                 <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context.UID(), section='footer', mode='view')"></tal:content-panels>
             </section>
         </div>

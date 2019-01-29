@@ -523,8 +523,8 @@
             <xsl:call-template name="nav-tree-item" />
         </replace>
         <replace css:content=".navTreeItem > a">
-        <xsl:call-template name="nav-tree-link" />
-    </replace>
+            <xsl:call-template name="nav-tree-link" />
+        </replace>
 
         <!-- Portlets-->
         <replace css:content=".portletNavigationTree" css:if-content=".template-overview-controlpanel">
@@ -565,6 +565,23 @@
                 </xsl:for-each>
             </div>
         </replace>
+
+        <rules css:if-content=".template-prefs_install_products_form">
+            <replace css:content=".portlet:not(.portletNavigationTree)">
+                <xsl:copy>
+                    <xsl:copy-of select="@*" />
+                    <xsl:attribute name="class"><xsl:value-of select="./@class" /> c-control-panel</xsl:attribute>
+                    <xsl:apply-templates />
+                </xsl:copy>
+            </replace>
+            <replace css:content=".portlet:not(.portletNavigationTree) .portletHeader">
+                <xsl:copy>
+                    <xsl:copy-of select="@*" />
+                    <xsl:attribute name="class">c-control-panel__header</xsl:attribute>
+                    <xsl:apply-templates />
+                </xsl:copy>
+            </replace>
+        </rules>
 
         <after css:theme-children="#app-page-contact"
                css:content-children="#app-contact-viewlet-cards" />
