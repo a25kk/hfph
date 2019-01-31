@@ -693,7 +693,12 @@ html {
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@-ms-viewport {
+  width: device-width;
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -837,6 +842,7 @@ pre {
   margin-top: 0;
   margin-bottom: 1rem;
   overflow: auto;
+  -ms-overflow-style: scrollbar;
 }
 
 figure {
@@ -4592,50 +4598,6 @@ input[type="button"].btn-block {
 }
 
 .custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::before {
-  background-color: rgba(0, 123, 255, 0.5);
-}
-
-.custom-switch {
-  padding-left: 2.25rem;
-}
-
-.custom-switch .custom-control-label::before {
-  left: -2.25rem;
-  width: 1.75rem;
-  pointer-events: all;
-  border-radius: 0.5rem;
-}
-
-.custom-switch .custom-control-label::after {
-  top: calc(0.4375rem + 2px);
-  left: calc(-2.25rem + 2px);
-  width: calc(1rem - 4px);
-  height: calc(1rem - 4px);
-  background-color: #adb5bd;
-  border-radius: 0.5rem;
-  -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-  -o-transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
-}
-
-@media screen and (prefers-reduced-motion: reduce) {
-  .custom-switch .custom-control-label::after {
-    -webkit-transition: none;
-    -o-transition: none;
-    transition: none;
-  }
-}
-
-.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
-  background-color: #fff;
-  -webkit-transform: translateX(0.75rem);
-      -ms-transform: translateX(0.75rem);
-          transform: translateX(0.75rem);
-}
-
-.custom-switch .custom-control-input:disabled:checked ~ .custom-control-label::before {
   background-color: rgba(0, 123, 255, 0.5);
 }
 
@@ -11456,7 +11418,7 @@ img[data-sizes="auto"] {
   top: 120px;
   width: 100%;
   height: calc(100% - 120px);
-  overflow: auto;
+  overflow: visible;
   padding: 0 1rem;
   list-style: none;
   background-color: #182f7a;
@@ -11550,6 +11512,9 @@ img[data-sizes="auto"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .c-nav__link {
@@ -11559,6 +11524,9 @@ img[data-sizes="auto"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
   padding-top: .75rem;
   padding-bottom: .75rem;
   text-decoration: none;
@@ -11583,10 +11551,14 @@ img[data-sizes="auto"] {
   }
 }
 
+.c-nav__item--current > .c-nav__link {
+  color: #eed343;
+}
+
 .c-nav__link:hover {
   text-decoration: none;
   background: transparent;
-  color: #6c757d;
+  color: #eed343;
 }
 
 .c-nav__link--active, .c-nav__link--open {
@@ -11610,18 +11582,20 @@ img[data-sizes="auto"] {
   }
 }
 
-.c-nav__item--has-children .c-nav__link {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 95%;
-          flex: 1 0 95%;
-}
-
 .c-nav__link--action {
-  -webkit-box-flex: 1 !important;
-      -ms-flex: 1 0 5% !important;
-          flex: 1 0 5% !important;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  width: 4rem;
+  padding-right: 1rem;
+  padding-left: 2rem;
   -ms-flex-item-align: end;
       align-self: flex-end;
+}
+
+.c-nav__item--parent .c-nav__link--action {
+  width: 2rem;
+  padding-left: .25rem;
 }
 
 .c-nav__link--back-link {

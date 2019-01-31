@@ -25,7 +25,8 @@ define([
         navBarHidden: "c-nav-bar--hidden",
         navBarOverlay: "c-nav-bar--overlay",
         navBarToggle: ".js-nav-toggle",
-        navBarToggleActiveClass: ".js-nav-toggle--active"
+        navBarToggleActiveClass: "js-nav-toggle--active",
+        navBarToggleCloseClass: "js-nav-toggle--close"
     };
 
     function navigationOffsetMarker(options) {
@@ -46,6 +47,13 @@ define([
             $menuContainerActiveClass = options.menuContainerActive,
             $navBar = document.querySelector(options.navBar);
         if ($navBar !== null) {
+            if (element.classList.contains(options.navBarToggleCloseClass)) {
+                console.log('Menu close action');
+                navigationDrawerClose(options);
+                element.classList.remove(options.navBarToggleActiveClass);
+            } else {
+                element.classList.add(options.navBarToggleActiveClass);
+            }
             $navBar.classList.toggle(options.navBarOverlay);
             $navBar.classList.toggle(options.navBarHidden);
             $menuContainer.classList.toggle($menuContainerActiveClass);
@@ -54,7 +62,8 @@ define([
                 $menuContainer.classList.toggle(options.backdropClass);
             }
             element.classList.toggle(options.navBarToggleActiveClass);
-            let $activeNavLink = document.querySelector(options.dropdownOpenClass),
+            console.log('Is active');
+            let $activeNavLink = document.querySelector(options.menuDropdownOpen),
                 $menuDropDown = document.querySelector(options.menuDropdown),
                 $menuDropDownContained = document.querySelector(options.containedDropdownClass);
             if ($activeNavLink !== null) {
@@ -74,7 +83,6 @@ define([
                 let currentDropDown = event.target.nextElementSibling;
                 isCurrentToggle = !isCurrentToggle;
                 element.classList.toggle(options.dropdownOpenClass);
-                console.log(event.target.nextElementSibling);
                 if (currentDropDown.matches('.c-nav--level-1')) {
                     event.preventDefault();
                     console.log("Navigation Dropdown Open Event");
@@ -105,12 +113,12 @@ define([
             el.classList.remove(options.menuDropdownOpen);
             el.classList.add(options.menuDropdownDisabled);
         });
-        setTimeout(function() {
-            if ($activeNavLink !== null) {
-                $activeNavLink.classList.remove(options.dropdownOpenClass);
-                $menuDropDownContained.classList.remove(options.containedDropdownClass);
-            }
-        }, 250);
+        // setTimeout(function() {
+        //     if ($activeNavLink !== null) {
+        //         $activeNavLink.classList.remove(options.dropdownOpenClass);
+        //         $menuDropDownContained.classList.remove(options.containedDropdownClass);
+        //     }
+        // }, 250);
     }
 
     function navigationDrawerOpen(el, options) {
@@ -139,9 +147,9 @@ define([
                 navLinkNode = navLink.cloneNode(true),
                 backLinkElement = document.createElement('li'),
                 backLinkIcon = '<a href="#close-drawer" class="c-nav__link c-nav__link--action js-dropdown-toggle"><span class="c-nav__toggle c-nav__toggle--close"">\n' +
-                                '<svg class="o-icon o-icon--default o-icon__nav--default o-icon__ui--chevron-left-dims">\n' +
-                                '<use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron-left"></use>\n' +
-                                '</svg></span></a>',
+                    '<svg class="o-icon o-icon--default o-icon__nav--default o-icon__ui--chevron-left-dims">\n' +
+                    '<use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron-left"></use>\n' +
+                    '</svg></span></a>',
                 currentDropDown = el.querySelector(options.menuDropdown);
             backLinkElement.classList.add('c-nav__item');
             backLinkElement.classList.add('c-nav__item--parent');
@@ -150,17 +158,20 @@ define([
             backLinkElement.insertAdjacentHTML('afterbegin', backLinkIcon);
             currentDropDown.insertBefore(backLinkElement, currentDropDown.firstChild);
         });
-        document.addEventListener('click', function(event) {
-            let element = event.target;
-            console.log(event.target.classList);
-            if (!event.target.classList.contains(options.drawerToggleClass)) {
-                console.log('Close all navigation drawers');
-                navigationDrawerClose(options);
-            } else {
-                console.log('Open navigation drawer');
-                navigationDrawerOpen(element, options);
-            }
-        })
+        let $dropDownToggle = document.querySelectorAll(options.drawerToggle),
+            isCurrentToggle = false;
+        [].forEach.call($dropDownToggle, function(element) {
+            element.addEventListener('click', function(event) {
+                event.stopPropagation();
+                let $elementParent = element.closest(options.menu);
+                if (!$elementParent.classList.contains(options.menuDropdownOpen)) {
+                    navigationDrawerOpen(element, options);
+                } else {
+                    navigationDrawerClose(options);
+                }
+
+            });
+        });
     }
 
     function toggleNavigation(options) {
