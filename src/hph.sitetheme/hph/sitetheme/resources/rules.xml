@@ -172,7 +172,7 @@
         <!-- Global navigation -->
         <!-- Off Canvas slide out navigation -->
         <!-- TODO: Refactor to use properly formatted navigation -->
-        <replace css:theme="#app-nav" css:content="#c-nav-list" />
+        <replace css:theme="#app-nav-bar" css:content="#c-nav-bar" />
 
         <replace css:theme="#quick-links" css:content="#app-quick-links" />
 
