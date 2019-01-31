@@ -9483,7 +9483,7 @@ h6, .h6 {
 .o-dropdown__list {
   list-style: none;
   padding: 1rem;
-  width: 10rem;
+  width: auto;
   min-width: 10rem;
 }
 
@@ -9501,16 +9501,25 @@ h6, .h6 {
 
 .o-dropdown__link {
   color: #5a5f64;
+  font-size: 1rem;
   text-transform: uppercase;
-}
-
-.o-dropdown__link:after {
-  content: ">";
-  float: right;
 }
 
 .o-dropdown__link:hover {
   text-decoration: none;
+}
+
+.o-dropdown__icon {
+  display: inline-block;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid #212529;
+  border-radius: 50%;
+  line-height: 1;
 }
 
 input, button, select, textarea {

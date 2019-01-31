@@ -5,9 +5,11 @@
                  tal:define="links python:view.quick_links()">
             <li class="o-dropdown__list-item" tal:repeat="link links">
                 <a class="o-dropdown__link" href="#link-target-0"
-                    tal:attributes="href python:link['link']"
-                    tal:content="python:link['name']">
-                    Link Title
+                    tal:attributes="href python:link['link']">
+                    <span class="o-dropdown__link-name" tal:content="python:link['name']">Link Title</span>
+                    <span class="o-dropdown__icon">
+                        <svg class="icon--chevron" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 36 36"><polygon fill-rule="evenodd" points="14.707 26.707 13.293 25.293 20.586 18 13.293 10.707 14.707 9.293 23.414 18"/></svg>
+                    </span>
                 </a>
             </li>
         </ul>
