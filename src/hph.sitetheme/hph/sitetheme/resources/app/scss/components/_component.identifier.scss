@@ -8,10 +8,13 @@
     color: $identifier-color;
     background-color: $identifier-bg-color;
     font-size: $font-size-small;
-    border-bottom: 1px solid $identifier-border-color;
-    border-left: 1px solid $identifier-border-color;
+    //border-bottom: 1px solid $identifier-border-color;
+    //border-left: 1px solid $identifier-border-color;
 }
 
 .c-identifier__content {
+    @include make-container();
+    @include make-container-max-widths();
     font-size: $font-size-small;
+    font-family: $app-font-family-strong;
 }
