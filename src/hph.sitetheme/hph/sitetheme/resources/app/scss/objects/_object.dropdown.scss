@@ -1,6 +1,6 @@
 $o-dropdown-font:                     $app-font-family-strong;
 $o-dropdown-font-size:                1rem;
-$o-dropdown-background:                 $app-color-gray-base;
+$o-dropdown-background:               $app-color-gray-base;
 
 .o-dropdown {
     position: absolute;
@@ -26,6 +26,7 @@ $o-dropdown-background:                 $app-color-gray-base;
 
 .o-dropdown__list-item {
     padding: .25rem;
+    line-height: 1rem;
     &:not(last) {
         border-bottom: 1px solid $app-color-gray;
     }
@@ -50,9 +51,10 @@ $o-dropdown-background:                 $app-color-gray-base;
     margin-left: auto;
     margin-right: auto;
     padding: 0;
-    width: 1.25rem;
-    height: 1.25rem;
-    border: 1px solid $app-color-text;
-    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    //border: 1px solid $app-color-text;
+    //border-radius: 50%;
     line-height: 1;
+    float: right;
 }

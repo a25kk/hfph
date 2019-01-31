@@ -693,12 +693,7 @@ html {
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
-  -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-@-ms-viewport {
-  width: device-width;
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -842,7 +837,6 @@ pre {
   margin-top: 0;
   margin-bottom: 1rem;
   overflow: auto;
-  -ms-overflow-style: scrollbar;
 }
 
 figure {
@@ -4598,6 +4592,50 @@ input[type="button"].btn-block {
 }
 
 .custom-radio .custom-control-input:disabled:checked ~ .custom-control-label::before {
+  background-color: rgba(0, 123, 255, 0.5);
+}
+
+.custom-switch {
+  padding-left: 2.25rem;
+}
+
+.custom-switch .custom-control-label::before {
+  left: -2.25rem;
+  width: 1.75rem;
+  pointer-events: all;
+  border-radius: 0.5rem;
+}
+
+.custom-switch .custom-control-label::after {
+  top: calc(0.4375rem + 2px);
+  left: calc(-2.25rem + 2px);
+  width: calc(1rem - 4px);
+  height: calc(1rem - 4px);
+  background-color: #adb5bd;
+  border-radius: 0.5rem;
+  -webkit-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -o-transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-transform 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .custom-switch .custom-control-label::after {
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+}
+
+.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+  background-color: #fff;
+  -webkit-transform: translateX(0.75rem);
+      -ms-transform: translateX(0.75rem);
+          transform: translateX(0.75rem);
+}
+
+.custom-switch .custom-control-input:disabled:checked ~ .custom-control-label::before {
   background-color: rgba(0, 123, 255, 0.5);
 }
 
@@ -9489,6 +9527,7 @@ h6, .h6 {
 
 .o-dropdown__list-item {
   padding: .25rem;
+  line-height: 1rem;
 }
 
 .o-dropdown__list-item:not(last) {
@@ -9515,11 +9554,10 @@ h6, .h6 {
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-  width: 1.25rem;
-  height: 1.25rem;
-  border: 1px solid #212529;
-  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
   line-height: 1;
+  float: right;
 }
 
 input, button, select, textarea {
@@ -11457,12 +11495,13 @@ img[data-sizes="auto"] {
 }
 
 .c-nav__item--back-link, .c-nav__item--parent {
-  border-bottom: 0.125rem solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0;
-  margin-bottom: 1rem;
+  padding: 0 0 0 1.5rem;
+  background: url("../assets/images/chevron-left.svg") 0 no-repeat;
+  background-size: 1rem;
 }
 
 .c-nav__item--has-children {
@@ -11486,11 +11525,15 @@ img[data-sizes="auto"] {
   font-family: "TAZ";
   text-transform: none;
   font-weight: 400;
-  line-height: 1;
+  line-height: .7rem;
   -webkit-transition: background-color 0.5s ease;
   -o-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
   font-size: 1rem;
+}
+
+.c-nav-bar__toggle .c-nav__link {
+  line-height: 1rem;
 }
 
 @media (min-width: 277777.75em) {
@@ -11502,7 +11545,7 @@ img[data-sizes="auto"] {
 .c-nav__link:hover {
   text-decoration: none;
   background: transparent;
-  color: #eed343;
+  color: #6c757d;
 }
 
 .c-nav__link--active, .c-nav__link--open {
@@ -11605,8 +11648,8 @@ img[data-sizes="auto"] {
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-  width: 2rem;
-  height: 2rem;
+  width: 1rem;
+  height: 1rem;
   border: 1px solid #dee2e6;
   border-radius: 50%;
 }
@@ -11619,6 +11662,11 @@ img[data-sizes="auto"] {
 
 .app-nav__link--back-link .c-nav__toggle {
   display: inline-block;
+}
+
+.c-nav-bar__toggle .c-nav__toggle {
+  width: 2rem;
+  height: 2rem;
 }
 
 .c-nav__dropdown {
