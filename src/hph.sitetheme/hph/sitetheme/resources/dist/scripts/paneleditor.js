@@ -16,6 +16,11 @@ define([
         [].forEach.call(widgetSelect, function(element) {
             element.addEventListener('click', function(event) {
                 console.log('Selected: ' + event.target);
+                // let checkBoxID = widgetSelect.getAttributes('data-connected-control'),
+                //  checkEvent = new Event('change');
+                // Get checkbox and toggle state like so:
+                // checkBox.checked = !checkBox.checked;
+                // checkBox.dispatchEvent(checkEvent);
             });
         });
     }
