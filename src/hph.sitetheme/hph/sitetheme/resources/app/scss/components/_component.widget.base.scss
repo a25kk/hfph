@@ -17,6 +17,17 @@
     background-color: #000;
 }
 
+.c-widget__content {
+    
+
+    &--header {
+        @include make-container();
+        @include make-container-max-widths();
+        font-family: $app-font-family-strong;
+        font-size: 2rem;
+    }
+}
+
 .c-widget__icon {
     display: $c-panel-action-display;
     @if $c-panel-action-display == flex {

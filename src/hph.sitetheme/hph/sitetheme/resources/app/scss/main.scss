@@ -73,6 +73,7 @@
 @import 'objects/object.grid';
 @import 'objects/object.brand';
 @import 'objects/object.burger';
+@import 'objects/object.icon';
 @import 'objects/object.placeholder';
 @import 'objects/object.menu';
 @import 'objects/object.dropdown';
@@ -109,6 +110,7 @@
 @import 'components/component.cards';
 @import 'components/component.toc';
 @import 'components/component.meta-nav';
+@import 'components/component.interferer';
 
 // Widget Component
 @import 'components/component.widget.base';
