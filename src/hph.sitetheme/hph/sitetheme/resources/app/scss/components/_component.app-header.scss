@@ -29,7 +29,7 @@
 .app-header__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding-top: 1.5rem;
+    padding-top: 2rem;
     @include make-container();
     @include make-container-max-widths();
     // &:nth-child(1) { grid-area: column-1; }
