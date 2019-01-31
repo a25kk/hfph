@@ -1,3 +1,10 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      lang="en" i18n:domain="hph.sitecontent">
+<body>
 <div metal:define-macro="hph-site-quick-links"
          i18n:domain="hph.sitecontent">
     <tal:quick-links tal:condition="view/available">
@@ -8,10 +15,14 @@
                     tal:attributes="href python:link['link']">
                     <span class="o-dropdown__link-name" tal:content="python:link['name']">Link Title</span>
                     <span class="o-dropdown__icon">
-                        <svg class="icon--chevron" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 36 36"><polygon fill-rule="evenodd" points="14.707 26.707 13.293 25.293 20.586 18 13.293 10.707 14.707 9.293 23.414 18"/></svg>
+                        <svg class="o-icon o-icon--default o-icon__ui--chevron-dims">
+							<use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron"></use>
+						</svg>
                     </span>
                 </a>
             </li>
         </ul>
     </tal:quick-links>
 </div>
+</body>
+</html>
