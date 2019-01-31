@@ -11495,12 +11495,13 @@ img[data-sizes="auto"] {
 }
 
 .c-nav__item--back-link, .c-nav__item--parent {
-  border-bottom: 0.125rem solid #dee2e6;
+  border-bottom: 1px solid #dee2e6;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0;
-  margin-bottom: 1rem;
+  padding: 0 0 0 1.5rem;
+  background: url("../assets/images/chevron-left.svg") 0 no-repeat;
+  background-size: 1rem;
 }
 
 .c-nav__item--has-children {
@@ -11524,11 +11525,15 @@ img[data-sizes="auto"] {
   font-family: "TAZ";
   text-transform: none;
   font-weight: 400;
-  line-height: 1;
+  line-height: .7rem;
   -webkit-transition: background-color 0.5s ease;
   -o-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
   font-size: 1rem;
+}
+
+.c-nav-bar__toggle .c-nav__link {
+  line-height: 1rem;
 }
 
 @media (min-width: 277777.75em) {
@@ -11540,7 +11545,7 @@ img[data-sizes="auto"] {
 .c-nav__link:hover {
   text-decoration: none;
   background: transparent;
-  color: #eed343;
+  color: #6c757d;
 }
 
 .c-nav__link--active, .c-nav__link--open {
@@ -11643,8 +11648,8 @@ img[data-sizes="auto"] {
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-  width: 2rem;
-  height: 2rem;
+  width: 1rem;
+  height: 1rem;
   border: 1px solid #dee2e6;
   border-radius: 50%;
 }
@@ -11657,6 +11662,11 @@ img[data-sizes="auto"] {
 
 .app-nav__link--back-link .c-nav__toggle {
   display: inline-block;
+}
+
+.c-nav-bar__toggle .c-nav__toggle {
+  width: 2rem;
+  height: 2rem;
 }
 
 .c-nav__dropdown {

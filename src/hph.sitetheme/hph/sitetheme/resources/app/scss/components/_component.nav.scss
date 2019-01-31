@@ -58,10 +58,17 @@
     &--back-link,
     &--parent {
         // background-color: lighten($app-color-primary, 10%);
-        border-bottom: .125rem solid $gray-300;
+        border-bottom: 1px solid $gray-300;
         display: flex;
-        padding: 0;
-        margin-bottom: 1rem;
+        padding: 0 0 0 1.5rem;
+        //margin-bottom: 1rem;
+        background: url("../assets/images/chevron-left.svg") 0 no-repeat;
+        background-size: 1rem;
+        //&:before {
+        //    content: "<";
+        //    color: #fff;
+        //    padding-right: .5rem;
+        //}
     }
 }
 
@@ -80,16 +87,19 @@
     font-family: $app-font-family-strong;
     text-transform: none;
     font-weight: 400;
-    line-height: 1;
+    line-height: .7rem;
     transition: background-color 0.5s ease;
     font-size: 1rem;
+    @include when-inside('.c-nav-bar__toggle') {
+        line-height: 1rem;
+    }
     @include mq($from: navbar) {
         text-transform: uppercase;
     }
     &:hover {
         text-decoration: none;
         background: transparent;
-        color: $app-color-secondary;
+        color: $gray-600;
     }
     &--active,
     &--open {
@@ -171,8 +181,8 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0;
-    width: 2rem;
-    height: 2rem;
+    width: 1rem;
+    height: 1rem;
     border: 1px solid $gray-300;
     border-radius: 50%;
     @include mq($from: navbar) {
@@ -180,6 +190,10 @@
     }
     @include when-inside('.app-nav__link--back-link') {
         display: inline-block;
+    }
+    @include when-inside('.c-nav-bar__toggle') {
+        width: 2rem;
+        height: 2rem;
     }
 }
 
