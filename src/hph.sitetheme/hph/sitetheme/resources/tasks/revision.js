@@ -14,7 +14,7 @@ export function revisionStyles() {
         var manifest = fs.readFileSync(cfg.paths.dist + 'styles/rev-manifest.json', 'utf8')
         del.sync(Object.values(JSON.parse(manifest)), {'cwd': cfg.paths.dist + 'styles/'})
     }
-    return gulp.src(cfg.paths.dist + 'styles/*.min.css')
+    return gulp.src(cfg.paths.dist + 'styles/' + pkg.name + '.min.css')
         .pipe($.rev())
         .pipe(gulp.dest(cfg.paths.dist + 'styles'))
         .pipe($.rev.manifest())

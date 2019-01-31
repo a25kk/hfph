@@ -11767,7 +11767,7 @@ img[data-sizes="auto"] {
 }
 
 .c-banner--front-page {
-  margin-top: 8rem;
+  margin-top: 8.5rem;
   margin-bottom: 4rem;
   width: 100%;
   padding-right: 15px;
@@ -12472,6 +12472,96 @@ img[data-sizes="auto"] {
   color: black;
 }
 
+.c-interferer--front-page {
+  margin-top: 8.5rem;
+  margin-bottom: 4rem;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .c-interferer--front-page {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .c-interferer--front-page {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .c-interferer--front-page {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .c-interferer--front-page {
+    max-width: 1140px;
+  }
+}
+
+.c-interferer__content {
+  text-align: center;
+  background-color: #fff;
+  background: url("../assets/images/static-interferer.jpg") center no-repeat;
+  background-size: cover;
+  color: #fff;
+  min-height: 400px;
+}
+
+@media (min-width: 48em) {
+  .c-interferer__content {
+    min-height: 530px;
+  }
+}
+
+.c-interferer__header {
+  position: absolute;
+  bottom: 25%;
+  left: 0;
+  padding: 2rem;
+  font-family: "TAZ";
+  font-size: 1rem;
+  font-weight: 400;
+  margin-bottom: .5rem;
+  line-height: 1rem;
+}
+
+@media (min-width: 48em) {
+  .c-interferer__header {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 62em) {
+  .c-interferer__header {
+    bottom: 18%;
+    padding: 0 6rem;
+    font-size: 2rem;
+  }
+}
+
+.c-interferer__description {
+  text-align: left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2rem;
+  font-size: 1rem;
+}
+
+@media (min-width: 62em) {
+  .c-interferer__description {
+    padding: 0 6rem 3rem 6rem;
+  }
+}
+
 .c-widget {
   display: block;
 }
@@ -12491,6 +12581,40 @@ img[data-sizes="auto"] {
   border: 0;
   color: #fff;
   background-color: #000;
+}
+
+.c-widget__content--header {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: "TAZ";
+  font-size: 2rem;
+}
+
+@media (min-width: 576px) {
+  .c-widget__content--header {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .c-widget__content--header {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .c-widget__content--header {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .c-widget__content--header {
+    max-width: 1140px;
+  }
 }
 
 .c-widget__icon {
