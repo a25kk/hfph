@@ -11,10 +11,10 @@ var fs = require('fs');
 
 export function revisionStyles() {
     if (fs.existsSync(cfg.paths.dist + 'styles/rev-manifest.json')) {
-        var manifest = fs.readFileSync(cfg.paths.dist + 'styles/rev-manifest.json', 'utf8')
+        var manifest = fs.readFileSync(cfg.paths.dist + 'styles/rev-manifest.json', 'utf8');
         del.sync(Object.values(JSON.parse(manifest)), {'cwd': cfg.paths.dist + 'styles/'})
     }
-    return gulp.src(cfg.paths.dist + 'styles/' + pkg.name + '.min.css')
+    return gulp.src(cfg.paths.dist + 'styles/' + cfg.name + '.min.css')
         .pipe($.rev())
         .pipe(gulp.dest(cfg.paths.dist + 'styles'))
         .pipe($.rev.manifest())
@@ -23,7 +23,7 @@ export function revisionStyles() {
 };
 
 export function revisionScripts() {
-    return gulp.src(cfg.paths.dist + 'scripts/' + pkg.name + 'min.js')
+    return gulp.src(cfg.paths.dist + 'scripts/' + cfg.name + 'min.js')
         .pipe($.rev())
         .pipe(gulp.dest(cfg.paths.dist + 'scripts'))
         .pipe($.rev.manifest())

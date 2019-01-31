@@ -62,7 +62,6 @@ define([
                 $menuContainer.classList.toggle(options.backdropClass);
             }
             element.classList.toggle(options.navBarToggleActiveClass);
-            console.log('Is active');
             let $activeNavLink = document.querySelector(options.menuDropdownOpen),
                 $menuDropDown = document.querySelector(options.menuDropdown),
                 $menuDropDownContained = document.querySelector(options.containedDropdownClass);
