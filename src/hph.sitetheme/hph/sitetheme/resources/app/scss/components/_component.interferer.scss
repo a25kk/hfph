@@ -1,9 +1,9 @@
-.c-banner {
+.c-interferer {
 
 }
 
 // TODO: refactor when implementing real widget code
-.c-banner--front-page {
+.c-interferer--front-page {
     margin-top: 8.5rem;
     margin-bottom: 4rem;
     @include make-container();
@@ -11,22 +11,22 @@
 
 }
 
-.c-banner__content {
+.c-interferer__content {
     //padding: 6rem;
     //border: 1px solid $app-color-gray;
     text-align: center;
     background-color: $app-color-white;
-    background: url("../assets/images/static-banner.jpg") center no-repeat;
+    background: url("../assets/images/static-interferer.jpg") center no-repeat;
     background-size: cover;
     color: $app-color-white;
     min-height: 400px;
     @include mq($from: md) {
-		min-height: 600px;
+		min-height: 530px;
 	}
     
 }
 
-.c-banner__header {
+.c-interferer__header {
 	position: absolute;
 	bottom: 25%;
 	left: 0;
@@ -47,7 +47,7 @@
 	
 }
 
-.c-banner__description {
+.c-interferer__description {
 	text-align: left;
 	position: absolute;
 	bottom: 0;
