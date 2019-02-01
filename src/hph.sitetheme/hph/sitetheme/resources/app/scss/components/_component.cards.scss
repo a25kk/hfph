@@ -21,23 +21,51 @@ $c-card-cap-bg:                         transparent;
     padding: $card-spacer-y $card-spacer-x;
     background: $c-card-cap-bg;
     font-family: $c-card-font-family-highlight;
+    text-align: left;
 }
 
 //** Card content
 .c-card__main {
     @include clearfix;
     padding: $card-spacer-y $card-spacer-x;
+    font-family: $app-font-family-base;
+    text-align: left;
+    font-size: $font-size-small;
 }
 
 //** Card footer
 .c-card__footer {
+    display: flex;
     padding: $card-spacer-y $card-spacer-x;
     font-family: $c-card-font-family-base;
+    text-align: left;
+    font-size: $font-size-small;
+
+    &--action {
+    display: inline-block;
+    margin-top: .5rem;
+    padding: 0;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid $app-color-text;
+    line-height: 1;
+    border-radius: 50%;
+    } 
+
+    &--link {
+    display: inline-block;
+    padding: 0 0 0 .5rem;
+    margin-top: .5rem;
+    //width: 2rem;
+    //height: 2rem;
+    } 
 }
+
+
 
 // Card contents
 .c-card__title {
-    text-align: center;
+    text-align: left;
 }
 
 .c-card__section {
