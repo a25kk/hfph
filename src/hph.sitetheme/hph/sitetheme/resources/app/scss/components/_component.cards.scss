@@ -54,15 +54,18 @@ $c-card-cap-bg:                         transparent;
     display: flex;
     padding: $card-spacer-y;
     font-family: $c-card-font-family-base;
-    text-align: left;
+    text-align: center;
+    @include when-inside('.c-card--news') {
+        text-align: left;
+    }
     font-size: $font-size-small;
 
     &--action {
     display: inline-block;
     margin-top: .7rem;
     padding: 0;
-    width: 1rem;
-    height: 1rem;
+    width: 1.1rem;
+    height: 1.1rem;
     border: 1px solid $app-color-text;
     line-height: 1;
     border-radius: 50%;
