@@ -8,6 +8,17 @@ $c-card-font-family-highlight:          $c-card-font-family-base;
 
 $c-card-cap-bg:                         transparent;
 
+.o-grid__item {
+    @include when-inside('.c-widget--card-list') {
+    &:not(last) {
+        border-right: 1px solid $app-color-gray;
+        }
+    &:last-of-type {
+        border-right: 0px;
+        }
+    }
+}
+
 .c-card {
     display: $c-card-display-default;
     width: $c-card-width-default;
@@ -18,16 +29,21 @@ $c-card-cap-bg:                         transparent;
 //## Reflow card contents based on viewport size
 .c-card__header {
     @include clearfix;
-    padding: $card-spacer-y $card-spacer-x;
+    padding: $card-spacer-y;
     background: $c-card-cap-bg;
     font-family: $c-card-font-family-highlight;
     text-align: left;
 }
 
+.c-card__date {
+    font-weight: 100;
+    font-size: 1rem;
+}
+
 //** Card content
 .c-card__main {
     @include clearfix;
-    padding: $card-spacer-y $card-spacer-x;
+    padding: $card-spacer-y;
     font-family: $app-font-family-base;
     text-align: left;
     font-size: $font-size-small;
@@ -36,14 +52,14 @@ $c-card-cap-bg:                         transparent;
 //** Card footer
 .c-card__footer {
     display: flex;
-    padding: $card-spacer-y $card-spacer-x;
+    padding: $card-spacer-y;
     font-family: $c-card-font-family-base;
     text-align: left;
     font-size: $font-size-small;
 
     &--action {
     display: inline-block;
-    margin-top: .5rem;
+    margin-top: .7rem;
     padding: 0;
     width: 1rem;
     height: 1rem;
