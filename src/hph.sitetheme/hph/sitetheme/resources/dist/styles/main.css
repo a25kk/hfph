@@ -12341,16 +12341,20 @@ img[data-sizes="auto"] {
   display: flex;
   padding: 0.75rem;
   font-family: "TAZ";
-  text-align: left;
+  text-align: center;
   font-size: 1rem;
+}
+
+.c-card--news .c-card__footer {
+  text-align: left;
 }
 
 .c-card__footer--action {
   display: inline-block;
   margin-top: .7rem;
   padding: 0;
-  width: 1rem;
-  height: 1rem;
+  width: 1.1rem;
+  height: 1.1rem;
   border: 1px solid #212529;
   line-height: 1;
   border-radius: 50%;
