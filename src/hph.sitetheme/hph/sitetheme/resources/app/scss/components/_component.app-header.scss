@@ -6,7 +6,7 @@
     top: 0;
     width: 100%;
     z-index: 100;
-    background-color: $app-color-white;
+    background-color: $app-color-gray-light;
     background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
     @include when-inside('.template-frontpage-view') {
         background: transparent;
