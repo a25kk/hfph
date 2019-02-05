@@ -8,17 +8,6 @@ $c-card-font-family-highlight:          $c-card-font-family-base;
 
 $c-card-cap-bg:                         transparent;
 
-.o-grid__item {
-    @include when-inside('.c-widget--card-list') {
-    &:not(last) {
-        border-right: 1px solid $app-color-gray;
-        }
-    &:last-of-type {
-        border-right: 0px;
-        }
-    }
-}
-
 .c-card {
     display: $c-card-display-default;
     width: $c-card-width-default;

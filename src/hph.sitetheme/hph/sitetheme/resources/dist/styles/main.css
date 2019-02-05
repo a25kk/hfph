@@ -12291,14 +12291,6 @@ img[data-sizes="auto"] {
   min-height: 4rem;
 }
 
-.c-widget--card-list .o-grid__item:not(last) {
-  border-right: 1px solid #5a5f64;
-}
-
-.c-widget--card-list .o-grid__item:last-of-type {
-  border-right: 0px;
-}
-
 .c-card {
   display: block;
   width: 100%;
@@ -12648,6 +12640,14 @@ img[data-sizes="auto"] {
   .c-interferer__description {
     padding: 0 6rem 3rem 6rem;
   }
+}
+
+.c-card-list .c-card-list__item:not(last) {
+  border-right: 1px solid #5a5f64;
+}
+
+.c-card-list .c-card-list__item:last-of-type {
+  border-right: 0px;
 }
 
 .c-widget {
