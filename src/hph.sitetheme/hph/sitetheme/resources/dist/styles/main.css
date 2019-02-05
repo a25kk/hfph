@@ -9487,6 +9487,11 @@ h6, .h6 {
   color: #fff;
 }
 
+.o-icon__ui--calendar-dims {
+  width: 4rem;
+  height: 4rem;
+}
+
 .o-placeholder {
   margin: 0.5rem auto;
   padding: 1rem;
