@@ -9769,7 +9769,7 @@ input, button, select, textarea {
   top: 0;
   width: 100%;
   z-index: 100;
-  background-color: #fff;
+  background-color: #efefef;
   background: -webkit-gradient(linear, left top, left bottom, from(white), to(#efefef));
   background: -webkit-linear-gradient(white, #efefef);
   background: -o-linear-gradient(white, #efefef);
@@ -11806,7 +11806,6 @@ img[data-sizes="auto"] {
 
 .c-banner--front-page {
   margin-top: 8.5rem;
-  margin-bottom: 4rem;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -12119,6 +12118,8 @@ img[data-sizes="auto"] {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 @media (min-width: 576px) {
@@ -12334,9 +12335,6 @@ img[data-sizes="auto"] {
 }
 
 .c-card__footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   padding: 0.75rem;
   font-family: "TAZ";
   text-align: center;
@@ -12553,8 +12551,6 @@ img[data-sizes="auto"] {
 }
 
 .c-interferer--front-page {
-  margin-top: 8.5rem;
-  margin-bottom: 4rem;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -12715,8 +12711,8 @@ img[data-sizes="auto"] {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 4rem;
-  height: 4rem;
+  width: 8rem;
+  height: 8rem;
   border-radius: 50%;
   border: 1px solid currentColor;
 }
