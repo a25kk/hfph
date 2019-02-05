@@ -1,5 +1,9 @@
 .o-burger {
     display: $o-burger-display;
+    margin-top: $o-burger-margin-top;
+    @include mq($from: md) {
+        margin-top: 0;
+    }
 }
 
 .o-burger__button {
