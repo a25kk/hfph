@@ -33,6 +33,11 @@ $c-card-cap-bg:                         transparent;
     background: $c-card-cap-bg;
     font-family: $c-card-font-family-highlight;
     text-align: left;
+    @include when-inside('.c-card--banner') {
+        @include mq($from: md) {
+            min-height: 13rem;
+        }      
+    }
 }
 
 .c-card__date {
