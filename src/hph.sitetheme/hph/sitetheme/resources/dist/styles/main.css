@@ -12317,6 +12317,12 @@ img[data-sizes="auto"] {
   content: "";
 }
 
+@media (min-width: 48em) {
+  .c-card--banner .c-card__header {
+    min-height: 13rem;
+  }
+}
+
 .c-card__date {
   font-weight: 100;
   font-size: 1rem;
