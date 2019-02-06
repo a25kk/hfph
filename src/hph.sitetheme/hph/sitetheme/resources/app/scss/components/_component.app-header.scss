@@ -46,13 +46,14 @@
 .app-header__section {
     display: block;
     position: relative;
+    width: 100%;
     &:first-child {
         width: 50%;
         min-width: 50%;
     }
     &:nth-child(2) {
-        order: -1;
-        width: 100%;
+        //order: 1;
+        width: 50%;
     }
     @include mq($from: md) {
         width: 25%;
