@@ -43,13 +43,13 @@
                                                             ${item/Title}
                                                     </a>
                                                 </div>
-                                                <div class="app-snippet__abstract" tal:condition="context/Description">
-                                                    <a class="app-snippet__link" href="${item/getURL}">
+                                                <div class="c-snippet__abstract" tal:condition="context/Description">
+                                                    <a class="c-snippet__link" href="${item/getURL}">
                                                             ${item/Description}
                                                     </a>
                                                 </div>
                                                 <div class="c-snippet__section">
-                                                    <p class="app-page-department" tal:condition="item/department"
+                                                    <p class="c-page-department" tal:condition="item/department"
                                                              tal:content="item/department" />
                                                     <p tal:condition="item/sidenote"
                                                              tal:content="item/sidenote" />
