@@ -6,6 +6,7 @@
 .c-quick-links__button {
     display: flex;
     flex-direction: $c-quick-links-flex-direction;
+    width: 100%;
     line-height: 1;
     background: $c-quick-links-background-color; // remove default button style
     border: $c-quick-links-border-width $c-quick-links-border-style $c-quick-links-border-color; // remove default button style
