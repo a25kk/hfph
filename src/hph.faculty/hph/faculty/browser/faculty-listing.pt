@@ -37,9 +37,9 @@
                                 <div class="c-list__item">
                                     <div class="c-snippet c-snippet--default c-snippet--${item/UID}">
                                         <div class="c-snippet__main">
-                                            <div class="app-snippet__section">
-                                                <div class="app-snippet__title">
-                                                    <a class="app-snippet__link" href="${item/getURL}">
+                                            <div class="c-snippet__section">
+                                                <div class="c-snippet__title">
+                                                    <a class="c-snippet__link" href="${item/getURL}">
                                                             ${item/Title}
                                                     </a>
                                                 </div>
