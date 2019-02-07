@@ -9499,6 +9499,25 @@ h6, .h6 {
 .o-icon__ui--calendar-dims {
   width: 4rem;
   height: 4rem;
+  fill: #adb5bd;
+}
+
+.o-icon__ui--people-dims {
+  width: 5rem;
+  height: 5rem;
+  fill: #adb5bd;
+}
+
+.o-icon__ui--timer-dims {
+  width: 4.5rem;
+  height: 4.5rem;
+  fill: #adb5bd;
+}
+
+.o-icon__ui--check-dims {
+  width: 4.5rem;
+  height: 4.5rem;
+  fill: #adb5bd;
 }
 
 .o-placeholder {
@@ -12784,7 +12803,7 @@ img[data-sizes="auto"] {
   width: 8rem;
   height: 8rem;
   border-radius: 50%;
-  border: 1px solid currentColor;
+  border: 1px solid #adb5bd;
 }
 
 .c-widget__icon--centered {
