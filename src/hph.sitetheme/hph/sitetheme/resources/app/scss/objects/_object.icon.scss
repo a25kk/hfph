@@ -11,3 +11,26 @@
     height: 1rem;
     color: #fff;
 }
+
+.o-icon__ui {
+	&--calendar-dims {
+		width: 4rem;
+		height: 4rem;
+        fill: $gray-500;
+	}
+    &--people-dims {
+        width: 5rem;
+        height: 5rem;
+        fill: $gray-500;
+    }
+    &--timer-dims {
+        width: 4.5rem;
+        height: 4.5rem;
+        fill: $gray-500;
+    }
+    &--check-dims {
+        width: 4.5rem;
+        height: 4.5rem;
+        fill: $gray-500;
+    }
+}

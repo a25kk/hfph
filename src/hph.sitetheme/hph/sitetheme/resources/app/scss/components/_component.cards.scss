@@ -18,26 +18,67 @@ $c-card-cap-bg:                         transparent;
 //## Reflow card contents based on viewport size
 .c-card__header {
     @include clearfix;
-    padding: $card-spacer-y $card-spacer-x;
+    padding: $card-spacer-y;
     background: $c-card-cap-bg;
     font-family: $c-card-font-family-highlight;
+    text-align: left;
+    @include when-inside('.c-card--banner') {
+        @include mq($from: md) {
+            min-height: 13rem;
+        }      
+    }
+}
+
+.c-card__date {
+    font-weight: 100;
+    font-size: 1rem;
 }
 
 //** Card content
 .c-card__main {
     @include clearfix;
-    padding: $card-spacer-y $card-spacer-x;
+    padding: $card-spacer-y;
+    font-family: $app-font-family-base;
+    text-align: left;
+    font-size: $font-size-small;
 }
 
 //** Card footer
 .c-card__footer {
-    padding: $card-spacer-y $card-spacer-x;
+    //display: flex;
+    padding: $card-spacer-y;
     font-family: $c-card-font-family-base;
+    text-align: center;
+    @include when-inside('.c-card--news') {
+        text-align: left;
+    }
+    font-size: $font-size-small;
+
+    &--action {
+    display: inline-block;
+    margin-top: .7rem;
+    padding: 0;
+    width: 1.1rem;
+    height: 1.1rem;
+    border: 1px solid $app-color-text;
+    line-height: 1;
+    border-radius: 50%;
+    } 
+
+    &--link {
+    display: inline-block;
+    padding: 0 0 0 .5rem;
+    margin-top: .5rem;
+    //width: 2rem;
+    //height: 2rem;
+    } 
 }
+
+
 
 // Card contents
 .c-card__title {
-    text-align: center;
+    text-align: left;
 }
 
 .c-card__section {

@@ -1,7 +1,22 @@
 .c-nav-list {
     @include list-reset();
+    font-family: $app-font-family-strong;
 }
 
 .c-nav-list__item {
-    padding: .5rem 0;
+    padding: .5rem;
+    border-bottom: 1px solid #fff;
+    background: $gray-300;
+
+    &--active {
+    	padding: .5rem;
+    	border-bottom: 1px solid #fff;
+    	background: $gray-600;
+    }
+}
+
+.c-nav-list__link {
+	@include when-inside('.c-nav-list__item--active') {
+		color: #fff;
+	}
 }
