@@ -2,12 +2,13 @@
 // Main application stylesheet
 // ----------------------------------------------
 // Tools
-@import 'tools/_tools.animations.scss';
+@import 'tools/_tools.animations';
 @import 'tools/functions.bootstrap';
 @import 'tools/functions.color';
-@import 'tools/mixins.font.scss';
-@import 'tools/mixins.list-reset.scss';
-@import 'tools/mixins.parentselector.scss';
+@import 'tools/mixins.font';
+@import 'tools/mixins.list-reset';
+@import 'tools/mixins.parentselector';
+@import 'tools/mixins.icon';
 
 @import 'vendors/mq';
 @import 'vendors/rfs';
