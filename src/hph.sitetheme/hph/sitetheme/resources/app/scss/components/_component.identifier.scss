@@ -4,7 +4,8 @@
     top: 0;
     z-index: 102;
     padding: .25rem 1rem;
-    width: 100vw;
+    width: 100%;
+    display: block;
     color: $identifier-color;
     background-color: $identifier-bg-color;
     font-size: $font-size-small;
@@ -15,6 +16,6 @@
 .c-identifier__content {
     @include make-container();
     @include make-container-max-widths();
-    font-size: $font-size-small;
+    @include font-size($font-size-small);
     font-family: $app-font-family-strong;
 }

@@ -1,13 +1,13 @@
 <header class="app-header" id="app-header" role="banner">
     {% include components/identifier.html %}
     <div class="app-header__content">
-        <section class="app-header__section">
+        <section class="app-header__section app-header__section--brand">
             {% include components/brandpanel.html %}
         </section>
-        <section class="app-header__section">
+        <section class="app-header__section app-header__section--quick-links">
             {% include components/quick-links.html %}
         </section>
-        <section class="app-header__section">
+        <section class="app-header__section app-header__section--navigation">
             {% include objects/burger.html %}
         </section>
     </div>
