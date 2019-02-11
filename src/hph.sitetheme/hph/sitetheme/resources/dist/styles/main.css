@@ -9445,9 +9445,15 @@ table tbody + tbody,
   -ms-flex-item-align: end;
       align-self: flex-end;
   font-family: "TAZ";
-  font-size: 1.45rem;
+  font-size: 0.85rem;
   color: #182f7a;
   text-transform: uppercase;
+}
+
+@media (min-width: 36em) {
+  .o-burger__text {
+    font-size: 1.45rem;
+  }
 }
 
 .o-burger__icon {
@@ -9882,6 +9888,8 @@ input, button, select, textarea {
             align-items: flex-end;
     margin-right: auto;
     margin-left: auto;
+    padding-left: .75rem;
+    padding-right: .75rem;
   }
 }
 
@@ -9930,7 +9938,7 @@ input, button, select, textarea {
   width: 100%;
   max-width: 100%;
   background: #efefef;
-  padding: .5rem;
+  padding: 0 .5rem .5rem .5rem;
 }
 
 @media (min-width: 48em) {
