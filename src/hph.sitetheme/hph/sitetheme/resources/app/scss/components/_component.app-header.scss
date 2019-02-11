@@ -10,6 +10,7 @@
     display: block;
     background-color: $app-color-gray-light;
     background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
+    padding-bottom: 1rem;
     @include when-inside('.plone-toolbar-left') {
         left: 60px;
         width: calc(100% - 60px);
@@ -60,7 +61,8 @@
         order: -1;
         width: 100%;
         max-width: 100%;
-        border: 1px solid $app-color-gray;
+        background: $app-color-gray-base;
+        padding: .5rem;
     }
     @include mq($from: md) {
         width: 25%;
@@ -74,7 +76,8 @@
             width: 25%;
             max-width: 25%;
             flex: 0 0 25%;
-            border: none;
+            background: transparent;
+            padding: 0;
         }
     }
 }
