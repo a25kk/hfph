@@ -22,10 +22,10 @@
 // (should ideally only contain basic layout definitions)
 .o-page__header {
     margin-bottom: $o-page-header-margin-bottom;
-    font-size: $o-page-font-size-base;
-    font-weight: $o-page-font-weight;
-    line-height: $o-page-line-height;
-    @include mq($from: md) {
-        font-size: $o-page-font-size-lg;
-    }
+}
+
+.o-page__main {
+    margin-right: auto;
+    margin-left: auto;
+    @include make-container-max-widths();
 }

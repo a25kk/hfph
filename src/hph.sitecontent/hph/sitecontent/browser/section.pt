@@ -19,14 +19,17 @@
         </tal:toolbar>
 
         <header class="o-page__header">
-            <div class="o-page__title">
-                <h1 class="o-page__headline" tal:content="context/Title">
-                        ${context/Title}
-                </h1>
+            <div class="o-page__section c-page-header">
+                <div class="c-page-header__title">
+                    <h1 class="c-page-header__headline" tal:content="python:context.Title()">
+                            Page Title
+                    </h1>
+                </div>
+                <p class="c-page-header__abstract" tal:condition="context/Description"
+                    tal:content="python:context.Description()">
+                        ${context/Description}
+                </p>
             </div>
-            <p class="o-page__abstract" tal:condition="context/Description">
-                    ${context/Description}
-            </p>
         </header>
 
         <div class="o-page__main" tal:define="context_uid context/UID">
