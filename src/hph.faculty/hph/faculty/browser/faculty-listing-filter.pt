@@ -19,7 +19,7 @@
         </ul>
     </div>
     <div class="c-card__footer">
-        <a class="c-button c-button--danger c-button--sm" tal:condition="active_filter"
+        <a class="c-button c-button--danger c-button--lg" tal:condition="active_filter"
                  tal:attributes="href string:${context/absolute_url}">
             &times; <span i18n:translate="">remove filter</span></a>
     </div>
