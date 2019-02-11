@@ -50,16 +50,17 @@
 .app-header__section {
     display: block;
     position: relative;
-    width: 100%;
+    width: 50%;
     &:first-child {
         width: 50%;
         max-width: 50%;
         flex: 0 0 50%;
     }
     &:nth-child(2) {
-        //order: 1;
-        width: 50%;
-        max-width: 50%;
+        order: -1;
+        width: 100%;
+        max-width: 100%;
+        border: 1px solid $app-color-gray;
     }
     @include mq($from: md) {
         width: 25%;
@@ -73,6 +74,7 @@
             width: 25%;
             max-width: 25%;
             flex: 0 0 25%;
+            border: none;
         }
     }
 }

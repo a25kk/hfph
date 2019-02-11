@@ -11,6 +11,8 @@ $o-table-border-color:                  $app-color-gray-light;
 table,
 .o-table {
     width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     margin-bottom: calc(1.5 * $app-font-size-base);
     color: $o-table-color;
     background-color: $o-table-bg-color; // Reset for nesting within parents with `background-color`.

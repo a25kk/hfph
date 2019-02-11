@@ -8520,7 +8520,7 @@ a.text-danger:hover, a.text-danger:focus {
 
 @media (max-width: 420px) {
   .dropmic-menu {
-    max-width: 60vw;
+    max-width: 100vw;
   }
 }
 
@@ -8975,6 +8975,8 @@ h6, .h6 {
 table,
 .o-table {
   width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   margin-bottom: calc(1.5 * $app-font-size-base);
   color: #212529;
   background-color: #fff;
@@ -9008,6 +9010,15 @@ table tbody + tbody,
 .o-page {
   display: block;
   position: relative;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+@media (min-width: 48em) {
+  .o-page {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
 .o-page--sign-in {
@@ -9855,7 +9866,7 @@ input, button, select, textarea {
 .app-header__section {
   display: block;
   position: relative;
-  width: 100%;
+  width: 50%;
 }
 
 .app-header__section:first-child {
@@ -9867,8 +9878,12 @@ input, button, select, textarea {
 }
 
 .app-header__section:nth-child(2) {
-  width: 50%;
-  max-width: 50%;
+  -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
+          order: -1;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid #5a5f64;
 }
 
 @media (min-width: 48em) {
@@ -9891,6 +9906,7 @@ input, button, select, textarea {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 25%;
             flex: 0 0 25%;
+    border: none;
   }
 }
 
@@ -10268,7 +10284,7 @@ label:hover:before {
   z-index: 102;
   padding: .25rem 1rem;
   width: 100%;
-  display: none;
+  display: block;
   color: #182f7a;
   background-color: #eed343;
   font-size: 1rem;
@@ -11804,11 +11820,16 @@ img[data-sizes="auto"] {
   -webkit-box-direction: reverse;
       -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
-  width: 100%;
   line-height: 1;
   background: transparent;
   border: 1px solid transparent;
   cursor: pointer;
+}
+
+@media (min-width: 48em) {
+  .c-quick-links__button {
+    width: 100%;
+  }
 }
 
 .c-quick-links__text {
@@ -12695,6 +12716,54 @@ img[data-sizes="auto"] {
 
 .c-card-list .c-card-list__item:last-of-type {
   border-right: 0px;
+}
+
+.c-filter__section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 1rem;
+}
+
+.c-filter__block {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 0%;
+          flex: 1 0 0%;
+}
+
+.c-filter__block--action {
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.c-filter__block--container {
+  border: 1px solid #f8f9fa;
+}
+
+.c-filter__block--hidden {
+  display: none;
+}
+
+.c-filter__items {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.c-filter__item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+  max-width: 25%;
 }
 
 .c-widget {
