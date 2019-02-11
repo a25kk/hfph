@@ -45,6 +45,8 @@
         margin-right: auto;
         margin-left: auto;
         @include make-container-max-widths();
+        padding-left: .75rem;
+        padding-right: .75rem;
     }
 }
 
@@ -62,7 +64,7 @@
         width: 100%;
         max-width: 100%;
         background: $app-color-gray-base;
-        padding: .5rem;
+        padding: 0 .5rem .5rem .5rem;
     }
     @include mq($from: md) {
         width: 25%;
