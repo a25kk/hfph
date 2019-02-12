@@ -6,7 +6,7 @@
     }
     @include list-reset();
     font-family: $c-toc-font;
-    font-size: $c-toc-item-font-size;
+    @include font-size($c-toc-item-font-size);
 }
 
 .c-toc__item {

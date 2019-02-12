@@ -6,14 +6,14 @@
 //
 // Quickly modify global styling by enabling or disabling optional features.
 
-$enable-caret:              false;
-$enable-rounded:            false;
-$enable-shadows:            false;
-$enable-gradients:          false;
-$enable-transitions:        true;
-$enable-hover-media-query:  false; // Deprecated, no longer affects any compiled CSS
-$enable-grid-classes:       true;
-$enable-print-styles:       true;
+$enable-caret:                      false;
+$enable-rounded:                    false;
+$enable-shadows:                    false;
+$enable-gradients:                  false;
+$enable-transitions:                true;
+$enable-grid-classes:               true;
+$enable-print-styles:               true;
+$enable-responsive-font-sizes:      true;
 
 // Colors
 $theme-colors: (
