@@ -13,8 +13,13 @@
         <header class="o-page__header">
             <div class="o-page__section c-page-header">
                 <div class="c-page-header__title">
-                    <h1 class="c-page-header__headline" tal:content="python:context.Title()">
-                        Page Title
+                    <h1 class="c-page-header__headline">
+                        <span tal:condition="python:context.headline"
+                            tal:replace="python:context.headline">
+                            Page Headline</span>
+                        <span tal:condition="not:python:context.headline"
+                                 tal:replace="python:context.Title()">
+                            Page Title</span>
                     </h1>
                 </div>
                 <p class="c-page-header__abstract" tal:condition="context/Description"

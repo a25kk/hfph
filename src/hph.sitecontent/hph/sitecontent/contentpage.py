@@ -6,6 +6,7 @@ from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobImage
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.supermodel import model
+from plone.supermodel.directives import fieldset
 from zope import schema
 from zope.interface import implementer
 
@@ -26,6 +27,13 @@ class IContentPage(model.Schema, IImageScaleTraversable):
         title=_(u"Text"),
         required=False
     )
+
+    fieldset(
+        'media',
+        label=_(u"Media"),
+        fields=['image', 'image_caption']
+    )
+
     image = NamedBlobImage(
         title=_(u"Preview Image"),
         description=_(u"Upload preview image that can be used in search "
@@ -33,13 +41,12 @@ class IContentPage(model.Schema, IImageScaleTraversable):
         required=False
     )
 
+    image_caption = schema.TextLine(
+        title=_(u"Cover Image Caption"),
+        required=False
+    )
+
 
 @implementer(IContentPage)
 class ContentPage(Container):
     pass
-
-
-class View(grok.View):
-    grok.context(IContentPage)
-    grok.require('zope2.View')
-    grok.name('view')
