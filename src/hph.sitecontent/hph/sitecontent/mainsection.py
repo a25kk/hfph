@@ -60,21 +60,3 @@ class MainSection(Container):
 
     def canSetDefaultPage(self):
         return False
-
-
-
-class View(grok.View):
-    grok.context(IMainSection)
-    grok.require('zope2.View')
-    grok.name('view')
-
-    def banner_image(self):
-        obj = aq_inner(self.context)
-        scales = getMultiAdapter((obj, self.request), name='images')
-        scale = scales.scale('image', width=870, height=421)
-        data = {}
-        if scale is not None:
-            data['url'] = scale.url
-            data['width'] = scale.width
-            data['height'] = scale.height
-        return data
