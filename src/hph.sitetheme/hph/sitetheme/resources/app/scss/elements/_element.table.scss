@@ -11,8 +11,6 @@ $o-table-border-color:                  $app-color-gray-light;
 table,
 .o-table {
     width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     margin-bottom: calc(1.5 * $app-font-size-base);
     color: $o-table-color;
     background-color: $o-table-bg-color; // Reset for nesting within parents with `background-color`.
@@ -34,12 +32,23 @@ table,
     }
 }
 
+// Responsive tables support
+.o-table__container {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    > .o-table--bordered {
+        border: 0;
+    }
+}
+
 
 //
 // Condensed table w/ half padding
 //
 
-.table-sm {
+.o-table--sm {
     th,
     td {
         padding: $o-table-cell-padding-sm;
