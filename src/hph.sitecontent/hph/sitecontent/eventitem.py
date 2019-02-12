@@ -1,6 +1,8 @@
 import datetime
 from five import grok
 from plone.directives import dexterity, form
+from plone.namedfile.field import NamedBlobImage
+from plone.supermodel.directives import fieldset
 
 from zope import schema
 
@@ -32,6 +34,24 @@ class IEventItem(form.Schema):
     text = RichText(
         title=_(u"Event Description"),
         required=False,
+    )
+
+    fieldset(
+        'media',
+        label=_(u"Media"),
+        fields=['image', 'image_caption']
+    )
+
+    image = NamedBlobImage(
+        title=_(u"Preview Image"),
+        description=_(u"Upload preview image that can be used in search "
+                      u"results and listings."),
+        required=False
+    )
+
+    image_caption = schema.TextLine(
+        title=_(u"Cover Image Caption"),
+        required=False
     )
 
 
