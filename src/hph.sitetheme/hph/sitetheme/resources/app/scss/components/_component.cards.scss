@@ -17,7 +17,6 @@ $c-card-cap-bg:                         transparent;
 //
 //## Reflow card contents based on viewport size
 .c-card__header {
-    @include clearfix;
     padding: $card-spacer-y;
     background: $c-card-cap-bg;
     font-family: $c-card-font-family-highlight;
@@ -25,7 +24,7 @@ $c-card-cap-bg:                         transparent;
     @include when-inside('.c-card--banner') {
         @include mq($from: md) {
             min-height: 13rem;
-        }      
+        }
     }
 }
 
@@ -40,7 +39,7 @@ $c-card-cap-bg:                         transparent;
     padding: $card-spacer-y;
     font-family: $app-font-family-base;
     text-align: left;
-    font-size: $font-size-small;
+    @include font-size($app-font-size-sm);
 }
 
 //** Card footer
@@ -63,7 +62,7 @@ $c-card-cap-bg:                         transparent;
     border: 1px solid $app-color-text;
     line-height: 1;
     border-radius: 50%;
-    } 
+    }
 
     &--link {
     display: inline-block;
@@ -71,7 +70,7 @@ $c-card-cap-bg:                         transparent;
     margin-top: .5rem;
     //width: 2rem;
     //height: 2rem;
-    } 
+    }
 }
 
 
