@@ -1,13 +1,20 @@
+$c-nav-color:                   $app-color-white;
+$c-nav-color-highlight:         $app-color-secondary;
+
 // TODO: refactor styles
 .c-nav {
     position: absolute;
-    top: 90px;
+    top: 120px;
     width: 100%;
-    height: calc(100% - 90px);
-    overflow: auto;
+    height: calc(100% - 120px);
+    overflow: visible;
     padding: 0 1rem;
     list-style: none;
     background-color: $app-color-primary;
+    @include mq($from: md) {
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
     @include mq($from: navbar) {
         display: flex;
         flex-direction: row;
@@ -53,20 +60,31 @@
     }
     &--back-link,
     &--parent {
-        background-color: $gray-300;
+        // background-color: lighten($app-color-primary, 10%);
+        border-bottom: 1px solid $gray-300;
         display: flex;
         padding: 0;
+        //margin-bottom: 1rem;
+        //background: url("../assets/images/chevron-left.svg") 0 no-repeat;
+        //background-size: 1rem;
+        //&:before {
+        //    content: "<";
+        //    color: #fff;
+        //    padding-right: .5rem;
+        //}
     }
 }
 
 .c-nav__item--has-children {
     position: relative;
     display: flex;
+    justify-content: space-between;
 }
 
 .c-nav__link {
     display: flex;
     align-items: center;
+    flex: 1 0 auto;
     padding-top: .75rem;
     padding-bottom: .75rem;
     text-decoration: none;
@@ -74,16 +92,22 @@
     font-family: $app-font-family-strong;
     text-transform: none;
     font-weight: 400;
-    line-height: 1;
+    line-height: .7rem;
     transition: background-color 0.5s ease;
-    font-size: 1rem;
+    @include font-size($app-font-size-base);
+    @include when-inside('.c-nav-bar__toggle') {
+        line-height: 1rem;
+    }
     @include mq($from: navbar) {
         text-transform: uppercase;
+    }
+    @include when-inside('.c-nav__item--current >') {
+        color: $c-nav-color-highlight;
     }
     &:hover {
         text-decoration: none;
         background: transparent;
-        color: $app-color-secondary;
+        color: $c-nav-color-highlight;
     }
     &--active,
     &--open {
@@ -96,7 +120,7 @@
         }
     }
     @include mq($from: navbar) {
-        font-size: 1rem;
+        @include font-size(1rem);
         padding-right: 0.25rem;
         padding-left: 0.25rem;
         line-height: 1rem;
@@ -105,13 +129,21 @@
         }
     }
     @include when-inside('.c-nav__item--has-children') {
-        flex: 1 0 75%;
+        // flex: 1 0 95%;
     }
 }
 
 .c-nav__link--action {
-    flex: 1 0 25% !important;
+    flex-grow: 0;
+    width: 4rem;
+    padding-right: 1rem;
+    padding-left: 2rem;
     align-self: flex-end;
+    @include when-inside('.c-nav__item--parent') {
+        width: 2rem;
+        // padding-right: 1rem;
+        padding-left: .25rem;
+    }
 }
 
 .c-nav__link--back-link {
@@ -160,16 +192,26 @@
 }
 
 .c-nav__toggle {
-    display: inline-block;
-    margin-top: .5rem;
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
     padding: 0;
-    width: 2rem;
-    height: 2rem;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid $gray-300;
+    line-height: 1;
+    border-radius: 50%;
     @include mq($from: navbar) {
         display: none;
     }
     @include when-inside('.app-nav__link--back-link') {
         display: inline-block;
+    }
+    @include when-inside('.c-nav-bar__toggle') {
+        width: 2rem;
+        height: 2rem;
     }
 }
 
@@ -180,14 +222,17 @@
     top: 4rem;
     right: 0;
     z-index: 1002;
-    width: 50vw;
+    width: 90vw;
     height: calc(100vh - 60px);
     margin: 2rem 0 0;
     background-color: $app-color-primary;
     // box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     transition:right .25s linear;
-    // @include mq($from: navbar) {
+    @include mq($from: md) {
+        width: 50vw;
+    }
+    @include mq($from: navbar) {
     //     display: none;
     //     position: absolute;
     //     top: 100%;
@@ -195,7 +240,7 @@
     //     z-index: $zindex-dropdown;
     //     float: left;
     //     width: 50vw;
-    // }
+    }
 }
 
 .c-nav__dropdown--hidden {

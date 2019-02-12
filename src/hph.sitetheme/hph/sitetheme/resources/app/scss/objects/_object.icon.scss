@@ -1,0 +1,57 @@
+$o-icon-width-default:              1rem;
+$o-icon-height-default:             1rem;
+$o-icon-color-inverse:              $app-color-white;
+
+
+.o-icon {
+    fill: currentColor;
+    &--default {
+        width: $o-icon-width-default;
+        height: $o-icon-height-default;
+    }
+    &--inverse {
+        fill: $o-icon-color-inverse;
+    }
+}
+
+.o-icon--nav-toggle {
+    @include icon-variant($o-icon-color-inverse, 4rem);
+}
+
+.o-icon--lg {
+    @include icon-variant($o-icon-color-inverse, 4rem);
+}
+
+// TODO: Deprecated remove in favor if o-icon--inverse style
+.o-icon__nav--default {
+    width: 1rem;
+    height: 1rem;
+    color: #fff;
+}
+
+// TODO: Refactor to generalize classes
+// Using a dedicated definition for every icon in the set will soon grow
+// unmaintainable with the number of required icons. Hint: when repeating style
+// definitions start to generalize
+.o-icon__ui {
+	&--calendar-dims {
+		width: 4rem;
+		height: 4rem;
+        fill: $gray-500;
+	}
+    &--people-dims {
+        width: 5rem;
+        height: 5rem;
+        fill: $gray-500;
+    }
+    &--timer-dims {
+        width: 4.5rem;
+        height: 4.5rem;
+        fill: $gray-500;
+    }
+    &--check-dims {
+        width: 4.5rem;
+        height: 4.5rem;
+        fill: $gray-500;
+    }
+}

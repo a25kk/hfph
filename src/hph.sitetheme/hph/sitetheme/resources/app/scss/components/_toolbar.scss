@@ -1,7 +1,9 @@
 //
 // CMS Toolbar
 // --------------------------------------------
-
+.plone-toolbar-left #edit-zone {
+    z-index: 2001;
+}
 //== Plone variables
 //
 //## Integrate Plone editbar

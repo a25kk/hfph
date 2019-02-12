@@ -6,6 +6,7 @@
 .c-panels--header {
     background-color: $c-panel-primary-bg-color;
     background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
+    padding-bottom: 3rem;
 }
 
 .c-panel {
@@ -55,6 +56,8 @@
     width: $c-panel-width;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     &--centered {
         @include make-container-max-widths();
     }

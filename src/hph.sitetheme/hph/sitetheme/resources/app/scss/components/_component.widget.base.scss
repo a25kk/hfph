@@ -17,16 +17,27 @@
     background-color: #000;
 }
 
+.c-widget__content {
+    
+
+    &--header {
+        @include make-container();
+        @include make-container-max-widths();
+        font-family: $app-font-family-strong;
+        font-size: 2rem;
+    }
+}
+
 .c-widget__icon {
     display: $c-panel-action-display;
     @if $c-panel-action-display == flex {
         align-items: center;
         justify-content: center;
     }
-    width: 4rem;
-    height: 4rem;
+    width: 8rem;
+    height: 8rem;
     border-radius: 50%;
-    border: 1px solid currentColor;
+    border: 1px solid $gray-500;
     &--centered {
         margin-left: auto;
         margin-right: auto;

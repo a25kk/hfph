@@ -21,6 +21,16 @@
             permission="cmf.ManagePortal"
     />
 
+    <!-- Site navigation -->
+    <browser:viewlet
+            name="hph-site-quick-links-viewlet"
+            manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+            for="*"
+            class="hph.sitecontent.browser.quicklinks.QuickLinksViewlet"
+            template="quick-links.pt"
+            permission="zope2.View"
+    />
+
     <browser:page
             for="hph.sitecontent.mainsection.IMainSection"
             name="section-view"

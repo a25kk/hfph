@@ -2,23 +2,24 @@
 // Main application stylesheet
 // ----------------------------------------------
 // Tools
-@import 'tools/_tools.animations.scss';
+@import 'tools/_tools.animations';
 @import 'tools/functions.bootstrap';
 @import 'tools/functions.color';
-@import 'tools/mixins.font.scss';
-@import 'tools/mixins.list-reset.scss';
-@import 'tools/mixins.parentselector.scss';
+@import 'tools/mixins.font';
+@import 'tools/mixins.list-reset';
+@import 'tools/mixins.parentselector';
+@import 'tools/mixins.icon';
 
 @import 'vendors/mq';
+@import 'vendors/rfs';
 
 // Settings
-// TODO: refactor variables into details separate settings
-// @import 'settings/variables';
 
 // Global settings
 @import 'settings/settings.config';
 @import 'settings/settings.global';
-@import 'settings/settings.mq';
+@import 'settings/settings.vendor.mq';
+@import 'settings/settings.vendor.rfs';
 
 // Project colors
 @import 'settings/settings.color';
@@ -54,16 +55,20 @@
 @import 'vendors/dropmic';
 @import 'vendors/x-ray';
 
-@import 'base/scaffolding';
+// DEPRECATED
+// @import 'base/scaffolding';
 
 // Elements
 @import 'elements/element.html';
 @import 'elements/element.body';
+@import 'elements/element.hr';
 @import 'elements/element.strong';
 @import 'elements/element.button';
 @import 'elements/element.a';
 @import 'elements/element.img';
 @import 'elements/element.p';
+@import 'elements/element.headings';
+@import 'elements/element.table';
 
 
 // Objects
@@ -71,6 +76,7 @@
 @import 'objects/object.grid';
 @import 'objects/object.brand';
 @import 'objects/object.burger';
+@import 'objects/object.icon';
 @import 'objects/object.placeholder';
 @import 'objects/object.menu';
 @import 'objects/object.dropdown';
@@ -107,6 +113,11 @@
 @import 'components/component.cards';
 @import 'components/component.toc';
 @import 'components/component.meta-nav';
+@import 'components/component.interferer';
+@import 'components/component.listing';
+@import 'components/component.filter-bar';
+
+@import 'components/_component.page-header';
 
 // Widget Component
 @import 'components/component.widget.base';
