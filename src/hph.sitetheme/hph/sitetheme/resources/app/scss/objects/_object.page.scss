@@ -8,7 +8,9 @@
         padding-left: 0;
     }
     @include when-inside('body:not(.portaltype-hph-sitecontent-mainsection)') {
-        border: 1px solid red;
+        margin-right: auto;
+        margin-left: auto;
+        @include make-container-max-widths();
     }
 }
 

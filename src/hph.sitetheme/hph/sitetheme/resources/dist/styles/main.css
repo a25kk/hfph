@@ -9142,7 +9142,32 @@ table tbody + tbody,
 }
 
 body:not(.portaltype-hph-sitecontent-mainsection) .o-page {
-  border: 1px solid red;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  body:not(.portaltype-hph-sitecontent-mainsection) .o-page {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  body:not(.portaltype-hph-sitecontent-mainsection) .o-page {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  body:not(.portaltype-hph-sitecontent-mainsection) .o-page {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body:not(.portaltype-hph-sitecontent-mainsection) .o-page {
+    max-width: 1140px;
+  }
 }
 
 .o-page--sign-in {
