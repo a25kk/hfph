@@ -30,7 +30,7 @@ $c-card-cap-bg:                         transparent;
 
 .c-card__date {
     font-weight: 100;
-    font-size: 1rem;
+    @include font-size($app-font-size-sm);
 }
 
 //** Card content
@@ -39,7 +39,9 @@ $c-card-cap-bg:                         transparent;
     padding: $card-spacer-y;
     font-family: $app-font-family-base;
     text-align: left;
-    @include font-size($app-font-size-sm);
+    @include when-inside('.c-card--news') {
+        @include font-size($app-font-size-sm);
+    }
 }
 
 //** Card footer

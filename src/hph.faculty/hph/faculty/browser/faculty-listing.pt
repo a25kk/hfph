@@ -29,7 +29,7 @@
                 <div class="o-page__main">
                     <div class="o-page__section">
                         <div class="c-list" tal:define="Batch python:modules['Products.CMFPlone'].Batch;
-                                                        b_size python:int(request.get('b_size', 5));
+                                                        b_size python:int(request.get('b_size', 20));
                                                         b_start python:int(request.get('b_start', 0));
                                                         results view/faculty_members;
                                                         batch python:Batch(results, b_size, b_start);">

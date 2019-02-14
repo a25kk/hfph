@@ -7,6 +7,9 @@
         padding-right: 0;
         padding-left: 0;
     }
+    @include when-inside('body:not(.portaltype-hph-sitecontent-mainsection)') {
+        border: 1px solid red;
+    }
 }
 
 .o-page--sign-in {
