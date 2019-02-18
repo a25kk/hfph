@@ -2592,22 +2592,7 @@ pre code {
   border: 0;
 }
 
-.form-control, select,
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"] {
+.form-control {
   display: block;
   width: 100%;
   height: calc(1.5em + 0.75rem + 2px);
@@ -2628,64 +2613,19 @@ input[type="color"] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .form-control, select,
-  textarea,
-  input[type="text"],
-  input[type="password"],
-  input[type="datetime"],
-  input[type="datetime-local"],
-  input[type="date"],
-  input[type="month"],
-  input[type="time"],
-  input[type="week"],
-  input[type="number"],
-  input[type="email"],
-  input[type="url"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="color"] {
+  .form-control {
     -webkit-transition: none;
     -o-transition: none;
     transition: none;
   }
 }
 
-.form-control::-ms-expand, select::-ms-expand,
-textarea::-ms-expand,
-input[type="text"]::-ms-expand,
-input[type="password"]::-ms-expand,
-input[type="datetime"]::-ms-expand,
-input[type="datetime-local"]::-ms-expand,
-input[type="date"]::-ms-expand,
-input[type="month"]::-ms-expand,
-input[type="time"]::-ms-expand,
-input[type="week"]::-ms-expand,
-input[type="number"]::-ms-expand,
-input[type="email"]::-ms-expand,
-input[type="url"]::-ms-expand,
-input[type="search"]::-ms-expand,
-input[type="tel"]::-ms-expand,
-input[type="color"]::-ms-expand {
+.form-control::-ms-expand {
   background-color: transparent;
   border: 0;
 }
 
-.form-control:focus, select:focus,
-textarea:focus,
-input:focus[type="text"],
-input:focus[type="password"],
-input:focus[type="datetime"],
-input:focus[type="datetime-local"],
-input:focus[type="date"],
-input:focus[type="month"],
-input:focus[type="time"],
-input:focus[type="week"],
-input:focus[type="number"],
-input:focus[type="email"],
-input:focus[type="url"],
-input:focus[type="search"],
-input:focus[type="tel"],
-input:focus[type="color"] {
+.form-control:focus {
   color: #495057;
   background-color: #fff;
   border-color: #80bdff;
@@ -2694,122 +2634,32 @@ input:focus[type="color"] {
           box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-.form-control::-webkit-input-placeholder, select::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder,
-input[type="text"]::-webkit-input-placeholder,
-input[type="password"]::-webkit-input-placeholder,
-input[type="datetime"]::-webkit-input-placeholder,
-input[type="datetime-local"]::-webkit-input-placeholder,
-input[type="date"]::-webkit-input-placeholder,
-input[type="month"]::-webkit-input-placeholder,
-input[type="time"]::-webkit-input-placeholder,
-input[type="week"]::-webkit-input-placeholder,
-input[type="number"]::-webkit-input-placeholder,
-input[type="email"]::-webkit-input-placeholder,
-input[type="url"]::-webkit-input-placeholder,
-input[type="search"]::-webkit-input-placeholder,
-input[type="tel"]::-webkit-input-placeholder,
-input[type="color"]::-webkit-input-placeholder {
+.form-control::-webkit-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
 
-.form-control:-ms-input-placeholder, select:-ms-input-placeholder,
-textarea:-ms-input-placeholder,
-input[type="text"]:-ms-input-placeholder,
-input[type="password"]:-ms-input-placeholder,
-input[type="datetime"]:-ms-input-placeholder,
-input[type="datetime-local"]:-ms-input-placeholder,
-input[type="date"]:-ms-input-placeholder,
-input[type="month"]:-ms-input-placeholder,
-input[type="time"]:-ms-input-placeholder,
-input[type="week"]:-ms-input-placeholder,
-input[type="number"]:-ms-input-placeholder,
-input[type="email"]:-ms-input-placeholder,
-input[type="url"]:-ms-input-placeholder,
-input[type="search"]:-ms-input-placeholder,
-input[type="tel"]:-ms-input-placeholder,
-input[type="color"]:-ms-input-placeholder {
+.form-control:-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
 
-.form-control::-ms-input-placeholder, select::-ms-input-placeholder,
-textarea::-ms-input-placeholder,
-input[type="text"]::-ms-input-placeholder,
-input[type="password"]::-ms-input-placeholder,
-input[type="datetime"]::-ms-input-placeholder,
-input[type="datetime-local"]::-ms-input-placeholder,
-input[type="date"]::-ms-input-placeholder,
-input[type="month"]::-ms-input-placeholder,
-input[type="time"]::-ms-input-placeholder,
-input[type="week"]::-ms-input-placeholder,
-input[type="number"]::-ms-input-placeholder,
-input[type="email"]::-ms-input-placeholder,
-input[type="url"]::-ms-input-placeholder,
-input[type="search"]::-ms-input-placeholder,
-input[type="tel"]::-ms-input-placeholder,
-input[type="color"]::-ms-input-placeholder {
+.form-control::-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
 }
 
-.form-control::placeholder, select::placeholder,
-textarea::placeholder,
-input[type="text"]::placeholder,
-input[type="password"]::placeholder,
-input[type="datetime"]::placeholder,
-input[type="datetime-local"]::placeholder,
-input[type="date"]::placeholder,
-input[type="month"]::placeholder,
-input[type="time"]::placeholder,
-input[type="week"]::placeholder,
-input[type="number"]::placeholder,
-input[type="email"]::placeholder,
-input[type="url"]::placeholder,
-input[type="search"]::placeholder,
-input[type="tel"]::placeholder,
-input[type="color"]::placeholder {
+.form-control::placeholder {
   color: #6c757d;
   opacity: 1;
 }
 
-.form-control:disabled, select:disabled,
-textarea:disabled,
-input:disabled[type="text"],
-input:disabled[type="password"],
-input:disabled[type="datetime"],
-input:disabled[type="datetime-local"],
-input:disabled[type="date"],
-input:disabled[type="month"],
-input:disabled[type="time"],
-input:disabled[type="week"],
-input:disabled[type="number"],
-input:disabled[type="email"],
-input:disabled[type="url"],
-input:disabled[type="search"],
-input:disabled[type="tel"],
-input:disabled[type="color"], .form-control[readonly], select[readonly],
-textarea[readonly],
-input[readonly][type="text"],
-input[readonly][type="password"],
-input[readonly][type="datetime"],
-input[readonly][type="datetime-local"],
-input[readonly][type="date"],
-input[readonly][type="month"],
-input[readonly][type="time"],
-input[readonly][type="week"],
-input[readonly][type="number"],
-input[readonly][type="email"],
-input[readonly][type="url"],
-input[readonly][type="search"],
-input[readonly][type="tel"],
-input[readonly][type="color"] {
+.form-control:disabled, .form-control[readonly] {
   background-color: #e9ecef;
   opacity: 1;
 }
 
-select.form-control:focus::-ms-value, select:focus::-ms-value {
+select.form-control:focus::-ms-value {
   color: #495057;
   background-color: #fff;
 }
@@ -2874,12 +2724,11 @@ select.form-control:focus::-ms-value, select:focus::-ms-value {
   line-height: 1.5;
 }
 
-select.form-control[size], select[size], select.form-control[multiple], select[multiple] {
+select.form-control[size], select.form-control[multiple] {
   height: auto;
 }
 
-textarea.form-control,
-textarea {
+textarea.form-control {
   height: auto;
 }
 
@@ -2968,37 +2817,7 @@ textarea {
   background-color: rgba(40, 167, 69, 0.9);
 }
 
-.was-validated .form-control:valid, .was-validated select:valid,
-.was-validated textarea:valid,
-.was-validated input:valid[type="text"],
-.was-validated input:valid[type="password"],
-.was-validated input:valid[type="datetime"],
-.was-validated input:valid[type="datetime-local"],
-.was-validated input:valid[type="date"],
-.was-validated input:valid[type="month"],
-.was-validated input:valid[type="time"],
-.was-validated input:valid[type="week"],
-.was-validated input:valid[type="number"],
-.was-validated input:valid[type="email"],
-.was-validated input:valid[type="url"],
-.was-validated input:valid[type="search"],
-.was-validated input:valid[type="tel"],
-.was-validated input:valid[type="color"], .form-control.is-valid, select.is-valid,
-textarea.is-valid,
-input.is-valid[type="text"],
-input.is-valid[type="password"],
-input.is-valid[type="datetime"],
-input.is-valid[type="datetime-local"],
-input.is-valid[type="date"],
-input.is-valid[type="month"],
-input.is-valid[type="time"],
-input.is-valid[type="week"],
-input.is-valid[type="number"],
-input.is-valid[type="email"],
-input.is-valid[type="url"],
-input.is-valid[type="search"],
-input.is-valid[type="tel"],
-input.is-valid[type="color"] {
+.was-validated .form-control:valid, .form-control.is-valid {
   border-color: #28a745;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
@@ -3007,83 +2826,19 @@ input.is-valid[type="color"] {
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.was-validated .form-control:valid:focus, .was-validated select:valid:focus,
-.was-validated textarea:valid:focus,
-.was-validated input:valid:focus[type="text"],
-.was-validated input:valid:focus[type="password"],
-.was-validated input:valid:focus[type="datetime"],
-.was-validated input:valid:focus[type="datetime-local"],
-.was-validated input:valid:focus[type="date"],
-.was-validated input:valid:focus[type="month"],
-.was-validated input:valid:focus[type="time"],
-.was-validated input:valid:focus[type="week"],
-.was-validated input:valid:focus[type="number"],
-.was-validated input:valid:focus[type="email"],
-.was-validated input:valid:focus[type="url"],
-.was-validated input:valid:focus[type="search"],
-.was-validated input:valid:focus[type="tel"],
-.was-validated input:valid:focus[type="color"], .form-control.is-valid:focus, select.is-valid:focus,
-textarea.is-valid:focus,
-input.is-valid:focus[type="text"],
-input.is-valid:focus[type="password"],
-input.is-valid:focus[type="datetime"],
-input.is-valid:focus[type="datetime-local"],
-input.is-valid:focus[type="date"],
-input.is-valid:focus[type="month"],
-input.is-valid:focus[type="time"],
-input.is-valid:focus[type="week"],
-input.is-valid:focus[type="number"],
-input.is-valid:focus[type="email"],
-input.is-valid:focus[type="url"],
-input.is-valid:focus[type="search"],
-input.is-valid:focus[type="tel"],
-input.is-valid:focus[type="color"] {
+.was-validated .form-control:valid:focus, .form-control.is-valid:focus {
   border-color: #28a745;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
           box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
 }
 
-.was-validated .form-control:valid ~ .valid-feedback, .was-validated select:valid ~ .valid-feedback, .was-validated textarea:valid ~ .valid-feedback, .was-validated input:valid[type="text"] ~ .valid-feedback, .was-validated input:valid[type="password"] ~ .valid-feedback, .was-validated input:valid[type="datetime"] ~ .valid-feedback, .was-validated input:valid[type="datetime-local"] ~ .valid-feedback, .was-validated input:valid[type="date"] ~ .valid-feedback, .was-validated input:valid[type="month"] ~ .valid-feedback, .was-validated input:valid[type="time"] ~ .valid-feedback, .was-validated input:valid[type="week"] ~ .valid-feedback, .was-validated input:valid[type="number"] ~ .valid-feedback, .was-validated input:valid[type="email"] ~ .valid-feedback, .was-validated input:valid[type="url"] ~ .valid-feedback, .was-validated input:valid[type="search"] ~ .valid-feedback, .was-validated input:valid[type="tel"] ~ .valid-feedback, .was-validated input:valid[type="color"] ~ .valid-feedback,
-.was-validated .form-control:valid ~ .valid-tooltip,
-.was-validated select:valid ~ .valid-tooltip,
-.was-validated textarea:valid ~ .valid-tooltip,
-.was-validated input:valid[type="text"] ~ .valid-tooltip,
-.was-validated input:valid[type="password"] ~ .valid-tooltip,
-.was-validated input:valid[type="datetime"] ~ .valid-tooltip,
-.was-validated input:valid[type="datetime-local"] ~ .valid-tooltip,
-.was-validated input:valid[type="date"] ~ .valid-tooltip,
-.was-validated input:valid[type="month"] ~ .valid-tooltip,
-.was-validated input:valid[type="time"] ~ .valid-tooltip,
-.was-validated input:valid[type="week"] ~ .valid-tooltip,
-.was-validated input:valid[type="number"] ~ .valid-tooltip,
-.was-validated input:valid[type="email"] ~ .valid-tooltip,
-.was-validated input:valid[type="url"] ~ .valid-tooltip,
-.was-validated input:valid[type="search"] ~ .valid-tooltip,
-.was-validated input:valid[type="tel"] ~ .valid-tooltip,
-.was-validated input:valid[type="color"] ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback, select.is-valid ~ .valid-feedback, textarea.is-valid ~ .valid-feedback, input.is-valid[type="text"] ~ .valid-feedback, input.is-valid[type="password"] ~ .valid-feedback, input.is-valid[type="datetime"] ~ .valid-feedback, input.is-valid[type="datetime-local"] ~ .valid-feedback, input.is-valid[type="date"] ~ .valid-feedback, input.is-valid[type="month"] ~ .valid-feedback, input.is-valid[type="time"] ~ .valid-feedback, input.is-valid[type="week"] ~ .valid-feedback, input.is-valid[type="number"] ~ .valid-feedback, input.is-valid[type="email"] ~ .valid-feedback, input.is-valid[type="url"] ~ .valid-feedback, input.is-valid[type="search"] ~ .valid-feedback, input.is-valid[type="tel"] ~ .valid-feedback, input.is-valid[type="color"] ~ .valid-feedback,
-.form-control.is-valid ~ .valid-tooltip,
-select.is-valid ~ .valid-tooltip,
-textarea.is-valid ~ .valid-tooltip,
-input.is-valid[type="text"] ~ .valid-tooltip,
-input.is-valid[type="password"] ~ .valid-tooltip,
-input.is-valid[type="datetime"] ~ .valid-tooltip,
-input.is-valid[type="datetime-local"] ~ .valid-tooltip,
-input.is-valid[type="date"] ~ .valid-tooltip,
-input.is-valid[type="month"] ~ .valid-tooltip,
-input.is-valid[type="time"] ~ .valid-tooltip,
-input.is-valid[type="week"] ~ .valid-tooltip,
-input.is-valid[type="number"] ~ .valid-tooltip,
-input.is-valid[type="email"] ~ .valid-tooltip,
-input.is-valid[type="url"] ~ .valid-tooltip,
-input.is-valid[type="search"] ~ .valid-tooltip,
-input.is-valid[type="tel"] ~ .valid-tooltip,
-input.is-valid[type="color"] ~ .valid-tooltip {
+.was-validated .form-control:valid ~ .valid-feedback,
+.was-validated .form-control:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback,
+.form-control.is-valid ~ .valid-tooltip {
   display: block;
 }
 
-.was-validated textarea.form-control:valid,
-.was-validated textarea:valid, textarea.form-control.is-valid,
-textarea.is-valid {
+.was-validated textarea.form-control:valid, textarea.form-control.is-valid {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
 }
@@ -3188,37 +2943,7 @@ textarea.is-valid {
   background-color: rgba(220, 53, 69, 0.9);
 }
 
-.was-validated .form-control:invalid, .was-validated select:invalid,
-.was-validated textarea:invalid,
-.was-validated input:invalid[type="text"],
-.was-validated input:invalid[type="password"],
-.was-validated input:invalid[type="datetime"],
-.was-validated input:invalid[type="datetime-local"],
-.was-validated input:invalid[type="date"],
-.was-validated input:invalid[type="month"],
-.was-validated input:invalid[type="time"],
-.was-validated input:invalid[type="week"],
-.was-validated input:invalid[type="number"],
-.was-validated input:invalid[type="email"],
-.was-validated input:invalid[type="url"],
-.was-validated input:invalid[type="search"],
-.was-validated input:invalid[type="tel"],
-.was-validated input:invalid[type="color"], .form-control.is-invalid, select.is-invalid,
-textarea.is-invalid,
-input.is-invalid[type="text"],
-input.is-invalid[type="password"],
-input.is-invalid[type="datetime"],
-input.is-invalid[type="datetime-local"],
-input.is-invalid[type="date"],
-input.is-invalid[type="month"],
-input.is-invalid[type="time"],
-input.is-invalid[type="week"],
-input.is-invalid[type="number"],
-input.is-invalid[type="email"],
-input.is-invalid[type="url"],
-input.is-invalid[type="search"],
-input.is-invalid[type="tel"],
-input.is-invalid[type="color"] {
+.was-validated .form-control:invalid, .form-control.is-invalid {
   border-color: #dc3545;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");
@@ -3227,83 +2952,19 @@ input.is-invalid[type="color"] {
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.was-validated .form-control:invalid:focus, .was-validated select:invalid:focus,
-.was-validated textarea:invalid:focus,
-.was-validated input:invalid:focus[type="text"],
-.was-validated input:invalid:focus[type="password"],
-.was-validated input:invalid:focus[type="datetime"],
-.was-validated input:invalid:focus[type="datetime-local"],
-.was-validated input:invalid:focus[type="date"],
-.was-validated input:invalid:focus[type="month"],
-.was-validated input:invalid:focus[type="time"],
-.was-validated input:invalid:focus[type="week"],
-.was-validated input:invalid:focus[type="number"],
-.was-validated input:invalid:focus[type="email"],
-.was-validated input:invalid:focus[type="url"],
-.was-validated input:invalid:focus[type="search"],
-.was-validated input:invalid:focus[type="tel"],
-.was-validated input:invalid:focus[type="color"], .form-control.is-invalid:focus, select.is-invalid:focus,
-textarea.is-invalid:focus,
-input.is-invalid:focus[type="text"],
-input.is-invalid:focus[type="password"],
-input.is-invalid:focus[type="datetime"],
-input.is-invalid:focus[type="datetime-local"],
-input.is-invalid:focus[type="date"],
-input.is-invalid:focus[type="month"],
-input.is-invalid:focus[type="time"],
-input.is-invalid:focus[type="week"],
-input.is-invalid:focus[type="number"],
-input.is-invalid:focus[type="email"],
-input.is-invalid:focus[type="url"],
-input.is-invalid:focus[type="search"],
-input.is-invalid:focus[type="tel"],
-input.is-invalid:focus[type="color"] {
+.was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
   border-color: #dc3545;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
           box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
 }
 
-.was-validated .form-control:invalid ~ .invalid-feedback, .was-validated select:invalid ~ .invalid-feedback, .was-validated textarea:invalid ~ .invalid-feedback, .was-validated input:invalid[type="text"] ~ .invalid-feedback, .was-validated input:invalid[type="password"] ~ .invalid-feedback, .was-validated input:invalid[type="datetime"] ~ .invalid-feedback, .was-validated input:invalid[type="datetime-local"] ~ .invalid-feedback, .was-validated input:invalid[type="date"] ~ .invalid-feedback, .was-validated input:invalid[type="month"] ~ .invalid-feedback, .was-validated input:invalid[type="time"] ~ .invalid-feedback, .was-validated input:invalid[type="week"] ~ .invalid-feedback, .was-validated input:invalid[type="number"] ~ .invalid-feedback, .was-validated input:invalid[type="email"] ~ .invalid-feedback, .was-validated input:invalid[type="url"] ~ .invalid-feedback, .was-validated input:invalid[type="search"] ~ .invalid-feedback, .was-validated input:invalid[type="tel"] ~ .invalid-feedback, .was-validated input:invalid[type="color"] ~ .invalid-feedback,
-.was-validated .form-control:invalid ~ .invalid-tooltip,
-.was-validated select:invalid ~ .invalid-tooltip,
-.was-validated textarea:invalid ~ .invalid-tooltip,
-.was-validated input:invalid[type="text"] ~ .invalid-tooltip,
-.was-validated input:invalid[type="password"] ~ .invalid-tooltip,
-.was-validated input:invalid[type="datetime"] ~ .invalid-tooltip,
-.was-validated input:invalid[type="datetime-local"] ~ .invalid-tooltip,
-.was-validated input:invalid[type="date"] ~ .invalid-tooltip,
-.was-validated input:invalid[type="month"] ~ .invalid-tooltip,
-.was-validated input:invalid[type="time"] ~ .invalid-tooltip,
-.was-validated input:invalid[type="week"] ~ .invalid-tooltip,
-.was-validated input:invalid[type="number"] ~ .invalid-tooltip,
-.was-validated input:invalid[type="email"] ~ .invalid-tooltip,
-.was-validated input:invalid[type="url"] ~ .invalid-tooltip,
-.was-validated input:invalid[type="search"] ~ .invalid-tooltip,
-.was-validated input:invalid[type="tel"] ~ .invalid-tooltip,
-.was-validated input:invalid[type="color"] ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback, select.is-invalid ~ .invalid-feedback, textarea.is-invalid ~ .invalid-feedback, input.is-invalid[type="text"] ~ .invalid-feedback, input.is-invalid[type="password"] ~ .invalid-feedback, input.is-invalid[type="datetime"] ~ .invalid-feedback, input.is-invalid[type="datetime-local"] ~ .invalid-feedback, input.is-invalid[type="date"] ~ .invalid-feedback, input.is-invalid[type="month"] ~ .invalid-feedback, input.is-invalid[type="time"] ~ .invalid-feedback, input.is-invalid[type="week"] ~ .invalid-feedback, input.is-invalid[type="number"] ~ .invalid-feedback, input.is-invalid[type="email"] ~ .invalid-feedback, input.is-invalid[type="url"] ~ .invalid-feedback, input.is-invalid[type="search"] ~ .invalid-feedback, input.is-invalid[type="tel"] ~ .invalid-feedback, input.is-invalid[type="color"] ~ .invalid-feedback,
-.form-control.is-invalid ~ .invalid-tooltip,
-select.is-invalid ~ .invalid-tooltip,
-textarea.is-invalid ~ .invalid-tooltip,
-input.is-invalid[type="text"] ~ .invalid-tooltip,
-input.is-invalid[type="password"] ~ .invalid-tooltip,
-input.is-invalid[type="datetime"] ~ .invalid-tooltip,
-input.is-invalid[type="datetime-local"] ~ .invalid-tooltip,
-input.is-invalid[type="date"] ~ .invalid-tooltip,
-input.is-invalid[type="month"] ~ .invalid-tooltip,
-input.is-invalid[type="time"] ~ .invalid-tooltip,
-input.is-invalid[type="week"] ~ .invalid-tooltip,
-input.is-invalid[type="number"] ~ .invalid-tooltip,
-input.is-invalid[type="email"] ~ .invalid-tooltip,
-input.is-invalid[type="url"] ~ .invalid-tooltip,
-input.is-invalid[type="search"] ~ .invalid-tooltip,
-input.is-invalid[type="tel"] ~ .invalid-tooltip,
-input.is-invalid[type="color"] ~ .invalid-tooltip {
+.was-validated .form-control:invalid ~ .invalid-feedback,
+.was-validated .form-control:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback,
+.form-control.is-invalid ~ .invalid-tooltip {
   display: block;
 }
 
-.was-validated textarea.form-control:invalid,
-.was-validated textarea:invalid, textarea.form-control.is-invalid,
-textarea.is-invalid {
+.was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
 }
@@ -3432,22 +3093,7 @@ textarea.is-invalid {
             align-items: center;
     margin-bottom: 0;
   }
-  .form-inline .form-control, .form-inline select,
-  .form-inline textarea,
-  .form-inline input[type="text"],
-  .form-inline input[type="password"],
-  .form-inline input[type="datetime"],
-  .form-inline input[type="datetime-local"],
-  .form-inline input[type="date"],
-  .form-inline input[type="month"],
-  .form-inline input[type="time"],
-  .form-inline input[type="week"],
-  .form-inline input[type="number"],
-  .form-inline input[type="email"],
-  .form-inline input[type="url"],
-  .form-inline input[type="search"],
-  .form-inline input[type="tel"],
-  .form-inline input[type="color"] {
+  .form-inline .form-control {
     display: inline-block;
     width: auto;
     vertical-align: middle;
@@ -3968,22 +3614,7 @@ input[type="button"].btn-block {
   width: 100%;
 }
 
-.input-group > .form-control, .input-group > select,
-.input-group > textarea,
-.input-group > input[type="text"],
-.input-group > input[type="password"],
-.input-group > input[type="datetime"],
-.input-group > input[type="datetime-local"],
-.input-group > input[type="date"],
-.input-group > input[type="month"],
-.input-group > input[type="time"],
-.input-group > input[type="week"],
-.input-group > input[type="number"],
-.input-group > input[type="email"],
-.input-group > input[type="url"],
-.input-group > input[type="search"],
-.input-group > input[type="tel"],
-.input-group > input[type="color"],
+.input-group > .form-control,
 .input-group > .form-control-plaintext,
 .input-group > .custom-select,
 .input-group > .custom-file {
@@ -3995,372 +3626,22 @@ input[type="button"].btn-block {
   margin-bottom: 0;
 }
 
-.input-group > .form-control + .form-control, .input-group > select + .form-control, .input-group > textarea + .form-control, .input-group > input[type="text"] + .form-control, .input-group > input[type="password"] + .form-control, .input-group > input[type="datetime"] + .form-control, .input-group > input[type="datetime-local"] + .form-control, .input-group > input[type="date"] + .form-control, .input-group > input[type="month"] + .form-control, .input-group > input[type="time"] + .form-control, .input-group > input[type="week"] + .form-control, .input-group > input[type="number"] + .form-control, .input-group > input[type="email"] + .form-control, .input-group > input[type="url"] + .form-control, .input-group > input[type="search"] + .form-control, .input-group > input[type="tel"] + .form-control, .input-group > input[type="color"] + .form-control, .input-group > .form-control + select, .input-group > select + select, .input-group > textarea + select, .input-group > input[type="text"] + select, .input-group > input[type="password"] + select, .input-group > input[type="datetime"] + select, .input-group > input[type="datetime-local"] + select, .input-group > input[type="date"] + select, .input-group > input[type="month"] + select, .input-group > input[type="time"] + select, .input-group > input[type="week"] + select, .input-group > input[type="number"] + select, .input-group > input[type="email"] + select, .input-group > input[type="url"] + select, .input-group > input[type="search"] + select, .input-group > input[type="tel"] + select, .input-group > input[type="color"] + select,
-.input-group > .form-control + textarea,
-.input-group > select + textarea,
-.input-group > textarea + textarea,
-.input-group > input[type="text"] + textarea,
-.input-group > input[type="password"] + textarea,
-.input-group > input[type="datetime"] + textarea,
-.input-group > input[type="datetime-local"] + textarea,
-.input-group > input[type="date"] + textarea,
-.input-group > input[type="month"] + textarea,
-.input-group > input[type="time"] + textarea,
-.input-group > input[type="week"] + textarea,
-.input-group > input[type="number"] + textarea,
-.input-group > input[type="email"] + textarea,
-.input-group > input[type="url"] + textarea,
-.input-group > input[type="search"] + textarea,
-.input-group > input[type="tel"] + textarea,
-.input-group > input[type="color"] + textarea,
-.input-group > .form-control + input[type="text"],
-.input-group > select + input[type="text"],
-.input-group > textarea + input[type="text"],
-.input-group > input[type="text"] + input[type="text"],
-.input-group > input[type="password"] + input[type="text"],
-.input-group > input[type="datetime"] + input[type="text"],
-.input-group > input[type="datetime-local"] + input[type="text"],
-.input-group > input[type="date"] + input[type="text"],
-.input-group > input[type="month"] + input[type="text"],
-.input-group > input[type="time"] + input[type="text"],
-.input-group > input[type="week"] + input[type="text"],
-.input-group > input[type="number"] + input[type="text"],
-.input-group > input[type="email"] + input[type="text"],
-.input-group > input[type="url"] + input[type="text"],
-.input-group > input[type="search"] + input[type="text"],
-.input-group > input[type="tel"] + input[type="text"],
-.input-group > input[type="color"] + input[type="text"],
-.input-group > .form-control + input[type="password"],
-.input-group > select + input[type="password"],
-.input-group > textarea + input[type="password"],
-.input-group > input[type="text"] + input[type="password"],
-.input-group > input[type="password"] + input[type="password"],
-.input-group > input[type="datetime"] + input[type="password"],
-.input-group > input[type="datetime-local"] + input[type="password"],
-.input-group > input[type="date"] + input[type="password"],
-.input-group > input[type="month"] + input[type="password"],
-.input-group > input[type="time"] + input[type="password"],
-.input-group > input[type="week"] + input[type="password"],
-.input-group > input[type="number"] + input[type="password"],
-.input-group > input[type="email"] + input[type="password"],
-.input-group > input[type="url"] + input[type="password"],
-.input-group > input[type="search"] + input[type="password"],
-.input-group > input[type="tel"] + input[type="password"],
-.input-group > input[type="color"] + input[type="password"],
-.input-group > .form-control + input[type="datetime"],
-.input-group > select + input[type="datetime"],
-.input-group > textarea + input[type="datetime"],
-.input-group > input[type="text"] + input[type="datetime"],
-.input-group > input[type="password"] + input[type="datetime"],
-.input-group > input[type="datetime"] + input[type="datetime"],
-.input-group > input[type="datetime-local"] + input[type="datetime"],
-.input-group > input[type="date"] + input[type="datetime"],
-.input-group > input[type="month"] + input[type="datetime"],
-.input-group > input[type="time"] + input[type="datetime"],
-.input-group > input[type="week"] + input[type="datetime"],
-.input-group > input[type="number"] + input[type="datetime"],
-.input-group > input[type="email"] + input[type="datetime"],
-.input-group > input[type="url"] + input[type="datetime"],
-.input-group > input[type="search"] + input[type="datetime"],
-.input-group > input[type="tel"] + input[type="datetime"],
-.input-group > input[type="color"] + input[type="datetime"],
-.input-group > .form-control + input[type="datetime-local"],
-.input-group > select + input[type="datetime-local"],
-.input-group > textarea + input[type="datetime-local"],
-.input-group > input[type="text"] + input[type="datetime-local"],
-.input-group > input[type="password"] + input[type="datetime-local"],
-.input-group > input[type="datetime"] + input[type="datetime-local"],
-.input-group > input[type="datetime-local"] + input[type="datetime-local"],
-.input-group > input[type="date"] + input[type="datetime-local"],
-.input-group > input[type="month"] + input[type="datetime-local"],
-.input-group > input[type="time"] + input[type="datetime-local"],
-.input-group > input[type="week"] + input[type="datetime-local"],
-.input-group > input[type="number"] + input[type="datetime-local"],
-.input-group > input[type="email"] + input[type="datetime-local"],
-.input-group > input[type="url"] + input[type="datetime-local"],
-.input-group > input[type="search"] + input[type="datetime-local"],
-.input-group > input[type="tel"] + input[type="datetime-local"],
-.input-group > input[type="color"] + input[type="datetime-local"],
-.input-group > .form-control + input[type="date"],
-.input-group > select + input[type="date"],
-.input-group > textarea + input[type="date"],
-.input-group > input[type="text"] + input[type="date"],
-.input-group > input[type="password"] + input[type="date"],
-.input-group > input[type="datetime"] + input[type="date"],
-.input-group > input[type="datetime-local"] + input[type="date"],
-.input-group > input[type="date"] + input[type="date"],
-.input-group > input[type="month"] + input[type="date"],
-.input-group > input[type="time"] + input[type="date"],
-.input-group > input[type="week"] + input[type="date"],
-.input-group > input[type="number"] + input[type="date"],
-.input-group > input[type="email"] + input[type="date"],
-.input-group > input[type="url"] + input[type="date"],
-.input-group > input[type="search"] + input[type="date"],
-.input-group > input[type="tel"] + input[type="date"],
-.input-group > input[type="color"] + input[type="date"],
-.input-group > .form-control + input[type="month"],
-.input-group > select + input[type="month"],
-.input-group > textarea + input[type="month"],
-.input-group > input[type="text"] + input[type="month"],
-.input-group > input[type="password"] + input[type="month"],
-.input-group > input[type="datetime"] + input[type="month"],
-.input-group > input[type="datetime-local"] + input[type="month"],
-.input-group > input[type="date"] + input[type="month"],
-.input-group > input[type="month"] + input[type="month"],
-.input-group > input[type="time"] + input[type="month"],
-.input-group > input[type="week"] + input[type="month"],
-.input-group > input[type="number"] + input[type="month"],
-.input-group > input[type="email"] + input[type="month"],
-.input-group > input[type="url"] + input[type="month"],
-.input-group > input[type="search"] + input[type="month"],
-.input-group > input[type="tel"] + input[type="month"],
-.input-group > input[type="color"] + input[type="month"],
-.input-group > .form-control + input[type="time"],
-.input-group > select + input[type="time"],
-.input-group > textarea + input[type="time"],
-.input-group > input[type="text"] + input[type="time"],
-.input-group > input[type="password"] + input[type="time"],
-.input-group > input[type="datetime"] + input[type="time"],
-.input-group > input[type="datetime-local"] + input[type="time"],
-.input-group > input[type="date"] + input[type="time"],
-.input-group > input[type="month"] + input[type="time"],
-.input-group > input[type="time"] + input[type="time"],
-.input-group > input[type="week"] + input[type="time"],
-.input-group > input[type="number"] + input[type="time"],
-.input-group > input[type="email"] + input[type="time"],
-.input-group > input[type="url"] + input[type="time"],
-.input-group > input[type="search"] + input[type="time"],
-.input-group > input[type="tel"] + input[type="time"],
-.input-group > input[type="color"] + input[type="time"],
-.input-group > .form-control + input[type="week"],
-.input-group > select + input[type="week"],
-.input-group > textarea + input[type="week"],
-.input-group > input[type="text"] + input[type="week"],
-.input-group > input[type="password"] + input[type="week"],
-.input-group > input[type="datetime"] + input[type="week"],
-.input-group > input[type="datetime-local"] + input[type="week"],
-.input-group > input[type="date"] + input[type="week"],
-.input-group > input[type="month"] + input[type="week"],
-.input-group > input[type="time"] + input[type="week"],
-.input-group > input[type="week"] + input[type="week"],
-.input-group > input[type="number"] + input[type="week"],
-.input-group > input[type="email"] + input[type="week"],
-.input-group > input[type="url"] + input[type="week"],
-.input-group > input[type="search"] + input[type="week"],
-.input-group > input[type="tel"] + input[type="week"],
-.input-group > input[type="color"] + input[type="week"],
-.input-group > .form-control + input[type="number"],
-.input-group > select + input[type="number"],
-.input-group > textarea + input[type="number"],
-.input-group > input[type="text"] + input[type="number"],
-.input-group > input[type="password"] + input[type="number"],
-.input-group > input[type="datetime"] + input[type="number"],
-.input-group > input[type="datetime-local"] + input[type="number"],
-.input-group > input[type="date"] + input[type="number"],
-.input-group > input[type="month"] + input[type="number"],
-.input-group > input[type="time"] + input[type="number"],
-.input-group > input[type="week"] + input[type="number"],
-.input-group > input[type="number"] + input[type="number"],
-.input-group > input[type="email"] + input[type="number"],
-.input-group > input[type="url"] + input[type="number"],
-.input-group > input[type="search"] + input[type="number"],
-.input-group > input[type="tel"] + input[type="number"],
-.input-group > input[type="color"] + input[type="number"],
-.input-group > .form-control + input[type="email"],
-.input-group > select + input[type="email"],
-.input-group > textarea + input[type="email"],
-.input-group > input[type="text"] + input[type="email"],
-.input-group > input[type="password"] + input[type="email"],
-.input-group > input[type="datetime"] + input[type="email"],
-.input-group > input[type="datetime-local"] + input[type="email"],
-.input-group > input[type="date"] + input[type="email"],
-.input-group > input[type="month"] + input[type="email"],
-.input-group > input[type="time"] + input[type="email"],
-.input-group > input[type="week"] + input[type="email"],
-.input-group > input[type="number"] + input[type="email"],
-.input-group > input[type="email"] + input[type="email"],
-.input-group > input[type="url"] + input[type="email"],
-.input-group > input[type="search"] + input[type="email"],
-.input-group > input[type="tel"] + input[type="email"],
-.input-group > input[type="color"] + input[type="email"],
-.input-group > .form-control + input[type="url"],
-.input-group > select + input[type="url"],
-.input-group > textarea + input[type="url"],
-.input-group > input[type="text"] + input[type="url"],
-.input-group > input[type="password"] + input[type="url"],
-.input-group > input[type="datetime"] + input[type="url"],
-.input-group > input[type="datetime-local"] + input[type="url"],
-.input-group > input[type="date"] + input[type="url"],
-.input-group > input[type="month"] + input[type="url"],
-.input-group > input[type="time"] + input[type="url"],
-.input-group > input[type="week"] + input[type="url"],
-.input-group > input[type="number"] + input[type="url"],
-.input-group > input[type="email"] + input[type="url"],
-.input-group > input[type="url"] + input[type="url"],
-.input-group > input[type="search"] + input[type="url"],
-.input-group > input[type="tel"] + input[type="url"],
-.input-group > input[type="color"] + input[type="url"],
-.input-group > .form-control + input[type="search"],
-.input-group > select + input[type="search"],
-.input-group > textarea + input[type="search"],
-.input-group > input[type="text"] + input[type="search"],
-.input-group > input[type="password"] + input[type="search"],
-.input-group > input[type="datetime"] + input[type="search"],
-.input-group > input[type="datetime-local"] + input[type="search"],
-.input-group > input[type="date"] + input[type="search"],
-.input-group > input[type="month"] + input[type="search"],
-.input-group > input[type="time"] + input[type="search"],
-.input-group > input[type="week"] + input[type="search"],
-.input-group > input[type="number"] + input[type="search"],
-.input-group > input[type="email"] + input[type="search"],
-.input-group > input[type="url"] + input[type="search"],
-.input-group > input[type="search"] + input[type="search"],
-.input-group > input[type="tel"] + input[type="search"],
-.input-group > input[type="color"] + input[type="search"],
-.input-group > .form-control + input[type="tel"],
-.input-group > select + input[type="tel"],
-.input-group > textarea + input[type="tel"],
-.input-group > input[type="text"] + input[type="tel"],
-.input-group > input[type="password"] + input[type="tel"],
-.input-group > input[type="datetime"] + input[type="tel"],
-.input-group > input[type="datetime-local"] + input[type="tel"],
-.input-group > input[type="date"] + input[type="tel"],
-.input-group > input[type="month"] + input[type="tel"],
-.input-group > input[type="time"] + input[type="tel"],
-.input-group > input[type="week"] + input[type="tel"],
-.input-group > input[type="number"] + input[type="tel"],
-.input-group > input[type="email"] + input[type="tel"],
-.input-group > input[type="url"] + input[type="tel"],
-.input-group > input[type="search"] + input[type="tel"],
-.input-group > input[type="tel"] + input[type="tel"],
-.input-group > input[type="color"] + input[type="tel"],
-.input-group > .form-control + input[type="color"],
-.input-group > select + input[type="color"],
-.input-group > textarea + input[type="color"],
-.input-group > input[type="text"] + input[type="color"],
-.input-group > input[type="password"] + input[type="color"],
-.input-group > input[type="datetime"] + input[type="color"],
-.input-group > input[type="datetime-local"] + input[type="color"],
-.input-group > input[type="date"] + input[type="color"],
-.input-group > input[type="month"] + input[type="color"],
-.input-group > input[type="time"] + input[type="color"],
-.input-group > input[type="week"] + input[type="color"],
-.input-group > input[type="number"] + input[type="color"],
-.input-group > input[type="email"] + input[type="color"],
-.input-group > input[type="url"] + input[type="color"],
-.input-group > input[type="search"] + input[type="color"],
-.input-group > input[type="tel"] + input[type="color"],
-.input-group > input[type="color"] + input[type="color"],
+.input-group > .form-control + .form-control,
 .input-group > .form-control + .custom-select,
-.input-group > select + .custom-select,
-.input-group > textarea + .custom-select,
-.input-group > input[type="text"] + .custom-select,
-.input-group > input[type="password"] + .custom-select,
-.input-group > input[type="datetime"] + .custom-select,
-.input-group > input[type="datetime-local"] + .custom-select,
-.input-group > input[type="date"] + .custom-select,
-.input-group > input[type="month"] + .custom-select,
-.input-group > input[type="time"] + .custom-select,
-.input-group > input[type="week"] + .custom-select,
-.input-group > input[type="number"] + .custom-select,
-.input-group > input[type="email"] + .custom-select,
-.input-group > input[type="url"] + .custom-select,
-.input-group > input[type="search"] + .custom-select,
-.input-group > input[type="tel"] + .custom-select,
-.input-group > input[type="color"] + .custom-select,
 .input-group > .form-control + .custom-file,
-.input-group > select + .custom-file,
-.input-group > textarea + .custom-file,
-.input-group > input[type="text"] + .custom-file,
-.input-group > input[type="password"] + .custom-file,
-.input-group > input[type="datetime"] + .custom-file,
-.input-group > input[type="datetime-local"] + .custom-file,
-.input-group > input[type="date"] + .custom-file,
-.input-group > input[type="month"] + .custom-file,
-.input-group > input[type="time"] + .custom-file,
-.input-group > input[type="week"] + .custom-file,
-.input-group > input[type="number"] + .custom-file,
-.input-group > input[type="email"] + .custom-file,
-.input-group > input[type="url"] + .custom-file,
-.input-group > input[type="search"] + .custom-file,
-.input-group > input[type="tel"] + .custom-file,
-.input-group > input[type="color"] + .custom-file,
 .input-group > .form-control-plaintext + .form-control,
-.input-group > .form-control-plaintext + select,
-.input-group > .form-control-plaintext + textarea,
-.input-group > .form-control-plaintext + input[type="text"],
-.input-group > .form-control-plaintext + input[type="password"],
-.input-group > .form-control-plaintext + input[type="datetime"],
-.input-group > .form-control-plaintext + input[type="datetime-local"],
-.input-group > .form-control-plaintext + input[type="date"],
-.input-group > .form-control-plaintext + input[type="month"],
-.input-group > .form-control-plaintext + input[type="time"],
-.input-group > .form-control-plaintext + input[type="week"],
-.input-group > .form-control-plaintext + input[type="number"],
-.input-group > .form-control-plaintext + input[type="email"],
-.input-group > .form-control-plaintext + input[type="url"],
-.input-group > .form-control-plaintext + input[type="search"],
-.input-group > .form-control-plaintext + input[type="tel"],
-.input-group > .form-control-plaintext + input[type="color"],
 .input-group > .form-control-plaintext + .custom-select,
 .input-group > .form-control-plaintext + .custom-file,
 .input-group > .custom-select + .form-control,
-.input-group > .custom-select + select,
-.input-group > .custom-select + textarea,
-.input-group > .custom-select + input[type="text"],
-.input-group > .custom-select + input[type="password"],
-.input-group > .custom-select + input[type="datetime"],
-.input-group > .custom-select + input[type="datetime-local"],
-.input-group > .custom-select + input[type="date"],
-.input-group > .custom-select + input[type="month"],
-.input-group > .custom-select + input[type="time"],
-.input-group > .custom-select + input[type="week"],
-.input-group > .custom-select + input[type="number"],
-.input-group > .custom-select + input[type="email"],
-.input-group > .custom-select + input[type="url"],
-.input-group > .custom-select + input[type="search"],
-.input-group > .custom-select + input[type="tel"],
-.input-group > .custom-select + input[type="color"],
 .input-group > .custom-select + .custom-select,
 .input-group > .custom-select + .custom-file,
 .input-group > .custom-file + .form-control,
-.input-group > .custom-file + select,
-.input-group > .custom-file + textarea,
-.input-group > .custom-file + input[type="text"],
-.input-group > .custom-file + input[type="password"],
-.input-group > .custom-file + input[type="datetime"],
-.input-group > .custom-file + input[type="datetime-local"],
-.input-group > .custom-file + input[type="date"],
-.input-group > .custom-file + input[type="month"],
-.input-group > .custom-file + input[type="time"],
-.input-group > .custom-file + input[type="week"],
-.input-group > .custom-file + input[type="number"],
-.input-group > .custom-file + input[type="email"],
-.input-group > .custom-file + input[type="url"],
-.input-group > .custom-file + input[type="search"],
-.input-group > .custom-file + input[type="tel"],
-.input-group > .custom-file + input[type="color"],
 .input-group > .custom-file + .custom-select,
 .input-group > .custom-file + .custom-file {
   margin-left: -1px;
 }
 
-.input-group > .form-control:focus, .input-group > select:focus,
-.input-group > textarea:focus,
-.input-group > input:focus[type="text"],
-.input-group > input:focus[type="password"],
-.input-group > input:focus[type="datetime"],
-.input-group > input:focus[type="datetime-local"],
-.input-group > input:focus[type="date"],
-.input-group > input:focus[type="month"],
-.input-group > input:focus[type="time"],
-.input-group > input:focus[type="week"],
-.input-group > input:focus[type="number"],
-.input-group > input:focus[type="email"],
-.input-group > input:focus[type="url"],
-.input-group > input:focus[type="search"],
-.input-group > input:focus[type="tel"],
-.input-group > input:focus[type="color"],
+.input-group > .form-control:focus,
 .input-group > .custom-select:focus,
 .input-group > .custom-file .custom-file-input:focus ~ .custom-file-label {
   z-index: 3;
@@ -4440,42 +3721,12 @@ input[type="button"].btn-block {
   margin-top: 0;
 }
 
-.input-group-lg > .form-control:not(textarea), .input-group-lg > select:not(textarea),
-.input-group-lg > textarea:not(textarea),
-.input-group-lg > input:not(textarea)[type="text"],
-.input-group-lg > input:not(textarea)[type="password"],
-.input-group-lg > input:not(textarea)[type="datetime"],
-.input-group-lg > input:not(textarea)[type="datetime-local"],
-.input-group-lg > input:not(textarea)[type="date"],
-.input-group-lg > input:not(textarea)[type="month"],
-.input-group-lg > input:not(textarea)[type="time"],
-.input-group-lg > input:not(textarea)[type="week"],
-.input-group-lg > input:not(textarea)[type="number"],
-.input-group-lg > input:not(textarea)[type="email"],
-.input-group-lg > input:not(textarea)[type="url"],
-.input-group-lg > input:not(textarea)[type="search"],
-.input-group-lg > input:not(textarea)[type="tel"],
-.input-group-lg > input:not(textarea)[type="color"],
+.input-group-lg > .form-control:not(textarea),
 .input-group-lg > .custom-select {
   height: calc(1.5em + 1rem + 2px);
 }
 
-.input-group-lg > .form-control, .input-group-lg > select,
-.input-group-lg > textarea,
-.input-group-lg > input[type="text"],
-.input-group-lg > input[type="password"],
-.input-group-lg > input[type="datetime"],
-.input-group-lg > input[type="datetime-local"],
-.input-group-lg > input[type="date"],
-.input-group-lg > input[type="month"],
-.input-group-lg > input[type="time"],
-.input-group-lg > input[type="week"],
-.input-group-lg > input[type="number"],
-.input-group-lg > input[type="email"],
-.input-group-lg > input[type="url"],
-.input-group-lg > input[type="search"],
-.input-group-lg > input[type="tel"],
-.input-group-lg > input[type="color"],
+.input-group-lg > .form-control,
 .input-group-lg > .custom-select,
 .input-group-lg > .input-group-prepend > .input-group-text,
 .input-group-lg > .input-group-append > .input-group-text,
@@ -4486,42 +3737,12 @@ input[type="button"].btn-block {
   line-height: 1.5;
 }
 
-.input-group-sm > .form-control:not(textarea), .input-group-sm > select:not(textarea),
-.input-group-sm > textarea:not(textarea),
-.input-group-sm > input:not(textarea)[type="text"],
-.input-group-sm > input:not(textarea)[type="password"],
-.input-group-sm > input:not(textarea)[type="datetime"],
-.input-group-sm > input:not(textarea)[type="datetime-local"],
-.input-group-sm > input:not(textarea)[type="date"],
-.input-group-sm > input:not(textarea)[type="month"],
-.input-group-sm > input:not(textarea)[type="time"],
-.input-group-sm > input:not(textarea)[type="week"],
-.input-group-sm > input:not(textarea)[type="number"],
-.input-group-sm > input:not(textarea)[type="email"],
-.input-group-sm > input:not(textarea)[type="url"],
-.input-group-sm > input:not(textarea)[type="search"],
-.input-group-sm > input:not(textarea)[type="tel"],
-.input-group-sm > input:not(textarea)[type="color"],
+.input-group-sm > .form-control:not(textarea),
 .input-group-sm > .custom-select {
   height: calc(1.5em + 0.5rem + 2px);
 }
 
-.input-group-sm > .form-control, .input-group-sm > select,
-.input-group-sm > textarea,
-.input-group-sm > input[type="text"],
-.input-group-sm > input[type="password"],
-.input-group-sm > input[type="datetime"],
-.input-group-sm > input[type="datetime-local"],
-.input-group-sm > input[type="date"],
-.input-group-sm > input[type="month"],
-.input-group-sm > input[type="time"],
-.input-group-sm > input[type="week"],
-.input-group-sm > input[type="number"],
-.input-group-sm > input[type="email"],
-.input-group-sm > input[type="url"],
-.input-group-sm > input[type="search"],
-.input-group-sm > input[type="tel"],
-.input-group-sm > input[type="color"],
+.input-group-sm > .form-control,
 .input-group-sm > .custom-select,
 .input-group-sm > .input-group-prepend > .input-group-text,
 .input-group-sm > .input-group-append > .input-group-text,
@@ -9746,11 +8967,13 @@ input, button, select, textarea {
 }
 
 .o-form__group {
-  margin-bottom: 1rem;
+  margin-bottom: calc(1.25rem * 1.5);
 }
 
 .o-form__label {
   font-family: "TAZ";
+  font-weight: 400;
+  line-height: 1.25;
 }
 
 .o-form__label--float {
@@ -9758,7 +8981,7 @@ input, button, select, textarea {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: block;
-  font-size: .65rem;
+  font-size: 0.65rem;
   font-weight: normal;
   line-height: 1;
   opacity: 0;
@@ -9806,18 +9029,86 @@ input, button, select, textarea {
       -ms-transform: none;
           transform: none;
   padding: 0 0 0 1rem;
-  font-size: 1rem;
+  font-size: 1.25rem;
   margin-bottom: .5rem;
 }
 
 .o-form__help {
   display: block;
-  font-size: 1rem;
+  font-family: "EB Garamond";
+  font-size: 1.25rem;
   color: #5a5f64;
 }
 
+.o-form__control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .o-form__control {
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+  }
+}
+
+.o-form__control::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+
+.o-form__control::-webkit-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.o-form__control:-ms-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.o-form__control::-ms-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.o-form__control::placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.o-form__control:disabled, .o-form__control[readonly] {
+  background-color: #e9ecef;
+  opacity: 1;
+}
+
+.o-form__control--textarea {
+  height: auto;
+}
+
 .o-form__actions {
-  padding: 1rem;
+  padding-top: calc(1.25rem * 1.5);
+  padding-bottom: calc(1.25rem * 1.5);
+}
+
+.autotoc-section {
+  padding-top: calc(1.25rem * 1.5);
 }
 
 .o-switch {
@@ -10189,279 +9480,6 @@ input, button, select, textarea {
   .app-footer__aside {
     max-width: 1140px;
   }
-}
-
-.form__group {
-  margin-bottom: 1rem;
-}
-
-.form__actions {
-  padding: 1rem;
-}
-
-.autotoc-section {
-  padding-top: 1.5rem;
-}
-
-textarea {
-  height: auto;
-}
-
-label {
-  font-weight: 700;
-}
-
-fonts--loaded label {
-  font-weight: 400;
-}
-
-label.custom-control-label {
-  padding-right: 1.5rem;
-}
-
-.form__help-block {
-  display: block;
-  font-size: .85rem;
-  font-weight: 300;
-  color: #adb5bd;
-}
-
-fonts--loaded .form__help-block {
-  font-weight: 400;
-}
-
-.error {
-  color: #182f7a;
-  font-weight: 500;
-}
-
-.error:before {
-  content: "!";
-  padding-top: .5rem;
-}
-
-code {
-  color: #182f7a;
-}
-
-[id="form-widgets-groups"] .option {
-  display: block;
-}
-
-.form__field--checkbox .option {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-right: 1rem;
-}
-
-.form__field--checkbox .option > label {
-  margin-left: .5rem;
-  font-weight: 400;
-}
-
-.form__field--checkbox > .option > label {
-  font-weight: 700;
-}
-
-fonts--loaded .form__field--checkbox > .option > label {
-  font-weight: 600;
-}
-
-.form__control--checkbox {
-  position: absolute;
-  left: -9999px;
-}
-
-.form__control--checkbox + label {
-  position: relative;
-  padding-left: 1.95em;
-  cursor: pointer;
-  font-weight: 400;
-}
-
-.form__control--checkbox + label:before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 1.5rem;
-  height: 1.5rem;
-  border: 1px solid #ced4da;
-  background: #fff;
-  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-          box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.form__control--checkbox + label:hover:before {
-  border: 1px solid #ced4da !important;
-}
-
-.form__control--checkbox + label:after {
-  content: url("../assets/images/icon-check.svg");
-  position: absolute;
-  top: .2rem;
-  left: .2rem;
-  z-index: 1;
-  font-size: 1.3em;
-  line-height: 0.8;
-  color: #000;
-  -webkit-transition: all .2s;
-  -o-transition: all .2s;
-  transition: all .2s;
-  background-color: transparent;
-}
-
-.app-field-required .form__control--checkbox + label {
-  margin-right: 2rem;
-}
-
-/* checked mark aspect changes */
-.form__control--checkbox:not(:checked) + label:after {
-  opacity: 0;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-}
-
-.form__control--checkbox:checked + label:after {
-  opacity: 1;
-  -webkit-transform: scale(1);
-      -ms-transform: scale(1);
-          transform: scale(1);
-}
-
-.form__control--checkbox:checked + label:before {
-  background-image: -webkit-linear-gradient(315deg, #182f7a, #182f7a);
-  background-image: -o-linear-gradient(315deg, #182f7a, #182f7a);
-  background-image: linear-gradient(135deg, #182f7a, #182f7a);
-}
-
-/* disabled checkbox */
-.form__control--checkbox:disabled:not(:checked) + label:before,
-.form__control--checkbox:disabled:checked + label:before {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border-color: #bbb;
-  background-color: #ddd;
-}
-
-.form__control--checkbox:disabled:checked + label:after {
-  color: #999;
-}
-
-.form__control--checkbox:disabled + label {
-  color: #aaa;
-}
-
-/* accessibility */
-.form__control--checkbox:checked:focus + label:before,
-.form__control--checkbox:not(:checked):focus + label:before {
-  border: 1px solid #ced4da;
-}
-
-/* hover style just for information */
-label:hover:before {
-  border: 1px solid #ced4da !important;
-}
-
-.form-field__select:not([multiple]) {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  border-radius: 0;
-  color: #999;
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAMCAYAAABSgIzaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDZFNDEwNjlGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDZFNDEwNkFGNzFEMTFFMkJEQ0VDRTM1N0RCMzMyMkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0NkU0MTA2N0Y3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0NkU0MTA2OEY3MUQxMUUyQkRDRUNFMzU3REIzMzIyQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PuGsgwQAAAA5SURBVHjaYvz//z8DOYCJgUxAf42MQIzTk0D/M+KzkRGPoQSdykiKJrBGpOhgJFYTWNEIiEeAAAMAzNENEOH+do8AAAAASUVORK5CYII=) no-repeat right 50%;
-  padding: .5em 1.5em .5em .5em;
-}
-
-.app-field-required {
-  position: relative;
-}
-
-.app-field-required .required-icon {
-  display: inline-block;
-  vertical-align: middle;
-  margin: -0.25em 0.25em 0em;
-  background-color: #E8E8E8;
-  border-color: #E8E8E8;
-  padding: 0.5em 0.8em;
-  color: rgba(0, 0, 0, 0.65);
-  text-transform: uppercase;
-  font-weight: normal;
-  border-radius: 0.325em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-transition: background 0.1s linear;
-  -o-transition: background 0.1s linear;
-  transition: background 0.1s linear;
-  font-size: 75%;
-}
-
-.app-field-required .required-icon {
-  background-color: transparent;
-  position: absolute;
-  top: 2.25em;
-  right: 0em;
-  z-index: 10;
-  margin: 0em;
-  width: 45px;
-  height: 45px;
-  padding: 0em;
-  text-align: center;
-  -webkit-transition: color 0.2s ease;
-  -o-transition: color 0.2s ease;
-  transition: color 0.2s ease;
-}
-
-.app-field-required .required-icon:after {
-  position: absolute;
-  content: "";
-  right: 1px;
-  top: 1px;
-  z-index: -1;
-  width: 0em;
-  height: 0em;
-  -webkit-transition: border-color 0.2s ease;
-  -o-transition: border-color 0.2s ease;
-  transition: border-color 0.2s ease;
-}
-
-.app-field-required .required-icon .text {
-  margin: -3px 0 0 12px;
-  color: #900707;
-  font-size: 2.25rem;
-  font-weight: 300;
-}
-
-.form__group--checkboxes .required-icon {
-  top: 0;
-}
-
-::-ms-reveal,
-::-ms-clear {
-  display: none !important;
-}
-
-.hideShowPassword-toggle {
-  background: transparent;
-  border: 0;
-  border-radius: 0.25em;
-  color: #888;
-  cursor: pointer;
-  font-size: 0.75em;
-  font-weight: bold;
-  margin-right: 0.5em;
-  padding: 0.5em;
-  text-transform: uppercase;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-}
-
-.hideShowPassword-toggle:hover,
-.hideShowPassword-toggle:focus {
-  background-color: #eee;
-  color: #555;
-  outline: transparent;
 }
 
 .c-identifier {
@@ -11027,7 +10045,7 @@ fieldset[disabled] a.c-button {
 }
 
 .c-button + .c-button {
-  margin-right: 1rem;
+  margin-left: calc(1.25rem * .5);
 }
 
 .c-button--sm {
