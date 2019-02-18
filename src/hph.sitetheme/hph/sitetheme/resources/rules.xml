@@ -464,7 +464,7 @@
                         <xsl:value-of select="./@value"/>
                     </button>
                 </xsl:when>
-                <xsl:when css:test="[type='text'][name$='.title'],#title, textarea">
+                <xsl:when css:test="[type='text'],[name$='.title'],#title, textarea">
                     <xsl:copy>
                         <xsl:copy-of select="@*" />
                         <xsl:attribute name="class"><xsl:value-of select="./@class" /> o-form__control o-form__control--text</xsl:attribute>
@@ -504,10 +504,18 @@
             </xsl:choose>
         </replace>
 
+        <replace css:content="textarea">
+            <xsl:copy>
+                <xsl:copy-of select="@*" />
+                <xsl:attribute name="class"><xsl:value-of select="./@class" /> o-form__control o-form__control--textarea</xsl:attribute>
+                <xsl:apply-templates />
+            </xsl:copy>
+        </replace>
+
         <replace css:content=".formControls">
             <xsl:copy>
                 <xsl:copy-of select="@*" />
-                <xsl:attribute name="class"><xsl:value-of select="./@class" /> c-form__actions</xsl:attribute>
+                <xsl:attribute name="class"><xsl:value-of select="./@class" /> o-form__actions</xsl:attribute>
                 <xsl:apply-templates />
             </xsl:copy>
         </replace>
