@@ -50,14 +50,20 @@ $grid-item-sizes: (
                 flex: 1 0 $size-value;
                 max-width: $size-value;
             }
-
+        }
         @include when-inside('.o-grid--md') {
             @include mq($from: md, $until: lg) {
                 flex: 1 0 $size-value;
                 max-width: $size-value;
             }
         }
-        @include mq($from: lg) {
+        @include when-inside('.o-grid--lg') {
+            @include mq($from: lg, $until: xl) {
+                flex: 1 0 $size-value;
+                max-width: $size-value;
+            }
+        }
+        @include mq($from: xl) {
             flex: 1 0 $size-value;
             max-width: $size-value;
         }
