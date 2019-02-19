@@ -41,9 +41,9 @@ $grid-item-sizes: (
     .o-grid__item--#{$grid-item-size} {
         @include when-inside('.o-grid') {
             flex: 1 0 100%;
-            @include mq($from: md) {
-                flex: 1 0 50%;
-            }
+            // @include mq($from: md) {
+            //     flex: 1 0 50%;
+            // }
             @include mq($from: lg) {
                 flex: 1 0 $size-value;
                 max-width: $size-value;
