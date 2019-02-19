@@ -1,7 +1,7 @@
 //
 // Cards displaying thumbnails and data collections
 // ------------------------------------------------------
-$c-card-display-default:                block;
+$c-card-display-default:                flex;
 $c-card-width-default:                  100%;
 $c-card-font-family-base:               $app-font-family-strong;
 $c-card-font-family-highlight:          $c-card-font-family-base;
@@ -10,6 +10,13 @@ $c-card-cap-bg:                         transparent;
 
 .c-card {
     display: $c-card-display-default;
+    @if $c-card-display-default == 'flex' {
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+    } @else {
+        height: auto;
+    }
     width: $c-card-width-default;
 }
 
