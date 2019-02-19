@@ -5,7 +5,9 @@
 .c-card-list__item {
     @include when-inside('.c-card-list') {
     &:not(last) {
-        border-right: 1px solid $app-color-gray;
+    	@include mq($from: md) {
+    		border-right: 1px solid $app-color-gray;
+    		}
         }
     &:last-of-type {
         border-right: 0px;

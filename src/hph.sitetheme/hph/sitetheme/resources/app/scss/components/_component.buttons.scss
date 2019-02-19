@@ -59,7 +59,7 @@ fieldset[disabled] a.c-button {
 }
 
 .c-button + .c-button {
-    margin-right: 1rem;
+    margin-left: calc(#{$app-font-size-base} * .5);
 }
 
 .c-button--sm {
