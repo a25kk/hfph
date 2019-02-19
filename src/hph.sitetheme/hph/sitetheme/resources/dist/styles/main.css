@@ -9225,11 +9225,6 @@ input, button, select, textarea {
 
 .c-header {
   padding-top: 1.5rem;
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 @media (min-width: 576px) {
@@ -11951,11 +11946,6 @@ img[data-sizes="auto"] {
 
 .c-page-header {
   margin: 0 auto 1.5rem;
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 @media (min-width: 576px) {
