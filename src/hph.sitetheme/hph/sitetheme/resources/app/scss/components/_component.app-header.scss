@@ -44,9 +44,8 @@
         align-items: flex-end;
         margin-right: auto;
         margin-left: auto;
+        @include make-container();
         @include make-container-max-widths();
-        padding-left: .75rem;
-        padding-right: .75rem;
     }
 }
 
