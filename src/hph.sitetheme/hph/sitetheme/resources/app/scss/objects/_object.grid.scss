@@ -39,15 +39,33 @@ $grid-item-sizes: (
 
 @each $grid-item-size, $size-value in $grid-item-sizes {
     .o-grid__item--#{$grid-item-size} {
-        @include when-inside('.o-grid') {
-            flex: 1 0 100%;
-            // @include mq($from: md) {
-            //     flex: 1 0 50%;
-            // }
-            @include mq($from: lg) {
+        flex: 1 0 100%;
+        @include when-inside('.o-grid--intermediate') {
+            @include mq($from: md) {
+                flex: 1 0 50%;
+            }
+        }
+        @include when-inside('.o-grid--sm') {
+            @include mq($from: sm, $until: lg) {
                 flex: 1 0 $size-value;
                 max-width: $size-value;
             }
+        }
+        @include when-inside('.o-grid--md') {
+            @include mq($from: md, $until: lg) {
+                flex: 1 0 $size-value;
+                max-width: $size-value;
+            }
+        }
+        @include when-inside('.o-grid--lg') {
+            @include mq($from: lg, $until: xl) {
+                flex: 1 0 $size-value;
+                max-width: $size-value;
+            }
+        }
+        @include mq($from: xl) {
+            flex: 1 0 $size-value;
+            max-width: $size-value;
         }
     }
 }
