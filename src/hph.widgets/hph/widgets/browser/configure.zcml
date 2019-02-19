@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    i18n_domain="hph.sitecontent">
+
+  <browser:page
+      for="hph.sitecontent.contentpage.IContentPage"
+      name="contentpage_view"
+      class=".contentpage.ContentPageView"
+      template="contentpage.pt"
+      permission="zope2.View"
+      layer="..interfaces.IHphWidgetsLayer"
+      />
+
+</configure>
