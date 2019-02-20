@@ -29,7 +29,6 @@
 
 .c-header {
     padding-top: 1.5rem;
-    @include make-container();
     @include make-container-max-widths();
 }
 

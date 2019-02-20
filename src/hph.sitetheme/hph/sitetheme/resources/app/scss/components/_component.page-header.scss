@@ -6,7 +6,6 @@ $c-page-header-line-height:                     1.5;
 
 .c-page-header {
     margin: 0 auto $c-page-header-margin-bottom;
-    @include make-container();
     @include make-container-max-widths();
 }
 
