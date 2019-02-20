@@ -8442,6 +8442,12 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   }
 }
 
+@media (min-width: 75em) {
+  .o-page__body-text {
+    padding-left: 2rem;
+  }
+}
+
 .o-grid {
   display: -webkit-box;
   display: -ms-flexbox;
