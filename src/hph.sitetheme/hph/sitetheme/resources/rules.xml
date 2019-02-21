@@ -192,13 +192,13 @@
 
         <!-- Breadcrumbs -->
         <replace css:content="#portal-breadcrumbs" method="raw" if-content="//*[@id='breadcrumbs-1']">
-            <ol class="app-breadcrumbs">
+            <ol class="c-breadcrumbs">
                 <xsl:for-each select="./div/ol/li[not(position() = last())]//a">
-                    <li class="app-breadcrumbs-item">
+                    <li class="c-breadcrumbs__item">
                         <xsl:apply-templates select="."/>
                     </li>
                 </xsl:for-each>
-                <li class="app-breadcrumbs-item active">
+                <li class="c-breadcrumbs__item c-breadcrumb__item--active" aria-current="page">
                     <xsl:apply-templates select="./div/ol/li[position() = last()]/*"/>
                 </li>
             </ol>
