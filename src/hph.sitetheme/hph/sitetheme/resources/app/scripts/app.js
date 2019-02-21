@@ -29,6 +29,7 @@ requirejs(['require',
             weight: 400
         });
         var fontSecondary = new FontFaceObserver('TAZ');
+        var fontTertiary = new FontFaceObserver('TAZSemiLight');
 
         fontPrimary.load(null, 3000).then(function () {
             document.documentElement.className += " font__primary--loaded";
@@ -38,8 +39,13 @@ requirejs(['require',
             document.documentElement.className += " font__secondary--loaded";
         });
 
+        fontTertiary.load(null, 3000).then(function () {
+            document.documentElement.className += " font__tertiary--loaded";
+        });
+
         Promise.all([fontPrimary.load(null, 3000),
-                     fontSecondary.load(null, 3000)
+                     fontSecondary.load(null, 3000),
+                     fontTertiary.load(null, 3000)
         ])
             .then(function () {
                 document.documentElement.className += " fonts--loaded";
