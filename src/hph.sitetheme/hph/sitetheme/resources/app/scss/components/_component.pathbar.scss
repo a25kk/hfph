@@ -1,5 +1,5 @@
 $c-breadcrumb-padding-y:                .25rem;
-$c-breadcrumb-padding-x:                $app-spacer-base;
+$c-breadcrumb-padding-x:                calc(#{$app-font-size-base} * 1);
 $c-breadcrumb-margin-bottom:            calc(#{$app-font-size-base} * 1.5);
 $c-breadcrumb-bg:                       transparent;
 

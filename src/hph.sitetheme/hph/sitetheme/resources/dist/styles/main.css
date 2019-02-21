@@ -11148,7 +11148,7 @@ img[data-sizes="auto"] {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 0.25rem calc(1.25rem * 1.5);
+  padding: 0.25rem calc(1.25rem * 1);
   margin-bottom: calc(1.25rem * 1.5);
   background-color: transparent;
 }
