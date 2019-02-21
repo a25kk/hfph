@@ -64,4 +64,12 @@
             permission="zope2.View"
     />
 
+    <browser:page
+            for="hph.sitecontent.newsentry.INewsEntry"
+            name="news-item"
+            class=".news.NewsItemView"
+            template="news-item.pt"
+            permission="zope2.View"
+    />
+
 </configure>

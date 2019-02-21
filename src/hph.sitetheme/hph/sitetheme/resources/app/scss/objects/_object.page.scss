@@ -8,9 +8,11 @@
         padding-left: 0;
     }
     @include when-inside('body:not(.portaltype-hph-sitecontent-mainsection)') {
-        margin-right: auto;
-        margin-left: auto;
-        @include make-container-max-widths();
+        &:not(.o-page--panels) {
+            margin-right: auto;
+            margin-left: auto;
+            @include make-container-max-widths();
+        }
     }
 }
 
@@ -33,4 +35,14 @@
     margin-right: auto;
     margin-left: auto;
     @include make-container-max-widths();
+}
+
+.o-page__section {
+
+}
+
+.o-page__body-text {
+    @include mq($from: xl) {
+        padding-left: 2rem;
+    }
 }
