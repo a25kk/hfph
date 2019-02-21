@@ -20,3 +20,8 @@ img[data-sizes="auto"] {
 .o-image--loaded {
     filter: blur(0);
 }
+
+.o-image--inline {
+    margin-bottom: $app-spacer-base;
+    margin-right: $app-spacer-base;
+}
