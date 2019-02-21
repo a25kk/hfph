@@ -273,6 +273,13 @@
 }
 
 @font-face {
+  font-family: 'TAZSemiLight';
+  font-style: normal;
+  font-weight: normal;
+  src: local("TAZ Semilight"), local("TAZ-Semilight"), url("../assets/fonts/taz-webfont.woff") format("woff");
+}
+
+@font-face {
   font-family: 'EB Garamond';
   font-style: italic;
   font-weight: 400;
@@ -8240,6 +8247,11 @@ img[data-sizes="auto"] {
           filter: blur(0);
 }
 
+.o-image--inline {
+  margin-bottom: calc(1.25rem * 1.5);
+  margin-right: calc(1.25rem * 1.5);
+}
+
 p {
   margin-bottom: calc(1.25rem * 1.5);
 }
@@ -8254,6 +8266,11 @@ h1, h2, h3, h4, h5, h6,
   font-family: "TAZ", Georgia, "Times New Roman", Times, serif;
   font-weight: 500;
   line-height: 1.2;
+}
+
+h3, h4, h5, h6,
+.h3, .h4, .h5, .h6 {
+  font-family: "TAZSemiLight";
 }
 
 h1, .h1 {
@@ -8442,10 +8459,9 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   }
 }
 
-@media (min-width: 75em) {
-  .o-page__body-text {
-    padding-left: 2rem;
-  }
+.o-page__asset--inline {
+  margin-bottom: calc(1.25rem * 1.5);
+  margin-right: calc(1.25rem * 1.5);
 }
 
 .o-grid {
