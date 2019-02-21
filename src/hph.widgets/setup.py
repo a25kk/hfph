@@ -10,6 +10,7 @@ import os
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
+
 long_description = read('README.rst')
 
 setup(

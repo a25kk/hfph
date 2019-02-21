@@ -10,17 +10,27 @@
     <!-- Include configuration for dependencies listed in setup.py -->
     <includeDependencies package="." />
 
+    <include package=".widgets" />
+
     <!-- Register locales directory -->
     <i18n:registerTranslations directory="locales" />
 
     <!-- Register the installation GenericSetup extension profile -->
     <genericsetup:registerProfile
         name="default"
-        title="hph.widgets"
+        title="HPH Content Widgets"
         directory="profiles/default"
-        description="Extension profile for hph.widgets."
+        description="Site specific content widgets for panel pages"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
+    <!-- Uninstall -->
+    <genericsetup:registerProfile
+            name="uninstall"
+            title="Uninstall HPH Content Widgets (hph.widgets)"
+            directory="profiles/uninstall"
+            description="Uninstall content widgets and integrations"
+            provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
 
     <plone:static
         directory="resources"

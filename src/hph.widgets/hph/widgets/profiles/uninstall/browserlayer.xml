@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layers>
+    <layer
+            name="hph.widgets"
+            interface="hph.widgets.interfaces.IHphWidgetsLayer"
+            remove="True"
+    />
+</layers>
