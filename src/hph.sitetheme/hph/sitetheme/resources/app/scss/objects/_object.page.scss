@@ -36,3 +36,13 @@
     margin-left: auto;
     @include make-container-max-widths();
 }
+
+.o-page__section {
+
+}
+
+.o-page__body-text {
+    @include mq($from: xl) {
+        padding-left: 2rem;
+    }
+}
