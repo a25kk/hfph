@@ -8428,6 +8428,13 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
 
 .o-page__header {
   margin-bottom: calc(1.25rem * 2);
+  padding-left: 0;
+}
+
+@media (min-width: 48em) {
+  .o-page__header {
+    padding-left: calc(1.25rem * 1.5);
+  }
 }
 
 .o-page__main {
@@ -11141,7 +11148,7 @@ img[data-sizes="auto"] {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 0.25rem 0.25rem;
+  padding: 0.25rem calc(1.25rem * 1.5);
   margin-bottom: calc(1.25rem * 1.5);
   background-color: transparent;
 }

@@ -29,6 +29,11 @@
 // (should ideally only contain basic layout definitions)
 .o-page__header {
     margin-bottom: $o-page-header-margin-bottom;
+    padding-left: 0;
+    @include mq($from: md) {
+        padding-left: $app-spacer-base;
+    }
+    
 }
 
 .o-page__main {
