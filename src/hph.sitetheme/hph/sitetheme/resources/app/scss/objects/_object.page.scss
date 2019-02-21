@@ -37,12 +37,7 @@
     @include make-container-max-widths();
 }
 
-.o-page__section {
-
-}
-
-.o-page__body-text {
-    @include mq($from: xl) {
-        padding-left: 2rem;
-    }
+.o-page__asset--inline {
+    margin-bottom: $app-spacer-base;
+    margin-right: $app-spacer-base;
 }

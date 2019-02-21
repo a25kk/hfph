@@ -5,22 +5,27 @@ slug: theme
 lead: "Theme test rendering"
 base_url: "../../"
 ---
-<div class="app-content" id="content-theme">
+<div class="o-page" id="content-theme">
 
-  <div class="app-page-body">
+    <header class="o-page__header">
+        <div class="o-page__section c-page-header">
+            <div class="c-page-header__title">
+                <h1 class="c-page-header__headline">
+                    Theme v2.0.0
+                </h1>
+            </div>
+            <p class="c-page-header__abstract">
+                Globale Text und Typographie Styles
+            </p>
+        </div>
+    </header>
 
-      <div class="app-page-header">
-          <div class="app-page-title">
-              <h1 class="app-page-headline">Typographie
-              </h1>
-          </div>
-          <p class="app-page-abstract">
-              Globale Text und Typographie Styles
-          </p>
-      </div>
-      <div class="app-page-body">
-          <p>Das Theme verwendet soweit möglich und semantisch sinnvoll BEM und ITCSS als Grundlage der Style Implementierung.
-          </p>
+  <div class="o-page__main">
+
+      <div class="o-page__section">
+          <p>Das Theme verwendet soweit möglich und semantisch sinnvoll BEM und ITCSS als Grundlage der Style Implementierung.</p>
+            <p>Die Schriftgrösse wird responsive bestimmt, d.h. passt sich relativ zueinander für die verschiedenen vordefinierten
+            Container Abmasse an und erreicht auf Desktop Bildschirmen die Standardvorgaben.</p>
           <hr>
           <div class="sg-section">
               <!-- Headings -->
@@ -74,17 +79,18 @@ base_url: "../../"
                   <h5>h5 Heading</h5>
                   <h6>h6 Heading</h6>
               {% endhighlight %}
+          </div>
 
               <!-- Body copy -->
               <h2 id="type-body-copy">Fliesstext</h2>
-              <p>Die globale Standardschriftgrösse <code>font-size</code> für Fliesstext entspricht der Standardeinstellung der Browser
+              <p>Die globale Standardschriftgrösse <code>font-size</code> für Fliesstext basiert auf der Standardeinstellung der Browser
                   von <strong>16px</strong>, mit einer Zeilenhöhe <code> line-height</code> von <strong>1.5</strong>.
               </p>
               <p>
-                  Diese Vorgaben werden für den <code>&lt;body&gt;</code> als <strong>1rem</strong>
+                  Diese Vorgaben werden für den <code>&lt;body&gt;</code> als <strong>1.125rem</strong>
                   festgesetzt und gelten für jeden Textabschnitt. Zusätzlich erhält jeder Paragraph
-                  <code>&lt;p&gt;</code> einen Abstand zum nachfolgenden Element von Einheit
-                  (1rem = ca.16px).
+                  <code>&lt;p&gt;</code> einen Abstand zum nachfolgenden Element von berechnet aus den Einheiten Basisschriftgrösse und Standardzeiilenhöhe.
+                  (Beispiel: 1rem * 1.5).
               </p>
               <div class="sg-example" data-example-id="body-copy">
                   <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
@@ -97,31 +103,12 @@ base_url: "../../"
                   <p>...</p>
               {% endhighlight %}
 
-              <h3>Optimale Textlänge</h3>
-
-              <p>Lorem ipsum dolor sit amet, consectetur adip<strong class="text-danger">i</strong>sicing elit, sed do eiusmod
-                  t<strong class="text-success">e</strong>mpor incididunt ut
-                  <strong class="text-danger">l</strong>abore
-                  et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-
               <!-- Body copy .lead -->
               <h3>Aufmacher und Texteinleitungen</h3>
-              <p>Ein Paragraph kann hervorgehoben dargestellt werden <code>.c-page__abstract</code>.</p>
+            <p>Ein einleitender Paragraph kann <strong>hervorgehoben</strong> dargestellt werden.</p>
               <div class="sg-example" data-example-id="lead-copy">
-                  <p class="c-page__abstract">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
+                  <p class="c-page-header__abstract">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
               </div>
-              {% highlight html %}
-                  <p class="c-page__abstract">...</p>
-              {% endhighlight %}
-
-              <!-- Using Less -->
-              <h3>Textskalierung und Layout basierend auf globalen Variablen</h3>
-              <p>The typographic scale is based on two Less variables in <strong>variables.less</strong>: <code>@font-size-base</code> and <code>@line-height-base</code>. The first is the base font-size used throughout and the second is the base line-height. We use those variables and some simple math to create the margins, paddings, and line-heights of all our type and more. Customize them and Bootstrap adapts.</p>
 
               <!-- Inline text elements -->
               <h2 id="type-inline-text">Inline text elements</h2>

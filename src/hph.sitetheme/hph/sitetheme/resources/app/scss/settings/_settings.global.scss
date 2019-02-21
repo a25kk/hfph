@@ -6,9 +6,14 @@
 
 $enable-responsive-font-sizes:              true;
 
-$font-size-small: 1rem !default;
-$font-size-normal: 1.25rem !default;
-$font-size-large: 1.5rem !default;
+$font-size-small:                   1rem;
+$font-size-normal:                  1.25rem;
+$font-size-large:                   1.5rem;
+
+
+$app-line-height-lg:                1.5;
+$app-line-height-base:              1.5;
+$app-line-height-sm:                1.5;
 
 // Elements
 
