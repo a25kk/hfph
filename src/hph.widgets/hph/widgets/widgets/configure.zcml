@@ -4,6 +4,25 @@
     xmlns:z3c="http://namespaces.zope.org/z3c"
     i18n_domain="hph.widgets">
 
+    <!-- Content preview widgets -->
+    <browser:page
+            for="*"
+            name="content-widget-content-card"
+            class=".content.WidgetContentCard"
+            template="content-card.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHphWidgetsLayer"
+    />
+
+    <browser:page
+            for="*"
+            name="content-widget-content-snippet"
+            class=".content.WidgetContentSnippet"
+            template="content-snippet.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHphWidgetsLayer"
+    />
+
     <!-- Content Widget Teaser -->
     <browser:page
             for="*"
