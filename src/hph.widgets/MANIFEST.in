@@ -1,0 +1,2 @@
+graft hph
+include *.cfg *.rst *.in
