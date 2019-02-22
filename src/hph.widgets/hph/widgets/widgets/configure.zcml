@@ -23,6 +23,16 @@
             layer="..interfaces.IHphWidgetsLayer"
     />
 
+    <!-- Content Listing -->
+    <browser:page
+            for="*"
+            name="content-widget-content-listing"
+            class=".listing.WidgetContentListing"
+            template="listing.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHphWidgetsLayer"
+    />
+
     <!-- Content Widget Teaser -->
     <browser:page
             for="*"
