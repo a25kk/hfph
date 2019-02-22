@@ -18,6 +18,7 @@
 
 .o-page--sign-in {
     display: flex;
+    max-width: 100% !important;
     align-items: center;
     justify-content: center;
     width: 100vw;
@@ -29,11 +30,6 @@
 // (should ideally only contain basic layout definitions)
 .o-page__header {
     margin-bottom: $o-page-header-margin-bottom;
-    padding-left: 0;
-    @include mq($from: md) {
-        padding-left: $app-spacer-base;
-    }
-    
 }
 
 .o-page__main {

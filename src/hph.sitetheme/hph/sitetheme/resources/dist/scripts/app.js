@@ -54,7 +54,7 @@ requirejs(['require',
         // SVG Sprite polyfill
         svg4everybody();
 
-        xray.init();
+        // xray.init();
 
         // Drop mic initialization
         var dropmic = new Dropmic(document.querySelector('[data-dropmic="quick-link-menu"]'), {
