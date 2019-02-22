@@ -8428,13 +8428,6 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
 
 .o-page__header {
   margin-bottom: calc(1.25rem * 2);
-  padding-left: 0;
-}
-
-@media (min-width: 48em) {
-  .o-page__header {
-    padding-left: calc(1.25rem * 1.5);
-  }
 }
 
 .o-page__main {
@@ -9722,11 +9715,6 @@ input, button, select, textarea {
             align-items: flex-end;
     margin-right: auto;
     margin-left: auto;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
   }
 }
 
@@ -9911,11 +9899,6 @@ input, button, select, textarea {
 }
 
 .c-identifier__content {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
   font-size: 1rem;
   font-family: "TAZ";
 }
@@ -11110,9 +11093,16 @@ img[data-sizes="auto"] {
 }
 
 .app-pathbar {
+  display: none;
   width: 100%;
   margin-right: auto;
   margin-left: auto;
+}
+
+@media (min-width: 48em) {
+  .app-pathbar {
+    display: block;
+  }
 }
 
 @media (min-width: 576px) {
@@ -11148,7 +11138,7 @@ img[data-sizes="auto"] {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding: 0.25rem calc(1.25rem * 1);
+  padding: 0.25rem 0;
   margin-bottom: calc(1.25rem * 1.5);
   background-color: transparent;
 }
@@ -11170,11 +11160,6 @@ img[data-sizes="auto"] {
 
 .c-banner--front-page {
   margin-top: 8.5rem;
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 @media (min-width: 576px) {
@@ -12167,11 +12152,6 @@ img[data-sizes="auto"] {
 }
 
 .c-widget__content--header {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
   font-family: "TAZ";
   font-size: 2rem;
 }
