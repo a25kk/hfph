@@ -474,21 +474,21 @@
                 <xsl:when css:test="[type='checkbox']:not(.o-switch__control)">
                     <xsl:copy>
                         <xsl:copy-of select="@*" />
-                        <xsl:attribute name="class">form__control form__control--checkbox</xsl:attribute>
+                        <xsl:attribute name="class">o-form__control o-form__control--checkbox</xsl:attribute>
                         <xsl:apply-templates />
                     </xsl:copy>
                 </xsl:when>
                 <xsl:when css:test="[type='file']">
                     <xsl:copy>
                         <xsl:copy-of select="@*" />
-                        <xsl:attribute name="class">form__control form__control--file</xsl:attribute>
+                        <xsl:attribute name="class">o-form__control o-form__control--file</xsl:attribute>
                         <xsl:apply-templates />
                     </xsl:copy>
                 </xsl:when>
                 <xsl:when css:test="[type='password']">
                     <xsl:copy>
                         <xsl:copy-of select="@*" />
-                        <xsl:attribute name="class">c-form__control c-form__control--password</xsl:attribute>
+                        <xsl:attribute name="class">o-form__control o-form__control--password</xsl:attribute>
                         <xsl:apply-templates />
                         <div class="c-password-toggle">
                             <button class="x-ray c-button c-button-default c-button--sm" data-x-ray="#__ac_password" data-default="show">
