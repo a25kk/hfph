@@ -14,7 +14,6 @@
 }
 
 .c-identifier__content {
-    @include make-container();
     @include make-container-max-widths();
     @include font-size($font-size-small);
     font-family: $app-font-family-strong;
