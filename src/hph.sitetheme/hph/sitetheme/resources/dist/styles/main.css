@@ -11297,6 +11297,13 @@ img[data-sizes="auto"] {
 }
 
 .c-snippet__main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-flex: 1;
       -ms-flex: 1 0 100%;
           flex: 1 0 100%;
@@ -11312,6 +11319,12 @@ img[data-sizes="auto"] {
   }
 }
 
+.c-snippet__footer {
+  margin-top: auto;
+  font-size: 1.25rem;
+  font-family: "TAZ";
+}
+
 .c-snippet__title {
   font-size: 1.5rem;
   font-weight: 600;
@@ -11324,6 +11337,9 @@ img[data-sizes="auto"] {
 }
 
 .c-snippet__section {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   font-size: 1.25rem;
 }
 
@@ -11331,9 +11347,22 @@ img[data-sizes="auto"] {
   font-family: "TAZ";
 }
 
-.c-snippet__footer {
+.c-snippet__abstract {
+  color: #212529;
   font-size: 1.25rem;
-  font-family: "TAZ";
+}
+
+.c-snippet__link {
+  display: block;
+}
+
+.c-snippet__link--abstract {
+  color: #212529;
+}
+
+.c-snippet__link--abstract:hover {
+  color: #212529;
+  text-decoration: none;
 }
 
 @-webkit-keyframes toolBarEntrance {
