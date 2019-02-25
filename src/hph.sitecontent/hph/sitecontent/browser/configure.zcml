@@ -72,4 +72,22 @@
             permission="zope2.View"
     />
 
+    <!-- Event views and listings -->
+    <browser:page
+            for="hph.sitecontent.eventitem.IEventItem"
+            name="event-item"
+            class=".events.EventItemView"
+            template="event-item.pt"
+            permission="zope2.View"
+    />
+
+    <!-- News item listing -->
+    <browser:page
+            for="hph.sitecontent.eventfolder.IEventFolder"
+            name="event-listing"
+            class=".events.EventListView"
+            template="event-listing.pt"
+            permission="zope2.View"
+    />
+
 </configure>
