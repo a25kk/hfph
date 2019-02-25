@@ -64,7 +64,7 @@ gulp.task('build:collect', buildCollect);
 // Base tasks
 const buildBase = gulp.series(
     'jekyll:build',
-    gulp.parallel('styles:dist', 'collect:scripts:app'),
+    gulp.parallel('styles:dist', 'styles:editor', 'collect:scripts:app'),
     'inject:head'
 );
 
