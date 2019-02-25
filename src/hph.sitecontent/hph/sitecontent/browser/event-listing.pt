@@ -40,15 +40,13 @@
                         <div class="app-list app-list--no-gutter">
                             <article class="app-list__item" tal:repeat="item batch">
                                 <div class="app-list__item-details" tal:define="item_uuid item/uuid">
-                                    <div tal:replace="structure python:context.restrictedTraverse('@@content-widget-content-snippet')(widget_data=dict(uuid=item_uuid))">
+                                    <div tal:replace="structure python:context.restrictedTraverse('@@content-widget-event-snippet')(widget_data=dict(uuid=item_uuid))">
                                         Content Preview Card
                                     </div>
                                 </div>
                             </article>
                         </div>
-                        <tal:block tal:content="nothing">
-                            <div metal:use-macro="context/batch_macros/macros/navigation" />
-                        </tal:block>
+                        <div metal:use-macro="context/batch_macros/macros/navigation" />
                     </section>
                 </div>
             </tal:news-items>
