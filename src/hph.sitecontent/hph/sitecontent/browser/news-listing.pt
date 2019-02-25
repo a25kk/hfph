@@ -46,9 +46,7 @@
                                 </div>
                             </article>
                         </div>
-                        <tal:block tal:content="nothing">
-                            <div metal:use-macro="context/batch_macros/macros/navigation" />
-                        </tal:block>
+                        <div metal:use-macro="context/batch_macros/macros/navigation" />
                     </section>
                 </div>
             </tal:news-items>
