@@ -10,14 +10,23 @@
 <metal:main fill-slot="main">
     <metal:content-core define-macro="main">
 
-        <section class="app-page" id="news-listing"
-                 tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
-            <header class="app-page-header">
-                <h1 tal:content="context/Title" />
-                <div class="app-page__abstract" tal:condition="context/Description">
-                        ${context/Description}
+        <header class="o-page__header">
+            <div class="o-page__section c-page-header">
+                <div class="c-page-header__title">
+                    <h1 class="c-page-header__headline">
+                        <span tal:replace="python:context.Title()">
+                            Page Title</span>
+                    </h1>
                 </div>
-            </header>
+                <p class="c-page-header__abstract" tal:condition="context/Description"
+                         tal:content="python:context.Description()">
+                        ${context/Description}
+                </p>
+            </div>
+        </header>
+
+        <section class="o-page__main" id="news-listing"
+                 tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
 
             <tal:news-items tal:condition="view/has_content">
 
@@ -29,9 +38,11 @@
                                          results view/news_items;
                                          batch python:Batch(results, b_size, b_start);">
                         <div class="app-list app-list--no-gutter">
-                            <article class="app-list__item" tal:repeat="item results">
+                            <article class="app-list__item" tal:repeat="item batch">
                                 <div class="app-list__item-details" tal:define="item_uuid item/uuid">
-                                    <span tal:replace="structure python:view.rendered_news_entry_card(item_uuid)" />
+                                    <div tal:replace="structure python:context.restrictedTraverse('@@content-widget-content-snippet')(widget_data=dict(uuid=item_uuid))">
+                                        Content Preview Card
+                                    </div>
                                 </div>
                             </article>
                         </div>

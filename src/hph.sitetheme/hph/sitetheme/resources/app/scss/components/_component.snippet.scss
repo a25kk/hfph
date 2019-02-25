@@ -6,6 +6,9 @@ $c-snippet-width:                   100%;
 $c-snippet-padding:                 $app-font-size-base;
 $c-snippet-margin-base:             calc(#{$app-font-size-base} * 1.5);
 
+$c-snippet-color:                   $app-color-text;
+
+
 .c-snippet {
     width: $c-snippet-width;
     display: $c-snippet-display;
@@ -28,6 +31,8 @@ $c-snippet-margin-base:             calc(#{$app-font-size-base} * 1.5);
 }
 
 .c-snippet__main {
+    display: flex;
+    flex-direction: column;
     flex: 1 0 100%;
     @include mq($from: md) {
         flex: 1 0 $c-snippet-main-width;
@@ -36,12 +41,21 @@ $c-snippet-margin-base:             calc(#{$app-font-size-base} * 1.5);
     }
 }
 
+.c-snippet__footer {
+    margin-top: auto;
+    @include font-size($app-font-size-base);
+    font-family: $app-font-family-strong;
+}
+
+
+// Snippet elements
 .c-snippet__title {
     @include font-size(1.5rem);
     font-weight: $app-font-weight-strong-custom;
 }
 
 .c-snippet__section {
+    flex-grow: 1;
     @include font-size($app-font-size-base);
 }
 
@@ -49,7 +63,18 @@ $c-snippet-margin-base:             calc(#{$app-font-size-base} * 1.5);
     font-family: $app-font-family-strong;
 }
 
-.c-snippet__footer {
+.c-snippet__abstract {
+    color: $c-snippet-color;
     @include font-size($app-font-size-base);
-    font-family: $app-font-family-strong;
+}
+
+.c-snippet__link {
+    display: block;
+    &--abstract {
+        color: $c-snippet-color;
+        &:hover {
+            color: $c-snippet-color;
+            text-decoration: none;
+        }
+    }
 }
