@@ -6,7 +6,6 @@
 .c-interferer--front-page {
     //margin-top: 8.5rem;
     //margin-bottom: 4rem;
-    @include make-container();
     @include make-container-max-widths();
 
 }
