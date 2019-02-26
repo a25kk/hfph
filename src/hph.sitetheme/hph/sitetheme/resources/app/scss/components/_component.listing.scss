@@ -52,13 +52,17 @@ $c-list-border-color:                $app-color-gray;
 
 .c-card-list__item {
     @include when-inside('.c-card-list') {
-    &:not(last) {
-    	@include mq($from: md) {
-    		border-right: 1px solid $app-color-gray;
-    		}
+        padding-right: $app-spacer-base;
+        &:not(:first-of-type) {
+            padding-left: $app-spacer-base;
         }
-    &:last-of-type {
-        border-right: 0px;
+        &:not(last) {
+            @include mq($from: md) {
+                border-right: 1px solid $app-color-gray;
+            }
+        }
+        &:last-of-type {
+            border-right: 0;
         }
     }
 }

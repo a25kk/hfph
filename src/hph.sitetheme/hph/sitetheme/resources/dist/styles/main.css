@@ -11971,6 +11971,11 @@ img[data-sizes="auto"] {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
+  padding-bottom: calc(1.25rem * 1.5);
+}
+
+.c-card--spacer {
+  padding: calc(1.25rem * 1.5 / 2);
 }
 
 .c-card__header {
@@ -11985,7 +11990,6 @@ img[data-sizes="auto"] {
 }
 
 .c-card__main {
-  padding: 0.75rem;
   font-family: "EB Garamond";
   text-align: left;
 }
@@ -12001,7 +12005,6 @@ img[data-sizes="auto"] {
 }
 
 .c-card__footer {
-  padding: 0.75rem;
   font-family: "TAZ";
   font-size: 1rem;
 }
@@ -12307,6 +12310,14 @@ img[data-sizes="auto"] {
   }
 }
 
+.c-card-list .c-card-list__item {
+  padding-right: calc(1.25rem * 1.5);
+}
+
+.c-card-list .c-card-list__item:not(:first-of-type) {
+  padding-left: calc(1.25rem * 1.5);
+}
+
 @media (min-width: 48em) {
   .c-card-list .c-card-list__item:not(last) {
     border-right: 1px solid #5a5f64;
@@ -12314,7 +12325,7 @@ img[data-sizes="auto"] {
 }
 
 .c-card-list .c-card-list__item:last-of-type {
-  border-right: 0px;
+  border-right: 0;
 }
 
 .c-filter__section {
@@ -12363,6 +12374,10 @@ img[data-sizes="auto"] {
       -ms-flex: 0 0 25%;
           flex: 0 0 25%;
   max-width: 25%;
+}
+
+.c-teaser__header {
+  margin-bottom: calc(1.25rem * 1.5);
 }
 
 .c-page-header {
