@@ -2,7 +2,7 @@
 // Callouts
 // --------------------------------------------------
 .c-alert {
-    padding: 0.5rem 1rem 1rem;
+    padding: $app-spacer-sm;
     margin: $spacer 0;
     border-left: 5px solid #eee;
 }
@@ -15,6 +15,11 @@
 
 .c-alert p:last-child {
     margin-bottom: 0;
+}
+
+.c-alert a {
+    color: $app-color-text;
+    text-decoration: underline;
 }
 
 // Custom button styles
@@ -38,4 +43,8 @@
 
 .c-alert--warning {
     @include alert-variant($gray-200, $yellow, $yellow);
+}
+
+.c-alert--primary {
+    @include alert-variant($app-color-gray-light, $app-color-gray, $app-color-text);
 }

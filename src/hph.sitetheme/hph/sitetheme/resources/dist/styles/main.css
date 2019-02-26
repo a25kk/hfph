@@ -10250,7 +10250,7 @@ img[data-sizes="auto"] {
 }
 
 .c-alert {
-  padding: 0.5rem 1rem 1rem;
+  padding: calc(1.25rem * 1.5);
   margin: 1rem 0;
   border-left: 5px solid #eee;
 }
@@ -10262,6 +10262,11 @@ img[data-sizes="auto"] {
 
 .c-alert p:last-child {
   margin-bottom: 0;
+}
+
+.c-alert a {
+  color: #212529;
+  text-decoration: underline;
 }
 
 .c-alert__button {
@@ -10323,6 +10328,20 @@ img[data-sizes="auto"] {
 
 .c-alert--warning .alert-link {
   color: #d39e00;
+}
+
+.c-alert--primary {
+  color: #212529;
+  background-color: #efefef;
+  border-color: #5a5f64;
+}
+
+.c-alert--primary hr {
+  border-top-color: #4e5257;
+}
+
+.c-alert--primary .alert-link {
+  color: #0a0c0d;
 }
 
 .c-control-panel__header {
