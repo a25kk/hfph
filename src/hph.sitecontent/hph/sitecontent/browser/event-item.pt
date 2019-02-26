@@ -27,10 +27,10 @@
 
         <div class="o-page__main" tal:define="event_start python:view.time_stamp(context.start); event_end python:view.time_stamp(context.end)">
             <section class="o-page__section">
-                <div class="o-grid o-grid--gutter o-grid--md">
+                <div class="o-grid o-grid--gutter o-grid--lg">
                     <div class="o-grid__item o-grid__item--width-66">
                         <div class="c-event-info">
-                            <div class="o-grid o-grid--gutter">
+                            <div class="o-grid o-grid--gutter o-grid--md">
                                 <h4 class="o-grid__item o-grid__item--width-33">Veranstaltungsbeginn:</h4>
                                 <div class="o-grid__item o-grid__item--width-66">
                                     <time tal:attributes="datetime context/start">
@@ -40,7 +40,7 @@
                                     </time>
                                 </div>
                             </div>
-                            <div class="o-grid o-grid--gutter">
+                            <div class="o-grid o-grid--gutter o-grid--md">
                                 <h4 class="o-grid__item  o-grid__item--width-33">Veranstaltungsende:</h4>
                                 <div class="o-grid__item o-grid__item--width-66">
                                     <time tal:attributes="datetime context/end">
@@ -50,13 +50,13 @@
                                     </time>
                                 </div>
                             </div>
-                            <div class="o-grid o-grid--gutter">
+                            <div class="o-grid o-grid--gutter o-grid--md">
                                 <h4 class="o-grid__item  o-grid__item--width-33">Veranstaltungsort:</h4>
                                 <div class="o-grid__item o-grid__item--width-66">
-                                    <p tal:content="python:context.location"></p>
+                                    <span tal:replace="python:context.location"></span>
                                 </div>
                             </div>
-                            <div class="o-grid o-grid--gutter">
+                            <div class="o-grid o-grid--gutter o-grid--md">
                                 <h4 class="o-grid__item  o-grid__item--width-33">Kategorie:</h4>
                                 <div class="o-grid__item o-grid__item--width-66">
                                     <p tal:content="python:view.event_type_title()"></p>
