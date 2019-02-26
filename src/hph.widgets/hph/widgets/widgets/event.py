@@ -70,10 +70,23 @@ class WidgetEventCard(BrowserView):
             return True
         return False
 
+    @staticmethod
+    def time_stamp(item, date_time):
+        content_info_provider = IContentInfoProvider(item)
+        time_stamp = content_info_provider.time_stamp(date_time)
+        return time_stamp
+
+    def event_type_title(self, event_type):
+        context = aq_inner(self.context)
+        factory = getUtility(IVocabularyFactory, "hph.sitecontent.EventTypes")
+        vocabulary = factory(context)
+        term = vocabulary.getTerm(event_type)
+        return term.title
+
     def widget_content(self):
         context = aq_inner(self.context)
         widget_data = self.params["widget_data"]
-        if widget_data and "uuid" in widget_data:
+        if "uuid" in widget_data:
             context = api.content.get(UID=widget_data["uuid"])
         details = {
             "title": context.Title(),
@@ -82,10 +95,15 @@ class WidgetEventCard(BrowserView):
             "timestamp": context.Date,
             "uuid": context.UID(),
             "has_image": self.has_image(context),
-            "css_classes": "app-card--{0} {1}".format(
-                context.UID(), self.card_css_classes(context)
+            "css_classes": "app-card--{0}".format(
+                context.UID()
             ),
             "content_item": context,
+            "event_start_date": self.time_stamp(context, context.start),
+            "event_end_date": self.time_stamp(context, context.end),
+            "event_type": self.event_type_title(
+                context.event_type
+            ),
         }
         return details
 
