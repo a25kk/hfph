@@ -40,6 +40,10 @@ $grid-item-sizes: (
 @each $grid-item-size, $size-value in $grid-item-sizes {
     .o-grid__item--#{$grid-item-size} {
         flex: 1 0 100%;
+        @include when-inside('.mce-content-body') {
+                flex: 1 0 $size-value;
+                max-width: $size-value;
+        }
         @include when-inside('.o-grid--intermediate') {
             @include mq($from: md) {
                 flex: 1 0 50%;

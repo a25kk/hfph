@@ -15,6 +15,15 @@ input, button, select, textarea {
     margin-bottom: calc(#{$app-font-size-base} * 1.5);
 }
 
+.o-form__field {
+    display: block;
+    &--hidden {
+        opacity: 0;
+        display: none;
+        height: 0;
+    }
+}
+
 .o-form__label {
     font-family: $o-form-font-family-highlight;
     font-weight: 400;
@@ -116,6 +125,17 @@ input, button, select, textarea {
         // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
         opacity: 1;
     }
+}
+
+// Hidden from control utilities
+.o-form__control--hidden {
+    display: none !important;
+    opacity: 0 !important;
+}
+
+.o-form__control--visible {
+    display: block !important;
+    opacity: 1 !important;
 }
 
 .o-form__control--textarea {
