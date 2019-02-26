@@ -29,10 +29,8 @@ $c-card-color-link-hover:               darken($c-card-color, 10%);
 //
 //## Reflow card contents based on viewport size
 .c-card__header {
-    padding: $card-spacer-y;
     background: $c-card-cap-bg;
     font-family: $c-card-font-family-highlight;
-    text-align: left;
     @include when-inside('.c-card--banner') {
         @include mq($from: md) {
             min-height: 13rem;
@@ -56,12 +54,13 @@ $c-card-color-link-hover:               darken($c-card-color, 10%);
     //display: flex;
     padding: $card-spacer-y;
     font-family: $c-card-font-family-base;
-    text-align: center;
     @include when-inside('.c-card--news') {
         text-align: left;
     }
     font-size: $font-size-small;
-
+    &--centered {
+        text-align: center;
+    }
     &--action {
     display: inline-block;
     margin-top: .7rem;

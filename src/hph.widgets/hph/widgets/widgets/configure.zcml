@@ -52,6 +52,15 @@
             layer="..interfaces.IHphWidgetsLayer"
     />
 
+    <browser:page
+            for="*"
+            name="content-widget-event-card"
+            class=".event.WidgetEventCard"
+            template="event-card.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHphWidgetsLayer"
+    />
+
 
 
 </configure>

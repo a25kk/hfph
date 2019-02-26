@@ -1,6 +1,11 @@
 $o-icon-width-default:              1rem;
 $o-icon-height-default:             1rem;
 $o-icon-color-inverse:              $app-color-white;
+$o-icon-border-width:               1px;
+$o-icon-border-style:               solid;
+$o-icon-border-color:               currentColor;
+$o-icon-border-radius:              50%;
+
 
 
 .o-icon {
@@ -12,6 +17,11 @@ $o-icon-color-inverse:              $app-color-white;
     &--inverse {
         fill: $o-icon-color-inverse;
     }
+}
+
+.o-icon--circle {
+    border: $o-icon-border-width $o-icon-border-style $o-icon-border-color;
+    border-radius: $o-icon-border-radius;
 }
 
 .o-icon--nav-toggle {
