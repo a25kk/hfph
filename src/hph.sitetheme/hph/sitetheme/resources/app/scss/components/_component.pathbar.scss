@@ -19,6 +19,9 @@ $c-breadcrumb-font-size:                $app-font-size-sm;
     margin-right: auto;
     margin-left: auto;
     @include make-container-max-widths();
+    @include when-inside('.template-frontpage-view') {
+        display: none;
+    }
 }
 
 .c-breadcrumbs {

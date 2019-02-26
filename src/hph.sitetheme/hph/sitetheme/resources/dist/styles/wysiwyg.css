@@ -9799,8 +9799,32 @@ img[data-sizes="auto"] {
 
 .c-alert {
   padding: 0.5rem 1rem 1rem;
-  margin: 1rem 0;
+  margin: 1rem auto;
   border-left: 5px solid #eee;
+}
+
+@media (min-width: 576px) {
+  .c-alert {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .c-alert {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .c-alert {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .c-alert {
+    max-width: 1140px;
+  }
 }
 
 .c-alert__title {
