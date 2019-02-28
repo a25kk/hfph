@@ -21,12 +21,49 @@
 
 .c-filter__items {
     width: 100%;
-    display: flex;
-    flex-direction: row;
+    display: block;
+    @include mq($from: md) {
+        display: flex;
+        flex-direction: row;
+    }
+    
     &--unit {
     }
 }
 
 .c-filter__item {
-    @include make-col(3);
+    flex: 1 0 0%;
+    margin-bottom: .5rem;
+    @include mq($from: md) {
+        flex: 25% 0 0%;
+        padding-right: .5rem;
+    }
+    &:last-child {
+        padding-right: 0;
+    }
+}
+
+.c-filter-item {
+    width: 100%;
+}
+
+.c-filter-item__header {
+    padding: .5rem 1rem;
+    background: $app-color-gray-light;
+    font-weight: $app-font-weight-strong;
+    font-family: $app-headings-font-family-secondary;
+    margin-bottom: .5rem;
+}
+
+.c-filter-list__result-count {
+    margin-bottom: 1rem;
+    font-weight: $app-font-weight-strong;
+    font-family: $app-headings-font-family-secondary;
+}
+
+
+.c-filter-list__result-index {
+    background: $app-color-gray-light;
+    padding: 1rem;
+    margin-top: 1rem;
 }

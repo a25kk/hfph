@@ -338,6 +338,16 @@
         <drop attributes="frameborder"
               css:content=".app-figure__embedded > iframe" />
 
+
+
+        <replace css:content="#content .callout">
+            <xsl:copy>
+                <xsl:copy-of select="@*" />
+                <xsl:attribute name="class">c-alert c-alert--primary</xsl:attribute>
+                <xsl:apply-templates />
+            </xsl:copy>
+        </replace>
+
         <!-- Fix table styles -->
 
         <replace css:content="table">
