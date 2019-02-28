@@ -8435,6 +8435,10 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   margin-bottom: calc(1.25rem * 2);
 }
 
+.o-page__header-action {
+  text-align: right;
+}
+
 .o-page__main {
   margin-right: auto;
   margin-left: auto;
@@ -9874,6 +9878,42 @@ fieldset[disabled] a.c-button {
 
 .c-button--primary:not(:disabled):not(.disabled):active:focus, .c-button--primary:not(:disabled):not(.disabled).active:focus,
 .show > .c-button--primary.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(115, 119, 123, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(115, 119, 123, 0.5);
+}
+
+.c-button--link {
+  color: #fff;
+  background-color: #5a5f64;
+  border-color: #5a5f64;
+}
+
+.c-button--link:hover {
+  color: #fff;
+  background-color: #484c50;
+  border-color: #424649;
+}
+
+.c-button--link:focus, .c-button--link.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(115, 119, 123, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(115, 119, 123, 0.5);
+}
+
+.c-button--link.disabled, .c-button--link:disabled {
+  color: #fff;
+  background-color: #5a5f64;
+  border-color: #5a5f64;
+}
+
+.c-button--link:not(:disabled):not(.disabled):active, .c-button--link:not(:disabled):not(.disabled).active,
+.show > .c-button--link.dropdown-toggle {
+  color: #fff;
+  background-color: #424649;
+  border-color: #3c3f42;
+}
+
+.c-button--link:not(:disabled):not(.disabled):active:focus, .c-button--link:not(:disabled):not(.disabled).active:focus,
+.show > .c-button--link.dropdown-toggle:focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(115, 119, 123, 0.5);
           box-shadow: 0 0 0 0.2rem rgba(115, 119, 123, 0.5);
 }
