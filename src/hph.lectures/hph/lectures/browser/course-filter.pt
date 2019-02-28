@@ -12,33 +12,33 @@
         <div class="c-filter__section">
             <div class="c-filter__items filter__items--unit">
                 <div class="c-filter__item">
-                    <div class="app-card">
-                        <div class="app-card__header">
-                            <div class="app-card__heading">Veranstaltungstyp</div>
+                    <div class="c-filter-item">
+                        <div class="c-filter-item__header">
+                            <div class="c-filter-item__heading">Veranstaltungstyp</div>
                         </div>
-                        <div class="app-card__main app-card__main--bordered-top"
+                        <div class="c-filter-item__main c-filter-item__main--bordered-top"
                                  tal:define="template python:context.restrictedTraverse('@@course-filter-select')(selector='master', identifier='course-types', target=None, data_set='course-types', visibility='visible-always');">
                             <span tal:replace="structure template" />
                         </div>
                     </div>
                 </div>
                 <div class="c-filter__item">
-                    <div class="app-card">
-                        <div class="app-card__header">
-                            <div class="app-card__heading">Studiengang</div>
+                    <div class="c-filter-item">
+                        <div class="c-filter-item__header">
+                            <div class="c-filter-item__heading">Studiengang</div>
                         </div>
-                        <div class="app-card__main app-card__main--bordered-top"
+                        <div class="c-filter-item__main c-filter-item__main--bordered-top"
                                  tal:define="template python:context.restrictedTraverse('@@course-filter-select')(selector='master', identifier='degree-courses', target='course-modules', data_set='courses', visibility='visible-always');">
                             <span tal:replace="structure template" />
                         </div>
                     </div>
                 </div>
                 <div class="c-filter__item">
-                    <div class="app-card">
-                        <div class="app-card__header">
-                            <div class="app-card__heading">Modul</div>
+                    <div class="c-filter-item">
+                        <div class="c-filter-item__header">
+                            <div class="c-filter-item__heading">Modul</div>
                         </div>
-                        <div class="app-card__main app-card__main--bordered-top"
+                        <div class="c-filter-item__main c-filter-item__main--bordered-top"
                                  tal:define="template_master python:context.restrictedTraverse('@@course-filter-select')(selector='child', identifier='course-modules--master', target=None, data_set='modules-ma', visibility='hidden');
                                 template_bachelor python:context.restrictedTraverse('@@course-filter-select')(selector='child', identifier='course-modules--bachelor', target=None, data_set='modules-ba', visibility='hidden');">
                             <span tal:replace="structure template_master" />
@@ -47,11 +47,11 @@
                     </div>
                 </div>
                 <div class="c-filter__item">
-                    <div class="app-card">
-                        <div class="app-card__header">
-                            <div class="app-card__heading">Schwerpunkt</div>
+                    <div class="c-filter-item">
+                        <div class="c-filter-item__header">
+                            <div class="c-filter-item__heading">Schwerpunkt</div>
                         </div>
-                        <div class="app-card__main app-card__main--bordered">
+                        <div class="c-filter-item__main c-filter-item__main--bordered">
                             <tal:block tal:define="template python:context.restrictedTraverse('@@course-filter-select')(selector='child', identifier='core-theme--macon', target=None, data_set='core-theme-macon', visibility='hidden');">
                                 <span tal:replace="structure template" />
                             </tal:block>
@@ -69,7 +69,7 @@
 
         <div class="c-filter__section">
             <div class="c-filter__block filter__block--action filter__block--visible animated fadeIn" id="filter__action--main" tal:condition="view/has_active_session">
-                <button class="app-btn app-btn--default app-btn--lg filter__action filter__action--hidden"
+                <button class="c-button c-button--danger app-btn--lg filter__action filter__action--hidden"
                         name="form.button.Submit"
                         id="form.button.Submit">
                     <i class="ion ion-ios-arrow-dropright-outline pp-icon pp-icon-sm"></i>
@@ -78,7 +78,7 @@
             </div>
             <div class="c-filter__block filter__block--action filter__block--hidden animated fadeIn js-filter-action" id="filter__action--main"
                      tal:condition="not:view/has_active_session">
-                <button class="app-btn app-btn--default app-btn--lg filter__action filter__action--hidden"
+                <button class="c-button c-button--default app-btn--lg filter__action filter__action--hidden"
                         name="form.button.Submit"
                         id="form.button.Submit">
                     <i class="ion ion-ios-arrow-dropright-outline pp-icon pp-icon-sm"></i>
