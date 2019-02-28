@@ -94,8 +94,8 @@ requirejs(['require',
         // Course filter select boxes
         var _selector_filter = {
             selector: '.js-filter-box',
-            classVisible: 'form-field__select--visible fadeIn',
-            classHidden: 'form-field__select--hidden fadeOut',
+            classVisible: 'o-form__control--visible fadeIn',
+            classHidden: 'o-form__control--hidden fadeOut',
             themeSelectorBaseId: '#selector__core-theme--',
             filterFormAction: '.js-filter-action',
             filterFormActionHidden: 'filter__block--hidden',
