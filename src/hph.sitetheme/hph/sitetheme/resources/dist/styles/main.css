@@ -8435,6 +8435,10 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   margin-bottom: calc(1.25rem * 2);
 }
 
+.o-page__header-action {
+  text-align: right;
+}
+
 .o-page__main {
   margin-right: auto;
   margin-left: auto;
@@ -10330,6 +10334,42 @@ fieldset[disabled] a.c-button {
           box-shadow: 0 0 0 0.2rem rgba(115, 119, 123, 0.5);
 }
 
+.c-button--link {
+  color: #fff;
+  background-color: #5a5f64;
+  border-color: #5a5f64;
+}
+
+.c-button--link:hover {
+  color: #fff;
+  background-color: #484c50;
+  border-color: #424649;
+}
+
+.c-button--link:focus, .c-button--link.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(115, 119, 123, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(115, 119, 123, 0.5);
+}
+
+.c-button--link.disabled, .c-button--link:disabled {
+  color: #fff;
+  background-color: #5a5f64;
+  border-color: #5a5f64;
+}
+
+.c-button--link:not(:disabled):not(.disabled):active, .c-button--link:not(:disabled):not(.disabled).active,
+.show > .c-button--link.dropdown-toggle {
+  color: #fff;
+  background-color: #424649;
+  border-color: #3c3f42;
+}
+
+.c-button--link:not(:disabled):not(.disabled):active:focus, .c-button--link:not(:disabled):not(.disabled).active:focus,
+.show > .c-button--link.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(115, 119, 123, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(115, 119, 123, 0.5);
+}
+
 .c-button + .c-button {
   margin-left: calc(1.25rem * .5);
 }
@@ -11971,6 +12011,11 @@ img[data-sizes="auto"] {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
+  padding-bottom: calc(1.25rem * 1.5);
+}
+
+.c-card--spacer {
+  padding: calc(1.25rem * 1.5 / 2);
 }
 
 .c-card__header {
@@ -11985,7 +12030,6 @@ img[data-sizes="auto"] {
 }
 
 .c-card__main {
-  padding: 0.75rem;
   font-family: "EB Garamond";
   text-align: left;
 }
@@ -12001,7 +12045,6 @@ img[data-sizes="auto"] {
 }
 
 .c-card__footer {
-  padding: 0.75rem;
   font-family: "TAZ";
   font-size: 1rem;
 }
@@ -12244,6 +12287,10 @@ img[data-sizes="auto"] {
 }
 
 .c-list {
+  display: block;
+}
+
+.c-list--grid {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12266,14 +12313,17 @@ img[data-sizes="auto"] {
 }
 
 .c-list__item {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 100%;
-          flex: 1 0 100%;
   margin-bottom: calc(0.5rem * 4);
 }
 
+.c-list--grid .c-list__item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 100%;
+          flex: 1 0 100%;
+}
+
 @media (min-width: 48em) and (max-width: 61.99em) {
-  .c-list__item {
+  .c-list--grid .c-list__item {
     -webkit-box-flex: 1;
         -ms-flex: 1 0 50%;
             flex: 1 0 50%;
@@ -12282,7 +12332,7 @@ img[data-sizes="auto"] {
 }
 
 @media (min-width: 62em) {
-  .c-list__item {
+  .c-list--grid .c-list__item {
     -webkit-box-flex: 1;
         -ms-flex: 1 0 33.3333%;
             flex: 1 0 33.3333%;
@@ -12307,6 +12357,14 @@ img[data-sizes="auto"] {
   }
 }
 
+.c-card-list .c-card-list__item {
+  padding-right: calc(1.25rem * 1.5);
+}
+
+.c-card-list .c-card-list__item:not(:first-of-type) {
+  padding-left: calc(1.25rem * 1.5);
+}
+
 @media (min-width: 48em) {
   .c-card-list .c-card-list__item:not(last) {
     border-right: 1px solid #5a5f64;
@@ -12314,7 +12372,7 @@ img[data-sizes="auto"] {
 }
 
 .c-card-list .c-card-list__item:last-of-type {
-  border-right: 0px;
+  border-right: 0;
 }
 
 .c-filter__section {
@@ -12349,20 +12407,67 @@ img[data-sizes="auto"] {
 
 .c-filter__items {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  display: block;
+}
+
+@media (min-width: 48em) {
+  .c-filter__items {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 
 .c-filter__item {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 25%;
-          flex: 0 0 25%;
-  max-width: 25%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 0%;
+          flex: 1 0 0%;
+  margin-bottom: .5rem;
+}
+
+@media (min-width: 48em) {
+  .c-filter__item {
+    -webkit-box-flex: 25%;
+        -ms-flex: 25% 0 0%;
+            flex: 25% 0 0%;
+    padding-right: .5rem;
+  }
+}
+
+.c-filter__item:last-child {
+  padding-right: 0;
+}
+
+.c-filter-item {
+  width: 100%;
+}
+
+.c-filter-item__header {
+  padding: .5rem 1rem;
+  background: #efefef;
+  font-weight: 700;
+  font-family: "TAZSemiLight";
+  margin-bottom: .5rem;
+}
+
+.c-filter-list__result-count {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-family: "TAZSemiLight";
+}
+
+.c-filter-list__result-index {
+  background: #efefef;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.c-teaser__header {
+  margin-bottom: calc(1.25rem * 1.5);
 }
 
 .c-page-header {
@@ -12466,6 +12571,12 @@ img[data-sizes="auto"] {
   }
 }
 
+@media (max-width: 1200px) {
+  .c-widget__content--header {
+    font-size: calc(1.325rem + 0.9vw) ;
+  }
+}
+
 .c-widget__icon {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12480,11 +12591,17 @@ img[data-sizes="auto"] {
   height: 8rem;
   border-radius: 50%;
   border: 1px solid #adb5bd;
+  margin-bottom: calc(1.25rem * 1.5 / 2);
 }
 
 .c-widget__icon--centered {
   margin-left: auto;
   margin-right: auto;
+}
+
+.c-widget__icon--default {
+  width: 4rem;
+  height: 4rem;
 }
 
 .c-widget__editor {
@@ -12683,15 +12800,26 @@ img[data-sizes="auto"] {
 }
 
 .c-widget-selector__item {
+  display: block;
   opacity: .8;
+  padding: calc(1.25rem * 1.5 / 2);
+  color: #212529;
+  border: .125rem solid transparent;
+  /* <- here */
+  -webkit-transition: border-color 1s ease;
+  -o-transition: border-color 1s ease;
+  transition: border-color 1s ease;
 }
 
 .c-widget-selector__item:hover {
   opacity: 1;
+  border: 0.125rem solid #5a6570;
+  text-decoration: none;
 }
 
 .c-widget-selector__item--selected {
-  border: 0.0125rem solid #212529;
+  opacity: 1;
+  border: 0.125rem solid #212529;
 }
 
 .app-page-header {

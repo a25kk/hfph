@@ -3,9 +3,12 @@ $c-list-margin-x:                   $c-list-spacer;
 $c-list-border-color:                $app-color-gray;
 
 .c-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: block;
+    &--grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
     &--baseline {
         align-content: baseline;
     }
@@ -16,14 +19,16 @@ $c-list-border-color:                $app-color-gray;
 }
 
 .c-list__item {
-    flex: 1 0 100%;
-    @include mq($from: md, $until: lg) {
-        flex: 1 0 50%;
-        max-width: 50%;
-    }
-    @include mq($from: lg) {
-        flex: 1 0 33.3333%;
-        max-width: 33.3333%;
+    @include when-inside('.c-list--grid') {
+        flex: 1 0 100%;
+        @include mq($from: md, $until: lg) {
+            flex: 1 0 50%;
+            max-width: 50%;
+        }
+        @include mq($from: lg) {
+            flex: 1 0 33.3333%;
+            max-width: 33.3333%;
+        }
     }
     margin-bottom: calc(#{$c-list-spacer} * 4);
     @include when-inside('.c-list--gutter') {
@@ -52,13 +57,17 @@ $c-list-border-color:                $app-color-gray;
 
 .c-card-list__item {
     @include when-inside('.c-card-list') {
-    &:not(last) {
-    	@include mq($from: md) {
-    		border-right: 1px solid $app-color-gray;
-    		}
+        padding-right: $app-spacer-base;
+        &:not(:first-of-type) {
+            padding-left: $app-spacer-base;
         }
-    &:last-of-type {
-        border-right: 0px;
+        &:not(last) {
+            @include mq($from: md) {
+                border-right: 1px solid $app-color-gray;
+            }
+        }
+        &:last-of-type {
+            border-right: 0;
         }
     }
 }

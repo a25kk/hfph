@@ -1,4 +1,4 @@
-<div class="c-list c-list--gutter c-list--${context/UID}" tal:define="items python:view.content_items"
+<div class="c-list c-list--gutter c-list--grid c-list--${context/UID}" tal:define="items python:view.content_items"
          tal:attributes="class python:view.card_list_class()">
     <tal:items tal:repeat="item items">
         <div class="c-card-list__item c-card-list__item--width-33" tal:define="item_uuid python:item['uuid'];"
