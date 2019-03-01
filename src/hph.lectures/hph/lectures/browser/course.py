@@ -173,9 +173,9 @@ class CourseView(BrowserView):
     def computed_class(self, value):
         context = aq_inner(self.context)
         active_filter = getattr(context, 'courseType', None)
-        css_class = 'app-nav-list-item app-nav-list-item-plain'
+        css_class = 'c-nav-list__item c-nav-list__item--plain'
         if active_filter == value:
-            css_class = 'app-nav-list-item app-nav-list-item-active'
+            css_class = 'c-nav-list__item c-nav-list__item--active'
         return css_class
 
     @staticmethod

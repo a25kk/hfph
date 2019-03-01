@@ -1,5 +1,5 @@
 <tal:block tal:define="select view/field_options">
-    <select class="form-control form__control form-field__select form-field__select--${select/visibility} form__control--${select/name} animated js-filter-box"
+    <select class="o-form__control o-form__control--select form-field__select o-form__field--${select/visibility} o-form__control--${select/name} o-form__control--${select/visibility} animated js-filter-box"
             id="selector__${select/name}"
             name="${select/name}"
             data-target-list="#selector__${select/target}"
