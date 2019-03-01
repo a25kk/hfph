@@ -9,7 +9,7 @@
 
 <metal:main fill-slot="main">
     <metal:content-core define-macro="main">
-        <div class="o-page__content o-grid o-grid--gutter">
+        <div class="o-page__content o-grid o-grid--lg o-grid--gutter">
             <div class="o-grid__item o-grid__item--width-25">
                 <aside class="o-aside" id="app-sidebar">
                     <div tal:replace="structure python:context.restrictedTraverse('@@faculty-listing-filter')()" />

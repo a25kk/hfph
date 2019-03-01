@@ -5,6 +5,7 @@ requirejs(['require',
         '/scripts/interdependentselect.js',
         '/scripts/navbar.js',
         '/scripts/dropdown.js',
+        '/scripts/collapsible.js',
         '/scripts/paneleditor.js',
         '/scripts/x-ray.js',
         '/scripts/dropmic.js',
@@ -17,7 +18,7 @@ requirejs(['require',
         '/scripts/a25.js',
         '/scripts/a25.helpers.js'
     ],
-    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, panelEditor, xray, Dropmic) {
+    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, collapsible, panelEditor, xray, Dropmic) {
         'use strict';
 
         if (typeof a25 == 'undefined') {
@@ -54,8 +55,6 @@ requirejs(['require',
         // SVG Sprite polyfill
         svg4everybody();
 
-        // xray.init();
-
         // Drop mic initialization
         var dropmic = new Dropmic(document.querySelector('[data-dropmic="quick-link-menu"]'), {
             onOpen: function() {
@@ -75,6 +74,9 @@ requirejs(['require',
         // dropdown.init({});
         // Initialize XHR Event Box
         eventbox.init();
+
+        // Collapsible element
+        collapsible.init();
 
         // Panel page and widget editor
         panelEditor.init();
