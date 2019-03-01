@@ -1,3 +1,4 @@
+$grid-gutter-width:                         $app-spacer-sm;
 // Form grid
 //
 // Special replacement for our grid system's `.row` for tighter form layouts.
@@ -9,15 +10,18 @@
         align-content: baseline;
     }
     &--gutter {
-        margin-right: -.25rem;
-        margin-left: -.25rem;
+        margin-right: -($grid-gutter-width);
+        margin-left: -($grid-gutter-width);
+    }
+    &--spacing {
+
     }
 }
 
 .o-grid__item {
     @include when-inside('.o-grid--gutter') {
-        padding-right: .25rem;
-        padding-left: .25rem;
+        padding-right: $grid-gutter-width;
+        padding-left: $grid-gutter-width;
     }
 }
 
@@ -50,19 +54,19 @@ $grid-item-sizes: (
             }
         }
         @include when-inside('.o-grid--sm') {
-            @include mq($from: sm, $until: lg) {
+            @include mq($from: sm) {
                 flex: 1 0 $size-value;
                 max-width: $size-value;
             }
         }
         @include when-inside('.o-grid--md') {
-            @include mq($from: md, $until: lg) {
+            @include mq($from: md) {
                 flex: 1 0 $size-value;
                 max-width: $size-value;
             }
         }
         @include when-inside('.o-grid--lg') {
-            @include mq($from: lg, $until: xl) {
+            @include mq($from: lg) {
                 flex: 1 0 $size-value;
                 max-width: $size-value;
             }
