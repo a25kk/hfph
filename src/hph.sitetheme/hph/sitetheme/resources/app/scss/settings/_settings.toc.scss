@@ -1,0 +1,12 @@
+$c-toc-display:						flex;
+$c-toc-flex-direction:				row;
+$c-toc-item-display:                block;
+$c-toc-item-flex-direction:			column;
+
+$c-toc-link-color:					#fff;
+$c-toc-link-color--hover:			$c-toc-link-color;
+
+$c-toc-font:						$app-font-family-strong;
+$c-toc-item-text-transform:			uppercase;
+$c-toc-item-line-height:            1.5;
+$c-toc-item-font-size:				$app-font-size-sm;

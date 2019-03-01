@@ -1,0 +1,82 @@
+//
+// Header
+// ------------------------------------------
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    display: block;
+    background-color: $app-color-gray-light;
+    background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
+    padding-bottom: 1rem;
+    @include when-inside('.plone-toolbar-left') {
+        left: 60px;
+        width: calc(100% - 60px);
+    }
+    @include when-inside('.template-frontpage-view') {
+        background: transparent;
+        &--offset {
+            background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
+        }
+    }
+    @include media-breakpoint-up(md) {
+        margin: 0 auto 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+.c-header {
+    padding-top: 1.5rem;
+    @include make-container-max-widths();
+}
+
+.app-header__content {
+    display: flex;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    @include mq($from: md) {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+        margin-right: auto;
+        margin-left: auto;
+        @include make-container-max-widths();
+    }
+}
+
+.app-header__section {
+    display: block;
+    position: relative;
+    width: 50%;
+    &:first-child {
+        width: 50%;
+        max-width: 50%;
+        flex: 0 0 50%;
+    }
+    &:nth-child(2) {
+        order: -1;
+        width: 100%;
+        max-width: 100%;
+        background: $app-color-gray-base;
+        padding: 0 .5rem .5rem .5rem;
+    }
+    @include mq($from: md) {
+        width: 25%;
+        flex: 0 0 25%;
+        &:first-child {
+            width: 50%;
+            max-width: 50%;
+        }
+        &:nth-child(2) {
+            order: 0;
+            width: 25%;
+            max-width: 25%;
+            flex: 0 0 25%;
+            background: transparent;
+            padding: 0;
+        }
+    }
+}

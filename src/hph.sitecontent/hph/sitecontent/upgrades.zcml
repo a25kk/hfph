@@ -17,4 +17,27 @@
 
     </genericsetup:upgradeSteps>
 
+    <genericsetup:upgradeSteps
+            source="1001"
+            destination="1002"
+            profile="hph.sitecontent:default">
+
+        <genericsetup:upgradeDepends
+                title="Apply registry.xml to add navigation elements custom control panel"
+                import_profile="hph.sitecontent:default"
+                import_steps="plone.app.registry"
+        />
+
+    </genericsetup:upgradeSteps>
+
+    <genericsetup:upgradeStep
+            title="Update and cleanup five:grok"
+            description="Update typeinfo and register content widgets'"
+            source="1002"
+            destination="1003"
+            profile="hph.sitecontent:default"
+            handler="hph.sitecontent.upgrades.upgrade_1003"
+            sortkey="1"
+    />
+
 </configure>

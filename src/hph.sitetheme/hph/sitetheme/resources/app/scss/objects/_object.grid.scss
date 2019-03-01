@@ -1,0 +1,79 @@
+$grid-gutter-width:                         $app-spacer-sm;
+// Form grid
+//
+// Special replacement for our grid system's `.row` for tighter form layouts.
+.o-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    &--baseline {
+        align-content: baseline;
+    }
+    &--gutter {
+        margin-right: -($grid-gutter-width);
+        margin-left: -($grid-gutter-width);
+    }
+    &--spacing {
+
+    }
+}
+
+.o-grid__item {
+    @include when-inside('.o-grid--gutter') {
+        padding-right: $grid-gutter-width;
+        padding-left: $grid-gutter-width;
+    }
+}
+
+//== Teaser grid column sizes
+$grid-item-sizes: (
+    width-10: 10%,
+    width-16: 16.6666%,
+    width-20: 20%,
+    width-25: 25%,
+    width-30: 30%,
+    width-33: 33.3333%,
+    width-40: 40%,
+    width-50: 50%,
+    width-60: 60%,
+    width-66: 66.6666%,
+    width-75: 75%,
+    width-100: 100%,
+);
+
+@each $grid-item-size, $size-value in $grid-item-sizes {
+    .o-grid__item--#{$grid-item-size} {
+        flex: 1 0 100%;
+        @include when-inside('.mce-content-body') {
+                flex: 1 0 $size-value;
+                max-width: $size-value;
+        }
+        @include when-inside('.o-grid--intermediate') {
+            @include mq($from: md) {
+                flex: 1 0 50%;
+            }
+        }
+        @include when-inside('.o-grid--sm') {
+            @include mq($from: sm) {
+                flex: 1 0 $size-value;
+                max-width: $size-value;
+            }
+        }
+        @include when-inside('.o-grid--md') {
+            @include mq($from: md) {
+                flex: 1 0 $size-value;
+                max-width: $size-value;
+            }
+        }
+        @include when-inside('.o-grid--lg') {
+            @include mq($from: lg) {
+                flex: 1 0 $size-value;
+                max-width: $size-value;
+            }
+        }
+        @include mq($from: xl) {
+            flex: 1 0 $size-value;
+            max-width: $size-value;
+        }
+    }
+}

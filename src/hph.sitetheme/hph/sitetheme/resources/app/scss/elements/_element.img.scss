@@ -1,0 +1,27 @@
+img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+//== Lazy load image
+img[data-sizes="auto"] {
+    display: block;
+    width: 100%;
+}
+
+//== Image blur effect
+// Reveal low quality image placeholders by applying a filter and
+// removing blur when the high quality images have lazy loaded
+.o-image--lazy-load {
+    filter: blur(10px);
+    transition: filter 400ms;
+}
+
+.o-image--loaded {
+    filter: blur(0);
+}
+
+.o-image--inline {
+    margin-bottom: $app-spacer-base;
+    margin-right: $app-spacer-base;
+}

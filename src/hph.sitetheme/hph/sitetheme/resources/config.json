@@ -23,15 +23,16 @@
   },
   "scripts": {
     "app": [
-        "scripts/a25.js",
         "scripts/a25.helpers.js",
-        "scripts/a25.slider.js",
+        "scripts/a25.js",
         "scripts/a25.navbar.js",
+        "scripts/a25.slider.js",
         "scripts/app.js",
         "scripts/dropdown.js",
         "scripts/eventbox.js",
         "scripts/interdependentselect.js",
         "scripts/navbar.js",
+        "scripts/paneleditor.js",
         "scripts/slider.js",
         "scripts/utils.js"
         ],
@@ -39,13 +40,11 @@
         "dropmic/dist/dropmic.js",
         "flickity/dist/flickity.pkgd.js",
         "fontfaceobserver/fontfaceobserver.js",
-        "hideShowPassword/hideShowPassword.js",
-        "JVFloat/jvfloat.js",
         "lazysizes/lazysizes-umd.js",
         "lazysizes/plugins/parent-fit/ls.parent-fit.js",
-        "mailcheck/src/mailcheck.js",
         "respimage/respimage.js",
         "svg4everybody/dist/svg4everybody.js",
+        "vh-check/dist/vh-check.min.js",
         "x-ray/dist/js/x-ray.js"
     ],
     "base": [
@@ -56,12 +55,17 @@
         "jquery/dist/jquery.js",
         "JVFloat/jvfloat.js",
         "lazysizes/lazysizes.js",
-        "lazysizes/plugins/ls.parent-fit.js",
-        "mailcheck/src/mailcheck.js",
+        "lazysizes/plugins/parent-fit/ls.parent-fit.js",
         "requirejs/require.js",
         "respimage/respimage.js",
         "x-ray/dist/js/x-ray.js"
     ]
+  },
+  "styles": {
+      "src": [
+          "rfs/scss/_rfs.scss",
+          "sass-mq/_mq.scss"
+      ]
   },
   "replacementPatterns": {
         "base": [
@@ -129,8 +133,8 @@
     },
     "sprite": {
         "mode": {
-            "inline": true,
             "symbol": {
+                "prefix": "o-icon__",
                 "example": true,
                 "render": {
                     "scss": true

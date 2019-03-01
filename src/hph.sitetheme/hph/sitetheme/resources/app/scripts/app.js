@@ -5,6 +5,7 @@ requirejs(['require',
         '/scripts/interdependentselect.js',
         '/scripts/navbar.js',
         '/scripts/dropdown.js',
+        '/scripts/paneleditor.js',
         '/scripts/x-ray.js',
         '/scripts/dropmic.js',
         '/scripts/fontfaceobserver.js',
@@ -16,7 +17,7 @@ requirejs(['require',
         '/scripts/a25.js',
         '/scripts/a25.helpers.js'
     ],
-    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, xray, Dropmic) {
+    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, panelEditor, xray, Dropmic) {
         'use strict';
 
         if (typeof a25 == 'undefined') {
@@ -28,6 +29,7 @@ requirejs(['require',
             weight: 400
         });
         var fontSecondary = new FontFaceObserver('TAZ');
+        var fontTertiary = new FontFaceObserver('TAZSemiLight');
 
         fontPrimary.load(null, 3000).then(function () {
             document.documentElement.className += " font__primary--loaded";
@@ -37,8 +39,13 @@ requirejs(['require',
             document.documentElement.className += " font__secondary--loaded";
         });
 
+        fontTertiary.load(null, 3000).then(function () {
+            document.documentElement.className += " font__tertiary--loaded";
+        });
+
         Promise.all([fontPrimary.load(null, 3000),
-                     fontSecondary.load(null, 3000)
+                     fontSecondary.load(null, 3000),
+                     fontTertiary.load(null, 3000)
         ])
             .then(function () {
                 document.documentElement.className += " fonts--loaded";
@@ -47,7 +54,7 @@ requirejs(['require',
         // SVG Sprite polyfill
         svg4everybody();
 
-        xray.init();
+        // xray.init();
 
         // Drop mic initialization
         var dropmic = new Dropmic(document.querySelector('[data-dropmic="quick-link-menu"]'), {
@@ -66,9 +73,11 @@ requirejs(['require',
 
         // Quick links
         // dropdown.init({});
-
         // Initialize XHR Event Box
         eventbox.init();
+
+        // Panel page and widget editor
+        panelEditor.init();
 
         // Default interdependent select boxes used in module editor
         var _selector_defaults = {
@@ -85,8 +94,8 @@ requirejs(['require',
         // Course filter select boxes
         var _selector_filter = {
             selector: '.js-filter-box',
-            classVisible: 'form-field__select--visible fadeIn',
-            classHidden: 'form-field__select--hidden fadeOut',
+            classVisible: 'o-form__control--visible fadeIn',
+            classHidden: 'o-form__control--hidden fadeOut',
             themeSelectorBaseId: '#selector__core-theme--',
             filterFormAction: '.js-filter-action',
             filterFormActionHidden: 'filter__block--hidden',

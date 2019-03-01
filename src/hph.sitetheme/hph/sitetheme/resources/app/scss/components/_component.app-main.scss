@@ -1,0 +1,17 @@
+$app-main-width:                    100%;
+$app-main-padding-top:              12rem;
+
+// App main section
+.app-main {
+    width: $app-main-width;
+    padding-top: $app-main-padding-top;
+    margin-left: auto;
+    margin-right: auto;
+    @include when-inside('.template-frontpage-view') {
+        padding-top: 0;
+    }
+}
+
+.app-main--fullscreen {
+    padding: 0;
+}

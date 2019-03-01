@@ -1,0 +1,65 @@
+.c-toc {
+    position: relative;
+	display: $c-toc-display;
+    @if $c-toc-display == flex {
+        flex-direction: $c-toc-flex-direction;
+    }
+    @include list-reset();
+    font-family: $c-toc-font;
+    @include font-size($c-toc-item-font-size);
+}
+
+.c-toc__item {
+    display: $c-toc-item-display;
+    @if $c-toc-item-display == flex {
+        flex-direction: $c-toc-item-flex-direction;
+    }
+    padding: .25rem 0;
+    margin-bottom: 1.5rem;
+	text-transform: none;
+    line-height: $c-toc-item-line-height;
+	@include when-inside('.c-toc--level-1') {
+        text-transform: none;
+        margin-bottom: 0;
+        border-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    @include mq($from: xl) {
+        margin-bottom: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        &:first-of-type {
+            padding-left: 0;
+        }
+
+        &:not(last) {
+            border-right: 1px solid #fff;
+        }
+        &:last-of-type {
+            border-right: 0;
+        }
+    }
+}
+
+.c-toc--level-1 {
+	display: block;
+	text-transform: none;
+	font-family: $app-font-family-base;
+}
+
+.c-toc__link {
+    display: inline-block;
+    height: 1.5rem;
+    @include mq($from: lg) {
+        height: 2.5rem;
+    }
+	color: $c-toc-link-color;
+    @include when-inside('.c-toc--level-1') {
+        height: auto;
+    }
+    &:hover {
+        color: $c-toc-link-color--hover;
+    }
+
+}

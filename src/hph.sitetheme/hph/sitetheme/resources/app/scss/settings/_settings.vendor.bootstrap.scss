@@ -1,0 +1,53 @@
+//
+// Bootstrap variable overides
+//
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-caret:                      false;
+$enable-rounded:                    false;
+$enable-shadows:                    false;
+$enable-gradients:                  false;
+$enable-transitions:                true;
+$enable-grid-classes:               true;
+$enable-print-styles:               true;
+$enable-responsive-font-sizes:      true;
+
+// Colors
+$theme-colors: (
+    "primary": $app-color-primary,
+    "secondary": $app-color-secondary,
+    "danger": $app-color-danger
+);
+
+// Font family definitions
+$font-family-sans-serif:            $app-font-family-sans-serif;
+$font-family-base:                  $app-font-family-base, $app-font-family-sans-serif;
+$headings-font-family:              $app-font-family-strong, $app-font-family-serif;
+
+// Font size base
+$font-size-base:                    $app-font-size-base;
+
+// Headings font sizes
+$h1-font-size:                      $app-font-size-h1;
+$h2-font-size:                      $app-font-size-h2;
+$h3-font-size:                      $app-font-size-h3;
+$h4-font-size:                      $app-font-size-h4;
+$h5-font-size:                      $app-font-size-h5;
+$h6-font-size:                      $app-font-size-h6;
+
+//## Reset and adjust existing variables
+$brand-primary:                 $app-color-primary;
+$link-color:                    $app-color-primary;
+
+
+//** Navbar toggle
+$navbar-default-toggle-hover-bg:           #ddd;
+$navbar-default-toggle-icon-bar-bg:        #888;
+$navbar-default-toggle-border-color:       #ddd;
+
+//** Button primary uses default link color not brand primary
+$btn-primary-bg:                        $app-color-primary;
+$btn-primary-border: 			        $app-color-primary;
