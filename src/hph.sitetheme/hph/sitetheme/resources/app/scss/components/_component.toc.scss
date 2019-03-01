@@ -25,7 +25,7 @@
         padding-left: 0;
         padding-right: 0;
     }
-    @include mq($from: lg) {
+    @include mq($from: xl) {
         margin-bottom: 0;
         padding-left: 1rem;
         padding-right: 1rem;
