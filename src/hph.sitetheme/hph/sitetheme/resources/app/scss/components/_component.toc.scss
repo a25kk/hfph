@@ -1,8 +1,10 @@
 .c-toc {
     position: relative;
-	display: $c-toc-display;
-    @if $c-toc-display == flex {
-        flex-direction: $c-toc-flex-direction;
+    @include mq($from: md) {
+        display: $c-toc-display;
+        @if $c-toc-display == flex {
+            flex-direction: $c-toc-flex-direction;
+        }
     }
     @include list-reset();
     font-family: $c-toc-font;
@@ -10,22 +12,34 @@
 }
 
 .c-toc__item {
-    display: $c-toc-item-display;
-    @if $c-toc-item-display == flex {
-        flex-direction: $c-toc-item-flex-direction;
+    display: none;
+    &--has-subtree {
+        display: $c-toc-item-display;
+        @if $c-toc-item-display == flex {
+            flex-wrap: wrap;
+            @include mq($from: md) {
+                flex-direction: $c-toc-item-flex-direction;
+            }
+        }
     }
     padding: .25rem 0;
     margin-bottom: 1.5rem;
 	text-transform: none;
     line-height: $c-toc-item-line-height;
 	@include when-inside('.c-toc--level-1') {
+        display: $c-toc-item-display;
+        @if $c-toc-item-display == flex {
+            @include mq($from: md) {
+                flex-direction: $c-toc-item-flex-direction;
+            }
+        }
         text-transform: none;
         margin-bottom: 0;
         border-right: 0;
         padding-left: 0;
         padding-right: 0;
     }
-    @include mq($from: lg) {
+    @include mq($from: xl) {
         margin-bottom: 0;
         padding-left: 1rem;
         padding-right: 1rem;
@@ -43,16 +57,30 @@
 }
 
 .c-toc--level-1 {
-	display: block;
+	display: none;
+    @include mq($until: md) {
+        flex: 1 0 100%;
+        max-width: 100%;
+    }
+    @include when-inside('.show') {
+        display: block;
+    }
+    @include mq($from: md) {
+        display: block;
+    }
 	text-transform: none;
 	font-family: $app-font-family-base;
 }
 
 .c-toc__link {
     display: inline-block;
-    height: 1.5rem;
-    @include mq($from: lg) {
-        height: 2.5rem;
+    height: calc(#{$app-font-size-base} * 1.5);
+    @include mq($until: md) {
+        flex: 1 0 50%;
+        max-width: 50%;
+    }
+    @include mq($from: md) {
+        height: calc(#{$app-font-size-base} * 2.5);
     }
 	color: $c-toc-link-color;
     @include when-inside('.c-toc--level-1') {
@@ -61,5 +89,16 @@
     &:hover {
         color: $c-toc-link-color--hover;
     }
+}
 
+.c-toc__toggle {
+    display: block;
+    flex: 1 0 50%;
+    color: $c-toc-link-color;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    text-align: right;
+    @include mq($from: md) {
+        display: none;
+    }
 }

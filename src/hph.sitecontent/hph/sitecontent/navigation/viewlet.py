@@ -39,3 +39,27 @@ class SiteNavigationViewlet(ViewletBase):
         if self.section_types():
             return True
         return False
+
+
+class SiteTOCViewlet(ViewletBase):
+    """ Context aware responsive toc viewlet """
+
+    @property
+    def settings(self):
+        registry = getUtility(IRegistry)
+        settings = registry.forInterface(
+            IHphBaseControlPanelNavigation,
+            prefix='hph.base')
+        return settings
+
+    def section_types(self):
+        section_types = list()
+        configured_types = self.settings.listed_content_types
+        if configured_types:
+            section_types = configured_types
+        return section_types
+
+    def available(self):
+        if self.section_types():
+            return True
+        return False

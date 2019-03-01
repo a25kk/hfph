@@ -22,4 +22,24 @@
             permission="zope2.View"
     />
 
+    <!-- Nav Tree Content Provider -->
+    <adapter
+            factory=".sitemap.SitemapProvider"
+            for="*
+             *
+             *"
+            name="hph.sitemap"
+            provides="zope.contentprovider.interfaces.IContentProvider"
+    />
+
+    <!-- Site navigation -->
+    <browser:viewlet
+            name="hph-site-toc-viewlet"
+            manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+            for="*"
+            class="hph.sitecontent.navigation.viewlet.SiteTOCViewlet"
+            template="sitemap.pt"
+            permission="zope2.View"
+    />
+
 </configure>
