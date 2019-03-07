@@ -29,6 +29,8 @@ define([
         navBarToggleCloseClass: "js-nav-toggle--close"
     };
 
+    let navBarIsActive = false;
+
     function navigationOffsetMarker(options) {
         var $menuContainer = document.querySelector(options.menuContainer),
             $menuContainerScrolled = $menuContainer.offsetTop;
@@ -39,6 +41,41 @@ define([
                 $menuContainer.classList.remove(options.menuContainerOffsetMarker);
             }
         })
+    }
+
+    function closeOpenMenus(options) {
+        let $activeNavLink = document.querySelector(options.menuDropdownOpen),
+            $menuDropDown = document.querySelector(options.menuDropdown),
+            $menuDropDownContained = document.querySelector(options.containedDropdownClass);
+        if ($activeNavLink !== null) {
+            Array.prototype.slice.call($activeNavLink).forEach(function(el) {
+                el.classList.remove(options.menuDropdownOpen);
+            });
+            $menuDropDown.classList.remove(options.menuDropdown);
+            $menuDropDownContained.classList.remove(options.containedDropdownClass);
+        }
+    }
+
+    function deactivateNavigation(options) {
+        var $elBody = document.getElementsByTagName('body')[0],
+            $menuContainer = document.querySelector(options.menuContainer),
+            $menuContainerActiveClass = options.menuContainerActive,
+            $navBar = document.querySelector(options.navBar),
+            navBarToggle = Array.prototype.slice.call(document.querySelectorAll(options.navBarToggle));
+        if ($navBar !== null) {
+            closeOpenMenus(options);
+            navBarToggle.forEach(function(el) {
+                el.classList.remove(options.navBarToggleActiveClass);
+            });
+            $navBar.classList.remove(options.navBarOverlay);
+            $navBar.classList.remove(options.navBarHidden);
+            $menuContainer.classList.remove($menuContainerActiveClass);
+            $elBody.classList.remove(options.bodyMarkerClass);
+            if (options.backdropDisplay === true) {
+                $menuContainer.classList.remove(options.backdropClass);
+            }
+            navBarIsActive = false;
+        }
     }
 
     function navigationToggleHandler(element, options) {
@@ -61,6 +98,7 @@ define([
             if (options.backdropDisplay === true) {
                 $menuContainer.classList.toggle(options.backdropClass);
             }
+            navBarIsActive = true;
             element.classList.toggle(options.navBarToggleActiveClass);
             let $activeNavLink = document.querySelector(options.menuDropdownOpen),
                 $menuDropDown = document.querySelector(options.menuDropdown),
@@ -174,14 +212,35 @@ define([
     }
 
     function toggleNavigation(options) {
+        var navBarToggle = Array.prototype.slice.call(document.querySelectorAll(options.navBarToggle));
         // Add navigation marker
         navigationOffsetMarker(options);
         // Sub Navigation drawer
         navigationDrawer(options);
+
+        document.addEventListener('keydown', function (event) {
+            console.log('Navigation is active: ' + navBarIsActive);
+            if ((event.key == 'Escape' || event.key == 'Esc' || event.keyCode == 27)) {
+                event.preventDefault();
+                console.log('Escape pressed');
+                if (navBarIsActive) {
+                    deactivateNavigation(options);
+                }
+            }
+        });
+        //navigationDrawer
+
+        document.addEventListener('click', function (event) {
+            // If the click happened inside the the container, bail
+            if (!event.target.closest(options.navBar)) {
+                console.log('Click outside nav container');
+                // Handle already active navigation elements
+                return
+            }
+        });
         //navigationDrawerOpen(options);
         // navigationDrawerClose(options);
         // Nav bar toggle
-        var navBarToggle = Array.prototype.slice.call(document.querySelectorAll(options.navBarToggle));
         navBarToggle.forEach(function(el) {
             el.addEventListener("click", function(event) {
                 event.preventDefault();
