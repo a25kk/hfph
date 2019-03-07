@@ -43,16 +43,23 @@ define([
         })
     }
 
-    function closeOpenMenus(options) {
-        let $activeNavLink = document.querySelector(options.menuDropdownOpen),
-            $menuDropDown = document.querySelector(options.menuDropdown),
-            $menuDropDownContained = document.querySelector(options.containedDropdownClass);
-        if ($activeNavLink !== null) {
-            Array.prototype.slice.call($activeNavLink).forEach(function(el) {
-                el.classList.remove(options.menuDropdownOpen);
-            });
-            $menuDropDown.classList.remove(options.menuDropdown);
-            $menuDropDownContained.classList.remove(options.containedDropdownClass);
+    function activateNavigation(element, options) {
+        var $elBody = document.getElementsByTagName('body')[0],
+            $menuContainer = document.querySelector(options.menuContainer),
+            $menuContainerActiveClass = options.menuContainerActive,
+            $navBar = document.querySelector(options.navBar);
+        if ($navBar !== null) {
+            console.log('Handle navbar activation:');
+            element.classList.add(options.navBarToggleActiveClass);
+            console.log('Toggle clich handled.');
+            $navBar.classList.add(options.navBarOverlay);
+            $navBar.classList.add(options.navBarHidden);
+            $menuContainer.classList.add($menuContainerActiveClass);
+            $elBody.classList.add(options.bodyMarkerClass);
+            if (options.backdropDisplay === true) {
+                $menuContainer.classList.add(options.backdropClass);
+            }
+            navBarIsActive = true;
         }
     }
 
@@ -63,7 +70,7 @@ define([
             $navBar = document.querySelector(options.navBar),
             navBarToggle = Array.prototype.slice.call(document.querySelectorAll(options.navBarToggle));
         if ($navBar !== null) {
-            closeOpenMenus(options);
+            navigationDrawerClose(options);
             navBarToggle.forEach(function(el) {
                 el.classList.remove(options.navBarToggleActiveClass);
             });
@@ -79,83 +86,20 @@ define([
     }
 
     function navigationToggleHandler(element, options) {
-        var $elBody = document.getElementsByTagName('body')[0],
-            $menuContainer = document.querySelector(options.menuContainer),
-            $menuContainerActiveClass = options.menuContainerActive,
-            $navBar = document.querySelector(options.navBar);
-        if ($navBar !== null) {
-            if (element.classList.contains(options.navBarToggleCloseClass)) {
-                console.log('Menu close action');
-                navigationDrawerClose(options);
-                element.classList.remove(options.navBarToggleActiveClass);
-            } else {
-                element.classList.add(options.navBarToggleActiveClass);
-            }
-            $navBar.classList.toggle(options.navBarOverlay);
-            $navBar.classList.toggle(options.navBarHidden);
-            $menuContainer.classList.toggle($menuContainerActiveClass);
-            $elBody.classList.toggle(options.bodyMarkerClass);
-            if (options.backdropDisplay === true) {
-                $menuContainer.classList.toggle(options.backdropClass);
-            }
-            navBarIsActive = true;
-            element.classList.toggle(options.navBarToggleActiveClass);
-            let $activeNavLink = document.querySelector(options.menuDropdownOpen),
-                $menuDropDown = document.querySelector(options.menuDropdown),
-                $menuDropDownContained = document.querySelector(options.containedDropdownClass);
-            if ($activeNavLink !== null) {
-                $activeNavLink.classList.remove(options.dropdownOpenClass);
-                $menuDropDown.classList.remove(options.menuDropdown);
-                $menuDropDownContained.classList.remove(options.containedDropdownClass);
-            }
+        // Handle navigation states
+        if (navBarIsActive) {
+            deactivateNavigation(options);
+        } else {
+            activateNavigation(element, options);
         }
     }
 
-    function navigationDrawerToggle(options) {
-        // Initialize drop down menu
-        let $dropdownToggle = document.querySelectorAll(options.drawerToggle),
-            isCurrentToggle = false;
-        [].forEach.call($dropdownToggle, function(element) {
-            element.addEventListener('click', function(event) {
-                let currentDropDown = event.target.nextElementSibling;
-                isCurrentToggle = !isCurrentToggle;
-                element.classList.toggle(options.dropdownOpenClass);
-                if (currentDropDown.matches('.c-nav--level-1')) {
-                    event.preventDefault();
-                    console.log("Navigation Dropdown Open Event");
-                    currentDropDown.classList.remove(options.menuDropdownDisabled);
-                    currentDropDown.classList.add(options.menuDropdownOpen);
-                    let backLinkElement = document.createElement('li'),
-                        backLinkText = document.createTextNode('Parent Link (X)');
-                    backLinkElement.classList.add('c-nav__item');
-                    backLinkElement.classList.add('c-nav__item--parent');
-                    backLinkElement.appendChild(backLinkText);
-                    currentDropDown.insertBefore(backLinkElement, currentDropDown.firstChild);
-                } else {
-                    if (element !== element) {
-
-                    }
-                }
-
-            })
-        })
-
-    }
-
     function navigationDrawerClose(options) {
-        let $activeNavLink = document.querySelector(options.dropdownOpenClass),
-            $menuDropDownContained = document.querySelector(options.containedDropdownClass);
-        //$dropdownElements.classList.add(options.menuDropdownDisabled);
-        [].forEach.call(document.getElementsByClassName(options.menuDropdownOpen), function(el) {
+        let navigationDrawers = document.getElementsByClassName(options.menuDropdownOpen);
+        [].forEach.call(navigationDrawers, function(el) {
             el.classList.remove(options.menuDropdownOpen);
             el.classList.add(options.menuDropdownDisabled);
         });
-        // setTimeout(function() {
-        //     if ($activeNavLink !== null) {
-        //         $activeNavLink.classList.remove(options.dropdownOpenClass);
-        //         $menuDropDownContained.classList.remove(options.containedDropdownClass);
-        //     }
-        // }, 250);
     }
 
     function navigationDrawerOpen(el, options) {
@@ -217,33 +161,30 @@ define([
         navigationOffsetMarker(options);
         // Sub Navigation drawer
         navigationDrawer(options);
-
+        // Close navigation via ESC key
         document.addEventListener('keydown', function (event) {
-            console.log('Navigation is active: ' + navBarIsActive);
-            if ((event.key == 'Escape' || event.key == 'Esc' || event.keyCode == 27)) {
+            if ((event.key === 'Escape' || event.key === 'Esc' || event.keyCode === 27)) {
                 event.preventDefault();
-                console.log('Escape pressed');
                 if (navBarIsActive) {
                     deactivateNavigation(options);
                 }
             }
         });
-        //navigationDrawer
-
+        // Close navigation via backdrop clicks
         document.addEventListener('click', function (event) {
             // If the click happened inside the the container, bail
             if (!event.target.closest(options.navBar)) {
-                console.log('Click outside nav container');
                 // Handle already active navigation elements
-                return
+                if (navBarIsActive && !event.target.classList.contains(options.navBarToggle)) {
+                    deactivateNavigation(options);
+                }
             }
         });
-        //navigationDrawerOpen(options);
-        // navigationDrawerClose(options);
         // Nav bar toggle
         navBarToggle.forEach(function(el) {
             el.addEventListener("click", function(event) {
                 event.preventDefault();
+                event.stopPropagation();
                 navigationToggleHandler(el, options);
             })
         });
