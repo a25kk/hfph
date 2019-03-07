@@ -614,8 +614,10 @@
             </replace>
         </rules>
 
-        <after css:theme-children="#app-page-contact"
-               css:content-children="#app-contact-viewlet-cards" />
+
+        <!-- footer elements -->
+        <replace css:theme-children=".app-footer__main"
+                css:content="#c-toc" />
 
     </rules>
 
