@@ -24,7 +24,7 @@ class SitemapProvider(ContentProviderBase):
 
     _opener_markup_template = (
         u'<a href="#navitem-{uid}" class="c-toc__link c-toc__toggle js-collapsible-toggle">'  # noqa: E 501
-        u'<svg class="o-icon o-icon--default o-icon--circle o-icon__ui--chevron-dims"><use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron"></use></svg>'  # noqa: E 501
+        u'<svg class="o-icon o-icon--default o-icon--circle o-icon__ui--chevron-dims c-toc__icon"><use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron"></use></svg>'  # noqa: E 501
         u'</a>'
     )
     _item_markup_template = (
