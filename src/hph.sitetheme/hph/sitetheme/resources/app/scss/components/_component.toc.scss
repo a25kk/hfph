@@ -38,6 +38,8 @@
         @if $c-toc-item-display == flex {
             @include mq($from: md) {
                 flex-direction: $c-toc-item-flex-direction;
+                flex: 1 0 100%;
+                max-width: 100%;
             }
         }
         text-transform: none;
@@ -49,12 +51,6 @@
     @include mq($from: md) {
         flex: 1 0 50%;
         max-width: 50%;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-    @include mq($from: lg) {
-        flex: 1 0 33.3333%;
-        max-width: 33.3333%;
         padding-left: 1rem;
         padding-right: 1rem;
     }
@@ -72,7 +68,7 @@
 
 .c-toc__item--has-subtree {
     border: 0 solid #fff;
-    @include mq($from: md, $until: lg) {
+    @include mq($from: md, $until: xl) {
         &:nth-child(even) {
             border-left-width: 1px;
         }
@@ -101,7 +97,7 @@
 }
 
 .c-toc__link {
-    display: inline-block;
+    display: block;
     height: calc(#{$app-font-size-base} * 1.5);
     @include mq($until: md) {
         flex: 1 0 50%;
@@ -128,5 +124,11 @@
     text-align: right;
     @include mq($from: md) {
         display: none;
+    }
+}
+
+.c-toc__icon {
+    @include when-inside('.show') {
+        transform: rotate(90deg);
     }
 }
