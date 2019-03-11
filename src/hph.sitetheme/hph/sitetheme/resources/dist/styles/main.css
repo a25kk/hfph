@@ -10400,7 +10400,7 @@ img[data-sizes="auto"] {
 
 .c-alert {
   padding: calc(1.25rem * 1.5 / 2) calc(1.25rem * 1.5);
-  margin: calc(1.25rem * 1.5) auto;
+  margin: calc(1.25rem * 1.5 / 2) auto;
   border-left: 5px solid #eee;
 }
 
