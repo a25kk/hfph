@@ -1,5 +1,5 @@
 $c-breadcrumb-padding-y:                .25rem;
-$c-breadcrumb-padding-x:                .25rem;
+$c-breadcrumb-padding-x:                calc(#{$app-font-size-base} * 1);
 $c-breadcrumb-margin-bottom:            calc(#{$app-font-size-base} * 1.5);
 $c-breadcrumb-bg:                       transparent;
 
@@ -11,17 +11,24 @@ $c-breadcrumb-font-size:                $app-font-size-sm;
 
 
 .app-pathbar {
+    display: none;
+    @include mq($from: md) {
+        display: block;
+    }
     width: 100%;
     margin-right: auto;
     margin-left: auto;
     @include make-container-max-widths();
+    @include when-inside('.template-frontpage-view') {
+        display: none;
+    }
 }
 
 .c-breadcrumbs {
     @include list-reset();
     display: flex;
     flex-wrap: wrap;
-    padding: $c-breadcrumb-padding-y $c-breadcrumb-padding-x;
+    padding: $c-breadcrumb-padding-y 0;
     margin-bottom: $c-breadcrumb-margin-bottom;
     background-color: $c-breadcrumb-bg;
 }

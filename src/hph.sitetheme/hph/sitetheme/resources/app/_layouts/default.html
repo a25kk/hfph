@@ -13,7 +13,10 @@
 
     <main class="app-main" role="main">
         {% include components/component-breadcrumbs.html %}
-          {{ content }}
+        <aside class="app-sidebar" id="app-sidebar">Column Content</aside>
+        <section class="app-content" id="app-content">
+            {{ content }}
+        </section>
     </main>
 
     {% include layout/footer.html %}

@@ -1,6 +1,6 @@
 <div class="c-card c-card-nav c-card--faculty"
          i18n:domain="hph.faculty"
-         tal:define="active_filter request/academicRole | nothing">
+         tal:define="active_filter view/filter">
     <div class="c-card__header c-card__header--faculty">
         Filter
     </div>
@@ -19,7 +19,7 @@
         </ul>
     </div>
     <div class="c-card__footer">
-        <a class="c-button c-button--danger c-button--lg" tal:condition="active_filter"
+        <a class="c-button c-button--danger c-button--lg" tal:condition="python:view.filter"
                  tal:attributes="href string:${context/absolute_url}">
             &times; <span i18n:translate="">remove filter</span></a>
     </div>

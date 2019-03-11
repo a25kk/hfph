@@ -5,6 +5,7 @@ requirejs(['require',
         '/scripts/interdependentselect.js',
         '/scripts/navbar.js',
         '/scripts/dropdown.js',
+        '/scripts/collapsible.js',
         '/scripts/paneleditor.js',
         '/scripts/x-ray.js',
         '/scripts/dropmic.js',
@@ -17,7 +18,7 @@ requirejs(['require',
         '/scripts/a25.js',
         '/scripts/a25.helpers.js'
     ],
-    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, panelEditor, xray, Dropmic) {
+    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, collapsible, panelEditor, xray, Dropmic) {
         'use strict';
 
         if (typeof a25 == 'undefined') {
@@ -54,8 +55,6 @@ requirejs(['require',
         // SVG Sprite polyfill
         svg4everybody();
 
-        // xray.init();
-
         // Drop mic initialization
         var dropmic = new Dropmic(document.querySelector('[data-dropmic="quick-link-menu"]'), {
             onOpen: function() {
@@ -76,6 +75,9 @@ requirejs(['require',
         // Initialize XHR Event Box
         eventbox.init();
 
+        // Collapsible element
+        collapsible.init();
+
         // Panel page and widget editor
         panelEditor.init();
 
@@ -94,8 +96,8 @@ requirejs(['require',
         // Course filter select boxes
         var _selector_filter = {
             selector: '.js-filter-box',
-            classVisible: 'form-field__select--visible fadeIn',
-            classHidden: 'form-field__select--hidden fadeOut',
+            classVisible: 'o-form__control--visible fadeIn',
+            classHidden: 'o-form__control--hidden fadeOut',
             themeSelectorBaseId: '#selector__core-theme--',
             filterFormAction: '.js-filter-action',
             filterFormActionHidden: 'filter__block--hidden',

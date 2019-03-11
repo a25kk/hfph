@@ -15,13 +15,14 @@ class IEventItem(form.Schema):
     """
     An event with a start and end date
     """
-    title = schema.TextLine(
-        title=_(u"Title"),
-        required=True,
-    )
     location = schema.TextLine(
         title=_(u"Event Location"),
         required=True,
+    )
+    event_type = schema.Choice(
+        title=_(u"Event Type"),
+        vocabulary="hph.sitecontent.EventTypes",
+        required=False,
     )
     start = schema.Datetime(
         title=_(u"Start date"),
@@ -30,6 +31,11 @@ class IEventItem(form.Schema):
     end = schema.Datetime(
         title=_(u"End date"),
         required=True,
+    )
+    fieldset(
+        'details',
+        label=_(u"Details"),
+        fields=['text',]
     )
     text = RichText(
         title=_(u"Event Description"),
@@ -51,6 +57,29 @@ class IEventItem(form.Schema):
 
     image_caption = schema.TextLine(
         title=_(u"Cover Image Caption"),
+        required=False
+    )
+    fieldset(
+        'settings',
+        label=_(u"Settings"),
+        fields=['featured', 'promoted']
+    )
+    featured = schema.Bool(
+        title=_(u"Featured item"),
+        description=_(u"Select to mark this item for featured display on "
+                      u"overview pages like for example the parent container."),
+        default=False,
+        required=False
+    )
+
+    promoted = schema.Bool(
+        title=_(u"Promote to front page"),
+        description=_(u"Select to mark this item for display on the sites "
+                      u"front page. Note: the number of displayed items on the "
+                      u"front page might be limited or ordered by publication "
+                      u"date and the selection does not force the item to be "
+                      u"promoted in any case."),
+        default=False,
         required=False
     )
 

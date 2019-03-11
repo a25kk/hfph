@@ -71,7 +71,7 @@ class WidgetContentCard(BrowserView):
     def widget_content(self):
         context = aq_inner(self.context)
         widget_data = self.params["widget_data"]
-        if "uuid" in widget_data:
+        if widget_data and "uuid" in widget_data:
             context = api.content.get(UID=widget_data["uuid"])
         details = {
             "title": context.Title(),

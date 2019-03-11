@@ -58,6 +58,10 @@ fieldset[disabled] a.c-button {
     @include button-variant($app-color-gray, $app-color-gray);
 }
 
+.c-button--link {
+    @include button-variant($app-color-gray, $app-color-gray);
+}
+
 .c-button + .c-button {
     margin-left: calc(#{$app-font-size-base} * .5);
 }

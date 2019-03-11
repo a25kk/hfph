@@ -11,7 +11,7 @@
     <metal:content-core define-macro="main">
 
 
-        <div class="o-page__content o-grid o-grid--gutter">
+        <div class="o-page__content o-grid o-grid--md o-grid--gutter">
             <div class="o-grid__item o-grid__item--width-25">
                 <aside class="o-aside" id="c-sidebar"
                     tal:define="contained_links python:context.restrictedTraverse('@@folderListing')(portal_type=['Link'])">
@@ -46,11 +46,6 @@
                                     </tal:block>
                                 </tal:sub_contents>
                             </ul>
-                        </div>
-                        <div class="c-card__footer hide" id="c-card-footer">
-                            <a class="c-button c-button--danger c-button--sm"
-                                     tal:attributes="href string:${context/absolute_url}">
-                                &times; <span i18n:translate="">remove filter</span></a>
                         </div>
                     </div>
 
@@ -96,7 +91,7 @@
                                  tal:content="context/department" />
                     </div>
                     <div class="o-page__section">
-                        <div class="o-grid">
+                        <div class="o-grid o-grid--sm o-grid--gutter">
                             <div class="o-grid__item o-grid__item--width-33">
                                 <div class="o-page__figure" tal:condition="python:context.image"
                                          tal:define="responsive_image python:context.restrictedTraverse('@@figure')(image_field_name='image', caption_field__name='image', scale='default', lqip=True, lazy_load=True)">

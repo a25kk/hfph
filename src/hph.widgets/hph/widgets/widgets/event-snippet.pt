@@ -1,0 +1,44 @@
+<div class="c-snippet c-snippet--event"
+         tal:define="content python:view.widget_content()"
+         tal:attributes="class python:'c-snippet c-snippet--default ' + content['css_classes']">
+    <div class="c-snippet__main">
+        <div class="c-snippet__header">
+            <h3 class="c-snippet__title">
+                <a class="c-snippet__link" tal:attributes="href python:content['url']"
+                         tal:content="python:content['title']">
+                        ${context/Title}
+                </a>
+            </h3>
+        </div>
+        <div class="c-snippet__section" tal:condition="python:content['event_type']">
+            <h6 class="c-snippet__title--secondary" tal:content="python:content['event_type']">
+                Event Type
+            </h6>
+        </div>
+        <div class="c-snippet__section">
+            <div class="c-snippet__details" tal:condition="python:content['event_start_date']">
+                <tal:event tal:define="event_start python:content['event_start_date']">
+                    <time tal:attributes="datetime python:event_start['date_long']">
+                        <span tal:replace="python:event_start['day_name']" />,
+                        <span tal:replace="python:event_start['day']" />. <span tal:replace="python:event_start['month_name']" />,
+                        <span tal:replace="python:event_start['time']" />
+                    </time>
+                </tal:event>
+            </div>
+        </div>
+        <div class="c-snippet__footer">
+            <a class="c-snippet__link c-snippet__link--footer" tal:attributes="href python:content['url']"
+                     i18n:translate="">
+                Read more
+            </a>
+        </div>
+    </div>
+    <div class="c-snippet__aside" tal:condition="python:content['has_image']">
+        <div class="c-snippet__figure"
+                 tal:define="responsive_image python:content['content_item'].restrictedTraverse('@@figure')(image_field_name='image', caption_field__name='image', scale='ratio-4:3', aspect_ratio='4/3', lqip=True, lazy_load=True)">
+            <a class="c-snippet__link c-snippet__link--figure" tal:attributes="href python:content['url']">
+                <span tal:replace="structure responsive_image" />
+            </a>
+        </div>
+    </div>
+</div>

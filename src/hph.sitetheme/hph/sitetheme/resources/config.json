@@ -28,6 +28,7 @@
         "scripts/a25.navbar.js",
         "scripts/a25.slider.js",
         "scripts/app.js",
+        "scripts/collapsible.js",
         "scripts/dropdown.js",
         "scripts/eventbox.js",
         "scripts/interdependentselect.js",

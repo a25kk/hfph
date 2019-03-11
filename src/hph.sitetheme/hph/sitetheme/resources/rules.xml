@@ -281,7 +281,7 @@
 
         <rules css:if-not-content=".template-frontpage-view, .section-newsletter">
             <rules css:if-not-content="#portal-column-one">
-                <drop css:theme="#app-content-aside" />
+                <drop css:theme="#app-sidebar" />
                 <replace css:content-children="#content"
                          css:theme-children="#content"
                 />
@@ -291,7 +291,7 @@
                     <xsl:attribute name="class">app-content-main app-content-main-sm</xsl:attribute>
                 </before>
                 <replace css:content-children="#portal-column-one > *"
-                         css:theme-children="#app-content-aside" />
+                         css:theme-children="#app-sidebar" />
                 <replace css:content-children="#content"
                          css:theme-children="#content"
                 />
@@ -337,6 +337,16 @@
               css:content=".app-figure__embedded > iframe" />
         <drop attributes="frameborder"
               css:content=".app-figure__embedded > iframe" />
+
+
+
+        <replace css:content="#content .callout">
+            <xsl:copy>
+                <xsl:copy-of select="@*" />
+                <xsl:attribute name="class">c-alert c-alert--primary</xsl:attribute>
+                <xsl:apply-templates />
+            </xsl:copy>
+        </replace>
 
         <!-- Fix table styles -->
 
@@ -604,8 +614,10 @@
             </replace>
         </rules>
 
-        <after css:theme-children="#app-page-contact"
-               css:content-children="#app-contact-viewlet-cards" />
+
+        <!-- footer elements -->
+        <replace css:theme-children=".app-footer__main"
+                css:content="#c-toc" />
 
     </rules>
 

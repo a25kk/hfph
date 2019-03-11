@@ -2,6 +2,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
       lang="en"
          metal:use-macro="context/main_template/macros/master"
          i18n:domain="hph.lectures">
@@ -10,6 +11,25 @@
 <metal:main fill-slot="main">
     <metal:content-core define-macro="main">
         <div class="app-page-editor">
+
+            <div class="c-toolbar">
+                <div class="c-toolbar__content">
+                    <div class="c-toolbar__item">
+                        <div class="c-toolbar__title">
+                            Module bearbeiten
+                        </div>
+                    </div>
+                    <div class="c-toolbar__item">
+                        <div class="c-toolbar__actions">
+                            <a class="c-toolbar__action c-button c-button--default" href="/@@cancel"
+                                     tal:attributes="href python:context.absolute_url()" i18n:translate="">
+                                Cancel
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="ppe-header">
                 <div class="row">
                     <div class="col-xs-12 col-sm-4">
@@ -87,7 +107,7 @@
                                                type="text" name="degree"
                                                placeholder="Enter degree title"
                                                  tal:attributes="value req_value" hidden>
-                                        <select class="form-control form__control form__control--courses js-module-selector"
+                                        <select class="o-form__control o-form__control--select form-field__select o-form__field--visible js-module-selector"
                                                 id="selector__degree-courses"
                                                 name="degree-course"
                                                 data-target-list="#selector__course-modules"
@@ -111,7 +131,7 @@
                                                placeholder="Please enter information"
                                                  tal:attributes="value req_value" hidden>
                                         <!-- learning modules -->
-                                        <select class="form-control form__control module__select module__select--hidden js-module-selector"
+                                        <select class="o-form__control o-form__control--select form-field__select o-form__field---hidden js-module-selector"
                                                 id="selector__course-modules--master"
                                                 name="module"
                                                  tal:define="options view/learning_modules_master">
@@ -164,10 +184,9 @@
                                 <td class="app-table-actions-cell">
                                     <div class="form-group">
                                         <span tal:replace="structure context/@@authenticator/authenticator"/>
-                                        <button class="app-btn app-btn-default"
+                                        <button class="c-button c-button--default"
                                                 name="form.button.Submit"
                                                 id="form.button.Submit">
-                                            <i class="ion ion-ios-add-circle-outline pp-icon"></i>
                                             <span i18n:translate="">Add module</span>
                                         </button>
                                     </div>

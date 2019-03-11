@@ -23,6 +23,16 @@
             layer="..interfaces.IHphWidgetsLayer"
     />
 
+    <!-- Content Listing -->
+    <browser:page
+            for="*"
+            name="content-widget-content-listing"
+            class=".listing.WidgetContentListing"
+            template="listing.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHphWidgetsLayer"
+    />
+
     <!-- Content Widget Teaser -->
     <browser:page
             for="*"
@@ -32,6 +42,25 @@
             permission="zope2.View"
             layer="..interfaces.IHphWidgetsLayer"
     />
+
+    <browser:page
+            for="*"
+            name="content-widget-event-snippet"
+            class=".event.WidgetEventSnippet"
+            template="event-snippet.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHphWidgetsLayer"
+    />
+
+    <browser:page
+            for="*"
+            name="content-widget-event-card"
+            class=".event.WidgetEventCard"
+            template="event-card.pt"
+            permission="zope2.View"
+            layer="..interfaces.IHphWidgetsLayer"
+    />
+
 
 
 </configure>

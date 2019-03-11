@@ -8,6 +8,13 @@ $c-card-font-family-highlight:          $c-card-font-family-base;
 
 $c-card-cap-bg:                         transparent;
 
+$c-card-color:                          $app-color-text;
+$c-card-color-link:                     $c-card-color;
+$c-card-color-link-hover:               darken($c-card-color, 10%);
+
+$c-card-spacer:                         $app-spacer-sm;
+
+
 .c-card {
     display: $c-card-display-default;
     @if $c-card-display-default == 'flex' {
@@ -18,16 +25,19 @@ $c-card-cap-bg:                         transparent;
         height: auto;
     }
     width: $c-card-width-default;
+    padding-bottom: $app-spacer-base;
+}
+
+.c-card--spacer {
+    padding: $c-card-spacer;
 }
 
 //== Card layout
 //
 //## Reflow card contents based on viewport size
 .c-card__header {
-    padding: $card-spacer-y;
     background: $c-card-cap-bg;
     font-family: $c-card-font-family-highlight;
-    text-align: left;
     @include when-inside('.c-card--banner') {
         @include mq($from: md) {
             min-height: 13rem;
@@ -35,15 +45,9 @@ $c-card-cap-bg:                         transparent;
     }
 }
 
-.c-card__date {
-    font-weight: 100;
-    @include font-size($app-font-size-sm);
-}
-
 //** Card content
 .c-card__main {
     @include clearfix;
-    padding: $card-spacer-y;
     font-family: $app-font-family-base;
     text-align: left;
     @include when-inside('.c-card--news') {
@@ -53,15 +57,14 @@ $c-card-cap-bg:                         transparent;
 
 //** Card footer
 .c-card__footer {
-    //display: flex;
-    padding: $card-spacer-y;
     font-family: $c-card-font-family-base;
-    text-align: center;
     @include when-inside('.c-card--news') {
         text-align: left;
     }
     font-size: $font-size-small;
-
+    &--centered {
+        text-align: center;
+    }
     &--action {
     display: inline-block;
     margin-top: .7rem;
@@ -82,16 +85,33 @@ $c-card-cap-bg:                         transparent;
     }
 }
 
+// Card element styles
+.c-card__link {
+    color: $c-card-color-link;
+    text-decoration: none;
+    &:hover {
+        color: $c-card-color-link-hover;
+        text-decoration: none;
+    }
+}
+
+.c-card__date {
+    font-weight: 100;
+    @include font-size($app-font-size-sm);
+}
 
 
+// TODO: evaluate wether these could be moved to generalized rules
 // Card contents
 .c-card__title {
     text-align: left;
 }
 
 .c-card__section {
-    text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: $app-spacer-base;
+    &--centered {
+        text-align: center;
+    }
 }
 
 
@@ -103,75 +123,3 @@ $c-card-cap-bg:                         transparent;
         text-align: center;
     }
 }
-
-
-// TODO: DEPRECATED - Remove or refactor the following parts
-//== Card lists
-//
-//## Use a grid layout for card listings
-.app-cards {
-    // Fallback for browsers lacking flexbox support
-    @include when-inside('.no-flexbox') {
-        display: table;
-    }
-    // Make flex row
-    @include make-row();
-}
-
-//** Base card styles
-.app-card {
-    @include when-inside('.no-flexbox') {
-        // Fallback
-        display: table-cell;
-    }
-    @include when-inside('.app-cards') {
-        @include make-col-ready();
-        @include make-col(12);
-        @include media-breakpoint-up(sm) {
-            @include make-col(6);
-        }
-        @include media-breakpoint-up(md) {
-            @include make-col(4);
-        }
-    }
-}
-
-
-//== Gutter
-//
-//## Add spacing to cards
-.app-card-gutter {
-  margin-left: -1rem;
-  margin-right: -1rem;
-  .app-card {
-      margin-left: 1rem;
-      margin-right: 1rem;
-  }
-}
-
-
-//== Embedded card
-//
-//## Remove spacing for card inside card usecase
-.app-card--level-2 {
-  margin-left: 0;
-  margin-right: 0;
-  margin-bottom: 0;
-  border: 0;
-}
-
-
-//== Card title
-//
-//## Title is used inside the card-main container
-.app-card__title {
-  font-size: 1.25rem;
-  font-weight: 500;
-}
-
-//** Set card content specific styles
-.app-card__content {
-  padding-top: 1rem;
-  font-size: 1rem;
-}
-
