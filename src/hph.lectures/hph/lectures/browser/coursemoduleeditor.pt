@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-            <div class="ppe-header">
+            <!-- <div class="ppe-header">
                 <div class="row">
                     <div class="col-xs-12 col-sm-4">
                         <a class="ppe-close pull-left"
@@ -52,7 +52,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="app-module-editor">
                 <form class="app-form app-create-form"
                       id="createBlockForm"
