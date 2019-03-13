@@ -6,6 +6,7 @@
 .c-pagination__list {
     display: flex;
     @include list-reset();
+    flex-wrap: wrap;
 }
 
 .c-pagination__link {
