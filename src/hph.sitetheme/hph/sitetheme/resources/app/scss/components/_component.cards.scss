@@ -40,7 +40,7 @@ $c-card-spacer:                         $app-spacer-sm;
     font-family: $c-card-font-family-highlight;
     @include when-inside('.c-card--banner') {
         @include mq($from: md) {
-            min-height: 13rem;
+            //min-height: 13rem;
         }
     }
 }
