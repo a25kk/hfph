@@ -11552,8 +11552,9 @@ img[data-sizes="auto"] {
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
-  border-bottom: 1px solid #5a5f64;
+  border-bottom: 1px solid #999999;
   margin-bottom: calc(1.25rem * 1.5);
+  padding-bottom: 1.25rem;
 }
 
 @media (min-width: 48em) {
@@ -11594,6 +11595,7 @@ img[data-sizes="auto"] {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 100%;
           flex: 1 0 100%;
+  padding-bottom: 1.25rem;
 }
 
 @media (min-width: 48em) {
@@ -11602,14 +11604,15 @@ img[data-sizes="auto"] {
         -ms-flex: 1 0 66.6666%;
             flex: 1 0 66.6666%;
     max-width: 66.6666%;
-    padding-bottom: 1.25rem;
+    padding-bottom: calc(1.25rem / 2);
   }
 }
 
 .c-snippet__footer {
   margin-top: auto;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-family: "TAZ";
+  padding-top: 1.25rem;
 }
 
 .c-snippet__title {
