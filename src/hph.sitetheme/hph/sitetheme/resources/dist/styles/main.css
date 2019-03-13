@@ -12023,12 +12023,6 @@ img[data-sizes="auto"] {
   font-family: "TAZ";
 }
 
-@media (min-width: 48em) {
-  .c-card--banner .c-card__header {
-    min-height: 13rem;
-  }
-}
-
 .c-card__main {
   font-family: "EB Garamond";
   text-align: left;
@@ -12384,13 +12378,14 @@ img[data-sizes="auto"] {
   font-family: "TAZ";
   font-size: 1.2rem;
   font-weight: 400;
-  line-height: 2rem;
+  line-height: 1rem;
   text-align: left;
 }
 
 @media (min-width: 48em) {
   .c-interferer__header {
     font-size: 1.5rem;
+    line-height: 1.5rem;
   }
 }
 
@@ -12402,6 +12397,7 @@ img[data-sizes="auto"] {
 
 .c-interferer__description {
   font-size: 1rem;
+  line-height: 1rem;
 }
 
 @media (min-width: 62em) {
