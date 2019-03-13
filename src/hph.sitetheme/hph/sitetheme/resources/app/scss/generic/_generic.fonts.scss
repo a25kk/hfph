@@ -1,0 +1,15 @@
+/* open-sans-300 - latin */
+@font-face {
+    font-family: 'TAZ';
+    font-style: normal;
+    font-weight: bold;
+    src: local('TAZ Semibold'), local('TAZ-Semibold'),
+    url('../assets/fonts/taz-semibold-webfont.woff') format('woff');
+}
+@font-face {
+    font-family: 'TAZSemiLight';
+    font-style: normal;
+    font-weight: normal;
+    src: local('TAZ Semilight'), local('TAZ-Semilight'),
+    url('../assets/fonts/taz-seml-webfont.woff') format('woff');
+}

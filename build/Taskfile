@@ -22,12 +22,47 @@ task:update:theme() {
     npm:install
 }
 
-task:deploy() {
+task:deploy:legacy() {
     cd .. && bin/fab deploy
+}
+
+# Run fabric based deployment
+task:deploy() {
+    if [ -z "${1:-}" ]
+    then
+        echo "Usage: b5 deploy <servername> [options]"
+        echo ""
+        b5:abort "Argument missing: server name"
+    fi
+    virtualenv:run fab "$1" deploy:"${2:-}"
+}
+
+task:deploy:setup() {
+    if [ -z "${1:-}" ]
+    then
+        echo "Usage: b5 deploy:setup <servername> [options]"
+        echo ""
+        b5:abort "Argument missing: server name"
+    fi
+    virtualenv:run fab "$1" deploy_setup:"${2:-}"
+}
+
+task:status() {
+    if [ -z "${1:-}" ]
+    then
+        echo "Usage: b5 status <servername> [options]"
+        echo ""
+        b5:abort "Argument missing: server name"
+    fi
+    virtualenv:run fab "$1" server_status
 }
 
 task:build() {
     cd ../ && bin/buildout -Nc development.cfg
+}
+
+task:build:full() {
+    cd ../ && bin/buildout -c development.cfg
 }
 
 task:plone() {
@@ -35,7 +70,7 @@ task:plone() {
 }
 
 task:css() {
-    cd ${SITE_THEME} && npm:run gulp css
+    cd ${SITE_THEME} && npm:run gulp dist
     cd ..
 }
 
@@ -63,4 +98,14 @@ task:halt() {
 
 task:shell() {
     docker:container_run web /bin/bash --login
+}
+
+task:db:download() {
+    if [ -z "${1:-}" ]
+    then
+        echo "Usage: b5 download <servername> [options]"
+        echo ""
+        b5:abort "Argument missing: server name"
+    fi
+    virtualenv:run fab "$1" download:"${2:-}"
 }

@@ -11,6 +11,8 @@
   <includeDependencies package="." />
 
   <include package=".browser" />
+
+  <include package=".navigation" />
   <!-- Grok the package to initialise schema interfaces and content classes -->
   <grok:grok package="." />
 
@@ -26,6 +28,19 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
 
-  <!-- -*- extra stuff goes here -*- -->
+    <include file="upgrades.zcml" />
+
+    <!-- Package utilities -->
+    <utility
+            name="hph.sitecontent.EventTypes"
+            provides="zope.schema.interfaces.IVocabularyFactory"
+            component="hph.sitecontent.vocabulary.EventCategoryVocabulary"
+    />
+
+    <utility
+            name="hph.sitecontent.thirdPartyProjects"
+            provides="zope.schema.interfaces.IVocabularyFactory"
+            component="hph.sitecontent.vocabulary.ThirdPartyProjectsVocabulary"
+    />
 
 </configure>

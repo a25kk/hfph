@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Ebene_1" width="64" height="64" viewBox="0 0 64 64">
+    <style>
+        .st3{fill:none;stroke:#4a4a4a;stroke-width:2;stroke-miterlimit:10}
+    </style>
+    <path d="M54.094 32S44.202 45.824 32 45.824 9.906 32 9.906 32 19.798 18.176 32 18.176 54.094 32 54.094 32z" class="st3"/>
+    <circle cx="32" cy="32" r="13.824" class="st3"/>
+    <circle cx="32" cy="32" r="3.206" fill="#4a4a4a"/>
+    <path d="M11.02 47.437l41.96-30.874" class="st3"/>
+</svg>

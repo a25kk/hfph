@@ -1,0 +1,73 @@
+$c-list-spacer:                     .5rem;
+$c-list-margin-x:                   $c-list-spacer;
+$c-list-border-color:                $app-color-gray;
+
+.c-list {
+    display: block;
+    &--grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    &--baseline {
+        align-content: baseline;
+    }
+    &--gutter {
+        margin-right: -($c-list-margin-x);
+        margin-left: -($c-list-margin-x);
+    }
+}
+
+.c-list__item {
+    @include when-inside('.c-list--grid') {
+        flex: 1 0 100%;
+        @include mq($from: md, $until: lg) {
+            flex: 1 0 50%;
+            max-width: 50%;
+        }
+        @include mq($from: lg) {
+            flex: 1 0 33.3333%;
+            max-width: 33.3333%;
+        }
+    }
+    margin-bottom: calc(#{$c-list-spacer} * 4);
+    @include when-inside('.c-list--gutter') {
+        padding-right: $c-list-margin-x;
+        padding-left: $c-list-margin-x;
+    }
+}
+
+.c-list__item--card {
+    @include mq($from: md, $until: lg) {
+        &:not(:nth-child(2n+2)) {
+            border-right: 1px solid $c-list-border-color;
+        }
+    }
+    @include mq($from: lg) {
+        &:not(:nth-child(3n+3)) {
+            border-right: 1px solid $c-list-border-color;
+        }
+    }
+}
+
+
+.c-card-list {
+
+}
+
+.c-card-list__item {
+    @include when-inside('.c-card-list') {
+        padding-right: $app-spacer-base;
+        &:not(:first-of-type) {
+            padding-left: $app-spacer-base;
+        }
+        &:not(last) {
+            @include mq($from: md) {
+                border-right: 1px solid $app-color-gray;
+            }
+        }
+        &:last-of-type {
+            border-right: 0;
+        }
+    }
+}

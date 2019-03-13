@@ -117,6 +117,7 @@ class View(grok.View):
         brains = catalog(Creator=userid)
         return IContentListing(brains[:10])
 
+    @staticmethod
     def course_folders():
         context = api.content.get(UID='66f5d7ff29ae45779726e640d5a57e55')
         folders = context.restrictedTraverse('@@folderListing')(

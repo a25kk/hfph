@@ -11,7 +11,7 @@
     <metal:content-core define-macro="main">
 
         <tal:can_edit tal:condition="view/can_edit">
-            <div class="app-callout app-callout-warning app-print--hidden">
+            <div class="c-alert c-alert--default c-alert--dismissable app-print--hidden">
                 <h4 i18n:translate="">Note:</h4>
                 <p i18n:translate="">
                     It appears that you are logged in as staff member. Use the
@@ -19,47 +19,51 @@
                     code snippets that can be used to integrate 3rd party project
                     course listings via ajax
                 </p>
-                <a class="btn btn-warning pull-right"
+                <a class="c-button c-button--default pull-right"
                          tal:attributes="href string:${context/absolute_url}/@@xhr-integration"
                          i18n:translate="">
                     Show integration options</a>
             </div>
-            <div class="app-callout app-callout--default" tal:condition="view/has_active_session" tal:content="nothing" tal:omit-tag="">
+            <div class="c-alert c-alert--default c-alert--dismissable" tal:condition="view/has_active_session" tal:content="nothing" tal:omit-tag="">
                 <pre tal:content="view/stored_filters"></pre>
             </div>
         </tal:can_edit>
 
-        <div class="app-page__header app-page__header-section">
-            <h1 class="app-page__title">${context/Title}</h1>
-            <div class="app-page__header-action">
-                <a class="app-button app-button--link" href="javascript:window.print()">
+        <div class="o-page__header o-page__header-section">
+            <div class="o-page__title">
+                <h1 class="o-page__headline" tal:content="context/Title">
+                    Title
+                </h1>
+            </div>
+            <div class="o-page__header-action">
+                <a class="c-button c-button--link" href="javascript:window.print()">
                     <i class="ion ion-ios-print-outline pp-icon pp-icon-sm"></i>
                     <span tal:omit-tag="" i18n:translate="">Drucken</span>
                 </a>
             </div>
         </div>
-        <div class="app-page__abstract app-list__result" tal:condition="view/has_active_session"
+        <div class="o-page__abstract app-list__result" tal:condition="view/has_active_session"
                  tal:define="active_filters view/active_filters">
-            <div class="app-list__result-count">
+            <div class="c-filter-list__result-count">
                 <span tal:condition="view/active_type_filter">Veranstaltungstyp: ${view/active_type_filter} &ndash;</span>
                 <span tal:condition="view/active_course_filter">Studiengang: ${view/active_course_filter}</span>
                 <span tal:condition="view/active_course_module_filter">&ndash; Modul: ${view/active_course_module_filter}</span>
                 <span tal:condition="view/active_course_theme_filter">&ndash; Schwerpunkt: ${view/active_course_theme_filter}</span>
             </div>
-            <a class="app-btn app-btn--default app-button--filter-reset"
+            <a class="c-button c-button--danger app-button--filter-reset"
                      tal:attributes="href string:${context/absolute_url}/@@course-filter-storage-cleanup">
                 <i class="ion ion-ios-close-circle-outline pp-icon pp-icon-sm"></i>
                 <span tal:omit-tag="" i18n:translate="">Filter zurücksetzen</span>
             </a>
         </div>
-        <div class="app-list__result-index" tal:condition="view/has_active_session">
+        <div class="c-filter-list__result-index" tal:condition="view/has_active_session">
             <span class="result-count">${view/result_count} Suchreffer</span>
         </div>
 
         <hr>
 
-        <div class="app-page__body">
-            <section class="app-page__section course-filter" tal:condition="context/is_current_semester">
+        <div class="o-page__main">
+            <section class="o-page__section c-course-filter" tal:condition="context/is_current_semester">
                 <div class="app-list__filter-bar filter-bar">
                     <span tal:replace="structure python:view.rendered_course_filter_bar(context)" />
                 </div>
@@ -67,15 +71,15 @@
 
             <hr>
 
-            <section class="app-page__section app-list" id="content-core"
+            <section class="o-page__section" id="content-core"
                      tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                             b_size python:int(request.get('b_size', 20));
                                     b_start python:int(request.get('b_start', 0));
                                             results view/results;
                                                     batch python:Batch(results, b_size, b_start);">
-                <div class="app-list">
-                    <article class="app-list__item" tal:repeat="item results">
-                        <div class="app-list__item-details" tal:define="item_uuid item/UID">
+                <div class="c-list">
+                    <article class="c-list__item" tal:repeat="item results">
+                        <div class="c-list__item-details" tal:define="item_uuid item/UID">
                             <span tal:replace="structure python:view.rendered_course_card(item_uuid)" />
                         </div>
                     </article>

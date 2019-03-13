@@ -1,0 +1,34 @@
+//** Adjust font weight for initialized webfonts
+body {
+    color: $element-body-color;
+    @if $enable-responsive-font-sizes == true {
+        @include font-size($app-font-size-base);
+    } @else {
+        font-size: $app-font-size-base;
+    }
+    font-weight: $app-font-weight-base;
+    @include when-inside('.fonts--loaded') {
+        font-weight: $app-font-weight-base-custom;
+    }
+    &.u-no-scroll {
+        /* disable scrollbar on both x and y axis */
+        overflow: hidden;
+        /* disable scroll */
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        /* OPTIONAL: none of dom element will be click-able */
+        pointer-events: none;
+    }
+    // Set body background color
+    &:not(.mce-content-body) {
+        background-color: $element-body-background-color;
+    }
+    // Alternative styles for wysiwyg editor body
+    &.mce-content-body {
+        padding: $app-wysiwyg-editor-padding !important;
+    }
+}

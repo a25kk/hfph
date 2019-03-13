@@ -10,6 +10,7 @@ var hub = new HubRegistry([
     './tasks/clean.js',
     './tasks/collect.js',
     './tasks/favicon.js',
+    './tasks/fonts.js',
     './tasks/sprite.js',
     './tasks/jekyll.js',
     './tasks/styles.js',
@@ -63,7 +64,7 @@ gulp.task('build:collect', buildCollect);
 // Base tasks
 const buildBase = gulp.series(
     'jekyll:build',
-    gulp.parallel('styles:dist', 'collect:scripts:app'),
+    gulp.parallel('styles:dist', 'styles:editor', 'collect:scripts:app'),
     'inject:head'
 );
 
@@ -123,7 +124,7 @@ gulp.task('dev:watch:styles', function () {
 gulp.task('dev:watch', function () {
     gulp.watch(cfg.paths.app + "sass/**/*.scss", gulp.series(
         'styles:dist'
-        )
+    )
     );
     gulp.watch(cfg.paths.app + "scripts/**/*.js", gulp.series(
         'collect:scripts:app'

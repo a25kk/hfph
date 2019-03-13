@@ -6,6 +6,9 @@ const $ = gulpLoadPlugins();
 var es = require('event-stream');
 var cfg = require('./../config.json');
 
+var styleSourcesVendor = {
+    'vendor': cfg.styles.src
+}
 var scriptSourcesVendor = {
     'vendor': cfg.scripts.src
 }
@@ -13,8 +16,24 @@ var scriptSourcesApp = {
     'app': cfg.scripts.app
 }
 
+var styleCollectionVendor = Object.keys(styleSourcesVendor);
 var scriptCollectionVendor = Object.keys(scriptSourcesVendor);
 var scriptCollectionApp = Object.keys(scriptSourcesApp);
+
+
+styleCollectionVendor.forEach(function (libName) {
+    gulp.task( 'styles:'+libName, function () {
+        return gulp.src(styleSourcesVendor[libName], {'cwd': cfg.paths.src})
+            .pipe(gulp.dest(cfg.paths.app + 'scss/vendors/'));
+    });
+});
+
+gulp.task('collect:styles:vendor',
+    gulp.parallel(
+        styleCollectionVendor.map(function(name) { return 'styles:'+name; })
+    )
+);
+
 
 scriptCollectionVendor.forEach(function (libName) {
     gulp.task( 'scripts:'+libName, function () {
@@ -32,6 +51,9 @@ gulp.task('collect:scripts:vendor',
 scriptCollectionApp.forEach(function (libName) {
     gulp.task( 'scripts:'+libName, function () {
         return gulp.src(scriptSourcesApp[libName], {'cwd': cfg.paths.app })
+            // .pipe(babel({
+            //     presets: ['@babel/env']
+            // }))
             .pipe(gulp.dest(cfg.paths.dist + 'scripts/'));
     });
 });

@@ -10,7 +10,7 @@
   <property name="icon_expr">string:${portal_url}/folder_icon.png</property>
   <property name="factory">hph.sitecontent.contentpage</property>
   <property name="global_allow">True</property>
-  <property name="filter_content_types">True</property>  
+  <property name="filter_content_types">True</property>
   <property name="allowed_content_types">
     <element value="hph.sitecontent.contentpage" />
     <element value="Image" />
@@ -19,20 +19,24 @@
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">hph.sitecontent.contentpage.IContentPage</property> 
+  <property name="schema">hph.sitecontent.contentpage.IContentPage</property>
   <property name="klass">hph.sitecontent.contentpage.ContentPage</property>
 
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+     <element value="ade25.panelpage.behaviors.storage.IContentPanelStorage" />
+     <element value="ade25.panelpage.interfaces.IContentPanelStorageSupport" />
+     <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation" />
    </property>
 
   <!-- View information -->
   <property name="link_target"></property>
   <property name="immediate_view">view</property>
-  <property name="default_view">view</property>
+  <property name="default_view">content-page-view</property>
   <property name="view_methods">
    <element value="view"/>
+   <element value="content-page-view"/>
   </property>
   <property name="default_view_fallback">False</property>
   <property name="add_permission">cmf.AddPortalContent</property>

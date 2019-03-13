@@ -1,22 +1,24 @@
 <!doctype html>
-<html lang="de">
+<html lang="de"
+      xmlns:xlink="http://www.w3.org/1999/xlink">
   <head>
-    <!-- Meta, title, CSS, favicons, etc. -->
     {% include base/head.html %}
   </head>
   <body>
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
     {% include components/toolbar.html %}
+
     {% include layout/header.html %}
 
     <main class="app-main" role="main">
-          {{ content }}
+        {% include components/component-breadcrumbs.html %}
+        <aside class="app-sidebar" id="app-sidebar">Column Content</aside>
+        <section class="app-content" id="app-content">
+            {{ content }}
+        </section>
     </main>
 
     {% include layout/footer.html %}
-    {% include base/javascript.html %}
-    <div>
-    {% include base/piwik.html %}
-    </div>
   </body>
 </html>
