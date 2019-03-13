@@ -31,10 +31,11 @@
 	font-family: $app-font-family-strong;
 	font-size: 1.2rem;
 	font-weight: 400;
-	line-height: 2rem;
+	line-height: 1rem;
 	text-align: left;
 	@include mq($from: md) {
 		font-size: 1.5rem;
+		line-height: 1.5rem;
 	}
 	@include mq($from: lg) {
 		font-size: 2rem;
@@ -44,6 +45,7 @@
 
 .c-interferer__description {
 	font-size: 1rem;
+	line-height: 1rem;
 	@include mq($from: lg) {
 		padding: 0;
 	}
