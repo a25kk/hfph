@@ -11580,8 +11580,9 @@ img[data-sizes="auto"] {
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
-  border-bottom: 1px solid #5a5f64;
+  border-bottom: 1px solid #999999;
   margin-bottom: calc(1.25rem * 1.5);
+  padding-bottom: 1.25rem;
 }
 
 @media (min-width: 48em) {
@@ -11622,6 +11623,7 @@ img[data-sizes="auto"] {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 100%;
           flex: 1 0 100%;
+  padding-bottom: 1.25rem;
 }
 
 @media (min-width: 48em) {
@@ -11630,14 +11632,15 @@ img[data-sizes="auto"] {
         -ms-flex: 1 0 66.6666%;
             flex: 1 0 66.6666%;
     max-width: 66.6666%;
-    padding-bottom: 1.25rem;
+    padding-bottom: calc(1.25rem / 2);
   }
 }
 
 .c-snippet__footer {
   margin-top: auto;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-family: "TAZ";
+  padding-top: 1.25rem;
 }
 
 .c-snippet__title {
@@ -12051,12 +12054,6 @@ img[data-sizes="auto"] {
   font-family: "TAZ";
 }
 
-@media (min-width: 48em) {
-  .c-card--banner .c-card__header {
-    min-height: 13rem;
-  }
-}
-
 .c-card__main {
   font-family: "EB Garamond";
   text-align: left;
@@ -12412,13 +12409,14 @@ img[data-sizes="auto"] {
   font-family: "TAZ";
   font-size: 1.2rem;
   font-weight: 400;
-  line-height: 2rem;
+  line-height: 1rem;
   text-align: left;
 }
 
 @media (min-width: 48em) {
   .c-interferer__header {
     font-size: 1.5rem;
+    line-height: 1.5rem;
   }
 }
 
@@ -12430,6 +12428,7 @@ img[data-sizes="auto"] {
 
 .c-interferer__description {
   font-size: 1rem;
+  line-height: 1rem;
 }
 
 @media (min-width: 62em) {
