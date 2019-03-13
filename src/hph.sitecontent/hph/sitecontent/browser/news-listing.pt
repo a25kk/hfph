@@ -46,7 +46,9 @@
                                 </div>
                             </article>
                         </div>
-                        <div metal:use-macro="context/batch_macros/macros/navigation" />
+                        <tal:batchnavigation
+                                define="batchnavigation nocall:context/@@batchnavigation"
+                                replace="structure python:batchnavigation(batch)" />
                     </section>
                 </div>
             </tal:news-items>

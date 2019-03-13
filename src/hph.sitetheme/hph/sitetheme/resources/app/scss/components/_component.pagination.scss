@@ -6,6 +6,7 @@
 .c-pagination__list {
     display: flex;
     @include list-reset();
+    flex-wrap: wrap;
 }
 
 .c-pagination__link {
@@ -30,6 +31,22 @@
         z-index: 2;
         outline: $c-pagination-focus-outline;
         box-shadow: none;
+    }
+    @include when-inside('.c-pagination__list-item--previous') {
+        > .label {
+            display: none;
+        }
+        > .arrow:before {
+            content: "\00ab";
+        }
+    }
+    @include when-inside('.c-pagination__list-item--next') {
+        > .label {
+            display: none;
+        }
+        > .arrow:before {
+            content: "\00bb";
+        }
     }
 }
 
