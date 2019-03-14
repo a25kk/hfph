@@ -1,6 +1,7 @@
 <div class="c-snippet c-snippet--default"
          tal:define="content python:view.widget_content()"
-         tal:attributes="class python:'c-snippet c-snippet--default ' + content['css_classes']">
+         tal:attributes="class python:'c-snippet c-snippet--default ' + content['css_classes']"
+    i18n:domain="hph.widgets">
     <div class="c-snippet__main">
         <div class="c-snippet__header">
             <h3 class="c-snippet__title">

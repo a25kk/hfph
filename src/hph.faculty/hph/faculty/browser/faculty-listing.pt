@@ -40,7 +40,7 @@
                                             <div class="c-snippet__section">
                                                 <div class="c-snippet__title">
                                                     <a class="c-snippet__link" href="${item/getURL}">
-                                                            ${item/Title}
+                                                        <h2>${item/Title}</h2>
                                                     </a>
                                                 </div>
                                                 <div class="c-snippet__abstract" tal:condition="context/Description">
