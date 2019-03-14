@@ -8369,6 +8369,10 @@ table tbody + tbody,
   padding: 0.3rem;
 }
 
+.o-table__row--borderTop {
+  border-top: 2px solid #333;
+}
+
 .o-page {
   display: block;
   position: relative;

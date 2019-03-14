@@ -75,7 +75,7 @@
                                     </tr>
                                 </tal:block>
                             </tal:items>
-                            <tr class="app-table-actions">
+                            <tr class="o-table__row--borderTop">
                                 <th scope="row">&nbsp;</th>
                                 <td class="app-table-actions-cell app-table__actions-cell--first">
                                     <div class="form-group field"
