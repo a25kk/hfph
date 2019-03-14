@@ -16,7 +16,6 @@ $c-snippet-color:                   $app-color-text;
     display: $c-snippet-display;
     flex-direction: column-reverse;
     margin-bottom: $c-snippet-margin-base;
-    //padding-bottom: $c-snippet-padding; 
     @include mq($from: md) {
         flex-direction: $c-snippet-flex-direction;
         flex-wrap: wrap;
