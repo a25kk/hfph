@@ -44,5 +44,7 @@
 
 .o-page__asset--inline {
     margin-bottom: $app-spacer-base;
-    margin-right: $app-spacer-base;
+    @include mq($from: md) {
+        margin-right: $app-spacer-sm;
+    } 
 }
