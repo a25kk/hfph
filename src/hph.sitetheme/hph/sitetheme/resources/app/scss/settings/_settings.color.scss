@@ -18,6 +18,7 @@ $color-midnight-blue:               rgba(0, 51, 102, 1); // #003366;
 $color-sun-glow:                    rgba(255, 204, 51, 1); // #ffcc33
 $color-tundora:                     rgba(64, 64, 64, 1); // #404040
 $color-shuttle-gray:                rgba(90, 95, 100, 1); // #5A5F64
+$color-dusty-gray:                  rgba(153, 153, 153, 1); // #999999
 $color-gallery:                     rgba(239, 239, 239, 1); // #5A5F64
 
 $app-color-blue-primary:            rgba(5, 81, 125, 1);
@@ -32,6 +33,7 @@ $app-color-purple:                  rgba(126, 4, 167, 1);
 $app-color-gray-base:                       $color-gallery;
 $app-color-gray:                            $color-shuttle-gray;
 $app-color-gray-light:				        $color-gallery;
+$app-color-gray-lighter:				    $color-dusty-gray;
 
 $app-color-white:                   #fff !default;
 

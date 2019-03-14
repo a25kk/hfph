@@ -55,7 +55,7 @@
                 </article>
 
                 <div class="app-page-section" tal:condition="python:context.moodle">
-                    <a class="app-button app-button--default"
+                    <a class="c-button c-button--default"
                        href="${context/moodle}"
                              i18n:translate="">
                         View lecture in moodle
