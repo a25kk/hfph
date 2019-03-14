@@ -1,0 +1,55 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-03-14 07:47+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: hph.widgets\n"
+
+#: ./../configure.zcml:25
+msgid "HPH Content Widgets"
+msgstr ""
+
+#: ./../widgets/image/interfaces.py:16
+msgid "Poster Headline"
+msgstr ""
+
+#: ./../widgets/image/interfaces.py:24
+msgid "Poster Image"
+msgstr ""
+
+#: ./../widgets/image/interfaces.py:28
+msgid "Poster Image Copyright Information"
+msgstr ""
+
+#: ./../widgets/image/interfaces.py:20
+msgid "Poster Text"
+msgstr ""
+
+#: ./../widgets/content-card.pt:36
+#: ./../widgets/event-card.pt:46
+msgid "Read more"
+msgstr ""
+
+#: ./../configure.zcml:25
+msgid "Site specific content widgets for panel pages"
+msgstr ""
+
+#: ./../configure.zcml:33
+msgid "Uninstall HPH Content Widgets (hph.widgets)"
+msgstr ""
+
+#: ./../configure.zcml:33
+msgid "Uninstall content widgets and integrations"
+msgstr ""
