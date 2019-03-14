@@ -9862,6 +9862,12 @@ input, button, select, textarea {
   padding-top: 100%;
 }
 
+@media (min-width: 48em) {
+  .o-aside {
+    margin-top: 5.5rem;
+  }
+}
+
 .app-header {
   position: fixed;
   top: 0;
@@ -10581,6 +10587,8 @@ img[data-sizes="auto"] {
   margin-left: 0;
   padding-left: 0;
   list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .c-pagination__link {
@@ -10600,7 +10608,7 @@ img[data-sizes="auto"] {
   color: #182f7a;
   text-decoration: none;
   background-color: #efefef;
-  border-color: #5a5f64;
+  border-color: #efefef;
 }
 
 .c-pagination__link:focus {
@@ -11580,9 +11588,7 @@ img[data-sizes="auto"] {
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
-  border-bottom: 1px solid #999999;
-  margin-bottom: calc(1.25rem * 1.5);
-  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 @media (min-width: 48em) {
@@ -11600,7 +11606,6 @@ img[data-sizes="auto"] {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 100%;
           flex: 1 0 100%;
-  padding-right: 1.25rem;
 }
 
 @media (min-width: 48em) {
@@ -11609,6 +11614,7 @@ img[data-sizes="auto"] {
         -ms-flex: 1 0 33.3333%;
             flex: 1 0 33.3333%;
     max-width: 33.3333%;
+    padding-right: 1.25rem;
   }
 }
 
@@ -12054,6 +12060,10 @@ img[data-sizes="auto"] {
   font-family: "TAZ";
 }
 
+.c-card__header--faculty {
+  display: none;
+}
+
 .c-card__main {
   font-family: "EB Garamond";
   text-align: left;
@@ -12464,7 +12474,12 @@ img[data-sizes="auto"] {
 }
 
 .c-list__item {
+  border-bottom: 1px solid #999999;
   margin-bottom: calc(0.5rem * 4);
+}
+
+.c-list__item:last-of-type {
+  border-bottom: 0px;
 }
 
 .c-list--grid .c-list__item {

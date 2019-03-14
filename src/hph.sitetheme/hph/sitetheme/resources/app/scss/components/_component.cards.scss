@@ -38,6 +38,9 @@ $c-card-spacer:                         $app-spacer-sm;
 .c-card__header {
     background: $c-card-cap-bg;
     font-family: $c-card-font-family-highlight;
+    &--faculty {
+        display: none;
+    }
     @include when-inside('.c-card--banner') {
         @include mq($from: md) {
             //min-height: 13rem;
