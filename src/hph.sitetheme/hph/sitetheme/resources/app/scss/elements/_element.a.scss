@@ -1,5 +1,6 @@
 a {
     color: $anchor-color-default;
+    font-weight: 600;
     &:hover {
         color: $anchor-color-highlight;
         @if $anchor-transitions-active == true {
