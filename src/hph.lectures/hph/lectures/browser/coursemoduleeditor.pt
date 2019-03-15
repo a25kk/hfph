@@ -75,9 +75,9 @@
                                     </tr>
                                 </tal:block>
                             </tal:items>
-                            <tr class="o-table__row--borderTop">
+                            <tr class="o-table__row--actions">
                                 <th scope="row">&nbsp;</th>
-                                <td class="app-table-actions-cell app-table__actions-cell--first">
+                                <td class="o-table__cell--actions o-table__cell--primary">
                                     <div class="form-group field"
                                              tal:define="req_value request/title | nothing">
                                         <input class="form-control" id="degree"
@@ -100,7 +100,7 @@
                                         </select>
                                     </div> <!-- /title field -->
                                 </td>
-                                <td class="app-table-actions-cell">
+                                <td class="o-table__cell--actions">
                                     <div class="form-group field"
                                              tal:define="req_value request/info | nothing">
                                         <input class="form-control" id="info"
@@ -108,7 +108,7 @@
                                                placeholder="Please enter information"
                                                  tal:attributes="value req_value" hidden>
                                         <!-- learning modules -->
-                                        <select class="o-form__control o-form__control--select form-field__select o-form__field---hidden js-module-selector"
+                                        <select class="o-form__control o-form__control--select form-field__select o-form__field--hidden o-form__control--hidden js-module-selector"
                                                 id="selector__course-modules--master"
                                                 name="module"
                                                  tal:define="options view/learning_modules_master">
@@ -122,7 +122,7 @@
                                             </tal:block>
                                         </select>
                                         <!-- learning modules bachelor-->
-                                        <select class="form-control form__control module__select module__select--hidden js-module-selector"
+                                        <select class="o-form__control o-form__control--select form-field__select o-form__field--hidden o-form__control--hidden js-module-selector"
                                                 id="selector__course-modules--bachelor"
                                                 name="module"
                                                  tal:define="options view/learning_modules_bachelor">
@@ -137,12 +137,12 @@
                                         </select>
                                     </div> <!-- /title field -->
                                 </td>
-                                <td class="app-table-actions-cell">
+                                <td class="o-table__cell--actions">
                                     <div class="form-group field"
                                              tal:define="req_value request/theme | nothing;
                                                          theme_groups view/course_core_themes">
                                         <tal:course-themes tal:repeat="theme_group theme_groups">
-                                            <select class="form-control form__control form__control--themes module__select module__select--hidden js-module-selector js-selector-course-theme form__control--themes-${theme_group}"
+                                            <select class="o-form__control o-form__control--select form-field__select o-form__field--hidden o-form__control--hidden js-module-selector js-selector-course-theme form__control--themes-${theme_group}"
                                                     id="selector__core-theme--${theme_group}"
                                                     name="course-theme"
                                                     tal:define="options python:theme_groups[theme_group]">
@@ -158,7 +158,7 @@
                                         </tal:course-themes>
                                     </div> <!-- /course theme field -->
                                 </td>
-                                <td class="app-table-actions-cell">
+                                <td class="o-table__cell--actions">
                                     <div class="form-group">
                                         <span tal:replace="structure context/@@authenticator/authenticator"/>
                                         <button class="c-button c-button--default"

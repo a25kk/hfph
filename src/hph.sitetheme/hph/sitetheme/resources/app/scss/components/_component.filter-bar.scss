@@ -26,7 +26,7 @@
         display: flex;
         flex-direction: row;
     }
-    
+
     &--unit {
     }
 }
@@ -35,7 +35,7 @@
     flex: 1 0 0%;
     margin-bottom: .5rem;
     @include mq($from: md) {
-        flex: 25% 0 0%;
+        flex: 1 0 25%;
         padding-right: .5rem;
     }
     &:last-child {

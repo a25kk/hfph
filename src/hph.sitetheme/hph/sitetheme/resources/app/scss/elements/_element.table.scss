@@ -58,6 +58,19 @@ table,
 // Table Edit Modules ############################
 
 // Actions row
-.o-table__row--borderTop {
-    border-top: 2px solid #333;
+.o-table__row {
+    &--actions {
+        border-top: .25rem solid $app-color-text;
+        padding-top: $app-spacer-base;
+    }
+}
+
+.o-table__cell {
+    &--actions {
+        width: 20%;
+        padding-top: $app-spacer-sm !important;
+    }
+    &--primary {
+        width: 40%;
+    }
 }
