@@ -13214,3 +13214,7 @@ img[data-sizes="auto"] {
 .u-color--muted {
   color: #6c757d;
 }
+
+.u-text--word-wrap {
+  word-wrap: break-word;
+}
