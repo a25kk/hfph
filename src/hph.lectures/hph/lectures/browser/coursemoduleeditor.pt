@@ -30,29 +30,6 @@
                 </div>
             </div>
 
-            <div class="ppe-header">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-4">
-                        <a class="ppe-close pull-left"
-                                 tal:attributes="href string:${context/absolute_url}">
-                            <i class="ion ion-ios-arrow-back-outline pp-icon pp-icon-sm"></i>
-                                <span tal:omit-tag="" i18n:translate="">Quit</span>
-                        </a>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <div class="ppe-header-title text-center" i18n:translate="">
-                            Module bearbeiten
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-4">
-                        <a class="ppe-close pull-right"
-                                 tal:attributes="href string:${context/absolute_url}/"
-                                 i18n:translate="">
-                            View
-                        </a>
-                    </div>
-                </div>
-            </div>
             <div class="app-module-editor">
                 <form class="app-form app-create-form"
                       id="createBlockForm"
@@ -98,7 +75,7 @@
                                     </tr>
                                 </tal:block>
                             </tal:items>
-                            <tr class="app-table-actions">
+                            <tr class="o-table__row--borderTop">
                                 <th scope="row">&nbsp;</th>
                                 <td class="app-table-actions-cell app-table__actions-cell--first">
                                     <div class="form-group field"

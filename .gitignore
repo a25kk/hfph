@@ -13,7 +13,6 @@
 .installed.cfg
 .mr.developer.cfg
 .svn
-bin
 # build
 build/docker/nginx/site.conf
 coverage
