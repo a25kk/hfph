@@ -17,11 +17,15 @@
 }
 
 .app-footer__main {
-    @include make-container();
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     @include make-container-max-widths();
 }
 
 .app-footer__aside {
-    @include make-container();
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     @include make-container-max-widths();
 }

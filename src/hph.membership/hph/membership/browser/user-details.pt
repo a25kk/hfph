@@ -36,7 +36,7 @@
                     </div>
                 </header>
 
-                <div class="app-page-body">
+                <div class="o-page__main">
 
                     <div class="c-list c-list--tiles">
                         <div class="c-list__item">

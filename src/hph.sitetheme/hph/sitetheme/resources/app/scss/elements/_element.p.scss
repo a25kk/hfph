@@ -1,6 +1,7 @@
 p {
     //word-break: break-all;
-    margin-bottom: calc(#{$app-font-size-base} * 1.5);
+    //margin-bottom: calc(#{$app-font-size-base} * 1.5);
+    margin-bottom: $app-font-size-base;
     &.u-font-test {
         font-family: Trebuchet !important;
     }

@@ -8221,6 +8221,10 @@ a:hover {
   transition: color 0.5s linear;
 }
 
+.o-page__body-text a {
+  font-weight: 600;
+}
+
 img {
   max-width: 100%;
   -o-object-fit: cover;
@@ -8253,7 +8257,7 @@ img[data-sizes="auto"] {
 }
 
 p {
-  margin-bottom: calc(1.25rem * 1.5);
+  margin-bottom: 1.25rem;
 }
 
 p.u-font-test {
@@ -8262,6 +8266,13 @@ p.u-font-test {
 
 ul {
   margin-bottom: calc(1.25rem * 1.5);
+  padding-left: 1rem;
+}
+
+@media (min-width: 48em) {
+  ul {
+    padding-left: calc(1.25rem * 2);
+  }
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -8470,7 +8481,12 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
 
 .o-page__asset--inline {
   margin-bottom: calc(1.25rem * 1.5);
-  margin-right: calc(1.25rem * 1.5);
+}
+
+@media (min-width: 48em) {
+  .o-page__asset--inline {
+    margin-right: calc(1.25rem * 1.5 / 2);
+  }
 }
 
 .o-grid {
