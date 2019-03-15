@@ -15,6 +15,10 @@
         left: 60px;
         width: calc(100% - 60px);
     }
+    @include when-inside('.plone-toolbar-left-expanded') {
+        left: 120px;
+        width: calc(100% - 120px);
+    }
     @include when-inside('.template-frontpage-view') {
         background: transparent;
         &--offset {

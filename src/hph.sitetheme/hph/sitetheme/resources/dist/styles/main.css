@@ -9874,6 +9874,11 @@ input, button, select, textarea {
   width: calc(100% - 60px);
 }
 
+.plone-toolbar-left-expanded .app-header {
+  left: 120px;
+  width: calc(100% - 120px);
+}
+
 .template-frontpage-view .app-header {
   background: transparent;
 }
