@@ -29,7 +29,7 @@ class SitemapProvider(ContentProviderBase):
     )
     _item_markup_template = (
         u'<li class="c-toc__item {id}{has_sub_class}">'
-        u'<a href="{url}" class="c-toc__link state-{review_state}"{aria_haspopup}>{title}</a>{opener}'  # noqa: E 501
+        u'<a href="{url}" class="c-toc__link state-{review_state}{js_class}"{aria_haspopup}>{title}</a>{opener}'  # noqa: E 501
         u'{sub}'
         u'</li>'
     )
@@ -139,6 +139,7 @@ class SitemapProvider(ContentProviderBase):
                 'opener':  self._opener_markup_template.format(**item),
                 'aria_haspopup': ' aria-haspopup="true"',
                 'has_sub_class': ' c-toc__item--has-subtree',
+                'js_class': ' js-collapsible-toggle'
             })
         else:
             item.update({
@@ -146,6 +147,7 @@ class SitemapProvider(ContentProviderBase):
                 'opener':  '',
                 'aria_haspopup': '',
                 'has_sub_class': '',
+                'js_class': ''
             })
         return self._item_markup_template.format(**item)
 
