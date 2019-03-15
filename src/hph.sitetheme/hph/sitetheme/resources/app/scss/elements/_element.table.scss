@@ -54,3 +54,10 @@ table,
         padding: $o-table-cell-padding-sm;
     }
 }
+
+// Table Edit Modules ############################
+
+// Actions row
+.o-table__row--borderTop {
+    border-top: 2px solid #333;
+}

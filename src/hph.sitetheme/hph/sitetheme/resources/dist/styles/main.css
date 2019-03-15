@@ -8380,6 +8380,10 @@ table tbody + tbody,
   padding: 0.3rem;
 }
 
+.o-table__row--borderTop {
+  border-top: 2px solid #333;
+}
+
 .o-page {
   display: block;
   position: relative;
@@ -9902,6 +9906,11 @@ input, button, select, textarea {
 .plone-toolbar-left .app-header {
   left: 60px;
   width: calc(100% - 60px);
+}
+
+.plone-toolbar-left-expanded .app-header {
+  left: 120px;
+  width: calc(100% - 120px);
 }
 
 .template-frontpage-view .app-header {
