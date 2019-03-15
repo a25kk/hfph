@@ -29,7 +29,7 @@
             }
         }
     }
-    padding: .35rem 0;
+    padding: .35rem 0 .35rem .35rem;
 	text-transform: none;
     line-height: $c-toc-item-line-height;
 	@include when-inside('.c-toc--level-1') {

@@ -9,10 +9,12 @@ $c-meta-nav-font-size:              $app-font-size-sm;
 
 .c-meta-nav {
     display: $c-meta-nav-display;
-    padding-left: $app-spacer-sm;
-    padding-right: $app-spacer-sm;
+    padding-left: .25rem;
+    padding-right: .25rem;
+    text-align: center;
     @include mq($from: md) {
         padding-left: 0;
+        text-align: left;
     }
 }
 
