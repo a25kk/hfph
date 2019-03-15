@@ -8380,8 +8380,18 @@ table tbody + tbody,
   padding: 0.3rem;
 }
 
-.o-table__row--borderTop {
-  border-top: 2px solid #333;
+.o-table__row--actions {
+  border-top: 0.25rem solid #212529;
+  padding-top: calc(1.25rem * 1.5);
+}
+
+.o-table__cell--actions {
+  width: 20%;
+  padding-top: calc(1.25rem * 1.5 / 2) !important;
+}
+
+.o-table__cell--primary {
+  width: 40%;
 }
 
 .o-page {
