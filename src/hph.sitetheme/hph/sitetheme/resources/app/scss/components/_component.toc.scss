@@ -19,7 +19,7 @@
     }
     @include list-reset();
     font-family: $c-toc-font;
-    
+
 }
 
 .c-toc__item {
@@ -110,7 +110,7 @@
 .c-toc__link {
     display: flex;
     width: 100%;
-    height: calc(#{$app-font-size-base} * 1.5);
+    min-height: calc(#{$app-font-size-base} * 1.5);
     line-height: 1.25;
     @include mq($from: md) {
         display: block;

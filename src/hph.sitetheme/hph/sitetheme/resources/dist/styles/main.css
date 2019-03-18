@@ -9939,6 +9939,10 @@ input, button, select, textarea {
   }
 }
 
+.app-header.u-backdrop {
+  background: #efefef;
+}
+
 .c-header {
   padding-top: 1.5rem;
 }
@@ -10074,6 +10078,14 @@ input, button, select, textarea {
 
 .template-frontpage-view .app-main {
   padding-top: 0;
+}
+
+.app-main.u-no-scroll {
+  position: fixed;
+  left: 0;
+  right: 0;
+  overflow-y: scroll;
+  /* render disabled scroll bar to keep the same width */
 }
 
 .app-main--fullscreen {
@@ -12337,7 +12349,7 @@ img[data-sizes="auto"] {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  height: calc(1.25rem * 1.5);
+  min-height: calc(1.25rem * 1.5);
   line-height: 1.25;
   color: #fff;
 }
