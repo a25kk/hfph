@@ -11,10 +11,6 @@
     background-color: $app-color-gray-light;
     background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
     padding-bottom: 1rem;
-    @include when-inside('.plone-toolbar-left') {
-        left: 60px;
-        width: calc(100% - 60px);
-    }
     @include when-inside('.template-frontpage-view') {
         background: transparent;
         &--offset {
@@ -24,6 +20,14 @@
     @include media-breakpoint-up(md) {
         margin: 0 auto 1rem;
         padding-bottom: 1rem;
+        @include when-inside('.plone-toolbar-left') {
+            left: 60px;
+            width: calc(100% - 60px);
+        }
+        @include when-inside('.plone-toolbar-left-expanded') {
+            left: 120px;
+            width: calc(100% - 120px);
+        }
     }
 }
 

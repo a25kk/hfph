@@ -23,13 +23,14 @@ class SitemapProvider(ContentProviderBase):
     _nav_tree_context = None
 
     _opener_markup_template = (
-        u'<a href="#navitem-{uid}" class="c-toc__link c-toc__toggle js-collapsible-toggle">'  # noqa: E 501
-        u'<svg class="o-icon o-icon--default o-icon--circle o-icon__ui--chevron-dims c-toc__icon"><use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron"></use></svg>'  # noqa: E 501
-        u'</a>'
+        u'<span class="c-toc__link-item c-toc__link-item--icon">'  # noqa: E 501
+        u'<svg class="o-icon o-icon--default o-icon--circle o-icon__ui--add-dims c-toc__icon c-toc__icon--open"><use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--add"></use></svg>'  # noqa: E 501
+        u'<svg class="o-icon o-icon--default o-icon--circle o-icon__ui--remove-dims c-toc__icon c-toc__icon--close"><use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--remove"></use></svg>'  # noqa: E 501
+        u'</span>'
     )
     _item_markup_template = (
         u'<li class="c-toc__item {id}{has_sub_class}">'
-        u'<a href="{url}" class="c-toc__link state-{review_state}"{aria_haspopup}>{title}</a>{opener}'  # noqa: E 501
+        u'<a href="{url}" class="c-toc__link state-{review_state}{js_class}"{aria_haspopup}><span class="c-toc__link-item">{title}</span>{opener}</a>'  # noqa: E 501
         u'{sub}'
         u'</li>'
     )
@@ -139,6 +140,7 @@ class SitemapProvider(ContentProviderBase):
                 'opener':  self._opener_markup_template.format(**item),
                 'aria_haspopup': ' aria-haspopup="true"',
                 'has_sub_class': ' c-toc__item--has-subtree',
+                'js_class': ' js-collapsible-toggle'
             })
         else:
             item.update({
@@ -146,6 +148,7 @@ class SitemapProvider(ContentProviderBase):
                 'opener':  '',
                 'aria_haspopup': '',
                 'has_sub_class': '',
+                'js_class': ''
             })
         return self._item_markup_template.format(**item)
 

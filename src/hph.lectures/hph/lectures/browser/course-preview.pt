@@ -81,7 +81,7 @@
         </p>
     </tal:nomodules>
 
-    <p class="text-discreet text-muted"
+    <p class="text-discreet text-muted u-text--word-wrap"
              tal:condition="context/Description"
              tal:content="context/Description" />
 
