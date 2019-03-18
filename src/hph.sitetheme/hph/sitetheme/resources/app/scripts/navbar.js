@@ -30,6 +30,7 @@ define([
     };
 
     let navBarIsActive = false;
+    let contentScrollPosition = 0;
 
     function navigationOffsetMarker(options) {
         var $menuContainer = document.querySelector(options.menuContainer),
@@ -49,9 +50,7 @@ define([
             $menuContainerActiveClass = options.menuContainerActive,
             $navBar = document.querySelector(options.navBar);
         if ($navBar !== null) {
-            console.log('Handle navbar activation:');
             element.classList.add(options.navBarToggleActiveClass);
-            console.log('Toggle clich handled.');
             $navBar.classList.add(options.navBarOverlay);
             $navBar.classList.add(options.navBarHidden);
             $menuContainer.classList.add($menuContainerActiveClass);
@@ -59,7 +58,6 @@ define([
             if (options.backdropDisplay === true) {
                 $menuContainer.classList.add(options.backdropClass);
             }
-            navBarIsActive = true;
         }
     }
 
@@ -81,17 +79,22 @@ define([
             if (options.backdropDisplay === true) {
                 $menuContainer.classList.remove(options.backdropClass);
             }
-            navBarIsActive = false;
         }
     }
 
     function navigationToggleHandler(element, options) {
+        let bodyElement = document.getElementsByTagName('body')[0];
         // Handle navigation states
         if (navBarIsActive) {
             deactivateNavigation(options);
+            bodyElement.style.top = 0;
+            window.scrollTo(0, contentScrollPosition);
         } else {
+            contentScrollPosition = window.pageYOffset;
+            bodyElement.style.top = -contentScrollPosition + 'px';
             activateNavigation(element, options);
         }
+        navBarIsActive = !navBarIsActive;
     }
 
     function navigationDrawerClose(options) {
