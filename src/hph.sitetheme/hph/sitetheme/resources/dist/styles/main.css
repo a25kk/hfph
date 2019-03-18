@@ -9939,6 +9939,10 @@ input, button, select, textarea {
   }
 }
 
+.app-header.u-backdrop {
+  background: #efefef;
+}
+
 .c-header {
   padding-top: 1.5rem;
 }
@@ -12345,7 +12349,7 @@ img[data-sizes="auto"] {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  height: calc(1.25rem * 1.5);
+  min-height: calc(1.25rem * 1.5);
   line-height: 1.25;
   color: #fff;
 }
