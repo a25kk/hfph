@@ -9913,16 +9913,6 @@ input, button, select, textarea {
   padding-bottom: 1rem;
 }
 
-.plone-toolbar-left .app-header {
-  left: 60px;
-  width: calc(100% - 60px);
-}
-
-.plone-toolbar-left-expanded .app-header {
-  left: 120px;
-  width: calc(100% - 120px);
-}
-
 .template-frontpage-view .app-header {
   background: transparent;
 }
@@ -9938,6 +9928,14 @@ input, button, select, textarea {
   .app-header {
     margin: 0 auto 1rem;
     padding-bottom: 1rem;
+  }
+  .plone-toolbar-left .app-header {
+    left: 60px;
+    width: calc(100% - 60px);
+  }
+  .plone-toolbar-left-expanded .app-header {
+    left: 120px;
+    width: calc(100% - 120px);
   }
 }
 
@@ -12205,7 +12203,7 @@ img[data-sizes="auto"] {
 
 .c-toc__item {
   display: none;
-  padding: .35rem 0;
+  padding: .35rem 0 .35rem .35rem;
   text-transform: none;
   line-height: 1.5;
 }
@@ -12371,13 +12369,15 @@ img[data-sizes="auto"] {
 
 .c-meta-nav {
   display: block;
-  padding-left: calc(1.25rem * 1.5 / 2);
-  padding-right: calc(1.25rem * 1.5 / 2);
+  padding-left: .25rem;
+  padding-right: .25rem;
+  text-align: center;
 }
 
 @media (min-width: 48em) {
   .c-meta-nav {
     padding-left: 0;
+    text-align: left;
   }
 }
 
