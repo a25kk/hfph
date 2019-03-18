@@ -14,9 +14,7 @@ requirejs(['require',
         '/scripts/jvfloat.js',
         '/scripts/respimage.js',
         '/scripts/ls.parent-fit.js',
-        '/scripts/lazysizes-umd.js',
-        '/scripts/a25.js',
-        '/scripts/a25.helpers.js'
+        '/scripts/lazysizes-umd.js'
     ],
     function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, collapsible, panelEditor, xray, Dropmic) {
         'use strict';
@@ -84,8 +82,8 @@ requirejs(['require',
         // Default interdependent select boxes used in module editor
         var _selector_defaults = {
             selector: '.js-module-selector',
-            classVisible: 'module__select--visible fadeInDown',
-            classHidden: 'module__select--hidden fadeOutUp',
+            classVisible: 'o-form__control--visible fadeIn',
+            classHidden: 'o-form__control--hidden fadeOut',
             themeSelectorBaseId: '#selector__core-theme--',
             filterFormAction: '.js-filter-action',
             filterFormActionHidden: 'filter__block--hidden',
