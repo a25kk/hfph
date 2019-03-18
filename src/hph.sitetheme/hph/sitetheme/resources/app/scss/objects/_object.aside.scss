@@ -1,0 +1,6 @@
+.o-aside {
+	//border: 1px solid red;
+	@include mq($from: md) {
+		margin-top: 5.5rem;
+	}
+}

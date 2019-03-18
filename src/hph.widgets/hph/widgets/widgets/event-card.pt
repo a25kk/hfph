@@ -21,9 +21,9 @@
                             </span>
                         </tal:event-type>
                     </h6>
-                    <span tal:content="python:content['title']">
+                    <h3 class="c-card__title" tal:content="python:content['title']">
                         ${context/Title}
-                    </span>
+                    </h3>
                 </a>
         </div>
         <div class="c-card__section">

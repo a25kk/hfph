@@ -17,64 +17,78 @@
                         toLocalizedTime nocall:context/@@plone/toLocalizedTime">
             <div class="row">
                 <div class="col-xs-12 col-sm-4">
-                    <div class="app-box app-box-workspaces">
-                        <div class="app-box-header">
-                            <h1 class="app-box-heading" i18n:translate="">
-                                Workspace
-                            </h1>
-                        </div>
-                        <div class="app-box-content">
-                            <p tal:content="user/fullname" />
-                            <p class="text-muted" tal:content="user/email">
-                               E-Mail
-                            </p>
-                            <p class="text-discreet"
-                                tal:define="timestamp user/login_time">
-                                <span i18n:translate="">Login:</span>
-                                <span tal:replace="python:toLocalizedTime(timestamp, long_format=True)" />
-                            </p>
-                            <p tal:define="reset_url view/compose_pwreset_link">
-                                <a tal:attributes="href reset_url"
-                                    i18n:translate="">Change password</a>
-                            </p>
-                            <p>
-                                <a tal:attributes="href string:${context/portal_url}/logout"
-                                    i18n:translate="">Signout</a>
-                            </p>
+                    <div class="o-aside">
+                        <div class="c-card">
+                            <div class="c-card__header">
+                                <h2 class="c-card__title" i18n:translate="">
+                                    Workspace
+                                </h2>
+                            </div>
+                            <div class="c-card__main">
+                                <p>
+                                    <span tal:content="user/fullname" /><br>
+                                    <small class="text-muted" tal:content="user/email">
+                                        E-Mail
+                                    </small><br>
+                                    <span class="text-discreet"
+                                             tal:define="timestamp user/login_time">
+                                        <span i18n:translate="">Login:</span>
+                                        <span tal:replace="python:toLocalizedTime(timestamp, long_format=True)" />
+                                    </span>
+                                </p>
+                                <p tal:define="reset_url view/compose_pwreset_link">
+                                    <a tal:attributes="href reset_url"
+                                             i18n:translate="">Change password</a>
+                                </p>
+                                <p>
+                                    <a tal:attributes="href string:${context/portal_url}/logout"
+                                             i18n:translate="">Signout</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
+
 
                 </div>
                 <div class="col-xs-12 col-sm-8">
                     <tal:block tal:condition="not:view/flash_msg">
-                        <div class="app-page-header">
-                            <h3>Willkommen auf Ihrem Dashboard</h3>
-                        </div>
-                        <div class="app-page-body" tal:condition="not:view/group_actions">
-                          <tal:block tal:condition="not:view/has_contributing_content">
-                            <p>An dieser Stelle erarbeiten und entwickeln wir gerade Ihren persönlichen Benutzerordner.</p>
-                            <p>Sie können sich die gesamte Webseite betrachten und sogar - je nachdem welche Rolle Sie innehaben - auch noch mehr.</p>
-                            <p>Bitte bedenken Sie, dass Sie - falls Sie ein Lehrender oder Redakteur sind - erst mit Fertigstellung der Benutzerbereiche Ihre individuellen Editierrechte erlangen werden. Bei dringenden Änderungswünschen an der Webseite wenden Sie sich bitte an einen der folgenden Ansprechpartner:</p>
-                            <ul>
-                            <li><a href="mailto:julia.krumme@hfph.de">Julia Krumme</a></li>
-                            <li><a href="mailto:sabine.willner@hfph.de">Sabine Willner</a></li>
-                            <li><a href="mailto:christoph.sachs@hfph.de">Christoph Sachs</a></li>
-                            </ul>
-                            <p>Viel Spaß mit der neuen Webseite!</p>
-                            <p><strong>Ihr Web-Team der Hochschule für Philosophie</strong></p>
-                          </tal:block>
-                        </div>
-                        <tal:actions tal:condition="view/group_actions">
-                            <div class="lead app-page-abstract">
-                                <p>Weiterführende Links über Gruppenmitgliedschaften</p>
+
+                        <header class="o-page__header">
+                            <div class="o-page__section c-page-header">
+                                <div class="c-page-header__title">
+                                    <h2 class="c-page-header__headline">
+                                        Willkommen auf Ihrem Dashboard
+                                    </h2>
+                                </div>
                             </div>
+                        </header>
+                        <section class="o-page__section">
+                            <div class="o-page__body-text" tal:condition="not:view/group_actions">
+                                <tal:block tal:condition="not:view/has_contributing_content">
+                                    <p class="c-page-header__abstract">
+                                        Sie befinden sich in Ihrem persönlichen Benutzerordner.
+                                    </p>
+                                    <p>Bitte bedenken Sie, dass Sie - falls Sie ein Lehrender oder Redakteur sind - erst Änderungen vornehmen können, nachdem Sie Ihre individuellen Editierrechte erlangt haben. Bei dringenden Änderungswünschen an der Webseite wenden Sie sich bitte an einen der folgenden Ansprechpartner:</p>
+                                    <ul>
+                                        <li><a href="mailto:julia.krumme@hfph.de">Julia Krumme</a></li>
+                                        <li><a href="mailto:sabine.willner@hfph.de">Sabine Willner</a></li>
+                                        <li><a href="mailto:christoph.sachs@hfph.de">Christoph Sachs</a></li>
+                                    </ul>
+                                    <p><strong>Ihr Web-Team der Hochschule für Philosophie</strong></p>
+                                </tal:block>
+                            </div>
+                        </section>
+
+                        <tal:actions tal:condition="view/group_actions">
+                            <p class="c-page-header__abstract">
+                                Weiterführende Links über Gruppenmitgliedschaften
+                            </p>
                             <div class="app-page-body">
-                                <div class="list-group">
+                                <div class="c-list c-list--tiles">
                                     <tal:block tal:repeat="action view/group_actions">
-                                        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"
+                                        <a href="#" class="c-list__item c-list__item--action"
                                             tal:attributes="href action/action">
-                                          <h4 class="list-group-item-heading"
-                                            tal:content="action/title">
+                                          <h4 tal:content="action/title">
                                             List group item heading
                                           </h4>
                                           <p class="list-group-item-text"
@@ -84,10 +98,10 @@
                                         </a>
                                     </tal:block>
                                 </div>
-                                <p class="text-discreet">
+                                <p class="u-color--muted text-discreet">
                                     Wichtige Information bezüglich der Publikationen auf den Lehrenden-Seiten:
                                 </p>
-                                <ul class="text-discreet">
+                                <ul class="u-color--muted text-discreet">
                                   <li>Buchpublikationen werden auf der Homepage zentral gepflegt – die Darstellung der Bücher unter der Subnavigation „Publikationen“ auf Ihrer Seite erfolgt automatisiert durch die Zuordnung des Autorennamens (d.h. diese Seite können Sie nicht direkt bearbeiten).</li>
                                   <li>Artikel/Beiträge/Rezensionen werden, wie gewohnt, innerhalb einer Standard- Inhaltsseite angelegt. Diese Listen können von Ihnen gepflegt und auf dem aktuellsten Stand gehalten werden.</li>
                                 </ul>
@@ -96,18 +110,18 @@
                         </tal:actions>
 
                         <tal:contrib tal:condition="view/has_contributing_content">
-                            <div class="app-page-header">
-                                <h3 i18n:translate="">Personal Contents</h3>
+                            <div class="o-page__header">
+                                <h3 class="o-page__title" i18n:translate="">Personal Contents</h3>
                             </div>
-                            <div class="hidden">${user/worklist}</div>
-                            <p class="app-page-abstract" i18n:translate="">
+                            <div class="u-visibility--hidden">${user/worklist}</div>
+                            <p class="o-page__abstract" i18n:translate="">
                                 A list of content items you are asigned as a
                                 contributor
                             </p>
                              <div class="app-page-body">
-                                <div class="list-group">
+                                <div class="c-list c-list--tiles">
                                     <tal:block tal:repeat="item view/contributing">
-                                        <a href="#" class="list-group-item  list-group-item-action flex-column align-items-start"
+                                        <a href="#" class="c-list__item c-list__item--action"
                                             tal:attributes="href item/url">
                                           <h4 class="list-group-item-heading"
                                             tal:content="item/title">
@@ -145,10 +159,10 @@
                         </tal:contrib>
                     </tal:block>
                     <tal:block tal:condition="view/flash_msg">
-                        <div class="app-page-header">
-                            <h2>Willkommen <span tal:replace="user/fullname" /></h2>
+                        <div class="o-page__header">
+                            <h2 class="o-page__title">Willkommen <span tal:replace="user/fullname" /></h2>
                         </div>
-                        <div class="app-page-body">
+                        <div class="o-page__section">
                             <h3><i class="fa fa-check-circle-o"></i> Erfolgreich eingeloggt!</h3>
                             <p>Nachdem Sie Ihr Passwort erfolgreich gesetzt haben, sind Sie nun ein vollwertiger Benutzer und können die für Sie relevanten Informationen einsehen sowie ggf. die Ihnen zugewiesenen Bereiche editieren.</p>
                             <p>Künftig wird Sie hier Ihr ganz individuelles Dashboard begrüßen. Ihr Benutzerordner enthält die für Sie relevanten Informationen und bietet beispielsweise einen Direkteinstieg in Ihre spezifischen Inhaltsbereiche.</p>

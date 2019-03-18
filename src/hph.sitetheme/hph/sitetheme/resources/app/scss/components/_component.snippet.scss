@@ -4,7 +4,9 @@ $c-snippet-main-width:              66.6666%;
 $c-snippet-flex-direction:          row-reverse;
 $c-snippet-width:                   100%;
 $c-snippet-padding:                 $app-font-size-base;
-$c-snippet-margin-base:             calc(#{$app-font-size-base} * 1.5);
+$c-snippet-padding-sm:              calc(#{$app-font-size-base} / 2);
+//$c-snippet-margin-base:             calc(#{$app-font-size-base} * 1.5);
+$c-snippet-margin-base:             $app-font-size-base;
 
 $c-snippet-color:                   $app-color-text;
 
@@ -13,7 +15,6 @@ $c-snippet-color:                   $app-color-text;
     width: $c-snippet-width;
     display: $c-snippet-display;
     flex-direction: column-reverse;
-    border-bottom: 1px solid $app-color-gray;
     margin-bottom: $c-snippet-margin-base;
     @include mq($from: md) {
         flex-direction: $c-snippet-flex-direction;
@@ -26,25 +27,27 @@ $c-snippet-color:                   $app-color-text;
     @include mq($from: md) {
         flex: 1 0 $c-snippet-aside-width;
         max-width: $c-snippet-aside-width;
+        padding-right: $c-snippet-padding;
     }
-    padding-right: $c-snippet-padding;
 }
 
 .c-snippet__main {
     display: flex;
     flex-direction: column;
     flex: 1 0 100%;
+    padding-bottom: $c-snippet-padding;
     @include mq($from: md) {
         flex: 1 0 $c-snippet-main-width;
         max-width: $c-snippet-main-width;
-        padding-bottom: $c-snippet-padding;
+        padding-bottom: $c-snippet-padding-sm;
     }
 }
 
 .c-snippet__footer {
     margin-top: auto;
-    @include font-size($app-font-size-base);
+    @include font-size($app-font-size-sm);
     font-family: $app-font-family-strong;
+    padding-top: $c-snippet-padding;
 }
 
 

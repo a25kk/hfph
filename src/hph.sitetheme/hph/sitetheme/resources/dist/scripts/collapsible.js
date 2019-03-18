@@ -18,7 +18,6 @@ define([
 
     function collapseHandler(element, options, command) {
         let collapsibleItem = element.parentNode.getElementsByClassName(options.collapsibleElement)[0];
-        console.log(collapsibleItem);
         collapsibleItem.classList.toggle(options.collapsibleActiveMarker);
         const functionMap = options.collapsibleFunctionMap;
         element.classList[functionMap[command]]('show');
