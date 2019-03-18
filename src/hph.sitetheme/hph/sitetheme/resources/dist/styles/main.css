@@ -10076,6 +10076,14 @@ input, button, select, textarea {
   padding-top: 0;
 }
 
+.app-main.u-no-scroll {
+  position: fixed;
+  left: 0;
+  right: 0;
+  overflow-y: scroll;
+  /* render disabled scroll bar to keep the same width */
+}
+
 .app-main--fullscreen {
   padding: 0;
 }
