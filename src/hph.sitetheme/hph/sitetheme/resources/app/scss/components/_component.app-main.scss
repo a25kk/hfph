@@ -10,6 +10,12 @@ $app-main-padding-top:              12rem;
     @include when-inside('.template-frontpage-view') {
         padding-top: 0;
     }
+    &.u-no-scroll {
+        position: fixed;
+        left: 0;
+        right: 0;
+        overflow-y: scroll; /* render disabled scroll bar to keep the same width */
+    }
 }
 
 .app-main--fullscreen {
