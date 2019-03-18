@@ -1,7 +1,10 @@
 .c-toc {
     position: relative;
+    padding-left: .5rem;
+    padding-right: .5rem;
     @include mq($from: md) {
         display: $c-toc-display;
+        padding: 0;
         @if $c-toc-display == flex {
             flex-direction: $c-toc-flex-direction;
             flex-wrap: wrap;
@@ -95,22 +98,33 @@
 }
 
 .c-toc__link {
-    display: block;
+    display: flex;
+    width: 100%;
     height: calc(#{$app-font-size-base} * 1.5);
     line-height: 1.25;
-    @include mq($until: md) {
-        flex: 1 0 50%;
-        max-width: 50%;
-    }
     @include mq($from: md) {
+        display: block;
         height: calc(#{$app-font-size-base} * 2.5);
     }
 	color: $c-toc-link-color;
     @include when-inside('.c-toc--level-1') {
+        display: block;
         height: auto;
     }
     &:hover {
         color: $c-toc-link-color--hover;
+    }
+}
+
+.c-toc__link-item {
+    flex: 1 0 50%;
+    max-width: 50%;
+    &--icon {
+        text-align: right;
+        color: $c-toc-link-color;
+        @include mq($from: md) {
+            display: none;
+        }
     }
 }
 
@@ -125,7 +139,16 @@
 }
 
 .c-toc__icon {
+    color: currentColor;
+    &--close {
+        display: none;
+    }
     @include when-inside('.show') {
-        transform: rotate(90deg);
+        &--open {
+            display: none;
+        }
+        &--close {
+            display: inline-block;
+        }
     }
 }
