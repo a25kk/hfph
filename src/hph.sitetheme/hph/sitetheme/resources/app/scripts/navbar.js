@@ -159,7 +159,8 @@ define([
     }
 
     function toggleNavigation(options) {
-        var navBarToggle = Array.prototype.slice.call(document.querySelectorAll(options.navBarToggle));
+        let navBarToggle = Array.prototype.slice.call(document.querySelectorAll(options.navBarToggle)),
+            bodyElement = document.getElementsByTagName('body')[0];
         // Add navigation marker
         navigationOffsetMarker(options);
         // Sub Navigation drawer
@@ -170,6 +171,8 @@ define([
                 event.preventDefault();
                 if (navBarIsActive) {
                     deactivateNavigation(options);
+                    bodyElement.style.top = 0;
+                    window.scrollTo(0, contentScrollPosition);
                 }
             }
         });
@@ -180,6 +183,8 @@ define([
                 // Handle already active navigation elements
                 if (navBarIsActive && !event.target.classList.contains(options.navBarToggle)) {
                     deactivateNavigation(options);
+                    bodyElement.style.top = 0;
+                    window.scrollTo(0, contentScrollPosition);
                 }
             }
         });
