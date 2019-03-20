@@ -120,6 +120,10 @@ $c-card-spacer:                         $app-spacer-sm;
     }
 }
 
+.c-card__detail {
+    font-family: $c-card-font-family-base;
+}
+
 
 // Alternative card styles and versions
 .c-card--banner {
