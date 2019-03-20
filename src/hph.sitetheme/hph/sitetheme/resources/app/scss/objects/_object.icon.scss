@@ -13,6 +13,7 @@ $o-icon-border-radius:              50%;
     &--default {
         width: $o-icon-width-default;
         height: $o-icon-height-default;
+        margin-bottom: .125rem;
     }
     &--inverse {
         fill: $o-icon-color-inverse;
@@ -26,6 +27,10 @@ $o-icon-border-radius:              50%;
 
 .o-icon--nav-toggle {
     @include icon-variant($o-icon-color-inverse, 4rem);
+}
+
+.o-icon--md {
+    @include icon-variant(currentColor, 1.5rem);
 }
 
 .o-icon--lg {

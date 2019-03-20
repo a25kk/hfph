@@ -9233,6 +9233,7 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
 .o-icon--default {
   width: 1rem;
   height: 1rem;
+  margin-bottom: .125rem;
 }
 
 .o-icon--inverse {
@@ -9248,6 +9249,12 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   fill: #fff;
   width: 4rem;
   height: 4rem;
+}
+
+.o-icon--md {
+  fill: currentColor;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .o-icon--lg {

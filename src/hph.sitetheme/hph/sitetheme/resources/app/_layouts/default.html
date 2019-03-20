@@ -13,7 +13,9 @@
 
     <main class="app-main" id="app-main" role="main">
         {% include components/component-breadcrumbs.html %}
-        <aside class="app-sidebar" id="app-sidebar">Column Content</aside>
+        <aside class="app-sidebar" id="app-sidebar">
+            <div class="o-aside" id="app-sidebar-content"></div>
+        </aside>
         <section class="app-content" id="app-content">
             {{ content }}
         </section>
