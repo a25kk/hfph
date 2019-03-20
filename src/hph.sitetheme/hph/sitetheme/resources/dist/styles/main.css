@@ -12204,13 +12204,6 @@ img[data-sizes="auto"] {
 
 .c-card__main {
   font-family: "EB Garamond";
-  text-align: left;
-}
-
-.c-card__main::after {
-  display: block;
-  clear: both;
-  content: "";
 }
 
 .c-card--news .c-card__main {
@@ -12263,7 +12256,7 @@ img[data-sizes="auto"] {
 }
 
 .c-card__title {
-  text-align: left;
+  font-family: "TAZ";
 }
 
 .c-card__section {
@@ -12658,8 +12651,8 @@ img[data-sizes="auto"] {
 }
 
 .c-list--gutter {
-  margin-right: -0.5rem;
-  margin-left: -0.5rem;
+  margin-right: -calc(1.25rem * 1.5);
+  margin-left: -calc(1.25rem * 1.5);
 }
 
 .c-list--tiles {
@@ -12667,7 +12660,7 @@ img[data-sizes="auto"] {
 }
 
 .c-list__item {
-  margin-bottom: calc(0.5rem * 4);
+  margin-bottom: calc(calc(1.25rem * 1.5) * 4);
 }
 
 .c-list--grid .c-list__item {
@@ -12695,15 +12688,15 @@ img[data-sizes="auto"] {
 }
 
 .c-list--gutter .c-list__item {
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  padding-right: calc(1.25rem * 1.5);
+  padding-left: calc(1.25rem * 1.5);
 }
 
 .c-list--tiles .c-list__item {
   display: block;
-  padding: 0.5rem;
+  padding: calc(1.25rem * 1.5);
   margin-bottom: 0;
-  border: 1px solid #efefef;
+  border: 1px solid #212529;
   border-top-width: 0;
   color: #212529;
 }
@@ -12713,7 +12706,7 @@ img[data-sizes="auto"] {
 }
 
 c-list--bordered .c-list__item {
-  border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid #212529;
 }
 
 c-list--bordered .c-list__item:last-of-type {
@@ -12722,13 +12715,13 @@ c-list--bordered .c-list__item:last-of-type {
 
 @media (min-width: 48em) and (max-width: 61.99em) {
   .c-list__item--card:not(:nth-child(2n+2)) {
-    border-right: 1px solid #efefef;
+    border-right: 1px solid #212529;
   }
 }
 
 @media (min-width: 62em) {
   .c-list__item--card:not(:nth-child(3n+3)) {
-    border-right: 1px solid #efefef;
+    border-right: 1px solid #212529;
   }
 }
 

@@ -13,26 +13,18 @@
     </div>
     <div class="c-card__main">
         <div class="c-card__header">
-                <a class="c-card__link" tal:attributes="href python:content['url']">
-                    <div class="c-card__kicker">
-                        <tal:block tal:condition="python:content['release_date']">
-                            <tal:event tal:define="news_date python:content['release_date']">
-                                <time tal:attributes="datetime python:news_date['date_long']">
-                                    <span tal:replace="python:news_date['day_name']" />,
-                                    <span tal:replace="python:news_date['day']" />. <span tal:replace="python:news_date['month_name']" />
-                                </time>
-                            </tal:event>
-                        </tal:block>
-                        <tal:event-type tal:condition="python:content['news_type']">
-                            <span tal:content="python:content['news_type']">
+            <a class="c-card__link" tal:attributes="href python:content['url']">
+                <div class="c-card__kicker">
+                    <tal:event-type tal:condition="python:content['event_type']">
+                            <span tal:content="python:content['event_type']">
                                 Event Type
                             </span>
-                        </tal:event-type>
-                    </div>
-                    <h2 class="c-card__title" tal:content="python:content['title']">
+                    </tal:event-type>
+                </div>
+                <h2 class="c-card__title" tal:content="python:content['title']">
                         ${context/Title}
-                    </h2>
-                </a>
+                </h2>
+            </a>
         </div>
         <div class="c-card__section">
             <div class="c-card__details" tal:condition="python:content['event_start_date']">

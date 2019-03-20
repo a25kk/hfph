@@ -106,7 +106,8 @@ class WidgetNewsCard(BrowserView):
             "css_classes": "c-card--{0}".format(
                 context.UID()
             ),
-            "release_date": self.time_stamp(context, context.Date),
+            "release_date": self.time_stamp(context, context.effective()),
+            "news_type": "Anouncement"
         }
         return details
 
