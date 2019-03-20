@@ -1,6 +1,6 @@
-$c-list-spacer:                     .5rem;
-$c-list-margin-x:                   $c-list-spacer;
-$c-list-border-color:                $app-color-gray-light;
+$c-list-spacer:                      $app-spacer-base;
+$c-list-margin-x:                    $c-list-spacer;
+$c-list-border-color:                $app-color-text;
 $c-list-border-width:                1px;
 
 .c-list {
@@ -23,10 +23,6 @@ $c-list-border-width:                1px;
 }
 
 .c-list__item {
-    border-bottom: 1px solid $c-list-border-color;
-    &:last-of-type {
-        border-bottom: 0px;
-    }
     @include when-inside('.c-list--grid') {
         flex: 1 0 100%;
         @include mq($from: md, $until: lg) {
@@ -53,6 +49,12 @@ $c-list-border-width:                1px;
         color: $app-color-text;
         &:first-child {
             border-top-width: $c-list-border-width;
+        }
+    }
+    @include when-inside('c-list--bordered') {
+        border-bottom: 1px solid $c-list-border-color;
+        &:last-of-type {
+            border-bottom: 0px;
         }
     }
 }
