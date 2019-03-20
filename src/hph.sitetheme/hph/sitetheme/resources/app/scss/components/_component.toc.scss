@@ -1,20 +1,25 @@
 .c-toc {
     position: relative;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    @include font-size($c-toc-item-font-size);
     @include mq($from: md) {
         display: $c-toc-display;
+        padding: 0;
         @if $c-toc-display == flex {
             flex-direction: $c-toc-flex-direction;
             flex-wrap: wrap;
         }
     }
     @include mq($from: xl) {
+        @include font-size($c-toc-item-font-size-sm);
         @if $c-toc-display == flex {
             flex-wrap: nowrap;
         }
     }
     @include list-reset();
     font-family: $c-toc-font;
-    @include font-size($c-toc-item-font-size);
+
 }
 
 .c-toc__item {
@@ -29,8 +34,7 @@
             }
         }
     }
-    padding: .25rem 0;
-    margin-bottom: 1.5rem;
+    padding: .35rem 0 .35rem 1rem;
 	text-transform: none;
     line-height: $c-toc-item-line-height;
 	@include when-inside('.c-toc--level-1') {
@@ -51,15 +55,16 @@
     @include mq($from: md) {
         flex: 1 0 50%;
         max-width: 50%;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        margin-bottom: 1.5rem;
+        padding: .35rem 0 .35rem 0;
     }
     @include mq($from: xl) {
+        padding: .35rem 0 .35rem 1rem;
         flex: 1 0 16.6666%;
         max-width: 16.6666%;
         margin-bottom: 0;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
         &:first-of-type {
             padding-left: 0;
         }
@@ -68,7 +73,13 @@
 
 .c-toc__item--has-subtree {
     border: 0 solid #fff;
-    @include mq($from: md, $until: xl) {
+    font-size: 1.5rem;
+    //@include mq($from: md, $until: xl) {
+    @include mq($from: md) {
+        font-size: 2rem;
+    }
+    @include mq($from: xl) {
+        font-size: 1.3rem;
         &:nth-child(even) {
             border-left-width: 1px;
         }
@@ -97,17 +108,17 @@
 }
 
 .c-toc__link {
-    display: block;
-    height: calc(#{$app-font-size-base} * 1.5);
-    @include mq($until: md) {
-        flex: 1 0 50%;
-        max-width: 50%;
-    }
+    display: flex;
+    width: 100%;
+    min-height: calc(#{$app-font-size-base} * 1.5);
+    line-height: 1.25;
     @include mq($from: md) {
+        display: block;
         height: calc(#{$app-font-size-base} * 2.5);
     }
 	color: $c-toc-link-color;
     @include when-inside('.c-toc--level-1') {
+        display: block;
         height: auto;
     }
     &:hover {
@@ -115,12 +126,22 @@
     }
 }
 
+.c-toc__link-item {
+    flex: 1 0 50%;
+    max-width: 50%;
+    &--icon {
+        text-align: right;
+        color: $c-toc-link-color;
+        @include mq($from: md) {
+            display: none;
+        }
+    }
+}
+
 .c-toc__toggle {
     display: block;
     flex: 1 0 50%;
     color: $c-toc-link-color;
-    padding-left: .5rem;
-    padding-right: .5rem;
     text-align: right;
     @include mq($from: md) {
         display: none;
@@ -128,7 +149,16 @@
 }
 
 .c-toc__icon {
+    color: currentColor;
+    &--close {
+        display: none;
+    }
     @include when-inside('.show') {
-        transform: rotate(90deg);
+        &--open {
+            display: none;
+        }
+        &--close {
+            display: inline-block;
+        }
     }
 }

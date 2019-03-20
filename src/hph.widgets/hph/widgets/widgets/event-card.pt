@@ -14,16 +14,16 @@
     <div class="c-card__main">
         <div class="c-card__header">
                 <a class="c-card__link" tal:attributes="href python:content['url']">
-                    <h6 class="c-card__kicker">
+                    <div class="c-card__kicker">
                         <tal:event-type tal:condition="python:content['event_type']">
                             <span tal:content="python:content['event_type']">
                                 Event Type
                             </span>
                         </tal:event-type>
-                    </h6>
-                    <span tal:content="python:content['title']">
+                    </div>
+                    <h2 class="c-card__title" tal:content="python:content['title']">
                         ${context/Title}
-                    </span>
+                    </h2>
                 </a>
         </div>
         <div class="c-card__section">
@@ -41,7 +41,7 @@
     <div class="c-card__footer">
         <a class="c-card__link" tal:attributes="href python:content['url']">
             <span class="c-card__icon">
-                <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--chevron-dims"><use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron"></use></svg>
+                <svg class="o-icon o-icon--default o-icon__ui--chevron-dims"><use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron"></use></svg>
             </span>
             <span class="c-card__link-text" i18n:translate="">Read more</span>
         </a>

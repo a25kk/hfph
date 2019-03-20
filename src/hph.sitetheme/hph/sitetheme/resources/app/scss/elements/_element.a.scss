@@ -6,4 +6,7 @@ a {
             transition: $anchor-transition;
         }
     }
+    @include when-inside('.o-page__body-text') {
+        font-weight: 600;
+    }
 }

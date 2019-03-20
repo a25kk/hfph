@@ -327,7 +327,7 @@ $mq-media-type: all !default;
         position: fixed;
         right: 0;
         top: 0;
-        z-index: 100;
+        z-index: 8001;
 
         // Loop through the breakpoints that should be shown
         @each $show-breakpoint in $show-breakpoints {

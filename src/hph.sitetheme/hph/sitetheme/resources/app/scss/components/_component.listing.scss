@@ -1,6 +1,7 @@
 $c-list-spacer:                     .5rem;
 $c-list-margin-x:                   $c-list-spacer;
-$c-list-border-color:                $app-color-gray;
+$c-list-border-color:                $app-color-gray-light;
+$c-list-border-width:                1px;
 
 .c-list {
     display: block;
@@ -15,6 +16,9 @@ $c-list-border-color:                $app-color-gray;
     &--gutter {
         margin-right: -($c-list-margin-x);
         margin-left: -($c-list-margin-x);
+    }
+    &--tiles {
+        margin-bottom: $app-spacer-base;
     }
 }
 
@@ -35,6 +39,24 @@ $c-list-border-color:                $app-color-gray;
         padding-right: $c-list-margin-x;
         padding-left: $c-list-margin-x;
     }
+    @include when-inside('.c-list--tiles') {
+        display: block;
+        padding: $c-list-margin-x;
+        margin-bottom: 0;
+        border: $c-list-border-width solid $c-list-border-color;
+        border-top-width: 0;
+        // border-width: 0 $c-list-border-width $c-list-border-width $c-list-border-width;
+        color: $app-color-text;
+        &:first-child {
+            border-top-width: $c-list-border-width;
+        }
+    }
+    @include when-inside('c-list--bordered') {
+        border-bottom: 1px solid $c-list-border-color;
+        &:last-of-type {
+            border-bottom: 0px;
+        }
+    }
 }
 
 .c-list__item--card {
@@ -47,6 +69,15 @@ $c-list-border-color:                $app-color-gray;
         &:not(:nth-child(3n+3)) {
             border-right: 1px solid $c-list-border-color;
         }
+    }
+}
+
+.c-list__item--action {
+    color: lighten($app-color-text, 20%);
+    &:hover {
+        text-decoration: none;
+        background-color: $app-color-gray-light;
+        color: $app-color-text;
     }
 }
 

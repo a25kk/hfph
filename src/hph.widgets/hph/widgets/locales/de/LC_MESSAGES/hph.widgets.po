@@ -1,0 +1,53 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-03-14 07:47+0000\n"
+"PO-Revision-Date: 2019-03-14 08:57+0100\n"
+"Last-Translator: Christoph Boehner-Figas <cb@ade25.de>\n"
+"Language-Team: KK Language Team <info@kreativkombinat.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: de\n"
+"Language-Name: German\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: hph.widgets\n"
+"Language: de\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#: ../configure.zcml:25
+msgid "HPH Content Widgets"
+msgstr "HfPh Content Widgets"
+
+#: ../widgets/image/interfaces.py:16
+msgid "Poster Headline"
+msgstr "Poster Überschrift"
+
+#: ../widgets/image/interfaces.py:24
+msgid "Poster Image"
+msgstr "Poster Hintergrundbild"
+
+#: ../widgets/image/interfaces.py:28
+msgid "Poster Image Copyright Information"
+msgstr "Poster Fussnote (Copyright)"
+
+#: ../widgets/image/interfaces.py:20
+msgid "Poster Text"
+msgstr "Poster Text"
+
+#: ../widgets/content-card.pt:36 ../widgets/event-card.pt:46
+msgid "Read more"
+msgstr "Weiterlesen"
+
+#: ../configure.zcml:25
+msgid "Site specific content widgets for panel pages"
+msgstr "Spezifische Content Widgets für HfPh für die Verwendung mit Panel Pages"
+
+#: ../configure.zcml:33
+msgid "Uninstall HPH Content Widgets (hph.widgets)"
+msgstr "HfPh Content Widgets deinstallierien"
+
+#: ../configure.zcml:33
+msgid "Uninstall content widgets and integrations"
+msgstr "Entfernt HfPh Content Widgets und bereinigt die Integrationen"

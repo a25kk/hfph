@@ -327,7 +327,7 @@
             </xsl:choose>
         </replace>
         <rules css:if-not-content=".template-prefs_install_products_form">
-            <before css:content=".portalMessage" css:theme="#content" />
+            <before css:content=".portalMessage" css:theme-children="#content" />
         </rules>
 
         <!-- Drop iframe attributes in embedded elements -->

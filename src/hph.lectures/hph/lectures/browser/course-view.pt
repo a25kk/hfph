@@ -2,6 +2,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
       lang="en"
          metal:use-macro="context/main_template/macros/master"
          i18n:domain="hph.lectures">
@@ -35,76 +36,97 @@
             </div>
             <div class="o-grid__item o-grid__item--width-75">
                 <tal:can_edit tal:condition="view/display_edit_notification">
-                    <div class="app-callout app-callout-warning">
-                        <a class="btn btn-warning pull-right"
-                                 tal:attributes="href string:${context/absolute_url}/@@edit"
-                                 i18n:translate="">
-                            Edit</a>
-                        <h4 i18n:translate="">Note:</h4>
-                        <p i18n:translate="">
-                            It appears that you are listed as constributor on this
-                            content item
-                        </p>
+                    <div class="c-alert c-alert--warning">
+                        <div class="o-grid">
+                            <div class="o-grid__item o-grid__item--width-75">
+                                <h4 i18n:translate="">Note:</h4>
+                                <p i18n:translate="">
+                                    It appears that you are listed as constributor on this
+                                    content item
+                                </p>
+                            </div>
+                            <div class="o-grid__item o-grid__item--width-25">
+                                <a class="c-button c-button--default c-button--sm"
+                                         tal:attributes="href string:${context/absolute_url}/@@edit"
+                                         i18n:translate="">
+                                    Edit</a>
+                            </div>
+                        </div>
                     </div>
                 </tal:can_edit>
 
-                <article class="app-list__item">
-                    <div class="app-list__item-details" tal:define="item_uuid context/UID">
+                <div class="c-alert c-alert--default" tal:condition="python:view.can_edit">
+                        <div class="o-grid">
+                            <div class="o-grid__item o-grid__item--width-75">
+                                <span i18n:translate="">edit modules</span>
+                            </div>
+                            <div class="o-grid__item o-grid__item--width-25">
+                                <a class="c-button c-button--default c-button--sm" href="${context/absolute_url}/@@module-editor">Editor &ouml;ffnen</a>
+                            </div>
+                        </div>
+                </div>
+
+                <header class="o-page__header" tal:define="item_uuid context/UID">
+                    <div class="o-page__section">
                         <span tal:replace="structure python:view.rendered_course_card(item_uuid)" />
                     </div>
-                </article>
+                    <div class="o-page__section" tal:condition="python:context.moodle">
+                        <p>
+                            <a class="c-button c-button--default"
+                               href="${context/moodle}"
+                                     i18n:translate="">
+                                View lecture in moodle
+                            </a>
+                        </p>
+                    </div>
+                </header>
 
-                <div class="app-page-section" tal:condition="python:context.moodle">
-                    <a class="app-button app-button--default"
-                       href="${context/moodle}"
-                             i18n:translate="">
-                        View lecture in moodle
-                    </a>
-                </div>
 
-                <div class="app-page-section"
-                         tal:condition="context/courseTheme">
-                    <h3 i18n:translate="">Course Theme</h3>
-                    <p tal:content="structure context/courseTheme" />
-                </div>
-                <div class="app-page-section"
-                         tal:condition="context/courseAims">
-                    <h3 i18n:translate="">Course Aims</h3>
-                    <p tal:content="structure context/courseAims" />
-                </div>
-                <div class="app-page-section"
-                         tal:condition="context/courseMethod">
-                    <h3 i18n:translate="">Course Method</h3>
-                    <p tal:content="structure context/courseMethod" />
-                </div>
-                <div class="app-page-section"
-                         tal:condition="context/coursePrereq">
-                    <h3 i18n:translate="">Course Prerequirements</h3>
-                    <p tal:content="structure context/coursePrereq" />
-                </div>
-                <div class="app-page-section"
-                         tal:condition="context/courseQualification">
-                    <h3 i18n:translate="">Course Qualification</h3>
-                    <p tal:content="structure context/courseQualification" />
-                </div>
-                <div class="app-page-section"
-                         tal:condition="context/courseTarget">
-                    <h3 i18n:translate="">Course Target</h3>
-                    <p tal:content="structure context/courseTarget" />
-                </div>
-                <div class="app-page-section"
-                         tal:condition="context/courseLiterature">
-                    <h3 i18n:translate="">Course Literature</h3>
-                    <p tal:content="structure context/courseLiterature" />
-                </div>
-                <div class="app-page-section"
-                         tal:condition="context/courseNotes">
-                    <h3 i18n:translate="">Course Notes</h3>
-                    <p tal:content="structure context/courseNotes" />
+                <div class="o-page__main">
+                    <div class="o-page__section"
+                             tal:condition="context/courseTheme">
+                        <h2 i18n:translate="">Course Theme</h2>
+                        <p tal:content="structure context/courseTheme" />
+                    </div>
+                    <div class="o-page__section"
+                             tal:condition="context/courseAims">
+                        <h2 i18n:translate="">Course Aims</h2>
+                        <p tal:content="structure context/courseAims" />
+                    </div>
+                    <div class="o-page__section"
+                             tal:condition="context/courseMethod">
+                        <h2 i18n:translate="">Course Method</h2>
+                        <p tal:content="structure context/courseMethod" />
+                    </div>
+                    <div class="o-page__section"
+                             tal:condition="context/coursePrereq">
+                        <h2 i18n:translate="">Course Prerequirements</h2>
+                        <p tal:content="structure context/coursePrereq" />
+                    </div>
+                    <div class="o-page__section"
+                             tal:condition="context/courseQualification">
+                        <h2 i18n:translate="">Course Qualification</h2>
+                        <p tal:content="structure context/courseQualification" />
+                    </div>
+                    <div class="o-page__section"
+                             tal:condition="context/courseTarget">
+                        <h2 i18n:translate="">Course Target</h2>
+                        <p tal:content="structure context/courseTarget" />
+                    </div>
+                    <div class="o-page__section"
+                             tal:condition="context/courseLiterature">
+                        <h2 i18n:translate="">Course Literature</h2>
+                        <p tal:content="structure context/courseLiterature" />
+                    </div>
+                    <div class="o-page__section"
+                             tal:condition="context/courseNotes">
+                        <h2 i18n:translate="">Course Notes</h2>
+                        <p tal:content="structure context/courseNotes" />
+                    </div>
                 </div>
 
                 <tal:authenticated tal:condition="not:view/is_anon">
-                    <div class="app-page-section" tal:condition="view/has_attachments">
+                    <div class="o-page__section" tal:condition="view/has_attachments">
                         <h3 i18n:translate="">Attachements</h3>
                         <ul class="list-group">
                             <li class="list-group-item" tal:repeat="item view/attachments">
@@ -128,7 +150,7 @@
                         </ul>
                     </div>
                     <div class="visualClear" tal:condition="view/can_edit">
-                        <div class="app-callout app-callout-warning">
+                        <div class="c-alert c-alert--default">
                             <p i18n:translate="">
                                 Since you are signed in as editor you can add file
                                 attachments to this content item</p>
