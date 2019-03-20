@@ -10115,6 +10115,62 @@ input, button, select, textarea {
   padding: 0;
 }
 
+@media (min-width: 576px) {
+  .app-main--grid {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .app-main--grid {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .app-main--grid {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .app-main--grid {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 62em) {
+  .app-main--grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media (min-width: 62em) {
+  .app-main--grid .app-sidebar {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 25%;
+            flex: 1 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (min-width: 62em) {
+  .app-main--grid .app-content {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 75%;
+            flex: 1 0 75%;
+    max-width: 75%;
+    padding-left: calc(1.25rem * 1.5);
+  }
+}
+
 .app-footer {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -11529,6 +11585,13 @@ img[data-sizes="auto"] {
 
 .template-frontpage-view .app-pathbar {
   display: none;
+}
+
+.app-main--grid .app-pathbar {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  max-width: 100%;
 }
 
 .c-breadcrumbs {
