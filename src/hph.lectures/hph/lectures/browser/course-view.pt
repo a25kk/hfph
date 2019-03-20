@@ -10,31 +10,7 @@
 
 <metal:main fill-slot="main">
     <metal:content-core define-macro="main">
-        <div class="o-page__content o-grid o-grid--gutter">
-            <div class="o-grid__item o-grid__item--width-25">
-                <div class="c-card c-card-nav c-card--course"
-                         tal:define="active_filter request/academicRole | nothing">
-                    <div class="c-card__main">
-                        <ul class="c-nav-list">
-                            <tal:block tal:repeat="filter view/course_filter_options">
-                                <li class="c-nav-list__item"
-                                         tal:define="filter_value filter/value"
-                                         tal:attributes="class python:view.computed_class(filter_value)">
-                                    <a class="c-nav-list__link"
-                                             tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;academicRole=${filter/value}"
-                                             tal:content="filter/title">Filter option</a>
-                                </li>
-                            </tal:block>
-                        </ul>
-                    </div>
-                    <div class="c-card__footer">
-                        <a class="c-button c-button--danger c-button--lg" tal:condition="active_filter"
-                                 tal:attributes="href string:${context/absolute_url}">
-                            &times; <span i18n:translate="">remove filter</span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="o-grid__item o-grid__item--width-75">
+
                 <tal:can_edit tal:condition="view/display_edit_notification">
                     <div class="c-alert c-alert--warning">
                         <div class="o-grid">
@@ -86,42 +62,42 @@
                     <div class="o-page__section"
                              tal:condition="context/courseTheme">
                         <h2 i18n:translate="">Course Theme</h2>
-                        <p tal:content="structure context/courseTheme" />
+                        <div class="c-text-block" tal:content="structure python:view.render_course_detail(context.courseTheme)">Test</div>
                     </div>
                     <div class="o-page__section"
                              tal:condition="context/courseAims">
                         <h2 i18n:translate="">Course Aims</h2>
-                        <p tal:content="structure context/courseAims" />
+                        <div class="c-text-block" tal:content="structure python:view.render_course_detail(context.courseAims)">Test</div>
                     </div>
                     <div class="o-page__section"
                              tal:condition="context/courseMethod">
                         <h2 i18n:translate="">Course Method</h2>
-                        <p tal:content="structure context/courseMethod" />
+                        <div tal:content="structure python:view.render_course_detail(context.courseMethod)">Test</div>
                     </div>
                     <div class="o-page__section"
                              tal:condition="context/coursePrereq">
                         <h2 i18n:translate="">Course Prerequirements</h2>
-                        <p tal:content="structure context/coursePrereq" />
+                        <div class="c-text-block" tal:content="structure python:view.render_course_detail(context.coursePrereq)">Test</div>
                     </div>
                     <div class="o-page__section"
                              tal:condition="context/courseQualification">
                         <h2 i18n:translate="">Course Qualification</h2>
-                        <p tal:content="structure context/courseQualification" />
+                        <div class="c-text-block" tal:content="structure python:view.render_course_detail(context.courseQualification)">Test</div>
                     </div>
                     <div class="o-page__section"
                              tal:condition="context/courseTarget">
                         <h2 i18n:translate="">Course Target</h2>
-                        <p tal:content="structure context/courseTarget" />
+                        <div class="c-text-block" tal:content="structure python:view.render_course_detail(context.courseTarget)">Test</div>
                     </div>
                     <div class="o-page__section"
                              tal:condition="context/courseLiterature">
                         <h2 i18n:translate="">Course Literature</h2>
-                        <p tal:content="structure context/courseLiterature" />
+                        <div class="c-text-block" tal:content="structure python:view.render_course_detail(context.courseLiterature)">Test</div>
                     </div>
                     <div class="o-page__section"
                              tal:condition="context/courseNotes">
                         <h2 i18n:translate="">Course Notes</h2>
-                        <p tal:content="structure context/courseNotes" />
+                        <div class="c-text-block" tal:content="structure python:view.render_course_detail(context.courseNotes)">Test</div>
                     </div>
                 </div>
 
@@ -162,8 +138,6 @@
                     </div>
                 </tal:authenticated>
 
-            </div>
-        </div>
 
     </metal:content-core>
 </metal:main>

@@ -10536,6 +10536,12 @@ img[data-sizes="auto"] {
           filter: blur(0);
 }
 
+.c-call-out {
+  background-color: #efefef;
+  padding: calc(1.25rem * 1.5 / 2);
+  border-left: 1rem solid #ccc;
+}
+
 .c-alert {
   padding: calc(1.25rem * 1.5 / 2) calc(1.25rem * 1.5);
   margin: calc(1.25rem * 1.5 / 2) auto;

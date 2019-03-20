@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2017-10-05 10:02+0000\n"
-"PO-Revision-Date: 2017-10-05 12:14+0200\n"
+"PO-Revision-Date: 2019-03-20 16:58+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "Language: de\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: ../lecture.py:82
 msgid ""
@@ -88,7 +88,7 @@ msgstr "Zusatzinformationen zu einer bestimmten Lehrveranstaltung"
 
 #: ../vocabulary.py:219
 msgid "Advanced seminar"
-msgstr "Hauptseminare"
+msgstr "Hauptseminar"
 
 #: ../factory.py:236
 msgid "Attachement edit has been cancelled."
@@ -116,7 +116,7 @@ msgstr "BA (Bachelor)"
 
 #: ../vocabulary.py:222
 msgid "Basic module"
-msgstr "Grundlagenmodule"
+msgstr "Grundlagenmodul"
 
 #: ../interfaces.py:124 ../lecture.py:89
 msgid "Block Lecture"
@@ -138,7 +138,7 @@ msgstr ""
 
 #: ../vocabulary.py:221
 msgid "Colloquium"
-msgstr "Kolloquien"
+msgstr "Kolloquium"
 
 #: ../factory.py:99
 msgid "Content item factory has been cancelled."
@@ -302,7 +302,7 @@ msgstr "Ethik und Gesellschaft (EG)"
 
 #: ../vocabulary.py:220
 msgid "Exercise"
-msgstr "Übungen"
+msgstr "Übung"
 
 #: ../configure.zcml:40
 msgid "Extension profile for HPH listing of lectures"
@@ -438,7 +438,7 @@ msgstr "Völkerverständigung (VV)"
 
 #: ../vocabulary.py:218
 msgid "Introductory seminar source"
-msgstr "Proseminare"
+msgstr "Proseminar"
 
 #: ../browser/course-view.pt:44 ../lecture_templates/view.pt:47
 msgid "It appears that you are listed as constributor on this content item"
@@ -457,7 +457,7 @@ msgstr ""
 
 #: ../profiles/default/types/hph.lectures.lecture.xml ../vocabulary.py:217
 msgid "Lecture"
-msgstr "Vorlesungen"
+msgstr "Vorlesung"
 
 #: ../factory_templates/lectureeditor.pt:32
 #: ../factory_templates/lecturefactory.pt:20
@@ -661,7 +661,7 @@ msgstr "Raum:"
 
 #: ../vocabulary.py:223
 msgid "Reading course"
-msgstr "Lektürekurse"
+msgstr "Lektürekurs"
 
 #: ../lecture.py:37
 msgid "Related lecturer"

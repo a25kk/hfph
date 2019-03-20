@@ -40,7 +40,9 @@
             <div class="c-card__abstract">
                 <div class="c-card__detail"
                          tal:define="duration context/courseDuration;
+                                course_type python:context.courseType;
                                 pretty_duration python:view.prettify_duration(duration)">
+                    <span tal:content="python:view.prettify_course_type(course_type)">Course type</span>
                     <span tal:content="pretty_duration" i18n:translate="">Duration</span>
                     <span tal:replace="context/courseTime" />
                 </div>
