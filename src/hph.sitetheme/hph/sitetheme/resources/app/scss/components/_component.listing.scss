@@ -34,7 +34,7 @@ $c-list-border-width:                1px;
             max-width: 33.3333%;
         }
     }
-    margin-bottom: calc(#{$c-list-spacer} * 4);
+    margin-bottom: $c-list-spacer;
     @include when-inside('.c-list--gutter') {
         padding-right: $c-list-margin-x;
         padding-left: $c-list-margin-x;

@@ -12660,7 +12660,7 @@ img[data-sizes="auto"] {
 }
 
 .c-list__item {
-  margin-bottom: calc(calc(1.25rem * 1.5) * 4);
+  margin-bottom: calc(1.25rem * 1.5);
 }
 
 .c-list--grid .c-list__item {
