@@ -37,4 +37,12 @@
             permission="zope2.View"
     />
 
+    <browser:page
+            for="hph.faculty.facultymember.IFacultyMember"
+            name="publications"
+            class=".publications.FacultyMemberPublicationsView"
+            template="publications.pt"
+            permission="zope2.View"
+    />
+
 </configure>
