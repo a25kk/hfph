@@ -12894,7 +12894,6 @@ c-list--bordered .c-list__item:last-of-type {
 }
 
 .c-page-header__headline {
-  display: inline-block;
   padding: .125rem 0;
   color: #182f7a;
   line-height: 1.25;
