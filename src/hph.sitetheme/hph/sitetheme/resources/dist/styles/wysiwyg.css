@@ -8460,8 +8460,10 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   margin-bottom: calc(1.25rem * 2);
 }
 
-.o-page__header-action {
-  text-align: right;
+@media (min-width: 62em) {
+  .o-page__header-action {
+    text-align: right;
+  }
 }
 
 .o-page__main {
