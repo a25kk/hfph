@@ -104,12 +104,13 @@
                 <tal:authenticated tal:condition="not:view/is_anon">
                     <div class="o-page__section" tal:condition="view/has_attachments">
                         <h3 i18n:translate="">Attachements</h3>
-                        <ul class="list-group">
-                            <li class="list-group-item" tal:repeat="item view/attachments">
+                        <div class="c-list c-list--tiles">
+                            <div class="c-list__item" tal:repeat="item view/attachments">
                                 <tal:item
                                          tal:define="item_obj item/getObject;
                                                 content_type item/file/contentType|nothing;
                                                         v python:context.restrictedTraverse('contenttype_utils');">
+                                    <h5 tal:content="item/Title">File Title</h5>
                                     <p>
                                         <a tal:attributes="href string:${item/getURL}/@@download/file/${item/file/filename}">
                                         <img tal:attributes="src python: v.getMimeTypeIcon(item.file);
@@ -122,8 +123,8 @@
                                           &mdash; <span tal:replace="kb" /> KB</span>
                                     </p>
                                 </tal:item>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </div>
                     <div class="visualClear" tal:condition="view/can_edit">
                         <div class="c-alert c-alert--default">

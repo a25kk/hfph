@@ -127,6 +127,16 @@ class FacultyMember(BrowserView):
             display = True
         return display
 
+    def has_cover_image(self):
+        context = aq_inner(self.context)
+        try:
+            lead_img = context.image
+        except AttributeError:
+            lead_img = None
+        if lead_img is not None:
+            return True
+        return False
+
     def has_publications(self):
         context = aq_inner(self.context)
         try:
