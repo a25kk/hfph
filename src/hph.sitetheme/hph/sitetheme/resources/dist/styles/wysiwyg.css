@@ -8210,18 +8210,18 @@ button {
   background: transparent;
 }
 
-a {
+a:not(class) {
   color: #182f7a;
 }
 
-a:hover {
+a:not(class):hover {
   color: #0b163a;
   -webkit-transition: color 0.5s linear;
   -o-transition: color 0.5s linear;
   transition: color 0.5s linear;
 }
 
-.o-page__body-text a {
+.o-page__body-text a:not(class) {
   font-weight: 600;
 }
 
@@ -8460,8 +8460,10 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   margin-bottom: calc(1.25rem * 2);
 }
 
-.o-page__header-action {
-  text-align: right;
+@media (min-width: 62em) {
+  .o-page__header-action {
+    text-align: right;
+  }
 }
 
 .o-page__main {

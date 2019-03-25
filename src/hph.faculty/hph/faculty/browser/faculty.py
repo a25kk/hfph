@@ -61,12 +61,25 @@ class FacultyListingFilter(BrowserView):
         vocab = vr.get(context, 'hph.faculty.academicRole')
         return vocab
 
+    def filter_base_url(self):
+        context = aq_inner(self.context)
+        if IFacultyMember.providedBy(context):
+            parent = aq_parent(context)
+            return parent.absolute_url()
+        return context.absolute_url()
+
     def computed_klass(self, value):
+        context = aq_inner(self.context)
         css_class = 'c-nav-list__item'
-        if value == 'professor' and not self.filter:
-            css_class = 'c-nav-list__item--active'
-        if self.filter == value:
-            css_class = 'c-nav-list__item--active'
+        if IFacultyMember.providedBy(context):
+            academic_role = getattr(context, 'academicRole', None)
+            if academic_role and academic_role == value:
+                css_class = 'c-nav-list__item--active'
+        else:
+            if value == 'professor' and not self.filter:
+                css_class = 'c-nav-list__item--active'
+            if self.filter == value:
+                css_class = 'c-nav-list__item--active'
         return css_class
 
 
