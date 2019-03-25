@@ -11,13 +11,16 @@ $c-breadcrumb-font-size:                $app-font-size-sm;
 
 
 .app-pathbar {
-    display: none;
-    @include mq($from: md) {
-        display: block;
-    }
+    // TODO: Evaluate display on small devices
+    // display: none;
+    // @include mq($from: md) {
+    //     display: block;
+    // }
     width: 100%;
     margin-right: auto;
     margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
     @include make-container-max-widths();
     @include when-inside('.template-frontpage-view') {
         display: none;
@@ -25,6 +28,10 @@ $c-breadcrumb-font-size:                $app-font-size-sm;
     @include when-inside('.app-main--grid') {
         flex: 0 0 100%;
         max-width: 100%;
+    }
+    @include mq($from: md) {
+        padding-right: 0;
+        padding-left: 0;
     }
 }
 
