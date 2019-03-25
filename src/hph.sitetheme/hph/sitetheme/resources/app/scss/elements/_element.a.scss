@@ -1,4 +1,4 @@
-a {
+a:not(class) {
     color: $anchor-color-default;
     &:hover {
         color: $anchor-color-highlight;

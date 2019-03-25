@@ -1,0 +1,134 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.publications">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <div class="o-page__content o-grid o-grid--md o-grid--gutter">
+            <div class="o-grid__item o-grid__item--width-25">
+                <aside class="o-aside" id="c-sidebar" tal:define="subcontents python:context.restrictedTraverse('@@folderListing')(portal_type=['Folder', 'hph.sitecontent.contentpage'])">
+                    <div class="c-card c-card--nav c-card--faculty">
+
+                        <div class="c-card-main">
+                            <ul class="c-nav-list">
+                                <tal:block tal:repeat="filter view/filter_options">
+                                    <li class="c-nav-list__item" tal:define="filter_value filter/value"
+                                             tal:attributes="class python:view.computed_klass(filter_value)">
+                                        <a class="c-nav-list__link"
+                                                 tal:attributes="href string:${view/parent_url}?content_filter=1&amp;academicRole=${filter/value}"
+                                                 tal:content="filter/title">Filter option</a>
+                                    </li>
+                                </tal:block>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="c-card c-card-nav c-card-faculty">
+                        <div class="c-card__main">
+                            <ul class="c-nav-list">
+                                <li class="c-nav-list__item c-nav-list__item--active" tal:condition="python:view.has_publications">
+                                    <a class="c-nav-list__link"
+                                             tal:attributes="href string:${context/absolute_url}/@@publications"
+                                    >Publikationen</a>
+                                </li>
+                                <li class="c-nav-list__item">
+                                    <a class="c-nav-list__link" tal:attributes="href string:${context/absolute_url}/@@associated-lectures"
+                                             i18n:translate="">Lehrveranstaltungen</a>
+                                </li>
+                                <tal:sub_contents tal:condition="python:subcontents">
+                                    <tal:block tal:repeat="item subcontents">
+                                        <li class="c-nav-list__item" tal:define="item_url item/getURL">
+                                            <a data-appui="pjaxed"
+                                               class="c-nav-list__link"
+                                                     tal:attributes="href item_url;
+                                                            data-source-url string:${item_url}?ajax_load=1#content-core;
+                                                    data-appui-hide string:#page-content"
+                                                     tal:content="item/Title">Filter option</a>
+                                        </li>
+                                    </tal:block>
+                                </tal:sub_contents>
+                            </ul>
+                        </div>
+                        <div class="c-card__footer hide" id="app-box-footer">
+                            <a class="c-button c-button--danger c-button-sm"
+                                     tal:attributes="href string:${context/absolute_url}">
+                                &times; <span i18n:translate="">remove filter</span></a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+            <div class="o-grid__item o-grid__item--width-75">
+                <header class="o-page__header">
+                    <div class="o-page__section o-page__section--header">
+                        <div class="c-page-header__title">
+                            <h1 class="c-page-header__headline">
+                                <span tal:replace="python:context.Title()">
+                                    Page Title</span>
+                            </h1>
+                        </div>
+                    </div>
+                </header>
+                <div class="o-page__main">
+                    <div class="o-page__section">
+                        <div class="c-alert c-alert--default" tal:condition="not:view/has_publications">
+                            <p>Es liegen leider keine Publikationen vor.</p>
+                        </div>
+
+                        <tal:block tal:condition="view/publications">
+                            <div class="app-content-body">
+                                <tal:block tal:repeat="item view/publications">
+                                    <div class="app-list-item">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-2 col-lg-2">
+                                                <img tal:condition="item/image"
+                                                         tal:define="scales item/@@images"
+                                                         tal:replace="structure python: scales.tag('image',
+                                                                width=90,
+                                                                height=140,
+                                                                css_class='app-img',
+                                                                direction='down')"
+                                                />
+                                                <div tal:condition="not:item/image">
+                                                    <div class="no-img"><i class="fa fa-camera fa-3x"></i></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-10 col-lg-10">
+                                                <h2 class="h2 list-item-heading">
+                                                    <small>
+                                    <span tal:condition="item/authorOne"
+                                             tal:replace="item/authorOne" /><span tal:condition="item/authorTwo">,
+                                      <span tal:replace="item/authorTwo" /></span><span tal:condition="item/authorThree">,
+                                      <span tal:replace="item/authorThree" />
+                                    </span>
+                                                        <span tal:condition="item/authorPlus"
+                                                                 i18n:translate="">a.o.</span>
+                                                    </small>
+
+                                                    <br />
+                                                    <span tal:replace="item/Title" />
+                                                </h2>
+                                                <div tal:condition="item/summary"
+                                                         tal:content="structure item/summary/output" />
+
+                                            </div><hr />
+                                        </div>
+                                    </div>
+                                </tal:block>
+                            </div>
+                        </tal:block>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

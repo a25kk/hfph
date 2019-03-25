@@ -11,7 +11,7 @@
     <metal:content-core define-macro="main">
 
 
-        <div class="o-page__content o-grid o-grid--md o-grid--gutter">
+        <div class="o-page__content o-grid o-grid--lg o-grid--gutter">
             <div class="o-grid__item o-grid__item--width-25">
                 <aside class="o-aside" id="c-sidebar"
                     tal:define="contained_links python:context.restrictedTraverse('@@folderListing')(portal_type=['Link'])">
@@ -57,18 +57,13 @@
                         <div class="c-card__main">
                             <ul class="c-nav-list">
                                 <tal:block tal:repeat="item contained_links">
-                                    <li class="c-nav-list-item" tal:define="item_url item/getURL">
-                                        <a class="c-nav-list-link"
+                                    <li class="c-nav-list__item" tal:define="item_url item/getURL">
+                                        <a class="c-nav-list__link"
                                                  tal:attributes="href item_url"
                                                  tal:content="item/Title">Filter option</a>
                                     </li>
                                 </tal:block>
                             </ul>
-                        </div>
-                        <div class="c-box__footer hide" id="c-card-footer--secondary">
-                            <a class="c-button c-button--danger c-button--sms"
-                                     tal:attributes="href string:${context/absolute_url}">
-                                &times; <span i18n:translate="">remove filter</span></a>
                         </div>
                     </div>
 

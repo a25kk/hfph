@@ -7,12 +7,12 @@
 
     <!-- Template for navigation tree rewrites -->
     <xsl:template name="nav-tree">
-        <div class="c-card c-card--nav c-nav-list">
+        <div class="c-card c-card--nav">
             <div class="c-card__header c-card__header--nav-list c-card__header--hidden">
                 Navigation
             </div>
             <div class="c-card__main">
-                <nav class="app-nav-tree">
+                <nav class="c-nav-tree">
                     <xsl:apply-templates select="./nav/*"/>
                 </nav>
             </div>
@@ -24,40 +24,40 @@
         </ul>
     </xsl:template>
     <xsl:template name="nav-list">
-        <ul class="app-nav__list">
+        <ul class="c-nav-list">
             <xsl:if test="@class[contains(.,'navTreeLevel1')]">
-                <xsl:attribute name="class">app-nav-tree-list app-nav__list app-nav__list--level-1</xsl:attribute>
+                <xsl:attribute name="class">c-nav-list c-nav-list--level-1</xsl:attribute>
             </xsl:if>
             <xsl:if test="@class[contains(.,'navTreeLevel2')]">
-                <xsl:attribute name="class">app-nav-tree-list app-nav__list app-nav__list--level-2</xsl:attribute>
+                <xsl:attribute name="class">c-nav-list c-nav-list--level-2</xsl:attribute>
             </xsl:if>
             <xsl:apply-templates />
         </ul>
     </xsl:template>
     <xsl:template name="nav-tree-item">
-        <li class="app-nav__list-item">
+        <li class="c-nav-list__item">
             <xsl:choose>
                 <xsl:when css:test=".navTreeCurrentNode">
-                    <xsl:attribute name="class">app-nav__list-item app-nav__list-item--active</xsl:attribute>
+                    <xsl:attribute name="class">c-nav-list__item c-nav-list__item--active</xsl:attribute>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:attribute name="class">app-nav__list-item</xsl:attribute>
+                    <xsl:attribute name="class">c-nav-list__item</xsl:attribute>
                 </xsl:otherwise>
             </xsl:choose>
             <xsl:apply-templates />
         </li>
     </xsl:template>
     <xsl:template name="nav-tree-link">
-        <a class="app-nav__list-link">
+        <a class="c-nav-list__link">
             <xsl:choose>
                 <xsl:when css:test=".navTreeCurrentNode">
-                    <xsl:attribute name="class">app-nav__list-link app-nav__list-link--active</xsl:attribute>
+                    <xsl:attribute name="class">c-nav-list__link c-nav-list__link--active</xsl:attribute>
                 </xsl:when>
                 <xsl:when css:test=".navTreeItemInPath">
-                    <xsl:attribute name="class">app-nav__list-link app-nav__list-link--open</xsl:attribute>
+                    <xsl:attribute name="class">c-nav-list__link c-nav-list__link--open</xsl:attribute>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:attribute name="class">app-nav__list-link</xsl:attribute>
+                    <xsl:attribute name="class">c-nav-list__link</xsl:attribute>
                 </xsl:otherwise>
             </xsl:choose>
             <xsl:attribute name="href"><xsl:value-of select="@href" /></xsl:attribute>
@@ -287,11 +287,11 @@
                 />
             </rules>
             <rules css:if-content="#portal-column-one">
-                <before css:theme-children="#app-content-main" method="raw">
-                    <xsl:attribute name="class">app-content-main app-content-main-sm</xsl:attribute>
+                <before css:theme-children="#app-main" method="raw">
+                    <xsl:attribute name="class">app-main app-main--grid</xsl:attribute>
                 </before>
                 <replace css:content-children="#portal-column-one > *"
-                         css:theme-children="#app-sidebar" />
+                         css:theme-children="#app-sidebar-content" />
                 <replace css:content-children="#content"
                          css:theme-children="#content"
                 />
@@ -327,7 +327,7 @@
             </xsl:choose>
         </replace>
         <rules css:if-not-content=".template-prefs_install_products_form">
-            <before css:content=".portalMessage" css:theme="#content" />
+            <before css:content=".portalMessage" css:theme-children="#content" />
         </rules>
 
         <!-- Drop iframe attributes in embedded elements -->
@@ -343,7 +343,7 @@
         <replace css:content="#content .callout">
             <xsl:copy>
                 <xsl:copy-of select="@*" />
-                <xsl:attribute name="class">c-alert c-alert--primary</xsl:attribute>
+                <xsl:attribute name="class">c-call-out c-call-out--default</xsl:attribute>
                 <xsl:apply-templates />
             </xsl:copy>
         </replace>

@@ -29,6 +29,9 @@
             width: calc(100% - 120px);
         }
     }
+    &.u-backdrop {
+        background: $app-color-gray-light;
+    }
 }
 
 .c-header {

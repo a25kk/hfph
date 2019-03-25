@@ -7,25 +7,7 @@
 
     <!-- image widgets -->
     <include package=".image" />
-
-    <!-- Content preview widgets -->
-    <browser:page
-            for="*"
-            name="content-widget-content-card"
-            class=".content.WidgetContentCard"
-            template="content-card.pt"
-            permission="zope2.View"
-            layer="..interfaces.IHphWidgetsLayer"
-    />
-
-    <browser:page
-            for="*"
-            name="content-widget-content-snippet"
-            class=".content.WidgetContentSnippet"
-            template="content-snippet.pt"
-            permission="zope2.View"
-            layer="..interfaces.IHphWidgetsLayer"
-    />
+    <include package=".content" />
 
     <!-- Content Listing -->
     <browser:page

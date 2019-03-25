@@ -109,7 +109,7 @@ class CourseView(BrowserView):
     def computed_klass(self, value):
         context = aq_inner(self.context)
         active_filter = getattr(context, 'academicRole', None)
-        klass = 'app-nav-list-item'
+        klass = 'c-nav-list__item'
         if active_filter == value:
-            klass += 'app-nav-list-item-active'
+            klass += ' c-nav-list__item--active'
         return klass
