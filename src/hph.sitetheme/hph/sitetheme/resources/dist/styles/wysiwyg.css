@@ -8210,18 +8210,18 @@ button {
   background: transparent;
 }
 
-a {
+a:not(class) {
   color: #182f7a;
 }
 
-a:hover {
+a:not(class):hover {
   color: #0b163a;
   -webkit-transition: color 0.5s linear;
   -o-transition: color 0.5s linear;
   transition: color 0.5s linear;
 }
 
-.o-page__body-text a {
+.o-page__body-text a:not(class) {
   font-weight: 600;
 }
 
