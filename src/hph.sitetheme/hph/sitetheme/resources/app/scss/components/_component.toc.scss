@@ -73,13 +73,7 @@
 
 .c-toc__item--has-subtree {
     border: 0 solid #fff;
-    font-size: 1.5rem;
-    //@include mq($from: md, $until: xl) {
-    @include mq($from: md) {
-        font-size: 2rem;
-    }
     @include mq($from: xl) {
-        font-size: 1.3rem;
         &:nth-child(even) {
             border-left-width: 1px;
         }
@@ -117,9 +111,11 @@
         height: calc(#{$app-font-size-base} * 2.5);
     }
 	color: $c-toc-link-color;
+    font-size: $c-toc-item-font-size;
     @include when-inside('.c-toc--level-1') {
         display: block;
         height: auto;
+        font-size: $c-toc-item-font-size-sm;
     }
     &:hover {
         color: $c-toc-link-color--hover;

@@ -8495,6 +8495,14 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   }
 }
 
+.o-page__section {
+  margin-bottom: calc(1.25rem * 1.5);
+}
+
+.o-page__headline {
+  margin-bottom: calc(1.25rem * 1.5);
+}
+
 .o-page__asset--inline {
   margin-bottom: calc(1.25rem * 1.5);
 }
@@ -8525,6 +8533,15 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
 .o-grid--gutter {
   margin-right: -calc(1.25rem * 1.5 / 2);
   margin-left: -calc(1.25rem * 1.5 / 2);
+}
+
+@media (min-width: 62em) {
+  .o-grid--reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
 }
 
 .o-grid--gutter .o-grid__item {
@@ -9858,6 +9875,12 @@ input, button, select, textarea {
   display: block;
 }
 
+.o-figure__placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #efefef;
+}
+
 .o-figure__embedded {
   position: relative;
   display: block;
@@ -9901,7 +9924,7 @@ input, button, select, textarea {
   padding-top: 100%;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 62em) {
   .o-aside {
     margin-top: 5.5rem;
   }
@@ -11827,6 +11850,12 @@ img[data-sizes="auto"] {
   text-decoration: none;
 }
 
+@media (max-width: 47.99em) {
+  .c-snippet__figure--faculty {
+    max-width: 50%;
+  }
+}
+
 @-webkit-keyframes toolBarEntrance {
   from {
     height: 0;
@@ -12392,19 +12421,9 @@ img[data-sizes="auto"] {
 
 .c-toc__item--has-subtree {
   border: 0 solid #fff;
-  font-size: 1.5rem;
-}
-
-@media (min-width: 48em) {
-  .c-toc__item--has-subtree {
-    font-size: 2rem;
-  }
 }
 
 @media (min-width: 75em) {
-  .c-toc__item--has-subtree {
-    font-size: 1.3rem;
-  }
   .c-toc__item--has-subtree:nth-child(even) {
     border-left-width: 1px;
   }
@@ -12449,6 +12468,7 @@ img[data-sizes="auto"] {
   min-height: calc(1.25rem * 1.5);
   line-height: 1.25;
   color: #fff;
+  font-size: 1.25rem;
 }
 
 @media (min-width: 48em) {
@@ -12461,6 +12481,7 @@ img[data-sizes="auto"] {
 .c-toc--level-1 .c-toc__link {
   display: block;
   height: auto;
+  font-size: 1rem;
 }
 
 .c-toc__link:hover {

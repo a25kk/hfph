@@ -44,6 +44,14 @@
     @include make-container-max-widths();
 }
 
+.o-page__section {
+    margin-bottom: $app-spacer-base;
+}
+
+.o-page__headline {
+    margin-bottom: $app-spacer-base;
+}
+
 .o-page__asset--inline {
     margin-bottom: $app-spacer-base;
     @include mq($from: md) {
