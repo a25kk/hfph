@@ -12,7 +12,7 @@
                         is_active python:active_filter == filter_value"
                          tal:attributes="class python:view.computed_klass(filter_value)">
                     <a class="c-nav-list__link"
-                             tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;academicRole=${filter/value}"
+                             tal:attributes="href string:${view/filter_base_url}?content_filter=1&amp;academicRole=${filter/value}"
                              tal:content="filter/title">Filter option</a>
                 </li>
             </tal:block>
