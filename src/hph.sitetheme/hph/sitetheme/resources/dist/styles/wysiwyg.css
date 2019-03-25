@@ -8353,6 +8353,13 @@ table td,
   border-top: 1px solid #efefef;
 }
 
+table th:first-child,
+table td:first-child,
+.o-table th:first-child,
+.o-table td:first-child {
+  padding-left: 0;
+}
+
 table thead th,
 .o-table thead th {
   vertical-align: bottom;
