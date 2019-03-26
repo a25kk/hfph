@@ -13,6 +13,11 @@ $grid-gutter-width:                         $app-spacer-sm;
         margin-right: -($grid-gutter-width);
         margin-left: -($grid-gutter-width);
     }
+    &--reverse {
+        @include mq($from: lg) {
+            flex-direction: row-reverse;
+        }
+    }
     &--spacing {
 
     }
