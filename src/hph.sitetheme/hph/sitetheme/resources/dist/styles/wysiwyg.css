@@ -8353,6 +8353,13 @@ table td,
   border-top: 1px solid #efefef;
 }
 
+table th:first-child,
+table td:first-child,
+.o-table th:first-child,
+.o-table td:first-child {
+  padding-left: 0;
+}
+
 table thead th,
 .o-table thead th {
   vertical-align: bottom;
@@ -8495,6 +8502,14 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   }
 }
 
+.o-page__section {
+  margin-bottom: calc(1.25rem * 1.5);
+}
+
+.o-page__headline {
+  margin-bottom: calc(1.25rem * 1.5);
+}
+
 .o-page__asset--inline {
   margin-bottom: calc(1.25rem * 1.5);
 }
@@ -8525,6 +8540,15 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
 .o-grid--gutter {
   margin-right: -calc(1.25rem * 1.5 / 2);
   margin-left: -calc(1.25rem * 1.5 / 2);
+}
+
+@media (min-width: 62em) {
+  .o-grid--reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
 }
 
 .o-grid--gutter .o-grid__item {
@@ -9722,6 +9746,12 @@ input, button, select, textarea {
 
 .o-figure {
   display: block;
+}
+
+.o-figure__placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #efefef;
 }
 
 .o-figure__embedded {

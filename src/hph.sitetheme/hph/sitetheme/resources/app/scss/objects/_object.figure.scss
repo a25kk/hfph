@@ -2,6 +2,12 @@
     display: block;
 }
 
+.o-figure__placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: $app-color-gray-light;
+}
+
 //== Page figure element
 // Embedded media variant
 .o-figure__embedded {

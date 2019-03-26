@@ -26,8 +26,10 @@
     font-size: $app-font-size-sm;
     color: $o-burger-text-color;
     text-transform: $o-burger-text-transform;
+    padding-bottom: $o-burger-padding-y;
     @include mq($from: sm) {
         font-size: $o-burger-text-font-size;
+        padding-bottom: 0;
     }
 }
 

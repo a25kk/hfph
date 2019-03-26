@@ -81,3 +81,11 @@ $c-snippet-color:                   $app-color-text;
         }
     }
 }
+
+.c-snippet__figure {
+    &--faculty {
+        @include mq($until: md) {
+            max-width: 50%;
+        }
+    }
+}
