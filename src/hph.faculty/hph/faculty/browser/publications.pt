@@ -75,21 +75,6 @@
             </div>
             <div class="o-grid__item o-grid__item--width-25">
                 <aside class="o-aside" id="c-sidebar" tal:define="subcontents python:context.restrictedTraverse('@@folderListing')(portal_type=['Folder', 'hph.sitecontent.contentpage'])">
-                    <div class="c-card c-card--nav c-card--faculty">
-
-                        <div class="c-card-main">
-                            <ul class="c-nav-list">
-                                <tal:block tal:repeat="filter view/filter_options">
-                                    <li class="c-nav-list__item" tal:define="filter_value filter/value"
-                                             tal:attributes="class python:view.computed_klass(filter_value)">
-                                        <a class="c-nav-list__link"
-                                                 tal:attributes="href string:${view/parent_url}?content_filter=1&amp;academicRole=${filter/value}"
-                                                 tal:content="filter/title">Filter option</a>
-                                    </li>
-                                </tal:block>
-                            </ul>
-                        </div>
-                    </div>
                     <div class="c-card c-card-nav c-card-faculty">
                         <div class="c-card__main">
                             <ul class="c-nav-list">
