@@ -10080,15 +10080,15 @@ input, button, select, textarea {
 .app-header__section {
   display: block;
   position: relative;
-  width: 50%;
+  width: 33.3333%;
 }
 
 .app-header__section:first-child {
-  width: 50%;
-  max-width: 50%;
+  width: 33.3333%;
+  max-width: 33.3333%;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 50%;
-          flex: 0 0 50%;
+      -ms-flex: 0 0 33.3333%;
+          flex: 0 0 33.3333%;
 }
 
 .app-header__section:nth-child(2) {
@@ -10103,10 +10103,10 @@ input, button, select, textarea {
 
 @media (min-width: 48em) {
   .app-header__section {
-    width: 25%;
+    width: 16.6666%;
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 25%;
-            flex: 0 0 25%;
+        -ms-flex: 0 0 16.6666%;
+            flex: 0 0 16.6666%;
   }
   .app-header__section:first-child {
     width: 50%;
@@ -10116,11 +10116,11 @@ input, button, select, textarea {
     -webkit-box-ordinal-group: 1;
         -ms-flex-order: 0;
             order: 0;
-    width: 25%;
-    max-width: 25%;
+    width: 16.6666%;
+    max-width: 16.6666%;
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 25%;
-            flex: 0 0 25%;
+        -ms-flex: 0 0 16.6666%;
+            flex: 0 0 16.6666%;
     background: transparent;
     padding: 0;
   }
@@ -11583,6 +11583,34 @@ img[data-sizes="auto"] {
   .c-quick-links__icon {
     width: 1.3rem;
     height: 1.6rem;
+  }
+}
+
+.c-language-menu {
+  display: block;
+  position: relative;
+}
+
+.c-language-menu__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+@media (min-width: 48em) {
+  .c-language-menu__button {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 

@@ -148,7 +148,7 @@ define([
             element.addEventListener('click', function(event) {
                 event.stopPropagation();
                 let $elementParent = element.closest(options.menu);
-                if (!$elementParent.classList.contains(options.menuDropdownOpen)) {
+                if ($elementParent && !$elementParent.classList.contains(options.menuDropdownOpen)) {
                     navigationDrawerOpen(element, options);
                 } else {
                     navigationDrawerClose(options);
