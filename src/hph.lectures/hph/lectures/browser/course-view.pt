@@ -31,7 +31,7 @@
                     </div>
                 </tal:can_edit>
 
-                <div class="c-alert c-alert--default" tal:condition="python:view.can_edit">
+                <div class="c-alert c-alert--default" tal:condition="python:view.can_edit()">
                         <div class="o-grid">
                             <div class="o-grid__item o-grid__item--width-75">
                                 <span i18n:translate="">edit modules</span>

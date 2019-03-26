@@ -1,7 +1,8 @@
 <div class="c-snippet c-snippet--default"
-         tal:define="content python:view.widget_content()"
-         tal:attributes="class python:'c-snippet c-snippet--default ' + content['css_classes']"
-    i18n:domain="hph.widgets">
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     tal:define="content python:view.widget_content()"
+     tal:attributes="class python:'c-snippet c-snippet--default ' + content['css_classes']"
+     i18n:domain="hph.widgets">
     <div class="c-snippet__main">
         <div class="c-snippet__header">
             <h3 class="c-snippet__title">
@@ -21,9 +22,15 @@
             </div>
         </div>
         <div class="c-snippet__footer">
-            <a class="c-snippet__link c-snippet__link--footer" tal:attributes="href python:content['url']"
-                     i18n:translate="">
-                Read more
+            <a class="c-snippet__link c-snippet__link--footer" tal:attributes="href python:content['url']">
+                <div class="o-read-more">
+                    <span class="o-read-more__icon">
+                        <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--chevron-dims">
+                            <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron"></use>
+                        </svg>
+                    </span>
+                    <span class="o-read-more__text" i18n:translate="">Read more</span>
+                </div>
             </a>
         </div>
     </div>
