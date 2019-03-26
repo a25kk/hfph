@@ -33,7 +33,9 @@
 }
 
 .o-page__header-action {
-    text-align: right;
+    @include mq($from: lg) {
+        text-align: right;
+    }
 }
 
 .o-page__main {
@@ -42,9 +44,17 @@
     @include make-container-max-widths();
 }
 
+.o-page__section {
+    margin-bottom: $app-spacer-base;
+}
+
+.o-page__headline {
+    margin-bottom: $app-spacer-base;
+}
+
 .o-page__asset--inline {
     margin-bottom: $app-spacer-base;
     @include mq($from: md) {
         margin-right: $app-spacer-sm;
-    } 
+    }
 }

@@ -30,7 +30,7 @@
             </div>
         </tal:can_edit>
 
-        <div class="o-page__header o-page__header-section o-grid o-grid--md">
+        <div class="o-page__header o-page__header-section o-grid o-grid--lg">
             <div class="o-page__title o-grid__item o-grid__item--width-75">
                 <h1 class="o-page__headline" tal:content="context/Title">
                     Title
