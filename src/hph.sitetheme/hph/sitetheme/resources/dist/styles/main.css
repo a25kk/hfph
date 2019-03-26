@@ -8353,11 +8353,13 @@ table td,
   border-top: 1px solid #efefef;
 }
 
-table th:first-child,
-table td:first-child,
-.o-table th:first-child,
-.o-table td:first-child {
-  padding-left: 0;
+@media (max-width: 47.99em) {
+  table th:first-child,
+  table td:first-child,
+  .o-table th:first-child,
+  .o-table td:first-child {
+    padding-left: 0;
+  }
 }
 
 table thead th,
