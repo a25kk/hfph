@@ -12495,6 +12495,8 @@ img[data-sizes="auto"] {
   .c-toc__link {
     display: block;
     height: calc(1.25rem * 2.5);
+    text-decoration: none;
+    cursor: default;
   }
 }
 
@@ -12889,17 +12891,50 @@ c-list--bordered .c-list__item:last-of-type {
   margin-top: 1rem;
 }
 
-.c-collapsible__item {
-  max-height: 0;
-  overflow: hidden;
-  -webkit-transition: max-height .25s ease-in-out;
-  -o-transition: max-height .25s ease-in-out;
-  transition: max-height .25s ease-in-out;
+.c-collapsible__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
 }
 
-.c-collapsible__item--active {
-  display: block;
-  max-height: 400px;
+@media (max-width: 47.99em) {
+  .c-collapsible__header {
+    cursor: pointer;
+    border-bottom: 0.125rem solid #eed343;
+  }
+}
+
+@media (max-width: 47.99em) {
+  .c-collapsible__item {
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: max-height .25s ease-in-out;
+    -o-transition: max-height .25s ease-in-out;
+    transition: max-height .25s ease-in-out;
+  }
+  .c-collapsible__item--active {
+    display: block;
+    max-height: 400px;
+  }
+}
+
+.c-collapsible__link {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+  max-width: 50%;
+}
+
+.c-collapsible__link--icon {
+  text-align: right;
+  color: currentColor;
+}
+
+@media (min-width: 48em) {
+  .c-collapsible__link--icon {
+    display: none;
+  }
 }
 
 .c-teaser__header {
