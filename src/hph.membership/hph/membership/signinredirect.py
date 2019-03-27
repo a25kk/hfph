@@ -1,36 +1,32 @@
-import logging
-from five import grok
+# -*- coding: utf-8 -*-
+"""Module providing login redirects"""
 from plone import api
-
-from ZODB.POSException import ConflictError
-from plone.uuid.interfaces import IUUID
-from Products.PluggableAuthService.interfaces.events import IUserLoggedInEvent
-
-logger = logging.getLogger(__name__)
+from plone.login.interfaces import IRedirectAfterLogin
+from Products.CMFPlone.utils import safe_unicode
+from zope.interface import implementer
 
 
-@grok.subscribe(IUserLoggedInEvent)
-def logged_in_handler(event):
-    """
-    Listen to the login event and perform a redirect to the users
-    workspace
-    """
-    user = event.object
-    portal = api.portal.get()
-    memberfolder = portal['ws']
-    mf_url = memberfolder.absolute_url()
-    request = getattr(portal, "REQUEST", None)
-    if not request:
-        return False
-    try:
-        request.response.redirect(mf_url)
-    except ConflictError:
-        # Transaction retries must be
-        # always handled specially in exception handlers
-        raise
-    except Exception, e:
-        # Let the login proceed even if the folder has been deleted
-        # don't make it impossible to login to the site
-        logger.exception(e)
-        return False
-    return request.response.redirect(mf_url)
+@implementer(IRedirectAfterLogin)
+class RedirectAfterLoginAdapter(object):
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+
+    def __call__(self, came_from=None, is_initial_login=False):
+        portal = api.portal.get()
+        member_folder = portal['ws']
+        member_folder_url = member_folder.absolute_url()
+        if 'Staff' in api.user.get_roles():
+            api.portal.show_message(u'Get to work!', self.request)
+            came_from = self.context.portal_url() + '/@@full_review_list'
+        else:
+            user = api.user.get_current()
+            fullname = safe_unicode(user.getProperty('fullname'))
+            api.portal.show_message(u'Nice to see you again, {0}!'.format(
+                fullname),
+                self.request
+            )
+        if not came_from:
+            came_from = member_folder_url
+        return came_from
