@@ -8446,6 +8446,44 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   }
 }
 
+body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
+    max-width: 1140px;
+  }
+}
+
+.o-page--panels {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.userrole-authenticated .o-page--panels {
+  padding-top: 4rem;
+}
+
 .o-page--sign-in {
   display: -webkit-box;
   display: -ms-flexbox;

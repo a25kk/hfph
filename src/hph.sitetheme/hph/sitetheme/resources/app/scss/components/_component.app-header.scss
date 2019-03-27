@@ -17,6 +17,12 @@
             background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
         }
     }
+    @include when-inside('.portaltype-ade25-panelpage-page') {
+        background: rgba(255,255,255,1);
+        &--offset {
+            background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
+        }
+    }
     @include media-breakpoint-up(md) {
         margin: 0 auto 1rem;
         padding-bottom: 1rem;

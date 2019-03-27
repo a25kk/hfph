@@ -60,18 +60,9 @@ $c-nav-color-highlight:         $app-color-secondary;
     }
     &--back-link,
     &--parent {
-        // background-color: lighten($app-color-primary, 10%);
         border-bottom: 1px solid $gray-300;
         display: flex;
         padding: 0;
-        //margin-bottom: 1rem;
-        //background: url("../assets/images/chevron-left.svg") 0 no-repeat;
-        //background-size: 1rem;
-        //&:before {
-        //    content: "<";
-        //    color: #fff;
-        //    padding-right: .5rem;
-        //}
     }
 }
 

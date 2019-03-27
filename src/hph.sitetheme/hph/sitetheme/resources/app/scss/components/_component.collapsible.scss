@@ -4,20 +4,20 @@ $c-collapsible-border-color:                $app-color-secondary;
 .c-collapsible__header {
     display: flex;
     width: 100%;
-    @include mq($until: md) {
+    @include mq($until: lg) {
         cursor: pointer;
         border-bottom: $c-collapsible-border-width solid $c-collapsible-border-color;
     }
 }
 
 .c-collapsible__item {
-    @include mq($until: md) {
+    @include mq($until: lg) {
         max-height: 0;
         overflow: hidden;
         transition: max-height .25s ease-in-out;
         &--active {
             display: block;
-            max-height: 400px;
+            max-height: 100vh;
         }
     }
 }
@@ -28,8 +28,23 @@ $c-collapsible-border-color:                $app-color-secondary;
     &--icon {
         text-align: right;
         color: currentColor;
-        @include mq($from: md) {
+        @include mq($from: lg) {
             display: none;
+        }
+    }
+}
+
+.c-collapsible__icon {
+    color: currentColor;
+    &--close {
+        display: none;
+    }
+    @include when-inside('.show') {
+        &--open {
+            display: none;
+        }
+        &--close {
+            display: inline-block;
         }
     }
 }
