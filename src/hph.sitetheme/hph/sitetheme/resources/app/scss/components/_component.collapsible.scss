@@ -1,9 +1,35 @@
+$c-collapsible-border-width:                .125rem;
+$c-collapsible-border-color:                $app-color-secondary;
+
+.c-collapsible__header {
+    display: flex;
+    width: 100%;
+    @include mq($until: md) {
+        cursor: pointer;
+        border-bottom: $c-collapsible-border-width solid $c-collapsible-border-color;
+    }
+}
+
 .c-collapsible__item {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height .25s ease-in-out;
-    &--active {
-        display: block;
-        max-height: 400px;
+    @include mq($until: md) {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .25s ease-in-out;
+        &--active {
+            display: block;
+            max-height: 400px;
+        }
+    }
+}
+
+.c-collapsible__link {
+    flex: 1 0 50%;
+    max-width: 50%;
+    &--icon {
+        text-align: right;
+        color: currentColor;
+        @include mq($from: md) {
+            display: none;
+        }
     }
 }
