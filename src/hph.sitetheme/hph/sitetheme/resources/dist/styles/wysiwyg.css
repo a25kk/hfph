@@ -8504,7 +8504,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-page__header {
-  margin-bottom: calc(1.25rem * 2);
+  margin-bottom: calc(1.25rem * 1.5);
 }
 
 @media (min-width: 62em) {
@@ -8547,7 +8547,9 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-page__headline {
-  margin-bottom: calc(1.25rem * 1.5);
+  padding: .125rem 0;
+  color: #182f7a;
+  line-height: 1.25;
 }
 
 .o-page__asset--inline {

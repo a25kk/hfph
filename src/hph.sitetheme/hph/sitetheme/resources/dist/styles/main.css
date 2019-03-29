@@ -8504,7 +8504,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-page__header {
-  margin-bottom: calc(1.25rem * 2);
+  margin-bottom: calc(1.25rem * 1.5);
 }
 
 @media (min-width: 62em) {
@@ -8547,7 +8547,9 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-page__headline {
-  margin-bottom: calc(1.25rem * 1.5);
+  padding: .125rem 0;
+  color: #182f7a;
+  line-height: 1.25;
 }
 
 .o-page__asset--inline {
@@ -10190,7 +10192,7 @@ input, button, select, textarea {
 
 .app-main {
   width: 100%;
-  padding-top: 12rem;
+  padding-top: 11rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -11597,6 +11599,10 @@ img[data-sizes="auto"] {
 }
 
 .c-nav-list__link--active {
+  color: #fff;
+}
+
+.c-nav-list__item--active .c-nav-list__link {
   color: #fff;
 }
 

@@ -30,7 +30,7 @@ $c-nav-list-color-bg-highlight:                 $app-color-gray-base;
     &--active {
         color: #fff;
     }
-	// @include when-inside('.c-nav-list__item--active') {
-	// 	color: #fff;
-	// }
+	@include when-inside('.c-nav-list__item--active') {
+		color: #fff;
+	}
 }
