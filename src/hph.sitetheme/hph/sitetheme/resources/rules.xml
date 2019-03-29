@@ -239,10 +239,12 @@
 
         <!-- Document First Heading -->
         <replace css:content=".documentFirstHeading">
-            <div class="o-page__header">
-                <h1 class="o-page__title">
-                    <xsl:apply-templates />
-                </h1>
+            <div class="o-page__header c-page-header">
+                <div class="c-page-header__title">
+                    <h1 class="c-page-header__headline">
+                        <xsl:apply-templates />
+                    </h1>
+                </div>
             </div>
         </replace>
         <!-- Document lead description -->

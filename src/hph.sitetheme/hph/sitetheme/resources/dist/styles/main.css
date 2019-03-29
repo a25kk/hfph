@@ -8353,7 +8353,7 @@ table td,
   border-top: 1px solid #efefef;
 }
 
-@media (max-width: 47.99em) {
+@media (max-width: 61.99em) {
   table th:first-child,
   table td:first-child,
   .o-table th:first-child,
@@ -8504,7 +8504,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-page__header {
-  margin-bottom: calc(1.25rem * 2);
+  margin-bottom: calc(1.25rem * 1.5);
 }
 
 @media (min-width: 62em) {
@@ -8551,7 +8551,9 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-page__headline {
-  margin-bottom: calc(1.25rem * 1.5);
+  padding: .125rem 0;
+  color: #182f7a;
+  line-height: 1.25;
 }
 
 .o-page__asset--inline {
@@ -10017,9 +10019,9 @@ input, button, select, textarea {
   position: absolute;
   top: calc(calc(calc(1.25rem * 1.5) * 1.5) / 2 - 0.25rem / 2);
   left: 0;
-  width: 100%;
+  width: 90px;
   height: 0.25rem;
-  background-color: #999999;
+  background-color: #eed343;
 }
 
 .app-header {
@@ -10206,7 +10208,7 @@ input, button, select, textarea {
 
 .app-main {
   width: 100%;
-  padding-top: 12rem;
+  padding-top: 11rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -11616,6 +11618,10 @@ img[data-sizes="auto"] {
   color: #fff;
 }
 
+.c-nav-list__item--active .c-nav-list__link {
+  color: #fff;
+}
+
 .c-quick-links {
   display: block;
   position: relative;
@@ -12380,7 +12386,7 @@ img[data-sizes="auto"] {
 }
 
 .c-card__link {
-  color: #212529;
+  color: #182f7a;
   text-decoration: none;
 }
 

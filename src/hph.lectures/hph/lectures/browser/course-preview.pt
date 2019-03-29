@@ -106,10 +106,4 @@
             </div>
         </div>
     </div>
-    <div class="c-card__footer" tal:condition="python:view.is_preview_card">
-        <a class="c-card__link" tal:attributes="href python:context.absolute_url()">
-            <svg class="o-icon o-icon--default o-icon__ui--chevron-dims"><use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron"></use></svg>
-            <span class="c-card__link-text" i18n:translate="">Details</span>
-        </a>
-    </div>
 </div>

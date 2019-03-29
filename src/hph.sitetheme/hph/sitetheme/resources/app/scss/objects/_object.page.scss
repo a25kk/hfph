@@ -67,7 +67,9 @@
 }
 
 .o-page__headline {
-    margin-bottom: $app-spacer-base;
+    padding: .125rem 0;
+    color: $app-color-primary;
+    line-height: 1.25;
 }
 
 .o-page__asset--inline {
