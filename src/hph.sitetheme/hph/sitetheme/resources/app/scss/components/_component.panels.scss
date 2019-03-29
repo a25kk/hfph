@@ -190,3 +190,14 @@ $c-panel-controls-display:  flex;
     height: 4rem;
     min-height: 4rem;
 }
+
+.c-panel-editor__section-headline {
+    padding: .5rem;
+    margin-bottom: 1rem;
+    border-bottom: .0125rem solid $c-toolbar-background;
+}
+
+.c-panel-editor__section-headline {
+    font-family: $app-font-family-strong;
+    text-transform: uppercase;
+}

@@ -9323,6 +9323,18 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   height: 1.5rem;
 }
 
+.o-icon--size-2 {
+  fill: currentColor;
+  width: 2rem;
+  height: 2rem;
+}
+
+.o-icon--size-3 {
+  fill: currentColor;
+  width: 3rem;
+  height: 3rem;
+}
+
 .o-icon--lg {
   fill: #fff;
   width: 4rem;

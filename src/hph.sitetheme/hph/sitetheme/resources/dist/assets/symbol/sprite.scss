@@ -48,11 +48,6 @@ o-icon__icon-ui-see-dims {
 	height: 64px;
 }
 
-o-icon__icon-ui-tile-dims {
-	width: 100px;
-	height: 100px;
-}
-
 o-icon__icon-widget-text-block-dims {
 	width: 64px;
 	height: 64px;
@@ -108,6 +103,16 @@ o-icon__ui--minus-dims {
 	height: 100px;
 }
 
+o-icon__ui--more-horizontal-dims {
+	width: 512px;
+	height: 512px;
+}
+
+o-icon__ui--more-vertical-dims {
+	width: 512px;
+	height: 512px;
+}
+
 o-icon__ui--pen-dims {
 	width: 36px;
 	height: 36px;
@@ -146,5 +151,10 @@ o-icon__ui--warning-dims {
 o-icon__widget--text-block-dims {
 	width: 64px;
 	height: 64px;
+}
+
+o-icon__widget--tile-dims {
+	width: 100px;
+	height: 100px;
 }
 
