@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rules
+<rules  xmlns:xlink="http://www.w3.org/1999/xlink"
         xmlns="http://namespaces.plone.org/diazo"
         xmlns:css="http://namespaces.plone.org/diazo/css"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -8,10 +8,20 @@
     <!-- Template for navigation tree rewrites -->
     <xsl:template name="nav-tree">
         <div class="c-card c-card--nav">
-            <div class="c-card__header c-card__header--nav-list c-card__header--hidden">
-                Navigation
+            <div class="c-card__header c-card__header--nav-list c-collapsible__header js-collapsible-toggle">
+                <div class="c-card__title c-collapsible__link">
+                    Weitere Inhalte
+                </div>
+                <div class="c-collapsible__link c-collapsible__link--icon">
+                    <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--add-dims c-collapsible__icon c-collapsible__icon--open">
+                        <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--add"></use>
+                    </svg>
+                    <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--remove-dims c-collapsible__icon c-collapsible__icon--close">
+                        <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--remove"></use>
+                    </svg>
+                </div>
             </div>
-            <div class="c-card__main">
+            <div class="c-card__main c-collapsible__item js-collapsible-item">
                 <nav class="c-nav-tree">
                     <xsl:apply-templates select="./nav/*"/>
                 </nav>
@@ -19,7 +29,7 @@
         </div>
     </xsl:template>
     <xsl:template name="nav-list-base">
-        <ul class="app-nav-tree__list app-nav__list app-nav__list--level-0">
+        <ul class="c-nav-tree__list c-nav-list c-nav-list--level-0">
             <xsl:apply-templates />
         </ul>
     </xsl:template>
@@ -105,6 +115,8 @@
     <theme href="dist/signin/index.html" css:if-content="body.template-passwordreset" />
 
     <theme href="dist/front-page/index.html" css:if-content="body.template-frontpage-view" />
+    <!-- Panel page -->
+    <theme href="dist/front-page/index.html" css:if-content="body.portaltype-ade25-panelpage-page" />
 
     <theme href="dist/theme/index.html" css:if-content="body.section-relaunch-theme" />
 
