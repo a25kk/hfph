@@ -61,6 +61,9 @@
 
 .o-page__section {
     margin-bottom: $app-spacer-base;
+    &--spacer {
+        margin-bottom: calc(#{$app-spacer-base} * 2);
+    }
 }
 
 .o-page__headline {

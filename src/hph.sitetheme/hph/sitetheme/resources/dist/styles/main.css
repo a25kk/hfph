@@ -8546,6 +8546,10 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   margin-bottom: calc(1.25rem * 1.5);
 }
 
+.o-page__section--spacer {
+  margin-bottom: calc(calc(1.25rem * 1.5) * 2);
+}
+
 .o-page__headline {
   margin-bottom: calc(1.25rem * 1.5);
 }
@@ -12996,6 +13000,12 @@ c-list--bordered .c-list__item:last-of-type {
   }
 }
 
+@media (min-width: 62em) {
+  .c-collapsible__header--hidden-lg {
+    display: none;
+  }
+}
+
 @media (max-width: 61.99em) {
   .c-collapsible__item {
     max-height: 0;
@@ -13025,6 +13035,15 @@ c-list--bordered .c-list__item:last-of-type {
 @media (min-width: 62em) {
   .c-collapsible__link--icon {
     display: none;
+  }
+}
+
+@media (min-width: 62em) {
+  .c-collapsible__link {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 100%;
+            flex: 1 0 100%;
+    max-width: 100%;
   }
 }
 

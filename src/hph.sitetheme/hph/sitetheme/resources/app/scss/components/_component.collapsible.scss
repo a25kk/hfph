@@ -8,6 +8,11 @@ $c-collapsible-border-color:                $app-color-secondary;
         cursor: pointer;
         border-bottom: $c-collapsible-border-width solid $c-collapsible-border-color;
     }
+    &--hidden-lg {
+        @include mq($from: lg) {
+            display: none;
+        }
+    }
 }
 
 .c-collapsible__item {
@@ -31,6 +36,10 @@ $c-collapsible-border-color:                $app-color-secondary;
         @include mq($from: lg) {
             display: none;
         }
+    }
+    @include mq($from: lg) {
+        flex: 1 0 100%;
+        max-width: 100%;
     }
 }
 

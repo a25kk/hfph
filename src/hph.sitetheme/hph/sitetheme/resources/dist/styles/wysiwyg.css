@@ -8546,6 +8546,10 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   margin-bottom: calc(1.25rem * 1.5);
 }
 
+.o-page__section--spacer {
+  margin-bottom: calc(calc(1.25rem * 1.5) * 2);
+}
+
 .o-page__headline {
   margin-bottom: calc(1.25rem * 1.5);
 }
