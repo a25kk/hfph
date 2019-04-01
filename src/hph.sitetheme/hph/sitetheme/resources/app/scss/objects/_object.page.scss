@@ -61,12 +61,25 @@
 
 .o-page__section {
     margin-bottom: $app-spacer-base;
+    &--spacer {
+        margin-bottom: calc(#{$app-spacer-base} * 2);
+    }
 }
 
 .o-page__headline {
     padding: .125rem 0;
     color: $app-color-primary;
     line-height: 1.25;
+}
+
+
+.o-page__asset {
+    width: 100%;
+    &--md {
+        @include mq($until: md) {
+            max-width: 50%;
+        }
+    }
 }
 
 .o-page__asset--inline {

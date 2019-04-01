@@ -57,7 +57,7 @@
                                         Publikationen</a>
                                 </li>
                                 <li class="c-nav-list__item c-nav-list__item--active" tal:condition="view/related_courses">
-                                    <a class="c-nav-list__link" tal:attributes="href string:${context/absolute_url}/@@associated-lectures"
+                                    <a class="c-nav-list__link c-nav-list__link--active" tal:attributes="href string:${context/absolute_url}/@@associated-lectures"
                                              i18n:translate="">Lehrveranstaltungen</a>
                                 </li>
                                 <tal:sub_contents tal:condition="python:subcontents">
