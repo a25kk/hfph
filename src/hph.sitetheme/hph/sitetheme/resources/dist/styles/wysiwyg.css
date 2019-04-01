@@ -8556,6 +8556,16 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   line-height: 1.25;
 }
 
+.o-page__asset {
+  width: 100%;
+}
+
+@media (max-width: 47.99em) {
+  .o-page__asset--md {
+    max-width: 50%;
+  }
+}
+
 .o-page__asset--inline {
   margin-bottom: calc(1.25rem * 1.5);
 }

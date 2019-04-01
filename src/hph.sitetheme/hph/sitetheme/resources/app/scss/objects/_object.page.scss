@@ -72,6 +72,16 @@
     line-height: 1.25;
 }
 
+
+.o-page__asset {
+    width: 100%;
+    &--md {
+        @include mq($until: md) {
+            max-width: 50%;
+        }
+    }
+}
+
 .o-page__asset--inline {
     margin-bottom: $app-spacer-base;
     @include mq($from: md) {
