@@ -15,7 +15,6 @@ from hph.lectures.interfaces import ICourseModuleTool
 from hph.lectures.lecture import ILecture
 
 
-
 def _unicode_save_string_concat(*args):
     """ Concat args and return utf-8 strings
         Operates independent of input format (unicode or str)

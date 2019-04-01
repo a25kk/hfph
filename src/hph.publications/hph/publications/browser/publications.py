@@ -14,7 +14,7 @@ class PublicationsListView(BrowserView):
 
     def __call__(self):
         self.has_publications = len(self.publications()) > 0
-        #self.filter = self.request.get('content_filter', None)
+        self.filter = self.request.get('content_filter', None)
         return self.render()
 
     def render(self):
@@ -77,10 +77,10 @@ class PublicationsListView(BrowserView):
             filtered = True
         return filtered
 
-    def computed_klass(self, field_name, value):
-        context = aq_inner(self.context)
-        active_filter = getattr(context, field_name, None)
+    def computed_klass(self, filter_name, value):
         klass = 'c-nav-list__item'
-        if active_filter == value:
-            klass += ' c-nav-list__item--active'
+        if self.filter:
+            active_filter = getattr(self.request, filter_name, value)
+            if active_filter == value:
+                klass += ' c-nav-list__item--active'
         return klass

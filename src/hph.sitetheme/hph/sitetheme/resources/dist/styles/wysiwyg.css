@@ -8353,7 +8353,7 @@ table td,
   border-top: 1px solid #efefef;
 }
 
-@media (max-width: 47.99em) {
+@media (max-width: 61.99em) {
   table th:first-child,
   table td:first-child,
   .o-table th:first-child,
@@ -8546,10 +8546,24 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   margin-bottom: calc(1.25rem * 1.5);
 }
 
+.o-page__section--spacer {
+  margin-bottom: calc(calc(1.25rem * 1.5) * 2);
+}
+
 .o-page__headline {
   padding: .125rem 0;
   color: #182f7a;
   line-height: 1.25;
+}
+
+.o-page__asset {
+  width: 100%;
+}
+
+@media (max-width: 47.99em) {
+  .o-page__asset--md {
+    max-width: 50%;
+  }
 }
 
 .o-page__asset--inline {
@@ -9323,6 +9337,18 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   fill: currentColor;
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.o-icon--size-2 {
+  fill: currentColor;
+  width: 2rem;
+  height: 2rem;
+}
+
+.o-icon--size-3 {
+  fill: currentColor;
+  width: 3rem;
+  height: 3rem;
 }
 
 .o-icon--lg {
