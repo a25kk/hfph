@@ -35,10 +35,18 @@
                 </tal:block>
 
                 <div class="o-grid o-grid--gutter o-grid--lg">
+                    <div class="o-grid__item o-grid__item--width-33">
+                        <div class="o-page__lead-image" tal:condition="view/has_lead_image">
+                            <div class="o-page__asset"
+                                     tal:define="responsive_image python:context.restrictedTraverse('@@figure')(image_field_name='image', caption_field_name='image_caption', scale='ratio-4:3', aspect_ratio='4/3', lqip=True, lazy_load=True)">
+                                <span tal:replace="structure responsive_image" />
+                            </div>
+                        </div>
+                    </div>
                     <div class="o-grid__item o-grid__item--width-66">
                         <div class="c-event-info">
                             <div class="o-grid o-grid--gutter o-grid--md">
-                                <h4 class="o-grid__item o-grid__item--width-33">Veranstaltungsbeginn:</h4>
+                                <h5 class="o-grid__item o-grid__item--width-33 c-event-info__title">Veranstaltungsbeginn:</h5>
                                 <div class="o-grid__item o-grid__item--width-66">
                                     <time tal:attributes="datetime context/start">
                                         <span tal:replace="python:event_start['day_name']" />,
@@ -48,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="o-grid o-grid--gutter o-grid--md">
-                                <h4 class="o-grid__item  o-grid__item--width-33">Veranstaltungsende:</h4>
+                                <h5 class="o-grid__item  o-grid__item--width-33 c-event-info__title ">Veranstaltungsende:</h5>
                                 <div class="o-grid__item o-grid__item--width-66">
                                     <time tal:attributes="datetime context/end">
                                         <span tal:replace="python:event_end['day_name']" />,
@@ -58,24 +66,16 @@
                                 </div>
                             </div>
                             <div class="o-grid o-grid--gutter o-grid--md">
-                                <h4 class="o-grid__item  o-grid__item--width-33">Veranstaltungsort:</h4>
+                                <h5 class="o-grid__item  o-grid__item--width-33 c-event-info__title">Veranstaltungsort:</h5>
                                 <div class="o-grid__item o-grid__item--width-66">
                                     <span tal:replace="python:context.location"></span>
                                 </div>
                             </div>
                             <div class="o-grid o-grid--gutter o-grid--md">
-                                <h4 class="o-grid__item  o-grid__item--width-33">Kategorie:</h4>
+                                <h5 class="o-grid__item  o-grid__item--width-33 c-event-info__title">Kategorie:</h5>
                                 <div class="o-grid__item o-grid__item--width-66">
                                     <p tal:content="python:view.event_type_title()"></p>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="o-grid__item o-grid__item--width-33">
-                        <div class="o-page__lead-image" tal:condition="view/has_lead_image">
-                            <div class="o-page__asset"
-                                     tal:define="responsive_image python:context.restrictedTraverse('@@figure')(image_field_name='image', caption_field_name='image_caption', scale='ratio-4:3', aspect_ratio='4/3', lqip=True, lazy_load=True)">
-                                <span tal:replace="structure responsive_image" />
                             </div>
                         </div>
                     </div>
