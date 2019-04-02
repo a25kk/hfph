@@ -1,4 +1,4 @@
-$o-separator-color:                         $app-color-secondary;
+$o-separator-color:                         $color-gallery;
 $o-separator-margin:                        calc(#{$app-spacer-base} * 1.5);
 $o-separator-width:                         90px;
 $o-separator-height:                        .25rem;
@@ -6,7 +6,7 @@ $o-separator-height:                        .25rem;
 .o-separator {
     position: relative;
     width: 100%;
-    padding-top: $o-separator-margin;
+    padding-top: calc(#{$o-separator-margin} * 1.5);
     &::before {
         content: "";
         position: absolute;

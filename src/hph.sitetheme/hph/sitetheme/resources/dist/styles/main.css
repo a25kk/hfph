@@ -10021,7 +10021,7 @@ input, button, select, textarea {
 .o-separator {
   position: relative;
   width: 100%;
-  padding-top: calc(calc(1.25rem * 1.5) * 1.5);
+  padding-top: calc(calc(calc(1.25rem * 1.5) * 1.5) * 1.5);
 }
 
 .o-separator::before {
@@ -10031,7 +10031,7 @@ input, button, select, textarea {
   left: 0;
   width: 90px;
   height: 0.25rem;
-  background-color: #eed343;
+  background-color: #efefef;
 }
 
 .app-header {
@@ -12445,10 +12445,6 @@ img[data-sizes="auto"] {
 
 .c-card__title {
   font-family: "TAZ";
-}
-
-.c-card__section {
-  margin-bottom: calc(1.25rem * 1.5);
 }
 
 .c-card__section--centered {
