@@ -57,6 +57,10 @@ $c-card-spacer:                         $app-spacer-sm;
     @include when-inside('.c-card--news') {
         font-size: $app-font-size-sm;
     }
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 //** Card footer
