@@ -15,6 +15,12 @@
         <div class="c-card__header">
             <a class="c-card__link" tal:attributes="href python:content['url']">
                 <div class="c-card__kicker">
+                    <tal:event tal:condition="python:content['event_start_date']">
+                        <time tal:define="event_start python:content['event_start_date']"
+                              tal:attributes="datetime python:event_start['date_long']">
+                            <span tal:replace="python:event_start['day']" />.<span tal:replace="python:event_start['month']" />.<span tal:replace="python:event_start['year']" />
+                        </time> |
+                    </tal:event>
                     <tal:event-type tal:condition="python:content['event_type']">
                             <span tal:content="python:content['event_type']">
                                 Event Type
@@ -27,27 +33,9 @@
             </a>
         </div>
         <div class="c-card__section">
-            <div class="c-card__details" tal:condition="python:content['event_start_date']">
-                <tal:event tal:define="event_start python:content['event_start_date']">
-                    <time tal:attributes="datetime python:event_start['date_long']">
-                        <span tal:replace="python:event_start['day_name']" />,
-                        <span tal:replace="python:event_start['day']" />. <span tal:replace="python:event_start['month_name']" />,
-                        <span tal:replace="python:event_start['time']" />
-                    </time>
-                </tal:event>
+            <div class="c-card__details" tal:condition="python:content['event_location']">
+                <span tal:replace="python:content['event_location']" />
             </div>
-        </div>
-        <div class="c-card__footer">
-            <a class="c-card__link" tal:attributes="href python:content['url']">
-                <div class="o-read-more">
-                <span class="o-read-more__icon c-card__icon">
-                    <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--chevron-dims">
-                        <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron"></use>
-                    </svg>
-                </span>
-                    <span class="o-read-more__text c-card__link-text" i18n:translate="">Read more</span>
-                </div>
-            </a>
         </div>
     </div>
 </div>

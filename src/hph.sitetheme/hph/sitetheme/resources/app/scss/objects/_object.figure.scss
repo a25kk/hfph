@@ -1,5 +1,9 @@
 .o-figure {
     display: block;
+    figcaption {
+        font-size: $app-font-size-sm;
+        color: $app-color-gray-lighter;
+    }
 }
 
 .o-figure__placeholder {

@@ -9952,6 +9952,11 @@ input, button, select, textarea {
   display: block;
 }
 
+.o-figure figcaption {
+  font-size: 1rem;
+  color: #999999;
+}
+
 .o-figure__placeholder {
   width: 100%;
   height: 100%;
@@ -13137,7 +13142,7 @@ c-list--bordered .c-list__item:last-of-type {
 .c-event-info__title {
   margin-bottom: 0;
   padding-top: .3rem;
-  font-weight: 600;
+  font-family: "TAZ";
 }
 
 .c-page-header {
