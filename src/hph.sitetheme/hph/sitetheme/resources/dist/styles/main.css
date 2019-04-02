@@ -10054,17 +10054,6 @@ input, button, select, textarea {
   padding-bottom: 1rem;
 }
 
-.template-frontpage-view .app-header {
-  background: transparent;
-}
-
-.template-frontpage-view .app-header--offset {
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#efefef));
-  background: -webkit-linear-gradient(white, #efefef);
-  background: -o-linear-gradient(white, #efefef);
-  background: linear-gradient(white, #efefef);
-}
-
 .portaltype-ade25-panelpage-page .app-header {
   background: white;
 }
@@ -12056,10 +12045,6 @@ img[data-sizes="auto"] {
 
 .c-panels--header {
   background-color: #efefef;
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#efefef));
-  background: -webkit-linear-gradient(white, #efefef);
-  background: -o-linear-gradient(white, #efefef);
-  background: linear-gradient(white, #efefef);
 }
 
 .c-panel {
