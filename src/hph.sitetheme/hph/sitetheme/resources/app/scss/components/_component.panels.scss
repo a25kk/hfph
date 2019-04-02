@@ -91,6 +91,10 @@
     @include when-inside('.c-panel__header:hover') {
         display: $c-panel-action-display;
     }
+    &--fixed-bottom {
+        position: absolute;
+        bottom: 0;
+    }
 }
 
 $c-panel-controls-width: 2rem;
@@ -183,6 +187,11 @@ $c-panel-controls-display:  flex;
 
 .c-panel-editor {
     position: relative;
+    &--centered {
+        margin-right: auto;
+        margin-left: auto;
+        @include make-container-max-widths();
+    }
 }
 
 .c-panel-editor__header {

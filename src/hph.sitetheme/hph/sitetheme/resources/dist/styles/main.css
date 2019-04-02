@@ -12199,6 +12199,11 @@ img[data-sizes="auto"] {
   display: flex;
 }
 
+.c-panel__icon--fixed-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
 .c-panel__controls {
   position: relative;
   left: calc(100% - 2rem);
@@ -12305,6 +12310,35 @@ img[data-sizes="auto"] {
 
 .c-panel-editor {
   position: relative;
+}
+
+.c-panel-editor--centered {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .c-panel-editor--centered {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .c-panel-editor--centered {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .c-panel-editor--centered {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .c-panel-editor--centered {
+    max-width: 1140px;
+  }
 }
 
 .c-panel-editor__header {
