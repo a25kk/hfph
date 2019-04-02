@@ -11,12 +11,12 @@
     background-color: $app-color-gray-light;
     background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
     padding-bottom: 1rem;
-    @include when-inside('.template-frontpage-view') {
-        background: transparent;
-        &--offset {
-            background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
-        }
-    }
+    //@include when-inside('.template-frontpage-view') {
+    //    background: transparent;
+    //    &--offset {
+    //        background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
+    //    }
+    //}
     @include when-inside('.portaltype-ade25-panelpage-page') {
         background: rgba(255,255,255,1);
         &--offset {
