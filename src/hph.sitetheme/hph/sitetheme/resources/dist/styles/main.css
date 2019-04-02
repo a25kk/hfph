@@ -13123,6 +13123,12 @@ c-list--bordered .c-list__item:last-of-type {
   margin-bottom: calc(1.25rem * 1.5);
 }
 
+.c-event-info__title {
+  margin-bottom: 0;
+  padding-top: .3rem;
+  font-weight: 600;
+}
+
 .c-page-header {
   margin: 0 auto 1.5rem;
 }
