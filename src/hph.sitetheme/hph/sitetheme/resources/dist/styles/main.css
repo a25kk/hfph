@@ -10021,7 +10021,7 @@ input, button, select, textarea {
 .o-separator {
   position: relative;
   width: 100%;
-  padding-top: calc(calc(1.25rem * 1.5) * 1.5);
+  padding-top: calc(calc(calc(1.25rem * 1.5) * 1.5) * 1.5);
 }
 
 .o-separator::before {
@@ -10031,7 +10031,7 @@ input, button, select, textarea {
   left: 0;
   width: 90px;
   height: 0.25rem;
-  background-color: #eed343;
+  background-color: #efefef;
 }
 
 .app-header {
@@ -12199,6 +12199,11 @@ img[data-sizes="auto"] {
   display: flex;
 }
 
+.c-panel__icon--fixed-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
 .c-panel__controls {
   position: relative;
   left: calc(100% - 2rem);
@@ -12307,6 +12312,35 @@ img[data-sizes="auto"] {
   position: relative;
 }
 
+.c-panel-editor--centered {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  .c-panel-editor--centered {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .c-panel-editor--centered {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .c-panel-editor--centered {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .c-panel-editor--centered {
+    max-width: 1140px;
+  }
+}
+
 .c-panel-editor__header {
   height: 4rem;
   min-height: 4rem;
@@ -12411,10 +12445,6 @@ img[data-sizes="auto"] {
 
 .c-card__title {
   font-family: "TAZ";
-}
-
-.c-card__section {
-  margin-bottom: calc(1.25rem * 1.5);
 }
 
 .c-card__section--centered {
@@ -13091,6 +13121,12 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-teaser__header {
   margin-bottom: calc(1.25rem * 1.5);
+}
+
+.c-event-info__title {
+  margin-bottom: 0;
+  padding-top: .3rem;
+  font-weight: 600;
 }
 
 .c-page-header {

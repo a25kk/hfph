@@ -313,8 +313,8 @@
         </rules>
 
         <!-- Drop cards -->
-        <drop css:if-not-content=".template-frontpage-view"
-                css:theme="#app-front-page-cards" />
+        <drop css:if-content=".template-frontpage-view"
+                css:theme="#app-sidebar" />
 
         <!-- Alert and portal messages -->
         <strip css:content=".portalMessage dd"/>
