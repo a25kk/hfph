@@ -27,6 +27,7 @@
 
         <div class="o-page__main" tal:define="event_start python:view.time_stamp(context.start); event_end python:view.time_stamp(context.end)">
             <section class="o-page__section">
+
                 <div class="o-grid o-grid--gutter o-grid--lg">
                     <div class="o-grid__item o-grid__item--width-33">
                         <div class="o-page__lead-image" tal:condition="view/has_lead_image">
