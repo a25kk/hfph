@@ -91,6 +91,10 @@
     @include when-inside('.c-panel__header:hover') {
         display: $c-panel-action-display;
     }
+    &--fixed-bottom {
+        position: absolute;
+        bottom: 0;
+    }
 }
 
 $c-panel-controls-width: 2rem;

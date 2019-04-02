@@ -12199,6 +12199,11 @@ img[data-sizes="auto"] {
   display: flex;
 }
 
+.c-panel__icon--fixed-bottom {
+  position: absolute;
+  bottom: 0;
+}
+
 .c-panel__controls {
   position: relative;
   left: calc(100% - 2rem);
