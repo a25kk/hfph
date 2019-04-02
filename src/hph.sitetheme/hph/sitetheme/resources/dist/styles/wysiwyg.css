@@ -8552,7 +8552,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 
 .o-page__headline {
   padding: .125rem 0;
-  color: #182f7a;
+  color: #000;
   line-height: 1.25;
 }
 

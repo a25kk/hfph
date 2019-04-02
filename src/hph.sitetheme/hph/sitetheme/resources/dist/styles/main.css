@@ -8552,7 +8552,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 
 .o-page__headline {
   padding: .125rem 0;
-  color: #182f7a;
+  color: #000;
   line-height: 1.25;
 }
 
@@ -11927,14 +11927,7 @@ img[data-sizes="auto"] {
 }
 
 .c-snippet__title {
-  font-size: 1.5rem;
   font-weight: 600;
-}
-
-@media (max-width: 1200px) {
-  .c-snippet__title {
-    font-size: calc(1.275rem + 0.3vw) ;
-  }
 }
 
 .c-snippet__section {
@@ -12411,7 +12404,7 @@ img[data-sizes="auto"] {
 }
 
 .c-card--news .c-card__main {
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 .c-card__footer {
@@ -12442,6 +12435,7 @@ img[data-sizes="auto"] {
   display: inline-block;
   padding: 0 0 0 .5rem;
   margin-top: .5rem;
+  color: #182f7a;
 }
 
 .c-card__link {
@@ -12456,11 +12450,13 @@ img[data-sizes="auto"] {
 
 .c-card__date {
   font-weight: 100;
-  font-size: 1rem;
+  font-size: 1.25rem;
+  color: #182f7a;
 }
 
 .c-card__title {
   font-family: "TAZ";
+  color: #182f7a;
 }
 
 .c-card__section--centered {
@@ -13137,6 +13133,7 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-teaser__header {
   margin-bottom: calc(1.25rem * 1.5);
+  color: #000;
 }
 
 .c-event-info__title {
@@ -13179,7 +13176,7 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-page-header__headline {
   padding: .125rem 0;
-  color: #182f7a;
+  color: #000;
   line-height: 1.25;
 }
 

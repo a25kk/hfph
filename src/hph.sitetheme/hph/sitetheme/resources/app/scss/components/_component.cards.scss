@@ -55,7 +55,7 @@ $c-card-spacer:                         $app-spacer-sm;
 .c-card__main {
     font-family: $app-font-family-base;
     @include when-inside('.c-card--news') {
-        font-size: $app-font-size-sm;
+        @include font-size($app-font-size-base);
     }
     display: flex;
     height: 100%;
@@ -88,6 +88,7 @@ $c-card-spacer:                         $app-spacer-sm;
         display: inline-block;
         padding: 0 0 0 .5rem;
         margin-top: .5rem;
+        color: $c-card-color-link;
         //width: 2rem;
         //height: 2rem;
     }
@@ -105,7 +106,8 @@ $c-card-spacer:                         $app-spacer-sm;
 
 .c-card__date {
     font-weight: 100;
-    @include font-size($app-font-size-sm);
+    @include font-size($app-font-size-base);
+    color: $c-card-color-link;
 }
 
 
@@ -113,6 +115,7 @@ $c-card-spacer:                         $app-spacer-sm;
 // Card contents
 .c-card__title {
     font-family: $c-card-font-family-base;
+    color: $c-card-color-link;
 }
 
 .c-card__section {
