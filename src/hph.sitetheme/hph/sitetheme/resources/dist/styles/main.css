@@ -12413,10 +12413,6 @@ img[data-sizes="auto"] {
   font-family: "TAZ";
 }
 
-.c-card__section {
-  margin-bottom: calc(1.25rem * 1.5);
-}
-
 .c-card__section--centered {
   text-align: center;
 }

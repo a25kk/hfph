@@ -88,7 +88,7 @@
                 </tal:contexts>
             </div>
         </div>
-        <div class="c-card__section c-card__section--separator">
+        <div class="c-card__section">
             <p class="u-text--word-wrap u-text--compact"
                      tal:condition="context/Description"
                      tal:content="context/Description" />
