@@ -5,12 +5,12 @@
      i18n:domain="hph.widgets">
     <div class="c-snippet__main">
         <div class="c-snippet__header">
-            <h3 class="c-snippet__title">
+            <h2 class="c-snippet__title">
                 <a class="c-snippet__link" tal:attributes="href python:content['url']"
                          tal:content="python:content['title']">
                         ${context/Title}
                 </a>
-            </h3>
+            </h2>
         </div>
         <div class="c-snippet__section">
             <div class="c-snippet__abstract" tal:condition="python:content['description']">
