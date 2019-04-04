@@ -8552,7 +8552,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 
 .o-page__headline {
   padding: .125rem 0;
-  color: #182f7a;
+  color: #000;
   line-height: 1.25;
 }
 
@@ -10030,13 +10030,13 @@ input, button, select, textarea {
 .o-separator {
   position: relative;
   width: 100%;
-  padding-top: calc(calc(calc(1.25rem * 1.5) * 1.5) * 1.5);
+  padding-bottom: calc(calc(calc(1.25rem * 1.5) * 1.5) / 3.5);
 }
 
-.o-separator::before {
+.o-separator:not(:last-child)::after {
   content: "";
   position: absolute;
-  top: calc(calc(calc(1.25rem * 1.5) * 1.5) / 2 - 0.25rem / 2);
+  bottom: 0;
   left: 0;
   width: 90px;
   height: 0.25rem;
@@ -10060,17 +10060,6 @@ input, button, select, textarea {
   background: -o-linear-gradient(white, #efefef);
   background: linear-gradient(white, #efefef);
   padding-bottom: 1rem;
-}
-
-.template-frontpage-view .app-header {
-  background: transparent;
-}
-
-.template-frontpage-view .app-header--offset {
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#efefef));
-  background: -webkit-linear-gradient(white, #efefef);
-  background: -o-linear-gradient(white, #efefef);
-  background: linear-gradient(white, #efefef);
 }
 
 .portaltype-ade25-panelpage-page .app-header {
@@ -11935,14 +11924,7 @@ img[data-sizes="auto"] {
 }
 
 .c-snippet__title {
-  font-size: 1.5rem;
   font-weight: 600;
-}
-
-@media (max-width: 1200px) {
-  .c-snippet__title {
-    font-size: calc(1.275rem + 0.3vw) ;
-  }
 }
 
 .c-snippet__section {
@@ -12071,10 +12053,6 @@ img[data-sizes="auto"] {
 
 .c-panels--header {
   background-color: #efefef;
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#efefef));
-  background: -webkit-linear-gradient(white, #efefef);
-  background: -o-linear-gradient(white, #efefef);
-  background: linear-gradient(white, #efefef);
 }
 
 .c-panel {
@@ -12424,7 +12402,7 @@ img[data-sizes="auto"] {
 }
 
 .c-card--news .c-card__main {
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 .c-card--teaser .c-card__main {
@@ -12459,6 +12437,7 @@ img[data-sizes="auto"] {
   display: inline-block;
   padding: 0 0 0 .5rem;
   margin-top: .5rem;
+  color: #182f7a;
 }
 
 .c-card__link {
@@ -12473,11 +12452,13 @@ img[data-sizes="auto"] {
 
 .c-card__date {
   font-weight: 100;
-  font-size: 1rem;
+  font-size: 1.25rem;
+  color: #182f7a;
 }
 
 .c-card__title {
   font-family: "TAZ";
+  color: #182f7a;
 }
 
 .c-card__section--centered {
@@ -12880,7 +12861,7 @@ img[data-sizes="auto"] {
 }
 
 .c-list__item {
-  margin-bottom: calc(1.25rem * 1.5);
+  margin-bottom: calc(calc(1.25rem * 1.5) * 1.5);
 }
 
 .c-list--grid .c-list__item {
@@ -13154,6 +13135,7 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-teaser__header {
   margin-bottom: calc(1.25rem * 1.5);
+  color: #000;
 }
 
 .c-event-info__title {
@@ -13196,7 +13178,7 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-page-header__headline {
   padding: .125rem 0;
-  color: #182f7a;
+  color: #000;
   line-height: 1.25;
 }
 
