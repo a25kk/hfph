@@ -10026,13 +10026,13 @@ input, button, select, textarea {
 .o-separator {
   position: relative;
   width: 100%;
-  padding-top: calc(calc(calc(1.25rem * 1.5) * 1.5) * 1.5);
+  padding-bottom: calc(calc(calc(1.25rem * 1.5) * 1.5) / 3.5);
 }
 
-.o-separator::before {
+.o-separator:not(:last-child)::after {
   content: "";
   position: absolute;
-  top: calc(calc(calc(1.25rem * 1.5) * 1.5) / 2 - 0.25rem / 2);
+  bottom: 0;
   left: 0;
   width: 90px;
   height: 0.25rem;
@@ -12844,7 +12844,7 @@ img[data-sizes="auto"] {
 }
 
 .c-list__item {
-  margin-bottom: calc(1.25rem * 1.5);
+  margin-bottom: calc(calc(1.25rem * 1.5) * 1.5);
 }
 
 .c-list--grid .c-list__item {

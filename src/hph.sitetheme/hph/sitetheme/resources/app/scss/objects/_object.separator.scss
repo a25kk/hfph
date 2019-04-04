@@ -6,14 +6,16 @@ $o-separator-height:                        .25rem;
 .o-separator {
     position: relative;
     width: 100%;
-    padding-top: calc(#{$o-separator-margin} * 1.5);
-    &::before {
+    padding-bottom: calc(#{$o-separator-margin} / 3.5);
+    &:not(:last-child) {
+        &::after {
         content: "";
         position: absolute;
-        top: calc(#{$o-separator-margin} / 2 - #{$o-separator-height} / 2);
+        bottom: 0;
         left: 0;
         width: $o-separator-width;
         height: $o-separator-height;
         background-color: $o-separator-color;
-    }
+        }
+    } 
 }
