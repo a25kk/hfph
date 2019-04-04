@@ -9688,6 +9688,10 @@ input, button, select, textarea {
   padding-top: calc(1.25rem * 1.5);
 }
 
+.pat-relateditems {
+  height: auto;
+}
+
 /* class applies to select element itself, not a wrapper element */
 .o-select {
   display: block;

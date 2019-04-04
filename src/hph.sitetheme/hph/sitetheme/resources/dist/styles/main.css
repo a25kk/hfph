@@ -9824,6 +9824,10 @@ input, button, select, textarea {
   padding-top: calc(1.25rem * 1.5);
 }
 
+.pat-relateditems {
+  height: auto;
+}
+
 /* class applies to select element itself, not a wrapper element */
 .o-select {
   display: block;
@@ -10037,6 +10041,10 @@ input, button, select, textarea {
   width: 90px;
   height: 0.25rem;
   background-color: #efefef;
+}
+
+.o-separator:first-child {
+  display: none;
 }
 
 .app-header {
@@ -12395,6 +12403,11 @@ img[data-sizes="auto"] {
   display: none;
 }
 
+.c-card--teaser .c-card__header {
+  min-height: 6rem;
+  height: auto;
+}
+
 .c-card__main {
   font-family: "EB Garamond";
   display: -webkit-box;
@@ -12412,6 +12425,10 @@ img[data-sizes="auto"] {
 
 .c-card--news .c-card__main {
   font-size: 1rem;
+}
+
+.c-card--teaser .c-card__main {
+  padding-bottom: calc(1.25rem * 1.5);
 }
 
 .c-card__footer {

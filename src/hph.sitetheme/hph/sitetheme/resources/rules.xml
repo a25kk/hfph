@@ -305,7 +305,7 @@
                     <xsl:attribute name="class">app-main app-main--grid</xsl:attribute>
                 </before>
                 <replace css:content-children="#portal-column-one > *"
-                         css:theme-children="#app-sidebar-content" />
+                         css:theme-children="#app-sidebar" />
                 <replace css:content-children="#content"
                          css:theme-children="#content"
                 />

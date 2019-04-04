@@ -44,10 +44,9 @@ $c-card-spacer:                         $app-spacer-sm;
     &--faculty {
         display: none;
     }
-    @include when-inside('.c-card--banner') {
-        @include mq($from: md) {
-            //min-height: 13rem;
-        }
+    @include when-inside('.c-card--teaser') {
+        min-height: 6rem;
+        height: auto;
     }
 }
 
@@ -61,6 +60,9 @@ $c-card-spacer:                         $app-spacer-sm;
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
+    @include when-inside('.c-card--teaser') {
+        padding-bottom: $app-spacer-base;
+    }
 }
 
 //** Card footer

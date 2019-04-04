@@ -16,4 +16,7 @@ $o-separator-height:                        .25rem;
         height: $o-separator-height;
         background-color: $o-separator-color;
     }
+    &:first-child {
+        display: none;
+    }
 }
