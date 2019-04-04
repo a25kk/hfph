@@ -1,7 +1,6 @@
 define([
-    "jquery",
     "/scripts/utils.js"
-], function($, utils) {
+], function(utils) {
 
     var navBar = {};
 
@@ -170,7 +169,8 @@ define([
             if ((event.key === 'Escape' || event.key === 'Esc' || event.keyCode === 27)) {
                 event.preventDefault();
                 if (navBarIsActive) {
-                    deactivateNavigation(options);
+                    // deactivateNavigation(options);
+                    navigationToggleHandler(event.target, options);
                     bodyElement.style.top = 0;
                     window.scrollTo(0, contentScrollPosition);
                 }
@@ -182,7 +182,8 @@ define([
             if (!event.target.closest(options.navBar)) {
                 // Handle already active navigation elements
                 if (navBarIsActive && !event.target.classList.contains(options.navBarToggle)) {
-                    deactivateNavigation(options);
+                    // deactivateNavigation(options);
+                    navigationToggleHandler(event.target, options);
                     bodyElement.style.top = 0;
                     window.scrollTo(0, contentScrollPosition);
                 }

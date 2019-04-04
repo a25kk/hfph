@@ -10043,10 +10043,6 @@ input, button, select, textarea {
   background-color: #efefef;
 }
 
-.o-separator:first-child {
-  display: none;
-}
-
 .app-header {
   position: fixed;
   top: 0;
