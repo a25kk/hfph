@@ -685,7 +685,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "EB Garamond", Trebuchet MS;
+  --font-family-sans-serif: "adobe-garamond-pro", Trebuchet MS;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -709,7 +709,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "EB Garamond", "EB Garamond", Trebuchet MS;
+  font-family: "adobe-garamond-pro", "adobe-garamond-pro", Trebuchet MS;
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.5;
@@ -8142,7 +8142,7 @@ html {
   /* [3] */
   color: #212529;
   width: 100%;
-  font-family: "EB Garamond";
+  font-family: "adobe-garamond-pro";
   font-weight: 300;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -9548,7 +9548,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 input, button, select, textarea {
-  font-family: "EB Garamond";
+  font-family: "adobe-garamond-pro";
 }
 
 .o-form {
@@ -9634,7 +9634,7 @@ input, button, select, textarea {
 
 .o-form__help {
   display: block;
-  font-family: "EB Garamond";
+  font-family: "adobe-garamond-pro";
   font-size: 1.25rem;
   color: #5a5f64;
 }
@@ -11153,7 +11153,7 @@ img[data-sizes="auto"] {
   display: block;
   text-decoration: none;
   color: #fff;
-  font-family: "EB Garamond";
+  font-family: "adobe-garamond-pro";
   text-transform: none;
   font-weight: 400;
   line-height: 1;
@@ -12383,7 +12383,7 @@ img[data-sizes="auto"] {
 }
 
 .c-card__main {
-  font-family: "EB Garamond";
+  font-family: "adobe-garamond-pro";
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12608,7 +12608,7 @@ img[data-sizes="auto"] {
 .c-toc--level-1 {
   display: none;
   text-transform: none;
-  font-family: "EB Garamond";
+  font-family: "adobe-garamond-pro";
 }
 
 @media (max-width: 47.99em) {
