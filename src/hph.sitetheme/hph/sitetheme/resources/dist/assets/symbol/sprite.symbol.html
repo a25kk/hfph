@@ -29,7 +29,6 @@ They might well be outsourced to an external stylesheet of course.
 	o-icon__icon-ui-plus-dims { width: 64px; height: 64px; }
 	o-icon__icon-ui-plus-sign-dims { width: 64px; height: 64px; }
 	o-icon__icon-ui-see-dims { width: 64px; height: 64px; }
-	o-icon__icon-ui-tile-dims { width: 100px; height: 100px; }
 	o-icon__icon-widget-text-block-dims { width: 64px; height: 64px; }
 	o-icon__ui--add-dims { width: 512px; height: 512px; }
 	o-icon__ui--alert-dims { width: 512px; height: 512px; }
@@ -39,16 +38,21 @@ They might well be outsourced to an external stylesheet of course.
 	o-icon__ui--chevron-left-dims { width: 512px; height: 512px; }
 	o-icon__ui--close-dims { width: 36px; height: 36px; }
 	o-icon__ui--dots-dims { width: 36px; height: 36px; }
+	o-icon__ui--globe-dims { width: 512px; height: 512px; }
 	o-icon__ui--information-dims { width: 512px; height: 512px; }
 	o-icon__ui--minus-dims { width: 100px; height: 100px; }
+	o-icon__ui--more-horizontal-dims { width: 512px; height: 512px; }
+	o-icon__ui--more-vertical-dims { width: 512px; height: 512px; }
 	o-icon__ui--pen-dims { width: 36px; height: 36px; }
 	o-icon__ui--people-dims { width: 512px; height: 512px; }
 	o-icon__ui--plus-dims { width: 64px; height: 64px; }
 	o-icon__ui--print-dims { width: 512px; height: 512px; }
 	o-icon__ui--remove-dims { width: 512px; height: 512px; }
 	o-icon__ui--timer-dims { width: 512px; height: 512px; }
+	o-icon__ui--trash-dims { width: 512px; height: 512px; }
 	o-icon__ui--warning-dims { width: 36px; height: 36px; }
 	o-icon__widget--text-block-dims { width: 64px; height: 64px; }
+	o-icon__widget--tile-dims { width: 100px; height: 100px; }
 </style>
 <!--
 ====================================================================================================
@@ -81,26 +85,30 @@ for further details on how to create this embeddable sprite variant.
 		<symbol id="icon-ui-plus" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><style>.ahst3{fill:none;stroke:#4a4a4a;stroke-width:2;stroke-miterlimit:10}</style><path d="M14.157 32h35.686M32 14.157v35.686" class="ahst3"/></symbol>
 		<symbol id="icon-ui-plus-sign" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><style>.aist4{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#4a4a4a;stroke-width:2;stroke-miterlimit:10}</style><circle cx="32" cy="32" r="19.677" fill="none" stroke="#4a4a4a" stroke-miterlimit="10" stroke-width="2"/><path d="M23.337 32h17.326M32 23.337v17.326" class="aist4"/></symbol>
 		<symbol id="icon-ui-see" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><style>.ajst3{fill:none;stroke:#4a4a4a;stroke-width:2;stroke-miterlimit:10}</style><path d="M54.094 32S44.202 45.824 32 45.824 9.906 32 9.906 32 19.798 18.176 32 18.176 54.094 32 54.094 32z" class="ajst3"/><circle cx="32" cy="32" r="13.824" class="ajst3"/><circle cx="32" cy="32" r="3.206" fill="#4a4a4a"/></symbol>
-		<symbol class="ako-icon--svg" id="icon-ui-tile" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><style>.ako-icon__tile--path{fill:none;stroke:currentColor;stroke-width:2;stroke-miterlimit:10}</style><path d="M13 13h16.215v16.858H13zm21.785 0H51v16.858H34.785zM13 34.142h16.215V51H13zm21.785 0H51V51H34.785z" class="ako-icon__tile--path"/></symbol>
 		<symbol viewBox="0 0 64 64" id="icon-widget-text-block" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M49.29 11.052H14.71v7.773h13.728v34.123h7.772V18.825h13.08z"/></symbol>
-		<symbol class="amicon--add" viewBox="0 0 512 512" id="ui--add" xmlns="http://www.w3.org/2000/svg"><path d="M368.5 240H272v-96.5c0-8.8-7.2-16-16-16s-16 7.2-16 16V240h-96.5c-8.8 0-16 7.2-16 16 0 4.4 1.8 8.4 4.7 11.3 2.9 2.9 6.9 4.7 11.3 4.7H240v96.5c0 4.4 1.8 8.4 4.7 11.3 2.9 2.9 6.9 4.7 11.3 4.7 8.8 0 16-7.2 16-16V272h96.5c8.8 0 16-7.2 16-16s-7.2-16-16-16z"/></symbol>
-		<symbol class="anicon--alert" viewBox="0 0 512 512" id="ui--alert" xmlns="http://www.w3.org/2000/svg"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm17.2 109.6l-3.1 115.1c-.2 8.2-5.9 14.8-14.1 14.8s-13.9-6.6-14.1-14.8l-3.1-115.1c-.2-9.6 7.5-17.6 17.2-17.6 9.6 0 17.4 7.9 17.2 17.6zM256 354c-10.7 0-19.1-8.1-19.1-18.4s8.4-18.4 19.1-18.4c10.7 0 19.1 8.1 19.1 18.4S266.7 354 256 354z"/></symbol>
+		<symbol class="alicon--add" viewBox="0 0 512 512" id="ui--add" xmlns="http://www.w3.org/2000/svg"><path d="M368.5 240H272v-96.5c0-8.8-7.2-16-16-16s-16 7.2-16 16V240h-96.5c-8.8 0-16 7.2-16 16 0 4.4 1.8 8.4 4.7 11.3 2.9 2.9 6.9 4.7 11.3 4.7H240v96.5c0 4.4 1.8 8.4 4.7 11.3 2.9 2.9 6.9 4.7 11.3 4.7 8.8 0 16-7.2 16-16V272h96.5c8.8 0 16-7.2 16-16s-7.2-16-16-16z"/></symbol>
+		<symbol class="amicon--alert" viewBox="0 0 512 512" id="ui--alert" xmlns="http://www.w3.org/2000/svg"><path d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm17.2 109.6l-3.1 115.1c-.2 8.2-5.9 14.8-14.1 14.8s-13.9-6.6-14.1-14.8l-3.1-115.1c-.2-9.6 7.5-17.6 17.2-17.6 9.6 0 17.4 7.9 17.2 17.6zM256 354c-10.7 0-19.1-8.1-19.1-18.4s8.4-18.4 19.1-18.4c10.7 0 19.1 8.1 19.1 18.4S266.7 354 256 354z"/></symbol>
 		<symbol viewBox="0 0 512 512" id="ui--calendar" xmlns="http://www.w3.org/2000/svg"><path d="M424 96h-40v24c0 4.4-3.6 8-8 8h-16c-4.4 0-8-3.6-8-8V96H160v24c0 4.4-3.6 8-8 8h-16c-4.4 0-8-3.6-8-8V96H88c-22 0-40 18-40 40v272c0 22 18 40 40 40h336c22 0 40-18 40-40V136c0-22-18-40-40-40zm8 300c0 11-9 20-20 20H100c-11 0-20-9-20-20V216c0-4.4 3.6-8 8-8h336c4.4 0 8 3.6 8 8v180zM160 72c0-4.4-3.6-8-8-8h-16c-4.4 0-8 3.6-8 8v24h32V72zm224 0c0-4.4-3.6-8-8-8h-16c-4.4 0-8 3.6-8 8v24h32V72z"/></symbol>
 		<symbol viewBox="0 0 512 512" id="ui--check" xmlns="http://www.w3.org/2000/svg"><path d="M362.6 192.9L345 174.8c-.7-.8-1.8-1.2-2.8-1.2-1.1 0-2.1.4-2.8 1.2l-122 122.9-44.4-44.4c-.8-.8-1.8-1.2-2.8-1.2-1 0-2 .4-2.8 1.2l-17.8 17.8c-1.6 1.6-1.6 4.1 0 5.7l56 56c3.6 3.6 8 5.7 11.7 5.7 5.3 0 9.9-3.9 11.6-5.5h.1l133.7-134.4c1.4-1.7 1.4-4.2-.1-5.7z"/><path d="M256 76c48.1 0 93.3 18.7 127.3 52.7S436 207.9 436 256s-18.7 93.3-52.7 127.3S304.1 436 256 436c-48.1 0-93.3-18.7-127.3-52.7S76 304.1 76 256s18.7-93.3 52.7-127.3S207.9 76 256 76m0-28C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48z"/></symbol>
-		<symbol class="aqicon--chevron" viewBox="0 0 36 36" id="ui--chevron" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 26.707l-1.414-1.414L20.586 18l-7.293-7.293 1.414-1.414L23.414 18z"/></symbol>
-		<symbol class="aricon--chevron-left" viewBox="0 0 512 512" id="ui--chevron-left" xmlns="http://www.w3.org/2000/svg"><path d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"/></symbol>
-		<symbol class="asapp-nav__toggle-icon" viewBox="0 0 36 36" id="ui--close" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M27.899 9.515l-1.414-1.414L18 16.586 9.514 8.101 8.1 9.515 16.586 18 8.1 26.486 9.514 27.9 18 19.414l8.485 8.486 1.414-1.414L19.414 18z"/></symbol>
+		<symbol class="apicon--chevron" viewBox="0 0 36 36" id="ui--chevron" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M14.707 26.707l-1.414-1.414L20.586 18l-7.293-7.293 1.414-1.414L23.414 18z"/></symbol>
+		<symbol class="aqicon--chevron-left" viewBox="0 0 512 512" id="ui--chevron-left" xmlns="http://www.w3.org/2000/svg"><path d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"/></symbol>
+		<symbol class="arapp-nav__toggle-icon" viewBox="0 0 36 36" id="ui--close" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M27.899 9.515l-1.414-1.414L18 16.586 9.514 8.101 8.1 9.515 16.586 18 8.1 26.486 9.514 27.9 18 19.414l8.485 8.486 1.414-1.414L19.414 18z"/></symbol>
 		<symbol viewBox="0 0 36 36" id="ui--dots" xmlns="http://www.w3.org/2000/svg"><path d="M8 16c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4M8 26c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4M8 6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4m10-6c-1.103 0-2 .897-2 2s.897 2 2 2 2-.897 2-2-.897-2-2-2m0 6c-2.206 0-4-1.794-4-4s1.794-4 4-4 4 1.794 4 4-1.794 4-4 4" fill-rule="evenodd"/></symbol>
+		<symbol class="aticon--globe" viewBox="0 0 512 512" id="ui--globe" xmlns="http://www.w3.org/2000/svg"><path d="M256 48h-.7c-55.4.2-107.4 21.9-146.6 61.1C69.6 148.4 48 200.5 48 256s21.6 107.6 60.8 146.9c39.1 39.2 91.2 60.9 146.6 61.1h.7c114.7 0 208-93.3 208-208S370.7 48 256 48zm180.2 194h-77.6c-.9-26.7-4.2-52.2-9.8-76.2 17.1-5.5 33.7-12.5 49.7-21 22 28.2 35 61.6 37.7 97.2zM242 242h-61.8c.8-24.5 3.8-47.7 8.8-69.1 17.4 3.9 35.1 6.3 53 7.1v62zm0 28v61.9c-17.8.8-35.6 3.2-53 7.1-5-21.4-8-44.6-8.8-69H242zm28 0h61.3c-.8 24.4-3.8 47.6-8.8 68.9-17.2-3.9-34.8-6.2-52.5-7V270zm0-28v-62c17.8-.8 35.4-3.2 52.5-7 5 21.4 8 44.5 8.8 69H270zm109.4-117.9c-12.3 6.1-25 11.3-38 15.5-7.1-21.4-16.1-39.9-26.5-54.5 24 8.3 45.9 21.6 64.5 39zM315 146.8c-14.7 3.2-29.8 5.2-45 6V79.4c17 9.2 33.6 33.9 45 67.4zM242 79v73.7c-15.4-.8-30.6-2.8-45.5-6.1 11.6-33.8 28.4-58.5 45.5-67.6zm-45.6 6.4c-10.3 14.5-19.2 32.9-26.3 54.1-12.8-4.2-25.4-9.4-37.5-15.4 18.4-17.3 40.1-30.5 63.8-38.7zm-82.9 59.5c15.8 8.4 32.3 15.4 49.2 20.8-5.7 23.9-9 49.5-9.8 76.2h-77c2.6-35.4 15.6-68.8 37.6-97zM75.8 270h77c.9 26.7 4.2 52.3 9.8 76.2-16.9 5.5-33.4 12.5-49.2 20.8-21.9-28.1-34.9-61.5-37.6-97zm56.7 117.9c12.1-6 24.7-11.2 37.6-15.4 7.1 21.3 16 39.6 26.3 54.2-23.7-8.4-45.4-21.5-63.9-38.8zm64-22.6c14.9-3.3 30.2-5.3 45.5-6.1V433c-17.2-9.1-33.9-33.9-45.5-67.7zm73.5 67.3v-73.5c15.2.8 30.3 2.8 45 6-11.4 33.6-28 58.3-45 67.5zm45-5.7c10.4-14.6 19.4-33.1 26.5-54.5 13 4.2 25.8 9.5 38 15.6-18.6 17.3-40.6 30.6-64.5 38.9zm83.5-59.8c-16-8.5-32.6-15.5-49.7-21 5.6-23.9 8.9-49.4 9.8-76.1h77.6c-2.7 35.5-15.6 68.9-37.7 97.1z"/></symbol>
 		<symbol class="auicon--information" viewBox="0 0 512 512" id="ui--information" xmlns="http://www.w3.org/2000/svg"><path d="M235.4 176c0-11.4 9.3-19.9 20.5-19.9 11.4 0 20.7 8.5 20.7 19.9s-9.3 20-20.7 20c-11.2.1-20.5-8.6-20.5-20zm1.4 35.8H275v144.1h-38.2V211.8z"/></symbol>
 		<symbol class="avicon--minus" id="ui--minus" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><style/><path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="2" d="M14.157 32h35.686"/></symbol>
+		<symbol class="awicon--more-horizontal" viewBox="0 0 512 512" id="ui--more-horizontal" xmlns="http://www.w3.org/2000/svg"><path d="M255.8 218c-21 0-38 17-38 38s17 38 38 38 38-17 38-38-17-38-38-38zM102 218c-21 0-38 17-38 38s17 38 38 38 38-17 38-38-17-38-38-38zm308 0c-21 0-38 17-38 38s17 38 38 38 38-17 38-38-17-38-38-38z"/></symbol>
+		<symbol class="axicon--more" viewBox="0 0 512 512" id="ui--more-vertical" xmlns="http://www.w3.org/2000/svg"><path d="M296 136c0-22.002-17.998-40-40-40s-40 17.998-40 40 17.998 40 40 40 40-17.998 40-40zm0 240c0-22.002-17.998-40-40-40s-40 17.998-40 40 17.998 40 40 40 40-17.998 40-40zm0-120c0-22.002-17.998-40-40-40s-40 17.998-40 40 17.998 40 40 40 40-17.998 40-40z"/></symbol>
 		<symbol viewBox="0 0 36 36" id="ui--pen" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.934 27H9v-2.723l10.931-10.879 2.855 2.776L11.934 27zm14.45-20.001l2.828 2.828-4.985 4.986-2.829-2.829 4.986-4.985zm2.551 5.933l1.691-1.691c.78-.78.78-2.048 0-2.828l-2.829-2.829c-.755-.755-2.125-.756-2.88 0L7 23.449v4.031l-1.76 1.813 1.441 1.361L8.31 29h4.453l14.76-14.706 1.48 1.507-4.588 4.6 1.414 1.421 4.587-4.584c.377-.377.585-.877.585-1.412 0-.536-.208-1.037-.585-1.414l-1.48-1.48z"/></symbol>
-		<symbol class="axicon--people" viewBox="0 0 512 512" id="ui--people" xmlns="http://www.w3.org/2000/svg"><path d="M349.1 334.7c-11.2-4-29.5-4.2-37.6-7.3-5.6-2.2-14.5-4.6-17.4-8.1-2.9-3.5-2.9-28.5-2.9-28.5s7-6.6 9.9-14c2.9-7.3 4.8-27.5 4.8-27.5s6.6 2.8 9.2-10.4c2.2-11.4 6.4-17.4 5.3-25.8-1.2-8.4-5.8-6.4-5.8-6.4s5.8-8.5 5.8-37.4c0-29.8-22.5-59.1-64.6-59.1-42 0-64.7 29.4-64.7 59.1 0 28.9 5.7 37.4 5.7 37.4s-4.7-2-5.8 6.4c-1.2 8.4 3 14.4 5.3 25.8 2.6 13.3 9.2 10.4 9.2 10.4s1.9 20.1 4.8 27.5c2.9 7.4 9.9 14 9.9 14s0 25-2.9 28.5-11.8 5.9-17.4 8c-8 3.1-26.3 3.5-37.6 7.5-11.2 4-45.8 22.2-45.8 67.2h278.3c.1-45.1-34.5-63.3-45.7-67.3z"/><path d="M140 286s23.9-.8 33.4-9.3c-15.5-23.5-7.1-50.9-10.3-76.5-3.2-25.5-17.7-40.8-46.7-40.8h-.4c-28 0-43.1 15.2-46.3 40.8-3.2 25.5 5.7 56-10.2 76.5C69 285.3 93 285 93 285s1 14.4-1 16.8c-2 2.4-7.9 4.7-12 5.5-8.8 1.9-18.1 4.5-25.9 7.2-7.8 2.7-22.6 17.2-22.6 37.2h80.3c2.2-8 17.3-22.3 32-29.8 9-4.6 17.9-4.3 24.7-5.2 0 0 3.8-6-8.7-8.3 0 0-17.2-4.3-19.2-6.7-1.9-2.2-.6-15.7-.6-15.7zm232 0s-23.9-.8-33.4-9.3c15.5-23.5 7.1-50.9 10.3-76.5 3.2-25.5 17.7-40.8 46.7-40.8h.4c28 0 43.1 15.2 46.3 40.8 3.2 25.5-5.7 56 10.2 76.5-9.5 8.6-33.5 8.3-33.5 8.3s-1 14.4 1 16.8c2 2.4 7.9 4.7 12 5.5 8.8 1.9 18.1 4.5 25.9 7.2 7.8 2.7 22.6 17.2 22.6 37.2h-80.3c-2.2-8-17.3-22.3-32-29.8-9-4.6-17.9-4.3-24.7-5.2 0 0-3.8-6 8.7-8.3 0 0 17.2-4.3 19.2-6.7 1.9-2.2.6-15.7.6-15.7z"/></symbol>
-		<symbol class="ayicon--plus" id="ui--plus" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><style>.ayicon-plus__path{fill:currentColor;stroke:currentColor;stroke-width:2;stroke-miterlimit:10}</style><path d="M14.157 32h35.686M32 14.157v35.686" class="ayicon-plus__path"/></symbol>
-		<symbol class="azicon--print" viewBox="0 0 512 512" id="ui--print" xmlns="http://www.w3.org/2000/svg"><path d="M128 248v200c0 8.8 7.2 16 16 16h224c8.8 0 16-7.2 16-16V248c0-8.8-7.2-16-16-16H144c-8.8 0-16 7.2-16 16zM384 48H128c-8.8 0-16 7.2-16 16v20c0 2.2 1.8 4 4 4h280c2.2 0 4-1.8 4-4V64c0-8.8-7.2-16-16-16z"/><path d="M432.5 112h-352C62.9 112 48 125.8 48 143.3v174.4c0 17.5 14.9 32.3 32.5 32.3H96c4.4 0 8-3.6 8-8V236c0-15.5 12.5-28 28-28h248c15.5 0 28 12.5 28 28v106c0 4.4 3.6 8 8 8h16.5c17.6 0 31.5-14.8 31.5-32.3V143.3c0-17.5-13.9-31.3-31.5-31.3z"/></symbol>
-		<symbol class="baicon--remove" viewBox="0 0 512 512" id="ui--remove" xmlns="http://www.w3.org/2000/svg"><path d="M368.5 240h-225c-8.8 0-16 7.2-16 16 0 4.4 1.8 8.4 4.7 11.3 2.9 2.9 6.9 4.7 11.3 4.7h225c8.8 0 16-7.2 16-16s-7.2-16-16-16z"/></symbol>
+		<symbol class="azicon--people" viewBox="0 0 512 512" id="ui--people" xmlns="http://www.w3.org/2000/svg"><path d="M349.1 334.7c-11.2-4-29.5-4.2-37.6-7.3-5.6-2.2-14.5-4.6-17.4-8.1-2.9-3.5-2.9-28.5-2.9-28.5s7-6.6 9.9-14c2.9-7.3 4.8-27.5 4.8-27.5s6.6 2.8 9.2-10.4c2.2-11.4 6.4-17.4 5.3-25.8-1.2-8.4-5.8-6.4-5.8-6.4s5.8-8.5 5.8-37.4c0-29.8-22.5-59.1-64.6-59.1-42 0-64.7 29.4-64.7 59.1 0 28.9 5.7 37.4 5.7 37.4s-4.7-2-5.8 6.4c-1.2 8.4 3 14.4 5.3 25.8 2.6 13.3 9.2 10.4 9.2 10.4s1.9 20.1 4.8 27.5c2.9 7.4 9.9 14 9.9 14s0 25-2.9 28.5-11.8 5.9-17.4 8c-8 3.1-26.3 3.5-37.6 7.5-11.2 4-45.8 22.2-45.8 67.2h278.3c.1-45.1-34.5-63.3-45.7-67.3z"/><path d="M140 286s23.9-.8 33.4-9.3c-15.5-23.5-7.1-50.9-10.3-76.5-3.2-25.5-17.7-40.8-46.7-40.8h-.4c-28 0-43.1 15.2-46.3 40.8-3.2 25.5 5.7 56-10.2 76.5C69 285.3 93 285 93 285s1 14.4-1 16.8c-2 2.4-7.9 4.7-12 5.5-8.8 1.9-18.1 4.5-25.9 7.2-7.8 2.7-22.6 17.2-22.6 37.2h80.3c2.2-8 17.3-22.3 32-29.8 9-4.6 17.9-4.3 24.7-5.2 0 0 3.8-6-8.7-8.3 0 0-17.2-4.3-19.2-6.7-1.9-2.2-.6-15.7-.6-15.7zm232 0s-23.9-.8-33.4-9.3c15.5-23.5 7.1-50.9 10.3-76.5 3.2-25.5 17.7-40.8 46.7-40.8h.4c28 0 43.1 15.2 46.3 40.8 3.2 25.5-5.7 56 10.2 76.5-9.5 8.6-33.5 8.3-33.5 8.3s-1 14.4 1 16.8c2 2.4 7.9 4.7 12 5.5 8.8 1.9 18.1 4.5 25.9 7.2 7.8 2.7 22.6 17.2 22.6 37.2h-80.3c-2.2-8-17.3-22.3-32-29.8-9-4.6-17.9-4.3-24.7-5.2 0 0-3.8-6 8.7-8.3 0 0 17.2-4.3 19.2-6.7 1.9-2.2.6-15.7.6-15.7z"/></symbol>
+		<symbol class="baicon--plus" id="ui--plus" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><style>.baicon-plus__path{fill:currentColor;stroke:currentColor;stroke-width:2;stroke-miterlimit:10}</style><path d="M14.157 32h35.686M32 14.157v35.686" class="baicon-plus__path"/></symbol>
+		<symbol class="bbicon--print" viewBox="0 0 512 512" id="ui--print" xmlns="http://www.w3.org/2000/svg"><path d="M128 248v200c0 8.8 7.2 16 16 16h224c8.8 0 16-7.2 16-16V248c0-8.8-7.2-16-16-16H144c-8.8 0-16 7.2-16 16zM384 48H128c-8.8 0-16 7.2-16 16v20c0 2.2 1.8 4 4 4h280c2.2 0 4-1.8 4-4V64c0-8.8-7.2-16-16-16z"/><path d="M432.5 112h-352C62.9 112 48 125.8 48 143.3v174.4c0 17.5 14.9 32.3 32.5 32.3H96c4.4 0 8-3.6 8-8V236c0-15.5 12.5-28 28-28h248c15.5 0 28 12.5 28 28v106c0 4.4 3.6 8 8 8h16.5c17.6 0 31.5-14.8 31.5-32.3V143.3c0-17.5-13.9-31.3-31.5-31.3z"/></symbol>
+		<symbol class="bcicon--remove" viewBox="0 0 512 512" id="ui--remove" xmlns="http://www.w3.org/2000/svg"><path d="M368.5 240h-225c-8.8 0-16 7.2-16 16 0 4.4 1.8 8.4 4.7 11.3 2.9 2.9 6.9 4.7 11.3 4.7h225c8.8 0 16-7.2 16-16s-7.2-16-16-16z"/></symbol>
 		<symbol viewBox="0 0 512 512" id="ui--timer" xmlns="http://www.w3.org/2000/svg"><path d="M256 456c-110.3 0-200-89.7-200-200 0-54.8 21.7-105.9 61.2-144 6.4-6.2 16.6-6 22.7.4 6.2 6.4 6 16.6-.4 22.7-33.1 32-51.3 74.9-51.3 120.9 0 92.5 75.3 167.8 167.8 167.8S423.8 348.5 423.8 256c0-87.1-66.7-159-151.8-167.1v62.6c0 8.9-7.2 16.1-16.1 16.1s-16.1-7.2-16.1-16.1V72.1c0-8.9 7.2-16.1 16.1-16.1 110.3 0 200 89.7 200 200S366.3 456 256 456z"/><path d="M175.9 161.9l99.5 71.5c13.5 9.7 16.7 28.5 7 42s-28.5 16.7-42 7c-2.8-2-5.2-4.4-7-7l-71.5-99.5c-3.2-4.5-2.2-10.8 2.3-14 3.6-2.6 8.3-2.4 11.7 0z"/></symbol>
+		<symbol class="beicon--trash" viewBox="0 0 512 512" id="ui--trash" xmlns="http://www.w3.org/2000/svg"><path d="M133.1 128l23.6 290.7c0 16.2 13.1 29.3 29.3 29.3h141c16.2 0 29.3-13.1 29.3-29.3L379.6 128H133.1zm61.6 265L188 160h18.5l6.9 233h-18.7zm70.3 0h-18V160h18v233zm52.3 0h-18.6l6.8-233H324l-6.7 233zM364 92h-36l-26.3-23c-3.7-3.2-8.4-5-13.2-5h-64.8c-4.9 0-9.7 1.8-13.4 5L184 92h-36c-17.6 0-30 8.4-30 26h276c0-17.6-12.4-26-30-26z"/></symbol>
 		<symbol viewBox="0 0 36 36" id="ui--warning" xmlns="http://www.w3.org/2000/svg"><g fill-rule="evenodd"><path d="M6.714 29h22.572L18 9.032 6.714 29zm26 2H3.286L18 4.968 32.714 31z"/><path d="M19.5 26a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 19.5 26zM17 23h2v-9h-2z"/></g></symbol>
 		<symbol viewBox="0 0 64 64" id="widget--text-block" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M49.29 11.052H14.71v7.773h13.728v34.123h7.772V18.825h13.08z"/></symbol>
+		<symbol class="bho-icon--svg" id="widget--tile" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><style>.bho-icon__tile--path{fill:none;stroke:currentColor;stroke-width:2;stroke-miterlimit:10}</style><path d="M13 13h16.215v16.858H13zm21.785 0H51v16.858H34.785zM13 34.142h16.215V51H13zm21.785 0H51V51H34.785z" class="bho-icon__tile--path"/></symbol>
 </svg>
 
 <!--
@@ -240,17 +248,6 @@ embedded above. They may be styled via CSS.
 					</div>
 					<h2>icon-ui-see</h2>
 				</li>
-				<li title="icon-ui-tile">
-					<div class="icon-box">
-						
-						<!-- icon-ui-tile -->
-						<svg class="o-icon__icon-ui-tile-dims">
-							<use xlink:href="#icon-ui-tile"></use>
-						</svg>
-						
-					</div>
-					<h2>icon-ui-tile</h2>
-				</li>
 				<li title="icon-widget-text-block">
 					<div class="icon-box">
 						
@@ -350,6 +347,17 @@ embedded above. They may be styled via CSS.
 					</div>
 					<h2>ui--dots</h2>
 				</li>
+				<li title="ui--globe">
+					<div class="icon-box">
+						
+						<!-- ui--globe -->
+						<svg class="o-icon__ui--globe-dims">
+							<use xlink:href="#ui--globe"></use>
+						</svg>
+						
+					</div>
+					<h2>ui--globe</h2>
+				</li>
 				<li title="ui--information">
 					<div class="icon-box">
 						
@@ -371,6 +379,28 @@ embedded above. They may be styled via CSS.
 						
 					</div>
 					<h2>ui--minus</h2>
+				</li>
+				<li title="ui--more-horizontal">
+					<div class="icon-box">
+						
+						<!-- ui--more-horizontal -->
+						<svg class="o-icon__ui--more-horizontal-dims">
+							<use xlink:href="#ui--more-horizontal"></use>
+						</svg>
+						
+					</div>
+					<h2>ui--more-horizontal</h2>
+				</li>
+				<li title="ui--more-vertical">
+					<div class="icon-box">
+						
+						<!-- ui--more-vertical -->
+						<svg class="o-icon__ui--more-vertical-dims">
+							<use xlink:href="#ui--more-vertical"></use>
+						</svg>
+						
+					</div>
+					<h2>ui--more-vertical</h2>
 				</li>
 				<li title="ui--pen">
 					<div class="icon-box">
@@ -438,6 +468,17 @@ embedded above. They may be styled via CSS.
 					</div>
 					<h2>ui--timer</h2>
 				</li>
+				<li title="ui--trash">
+					<div class="icon-box">
+						
+						<!-- ui--trash -->
+						<svg class="o-icon__ui--trash-dims">
+							<use xlink:href="#ui--trash"></use>
+						</svg>
+						
+					</div>
+					<h2>ui--trash</h2>
+				</li>
 				<li title="ui--warning">
 					<div class="icon-box">
 						
@@ -459,6 +500,17 @@ embedded above. They may be styled via CSS.
 						
 					</div>
 					<h2>widget--text-block</h2>
+				</li>
+				<li title="widget--tile">
+					<div class="icon-box">
+						
+						<!-- widget--tile -->
+						<svg class="o-icon__widget--tile-dims">
+							<use xlink:href="#widget--tile"></use>
+						</svg>
+						
+					</div>
+					<h2>widget--tile</h2>
 				</li>
 			</ul>
 
@@ -591,17 +643,6 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					</div>
 					<h2>icon-ui-see</h2>
 				</li>
-				<li title="icon-ui-tile">
-					<div class="icon-box">
-						
-						<!-- icon-ui-tile -->
-						<svg class="o-icon__icon-ui-tile-dims">
-							<use xlink:href="svg/sprite.symbol.svg#icon-ui-tile"></use>
-						</svg>
-						
-					</div>
-					<h2>icon-ui-tile</h2>
-				</li>
 				<li title="icon-widget-text-block">
 					<div class="icon-box">
 						
@@ -701,6 +742,17 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					</div>
 					<h2>ui--dots</h2>
 				</li>
+				<li title="ui--globe">
+					<div class="icon-box">
+						
+						<!-- ui--globe -->
+						<svg class="o-icon__ui--globe-dims">
+							<use xlink:href="svg/sprite.symbol.svg#ui--globe"></use>
+						</svg>
+						
+					</div>
+					<h2>ui--globe</h2>
+				</li>
 				<li title="ui--information">
 					<div class="icon-box">
 						
@@ -722,6 +774,28 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 						
 					</div>
 					<h2>ui--minus</h2>
+				</li>
+				<li title="ui--more-horizontal">
+					<div class="icon-box">
+						
+						<!-- ui--more-horizontal -->
+						<svg class="o-icon__ui--more-horizontal-dims">
+							<use xlink:href="svg/sprite.symbol.svg#ui--more-horizontal"></use>
+						</svg>
+						
+					</div>
+					<h2>ui--more-horizontal</h2>
+				</li>
+				<li title="ui--more-vertical">
+					<div class="icon-box">
+						
+						<!-- ui--more-vertical -->
+						<svg class="o-icon__ui--more-vertical-dims">
+							<use xlink:href="svg/sprite.symbol.svg#ui--more-vertical"></use>
+						</svg>
+						
+					</div>
+					<h2>ui--more-vertical</h2>
 				</li>
 				<li title="ui--pen">
 					<div class="icon-box">
@@ -789,6 +863,17 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					</div>
 					<h2>ui--timer</h2>
 				</li>
+				<li title="ui--trash">
+					<div class="icon-box">
+						
+						<!-- ui--trash -->
+						<svg class="o-icon__ui--trash-dims">
+							<use xlink:href="svg/sprite.symbol.svg#ui--trash"></use>
+						</svg>
+						
+					</div>
+					<h2>ui--trash</h2>
+				</li>
 				<li title="ui--warning">
 					<div class="icon-box">
 						
@@ -811,6 +896,17 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					</div>
 					<h2>widget--text-block</h2>
 				</li>
+				<li title="widget--tile">
+					<div class="icon-box">
+						
+						<!-- widget--tile -->
+						<svg class="o-icon__widget--tile-dims">
+							<use xlink:href="svg/sprite.symbol.svg#widget--tile"></use>
+						</svg>
+						
+					</div>
+					<h2>widget--tile</h2>
+				</li>
 			</ul>
 
 <!--
@@ -819,7 +915,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 
 		</section>
 		<footer>
-			<p>Generated at Wed, 20 Mar 2019 14:09:01 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+			<p>Generated at Fri, 05 Apr 2019 11:52:28 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
 		</footer>
 	</body>
 </html>

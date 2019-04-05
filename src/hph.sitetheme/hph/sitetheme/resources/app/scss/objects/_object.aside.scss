@@ -2,4 +2,11 @@
 	@include mq($from: lg) {
 		margin-top: 5.5rem;
 	}
+    @include when-inside('.app-sidebar') {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        @include mq($from: lg) {
+            padding: 0;
+        }
+    }
 }

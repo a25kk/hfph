@@ -237,3 +237,8 @@ input, button, select, textarea {
 .autotoc-section {
     padding-top: calc(#{$app-font-size-base} * 1.5);
 }
+
+// Fix related items widget height
+.pat-relateditems {
+    height: auto;
+}

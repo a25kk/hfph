@@ -11,8 +11,14 @@
     background-color: $app-color-gray-light;
     background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
     padding-bottom: 1rem;
-    @include when-inside('.template-frontpage-view') {
-        background: transparent;
+    //@include when-inside('.template-frontpage-view') {
+    //    background: transparent;
+    //    &--offset {
+    //        background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
+    //    }
+    //}
+    @include when-inside('.portaltype-ade25-panelpage-page') {
+        background: rgba(255,255,255,1);
         &--offset {
             background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
         }
@@ -43,7 +49,7 @@
     display: flex;
     // flex-direction: column;
     flex-wrap: wrap;
-    padding-top: 2rem;
+    width: 100%;
     @include mq($from: md) {
         flex-direction: row;
         flex-wrap: nowrap;
@@ -76,6 +82,7 @@
         &:first-child {
             width: 50%;
             max-width: 50%;
+            flex: 0 0 50%;
         }
         &:nth-child(2) {
             order: 0;

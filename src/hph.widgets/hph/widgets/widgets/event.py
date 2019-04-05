@@ -104,6 +104,7 @@ class WidgetEventCard(BrowserView):
             "event_type": self.event_type_title(
                 context.event_type
             ),
+            "event_location": context.location
         }
         return details
 
@@ -186,5 +187,6 @@ class WidgetEventSnippet(BrowserView):
             "event_type": self.event_type_title(
                 context.event_type
             ),
+            "event_location": context.location
         }
         return details
