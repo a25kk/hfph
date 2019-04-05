@@ -630,8 +630,8 @@
 
 
         <!-- footer elements -->
-        <replace css:theme-children=".app-footer__main"
-                css:content="#c-toc" />
+        <before css:theme-children="#c-toc"
+                css:content-children="#c-toc" />
 
     </rules>
 

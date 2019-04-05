@@ -9322,9 +9322,21 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   fill: #fff;
 }
 
+.o-icon--solid {
+  background-color: #fff;
+}
+
+.o-icon--primary {
+  color: #182f7a;
+}
+
 .o-icon--circle {
   border: 1px solid currentColor;
   border-radius: 50%;
+}
+
+.o-icon--spacer {
+  padding: .25rem;
 }
 
 .o-icon--nav-toggle {
