@@ -14,7 +14,7 @@
     border: $o-burger-border-width $o-burger-border-style $o-burger-border-color; // remove default button style
     cursor: pointer;
     width: 100%;
-    padding-right: 1rem;
+    padding: 0 1rem 0 0;
     @include mq($from: md) {
         padding-right: 0;
     }

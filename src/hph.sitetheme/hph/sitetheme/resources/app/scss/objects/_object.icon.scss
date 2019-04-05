@@ -18,11 +18,21 @@ $o-icon-border-radius:              50%;
     &--inverse {
         fill: $o-icon-color-inverse;
     }
+    &--solid {
+        background-color: $o-icon-color-inverse;
+    }
+    &--primary {
+        color: $app-color-primary;
+    }
 }
 
 .o-icon--circle {
     border: $o-icon-border-width $o-icon-border-style $o-icon-border-color;
     border-radius: $o-icon-border-radius;
+}
+
+.o-icon--spacer {
+    padding: .6rem;
 }
 
 .o-icon--nav-toggle {

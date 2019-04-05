@@ -279,46 +279,6 @@
   src: local("TAZ Semilight"), local("TAZ-Semilight"), url("../assets/fonts/taz-seml-webfont.woff") format("woff");
 }
 
-@font-face {
-  font-family: 'EB Garamond';
-  font-style: italic;
-  font-weight: 400;
-  src: url(../assets/fonts/EB_Garamond-italic-400.woff) format("woff");
-  unicode-range: U+0-10FFFF;
-}
-
-@font-face {
-  font-family: 'EB Garamond';
-  font-style: normal;
-  font-weight: 400;
-  src: url(../assets/fonts/EB_Garamond-normal-400.woff) format("woff");
-  unicode-range: U+0-10FFFF;
-}
-
-@font-face {
-  font-family: 'EB Garamond';
-  font-style: normal;
-  font-weight: 500;
-  src: url(../assets/fonts/EB_Garamond-normal-500.woff) format("woff");
-  unicode-range: U+0-10FFFF;
-}
-
-@font-face {
-  font-family: 'EB Garamond';
-  font-style: normal;
-  font-weight: 600;
-  src: url(../assets/fonts/EB_Garamond-normal-600.woff) format("woff");
-  unicode-range: U+0-10FFFF;
-}
-
-@font-face {
-  font-family: 'EB Garamond';
-  font-style: normal;
-  font-weight: 700;
-  src: url(../assets/fonts/EB_Garamond-normal-700.woff) format("woff");
-  unicode-range: U+0-10FFFF;
-}
-
 .hll {
   background-color: #ffffcc;
 }
@@ -685,7 +645,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "EB Garamond", Trebuchet MS;
+  --font-family-sans-serif: "adobe-garamond-pro", Trebuchet MS;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -709,7 +669,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "EB Garamond", "EB Garamond", Trebuchet MS;
+  font-family: "adobe-garamond-pro", "adobe-garamond-pro", Trebuchet MS;
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.5;
@@ -8142,7 +8102,7 @@ html {
   /* [3] */
   color: #212529;
   width: 100%;
-  font-family: "EB Garamond";
+  font-family: "adobe-garamond-pro";
   font-weight: 300;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -9347,7 +9307,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   border: 1px solid transparent;
   cursor: pointer;
   width: 100%;
-  padding-right: 1rem;
+  padding: 0 1rem 0 0;
 }
 
 @media (min-width: 48em) {
@@ -9394,9 +9354,21 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   fill: #fff;
 }
 
+.o-icon--solid {
+  background-color: #fff;
+}
+
+.o-icon--primary {
+  color: #182f7a;
+}
+
 .o-icon--circle {
   border: 1px solid currentColor;
   border-radius: 50%;
+}
+
+.o-icon--spacer {
+  padding: .6rem;
 }
 
 .o-icon--nav-toggle {
@@ -9548,7 +9520,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 input, button, select, textarea {
-  font-family: "EB Garamond";
+  font-family: "adobe-garamond-pro";
 }
 
 .o-form {
@@ -9634,7 +9606,7 @@ input, button, select, textarea {
 
 .o-form__help {
   display: block;
-  font-family: "EB Garamond";
+  font-family: "adobe-garamond-pro";
   font-size: 1.25rem;
   color: #5a5f64;
 }
@@ -9822,6 +9794,10 @@ input, button, select, textarea {
 
 .autotoc-section {
   padding-top: calc(1.25rem * 1.5);
+}
+
+.pat-relateditems {
+  height: auto;
 }
 
 /* class applies to select element itself, not a wrapper element */
@@ -10118,7 +10094,7 @@ input, button, select, textarea {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  padding-top: 2rem;
+  width: 100%;
 }
 
 @media (min-width: 48em) {
@@ -10164,15 +10140,15 @@ input, button, select, textarea {
 .app-header__section {
   display: block;
   position: relative;
-  width: 50%;
+  width: 33.3333%;
 }
 
 .app-header__section:first-child {
-  width: 50%;
-  max-width: 50%;
+  width: 33.3333%;
+  max-width: 33.3333%;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 50%;
-          flex: 0 0 50%;
+      -ms-flex: 0 0 33.3333%;
+          flex: 0 0 33.3333%;
 }
 
 .app-header__section:nth-child(2) {
@@ -10187,24 +10163,27 @@ input, button, select, textarea {
 
 @media (min-width: 48em) {
   .app-header__section {
-    width: 25%;
+    width: 16.6666%;
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 25%;
-            flex: 0 0 25%;
+        -ms-flex: 0 0 16.6666%;
+            flex: 0 0 16.6666%;
   }
   .app-header__section:first-child {
     width: 50%;
     max-width: 50%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
   }
   .app-header__section:nth-child(2) {
     -webkit-box-ordinal-group: 1;
         -ms-flex-order: 0;
             order: 0;
-    width: 25%;
-    max-width: 25%;
+    width: 16.6666%;
+    max-width: 16.6666%;
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 25%;
-            flex: 0 0 25%;
+        -ms-flex: 0 0 16.6666%;
+            flex: 0 0 16.6666%;
     background: transparent;
     padding: 0;
   }
@@ -10366,8 +10345,8 @@ input, button, select, textarea {
 
 .c-identifier {
   position: fixed;
-  right: 0;
-  top: 0;
+  left: 0;
+  bottom: 0;
   z-index: 102;
   padding: .25rem 1rem;
   width: 100%;
@@ -10375,6 +10354,17 @@ input, button, select, textarea {
   color: #182f7a;
   background-color: #eed343;
   font-size: 1rem;
+}
+
+@media (min-width: 768px) {
+  .plone-toolbar-left .c-identifier {
+    left: 60px;
+    width: calc(100% - 60px);
+  }
+  .plone-toolbar-left-expanded .c-identifier {
+    left: 120px;
+    width: calc(100% - 120px);
+  }
 }
 
 .c-identifier__content {
@@ -11149,7 +11139,7 @@ img[data-sizes="auto"] {
   display: block;
   text-decoration: none;
   color: #fff;
-  font-family: "EB Garamond";
+  font-family: "adobe-garamond-pro";
   text-transform: none;
   font-weight: 400;
   line-height: 1;
@@ -11643,6 +11633,7 @@ img[data-sizes="auto"] {
   background: transparent;
   border: 1px solid transparent;
   cursor: pointer;
+  padding: 0;
 }
 
 @media (min-width: 48em) {
@@ -11679,6 +11670,34 @@ img[data-sizes="auto"] {
   .c-quick-links__icon {
     width: 1.3rem;
     height: 1.6rem;
+  }
+}
+
+.c-language-menu {
+  display: block;
+  position: relative;
+}
+
+.c-language-menu__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  line-height: 1;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+
+@media (min-width: 48em) {
+  .c-language-menu__button {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 
@@ -12373,8 +12392,13 @@ img[data-sizes="auto"] {
   display: none;
 }
 
+.c-card--teaser .c-card__header {
+  min-height: 6rem;
+  height: auto;
+}
+
 .c-card__main {
-  font-family: "EB Garamond";
+  font-family: "adobe-garamond-pro";
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12390,6 +12414,10 @@ img[data-sizes="auto"] {
 
 .c-card--news .c-card__main {
   font-size: 1.25rem;
+}
+
+.c-card--teaser .c-card__main {
+  padding-bottom: calc(1.25rem * 1.5);
 }
 
 .c-card__footer {
@@ -12516,6 +12544,10 @@ img[data-sizes="auto"] {
   }
 }
 
+.c-toc__item.presse-kommunikation {
+  display: none;
+}
+
 .c-toc--level-1 .c-toc__item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12595,7 +12627,7 @@ img[data-sizes="auto"] {
 .c-toc--level-1 {
   display: none;
   text-transform: none;
-  font-family: "EB Garamond";
+  font-family: "adobe-garamond-pro";
 }
 
 @media (max-width: 47.99em) {
@@ -12694,6 +12726,23 @@ img[data-sizes="auto"] {
 
 .show .c-toc__icon--close {
   display: inline-block;
+}
+
+.c-social-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 120px;
+}
+
+.c-social-menu__item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+  max-width: 50%;
+  margin-bottom: 1rem;
 }
 
 .c-meta-nav {

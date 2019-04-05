@@ -34,6 +34,9 @@
             }
         }
     }
+    &.presse-kommunikation {
+        display: none;
+    }
     padding: .35rem 0 .35rem 1rem;
 	text-transform: none;
     line-height: $c-toc-item-line-height;
