@@ -49,7 +49,7 @@
 
 // Generic
 @import 'generic/generic.fonts';
-@import 'generic/generic.fonts.custom';
+// @import 'generic/generic.fonts.custom';
 @import 'generic/generic.syntax';
 @import 'generic/generic.aspect-ratio';
 
@@ -111,6 +111,7 @@
 @import 'components/component.nav';
 @import 'components/component.nav-list';
 @import 'components/component.quick-links';
+@import 'components/component.language-menu';
 @import 'components/component.pathbar';
 @import 'components/component.banner';
 @import 'components/component.snippet';
@@ -118,6 +119,7 @@
 @import 'components/component.panels';
 @import 'components/component.cards';
 @import 'components/component.toc';
+@import 'components/component.social-menu';
 @import 'components/component.meta-nav';
 @import 'components/component.interferer';
 @import 'components/component.listing';
