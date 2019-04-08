@@ -65,9 +65,9 @@
     position: relative;
     width: 33.3333%;
     &:first-child {
-        width: 33.3333%;
-        max-width: 33.3333%;
-        flex: 0 0 33.3333%;
+        width: 66.6666%;
+        max-width: 66.6666%;
+        flex: 0 0 66.6666%;
     }
     &:nth-child(2) {
         order: -1;
@@ -93,4 +93,8 @@
             padding: 0;
         }
     }
+}
+
+.app-header__section--quick-links {
+    display: flex;
 }

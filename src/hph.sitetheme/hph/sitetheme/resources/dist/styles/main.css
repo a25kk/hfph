@@ -10144,11 +10144,11 @@ input, button, select, textarea {
 }
 
 .app-header__section:first-child {
-  width: 33.3333%;
-  max-width: 33.3333%;
+  width: 66.6666%;
+  max-width: 66.6666%;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 33.3333%;
-          flex: 0 0 33.3333%;
+      -ms-flex: 0 0 66.6666%;
+          flex: 0 0 66.6666%;
 }
 
 .app-header__section:nth-child(2) {
@@ -10187,6 +10187,12 @@ input, button, select, textarea {
     background: transparent;
     padding: 0;
   }
+}
+
+.app-header__section--quick-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .app-main {
