@@ -9362,6 +9362,10 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   color: #182f7a;
 }
 
+.o-icon:hover {
+  fill: orange;
+}
+
 .o-icon--circle {
   border: 1px solid currentColor;
   border-radius: 50%;
@@ -12548,6 +12552,10 @@ img[data-sizes="auto"] {
   display: none;
 }
 
+.c-toc__item.en {
+  display: none;
+}
+
 .c-toc--level-1 .c-toc__item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12596,7 +12604,7 @@ img[data-sizes="auto"] {
 
 @media (min-width: 75em) {
   .c-toc__item {
-    padding: .5rem 0 .5rem 1rem;
+    padding: .5rem 1.5rem .5rem 1.5rem;
     -webkit-box-flex: 1;
         -ms-flex: 1 0 16.6666%;
             flex: 1 0 16.6666%;
