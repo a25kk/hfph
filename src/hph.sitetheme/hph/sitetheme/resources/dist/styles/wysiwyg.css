@@ -9330,10 +9330,6 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   color: #182f7a;
 }
 
-.o-icon:hover {
-  fill: orange;
-}
-
 .o-icon--circle {
   border: 1px solid currentColor;
   border-radius: 50%;
