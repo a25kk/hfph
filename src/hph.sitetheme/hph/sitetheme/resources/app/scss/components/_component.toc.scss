@@ -117,7 +117,7 @@
         display: block;
         height: calc(#{$app-font-size-base} * 2.5);
         text-decoration: none;
-        cursor: default;
+        cursor: pointer;
     }
 	color: $c-toc-link-color;
     font-size: $c-toc-item-font-size;

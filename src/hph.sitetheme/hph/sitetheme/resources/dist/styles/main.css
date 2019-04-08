@@ -12665,7 +12665,7 @@ img[data-sizes="auto"] {
     display: block;
     height: calc(1.25rem * 2.5);
     text-decoration: none;
-    cursor: default;
+    cursor: pointer;
   }
 }
 
