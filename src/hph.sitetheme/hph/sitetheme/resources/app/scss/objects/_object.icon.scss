@@ -24,6 +24,9 @@ $o-icon-border-radius:              50%;
     &--primary {
         color: $app-color-primary;
     }
+    &:hover {
+        fill: orange;
+    }
 }
 
 .o-icon--circle {
