@@ -1147,7 +1147,7 @@ mark,
   content: "\2014\00A0";
 }
 
-.img-fluid, .app-img {
+.img-fluid {
   max-width: 100%;
   height: auto;
 }
@@ -9288,7 +9288,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   margin-top: 2rem;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 62em) {
   .o-burger {
     margin-top: 0;
   }
@@ -9310,7 +9310,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   padding: 0 1rem 0 0;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 62em) {
   .o-burger__button {
     padding-right: 0;
   }
@@ -10097,7 +10097,7 @@ input, button, select, textarea {
   width: 100%;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 62em) {
   .app-header__content {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -10113,25 +10113,25 @@ input, button, select, textarea {
   }
 }
 
-@media (min-width: 48em) and (min-width: 576px) {
+@media (min-width: 62em) and (min-width: 576px) {
   .app-header__content {
     max-width: 540px;
   }
 }
 
-@media (min-width: 48em) and (min-width: 768px) {
+@media (min-width: 62em) and (min-width: 768px) {
   .app-header__content {
     max-width: 720px;
   }
 }
 
-@media (min-width: 48em) and (min-width: 992px) {
+@media (min-width: 62em) and (min-width: 992px) {
   .app-header__content {
     max-width: 960px;
   }
 }
 
-@media (min-width: 48em) and (min-width: 1200px) {
+@media (min-width: 62em) and (min-width: 1200px) {
   .app-header__content {
     max-width: 1140px;
   }
@@ -10161,7 +10161,7 @@ input, button, select, textarea {
   padding: 0 .5rem .5rem .5rem;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 62em) {
   .app-header__section {
     width: 16.6666%;
     -webkit-box-flex: 0;
@@ -10179,11 +10179,11 @@ input, button, select, textarea {
     -webkit-box-ordinal-group: 1;
         -ms-flex-order: 0;
             order: 0;
-    width: 16.6666%;
-    max-width: 16.6666%;
+    width: 33.3333%;
+    max-width: 33.3333%;
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 16.6666%;
-            flex: 0 0 16.6666%;
+        -ms-flex: 0 0 33.3333%;
+            flex: 0 0 33.3333%;
     background: transparent;
     padding: 0;
   }
@@ -11625,6 +11625,10 @@ img[data-sizes="auto"] {
 .c-quick-links {
   display: block;
   position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+  max-width: 50%;
 }
 
 .c-quick-links__button {
@@ -11642,7 +11646,7 @@ img[data-sizes="auto"] {
   padding: 0;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 62em) {
   .c-quick-links__button {
     width: 100%;
   }
@@ -11657,7 +11661,7 @@ img[data-sizes="auto"] {
   text-transform: uppercase;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 62em) {
   .c-quick-links__text {
     font-size: 1.45rem;
   }
@@ -11672,7 +11676,7 @@ img[data-sizes="auto"] {
   height: 1.3rem;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 62em) {
   .c-quick-links__icon {
     width: 1.3rem;
     height: 1.6rem;
@@ -11682,6 +11686,17 @@ img[data-sizes="auto"] {
 .c-language-menu {
   display: block;
   position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+  max-width: 50%;
+  padding-right: .5rem;
+}
+
+@media (min-width: 62em) {
+  .c-language-menu {
+    padding-right: 0;
+  }
 }
 
 .c-language-menu__button {
@@ -11698,12 +11713,43 @@ img[data-sizes="auto"] {
   cursor: pointer;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 62em) {
   .c-language-menu__button {
     width: 100%;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+}
+
+.c-language-menu__text {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-family: "TAZ";
+  font-size: 0.8rem;
+  color: #182f7a;
+  text-transform: uppercase;
+}
+
+@media (min-width: 62em) {
+  .c-language-menu__text {
+    font-size: 1.45rem;
+  }
+}
+
+.c-language-menu__icon {
+  margin-right: .5rem;
+  margin-bottom: .075rem;
+  font-size: 1.5rem;
+  color: #182f7a;
+  width: 1rem;
+  height: 1.3rem;
+}
+
+@media (min-width: 62em) {
+  .c-language-menu__icon {
+    width: 1.3rem;
+    height: 1.6rem;
   }
 }
 
@@ -13546,7 +13592,7 @@ c-list--bordered .c-list__item:last-of-type {
 }
 
 .c-widget-editor__item--secondary {
-  margin-left: 4rem;
+  margin-left: 5rem;
 }
 
 .c-widget-editor__item-aside {
@@ -13559,10 +13605,18 @@ c-list--bordered .c-list__item:last-of-type {
   color: #999999;
 }
 
+.c-widget-editor__item-actions {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 8rem;
+          flex: 0 0 8rem;
+  max-width: 8rem;
+  text-align: right;
+}
+
 .c-widget-editor__item-main {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 80%;
-          flex: 0 0 80%;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
   max-width: 80%;
   padding-left: calc(1.25rem * 1.5 / 2);
   padding-right: calc(1.25rem * 1.5 / 2);
@@ -13571,56 +13625,6 @@ c-list--bordered .c-list__item:last-of-type {
 .c-widget-editor__item-title {
   margin: 0;
   line-height: 1;
-}
-
-.app-page-header {
-  margin: 2rem 0;
-  border-bottom: 1px solid #ced4da;
-}
-
-.app-page-title,
-.app-page-headline {
-  font-size: 2rem;
-}
-
-.app-page-lead,
-.app-page-abstract {
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-  font-weight: 300;
-  line-height: 1.5;
-}
-
-@media (min-width: 576px) {
-  .app-page-lead,
-  .app-page-abstract {
-    font-size: 1.5rem;
-  }
-}
-
-.app-page-section {
-  margin: 1rem 0 2rem;
-}
-
-.app-img {
-  width: 100%;
-}
-
-.embed-responsive {
-  margin-bottom: 1rem;
-}
-
-.sg-example {
-  border: 1px solid #e9ecef;
-  padding: 1.5rem;
-}
-
-.highlight {
-  padding: .5rem;
-  text-align: left;
-  background-color: #f8f9fa;
-  border: 1px solid #6c757d;
-  margin-bottom: calc(1.25rem * 1.5);
 }
 
 .hidden,
@@ -13717,6 +13721,14 @@ c-list--bordered .c-list__item:last-of-type {
   .u-display-navbar--block {
     display: block !important;
   }
+}
+
+.u-display--full-width {
+  width: 100vw;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .u-color--muted {
