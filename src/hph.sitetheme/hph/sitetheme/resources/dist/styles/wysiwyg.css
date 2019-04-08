@@ -685,7 +685,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "EB Garamond", Trebuchet MS;
+  --font-family-sans-serif: "adobe-garamond-pro", Trebuchet MS;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -709,7 +709,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "EB Garamond", "EB Garamond", Trebuchet MS;
+  font-family: "adobe-garamond-pro", "adobe-garamond-pro", Trebuchet MS;
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.5;
@@ -8142,7 +8142,7 @@ html {
   /* [3] */
   color: #212529;
   width: 100%;
-  font-family: "EB Garamond";
+  font-family: "adobe-garamond-pro";
   font-weight: 300;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -8353,11 +8353,13 @@ table td,
   border-top: 1px solid #efefef;
 }
 
-table th:first-child,
-table td:first-child,
-.o-table th:first-child,
-.o-table td:first-child {
-  padding-left: 0;
+@media (max-width: 61.99em) {
+  table th:first-child,
+  table td:first-child,
+  .o-table th:first-child,
+  .o-table td:first-child {
+    padding-left: 0;
+  }
 }
 
 table thead th,
@@ -8444,6 +8446,44 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   }
 }
 
+body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+  body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
+    max-width: 1140px;
+  }
+}
+
+.o-page--panels {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.userrole-authenticated .o-page--panels {
+  padding-top: 4rem;
+}
+
 .o-page--sign-in {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8464,7 +8504,7 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
 }
 
 .o-page__header {
-  margin-bottom: calc(1.25rem * 2);
+  margin-bottom: calc(1.25rem * 1.5);
 }
 
 @media (min-width: 62em) {
@@ -8506,8 +8546,24 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   margin-bottom: calc(1.25rem * 1.5);
 }
 
+.o-page__section--spacer {
+  margin-bottom: calc(calc(1.25rem * 1.5) * 2);
+}
+
 .o-page__headline {
-  margin-bottom: calc(1.25rem * 1.5);
+  padding: .125rem 0;
+  color: #000;
+  line-height: 1.25;
+}
+
+.o-page__asset {
+  width: 100%;
+}
+
+@media (max-width: 47.99em) {
+  .o-page__asset--md {
+    max-width: 50%;
+  }
 }
 
 .o-page__asset--inline {
@@ -9266,9 +9322,21 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   fill: #fff;
 }
 
+.o-icon--solid {
+  background-color: #fff;
+}
+
+.o-icon--primary {
+  color: #182f7a;
+}
+
 .o-icon--circle {
   border: 1px solid currentColor;
   border-radius: 50%;
+}
+
+.o-icon--spacer {
+  padding: .6rem;
 }
 
 .o-icon--nav-toggle {
@@ -9281,6 +9349,18 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   fill: currentColor;
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.o-icon--size-2 {
+  fill: currentColor;
+  width: 2rem;
+  height: 2rem;
+}
+
+.o-icon--size-3 {
+  fill: currentColor;
+  width: 3rem;
+  height: 3rem;
 }
 
 .o-icon--lg {
@@ -9344,7 +9424,7 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
 }
 
 input, button, select, textarea {
-  font-family: "EB Garamond";
+  font-family: "adobe-garamond-pro";
 }
 
 .o-form {
@@ -9430,7 +9510,7 @@ input, button, select, textarea {
 
 .o-form__help {
   display: block;
-  font-family: "EB Garamond";
+  font-family: "adobe-garamond-pro";
   font-size: 1.25rem;
   color: #5a5f64;
 }
@@ -9620,6 +9700,10 @@ input, button, select, textarea {
   padding-top: calc(1.25rem * 1.5);
 }
 
+.pat-relateditems {
+  height: auto;
+}
+
 /* class applies to select element itself, not a wrapper element */
 .o-select {
   display: block;
@@ -9746,6 +9830,11 @@ input, button, select, textarea {
 
 .o-figure {
   display: block;
+}
+
+.o-figure figcaption {
+  font-size: 1rem;
+  color: #999999;
 }
 
 .o-figure__placeholder {

@@ -34,6 +34,9 @@
             }
         }
     }
+    &.presse-kommunikation {
+        display: none;
+    }
     padding: .35rem 0 .35rem 1rem;
 	text-transform: none;
     line-height: $c-toc-item-line-height;
@@ -113,6 +116,8 @@
     @include mq($from: md) {
         display: block;
         height: calc(#{$app-font-size-base} * 2.5);
+        text-decoration: none;
+        cursor: default;
     }
 	color: $c-toc-link-color;
     font-size: $c-toc-item-font-size;

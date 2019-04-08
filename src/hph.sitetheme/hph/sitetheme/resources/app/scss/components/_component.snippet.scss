@@ -53,7 +53,7 @@ $c-snippet-color:                   $app-color-text;
 
 // Snippet elements
 .c-snippet__title {
-    @include font-size(1.5rem);
+    //@include font-size(2rem);
     font-weight: $app-font-weight-strong-custom;
 }
 

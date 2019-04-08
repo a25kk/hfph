@@ -20,8 +20,10 @@ table,
         padding: $o-table-cell-padding;
         vertical-align: top;
         border-top: $o-table-border-width solid $o-table-border-color;
-        &:first-child {
-            padding-left: 0;
+        @include mq($until: lg) {
+            &:first-child {
+                padding-left: 0;
+            }
         }
     }
 

@@ -9,7 +9,7 @@ $c-card-font-family-highlight:          $c-card-font-family-base;
 $c-card-cap-bg:                         transparent;
 
 $c-card-color:                          $app-color-text;
-$c-card-color-link:                     $c-card-color;
+$c-card-color-link:                     $app-color-primary;
 $c-card-color-link-hover:               darken($c-card-color, 10%);
 
 $c-card-spacer:                         $app-spacer-sm;
@@ -44,10 +44,9 @@ $c-card-spacer:                         $app-spacer-sm;
     &--faculty {
         display: none;
     }
-    @include when-inside('.c-card--banner') {
-        @include mq($from: md) {
-            //min-height: 13rem;
-        }
+    @include when-inside('.c-card--teaser') {
+        min-height: 6rem;
+        height: auto;
     }
 }
 
@@ -55,7 +54,14 @@ $c-card-spacer:                         $app-spacer-sm;
 .c-card__main {
     font-family: $app-font-family-base;
     @include when-inside('.c-card--news') {
-        font-size: $app-font-size-sm;
+        @include font-size($app-font-size-base);
+    }
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    @include when-inside('.c-card--teaser') {
+        padding-bottom: $app-spacer-base;
     }
 }
 
@@ -84,6 +90,7 @@ $c-card-spacer:                         $app-spacer-sm;
         display: inline-block;
         padding: 0 0 0 .5rem;
         margin-top: .5rem;
+        color: $c-card-color-link;
         //width: 2rem;
         //height: 2rem;
     }
@@ -101,7 +108,8 @@ $c-card-spacer:                         $app-spacer-sm;
 
 .c-card__date {
     font-weight: 100;
-    @include font-size($app-font-size-sm);
+    @include font-size($app-font-size-base);
+    color: $c-card-color-link;
 }
 
 
@@ -109,10 +117,11 @@ $c-card-spacer:                         $app-spacer-sm;
 // Card contents
 .c-card__title {
     font-family: $c-card-font-family-base;
+    color: $c-card-color-link;
 }
 
 .c-card__section {
-    margin-bottom: $app-spacer-base;
+    //margin-bottom: $app-spacer-base;
     &--centered {
         text-align: center;
     }
