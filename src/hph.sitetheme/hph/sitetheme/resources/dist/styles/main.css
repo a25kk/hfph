@@ -9368,7 +9368,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-icon--spacer {
-  padding: .25rem;
+  padding: .6rem;
 }
 
 .o-icon--nav-toggle {
@@ -12742,6 +12742,7 @@ img[data-sizes="auto"] {
       -ms-flex: 1 0 50%;
           flex: 1 0 50%;
   max-width: 50%;
+  margin-bottom: 1rem;
 }
 
 .c-meta-nav {
