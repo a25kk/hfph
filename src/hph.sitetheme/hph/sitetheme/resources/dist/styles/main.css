@@ -8380,7 +8380,6 @@ table tbody + tbody,
 body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   margin-right: auto;
   margin-left: auto;
-  padding: 0;
 }
 
 @media (min-width: 576px) {
@@ -8410,7 +8409,6 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
 body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   margin-right: auto;
   margin-left: auto;
-  padding: 0;
 }
 
 @media (min-width: 576px) {
