@@ -37,6 +37,9 @@
     &.presse-kommunikation {
         display: none;
     }
+    &.en {
+        display: none;
+    }
     padding: .35rem 0 .35rem 1rem;
 	text-transform: none;
     line-height: $c-toc-item-line-height;
@@ -68,7 +71,7 @@
         padding: .35rem 0 .35rem 0;
     }
     @include mq($from: xl) {
-        padding: .5rem 0 .5rem 1rem;
+        padding: .5rem 1.5rem .5rem 1.5rem;
         flex: 1 0 16.6666%;
         max-width: 16.6666%;
         margin-bottom: 0;
@@ -117,7 +120,7 @@
         display: block;
         height: calc(#{$app-font-size-base} * 2.5);
         text-decoration: none;
-        cursor: default;
+        cursor: pointer;
     }
 	color: $c-toc-link-color;
     font-size: $c-toc-item-font-size;
