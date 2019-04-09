@@ -8380,6 +8380,7 @@ table tbody + tbody,
 body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   margin-right: auto;
   margin-left: auto;
+  padding: 0;
 }
 
 @media (min-width: 576px) {
@@ -8409,6 +8410,7 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
 body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   margin-right: auto;
   margin-left: auto;
+  padding: 0;
 }
 
 @media (min-width: 576px) {
@@ -10095,6 +10097,7 @@ input, button, select, textarea {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   width: 100%;
+  max-width: 100%;
 }
 
 @media (min-width: 62em) {
@@ -10140,15 +10143,19 @@ input, button, select, textarea {
 .app-header__section {
   display: block;
   position: relative;
-  width: 33.3333%;
+  width: 50%;
+  max-width: 50%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
 }
 
 .app-header__section:first-child {
-  width: 66.6666%;
-  max-width: 66.6666%;
+  width: 50%;
+  max-width: 50%;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 66.6666%;
-          flex: 0 0 66.6666%;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
 }
 
 .app-header__section:nth-child(2) {
@@ -10157,6 +10164,9 @@ input, button, select, textarea {
           order: -1;
   width: 100%;
   max-width: 100%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
   background: #efefef;
   padding: 0 .5rem .5rem .5rem;
 }
@@ -12940,6 +12950,7 @@ img[data-sizes="auto"] {
 }
 
 .c-list--gutter {
+  width: 100%;
   margin-right: -calc(1.25rem * 1.5);
   margin-left: -calc(1.25rem * 1.5);
 }
