@@ -50,6 +50,7 @@
     // flex-direction: column;
     flex-wrap: wrap;
     width: 100%;
+    max-width: 100%;
     @include mq($from: lg) {
         flex-direction: row;
         flex-wrap: nowrap;
@@ -63,16 +64,19 @@
 .app-header__section {
     display: block;
     position: relative;
-    width: 33.3333%;
+    width: 50%;
+    max-width: 50%;
+    flex: 0 0 50%;
     &:first-child {
-        width: 66.6666%;
-        max-width: 66.6666%;
-        flex: 0 0 66.6666%;
+        width: 50%;
+        max-width: 50%;
+        flex: 0 0 50%;
     }
     &:nth-child(2) {
         order: -1;
         width: 100%;
         max-width: 100%;
+        flex: 0 0 100%;
         background: $app-color-gray-base;
         padding: 0 .5rem .5rem .5rem;
     }

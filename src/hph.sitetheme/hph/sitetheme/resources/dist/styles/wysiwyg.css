@@ -8420,6 +8420,7 @@ table tbody + tbody,
 body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   margin-right: auto;
   margin-left: auto;
+  padding: 0;
 }
 
 @media (min-width: 576px) {
@@ -8449,6 +8450,7 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
 body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   margin-right: auto;
   margin-left: auto;
+  padding: 0;
 }
 
 @media (min-width: 576px) {
@@ -8594,6 +8596,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-grid--gutter {
+  width: 100%;
   margin-right: -calc(1.25rem * 1.5 / 2);
   margin-left: -calc(1.25rem * 1.5 / 2);
 }
