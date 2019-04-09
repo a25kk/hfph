@@ -8,6 +8,7 @@
     <!-- image widgets -->
     <include package=".image" />
     <include package=".content" />
+    <include package=".teaser" />
 
     <!-- Content Listing -->
     <browser:page
@@ -15,16 +16,6 @@
             name="content-widget-content-listing"
             class=".listing.WidgetContentListing"
             template="listing.pt"
-            permission="zope2.View"
-            layer="..interfaces.IHphWidgetsLayer"
-    />
-
-    <!-- Content Widget Teaser -->
-    <browser:page
-            for="*"
-            name="content-widget-teaser-news"
-            class="hph.widgets.widgets.teaser.WidgetTeaserNews"
-            template="teaser-news.pt"
             permission="zope2.View"
             layer="..interfaces.IHphWidgetsLayer"
     />

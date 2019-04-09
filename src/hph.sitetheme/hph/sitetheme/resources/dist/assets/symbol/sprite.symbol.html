@@ -55,6 +55,8 @@ They might well be outsourced to an external stylesheet of course.
 	o-icon__ui--timer-dims { width: 512px; height: 512px; }
 	o-icon__ui--trash-dims { width: 512px; height: 512px; }
 	o-icon__ui--warning-dims { width: 36px; height: 36px; }
+	o-icon__widget--image-dims { width: 512px; height: 512px; }
+	o-icon__widget--separator-dims { width: 24px; height: 24px; }
 	o-icon__widget--text-block-dims { width: 64px; height: 64px; }
 	o-icon__widget--tile-dims { width: 100px; height: 100px; }
 </style>
@@ -115,8 +117,10 @@ for further details on how to create this embeddable sprite variant.
 		<symbol viewBox="0 0 512 512" id="ui--timer" xmlns="http://www.w3.org/2000/svg"><path d="M256 456c-110.3 0-200-89.7-200-200 0-54.8 21.7-105.9 61.2-144 6.4-6.2 16.6-6 22.7.4 6.2 6.4 6 16.6-.4 22.7-33.1 32-51.3 74.9-51.3 120.9 0 92.5 75.3 167.8 167.8 167.8S423.8 348.5 423.8 256c0-87.1-66.7-159-151.8-167.1v62.6c0 8.9-7.2 16.1-16.1 16.1s-16.1-7.2-16.1-16.1V72.1c0-8.9 7.2-16.1 16.1-16.1 110.3 0 200 89.7 200 200S366.3 456 256 456z"/><path d="M175.9 161.9l99.5 71.5c13.5 9.7 16.7 28.5 7 42s-28.5 16.7-42 7c-2.8-2-5.2-4.4-7-7l-71.5-99.5c-3.2-4.5-2.2-10.8 2.3-14 3.6-2.6 8.3-2.4 11.7 0z"/></symbol>
 		<symbol class="biicon--trash" viewBox="0 0 512 512" id="ui--trash" xmlns="http://www.w3.org/2000/svg"><path d="M133.1 128l23.6 290.7c0 16.2 13.1 29.3 29.3 29.3h141c16.2 0 29.3-13.1 29.3-29.3L379.6 128H133.1zm61.6 265L188 160h18.5l6.9 233h-18.7zm70.3 0h-18V160h18v233zm52.3 0h-18.6l6.8-233H324l-6.7 233zM364 92h-36l-26.3-23c-3.7-3.2-8.4-5-13.2-5h-64.8c-4.9 0-9.7 1.8-13.4 5L184 92h-36c-17.6 0-30 8.4-30 26h276c0-17.6-12.4-26-30-26z"/></symbol>
 		<symbol viewBox="0 0 36 36" id="ui--warning" xmlns="http://www.w3.org/2000/svg"><g fill-rule="evenodd"><path d="M6.714 29h22.572L18 9.032 6.714 29zm26 2H3.286L18 4.968 32.714 31z"/><path d="M19.5 26a1.5 1.5 0 1 1-3.001-.001A1.5 1.5 0 0 1 19.5 26zM17 23h2v-9h-2z"/></g></symbol>
+		<symbol class="bkicon-image" viewBox="0 0 512 512" id="widget--image" xmlns="http://www.w3.org/2000/svg"><path d="M112.6 312.3h190.7c4.5 0 7.1-5.1 4.5-8.8l-95.4-153.4c-2.2-3.2-6.9-3.2-9.1 0L108 303.5c-2.6 3.7.1 8.8 4.6 8.8zm194.1-58l35 55.7c1 1.5 2.7 2.4 4.5 2.4h53.2c4.5 0 7.1-5.1 4.5-8.8l-61.6-87.7c-2.2-3.2-6.9-3.2-9.1 0L306.6 248c-1.2 1.8-1.2 4.3.1 6.3zm44.4-86.4c13.1-1.3 23.7-11.9 25-25 1.8-17.7-13-32.5-30.7-30.7-13.1 1.3-23.7 11.9-25 25-1.7 17.7 13 32.5 30.7 30.7z"/><path d="M432 48H80c-17.7 0-32 14.3-32 32v352c0 17.7 14.3 32 32 32h352c17.7 0 32-14.3 32-32V80c0-17.7-14.3-32-32-32zm-2.7 280c0 4.4-3.6 8-8 8H90.7c-4.4 0-8-3.6-8-8V90.7c0-4.4 3.6-8 8-8h330.7c4.4 0 8 3.6 8 8V328z"/></symbol>
+		<symbol viewBox="0 0 24 24" id="widget--separator" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0z"/><path d="M2 11h2v2H2v-2zm4 0h12v2H6v-2zm14 0h2v2h-2v-2z"/></symbol>
 		<symbol viewBox="0 0 64 64" id="widget--text-block" xmlns="http://www.w3.org/2000/svg"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M49.29 11.052H14.71v7.773h13.728v34.123h7.772V18.825h13.08z"/></symbol>
-		<symbol class="blo-icon--svg" id="widget--tile" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><style>.blo-icon__tile--path{fill:none;stroke:currentColor;stroke-width:2;stroke-miterlimit:10}</style><path d="M13 13h16.215v16.858H13zm21.785 0H51v16.858H34.785zM13 34.142h16.215V51H13zm21.785 0H51V51H34.785z" class="blo-icon__tile--path"/></symbol>
+		<symbol class="bno-icon--svg" id="widget--tile" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><style>.bno-icon__tile--path{fill:none;stroke:currentColor;stroke-width:2;stroke-miterlimit:10}</style><path d="M13 13h16.215v16.858H13zm21.785 0H51v16.858H34.785zM13 34.142h16.215V51H13zm21.785 0H51V51H34.785z" class="bno-icon__tile--path"/></symbol>
 </svg>
 
 <!--
@@ -541,6 +545,28 @@ embedded above. They may be styled via CSS.
 						
 					</div>
 					<h2>ui--warning</h2>
+				</li>
+				<li title="widget--image">
+					<div class="icon-box">
+						
+						<!-- widget--image -->
+						<svg class="o-icon__widget--image-dims">
+							<use xlink:href="#widget--image"></use>
+						</svg>
+						
+					</div>
+					<h2>widget--image</h2>
+				</li>
+				<li title="widget--separator">
+					<div class="icon-box">
+						
+						<!-- widget--separator -->
+						<svg class="o-icon__widget--separator-dims">
+							<use xlink:href="#widget--separator"></use>
+						</svg>
+						
+					</div>
+					<h2>widget--separator</h2>
 				</li>
 				<li title="widget--text-block">
 					<div class="icon-box">
@@ -981,6 +1007,28 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					</div>
 					<h2>ui--warning</h2>
 				</li>
+				<li title="widget--image">
+					<div class="icon-box">
+						
+						<!-- widget--image -->
+						<svg class="o-icon__widget--image-dims">
+							<use xlink:href="svg/sprite.symbol.svg#widget--image"></use>
+						</svg>
+						
+					</div>
+					<h2>widget--image</h2>
+				</li>
+				<li title="widget--separator">
+					<div class="icon-box">
+						
+						<!-- widget--separator -->
+						<svg class="o-icon__widget--separator-dims">
+							<use xlink:href="svg/sprite.symbol.svg#widget--separator"></use>
+						</svg>
+						
+					</div>
+					<h2>widget--separator</h2>
+				</li>
 				<li title="widget--text-block">
 					<div class="icon-box">
 						
@@ -1011,7 +1059,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 
 		</section>
 		<footer>
-			<p>Generated at Fri, 05 Apr 2019 13:38:54 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+			<p>Generated at Fri, 05 Apr 2019 15:07:18 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
 		</footer>
 	</body>
 </html>

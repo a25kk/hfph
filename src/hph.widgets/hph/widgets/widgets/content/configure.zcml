@@ -34,4 +34,13 @@
             layer="...interfaces.IHphWidgetsLayer"
     />
 
+    <browser:page
+            for="*"
+            name="content-widget-hph-link-tile"
+            class=".link.WidgetLinkTile"
+            template="link-tile.pt"
+            permission="zope2.View"
+            layer="hph.widgets.interfaces.IHphWidgetsLayer"
+    />
+
 </configure>

@@ -7,7 +7,8 @@ $o-separator-height:                        .25rem;
     position: relative;
     width: 100%;
     padding-bottom: calc(#{$o-separator-margin} / 3.5);
-    &:not(:last-child) {
+    &:not(:last-child),
+    &--default {
         &::after {
         content: "";
         position: absolute;
@@ -17,5 +18,5 @@ $o-separator-height:                        .25rem;
         height: $o-separator-height;
         background-color: $o-separator-color;
         }
-    } 
+    }
 }
