@@ -15,7 +15,7 @@ $c-widget-font-family-highlight:          $c-card-font-family-base;
     border: .125rem solid $app-color-gray-lighter;
     margin-bottom: 1rem;
     &--secondary {
-        margin-left: 4rem;
+        margin-left: 5rem;
     }
 }
 
@@ -28,10 +28,13 @@ $c-widget-font-family-highlight:          $c-card-font-family-base;
 }
 
 .c-widget-editor__item-actions {
+    flex: 0 0 8rem;
+    max-width: 8rem;
+    text-align: right;
 }
 
 .c-widget-editor__item-main {
-    flex: 0 0 80%;
+    flex: 0 0 auto;
     max-width: 80%;
     padding-left: $app-spacer-sm;
     padding-right: $app-spacer-sm;
