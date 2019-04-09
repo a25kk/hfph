@@ -45,6 +45,10 @@ $o-icon-border-radius:              50%;
     @include icon-variant($o-icon-color-inverse, 4rem);
 }
 
+.o-icon--sm {
+    @include icon-variant(currentColor, 1.2rem);
+}
+
 .o-icon--md {
     @include icon-variant(currentColor, 1.5rem);
 }
