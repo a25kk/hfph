@@ -1,7 +1,7 @@
 .o-burger {
     display: $o-burger-display;
     margin-top: $o-burger-margin-top;
-    @include mq($from: md) {
+    @include mq($from: lg) {
         margin-top: 0;
     }
 }
@@ -15,7 +15,7 @@
     cursor: pointer;
     width: 100%;
     padding: 0 1rem 0 0;
-    @include mq($from: md) {
+    @include mq($from: lg) {
         padding-right: 0;
     }
 }

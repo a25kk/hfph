@@ -9330,6 +9330,10 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   color: #182f7a;
 }
 
+.o-icon--muted {
+  color: #999999;
+}
+
 .o-icon--circle {
   border: 1px solid currentColor;
   border-radius: 50%;
@@ -9340,7 +9344,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-icon--nav-toggle {
-  fill: #fff;
+  fill: currentColor;
   width: 4rem;
   height: 4rem;
 }
@@ -9367,18 +9371,6 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   fill: #fff;
   width: 4rem;
   height: 4rem;
-}
-
-.o-icon__nav--default {
-  width: 1rem;
-  height: 1rem;
-  color: #fff;
-}
-
-.o-icon__ui--calendar-dims {
-  width: 4rem;
-  height: 4rem;
-  fill: #adb5bd;
 }
 
 .o-icon__ui--people-dims {

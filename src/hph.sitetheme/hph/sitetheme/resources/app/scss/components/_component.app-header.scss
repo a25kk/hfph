@@ -50,7 +50,7 @@
     // flex-direction: column;
     flex-wrap: wrap;
     width: 100%;
-    @include mq($from: md) {
+    @include mq($from: lg) {
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: flex-end;
@@ -76,7 +76,7 @@
         background: $app-color-gray-base;
         padding: 0 .5rem .5rem .5rem;
     }
-    @include mq($from: md) {
+    @include mq($from: lg) {
         width: 16.6666%;
         flex: 0 0 16.6666%;
         &:first-child {
@@ -86,9 +86,9 @@
         }
         &:nth-child(2) {
             order: 0;
-            width: 16.6666%;
-            max-width: 16.6666%;
-            flex: 0 0 16.6666%;
+            width: 33.3333%;
+            max-width: 33.3333%;
+            flex: 0 0 33.3333%;
             background: transparent;
             padding: 0;
         }
