@@ -10022,6 +10022,10 @@ input, button, select, textarea {
   background-color: #efefef;
 }
 
+.o-read-more__icon {
+  margin-right: .5rem;
+}
+
 .app-header {
   position: fixed;
   top: 0;
