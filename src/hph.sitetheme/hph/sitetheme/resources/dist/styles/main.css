@@ -9362,6 +9362,10 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   color: #182f7a;
 }
 
+.o-icon--muted {
+  color: #999999;
+}
+
 .o-icon--circle {
   border: 1px solid currentColor;
   border-radius: 50%;
@@ -9372,7 +9376,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-icon--nav-toggle {
-  fill: #fff;
+  fill: currentColor;
   width: 4rem;
   height: 4rem;
 }
@@ -9399,18 +9403,6 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   fill: #fff;
   width: 4rem;
   height: 4rem;
-}
-
-.o-icon__nav--default {
-  width: 1rem;
-  height: 1rem;
-  color: #fff;
-}
-
-.o-icon__ui--calendar-dims {
-  width: 4rem;
-  height: 4rem;
-  fill: #adb5bd;
 }
 
 .o-icon__ui--people-dims {
@@ -13226,6 +13218,90 @@ c-list--bordered .c-list__item:last-of-type {
   margin-bottom: 0;
   padding-top: .3rem;
   font-family: "TAZ";
+}
+
+.c-link-tile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (min-width: 48em) {
+  .c-link-tile {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.c-link-tile__aside {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 25%;
+          flex: 0 0 25%;
+  max-width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.c-link-tile__main {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 75%;
+          flex: 0 0 75%;
+  max-width: 75%;
+  text-align: center;
+}
+
+@media (min-width: 48em) {
+  .c-link-tile__aside,
+  .c-link-tile__main {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.c-link-tile__icon {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 48em) {
+  .c-link-tile__icon {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+.c-link-tile__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (min-width: 48em) {
+  .c-link-tile__header {
+    padding-top: calc(1.25rem * 1.5);
+  }
+}
+
+.c-link-tile__title {
+  font-size: 1.25rem;
 }
 
 .c-page-header {

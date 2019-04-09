@@ -14,4 +14,13 @@
             layer="hph.widgets.interfaces.IHphWidgetsLayer"
     />
 
+    <browser:page
+            for="*"
+            name="content-widget-teaser-links"
+            class="hph.widgets.widgets.teaser.teaser.WidgetTeaserLinksInternal"
+            template="teaser-links-internal.pt"
+            permission="zope2.View"
+            layer="hph.widgets.interfaces.IHphWidgetsLayer"
+    />
+
 </configure>

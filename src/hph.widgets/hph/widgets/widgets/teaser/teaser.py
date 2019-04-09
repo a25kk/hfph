@@ -117,7 +117,7 @@ class WidgetTeaserNews(BrowserView):
 
 
 class WidgetTeaserLinksInternal(BrowserView):
-        """ Base widget used as placeholder """
+    """ Base widget used as placeholder """
 
     def __call__(self,
                  widget_name='teaser-links-internal',
