@@ -45,8 +45,7 @@ $c-card-spacer:                         $app-spacer-sm;
         display: none;
     }
     @include when-inside('.c-card--teaser') {
-        min-height: 6rem;
-        height: auto;
+        flex: 1 0 8rem;
     }
 }
 
@@ -98,6 +97,7 @@ $c-card-spacer:                         $app-spacer-sm;
 
 // Card element styles
 .c-card__link {
+    display: block;
     color: $c-card-color-link;
     text-decoration: none;
     &:hover {

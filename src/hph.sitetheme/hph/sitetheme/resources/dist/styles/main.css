@@ -12460,8 +12460,9 @@ img[data-sizes="auto"] {
 }
 
 .c-card--teaser .c-card__header {
-  min-height: 6rem;
-  height: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 8rem;
+          flex: 1 0 8rem;
 }
 
 .c-card__main {
@@ -12519,6 +12520,7 @@ img[data-sizes="auto"] {
 }
 
 .c-card__link {
+  display: block;
   color: #182f7a;
   text-decoration: none;
 }
