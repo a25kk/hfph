@@ -91,6 +91,16 @@ def deploy_apply_files():
 # ENVIRONMENTS
 
 @task
+def testing():
+    """ Execute task on staging environment """
+    env.git = _deploy_git_factory()(
+        remote_repository_path='${fabric:directory_testing}',
+        release_branch='testing',
+    )
+    _deploy_base_env()
+    env.hosts = ['${fabric:host_testing}']
+
+@task
 def staging():
     """ Execute task on staging environment """
     env.git = _deploy_git_factory()(

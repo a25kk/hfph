@@ -1,4 +1,4 @@
-<div class="c-teaser c-teaser--news"
+<div class="c-teaser c-teaser--links"
      xmlns:xlink="http://www.w3.org/1999/xlink"
          i18n:domain="hph.widgets">
     <div class="c-teaser__header c-teaser__header--hidden">
@@ -7,11 +7,12 @@
         </h2>
     </div>
     <div class="c-teaser__main">
-        <div class="c-list c-list--gutter c-list--grid c-list--${context/UID}" tal:define="items python:view.widget_content_items()"
+        <div class="c-list c-list--gutter c-teaser-list c-list--${context/UID}"
+                 tal:define="items python:view.widget_content_items()"
                  tal:attributes="class python:view.widget_content_list_class()">
             <tal:items tal:repeat="item items">
                 <div class="c-card-list__item c-card-list__item--width-25" tal:define="item_uuid python:item['uuid'];"
-                         tal:attributes="class python:'c-list__item c-list__item--snippet ' + item['css_classes']">
+                         tal:attributes="class python:'c-list__item c-list__item--width-25 c-list__item--snippet ' + item['css_classes']">
                     <div tal:replace="structure python:context.restrictedTraverse('@@content-widget-hph-link-tile')(widget_data=dict(uuid=item_uuid))">
                         Content Preview Card
                     </div>
