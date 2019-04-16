@@ -12512,6 +12512,10 @@ img[data-sizes="auto"] {
   text-transform: uppercase;
 }
 
+.c-panel-editor__footer {
+  padding: calc(1.25rem * 1.5) 0;
+}
+
 .c-card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -12786,7 +12790,6 @@ img[data-sizes="auto"] {
 .c-toc--level-1 {
   display: none;
   text-transform: none;
-  font-family: "adobe-garamond-pro";
 }
 
 @media (max-width: 47.99em) {

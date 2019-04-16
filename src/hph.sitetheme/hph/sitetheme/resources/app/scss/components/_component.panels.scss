@@ -225,3 +225,7 @@ $c-panel-controls-display:  flex;
     font-family: $app-font-family-strong;
     text-transform: uppercase;
 }
+
+.c-panel-editor__footer {
+    padding: $app-spacer-base 0;
+}
