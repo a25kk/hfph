@@ -9726,7 +9726,12 @@ input, button, select, textarea {
 }
 
 .o-form--panels .o-form__actions {
-  text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .autotoc-section {

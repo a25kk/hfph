@@ -235,7 +235,8 @@ input, button, select, textarea {
     padding-top: calc(#{$app-font-size-base} * 1.5);
     padding-bottom: calc(#{$app-font-size-base} * 1.5);
     @include when-inside('.o-form--panels') {
-        text-align: right;
+        display: flex;
+        justify-content: space-between;
     }
 }
 
