@@ -9,6 +9,9 @@ input, button, select, textarea {
 
 .o-form {
     width: 100%;
+    &--panels {
+        padding: $app-spacer-sm;
+    }
 }
 
 .o-form__group {
@@ -231,6 +234,9 @@ input, button, select, textarea {
 .o-form__actions {
     padding-top: calc(#{$app-font-size-base} * 1.5);
     padding-bottom: calc(#{$app-font-size-base} * 1.5);
+    @include when-inside('.o-form--panels') {
+        text-align: right;
+    }
 }
 
 // Fieldset in auto TOC

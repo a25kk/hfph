@@ -9456,6 +9456,10 @@ input, button, select, textarea {
   width: 100%;
 }
 
+.o-form--panels {
+  padding: calc(1.25rem * 1.5 / 2);
+}
+
 .o-form__group {
   margin-bottom: calc(1.25rem * 1.5);
 }
@@ -9719,6 +9723,10 @@ input, button, select, textarea {
 .o-form__actions {
   padding-top: calc(1.25rem * 1.5);
   padding-bottom: calc(1.25rem * 1.5);
+}
+
+.o-form--panels .o-form__actions {
+  text-align: right;
 }
 
 .autotoc-section {

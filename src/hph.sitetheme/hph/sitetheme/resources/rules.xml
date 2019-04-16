@@ -116,7 +116,7 @@
 
     <theme href="dist/front-page/index.html" css:if-content="body.template-frontpage-view" />
     <!-- Panel page -->
-    <theme href="dist/front-page/index.html" css:if-content="body.portaltype-ade25-panelpage-page" />
+    <!--<theme href="dist/front-page/index.html" css:if-content="body.portaltype-ade25-panelpage-page" />-->
 
     <theme href="dist/theme/index.html" css:if-content="body.section-relaunch-theme" />
 
