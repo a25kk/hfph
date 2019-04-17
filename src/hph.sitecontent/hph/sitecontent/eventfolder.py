@@ -11,8 +11,3 @@ class IEventFolder(form.Schema):
 class EventFolder(dexterity.Container):
     grok.implements(IEventFolder)
 
-
-class View(grok.View):
-    grok.context(IEventFolder)
-    grok.require('zope2.View')
-    grok.name('view')

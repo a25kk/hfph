@@ -98,9 +98,3 @@ def endDefaultValue(data):
 
 class EventItem(dexterity.Item):
     grok.implements(IEventItem)
-
-
-class View(grok.View):
-    grok.context(IEventItem)
-    grok.require('zope2.View')
-    grok.name('view')
