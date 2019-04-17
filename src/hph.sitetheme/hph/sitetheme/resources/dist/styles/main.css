@@ -13315,7 +13315,7 @@ c-list--bordered .c-list__item:last-of-type {
 }
 
 .c-teaser__footer {
-  display: none;
+  text-align: right;
 }
 
 .c-event-info__title {
