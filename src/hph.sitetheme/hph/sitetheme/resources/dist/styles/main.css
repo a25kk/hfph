@@ -10070,23 +10070,12 @@ input, button, select, textarea {
   width: 100%;
   z-index: 100;
   display: block;
-  background-color: #efefef;
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#efefef));
-  background: -webkit-linear-gradient(white, #efefef);
-  background: -o-linear-gradient(white, #efefef);
-  background: linear-gradient(white, #efefef);
+  background-color: whitesmoke;
   padding-bottom: 1rem;
 }
 
 .portaltype-ade25-panelpage-page .app-header {
-  background: white;
-}
-
-.portaltype-ade25-panelpage-page .app-header--offset {
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#efefef));
-  background: -webkit-linear-gradient(white, #efefef);
-  background: -o-linear-gradient(white, #efefef);
-  background: linear-gradient(white, #efefef);
+  background: whitesmoke;
 }
 
 @media (min-width: 768px) {
@@ -12183,7 +12172,7 @@ img[data-sizes="auto"] {
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
-  background-color: #efefef;
+  background-color: whitesmoke;
 }
 
 .c-panels--header > * {

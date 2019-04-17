@@ -8,8 +8,8 @@
     width: 100%;
     z-index: 100;
     display: block;
-    background-color: $app-color-gray-light;
-    background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
+    background-color: $app-color-gray-extra;
+    //background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
     padding-bottom: 1rem;
     //@include when-inside('.template-frontpage-view') {
     //    background: transparent;
@@ -18,10 +18,10 @@
     //    }
     //}
     @include when-inside('.portaltype-ade25-panelpage-page') {
-        background: rgba(255,255,255,1);
-        &--offset {
-            background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
-        }
+        background: $app-color-gray-extra;
+        //&--offset {
+        //    background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
+        //}
     }
     @include media-breakpoint-up(md) {
         margin: 0 auto 1rem;
