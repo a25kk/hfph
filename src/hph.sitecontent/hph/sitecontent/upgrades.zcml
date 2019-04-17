@@ -50,4 +50,13 @@
             sortkey="1"
     />
 
+    <genericsetup:upgradeStep
+            title="Add exclude from footer toc behavior"
+            description="Provide behavior and integrate catalog index"
+            source="1004"
+            destination="1005"
+            profile="hph.sitecontent:default"
+            handler="hph.sitecontent.upgrades.upgrade_1005"
+            sortkey="1"
+    />
 </configure>
