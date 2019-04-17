@@ -10398,7 +10398,6 @@ input, button, select, textarea {
   position: fixed;
   left: 0;
   bottom: 0;
-  z-index: 102;
   padding: .25rem 1rem;
   width: 100%;
   display: block;
@@ -10421,6 +10420,7 @@ input, button, select, textarea {
 .c-identifier__content {
   font-size: 1rem;
   font-family: "TAZ";
+  text-align: right;
 }
 
 @media (min-width: 576px) {
@@ -12573,6 +12573,7 @@ img[data-sizes="auto"] {
 }
 
 .c-card__footer {
+  margin-top: auto;
   font-family: "TAZ";
   font-size: 1rem;
 }
@@ -13989,4 +13990,8 @@ c-list--bordered .c-list__item:last-of-type {
 
 .u-text--muted {
   color: #5a6570;
+}
+
+[id="personal-bar-container"] {
+  z-index: 105;
 }
