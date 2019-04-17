@@ -115,6 +115,12 @@ class WidgetTeaserNews(BrowserView):
             })
         return results
 
+    @staticmethod
+    def widget_more_link():
+        portal = api.portal.get()
+        more_link = '{0}/nachrichten'.format(portal.absolute_url())
+        return more_link
+
 
 class WidgetTeaserLinksInternal(BrowserView):
     """ Base widget used as placeholder """
@@ -207,18 +213,29 @@ class WidgetTeaserLinksInternal(BrowserView):
 
     def recent_news(self):
         results = []
-        brains = self.get_latest_news_items()
-        for brain in brains:
+        elements = [
+            '8303a7b4b3ad460f93f23db372f5f2d1',
+            'c5fd0c9ccb484de2aa689d94545e6f20',
+            '9a5c757860f24e5a9985c35fd9c11590',
+            '533766a3059940828c0da7ffce1cc755'
+        ]
+        for item_uid in elements:
+            brain = api.content.get(UID=item_uid)
             results.append({
-                'title': brain.Title,
-                'description': brain.Description,
-                'url': brain.getURL(),
-                'timestamp': brain.Date,
-                'uuid': brain.UID,
+                'title': brain.Title(),
+                'description': brain.Description(),
+                'url': brain.absolute_url(),
+                'timestamp': brain.Date(),
+                'uuid': brain.UID(),
                 "css_classes": "o-card-list__item--{0}".format(
-                    brain.UID
+                    brain.UID()
                 ),
-                'item_object': brain.getObject()
+                'item_object': brain
             })
         return results
 
+    @staticmethod
+    def widget_more_link():
+        portal = api.portal.get()
+        more_link = '{0}/nachrichten'.format(portal.absolute_url())
+        return more_link

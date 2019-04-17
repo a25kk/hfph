@@ -4,9 +4,11 @@
          tal:attributes="class python:'c-link-tile c-link-tile--default ' + content['css_classes']"
          i18n:domain="hph.widgets">
     <div class="c-link-tile__aside">
-        <svg class="o-icon o-icon--circle o-icon--size-3 o-icon--spacer o-icon--muted o-icon__ui--calendar-dims c-link-tile__icon">
-            <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--calendar"></use>
-        </svg>
+        <div class="c-link-tile__asset">
+            <svg class="o-icon o-icon--size-5 o-icon--spacer o-icon--muted o-icon__ui--calendar-dims c-link-tile__icon">
+                <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--calendar"></use>
+            </svg>
+        </div>
     </div>
     <div class="c-link-tile__main">
         <div class="c-link-tile__header">
