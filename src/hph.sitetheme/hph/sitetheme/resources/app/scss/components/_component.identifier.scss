@@ -22,7 +22,7 @@
 }
 
 .c-identifier__content {
-    @include make-container-max-widths();
+    // @include make-container-max-widths();
     @include font-size($font-size-small);
     font-family: $app-font-family-strong;
     text-align: right;

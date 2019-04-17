@@ -10420,30 +10420,6 @@ input, button, select, textarea {
   text-align: right;
 }
 
-@media (min-width: 576px) {
-  .c-identifier__content {
-    max-width: 540px;
-  }
-}
-
-@media (min-width: 768px) {
-  .c-identifier__content {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 992px) {
-  .c-identifier__content {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .c-identifier__content {
-    max-width: 1140px;
-  }
-}
-
 .c-sign-in {
   margin: 1rem;
   padding: 1rem;
@@ -12282,7 +12258,13 @@ img[data-sizes="auto"] {
   margin-left: auto;
   margin-right: auto;
   padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .c-panel__main {
+    padding-bottom: 2rem;
+  }
 }
 
 @media (min-width: 576px) {
