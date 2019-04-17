@@ -1,4 +1,5 @@
 .c-toc {
+    font-family: $c-toc-font;
     position: relative;
     padding-left: .5rem;
     padding-right: .5rem;
@@ -18,7 +19,6 @@
         }
     }
     @include list-reset();
-    font-family: $c-toc-font;
 
 }
 
@@ -33,6 +33,12 @@
                 flex-direction: $c-toc-item-flex-direction;
             }
         }
+    }
+    &.presse-kommunikation {
+        display: none;
+    }
+    &.en {
+        display: none;
     }
     padding: .35rem 0 .35rem 1rem;
 	text-transform: none;
@@ -65,7 +71,7 @@
         padding: .35rem 0 .35rem 0;
     }
     @include mq($from: xl) {
-        padding: .5rem 0 .5rem 1rem;
+        padding: .5rem 1.5rem .5rem 1.5rem;
         flex: 1 0 16.6666%;
         max-width: 16.6666%;
         margin-bottom: 0;
@@ -102,7 +108,7 @@
         display: block;
     }
 	text-transform: none;
-	font-family: $app-font-family-base;
+	// font-family: $app-font-family-medium;
 }
 
 .c-toc__link {
@@ -114,7 +120,7 @@
         display: block;
         height: calc(#{$app-font-size-base} * 2.5);
         text-decoration: none;
-        cursor: default;
+        cursor: pointer;
     }
 	color: $c-toc-link-color;
     font-size: $c-toc-item-font-size;

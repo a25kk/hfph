@@ -4,14 +4,26 @@
 }
 
 .c-panels--header {
-    background-color: $c-panel-primary-bg-color;
-    background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
-    // padding-bottom: 3rem;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: $app-color-gray-extra;
+    > * {
+        margin-right: auto;
+        margin-left: auto;
+        @include make-container-max-widths();
+    }
 }
 
 .c-panel {
     position: relative;
     padding: $c-panel-padding-top $c-panel-padding-right $c-panel-padding-bottom $c-panel-padding-left;
+}
+
+.c-panel--full-width {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .c-panel--centered {
@@ -53,6 +65,7 @@
 }
 
 .c-panel__main {
+    position: relative;
     width: $c-panel-width;
     margin-left: auto;
     margin-right: auto;
@@ -209,4 +222,8 @@ $c-panel-controls-display:  flex;
 .c-panel-editor__section-headline {
     font-family: $app-font-family-strong;
     text-transform: uppercase;
+}
+
+.c-panel-editor__footer {
+    padding: $app-spacer-base 0;
 }

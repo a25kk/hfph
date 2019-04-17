@@ -1,7 +1,7 @@
 .o-burger {
     display: $o-burger-display;
     margin-top: $o-burger-margin-top;
-    @include mq($from: md) {
+    @include mq($from: lg) {
         margin-top: 0;
     }
 }
@@ -14,8 +14,8 @@
     border: $o-burger-border-width $o-burger-border-style $o-burger-border-color; // remove default button style
     cursor: pointer;
     width: 100%;
-    padding-right: 1rem;
-    @include mq($from: md) {
+    padding: 0 1.5rem 0 0;
+    @include mq($from: lg) {
         padding-right: 0;
     }
 }

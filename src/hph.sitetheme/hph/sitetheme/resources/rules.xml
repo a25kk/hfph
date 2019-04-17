@@ -116,7 +116,7 @@
 
     <theme href="dist/front-page/index.html" css:if-content="body.template-frontpage-view" />
     <!-- Panel page -->
-    <theme href="dist/front-page/index.html" css:if-content="body.portaltype-ade25-panelpage-page" />
+    <!--<theme href="dist/front-page/index.html" css:if-content="body.portaltype-ade25-panelpage-page" />-->
 
     <theme href="dist/theme/index.html" css:if-content="body.section-relaunch-theme" />
 
@@ -305,7 +305,7 @@
                     <xsl:attribute name="class">app-main app-main--grid</xsl:attribute>
                 </before>
                 <replace css:content-children="#portal-column-one > *"
-                         css:theme-children="#app-sidebar-content" />
+                         css:theme-children="#app-sidebar" />
                 <replace css:content-children="#content"
                          css:theme-children="#content"
                 />
@@ -630,8 +630,8 @@
 
 
         <!-- footer elements -->
-        <replace css:theme-children=".app-footer__main"
-                css:content="#c-toc" />
+        <before css:theme-children="#c-toc"
+                css:content-children="#c-toc" />
 
     </rules>
 

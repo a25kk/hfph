@@ -24,7 +24,7 @@ requirejs(['require',
         }
 
         // Trigger font face observer protection
-        var fontPrimary = new FontFaceObserver('EB Garamond', {
+        var fontPrimary = new FontFaceObserver('adobe-garamond-pro', {
             weight: 400
         });
         var fontSecondary = new FontFaceObserver('TAZ');

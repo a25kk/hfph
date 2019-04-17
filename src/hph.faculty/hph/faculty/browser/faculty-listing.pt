@@ -34,7 +34,7 @@
                                                         results view/faculty_members;
                                                         batch python:Batch(results, b_size, b_start);">
                             <tal:list tal:repeat="item batch">
-                                <div class="c-list__item">
+                                <div class="c-list__item o-separator">
                                     <div class="c-snippet c-snippet--default c-snippet--faculty c-snippet--${item/UID}">
                                         <div class="c-snippet__main">
                                             <div class="c-snippet__section">
@@ -54,10 +54,10 @@
                                                     <p tal:condition="item/sidenote"
                                                              tal:content="item/sidenote" />
                                                 </div>
-                                            </div>
-                                            <div class="c-snippet__footer">
-                                                <a class="c-snippet__link" tal:attributes="href string:mailto:${item/email}"
-                                                         tal:content="item/email" />
+                                                <div class="c-snippet__footer">
+                                                    <a class="c-snippet__link" tal:attributes="href string:mailto:${item/email}"
+                                                             tal:content="item/email" />
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="c-snippet__aside" tal:condition="python:item.image">

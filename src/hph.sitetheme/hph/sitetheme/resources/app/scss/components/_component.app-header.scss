@@ -8,20 +8,20 @@
     width: 100%;
     z-index: 100;
     display: block;
-    background-color: $app-color-gray-light;
-    background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
+    background-color: $app-color-gray-extra;
+    //background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
     padding-bottom: 1rem;
-    @include when-inside('.template-frontpage-view') {
-        background: transparent;
-        &--offset {
-            background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
-        }
-    }
+    //@include when-inside('.template-frontpage-view') {
+    //    background: transparent;
+    //    &--offset {
+    //        background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
+    //    }
+    //}
     @include when-inside('.portaltype-ade25-panelpage-page') {
-        background: rgba(255,255,255,1);
-        &--offset {
-            background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
-        }
+        background: $app-color-gray-extra;
+        //&--offset {
+        //    background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
+        //}
     }
     @include media-breakpoint-up(md) {
         margin: 0 auto 1rem;
@@ -49,8 +49,9 @@
     display: flex;
     // flex-direction: column;
     flex-wrap: wrap;
-    padding-top: 2rem;
-    @include mq($from: md) {
+    width: 100%;
+    max-width: 100%;
+    @include mq($from: lg) {
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: flex-end;
@@ -64,6 +65,8 @@
     display: block;
     position: relative;
     width: 50%;
+    max-width: 50%;
+    flex: 0 0 50%;
     &:first-child {
         width: 50%;
         max-width: 50%;
@@ -73,23 +76,29 @@
         order: -1;
         width: 100%;
         max-width: 100%;
+        flex: 0 0 100%;
         background: $app-color-gray-base;
         padding: 0 .5rem .5rem .5rem;
     }
-    @include mq($from: md) {
-        width: 25%;
-        flex: 0 0 25%;
+    @include mq($from: lg) {
+        width: 16.6666%;
+        flex: 0 0 16.6666%;
         &:first-child {
             width: 50%;
             max-width: 50%;
+            flex: 0 0 50%;
         }
         &:nth-child(2) {
             order: 0;
-            width: 25%;
-            max-width: 25%;
-            flex: 0 0 25%;
+            width: 33.3333%;
+            max-width: 33.3333%;
+            flex: 0 0 33.3333%;
             background: transparent;
             padding: 0;
         }
     }
+}
+
+.app-header__section--quick-links {
+    display: flex;
 }
