@@ -35,7 +35,6 @@
   <property name="immediate_view">view</property>
   <property name="default_view">content-page-view</property>
   <property name="view_methods">
-   <element value="view"/>
    <element value="content-page-view"/>
   </property>
   <property name="default_view_fallback">False</property>

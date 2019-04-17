@@ -32,6 +32,14 @@
     />
 
     <browser:page
+            for="hph.sitecontent.languagefolder.ILanguageFolder"
+            name="language-root-view"
+            class="hph.sitecontent.browser.languageroot.LanguageRootView"
+            template="language-root.pt"
+            permission="zope2.View"
+    />
+
+    <browser:page
             for="hph.sitecontent.mainsection.IMainSection"
             name="section-view"
             class="hph.sitecontent.browser.section.MainSectionView"
