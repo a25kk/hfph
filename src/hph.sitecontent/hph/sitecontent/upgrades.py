@@ -74,4 +74,5 @@ def upgrade_1004(setup):
 
 
 def upgrade_1005(setup):
+    setup.runImportStepFromProfile(default_profile, 'catalog')
     add_exclude_from_footer_nav_index()

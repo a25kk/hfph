@@ -13316,6 +13316,7 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-teaser__footer {
   text-align: right;
+  font-family: "TAZ";
 }
 
 .c-event-info__title {
