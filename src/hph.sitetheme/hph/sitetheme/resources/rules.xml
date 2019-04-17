@@ -188,6 +188,12 @@
 
         <replace css:theme="#quick-links" css:content="#app-quick-links" />
 
+        <!-- Language switch translation handling -->
+        <drop css:theme="#language-menu-button-en"
+              if-not-path="/en/"/>
+        <drop css:theme="#language-menu-button-de"
+              if-path="/en/"/>
+
         <drop css:theme="#app-banner"
               css:if-not-content="#app-banner" />
 
