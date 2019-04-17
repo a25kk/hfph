@@ -2,7 +2,7 @@
     position: fixed;
     left: 0;
     bottom: 0;
-    z-index: 102;
+    // z-index: 102;
     padding: .25rem 1rem;
     width: 100%;
     display: block;
@@ -19,12 +19,11 @@
             width: calc(100% - 120px);
         }
     }
-    //border-bottom: 1px solid $identifier-border-color;
-    //border-left: 1px solid $identifier-border-color;
 }
 
 .c-identifier__content {
     @include make-container-max-widths();
     @include font-size($font-size-small);
     font-family: $app-font-family-strong;
+    text-align: right;
 }

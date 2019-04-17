@@ -10409,7 +10409,6 @@ input, button, select, textarea {
   position: fixed;
   left: 0;
   bottom: 0;
-  z-index: 102;
   padding: .25rem 1rem;
   width: 100%;
   display: block;
@@ -10432,6 +10431,7 @@ input, button, select, textarea {
 .c-identifier__content {
   font-size: 1rem;
   font-family: "TAZ";
+  text-align: right;
 }
 
 @media (min-width: 576px) {
