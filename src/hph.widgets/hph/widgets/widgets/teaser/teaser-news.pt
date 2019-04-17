@@ -3,7 +3,9 @@
      i18n:domain="hph.widgets">
     <div class="c-teaser__header">
         <h2 class="c-teaser__title" i18n:translate="">
-            News
+            <a href="" tal:attributes="href python:view.widget_more_link()">
+                News
+            </a>
         </h2>
     </div>
     <div class="c-teaser__main">
@@ -18,5 +20,10 @@
                 </div>
             </tal:items>
         </div>
+    </div>
+    <div class="c-teaser__footer">
+        <a href="/news" tal:attributes="href python:view.widget_more_link()" i18n:translate="">
+            More news
+        </a>
     </div>
 </div>

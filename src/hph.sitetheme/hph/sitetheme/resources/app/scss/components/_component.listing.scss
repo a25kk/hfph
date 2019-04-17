@@ -33,6 +33,10 @@ $c-list-border-width:                1px;
         @include mq($from: lg) {
             flex: 1 0 33.3333%;
             max-width: 33.3333%;
+            &--width-25 {
+                flex: 1 0 25%;
+                max-width: 25%;
+            }
         }
     }
     margin-bottom: calc(#{$c-list-spacer} * 1.5);
