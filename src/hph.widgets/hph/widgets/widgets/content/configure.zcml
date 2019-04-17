@@ -1,0 +1,46 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser"
+        xmlns:z3c="http://namespaces.zope.org/z3c"
+        i18n_domain="hph.widgets">
+
+    <!-- Content preview widgets -->
+    <browser:page
+            for="*"
+            name="content-widget-content-card"
+            class=".base.WidgetContentCard"
+            template="base-card.pt"
+            permission="zope2.View"
+            layer="...interfaces.IHphWidgetsLayer"
+    />
+
+    <browser:page
+            for="*"
+            name="content-widget-content-snippet"
+            class=".base.WidgetContentSnippet"
+            template="base-snippet.pt"
+            permission="zope2.View"
+            layer="...interfaces.IHphWidgetsLayer"
+    />
+
+
+    <!-- Content widget News Preview -->
+    <browser:page
+            for="*"
+            name="content-widget-hph-news-card"
+            class=".news.WidgetNewsCard"
+            template="news-card.pt"
+            permission="zope2.View"
+            layer="...interfaces.IHphWidgetsLayer"
+    />
+
+    <browser:page
+            for="*"
+            name="content-widget-hph-link-tile"
+            class=".link.WidgetLinkTile"
+            template="link-tile.pt"
+            permission="zope2.View"
+            layer="hph.widgets.interfaces.IHphWidgetsLayer"
+    />
+
+</configure>

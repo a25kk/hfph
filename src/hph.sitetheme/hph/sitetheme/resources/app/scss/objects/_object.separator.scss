@@ -1,0 +1,22 @@
+$o-separator-color:                         $color-gallery;
+$o-separator-margin:                        calc(#{$app-spacer-base} * 1.5);
+$o-separator-width:                         90px;
+$o-separator-height:                        .25rem;
+
+.o-separator {
+    position: relative;
+    width: 100%;
+    padding-bottom: calc(#{$o-separator-margin} / 3.5);
+    &:not(:last-child),
+    &--default {
+        &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: $o-separator-width;
+        height: $o-separator-height;
+        background-color: $o-separator-color;
+        }
+    }
+}

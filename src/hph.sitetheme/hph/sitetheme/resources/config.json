@@ -23,10 +23,6 @@
   },
   "scripts": {
     "app": [
-        "scripts/a25.helpers.js",
-        "scripts/a25.js",
-        "scripts/a25.navbar.js",
-        "scripts/a25.slider.js",
         "scripts/app.js",
         "scripts/collapsible.js",
         "scripts/dropdown.js",
@@ -34,10 +30,12 @@
         "scripts/interdependentselect.js",
         "scripts/navbar.js",
         "scripts/paneleditor.js",
+        "scripts/polyfills.js",
         "scripts/slider.js",
         "scripts/utils.js"
         ],
     "src": [
+        "body-scroll-lock/lib/bodyScrollLock.js",
         "dropmic/dist/dropmic.js",
         "flickity/dist/flickity.pkgd.js",
         "fontfaceobserver/fontfaceobserver.js",

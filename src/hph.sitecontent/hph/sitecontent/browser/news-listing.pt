@@ -30,23 +30,25 @@
 
             <tal:news-items tal:condition="view/has_content">
 
-                <div class="app-page__body">
-                    <section class="app-page__section app-list" id="content-core"
+                <div class="o-page__section">
+                    <section class="app-page__section c-list" id="content-core"
                              tal:define="Batch python:modules['Products.CMFPlone'].Batch;
                                          b_size python:int(request.get('b_size', 20));
                                          b_start python:int(request.get('b_start', 0));
                                          results view/news_items;
                                          batch python:Batch(results, b_size, b_start);">
-                        <div class="app-list app-list--no-gutter">
-                            <article class="app-list__item" tal:repeat="item batch">
-                                <div class="app-list__item-details" tal:define="item_uuid item/uuid">
+                        <div class="c-list">
+                            <article class="c-list__item o-separator" tal:repeat="item batch">
+                                <tal:item tal:define="item_uuid item/uuid">
                                     <div tal:replace="structure python:context.restrictedTraverse('@@content-widget-content-snippet')(widget_data=dict(uuid=item_uuid))">
                                         Content Preview Card
                                     </div>
-                                </div>
+                                </tal:item>
                             </article>
                         </div>
-                        <div metal:use-macro="context/batch_macros/macros/navigation" />
+                        <tal:batchnavigation
+                                define="batchnavigation nocall:context/@@batchnavigation"
+                                replace="structure python:batchnavigation(batch)" />
                     </section>
                 </div>
             </tal:news-items>

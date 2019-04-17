@@ -5,15 +5,16 @@
     {% include base/head.html %}
   </head>
   <body>
-    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
     {% include components/toolbar.html %}
 
     {% include layout/header.html %}
 
-    <main class="app-main" role="main">
+    <main class="app-main" id="app-main" role="main">
         {% include components/component-breadcrumbs.html %}
-        <aside class="app-sidebar" id="app-sidebar">Column Content</aside>
+        <aside class="app-sidebar" id="app-sidebar">
+            <div class="o-aside" id="app-sidebar-content"></div>
+        </aside>
         <section class="app-content" id="app-content">
             {{ content }}
         </section>

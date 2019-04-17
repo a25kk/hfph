@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rules
+<rules  xmlns:xlink="http://www.w3.org/1999/xlink"
         xmlns="http://namespaces.plone.org/diazo"
         xmlns:css="http://namespaces.plone.org/diazo/css"
         xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -7,57 +7,67 @@
 
     <!-- Template for navigation tree rewrites -->
     <xsl:template name="nav-tree">
-        <div class="c-card c-card--nav c-nav-list">
-            <div class="c-card__header c-card__header--nav-list c-card__header--hidden">
-                Navigation
+        <div class="c-card c-card--nav">
+            <div class="c-card__header c-card__header--nav-list c-collapsible__header js-collapsible-toggle">
+                <div class="c-card__title c-collapsible__link">
+                    Weitere Inhalte
+                </div>
+                <div class="c-collapsible__link c-collapsible__link--icon">
+                    <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--add-dims c-collapsible__icon c-collapsible__icon--open">
+                        <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--add"></use>
+                    </svg>
+                    <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--remove-dims c-collapsible__icon c-collapsible__icon--close">
+                        <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--remove"></use>
+                    </svg>
+                </div>
             </div>
-            <div class="c-card__main">
-                <nav class="app-nav-tree">
+            <div class="c-card__main c-collapsible__item js-collapsible-item">
+                <nav class="c-nav-tree">
                     <xsl:apply-templates select="./nav/*"/>
                 </nav>
             </div>
         </div>
     </xsl:template>
     <xsl:template name="nav-list-base">
-        <ul class="app-nav-tree__list app-nav__list app-nav__list--level-0">
+        <ul class="c-nav-tree__list c-nav-list c-nav-list--level-0">
             <xsl:apply-templates />
         </ul>
     </xsl:template>
     <xsl:template name="nav-list">
-        <ul class="app-nav__list">
+        <ul class="c-nav-list">
             <xsl:if test="@class[contains(.,'navTreeLevel1')]">
-                <xsl:attribute name="class">app-nav-tree-list app-nav__list app-nav__list--level-1</xsl:attribute>
+                <xsl:attribute name="class">c-nav-list c-nav-list--level-1</xsl:attribute>
             </xsl:if>
             <xsl:if test="@class[contains(.,'navTreeLevel2')]">
-                <xsl:attribute name="class">app-nav-tree-list app-nav__list app-nav__list--level-2</xsl:attribute>
+                <xsl:attribute name="class">c-nav-list c-nav-list--level-2</xsl:attribute>
             </xsl:if>
             <xsl:apply-templates />
         </ul>
     </xsl:template>
     <xsl:template name="nav-tree-item">
-        <li class="app-nav__list-item">
+        <li class="c-nav-list__item">
             <xsl:choose>
                 <xsl:when css:test=".navTreeCurrentNode">
-                    <xsl:attribute name="class">app-nav__list-item app-nav__list-item--active</xsl:attribute>
+                    <xsl:attribute name="class">c-nav-list__item c-nav-list__item--active</xsl:attribute>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:attribute name="class">app-nav__list-item</xsl:attribute>
+                    <xsl:attribute name="class">c-nav-list__item</xsl:attribute>
                 </xsl:otherwise>
             </xsl:choose>
             <xsl:apply-templates />
         </li>
     </xsl:template>
     <xsl:template name="nav-tree-link">
-        <a class="app-nav__list-link">
+        <a class="c-nav-list__link">
             <xsl:choose>
                 <xsl:when css:test=".navTreeCurrentNode">
-                    <xsl:attribute name="class">app-nav__list-link app-nav__list-link--active</xsl:attribute>
+                    <xsl:attribute name="class">c-nav-list__link c-nav-list__link--active</xsl:attribute>
                 </xsl:when>
                 <xsl:when css:test=".navTreeItemInPath">
-                    <xsl:attribute name="class">app-nav__list-link app-nav__list-link--open</xsl:attribute>
+                    <xsl:attribute name="class">c-nav-list__link c-nav-list__link--open</xsl:attribute>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:attribute name="class">app-nav__list-link</xsl:attribute>
+                    <xsl:attribute name="class">c-nav-list__link</xsl:attribute>
                 </xsl:otherwise>
             </xsl:choose>
             <xsl:attribute name="href"><xsl:value-of select="@href" /></xsl:attribute>
@@ -105,6 +115,8 @@
     <theme href="dist/signin/index.html" css:if-content="body.template-passwordreset" />
 
     <theme href="dist/front-page/index.html" css:if-content="body.template-frontpage-view" />
+    <!-- Panel page -->
+    <!--<theme href="dist/front-page/index.html" css:if-content="body.portaltype-ade25-panelpage-page" />-->
 
     <theme href="dist/theme/index.html" css:if-content="body.section-relaunch-theme" />
 
@@ -176,6 +188,12 @@
 
         <replace css:theme="#quick-links" css:content="#app-quick-links" />
 
+        <!-- Language switch translation handling -->
+        <drop css:theme="#language-menu-button-de"
+              if-not-path="/en/"/>
+        <drop css:theme="#language-menu-button-en"
+              if-path="/en/"/>
+
         <drop css:theme="#app-banner"
               css:if-not-content="#app-banner" />
 
@@ -203,7 +221,10 @@
                 </li>
             </ol>
         </replace>
-        <replace css:theme-children="#app-pathbar" css:content="#portal-breadcrumbs" />
+        <replace css:theme-children="#app-pathbar" css:content="#portal-breadcrumbs"
+            css:if-not-content=".section-startseite" />
+
+        <drop css:theme="#app-pathbar" css:if-content=".section-startseite" />
 
         <!-- pagination -->
         <replace css:content=".pagination > ul">
@@ -227,10 +248,12 @@
 
         <!-- Document First Heading -->
         <replace css:content=".documentFirstHeading">
-            <div class="o-page__header">
-                <h1 class="o-page__title">
-                    <xsl:apply-templates />
-                </h1>
+            <div class="o-page__header c-page-header">
+                <div class="c-page-header__title">
+                    <h1 class="c-page-header__headline">
+                        <xsl:apply-templates />
+                    </h1>
+                </div>
             </div>
         </replace>
         <!-- Document lead description -->
@@ -287,8 +310,8 @@
                 />
             </rules>
             <rules css:if-content="#portal-column-one">
-                <before css:theme-children="#app-content-main" method="raw">
-                    <xsl:attribute name="class">app-content-main app-content-main-sm</xsl:attribute>
+                <before css:theme-children="#app-main" method="raw">
+                    <xsl:attribute name="class">app-main app-main--grid</xsl:attribute>
                 </before>
                 <replace css:content-children="#portal-column-one > *"
                          css:theme-children="#app-sidebar" />
@@ -299,8 +322,8 @@
         </rules>
 
         <!-- Drop cards -->
-        <drop css:if-not-content=".template-frontpage-view"
-                css:theme="#app-front-page-cards" />
+        <drop css:if-content=".template-frontpage-view"
+                css:theme="#app-sidebar" />
 
         <!-- Alert and portal messages -->
         <strip css:content=".portalMessage dd"/>
@@ -327,7 +350,7 @@
             </xsl:choose>
         </replace>
         <rules css:if-not-content=".template-prefs_install_products_form">
-            <before css:content=".portalMessage" css:theme="#content" />
+            <before css:content=".portalMessage" css:theme-children="#content" />
         </rules>
 
         <!-- Drop iframe attributes in embedded elements -->
@@ -343,7 +366,7 @@
         <replace css:content="#content .callout">
             <xsl:copy>
                 <xsl:copy-of select="@*" />
-                <xsl:attribute name="class">c-alert c-alert--primary</xsl:attribute>
+                <xsl:attribute name="class">c-call-out c-call-out--default</xsl:attribute>
                 <xsl:apply-templates />
             </xsl:copy>
         </replace>
@@ -616,8 +639,8 @@
 
 
         <!-- footer elements -->
-        <replace css:theme-children=".app-footer__main"
-                css:content="#c-toc" />
+        <before css:theme-children="#c-toc"
+                css:content-children="#c-toc" />
 
     </rules>
 

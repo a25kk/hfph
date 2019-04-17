@@ -50,3 +50,7 @@ def upgrade_1003(setup):
 
     # Update registry settings
     # TODO: implement widget registration
+
+
+def upgrade_1004(setup):
+    setup.runImportStepFromProfile(default_profile, 'typeinfo')

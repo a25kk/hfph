@@ -5,7 +5,7 @@ $c-toolbar-position-top:        0;
 $c-toolbar-position-left:       0;
 
 $c-toolbar-padding-x:           .5rem;
-$c-toolbar-padding-y:           1rem;
+$c-toolbar-padding-y:           $app-spacer-sm;
 
 $c-toolbar-color:               darken($app-color-white, 15%);
 $c-toolbar-background:          $app-color-text;
@@ -26,7 +26,6 @@ $c-toolbar-item-display:        flex;
 .u-animation--grow {
     animation-name: toolBarEntrance;
 }
-
 
 .c-toolbar {
     display: block;

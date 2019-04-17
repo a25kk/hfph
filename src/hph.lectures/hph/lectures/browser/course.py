@@ -170,6 +170,17 @@ class CourseView(BrowserView):
                     title = term.title
         return title
 
+    def prettify_course_type(self, value):
+        context = aq_inner(self.context)
+        vr = getVocabularyRegistry()
+        vocab = vr.get(context, 'hph.lectures.CourseType')
+        title = _(u"undefined")
+        if value is not None:
+            for term in vocab:
+                if term.value == value:
+                    title = term.title
+        return title
+
     def computed_class(self, value):
         context = aq_inner(self.context)
         active_filter = getattr(context, 'courseType', None)
@@ -182,6 +193,13 @@ class CourseView(BrowserView):
     def get_course_theme_names():
         course_names = vocabulary.course_core_theme_names()
         return course_names
+
+    @staticmethod
+    def render_course_detail(text):
+        portal_transforms = api.portal.get_tool(name="portal_transforms")
+        stream = portal_transforms.convert('safe_html', text)
+        stream_data = stream.getData()
+        return stream_data
 
 
 class CoursePreview(BrowserView):
@@ -315,6 +333,17 @@ class CoursePreview(BrowserView):
         context = aq_inner(self.context)
         vr = getVocabularyRegistry()
         vocab = vr.get(context, 'hph.lectures.CourseDegree')
+        title = _(u"undefined")
+        if value is not None:
+            for term in vocab:
+                if term.value == value:
+                    title = term.title
+        return title
+
+    def prettify_course_type(self, value):
+        context = aq_inner(self.context)
+        vr = getVocabularyRegistry()
+        vocab = vr.get(context, 'hph.lectures.CourseType')
         title = _(u"undefined")
         if value is not None:
             for term in vocab:

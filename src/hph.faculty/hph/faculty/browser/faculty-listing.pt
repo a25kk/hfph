@@ -9,7 +9,7 @@
 
 <metal:main fill-slot="main">
     <metal:content-core define-macro="main">
-        <div class="o-page__content o-grid o-grid--lg o-grid--gutter">
+        <div class="o-page__content o-grid o-grid--lg o-grid--gutter o-grid--reverse">
             <div class="o-grid__item o-grid__item--width-25">
                 <aside class="o-aside" id="app-sidebar">
                     <div tal:replace="structure python:context.restrictedTraverse('@@faculty-listing-filter')()" />
@@ -34,13 +34,13 @@
                                                         results view/faculty_members;
                                                         batch python:Batch(results, b_size, b_start);">
                             <tal:list tal:repeat="item batch">
-                                <div class="c-list__item">
-                                    <div class="c-snippet c-snippet--default c-snippet--${item/UID}">
+                                <div class="c-list__item o-separator">
+                                    <div class="c-snippet c-snippet--default c-snippet--faculty c-snippet--${item/UID}">
                                         <div class="c-snippet__main">
                                             <div class="c-snippet__section">
                                                 <div class="c-snippet__title">
                                                     <a class="c-snippet__link" href="${item/getURL}">
-                                                            ${item/Title}
+                                                        <h2>${item/Title}</h2>
                                                     </a>
                                                 </div>
                                                 <div class="c-snippet__abstract" tal:condition="context/Description">
@@ -54,18 +54,25 @@
                                                     <p tal:condition="item/sidenote"
                                                              tal:content="item/sidenote" />
                                                 </div>
-                                            </div>
-                                            <div class="c-snippet__footer">
-                                                <a class="c-snippet__link" tal:attributes="href string:mailto:${item/email}"
-                                                         tal:content="item/email" />
+                                                <div class="c-snippet__footer">
+                                                    <a class="c-snippet__link" tal:attributes="href string:mailto:${item/email}"
+                                                             tal:content="item/email" />
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="c-snippet__aside" tal:condition="python:item.image">
-                                            <div class="o-figure c-snippet__figure"
+                                            <div class="o-figure c-snippet__figure c-snippet__figure--faculty"
                                                      tal:define="responsive_image python:item.getObject().restrictedTraverse('@@figure')(image_field_name='image', caption_field__name='image', scale='default', lqip=True, lazy_load=True)">
                                                 <a class="c-snippet__link c-snippet__link--figure" href="${item/getURL}">
                                                     <span tal:replace="structure responsive_image" />
                                                 </a>
+                                            </div>
+                                        </div>
+                                        <div class="c-snippet__aside" tal:condition="not:python:item.image">
+                                            <div class="o-figure c-snippet__figure c-snippet__figure--faculty">
+                                                <div class="o-figure" style="--aspect-ratio:1">
+                                                    <div class="o-figure__placeholder"></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

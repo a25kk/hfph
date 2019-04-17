@@ -14,6 +14,21 @@
             @include make-container-max-widths();
         }
     }
+    @include when-inside('body:not(.portaltype-ade25-panelpage-page)') {
+        &:not(.o-page--panels) {
+            margin-right: auto;
+            margin-left: auto;
+            @include make-container-max-widths();
+        }
+    }
+}
+
+.o-page--panels {
+    padding-left: 0;
+    padding-right: 0;
+    @include when-inside('.userrole-authenticated') {
+        padding-top: 4rem;
+    }
 }
 
 .o-page--sign-in {
@@ -33,7 +48,9 @@
 }
 
 .o-page__header-action {
-    text-align: right;
+    @include mq($from: lg) {
+        text-align: right;
+    }
 }
 
 .o-page__main {
@@ -42,7 +59,33 @@
     @include make-container-max-widths();
 }
 
+.o-page__section {
+    position: relative;
+    margin-bottom: $app-spacer-base;
+    &--spacer {
+        margin-bottom: calc(#{$app-spacer-base} * 2);
+    }
+}
+
+.o-page__headline {
+    padding: .125rem 0;
+    color: #000;
+    line-height: 1.25;
+}
+
+
+.o-page__asset {
+    width: 100%;
+    &--md {
+        @include mq($until: md) {
+            max-width: 50%;
+        }
+    }
+}
+
 .o-page__asset--inline {
     margin-bottom: $app-spacer-base;
-    margin-right: $app-spacer-base;
+    @include mq($from: md) {
+        margin-right: $app-spacer-sm;
+    }
 }

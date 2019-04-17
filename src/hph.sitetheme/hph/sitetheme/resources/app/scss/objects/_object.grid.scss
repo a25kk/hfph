@@ -10,8 +10,14 @@ $grid-gutter-width:                         $app-spacer-sm;
         align-content: baseline;
     }
     &--gutter {
+        width: 100%;
         margin-right: -($grid-gutter-width);
         margin-left: -($grid-gutter-width);
+    }
+    &--reverse {
+        @include mq($from: lg) {
+            flex-direction: row-reverse;
+        }
     }
     &--spacing {
 
@@ -51,6 +57,7 @@ $grid-item-sizes: (
         @include when-inside('.o-grid--intermediate') {
             @include mq($from: md) {
                 flex: 1 0 50%;
+                max-width: 50%;
             }
         }
         @include when-inside('.o-grid--sm') {

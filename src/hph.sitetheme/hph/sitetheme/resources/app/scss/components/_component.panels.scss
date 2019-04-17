@@ -4,14 +4,31 @@
 }
 
 .c-panels--header {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
     background-color: $c-panel-primary-bg-color;
-    background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
-    padding-bottom: 3rem;
+    > * {
+        margin-right: auto;
+        margin-left: auto;
+        @include make-container-max-widths();
+    }
 }
 
 .c-panel {
     position: relative;
     padding: $c-panel-padding-top $c-panel-padding-right $c-panel-padding-bottom $c-panel-padding-left;
+    &--1 {
+        @include when-inside('.c-panels--header') {
+            padding-top: 3rem;
+        }
+    }
+}
+
+.c-panel--full-width {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .c-panel--centered {
@@ -23,7 +40,6 @@
 .c-panel--primary {
     color: $c-panel-primary-color;
     background-color: $c-panel-primary-bg-color;
-    background: linear-gradient(rgba(255,255,255,1), rgba(239,239,239,1));
 }
 
 .c-panel--secondary {
@@ -53,11 +69,15 @@
 }
 
 .c-panel__main {
+    position: relative;
     width: $c-panel-width;
     margin-left: auto;
     margin-right: auto;
     padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-bottom: 0;
+    @include media-breakpoint-up(md) {
+       padding-bottom: 2rem;
+    }
     &--centered {
         @include make-container-max-widths();
     }
@@ -90,6 +110,10 @@
     }
     @include when-inside('.c-panel__header:hover') {
         display: $c-panel-action-display;
+    }
+    &--fixed-bottom {
+        position: absolute;
+        bottom: 0;
     }
 }
 
@@ -183,10 +207,30 @@ $c-panel-controls-display:  flex;
 
 .c-panel-editor {
     position: relative;
+    &--centered {
+        margin-right: auto;
+        margin-left: auto;
+        @include make-container-max-widths();
+    }
 }
 
 .c-panel-editor__header {
     // position: absolute;
     height: 4rem;
     min-height: 4rem;
+}
+
+.c-panel-editor__section-headline {
+    padding: .5rem;
+    margin-bottom: 1rem;
+    border-bottom: .0125rem solid $c-toolbar-background;
+}
+
+.c-panel-editor__section-headline {
+    font-family: $app-font-family-strong;
+    text-transform: uppercase;
+}
+
+.c-panel-editor__footer {
+    padding: $app-spacer-base 0;
 }

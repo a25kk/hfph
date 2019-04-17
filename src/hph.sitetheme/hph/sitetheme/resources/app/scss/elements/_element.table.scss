@@ -20,6 +20,11 @@ table,
         padding: $o-table-cell-padding;
         vertical-align: top;
         border-top: $o-table-border-width solid $o-table-border-color;
+        @include mq($until: lg) {
+            &:first-child {
+                padding-left: 0;
+            }
+        }
     }
 
     thead th {
@@ -52,5 +57,25 @@ table,
     th,
     td {
         padding: $o-table-cell-padding-sm;
+    }
+}
+
+// Table Edit Modules ############################
+
+// Actions row
+.o-table__row {
+    &--actions {
+        border-top: .25rem solid $app-color-text;
+        padding-top: $app-spacer-base;
+    }
+}
+
+.o-table__cell {
+    &--actions {
+        width: 20%;
+        padding-top: $app-spacer-sm !important;
+    }
+    &--primary {
+        width: 40%;
     }
 }

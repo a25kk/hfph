@@ -1,5 +1,5 @@
 $app-main-width:                    100%;
-$app-main-padding-top:              12rem;
+$app-main-padding-top:              8rem;
 
 // App main section
 .app-main {
@@ -10,8 +10,42 @@ $app-main-padding-top:              12rem;
     @include when-inside('.template-frontpage-view') {
         padding-top: 0;
     }
+    &.u-no-scroll {
+        position: fixed;
+        left: 0;
+        right: 0;
+        overflow-y: scroll; /* render disabled scroll bar to keep the same width */
+    }
 }
 
 .app-main--fullscreen {
     padding: 0;
+}
+
+.app-main--grid {
+    @include make-container-max-widths();
+    @include mq($from: lg) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+.app-sidebar {
+    @include when-inside('.app-main--grid') {
+        @include mq($from: lg) {
+            flex: 1 0 25%;
+            max-width: 25%;
+        }
+    }
+}
+
+.app-content {
+    @include when-inside('.app-main--grid') {
+        @include mq($from: lg) {
+            flex: 1 0 75%;
+            max-width: 75%;
+            padding-left: $app-spacer-base;
+        }
+    }
 }

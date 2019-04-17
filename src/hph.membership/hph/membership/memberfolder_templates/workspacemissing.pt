@@ -27,26 +27,34 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-8">
-                    <div class="page-header">
-                        <h1>Welcome</h1>
-                    </div>
-                    <div class="page-content">
-                        <p class="lead page-abstract">
-                            It seems that you do not have a personal workspace
-                            setup.
-                        </p> 
-                        <p>This most likely means that your account</p>
-                        <ul>
-                            <li>has either just been created</li>
-                            <li>or your account has not been configured yet</li>
-                        </ul>
-                        <hr>
-                        <p>We would suggest that you simply check back later (you can
-                        reach your workspace by following the corresponding link in the
-                        toolbar). If you think this is a mistake or would like your
-                        workspace to be setup or you, please do not hesitate and
-                        contact our staff</p>
-                    </div>
+                    <header class="o-page__header">
+                        <div class="o-page__section c-page-header">
+                            <div class="c-page-header__title">
+                                <h1 class="c-page-header__headline">
+                                    Welcome
+                                </h1>
+                            </div>
+                            <p class="c-page-header__abstract">
+                                It seems that you do not have a personal workspace
+                                setup.
+                            </p>
+                        </div>
+                    </header>
+                    <section class="o-page__section">
+                        <div class="o-page__body-text">
+                            <p>This most likely means that your account</p>
+                            <ul>
+                                <li>has either just been created</li>
+                                <li>or your account has not been configured yet</li>
+                            </ul>
+                            <hr>
+                            <p>We would suggest that you simply check back later (you can
+                                reach your workspace by following the corresponding link in the
+                                toolbar). If you think this is a mistake or would like your
+                                workspace to be setup or you, please do not hesitate and
+                                contact our staff</p>
+                        </div>
+                    </section>
                 </div>
             </div>
         </section>

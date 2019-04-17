@@ -1,3 +1,16 @@
+.c-teaser {
+    padding-left: $app-spacer-sm;
+    padding-right: $app-spacer-sm;
+    @include mq($from: lg) {
+        padding: 0;
+    }
+}
+
 .c-teaser__header {
     margin-bottom: $app-spacer-base;
+    color: #000;
+}
+
+.c-teaser__footer {
+    display: none;
 }
