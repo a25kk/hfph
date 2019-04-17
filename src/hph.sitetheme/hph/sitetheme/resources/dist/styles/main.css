@@ -14001,3 +14001,7 @@ c-list--bordered .c-list__item:last-of-type {
 .u-text--muted {
   color: #5a6570;
 }
+
+[id="personal-bar-container"] {
+  z-index: 105;
+}
