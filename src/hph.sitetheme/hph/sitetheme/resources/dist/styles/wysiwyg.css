@@ -10268,3 +10268,7 @@ img[data-sizes="auto"] {
 .c-alert--primary .alert-link {
   color: #0a0c0d;
 }
+
+[id="personal-bar-container"] {
+  z-index: 105;
+}
