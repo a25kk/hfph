@@ -10068,14 +10068,11 @@ input, button, select, textarea {
   top: 0;
   left: 0;
   width: 100%;
+  min-height: 8rem;
   z-index: 100;
   display: block;
   background-color: whitesmoke;
   padding-bottom: 1rem;
-}
-
-.portaltype-ade25-panelpage-page .app-header {
-  background: whitesmoke;
 }
 
 @media (min-width: 768px) {
@@ -10242,7 +10239,7 @@ input, button, select, textarea {
 
 .app-main {
   width: 100%;
-  padding-top: 11rem;
+  padding-top: 8rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -12172,6 +12169,7 @@ img[data-sizes="auto"] {
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
+  padding-top: 2rem;
   background-color: whitesmoke;
 }
 
@@ -12248,15 +12246,11 @@ img[data-sizes="auto"] {
 
 .c-panel--primary {
   color: #212529;
-  background-color: #efefef;
-  background: -webkit-gradient(linear, left top, left bottom, from(white), to(#efefef));
-  background: -webkit-linear-gradient(white, #efefef);
-  background: -o-linear-gradient(white, #efefef);
-  background: linear-gradient(white, #efefef);
+  background-color: whitesmoke;
 }
 
 .c-panel--secondary {
-  background-color: #efefef;
+  background-color: whitesmoke;
 }
 
 .c-panel--disabled {
