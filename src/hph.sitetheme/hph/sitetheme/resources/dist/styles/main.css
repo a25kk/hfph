@@ -12573,6 +12573,7 @@ img[data-sizes="auto"] {
 }
 
 .c-card__footer {
+  margin-top: auto;
   font-family: "TAZ";
   font-size: 1rem;
 }
