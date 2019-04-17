@@ -8503,6 +8503,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-page__section {
+  position: relative;
   margin-bottom: calc(1.25rem * 1.5);
 }
 
@@ -12145,7 +12146,6 @@ img[data-sizes="auto"] {
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
-  padding-top: 2rem;
   background-color: whitesmoke;
 }
 
@@ -12181,6 +12181,10 @@ img[data-sizes="auto"] {
 .c-panel {
   position: relative;
   padding: 0 0 0 0;
+}
+
+.c-panels--header .c-panel--1 {
+  padding-top: 3rem;
 }
 
 .c-panel--full-width {
