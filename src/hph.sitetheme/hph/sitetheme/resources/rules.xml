@@ -189,9 +189,9 @@
         <replace css:theme="#quick-links" css:content="#app-quick-links" />
 
         <!-- Language switch translation handling -->
-        <drop css:theme="#language-menu-button-en"
-              if-not-path="/en/"/>
         <drop css:theme="#language-menu-button-de"
+              if-not-path="/en/"/>
+        <drop css:theme="#language-menu-button-en"
               if-path="/en/"/>
 
         <drop css:theme="#app-banner"
@@ -221,7 +221,10 @@
                 </li>
             </ol>
         </replace>
-        <replace css:theme-children="#app-pathbar" css:content="#portal-breadcrumbs" />
+        <replace css:theme-children="#app-pathbar" css:content="#portal-breadcrumbs"
+            css:if-not-content=".section-startseite" />
+
+        <drop css:theme="#app-pathbar" css:if-content=".section-startseite" />
 
         <!-- pagination -->
         <replace css:content=".pagination > ul">
