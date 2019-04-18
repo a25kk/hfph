@@ -10630,6 +10630,12 @@ input, button, select, textarea {
   /* render disabled scroll bar to keep the same width */
 }
 
+@media (min-width: 48em) and (max-width: 61.99em) {
+  .app-main {
+    padding-top: calc(8rem + 1.5rem);
+  }
+}
+
 .app-main--fullscreen {
   padding: 0;
 }
@@ -12896,10 +12902,12 @@ img[data-sizes="auto"] {
   display: none;
 }
 
-.c-card--teaser .c-card__header {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 8rem;
-          flex: 1 0 8rem;
+@media (min-width: 62em) {
+  .c-card--teaser .c-card__header {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 6.5rem;
+            flex: 1 0 6.5rem;
+  }
 }
 
 .c-card__main {
@@ -13414,7 +13422,7 @@ img[data-sizes="auto"] {
 }
 
 @media (min-width: 48em) and (max-width: 61.99em) {
-  .c-list--grid .c-list__item {
+  .c-list--grid .c-list__item--width-25 {
     -webkit-box-flex: 1;
         -ms-flex: 1 0 50%;
             flex: 1 0 50%;
@@ -13461,12 +13469,6 @@ c-list--bordered .c-list__item {
 
 c-list--bordered .c-list__item:last-of-type {
   border-bottom: 0px;
-}
-
-@media (min-width: 48em) and (max-width: 61.99em) {
-  .c-list__item--card:not(:nth-child(2n+2)) {
-    border-right: 1px solid #212529;
-  }
 }
 
 @media (min-width: 62em) {
@@ -13687,9 +13689,29 @@ c-list--bordered .c-list__item:last-of-type {
   color: #000;
 }
 
+.c-teaser__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .c-teaser__footer {
   text-align: right;
   font-family: "TAZ";
+}
+
+.c-teaser__link {
+  text-decoration: none;
+}
+
+.c-teaser__link:hover {
+  text-decoration: none;
 }
 
 .c-event-info__title {

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-03-14 07:45+0000\n"
+"POT-Creation-Date: 2019-04-18 13:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,11 +37,12 @@ msgstr ""
 msgid "An event with a start and end date"
 msgstr ""
 
+#: ./../languagefolder.py:46
 #: ./../mainsection.py:46
 msgid "Banner and Preview Image"
 msgstr ""
 
-#: ./../configure.zcml:29
+#: ./../configure.zcml:31
 msgid "Basic site content for hph site"
 msgstr ""
 
@@ -59,7 +60,7 @@ msgstr ""
 
 #: ./../contentpage.py:45
 #: ./../eventitem.py:59
-#: ./../mainsection.py:53
+#: ./../languagefolder.py:53
 msgid "Cover Image Caption"
 msgstr ""
 
@@ -107,12 +108,20 @@ msgstr ""
 msgid "EventItem"
 msgstr ""
 
-#: ./../configure.zcml:29
+#: ./../behavior/display.py:53
+msgid "Exclude from footer navigation"
+msgstr ""
+
+#: ./../configure.zcml:31
 msgid "Extension profile for Basic site content for hph site"
 msgstr ""
 
 #: ./../eventitem.py:68
 msgid "Featured item"
+msgstr ""
+
+#: ./../profiles/default/types/hph.sitecontent.languagefolder.xml
+msgid "Folder acting as a language root"
 msgstr ""
 
 #: ./../profiles/default/types/hph.sitecontent.mainsection.xml
@@ -131,6 +140,15 @@ msgstr ""
 msgid "IGP"
 msgstr ""
 
+#: ./../behavior/display.py:55
+msgid "If selected, this item will not appear in the table of contents listing in the site footer"
+msgstr ""
+
+#: ./../profiles/default/types/hph.sitecontent.languagefolder.xml
+msgid "Language Folder"
+msgstr ""
+
+#: ./../languagefolder.py:32
 #: ./../mainsection.py:32
 msgid "Link"
 msgstr ""
@@ -149,7 +167,7 @@ msgstr ""
 
 #: ./../contentpage.py:33
 #: ./../eventitem.py:47
-#: ./../mainsection.py:41
+#: ./../languagefolder.py:41
 msgid "Media"
 msgstr ""
 
@@ -185,6 +203,7 @@ msgstr ""
 msgid "Optional custom headline to seperate navigation and content title"
 msgstr ""
 
+#: ./../languagefolder.py:33
 #: ./../mainsection.py:33
 msgid "Optional internal or external link that will be used as redirection target when section is accessed.Logged in users will see the target link instead."
 msgstr ""
@@ -235,16 +254,13 @@ msgstr ""
 msgid "Select to mark this item for featured display on overview pages like for example the parent container."
 msgstr ""
 
+#: ./../behavior/display.py:48
 #: ./../eventitem.py:64
 msgid "Settings"
 msgstr ""
 
 #: ./../browser/controlpanel.py:27
 msgid "Setup initialized."
-msgstr ""
-
-#: ./../newsentry_templates/view.pt:67
-msgid "Since you are signed in as editor you can add file attachments to this news entry"
 msgstr ""
 
 #: ./../eventitem.py:28
@@ -259,6 +275,7 @@ msgstr ""
 msgid "Text"
 msgstr ""
 
+#: ./../languagefolder.py:47
 #: ./../mainsection.py:47
 msgid "Upload preview image that can be used in search results and listings and act as a content cover."
 msgstr ""
@@ -267,10 +284,6 @@ msgstr ""
 #: ./../eventitem.py:53
 #: ./../newsentry.py:30
 msgid "Upload preview image that can be used in search results and listings."
-msgstr ""
-
-#: ./../newsentry_templates/view.pt:70
-msgid "add attachment"
 msgstr ""
 
 #. Default: "Up to Site Setup"

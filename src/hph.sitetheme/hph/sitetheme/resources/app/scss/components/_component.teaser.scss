@@ -11,7 +11,20 @@
     color: #000;
 }
 
+.c-teaser__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .c-teaser__footer {
     text-align: right;
     font-family: $app-font-family-strong;
+}
+
+.c-teaser__link {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
 }
