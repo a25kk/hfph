@@ -54,7 +54,7 @@ requirejs(['require',
         // SVG Sprite polyfill
         svg4everybody();
 
-        const choices = new Choices('.o-form__control--course-modules--bachelor', {
+        const choices = new Choices('.js-choices', {
             itemSelectText: 'auswählen',
         });
 
