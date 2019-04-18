@@ -36,6 +36,7 @@
         ],
     "src": [
         "body-scroll-lock/lib/bodyScrollLock.js",
+        "choices.js/public/assets/scripts/choices.min.js",
         "dropmic/dist/dropmic.js",
         "flickity/dist/flickity.pkgd.js",
         "fontfaceobserver/fontfaceobserver.js",

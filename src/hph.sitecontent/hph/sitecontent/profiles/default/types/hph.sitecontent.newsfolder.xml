@@ -23,6 +23,7 @@
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+      <element value="hph.sitecontent.behavior.display.IExcludeFromFooterNavigation" />
    </property>
 
   <!-- View information -->

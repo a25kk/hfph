@@ -9,6 +9,7 @@ requirejs(['require',
         '/scripts/paneleditor.js',
         '/scripts/x-ray.js',
         '/scripts/dropmic.js',
+        '/scripts/choices.min.js',
         '/scripts/fontfaceobserver.js',
         '/scripts/hideShowPassword.js',
         '/scripts/jvfloat.js',
@@ -16,7 +17,7 @@ requirejs(['require',
         '/scripts/ls.parent-fit.js',
         '/scripts/lazysizes-umd.js'
     ],
-    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, collapsible, panelEditor, xray, Dropmic) {
+    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, collapsible, panelEditor, xray, Dropmic, Choices) {
         'use strict';
 
         if (typeof a25 == 'undefined') {
@@ -52,6 +53,10 @@ requirejs(['require',
 
         // SVG Sprite polyfill
         svg4everybody();
+
+        const choices = new Choices('.js-choices', {
+            itemSelectText: 'auswählen',
+        });
 
         // Drop mic initialization
         var dropmic = new Dropmic(document.querySelector('[data-dropmic="quick-link-menu"]'), {

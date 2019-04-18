@@ -60,6 +60,7 @@
 }
 
 .o-page__section {
+    position: relative;
     margin-bottom: $app-spacer-base;
     &--spacer {
         margin-bottom: calc(#{$app-spacer-base} * 2);
