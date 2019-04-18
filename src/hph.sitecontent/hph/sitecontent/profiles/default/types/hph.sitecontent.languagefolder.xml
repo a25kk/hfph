@@ -27,6 +27,7 @@
         <element value="ade25.panelpage.interfaces.IContentPanelStorageSupport" />
         <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation" />
         <element value="plone.app.layout.navigation.interfaces.INavigationRoot" />
+        <element value="hph.sitecontent.behavior.display.IExcludeFromFooterNavigation" />
     </property>
 
     <!-- View information -->
