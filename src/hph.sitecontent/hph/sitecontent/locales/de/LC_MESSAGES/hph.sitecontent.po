@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2019-03-14 07:45+0000\n"
+"POT-Creation-Date: 2019-04-18 13:30+0000\n"
 "PO-Revision-Date: 2019-02-25 22:36+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
@@ -36,11 +36,12 @@ msgstr "Newsbeitrag"
 msgid "An event with a start and end date"
 msgstr "Ein Termin mit Anfangs- und Enddatum"
 
+#: ./../languagefolder.py:46
 #: ./../mainsection.py:46
 msgid "Banner and Preview Image"
 msgstr "Banner und Vorschaubild"
 
-#: ./../configure.zcml:29
+#: ./../configure.zcml:31
 msgid "Basic site content for hph site"
 msgstr "Inhaltstypen für HfPH"
 
@@ -58,7 +59,7 @@ msgstr "Inhaltsseite"
 
 #: ./../contentpage.py:45
 #: ./../eventitem.py:59
-#: ./../mainsection.py:53
+#: ./../languagefolder.py:53
 msgid "Cover Image Caption"
 msgstr "Cover-Bild Unterschrift"
 
@@ -106,13 +107,21 @@ msgstr "Terminordner"
 msgid "EventItem"
 msgstr "Aktueller Termin"
 
-#: ./../configure.zcml:29
+#: ./../behavior/display.py:53
+msgid "Exclude from footer navigation"
+msgstr ""
+
+#: ./../configure.zcml:31
 msgid "Extension profile for Basic site content for hph site"
 msgstr ""
 
 #: ./../eventitem.py:68
 msgid "Featured item"
 msgstr "Exponierte Darstellung"
+
+#: ./../profiles/default/types/hph.sitecontent.languagefolder.xml
+msgid "Folder acting as a language root"
+msgstr ""
 
 #: ./../profiles/default/types/hph.sitecontent.mainsection.xml
 msgid "Forder to represent the main site sections"
@@ -130,6 +139,15 @@ msgstr "HfPH Einstellungen - Navigation"
 msgid "IGP"
 msgstr ""
 
+#: ./../behavior/display.py:55
+msgid "If selected, this item will not appear in the table of contents listing in the site footer"
+msgstr ""
+
+#: ./../profiles/default/types/hph.sitecontent.languagefolder.xml
+msgid "Language Folder"
+msgstr ""
+
+#: ./../languagefolder.py:32
 #: ./../mainsection.py:32
 msgid "Link"
 msgstr "Verweis"
@@ -148,7 +166,7 @@ msgstr "Hauptordner"
 
 #: ./../contentpage.py:33
 #: ./../eventitem.py:47
-#: ./../mainsection.py:41
+#: ./../languagefolder.py:41
 msgid "Media"
 msgstr "Medien"
 
@@ -184,6 +202,7 @@ msgstr ""
 msgid "Optional custom headline to seperate navigation and content title"
 msgstr ""
 
+#: ./../languagefolder.py:33
 #: ./../mainsection.py:33
 msgid "Optional internal or external link that will be used as redirection target when section is accessed.Logged in users will see the target link instead."
 msgstr ""
@@ -234,16 +253,13 @@ msgstr ""
 msgid "Select to mark this item for featured display on overview pages like for example the parent container."
 msgstr ""
 
+#: ./../behavior/display.py:48
 #: ./../eventitem.py:64
 msgid "Settings"
 msgstr "Einstellungen"
 
 #: ./../browser/controlpanel.py:27
 msgid "Setup initialized."
-msgstr ""
-
-#: ./../newsentry_templates/view.pt:67
-msgid "Since you are signed in as editor you can add file attachments to this news entry"
 msgstr ""
 
 #: ./../eventitem.py:28
@@ -258,6 +274,7 @@ msgstr "Studium"
 msgid "Text"
 msgstr "Text"
 
+#: ./../languagefolder.py:47
 #: ./../mainsection.py:47
 msgid "Upload preview image that can be used in search results and listings and act as a content cover."
 msgstr ""
@@ -267,10 +284,6 @@ msgstr ""
 #: ./../newsentry.py:30
 msgid "Upload preview image that can be used in search results and listings."
 msgstr "Laden Sie ein Voschaubild hoch, dass in Auflistungen und bei der Anzeige von Suchtreffern verwendet wird."
-
-#: ./../newsentry_templates/view.pt:70
-msgid "add attachment"
-msgstr "Dateianhang hinzufügen"
 
 #. Default: "Up to Site Setup"
 #: ./../browser/settings-navigation.pt:26

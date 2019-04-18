@@ -27,8 +27,10 @@ $c-list-border-width:                1px;
     @include when-inside('.c-list--grid') {
         flex: 1 0 100%;
         @include mq($from: md, $until: lg) {
-            flex: 1 0 50%;
-            max-width: 50%;
+            &--width-25 {
+                flex: 1 0 50%;
+                max-width: 50%;
+            }
         }
         @include mq($from: lg) {
             flex: 1 0 33.3333%;
@@ -65,11 +67,11 @@ $c-list-border-width:                1px;
 }
 
 .c-list__item--card {
-    @include mq($from: md, $until: lg) {
-        &:not(:nth-child(2n+2)) {
-            border-right: 1px solid $c-list-border-color;
-        }
-    }
+    // @include mq($from: md, $until: lg) {
+    //     &:not(:nth-child(2n+2)) {
+    //         border-right: 1px solid $c-list-border-color;
+    //     }
+    // }
     @include mq($from: lg) {
         &:not(:nth-child(3n+3)) {
             border-right: 1px solid $c-list-border-color;

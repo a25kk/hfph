@@ -93,7 +93,7 @@ class SitemapProvider(ContentProviderBase):
         query = {
             'path': {'query': self.nav_tree_path, 'depth': self.nav_tree_depth},
             'portal_type': {'query': types},
-            'exclude_from_nav': False,
+            'exclude_from_toc': False,
             'review_state': 'published',
             'Language': lang_current,
             'sort_on': 'getObjPositionInParent'

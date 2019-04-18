@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-03-14 07:47+0000\n"
+"POT-Creation-Date: 2019-04-18 13:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,20 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: hph.widgets\n"
 
+#: ./../widgets/teaser/teaser-news.pt:6
+msgid "<a href=\"${DYNAMIC_CONTENT}\"> News </a>"
+msgstr ""
+
 #: ./../configure.zcml:25
 msgid "HPH Content Widgets"
+msgstr ""
+
+#: ./../widgets/teaser/teaser-links-internal.pt:5
+msgid "Links"
+msgstr ""
+
+#: ./../widgets/teaser/teaser-news.pt:32
+msgid "More news"
 msgstr ""
 
 #: ./../widgets/image/interfaces.py:16
@@ -37,8 +49,9 @@ msgstr ""
 msgid "Poster Text"
 msgstr ""
 
-#: ./../widgets/content-card.pt:36
-#: ./../widgets/event-card.pt:46
+#: ./../widgets/content/base-card.pt:36
+#: ./../widgets/content/base-snippet.pt:32
+#: ./../widgets/content/news-card.pt:42
 msgid "Read more"
 msgstr ""
 

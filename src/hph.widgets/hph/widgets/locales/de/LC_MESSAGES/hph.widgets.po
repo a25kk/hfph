@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-03-14 07:47+0000\n"
-"PO-Revision-Date: 2019-03-14 08:57+0100\n"
+"POT-Creation-Date: 2019-04-18 13:30+0000\n"
+"PO-Revision-Date: 2019-04-18 15:32+0200\n"
 "Last-Translator: Christoph Boehner-Figas <cb@ade25.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -16,9 +16,21 @@ msgstr ""
 "Language: de\n"
 "X-Generator: Poedit 2.2.1\n"
 
+#: ../widgets/teaser/teaser-news.pt:6
+msgid "<a href=\"${DYNAMIC_CONTENT}\"> News </a>"
+msgstr ""
+
 #: ../configure.zcml:25
 msgid "HPH Content Widgets"
 msgstr "HfPh Content Widgets"
+
+#: ../widgets/teaser/teaser-links-internal.pt:5
+msgid "Links"
+msgstr "Unsere Schwerpunkte"
+
+#: ../widgets/teaser/teaser-news.pt:32
+msgid "More news"
+msgstr "Weitere Nachrichten"
 
 #: ../widgets/image/interfaces.py:16
 msgid "Poster Headline"
@@ -36,7 +48,8 @@ msgstr "Poster Fussnote (Copyright)"
 msgid "Poster Text"
 msgstr "Poster Text"
 
-#: ../widgets/content-card.pt:36 ../widgets/event-card.pt:46
+#: ../widgets/content/base-card.pt:36 ../widgets/content/base-snippet.pt:32
+#: ../widgets/content/news-card.pt:42
 msgid "Read more"
 msgstr "Weiterlesen"
 

@@ -8543,6 +8543,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-page__section {
+  position: relative;
   margin-bottom: calc(1.25rem * 1.5);
 }
 

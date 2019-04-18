@@ -16,6 +16,9 @@ $app-main-padding-top:              8rem;
         right: 0;
         overflow-y: scroll; /* render disabled scroll bar to keep the same width */
     }
+    @include mq($from: md, $until: lg) {
+        padding-top: calc(#{$app-main-padding-top} + 1.5rem );
+    }
 }
 
 .app-main--fullscreen {
