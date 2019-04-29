@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-04-29 07:43+0000\n"
+"POT-Creation-Date: 2019-04-29 09:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,7 +108,7 @@ msgstr ""
 msgid "EventItem"
 msgstr ""
 
-#: ./../behavior/display.py:53
+#: ./../behavior/display.py:54
 msgid "Exclude from footer navigation"
 msgstr ""
 
@@ -140,7 +140,7 @@ msgstr ""
 msgid "IGP"
 msgstr ""
 
-#: ./../behavior/display.py:55
+#: ./../behavior/display.py:56
 msgid "If selected, this item will not appear in the table of contents listing in the site footer"
 msgstr ""
 
@@ -254,7 +254,7 @@ msgstr ""
 msgid "Select to mark this item for featured display on overview pages like for example the parent container."
 msgstr ""
 
-#: ./../behavior/display.py:48
+#: ./../behavior/display.py:49
 #: ./../eventitem.py:64
 msgid "Settings"
 msgstr ""
