@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2019-04-29 07:43+0000\n"
-"PO-Revision-Date: 2019-04-29 09:56+0200\n"
+"POT-Creation-Date: 2019-04-29 09:51+0000\n"
+"PO-Revision-Date: 2019-04-29 10:33+0200\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -16,263 +16,276 @@ msgstr ""
 "Language: de\n"
 "X-Generator: Poedit 2.2.1\n"
 
-#: ../profiles/default/types/hph.sitecontent.contentpage.xml
+#: ./../profiles/default/types/hph.sitecontent.contentpage.xml
 msgid "A content page type including fulltext and preview image"
 msgstr "Inhaltsseite mit Vorschaubild"
 
-#: ../profiles/default/types/hph.sitecontent.eventfolder.xml
+#: ./../profiles/default/types/hph.sitecontent.eventfolder.xml
 msgid "A folder acting as a collection for events"
 msgstr "Sammelordner für Termine"
 
-#: ../profiles/default/types/hph.sitecontent.newsfolder.xml
+#: ./../profiles/default/types/hph.sitecontent.newsfolder.xml
 msgid "A folder acting as a collection for news items"
 msgstr "Sammelordner für aktuelle Meldungen"
 
-#: ../profiles/default/types/hph.sitecontent.newsentry.xml
+#: ./../profiles/default/types/hph.sitecontent.newsentry.xml
 msgid "A news or announcement item"
 msgstr "Newsbeitrag"
 
-#: ../profiles/default/types/hph.sitecontent.eventitem.xml
+#: ./../profiles/default/types/hph.sitecontent.eventitem.xml
 msgid "An event with a start and end date"
 msgstr "Ein Termin mit Anfangs- und Enddatum"
 
-#: ../languagefolder.py:46 ../mainsection.py:46
+#: ./../languagefolder.py:46
+#: ./../mainsection.py:46
 msgid "Banner and Preview Image"
 msgstr "Banner und Vorschaubild"
 
-#: ../configure.zcml:31
+#: ./../configure.zcml:31
 msgid "Basic site content for hph site"
 msgstr "Inhaltstypen für HfPH"
 
-#: ../browser/controlpanel.py:35
+#: ./../browser/controlpanel.py:35
 msgid "Choose if the main navigation should include a home link pointing at the front page."
 msgstr "Wählen Sie bitte hier, ob die Navigation einen Link zur Startseite beinhalten soll."
 
-#: ../contentpage.py:21
+#: ./../contentpage.py:21
 msgid "Content Headline"
 msgstr "Überschrift des Inhalts"
 
-#: ../profiles/default/types/hph.sitecontent.contentpage.xml
+#: ./../profiles/default/types/hph.sitecontent.contentpage.xml
 msgid "ContentPage"
 msgstr "Inhaltsseite"
 
-#: ../contentpage.py:45 ../eventitem.py:59 ../languagefolder.py:53
+#: ./../contentpage.py:45
+#: ./../eventitem.py:59
+#: ./../languagefolder.py:53
 msgid "Cover Image Caption"
 msgstr "Cover-Bild Unterschrift"
 
-#: ../eventitem.py:37
+#: ./../eventitem.py:37
 msgid "Details"
 msgstr "Details"
 
-#: ../browser/controlpanel.py:72
+#: ./../browser/controlpanel.py:72
 msgid "Element used as close trigger that may contain svg icon code."
 msgstr "Element, das als Auslöser zum Schließen verwendet wird und möglicherweise einen SVG-Symbolcode enthält."
 
-#: ../browser/controlpanel.py:81
+#: ./../browser/controlpanel.py:81
 msgid "Element used as navigation dropdown trigger.Warning: please make sure to keep the placeholder that allow to interpolate the required classes by the nav tree recursive renderer."
 msgstr "Element, das als Dropdown-Auslöser für die Navigation verwendet wird. Warnung: Stellen Sie sicher, dass der Platzhalter beibehalten wird, der die Interpolation der erforderlichen Klassen durch den rekursiven Renderer für die Baumnavigation ermöglicht."
 
-#: ../browser/controlpanel.py:34
+#: ./../browser/controlpanel.py:34
 msgid "Enable Home Link"
 msgstr "Startseiten Link aktivieren"
 
-#: ../eventitem.py:32
+#: ./../eventitem.py:32
 msgid "End date"
 msgstr "Ende"
 
-#: ../browser/events.py:101
+#: ./../browser/events.py:101
 msgid "Event"
 msgstr "Event"
 
-#: ../eventitem.py:41
+#: ./../eventitem.py:41
 msgid "Event Description"
 msgstr "Terminbeschreibung"
 
-#: ../eventitem.py:19
+#: ./../eventitem.py:19
 msgid "Event Location"
 msgstr "Veranstaltungsort"
 
-#: ../eventitem.py:23
+#: ./../eventitem.py:23
 msgid "Event Type"
 msgstr "Kategorie des Events"
 
-#: ../profiles/default/types/hph.sitecontent.eventfolder.xml
+#: ./../profiles/default/types/hph.sitecontent.eventfolder.xml
 msgid "EventFolder"
 msgstr "Terminordner"
 
-#: ../profiles/default/types/hph.sitecontent.eventitem.xml
+#: ./../profiles/default/types/hph.sitecontent.eventitem.xml
 msgid "EventItem"
 msgstr "Aktueller Termin"
 
-#: ../behavior/display.py:53
+#: ./../behavior/display.py:54
 msgid "Exclude from footer navigation"
 msgstr "Von der Fußzeilennavigation ausschließen"
 
-#: ../configure.zcml:31
+#: ./../configure.zcml:31
 msgid "Extension profile for Basic site content for hph site"
 msgstr "Erweiterungsprofil für Basis-Site-Inhalt für hph-Site"
 
-#: ../eventitem.py:68
+#: ./../eventitem.py:68
 msgid "Featured item"
 msgstr "Exponierte Darstellung"
 
-#: ../profiles/default/types/hph.sitecontent.languagefolder.xml
+#: ./../profiles/default/types/hph.sitecontent.languagefolder.xml
 msgid "Folder acting as a language root"
 msgstr "Ordner, der als Sprachstamm dient"
 
-#: ../profiles/default/types/hph.sitecontent.mainsection.xml
+#: ./../profiles/default/types/hph.sitecontent.mainsection.xml
 msgid "Forder to represent the main site sections"
 msgstr "Ordner der benutzt wird, um die Navigationsstruktur und Seitenhierarchie zur erstellen"
 
-#: ../browser/settings-navigation.pt:31
+#: ./../browser/settings-navigation.pt:31
 msgid "HfPH Settings Overview"
 msgstr "HPH Einstellungen Übersicht"
 
-#: ../browser/settings-navigation.pt:20
+#: ./../browser/settings-navigation.pt:20
 msgid "HfPH Site Settings - Navigation"
 msgstr "HfPH Einstellungen - Navigation"
 
-#: ../vocabulary.py:37
+#: ./../vocabulary.py:37
 msgid "IGP"
 msgstr "IGP"
 
-#: ../behavior/display.py:55
+#: ./../behavior/display.py:56
 msgid "If selected, this item will not appear in the table of contents listing in the site footer"
 msgstr "Wenn diese Option ausgewählt ist, wird dieses Element nicht im Inhaltsverzeichnis der Website-Fußzeile angezeigt"
 
-#: ../profiles/default/types/hph.sitecontent.languagefolder.xml
+#: ./../profiles/default/types/hph.sitecontent.languagefolder.xml
 msgid "Language Folder"
 msgstr "Sprachordner"
 
-#: ../languagefolder.py:32 ../mainsection.py:32
+#: ./../languagefolder.py:32
+#: ./../mainsection.py:32
 msgid "Link"
 msgstr "Verweis"
 
-#: ../browser/controlpanel.py:42
+#: ./../browser/controlpanel.py:42
 msgid "Listed Content Types"
 msgstr "Angezeigte Inhaltstypen"
 
-#: ../newsentry.py:40
+#: ./../newsentry.py:40
 msgid "Main Text"
 msgstr "Haupttext"
 
-#: ../profiles/default/types/hph.sitecontent.mainsection.xml
+#: ./../profiles/default/types/hph.sitecontent.mainsection.xml
 msgid "MainSection"
 msgstr "Hauptordner"
 
-#: ../contentpage.py:33 ../eventitem.py:47 ../languagefolder.py:41
+#: ./../contentpage.py:33
+#: ./../eventitem.py:47
+#: ./../languagefolder.py:41
 msgid "Media"
 msgstr "Medien"
 
-#: ../vocabulary.py:38
+#: ./../vocabulary.py:38
 msgid "Mediaethics"
 msgstr "Medienethik"
 
-#: ../browser/controlpanel.py:71
+#: ./../browser/controlpanel.py:71
 msgid "Navigation Close Element"
 msgstr "Element zum Schließen der Navigation"
 
-#: ../browser/controlpanel.py:80
+#: ./../browser/controlpanel.py:80
 msgid "Navigation Open Element"
 msgstr "Element „Navigation öffnen“"
 
-#: ../browser/controlpanel.py:63
+#: ./../browser/controlpanel.py:63
 msgid "Navigation depth"
 msgstr "Tiefe des Navigationsbaumes"
 
-#: ../profiles/default/types/hph.sitecontent.newsentry.xml
+#: ./../profiles/default/types/hph.sitecontent.newsentry.xml
 msgid "NewsEntry"
 msgstr "Aktuelle Nachricht"
 
-#: ../profiles/default/types/hph.sitecontent.newsfolder.xml
+#: ./../profiles/default/types/hph.sitecontent.newsfolder.xml
 msgid "NewsFolder"
 msgstr "Nachrichtenordner"
 
-#: ../browser/controlpanel.py:64
+#: ./../browser/controlpanel.py:64
 msgid "Number of folder levels to show in the site navigation."
 msgstr "Anzahl der Ordnerebenen, die in der Site-Navigation angezeigt werden sollen."
 
-#: ../contentpage.py:22
+#: ./../contentpage.py:22
 msgid "Optional custom headline to seperate navigation and content title"
 msgstr "Optionale benutzerdefinierte Überschrift zum Trennen von Navigation und Inhalt"
 
-#: ../languagefolder.py:33 ../mainsection.py:33
+#: ./../languagefolder.py:33
+#: ./../mainsection.py:33
 msgid "Optional internal or external link that will be used as redirection target when section is accessed.Logged in users will see the target link instead."
 msgstr "Optionaler interner oder externer Link, der beim Zugriff auf einen Abschnitt als Umleitungsziel verwendet wird. Angemeldete Benutzer sehen stattdessen den Ziel-Link."
 
-#: ../browser/controlpanel.py:54
+#: ./../browser/controlpanel.py:54
 msgid "Path to be used as navigation root, relative to Plone site root.Starts with '/'"
 msgstr "Pfad, der als Navigationsstamm verwendet werden soll, relativ zum Plone-Standortstamm. Beginnt mit ‚/‚"
 
-#: ../vocabulary.py:36
+#: ./../vocabulary.py:36
 msgid "Philosophy and Leadership"
 msgstr "Philosophie und Führung"
 
-#: ../vocabulary.py:35
+#: ./../vocabulary.py:35
 msgid "Philosophy and Motivation"
 msgstr "Philosophie und Motivation"
 
-#: ../contentpage.py:38 ../eventitem.py:52 ../newsentry.py:29
+#: ./../contentpage.py:38
+#: ./../eventitem.py:52
+#: ./../newsentry.py:29
 msgid "Preview Image"
 msgstr "Vorschaubild"
 
-#: ../eventitem.py:76
+#: ./../eventitem.py:76
 msgid "Promote to front page"
 msgstr "Darstellung auf der Startseite"
 
-#: ../vocabulary.py:19
+#: ./../vocabulary.py:19
 msgid "Public Event"
 msgstr "Veranstaltung"
 
-#: ../vocabulary.py:18
+#: ./../vocabulary.py:18
 msgid "Research"
 msgstr "Forschung"
 
-#: ../browser/controlpanel.py:53
+#: ./../browser/controlpanel.py:53
 msgid "Root"
 msgstr "Wurzelverzeichnis"
 
-#: ../vocabulary.py:34
+#: ./../vocabulary.py:34
 msgid "Rottendorf Project"
 msgstr "Rottendorf-Projekt"
 
-#: ../eventitem.py:77
+#: ./../eventitem.py:77
 msgid "Select to mark this item for display on the sites front page. Note: the number of displayed items on the front page might be limited or ordered by publication date and the selection does not force the item to be promoted in any case."
 msgstr "Wählen Sie diese Option aus, um dieses Element für die Anzeige auf der Startseite der Websites zu markieren. Hinweis: Die Anzahl der angezeigten Elemente auf der Startseite ist möglicherweise begrenzt oder nach Veröffentlichungsdatum sortiert. Die Auswahl erzwingt in keinem Fall die Promotion des Artikels."
 
-#: ../eventitem.py:69
+#: ./../eventitem.py:69
 msgid "Select to mark this item for featured display on overview pages like for example the parent container."
 msgstr "Wählen Sie diese Option aus, um dieses Element für die Anzeige auf Übersichtsseiten wie dem übergeordneten Container zu markieren."
 
-#: ../behavior/display.py:48 ../eventitem.py:64
+#: ./../behavior/display.py:49
+#: ./../eventitem.py:64
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: ../browser/controlpanel.py:27
+#: ./../browser/controlpanel.py:27
 msgid "Setup initialized."
 msgstr "Setup wurde initialisiert."
 
-#: ../eventitem.py:28
+#: ./../eventitem.py:28
 msgid "Start date"
 msgstr "Beginn"
 
-#: ../vocabulary.py:17
+#: ./../vocabulary.py:17
 msgid "Studies"
 msgstr "Studium"
 
-#: ../contentpage.py:27
+#: ./../contentpage.py:27
 msgid "Text"
 msgstr "Text"
 
-#: ../languagefolder.py:47 ../mainsection.py:47
+#: ./../languagefolder.py:47
+#: ./../mainsection.py:47
 msgid "Upload preview image that can be used in search results and listings and act as a content cover."
 msgstr "Laden Sie ein Vorschaubild hoch, das in Suchergebnissen und Listen verwendet werden kann und als Inhaltsbild dient."
 
-#: ../contentpage.py:39 ../eventitem.py:53 ../newsentry.py:30
+#: ./../contentpage.py:39
+#: ./../eventitem.py:53
+#: ./../newsentry.py:30
 msgid "Upload preview image that can be used in search results and listings."
 msgstr "Laden Sie ein Voschaubild hoch, dass in Auflistungen und bei der Anzeige von Suchtreffern verwendet wird."
 
 #. Default: "Up to Site Setup"
-#: ../browser/settings-navigation.pt:26
+#: ./../browser/settings-navigation.pt:26
 msgid "label_up_to_plone_setup"
 msgstr "Zur Seitenkonfiguration"
