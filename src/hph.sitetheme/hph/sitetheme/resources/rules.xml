@@ -639,7 +639,7 @@
 
 
         <!-- footer elements -->
-        <before css:theme-children="#c-toc"
+        <replace css:theme-children="#c-toc"
                 css:content-children="#c-toc" />
 
     </rules>
