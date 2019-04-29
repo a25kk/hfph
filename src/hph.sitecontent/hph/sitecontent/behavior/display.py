@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from plone.app.dexterity import _
 from plone.autoform import directives
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.supermodel import model
@@ -10,6 +9,8 @@ from zope.interface import implementer
 from zope.interface import Interface
 from zope.interface import provider
 from zope.schema.interfaces import IContextAwareDefaultFactory
+
+from hph.sitecontent import MessageFactory as _
 
 
 class IExcludeFromFooterNavigationDefault(Interface):
