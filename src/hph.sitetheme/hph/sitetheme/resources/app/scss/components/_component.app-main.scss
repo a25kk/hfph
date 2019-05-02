@@ -1,5 +1,5 @@
 $app-main-width:                    100%;
-$app-main-padding-top:              11rem;
+$app-main-padding-top:              8rem;
 
 // App main section
 .app-main {
@@ -15,6 +15,9 @@ $app-main-padding-top:              11rem;
         left: 0;
         right: 0;
         overflow-y: scroll; /* render disabled scroll bar to keep the same width */
+    }
+    @include mq($from: md, $until: lg) {
+        padding-top: calc(#{$app-main-padding-top} + 1.5rem );
     }
 }
 

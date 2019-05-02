@@ -116,7 +116,7 @@
 
     <theme href="dist/front-page/index.html" css:if-content="body.template-frontpage-view" />
     <!-- Panel page -->
-    <theme href="dist/front-page/index.html" css:if-content="body.portaltype-ade25-panelpage-page" />
+    <!--<theme href="dist/front-page/index.html" css:if-content="body.portaltype-ade25-panelpage-page" />-->
 
     <theme href="dist/theme/index.html" css:if-content="body.section-relaunch-theme" />
 
@@ -188,6 +188,12 @@
 
         <replace css:theme="#quick-links" css:content="#app-quick-links" />
 
+        <!-- Language switch translation handling -->
+        <drop css:theme="#language-menu-button-de"
+              if-not-path="/en/"/>
+        <drop css:theme="#language-menu-button-en"
+              if-path="/en/"/>
+
         <drop css:theme="#app-banner"
               css:if-not-content="#app-banner" />
 
@@ -215,7 +221,10 @@
                 </li>
             </ol>
         </replace>
-        <replace css:theme-children="#app-pathbar" css:content="#portal-breadcrumbs" />
+        <replace css:theme-children="#app-pathbar" css:content="#portal-breadcrumbs"
+            css:if-not-content=".section-startseite" />
+
+        <drop css:theme="#app-pathbar" css:if-content=".section-startseite" />
 
         <!-- pagination -->
         <replace css:content=".pagination > ul">
@@ -630,7 +639,7 @@
 
 
         <!-- footer elements -->
-        <before css:theme-children="#c-toc"
+        <replace css:theme-children="#c-toc"
                 css:content-children="#c-toc" />
 
     </rules>

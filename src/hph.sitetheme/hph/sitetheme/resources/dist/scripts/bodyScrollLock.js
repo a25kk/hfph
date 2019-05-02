@@ -229,7 +229,6 @@
   };
 
   var enableBodyScroll = exports.enableBodyScroll = function enableBodyScroll(targetElement) {
-      console.log('Body scroll enabler called');
     if (isIosDevice) {
       if (!targetElement) {
         // eslint-disable-next-line no-console

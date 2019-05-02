@@ -40,4 +40,23 @@
             sortkey="1"
     />
 
+    <genericsetup:upgradeStep
+            title="Add language root content type"
+            description="Update typeinfo and register content type'"
+            source="1003"
+            destination="1004"
+            profile="hph.sitecontent:default"
+            handler="hph.sitecontent.upgrades.upgrade_1004"
+            sortkey="1"
+    />
+
+    <genericsetup:upgradeStep
+            title="Add exclude from footer toc behavior"
+            description="Provide behavior and integrate catalog index"
+            source="1004"
+            destination="1005"
+            profile="hph.sitecontent:default"
+            handler="hph.sitecontent.upgrades.upgrade_1005"
+            sortkey="1"
+    />
 </configure>

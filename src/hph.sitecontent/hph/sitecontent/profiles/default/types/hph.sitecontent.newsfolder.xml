@@ -23,14 +23,15 @@
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+      <element value="hph.sitecontent.behavior.display.IExcludeFromFooterNavigation" />
    </property>
 
   <!-- View information -->
   <property name="link_target"></property>
   <property name="immediate_view">view</property>
-  <property name="default_view">event-listing</property>
+  <property name="default_view">news-listing</property>
   <property name="view_methods">
-   <element value="event-listing"/>
+   <element value="news-listing"/>
   </property>
   <property name="default_view_fallback">False</property>
   <property name="add_permission">cmf.AddPortalContent</property>

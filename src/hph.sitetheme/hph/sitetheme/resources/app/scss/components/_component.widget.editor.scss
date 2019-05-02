@@ -34,7 +34,7 @@ $c-widget-font-family-highlight:          $c-card-font-family-base;
 }
 
 .c-widget-editor__item-main {
-    flex: 0 0 auto;
+    flex: 1 0 auto;
     max-width: 80%;
     padding-left: $app-spacer-sm;
     padding-right: $app-spacer-sm;

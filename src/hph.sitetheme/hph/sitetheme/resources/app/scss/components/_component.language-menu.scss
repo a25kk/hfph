@@ -3,7 +3,7 @@
     position: relative;
     flex: 1 0 50%;
     max-width: 50%;
-    padding-right: .5rem;
+    padding-right: 1rem;
     @include mq($from: lg) {
         padding-right: 0;
     }

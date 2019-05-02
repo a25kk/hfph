@@ -8543,6 +8543,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-page__section {
+  position: relative;
   margin-bottom: calc(1.25rem * 1.5);
 }
 
@@ -8594,6 +8595,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-grid--gutter {
+  width: 100%;
   margin-right: -calc(1.25rem * 1.5 / 2);
   margin-left: -calc(1.25rem * 1.5 / 2);
 }
@@ -9330,10 +9332,6 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   color: #182f7a;
 }
 
-.o-icon--muted {
-  color: #999999;
-}
-
 .o-icon--circle {
   border: 1px solid currentColor;
   border-radius: 50%;
@@ -9344,15 +9342,33 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-icon--nav-toggle {
-  fill: currentColor;
+  fill: #fff;
   width: 4rem;
   height: 4rem;
+}
+
+.o-icon--sm {
+  fill: currentColor;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .o-icon--md {
   fill: currentColor;
   width: 1.5rem;
   height: 1.5rem;
+}
+
+.o-icon--lg {
+  fill: currentColor;
+  width: 4rem;
+  height: 4rem;
+}
+
+.o-icon--size-1 {
+  fill: currentColor;
+  width: 1rem;
+  height: 1rem;
 }
 
 .o-icon--size-2 {
@@ -9367,10 +9383,28 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   height: 3rem;
 }
 
-.o-icon--lg {
-  fill: #fff;
+.o-icon--size-4 {
+  fill: currentColor;
   width: 4rem;
   height: 4rem;
+}
+
+.o-icon--size-5 {
+  fill: currentColor;
+  width: 5rem;
+  height: 5rem;
+}
+
+.o-icon__nav--default {
+  width: 1rem;
+  height: 1rem;
+  color: #fff;
+}
+
+.o-icon__ui--calendar-dims {
+  width: 4rem;
+  height: 4rem;
+  fill: #adb5bd;
 }
 
 .o-icon__ui--people-dims {
@@ -9421,6 +9455,10 @@ input, button, select, textarea {
 
 .o-form {
   width: 100%;
+}
+
+.o-form--panels {
+  padding: calc(1.25rem * 1.5 / 2);
 }
 
 .o-form__group {
@@ -9686,6 +9724,15 @@ input, button, select, textarea {
 .o-form__actions {
   padding-top: calc(1.25rem * 1.5);
   padding-bottom: calc(1.25rem * 1.5);
+}
+
+.o-form--panels .o-form__actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .autotoc-section {
@@ -10221,4 +10268,8 @@ img[data-sizes="auto"] {
 
 .c-alert--primary .alert-link {
   color: #0a0c0d;
+}
+
+[id="personal-bar-container"] {
+  z-index: 105;
 }
