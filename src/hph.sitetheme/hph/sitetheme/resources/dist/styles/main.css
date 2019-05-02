@@ -13059,10 +13059,6 @@ img[data-sizes="auto"] {
   }
 }
 
-.c-toc__item.presse-kommunikation {
-  display: none;
-}
-
 .c-toc__item.en {
   display: none;
 }
@@ -13253,6 +13249,7 @@ img[data-sizes="auto"] {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   width: 360px;
+  margin: 0 auto 1rem auto;
 }
 
 .c-social-menu__item {
@@ -13260,6 +13257,7 @@ img[data-sizes="auto"] {
       -ms-flex: 1 0 25%;
           flex: 1 0 25%;
   max-width: 25%;
+  text-align: center;
 }
 
 .c-meta-nav {
