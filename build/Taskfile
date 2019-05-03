@@ -67,7 +67,6 @@ task:plone() {
 }
 
 task:css() {
-    docker:command:jekyll build
     docker:command:gulp dist
     #cd ${SITE_THEME} && npm:run gulp dist
     #cd ..
@@ -86,6 +85,12 @@ task:gulp:tasks() {
 task:watch() {
     virtualenv:run fab watch
 }
+
+task:theme:dist() {
+    docker:command:jekyll build
+    docker:command:gulp dist
+}
+
 task:fab() {
     virtualenv:run fab "$@"
 }

@@ -11,8 +11,10 @@ $grid-gutter-width:                         $app-spacer-sm;
     }
     &--gutter {
         width: 100%;
-        margin-right: -($grid-gutter-width);
-        margin-left: -($grid-gutter-width);
+        @include mq($from: sm) {
+            margin-right: -($grid-gutter-width);
+            margin-left: -($grid-gutter-width);
+        }
     }
     &--reverse {
         @include mq($from: lg) {
@@ -26,8 +28,10 @@ $grid-gutter-width:                         $app-spacer-sm;
 
 .o-grid__item {
     @include when-inside('.o-grid--gutter') {
-        padding-right: $grid-gutter-width;
-        padding-left: $grid-gutter-width;
+        @include mq($from: sm) {
+            padding-right: $grid-gutter-width;
+            padding-left: $grid-gutter-width;
+        }
     }
 }
 
