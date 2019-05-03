@@ -16,14 +16,11 @@ task:install:theme() {
 task:update() {
     virtualenv:update
     docker:update
+    docker:command:npm install
 }
 
 task:update:theme() {
-    npm:install
-}
-
-task:deploy:legacy() {
-    cd .. && bin/fab deploy
+    docker:command:npm install
 }
 
 # Run fabric based deployment
@@ -70,21 +67,35 @@ task:plone() {
 }
 
 task:css() {
-    cd ${SITE_THEME} && npm:run gulp dist
-    cd ..
+    docker:command:jekyll build
+    docker:command:gulp dist
+    #cd ${SITE_THEME} && npm:run gulp dist
+    #cd ..
 }
 
 task:gulp() {
-    cd ${SITE_THEME} && npm:run gulp "$@"
-    cd ..
+    #cd ${SITE_THEME} && npm:run gulp "$@"
+    #cd ..
+    docker:command:gulp "$@"
+}
+
+task:gulp:tasks() {
+    docker:command:gulp --tasks
 }
 
 task:watch() {
     virtualenv:run fab watch
 }
-
 task:fab() {
     virtualenv:run fab "$@"
+}
+
+task:npm() {
+    docker:command:npm "$@"
+}
+
+task:jekyll() {
+    docker:command:jekyll "$@"
 }
 
 # docker

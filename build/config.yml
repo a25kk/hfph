@@ -15,6 +15,18 @@ modules:
   docker:
       data_path: ../_docker_data
       docker_compose_config_overrides: localhost
+      commands:
+        npm: &npm
+          workdir: /app/src/hph.sitetheme/hph/sitetheme/resources
+          bin: npm
+          service: node
+        gulp:
+          <<: *npm
+          bin: ./node_modules/.bin/gulp
+        jekyll: &jekyll
+          workdir: /app/web/src/hph.sitetheme/hph/sitetheme/resources
+          bin: jekyll
+          service: jekyll
   pipenv:
   npm:
     base_path: ../src/hph.sitetheme/hph/sitetheme/resources
