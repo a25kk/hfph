@@ -746,7 +746,8 @@ abbr[data-original-title] {
           text-decoration: underline dotted;
   cursor: help;
   border-bottom: 0;
-  text-decoration-skip-ink: none;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
 }
 
 address {
@@ -2642,6 +2643,11 @@ pre code {
 }
 
 .form-control::-webkit-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-control::-moz-placeholder {
   color: #6c757d;
   opacity: 1;
 }
@@ -9579,6 +9585,11 @@ input, button, select, textarea {
 }
 
 .o-form__control::-webkit-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.o-form__control::-moz-placeholder {
   color: #6c757d;
   opacity: 1;
 }
