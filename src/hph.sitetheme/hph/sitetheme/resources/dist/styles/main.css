@@ -706,7 +706,8 @@ abbr[data-original-title] {
           text-decoration: underline dotted;
   cursor: help;
   border-bottom: 0;
-  text-decoration-skip-ink: none;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
 }
 
 address {
@@ -2602,6 +2603,11 @@ pre code {
 }
 
 .form-control::-webkit-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-control::-moz-placeholder {
   color: #6c757d;
   opacity: 1;
 }
@@ -10058,6 +10064,11 @@ input, button, select, textarea {
   opacity: 1;
 }
 
+.o-form__control::-moz-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
 .o-form__control:-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
@@ -13598,6 +13609,8 @@ c-list--bordered .c-list__item:last-of-type {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  background: #efefef;
+  padding: 0.5rem;
 }
 
 @media (max-width: 61.99em) {
@@ -13632,6 +13645,7 @@ c-list--bordered .c-list__item:last-of-type {
       -ms-flex: 1 0 50%;
           flex: 1 0 50%;
   max-width: 50%;
+  margin-bottom: 0;
 }
 
 .c-collapsible__link--icon {
