@@ -113,6 +113,18 @@ buildDistFull.description = 'Clean distribution and build full production bundle
 gulp.task('build:dist:full', buildDistFull);
 
 
+const buildDistCss = gulp.series(
+    'build:base:styles',
+    'replace:base',
+    'revision:styles',
+    'replace:revision:styles',
+    'collect:html'
+);
+buildDistCss.description = 'Build production stylesheet distribution';
+
+gulp.task('build:dist:styles', buildDistCss);
+
+
 gulp.task('dev:watch:styles', function () {
     gulp.watch(cfg.paths.app + "sass/**/*.scss", gulp.series(
         'styles:dist'
@@ -135,6 +147,9 @@ gulp.task('dev:watch', function () {
         )
     );
 });
+
+// Run isolated build of stylesheets
+gulp.task('styles', buildDistCss);
 
 // Run development build
 gulp.task('collect', buildCollect);
