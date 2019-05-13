@@ -9,7 +9,7 @@ permalink:        pretty
 source:           ./templates
 destination:      ./_site
 layouts_dir:      ./_layouts
-exclude:          [".editorconfig", ".gitignore", ".bowerrc", "jshintrc", "bower.json", "config.json", "Gruntfile.js", "gulpfile.babel.js", "package.json", "manifest.cfg", "rules.xml", "node_modules", "bower_components", "README.md", "assets", "less", "dist", "js", "overrides", "docs", "templates", "Makefile", "sass"]
+exclude:          [".editorconfig", ".gitignore", "config.json", "package.json", "README.md", "assets", "scripts", "templates", "Makefile", "scss"]
 port:             9001
 
 # Custom vars

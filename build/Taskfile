@@ -75,9 +75,7 @@ task:plone() {
 }
 
 task:css() {
-    docker:command:gulp dist
-    #cd ${SITE_THEME} && npm:run gulp dist
-    #cd ..
+    docker:command:gulp styles
 }
 
 task:gulp() {
@@ -96,7 +94,9 @@ task:watch() {
 
 
 task:theme:html() {
-    docker:command:jekyll build
+    docker:command:jekyll build -q
+    echo ""
+    echo "[theme] HTML build done"
 }
 
 task:theme:css() {
@@ -112,7 +112,7 @@ task:theme:assets() {
 }
 
 task:theme:dist() {
-    docker:command:jekyll build
+    docker:command:jekyll build -q
     docker:command:gulp dist
 }
 
