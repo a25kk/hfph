@@ -13616,6 +13616,8 @@ c-list--bordered .c-list__item:last-of-type {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  background: #efefef;
+  padding: 0.5rem;
 }
 
 @media (max-width: 61.99em) {
@@ -13650,6 +13652,7 @@ c-list--bordered .c-list__item:last-of-type {
       -ms-flex: 1 0 50%;
           flex: 1 0 50%;
   max-width: 50%;
+  margin-bottom: 0;
 }
 
 .c-collapsible__link--icon {
@@ -13719,6 +13722,13 @@ c-list--bordered .c-list__item:last-of-type {
 .c-teaser__footer {
   text-align: right;
   font-family: "TAZ";
+  padding-bottom: 1rem;
+}
+
+@media (min-width: 62em) {
+  .c-teaser__footer {
+    padding-bottom: 0;
+  }
 }
 
 .c-teaser__link {
