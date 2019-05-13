@@ -746,7 +746,8 @@ abbr[data-original-title] {
           text-decoration: underline dotted;
   cursor: help;
   border-bottom: 0;
-  text-decoration-skip-ink: none;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
 }
 
 address {
@@ -2642,6 +2643,11 @@ pre code {
 }
 
 .form-control::-webkit-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.form-control::-moz-placeholder {
   color: #6c757d;
   opacity: 1;
 }
@@ -8596,8 +8602,13 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 
 .o-grid--gutter {
   width: 100%;
-  margin-right: -calc(1.25rem * 1.5 / 2);
-  margin-left: -calc(1.25rem * 1.5 / 2);
+}
+
+@media (min-width: 36em) {
+  .o-grid--gutter {
+    margin-right: -calc(1.25rem * 1.5 / 2);
+    margin-left: -calc(1.25rem * 1.5 / 2);
+  }
 }
 
 @media (min-width: 62em) {
@@ -8609,9 +8620,11 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   }
 }
 
-.o-grid--gutter .o-grid__item {
-  padding-right: calc(1.25rem * 1.5 / 2);
-  padding-left: calc(1.25rem * 1.5 / 2);
+@media (min-width: 36em) {
+  .o-grid--gutter .o-grid__item {
+    padding-right: calc(1.25rem * 1.5 / 2);
+    padding-left: calc(1.25rem * 1.5 / 2);
+  }
 }
 
 .o-grid__item--width-10 {
@@ -9579,6 +9592,11 @@ input, button, select, textarea {
 }
 
 .o-form__control::-webkit-input-placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.o-form__control::-moz-placeholder {
   color: #6c757d;
   opacity: 1;
 }

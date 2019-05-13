@@ -177,7 +177,7 @@ define([
             }
         });
         // Close navigation via backdrop clicks
-        document.addEventListener('click', function (event) {
+        document.addEventListener('click touchstart', function (event) {
             // If the click happened inside the the container, bail
             if (!event.target.closest(options.navBar)) {
                 // Handle already active navigation elements

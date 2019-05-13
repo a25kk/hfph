@@ -20,6 +20,10 @@
 .c-teaser__footer {
     text-align: right;
     font-family: $app-font-family-strong;
+    padding-bottom: 1rem;
+    @include mq($from: lg) {
+        padding-bottom: 0;
+    }
 }
 
 .c-teaser__link {
