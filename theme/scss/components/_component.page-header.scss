@@ -1,0 +1,26 @@
+$c-page-header-margin-bottom:                   1.5rem;
+$c-page-header-font-size-base:                  1.25rem;
+$c-page-header-font-size-lg:                    1.5rem;
+$c-page-header-font-weight:                     300;
+$c-page-header-line-height:                     1.5;
+
+.c-page-header {
+    margin: 0 auto $c-page-header-margin-bottom;
+    @include make-container-max-widths();
+}
+
+.c-page-header__title {
+    margin-bottom: 1.5rem;
+}
+
+.c-page-header__headline {
+    padding: .125rem 0;
+    color: #000;
+    line-height: 1.25;
+}
+
+.c-page-header__abstract {
+    @include font-size($c-page-header-font-size-lg);
+    font-weight: $c-page-header-font-weight;
+    line-height: $c-page-header-line-height;
+}

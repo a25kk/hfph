@@ -1,0 +1,21 @@
+// Utility classes for responsive behavior
+.u-display--block {
+    display: block;
+}
+.u-display--none {
+    display: none;
+}
+@each $breakpoint in map-keys($mq-breakpoints) {
+    @include mq($from: $breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $mq-breakpoints);
+        .u-display#{$infix}--none   { display: none !important; }
+        .u-display#{$infix}--block   { display: block !important; }
+
+    }
+}
+
+.u-display--full-width {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}

@@ -1,0 +1,11 @@
+.u-text--word-wrap {
+    word-wrap: break-word;
+}
+
+.u-text--sm {
+    font-size: $app-font-size-sm;
+}
+
+.u-text--muted {
+    color: lighten($app-color-text, 25%);
+}

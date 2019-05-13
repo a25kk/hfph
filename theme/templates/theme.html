@@ -1,0 +1,419 @@
+---
+layout: default
+title: Theme
+slug: theme
+lead: "Theme test rendering"
+base_url: "../../"
+---
+<div class="o-page" id="content-theme">
+
+    <header class="o-page__header">
+        <div class="o-page__section c-page-header">
+            <div class="c-page-header__title">
+                <h1 class="c-page-header__headline">
+                    Theme v2.0.0
+                </h1>
+            </div>
+            <p class="c-page-header__abstract">
+                Globale Text und Typographie Styles
+            </p>
+        </div>
+    </header>
+
+  <div class="o-page__main">
+
+      <div class="o-page__section">
+          <p>Das Theme verwendet soweit möglich und semantisch sinnvoll BEM und ITCSS als Grundlage der Style Implementierung.</p>
+            <p>Die Schriftgrösse wird responsive bestimmt, d.h. passt sich relativ zueinander für die jeweils vordefinierte
+            maximale Inhaltsbreite einer sprzifischen Bildschirmgrösse an und erreicht ab 1200px Bildschirmbreite das vorgegebene Maximum.</p>
+          <hr>
+          <div class="sg-section">
+              <!-- Headings -->
+              <h2 id="type-headings">Überschriften</h2>
+              <p>Alle HTML headings, <code>&lt;h1&gt;</code> bis <code>&lt;h6&gt;</code>, sind verfügbar und werden basierend
+                  auf der Basisschriftgröße relativ skaliert.
+              </p>
+              <div class="sg-example sg-example-type" data-example-id="simple-headings">
+                  <table class="table">
+                      <tbody>
+                      <tr>
+                          <td><h1>h1. Überschrift</h1></td>
+                          <td class="type-info">TAZ Semibold <br><small>(entpricht in etwa 2x Default Schriftgrösse)</small></td>
+                      </tr>
+                      <tr>
+                          <td><h2>h2. Überschrift</h2></td>
+                          <td class="type-info">TAZ Semibold</td>
+                      </tr>
+                      <tr>
+                          <td><h3>h3. Überschrift</h3></td>
+                          <td class="type-info">TAZ Semilight</td>
+                      </tr>
+                      <tr>
+                          <td><h4>h4. Überschrift</h4></td>
+                          <td class="type-info">TAZ Semilight</td>
+                      </tr>
+                      <tr>
+                          <td><h5>h5. Überschrift</h5></td>
+                          <td class="type-info">TAZ Semilight<br>
+                              <small>(entspricht Default Schriftgrösse)</small>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td><h6>h6. Überschrift</h6></td>
+                          <td class="type-info">TAZ Semibold</td>
+                      </tr>
+                      </tbody>
+                  </table>
+              </div>
+              <div class="sg-example sg-example-type" data-example-id="simple-headings-base">
+                  <h1>Weiterbildender Master Interkulturelle Bildung</h1>
+                  <h2>Beginn der Neueinschreibung</h2>
+                  <h3>Aufbau und Organistation</h3>
+                  <h4>Eckdaten</h4>
+                  <h5>Regelstudienzeit und Studienbeginn</h5>
+                  <h6>Andere Termine sind nach vorheriger Absprache möglich</h6>
+              </div>
+{% highlight html %}
+<h1>h1 Heading</h1>
+<h2>h2 Heading</h2>
+<h3>h3 Heading</h3>
+<h4>h4 Heading</h4>
+<h5>h5 Heading</h5>
+<h6>h6 Heading</h6>
+{% endhighlight %}
+          </div>
+
+      </div>
+      <div class="o-page__section">
+              <!-- Body copy -->
+              <h2 id="type-body-copy">Fliesstext</h2>
+              <p>Die globale Standardschriftgrösse <code>font-size</code> für Fliesstext basiert auf der Standardeinstellung der Browser
+                  von <strong>16px</strong>, mit einer Zeilenhöhe <code> line-height</code> von <strong>1.5</strong>.
+              </p>
+              <p>
+                  Diese Vorgaben werden für den <code>&lt;body&gt;</code> als <strong>1.125rem</strong>
+                  festgesetzt und gelten für jeden Textabschnitt. Zusätzlich erhält jeder Paragraph
+                  <code>&lt;p&gt;</code> einen Abstand zum nachfolgenden Element von berechnet aus den Einheiten Basisschriftgrösse und Standardzeiilenhöhe.
+                  (Beispiel: 1rem * 1.5).
+              </p>
+              <div class="sg-example" data-example-id="body-copy">
+                  <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+                  <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                  <p class="u-font-test"><small>Vergleichsabsatz Trebuchet</small><br> Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+                  <p class="h5"><small>Vergleichsabsatz TAZ Semilight</small><br> Maecenas sed diam eget risus varius blandit sit amet non magna. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+                  <p>Normal document body text, <strong>strong text</strong>, <em>emphasised text</em>, <abbr title="abbreviation">abbr</abbr>. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Quisque odio sem, aliquam ut, suscipit at, aliquet non, justo. Vestibulum vitae urna et mi volutpat luctus. Nulla auctor, lacus ut consectetuer sagittis, erat odio vulputate sapien, eu placerat diam mauris id turpis. Aenean quis ipsum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque rutrum. Sed mattis turpis sit amet ipsum viverra pharetra. Nunc facilisis, augue non dapibus gravida, risus quam vulputate quam, non venenatis dui massa in leo. Maecenas scelerisque dapibus libero. Suspendisse potenti. example <a href="#">Normal internal site link</a> inside a paragraph, example <a href="http://plone.org">External link to plone.org</a>, example <a href="https://plone.org">Secure (HTTPS) link to plone.org</a>, example <a href="mailto:some@address">Mailto link</a>, example <a href="ftp://some.site">FTP link</a>, example <a href="news://some.site">NNTP (news) link</a>, example <a href="webcal://some.site">WebCal link</a>, example <a href="feed://some.site">RSS feed link</a>, example <a href="irc://some.network/#channel">IRC link</a>.</p>
+                  <p class="discreet">Discreet paragraph</p>
+              </div>
+{% highlight html %}
+<p>...</p>
+{% endhighlight %}
+      </div>
+        <div class="o-page__section">
+              <!-- Body copy .lead -->
+              <h2>Aufmacher und Texteinleitungen</h2>
+            <p>Ein einleitender Paragraph kann <strong>hervorgehoben</strong> dargestellt werden.</p>
+              <div class="sg-example" data-example-id="lead-copy">
+                  <p class="c-page-header__abstract">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
+              </div>
+{% highlight html %}
+<p class="c-page-header__abstract">
+    ...
+</p>
+{% endhighlight %}
+        </div>
+      <div class="o-page__section">
+              <!-- Inline text elements -->
+              <h2 id="type-inline-text">Inline text elements</h2>
+              <h3>Marked text</h3>
+              <p>For highlighting a run of text due to its relevance in another context, use the <code>&lt;mark&gt;</code> tag.</p>
+              <div class="sg-example" data-example-id="simple-mark">
+                  <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+              </div>
+              {% highlight html %}
+                  You can use the mark tag to <mark>highlight</mark> text.
+              {% endhighlight %}
+
+      </div>
+      <div class="o-page__section">
+
+              <h3>Deleted text</h3>
+              <p>For indicating blocks of text that have been deleted use the <code>&lt;del&gt;</code> tag.</p>
+              <div class="sg-example" data-example-id="simple-del">
+                  <p><del>This line of text is meant to be treated as deleted text.</del></p>
+              </div>
+              {% highlight html %}
+                  <del>This line of text is meant to be treated as deleted text.</del>
+              {% endhighlight %}
+
+      </div>
+      <div class="o-page__section">
+
+              <h3>Strikethrough text</h3>
+              <p>For indicating blocks of text that are no longer relevant use the <code>&lt;s&gt;</code> tag.</p>
+              <div class="sg-example" data-example-id="simple-s">
+                  <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+              </div>
+              {% highlight html %}
+                  <s>This line of text is meant to be treated as no longer accurate.</s>
+              {% endhighlight %}
+
+      </div>
+      <div class="o-page__section">
+
+              <h3>Inserted text</h3>
+              <p>For indicating additions to the document use the <code>&lt;ins&gt;</code> tag.</p>
+              <div class="sg-example" data-example-id="simple-ins">
+                  <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+              </div>
+              {% highlight html %}
+                  <ins>This line of text is meant to be treated as an addition to the document.</ins>
+              {% endhighlight %}
+      </div>
+      <div class="o-page__section">
+
+              <h3>Underlined text</h3>
+              <p>To underline text use the <code>&lt;u&gt;</code> tag.</p>
+              <div class="sg-example" data-example-id="simple-u">
+                  <p><u>This line of text will render as underlined</u></p>
+              </div>
+              {% highlight html %}
+                  <u>This line of text will render as underlined</u>
+              {% endhighlight %}
+      </div>
+      <div class="o-page__section">
+
+              <p>Make use of HTML's default emphasis tags with lightweight styles.</p>
+
+              <h3>Small text</h3>
+              <p>For de-emphasizing inline or blocks of text, use the <code>&lt;small&gt;</code> tag to set text at 85% the size of the parent. Heading elements receive their own <code>font-size</code> for nested <code>&lt;small&gt;</code> elements.</p>
+              <p>You may alternatively use an inline element with <code>.small</code> in place of any <code>&lt;small&gt;</code>.</p>
+              <div class="sg-example" data-example-id="simple-small">
+                  <p><small>This line of text is meant to be treated as fine print.</small></p>
+              </div>
+              {% highlight html %}
+                  <small>This line of text is meant to be treated as fine print.</small>
+              {% endhighlight %}
+
+      </div>
+      <div class="o-page__section">
+
+              <h3>Bold</h3>
+              <p>For emphasizing a snippet of text with a heavier font-weight.</p>
+              <div class="sg-example" data-example-id="simple-strong">
+                  <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
+              </div>
+              {% highlight html %}
+                  <strong>rendered as bold text</strong>
+              {% endhighlight %}
+
+      </div>
+      <div class="o-page__section">
+
+              <h3>Italics</h3>
+              <p>For emphasizing a snippet of text with italics.</p>
+              <div class="sg-example" data-example-id="simple-em">
+                  <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
+              </div>
+              {% highlight html %}
+                  <em>rendered as italicized text</em>
+              {% endhighlight %}
+
+      </div>
+      <div class="o-page__section">
+
+              <!-- Abbreviations -->
+              <h2 id="type-abbreviations">Abbreviations</h2>
+              <p>Stylized implementation of HTML's <code>&lt;abbr&gt;</code> element for abbreviations and acronyms to show the expanded version on hover. Abbreviations with a <code>title</code> attribute have a light dotted bottom border and a help cursor on hover, providing additional context on hover and to users of assistive technologies.</p>
+
+              <h3>Basic abbreviation</h3>
+              <div class="sg-example" data-example-id="simple-abbr">
+                  <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+              </div>
+              {% highlight html %}
+                  <abbr title="attribute">attr</abbr>
+              {% endhighlight %}
+
+      </div>
+      <div class="o-page__section">
+
+              <h3>Initialism</h3>
+              <p>Add <code>.initialism</code> to an abbreviation for a slightly smaller font-size.</p>
+              <div class="sg-example" data-example-id="simple-initialism">
+                  <p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr> is the best thing since sliced bread.</p>
+              </div>
+              {% highlight html %}
+                  <abbr title="HyperText Markup Language" class="initialism">HTML</abbr>
+              {% endhighlight %}
+
+      </div>
+      <div class="o-page__section">
+
+
+              <!-- Addresses -->
+              <h2 id="type-addresses">Addresses</h2>
+              <p>Present contact information for the nearest ancestor or the entire body of work. Preserve formatting by ending all lines with <code>&lt;br&gt;</code>.</p>
+              <div class="sg-example" data-example-id="simple-address">
+                  <address>
+                      <strong>Twitter, Inc.</strong><br>
+                      795 Folsom Ave, Suite 600<br>
+                      San Francisco, CA 94107<br>
+                      <abbr title="Phone">P:</abbr> (123) 456-7890
+                  </address>
+                  <address>
+                      <strong>Full Name</strong><br>
+                      <a href="mailto:#">first.last@example.com</a>
+                  </address>
+              </div>
+              {% highlight html %}
+                  <address>
+                      <strong>Twitter, Inc.</strong><br>
+                      795 Folsom Ave, Suite 600<br>
+                      San Francisco, CA 94107<br>
+                      <abbr title="Phone">P:</abbr> (123) 456-7890
+                  </address>
+
+                  <address>
+                      <strong>Full Name</strong><br>
+                      <a href="mailto:#">first.last@example.com</a>
+                  </address>
+              {% endhighlight %}
+
+      </div>
+      <div class="o-page__section">
+
+              <!-- Blockquotes -->
+              <h2 id="type-blockquotes">Blockquotes</h2>
+              <p>For quoting blocks of content from another source within your document.</p>
+
+              <h3>Default blockquote</h3>
+              <p>Wrap <code>&lt;blockquote&gt;</code> around any <abbr title="HyperText Markup Language">HTML</abbr> as the quote. For straight quotes, we recommend a <code>&lt;p&gt;</code>.</p>
+              <div class="sg-example" data-example-id="simple-blockquote">
+                  <blockquote>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+              </div>
+              {% highlight html %}
+                  <blockquote>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  </blockquote>
+              {% endhighlight %}
+
+              <h3>Blockquote options</h3>
+              <p>Style and content changes for simple variations on a standard <code>&lt;blockquote&gt;</code>.</p>
+
+              <h4>Naming a source</h4>
+              <p>Add a <code>&lt;footer&gt;</code> for identifying the source. Wrap the name of the source work in <code>&lt;cite&gt;</code>.</p>
+              <div class="sg-example" data-example-id="blockquote-cite">
+                  <blockquote>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                      <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                  </blockquote>
+              </div>
+              {% highlight html %}
+                  <blockquote>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                      <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                  </blockquote>
+              {% endhighlight %}
+
+              <h4>Alternate displays</h4>
+              <p>Add <code>.blockquote-reverse</code> for a blockquote with right-aligned content.</p>
+              <div class="sg-example" style="overflow: hidden;" data-example-id="blockquote-reverse">
+                  <blockquote class="blockquote-reverse">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                      <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                  </blockquote>
+              </div>
+              {% highlight html %}
+                  <blockquote class="blockquote-reverse">
+                      ...
+                  </blockquote>
+              {% endhighlight %}
+
+      </div>
+      <div class="o-page__section">
+
+
+              <!-- Lists -->
+              <h2 id="type-lists">Lists</h2>
+
+              <h3>Unordered</h3>
+              <p>A list of items in which the order does <em>not</em> explicitly matter.</p>
+              <div class="sg-example" data-example-id="simple-ul">
+                  <ul>
+                      <li>Lorem ipsum dolor sit amet</li>
+                      <li>Consectetur adipiscing elit</li>
+                      <li>Integer molestie lorem at massa</li>
+                      <li>Facilisis in pretium nisl aliquet</li>
+                      <li>Nulla volutpat aliquam velit
+                          <ul>
+                              <li>Phasellus iaculis neque</li>
+                              <li>Purus sodales ultricies</li>
+                              <li>Vestibulum laoreet porttitor sem</li>
+                              <li>Ac tristique libero volutpat at</li>
+                          </ul>
+                      </li>
+                      <li>Faucibus porta lacus fringilla vel</li>
+                      <li>Aenean sit amet erat nunc</li>
+                      <li>Eget porttitor lorem</li>
+                  </ul>
+              </div>
+              {% highlight html %}
+                  <ul>
+                      <li>...</li>
+                  </ul>
+              {% endhighlight %}
+
+      </div>
+      <div class="o-page__section">
+
+              <h3>Ordered</h3>
+              <p>A list of items in which the order <em>does</em> explicitly matter.</p>
+              <div class="sg-example" data-example-id="simple-ol">
+                  <ol>
+                      <li>Lorem ipsum dolor sit amet</li>
+                      <li>Consectetur adipiscing elit</li>
+                      <li>Integer molestie lorem at massa</li>
+                      <li>Facilisis in pretium nisl aliquet</li>
+                      <li>Nulla volutpat aliquam velit</li>
+                      <li>Faucibus porta lacus fringilla vel</li>
+                      <li>Aenean sit amet erat nunc</li>
+                      <li>Eget porttitor lorem</li>
+                  </ol>
+              </div>
+              {% highlight html %}
+                  <ol>
+                      <li>...</li>
+                  </ol>
+              {% endhighlight %}
+
+      </div>
+      <div class="o-page__section">
+
+              <h4>Definition Lists</h4>
+              <p>Make terms and descriptions in <code>&lt;dl&gt;</code>.</p>
+              <div class="sg-example" data-example-id="horizontal-dl">
+                  <dl class="dl-horizontal">
+                      <dt>Description lists</dt>
+                      <dd>A description list is perfect for defining terms.</dd>
+                      <dt>Euismod</dt>
+                      <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+                      <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+                      <dt>Malesuada porta</dt>
+                      <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+                      <dt>Felis euismod semper eget lacinia</dt>
+                      <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
+                  </dl>
+              </div>
+{% highlight html %}
+<dl>
+    <dt>...</dt>
+    <dd>...</dd>
+</dl>
+{% endhighlight %}
+
+      </div>
+      </div>
+
+</div>
+</div>

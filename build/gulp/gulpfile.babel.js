@@ -29,12 +29,19 @@ const browserSync = bsCreate();
 // Load configuration
 var cfg = require('./config.json');
 
-
+console.log('Current directory: ' + process.cwd());
 
 /*
  * TASKS
  *
  */
+
+// Browser sync
+gulp.task('info', function (done) {
+    console.log('Current directory: ' + process.cwd());
+    console.log(cfg);
+    done();
+});
 
 // Browser sync
 gulp.task('bs:reload', function (done) {
@@ -63,7 +70,6 @@ gulp.task('build:collect', buildCollect);
 
 // Base tasks
 const buildBase = gulp.series(
-    'jekyll:build',
     gulp.parallel('styles:dist', 'styles:editor', 'collect:scripts:app'),
     'inject:head'
 );

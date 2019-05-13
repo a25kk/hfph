@@ -1,0 +1,82 @@
+.c-pagination {
+    padding: $c-pagination-padding-y 0;
+    margin-bottom: 1.5rem;
+}
+
+.c-pagination__list {
+    display: flex;
+    @include list-reset();
+    flex-wrap: wrap;
+}
+
+.c-pagination__link {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    padding: $c-pagination-padding-y $c-pagination-padding-x;
+    margin-left: -$c-pagination-border-width;
+    line-height: $c-pagination-line-height;
+    color: $c-pagination-color;
+    background-color: $c-pagination-bg;
+    border: $c-pagination-border-width solid $c-pagination-border-color;
+    &:hover {
+        z-index: 2;
+        color: $c-pagination-hover-color;
+        text-decoration: none;
+        background-color: $c-pagination-hover-bg;
+        border-color: $c-pagination-hover-border-color;
+    }
+
+    &:focus {
+        z-index: 2;
+        outline: $c-pagination-focus-outline;
+        box-shadow: none;
+    }
+    @include when-inside('.c-pagination__list-item--previous') {
+        > .label {
+            display: none;
+        }
+        > .arrow:before {
+            content: "\00ab";
+        }
+    }
+    @include when-inside('.c-pagination__list-item--next') {
+        > .label {
+            display: none;
+        }
+        > .arrow:before {
+            content: "\00bb";
+        }
+    }
+}
+
+.c-pagination__list-item {
+    display: block;
+    &:first-child {
+        .page-link {
+            margin-left: 0;
+            @include border-left-radius($border-radius);
+        }
+    }
+    &:last-child {
+        .page-link {
+            @include border-right-radius($border-radius);
+        }
+    }
+
+    &--active {
+        padding: $c-pagination-padding-y $c-pagination-padding-x;
+        margin-left: -$c-pagination-border-width;
+        line-height: $c-pagination-line-height;
+        color: $c-pagination-color;
+        background-color: $c-pagination-bg;
+        border: $c-pagination-border-width solid $c-pagination-border-color;
+        color: $c-pagination-active-color;
+        background-color: $c-pagination-active-bg;
+        border-color: $c-pagination-active-border-color;
+        > span {
+            z-index: 1;
+        }
+    }
+}
+
