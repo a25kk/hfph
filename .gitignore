@@ -24,6 +24,7 @@
 /env/*
 /ENV/*
 /venv/*
+_site
 bin
 build/docker/nginx/site.conf
 coverage

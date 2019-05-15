@@ -1,0 +1,47 @@
+//
+// Bootstrap variable overides
+//
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-caret:                      false;
+$enable-rounded:                    false;
+$enable-shadows:                    false;
+$enable-gradients:                  false;
+$enable-transitions:                true;
+$enable-grid-classes:               true;
+$enable-print-styles:               true;
+$enable-responsive-font-sizes:      true;
+
+// Colors
+$theme-colors: (
+    "primary": $app-primary,
+    "secondary": $app-secondary,
+    "danger": $app-red
+);
+
+// Custom webfonts
+// $app-font-family-light:     "DINRoundWeb-Light";
+// $app-font-family-medium:    "DINRoundWeb-Medium";
+// $app-font-family-strong:    "DINRoundWeb";
+
+
+$font-family-base:            $app-font-family-base, Georgia, sans-serif;
+$headings-font-family:        $app-font-family-strong, $font-family-base;
+// $headings-font-weight:        normal;
+
+//## Reset and adjust existing variables
+$brand-primary:                 $app-primary;
+$link-color:                    $color-jackson-purple;
+
+
+//** Navbar toggle
+$navbar-default-toggle-hover-bg:           #ddd;
+$navbar-default-toggle-icon-bar-bg:        #888;
+$navbar-default-toggle-border-color:       #ddd;
+
+//** Button primary uses default link color not brand primary
+$btn-primary-bg:                        $app-primary;
+$btn-primary-border: 			        $app-primary;

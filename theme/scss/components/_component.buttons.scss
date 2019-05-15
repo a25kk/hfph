@@ -1,0 +1,71 @@
+.c-button {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: normal;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    font-family: $app-font-family-strong;
+    @include button-size($input-btn-padding-y, $input-btn-padding-x, $font-size-base, $input-btn-line-height, $btn-border-radius);
+    @include transition($btn-transition);
+
+    // Share hover and focus styles
+    @include hover-focus {
+        text-decoration: none !important;
+    }
+    &:focus,
+    &.focus {
+        outline: 0;
+        box-shadow: $btn-focus-box-shadow;
+    }
+
+    // Disabled comes first so active can properly restyle
+    &.disabled,
+    &:disabled {
+        opacity: .65;
+        @include box-shadow(none);
+    }
+
+    &:active,
+    &.active {
+        background-image: none;
+        @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+    }
+
+    @include media-breakpoint-up(md) {
+        white-space: nowrap;
+    }
+}
+
+// Future-proof disabling of clicks on `<a>` elements
+a.c-button.disabled,
+fieldset[disabled] a.c-button {
+    pointer-events: none;
+}
+
+.c-button--default {
+    @include button-outline-variant($app-color-gray, $white);
+}
+
+.c-button--danger {
+    @include button-outline-variant($app-color-danger, $white);
+}
+
+.c-button--primary {
+    @include button-variant($app-color-gray, $app-color-gray);
+}
+
+.c-button--link {
+    @include button-variant($app-color-gray, $app-color-gray);
+}
+
+.c-button + .c-button {
+    margin-left: calc(#{$app-font-size-base} * .5);
+}
+
+.c-button--sm {
+    font-size: $app-font-size-sm;
+}

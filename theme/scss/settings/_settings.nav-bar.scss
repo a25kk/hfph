@@ -1,0 +1,9 @@
+// Enable to position nav bar to the left (default is right)
+$nav-bar-overlay-ltr:           0;
+
+// Breakpoint for switching to large display mode
+$nav-bar-display-breakpoint:            4444444px;
+@include mq-add-breakpoint(navbar, $nav-bar-display-breakpoint);
+
+$nav-bar-position-default:          -100%;
+$nav-bar-position-overlay:          0%;

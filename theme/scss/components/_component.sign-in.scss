@@ -1,0 +1,14 @@
+.c-sign-in {
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid $app-color-gray-light;
+    background: $app-color-white;
+    @include mq($from: sm) {
+        width: 576px;
+    }
+}
+
+.c-sign-in__header {
+    padding: 2rem;
+    text-align: center;
+}

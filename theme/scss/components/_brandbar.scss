@@ -1,0 +1,54 @@
+//
+// Brandbar
+// -----------------------------------------
+
+.app-brandbar {
+    padding-top: ($spacer * 1.5);
+    @include media-breakpoint-up(md) {
+        padding-left: $spacer;
+        padding-bottom: ($spacer * 1.5);
+    }
+}
+
+.app-brandbar-content {
+    @include media-breakpoint-up(md) {
+        @include make-container;
+    }
+}
+
+// Make a gridrow
+.app-brand {
+    // @include make-row();
+}
+// The actual brandname/title
+.app-brand-title {
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+        @include make-col(8);
+    }
+}
+
+// Sitewide claim
+.app-brand-aside {
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+        @include make-col(4);
+    }
+}
+
+
+// Styles for brand components
+.app-brandname {
+    max-width: 400px;
+    display: block;
+}
+
+.app-brandname-logo {
+    // @extend .img-responsive;
+}
+
+.app-brandname-heading {
+    color: $app-primary;
+    font-size: $font-size-lg;
+    font-weight: 400;
+}

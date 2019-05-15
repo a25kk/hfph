@@ -1,0 +1,54 @@
+.o-switch {
+    position: relative;
+    display: block;
+    min-height: $font-size-base * $line-height-base;
+}
+
+.o-switch__control {
+    position: absolute;
+    z-index: -1; // Put the input behind the label so it doesn't overlay text
+    opacity: 0;
+}
+
+.o-switch__label {
+    position: relative;
+    margin-bottom: 0;
+    vertical-align: top;
+}
+
+.o-switch__label:before {
+    content: "";
+    cursor: pointer;
+    text-indent: -9999px;
+    width: 200px;
+    height: 100px;
+    background: grey;
+    display: block;
+    border-radius: 100px;
+    position: absolute;
+}
+
+.o-switch__label:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 90px;
+    height: 90px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+.o-switch:checked + .o-switch__label:before {
+    background: #bada55;
+}
+
+.o-switch:checked + .o-switch__label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
+}
+
+.o-switch__label:active:after {
+    width: 130px;
+}

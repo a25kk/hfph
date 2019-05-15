@@ -1,0 +1,5 @@
+@mixin icon-variant($color, $size) {
+    fill: $color;
+    width: $size;
+    height: $size;
+}

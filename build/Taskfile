@@ -2,15 +2,22 @@
 # b5 Taskfile, see https://git.team23.de/build/b5 for details
 SITE_THEME="${CONFIG_paths_site_theme:-'I have no theme configuration'}"
 
+task:setup() {
+    cp ${SITE_THEME}/package.json ./gulp/
+    cp ${SITE_THEME}/config.json ./gulp/
+}
+
 task:install() {
     cd .. && chmod 775 ./bootstrap.sh && ./bootstrap.sh
     virtualenv:install
     docker:install
-    npm:install
+    task:setup
+    docker:command:npm install
 }
 
 task:install:theme() {
-    npm:install
+    task:setup
+    docker:command:npm install
 }
 
 task:update() {
@@ -20,6 +27,7 @@ task:update() {
 }
 
 task:update:theme() {
+    task:setup
     docker:command:npm install
 }
 
@@ -67,9 +75,7 @@ task:plone() {
 }
 
 task:css() {
-    docker:command:gulp dist
-    #cd ${SITE_THEME} && npm:run gulp dist
-    #cd ..
+    docker:command:gulp styles
 }
 
 task:gulp() {
@@ -86,8 +92,31 @@ task:watch() {
     virtualenv:run fab watch
 }
 
+
+task:theme:html() {
+    docker:command:jekyll build -q
+    echo ""
+    echo "[theme] HTML build done"
+}
+
+task:theme:css() {
+    docker:command:gulp styles
+}
+
+task:theme:js() {
+    docker:command:gulp collect:scripts:app
+}
+
+task:theme:assets() {
+    docker:command:gulp collect
+}
+
+task:theme:sprite() {
+    docker:command:gulp sprite:collect
+}
+
 task:theme:dist() {
-    docker:command:jekyll build
+    docker:command:jekyll build -q
     docker:command:gulp dist
 }
 
