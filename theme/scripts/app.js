@@ -11,18 +11,12 @@ requirejs(['require',
         '/scripts/dropmic.js',
         '/scripts/choices.min.js',
         '/scripts/fontfaceobserver.js',
-        '/scripts/hideShowPassword.js',
-        '/scripts/jvfloat.js',
         '/scripts/respimage.js',
         '/scripts/ls.parent-fit.js',
         '/scripts/lazysizes-umd.js'
     ],
     function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, collapsible, panelEditor, xray, Dropmic, Choices) {
         'use strict';
-
-        if (typeof a25 == 'undefined') {
-            var a25 = {};
-        }
 
         // Trigger font face observer protection
         var fontPrimary = new FontFaceObserver('adobe-garamond-pro', {
