@@ -70,7 +70,7 @@
   "replacementPatterns": {
     "base": [
       {
-        "match": "/../dist/styles/",
+        "match": "/../../src/hph.sitetheme/hph/sitetheme/theme/styles/",
         "replacement": "/styles/"
       },
       {
