@@ -1,0 +1,36 @@
+$c-nav-list-padding:                            .5rem;
+$c-nav-list-color-bg:                           $app-color-gray-light;
+$c-nav-list-color-bg-highlight:                 $app-color-gray-base;
+
+.c-nav-list {
+    @include list-reset();
+    font-family: $app-font-family-strong;
+}
+
+.c-nav-list--level-1 {
+    margin: 1rem -($c-nav-list-padding)  0 -($c-nav-list-padding);
+}
+
+.c-nav-list__item {
+    padding: $c-nav-list-padding;
+    border-bottom: 1px solid #fff;
+    background-color: $c-nav-list-color-bg;
+
+    &--active {
+    	padding: .5rem;
+    	border-bottom: 1px solid #fff;
+    	background-color: $gray-600;
+    }
+    @include when-inside('.c-nav-list--level-1') {
+        padding-left: calc(#{$c-nav-list-padding} * 3);
+    }
+}
+
+.c-nav-list__link {
+    &--active {
+        color: #fff;
+    }
+	@include when-inside('.c-nav-list__item--active') {
+		color: #fff;
+	}
+}

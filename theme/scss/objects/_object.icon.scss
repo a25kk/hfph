@@ -1,0 +1,122 @@
+$o-icon-width-default:              1rem;
+$o-icon-height-default:             1rem;
+$o-icon-color-inverse:              $app-color-white;
+$o-icon-border-width:               1px;
+$o-icon-border-style:               solid;
+$o-icon-border-color:               currentColor;
+$o-icon-border-radius:              50%;
+
+
+
+.o-icon {
+    fill: currentColor;
+    &--default {
+        width: $o-icon-width-default;
+        height: $o-icon-height-default;
+        margin-bottom: .125rem;
+    }
+    &--inverse {
+        fill: $o-icon-color-inverse;
+    }
+    &--solid {
+        background-color: $o-icon-color-inverse;
+    }
+    &--primary {
+        color: $app-color-primary;
+    }
+    //&:hover {
+    //    fill: $app-color-secondary;
+    //}
+}
+
+.o-icon--circle {
+    border: $o-icon-border-width $o-icon-border-style $o-icon-border-color;
+    border-radius: $o-icon-border-radius;
+    //&:hover {
+    //    border-color: $app-color-secondary;
+    //}
+}
+
+.o-icon--spacer {
+    padding: .6rem;
+}
+
+.o-icon--nav-toggle {
+    @include icon-variant($o-icon-color-inverse, 4rem);
+}
+
+//== Icon variant sizes
+$icon-sizes: (
+    sm: 1.25rem,
+    md: 1.5rem,
+    lg: 4rem,
+    size-1: 1rem,
+    size-2: 2rem,
+    size-3: 3rem,
+    size-4: 4rem,
+    size-5: 5rem,
+);
+
+@each $icon-size, $size-value in $icon-sizes {
+    .o-icon--#{$icon-size} {
+        @include icon-variant(currentColor, $size-value);
+    }
+}
+
+// .o-icon--sm {
+//     @include icon-variant(currentColor, 1.2rem);
+// }
+//
+// .o-icon--md {
+//     @include icon-variant(currentColor, 1.5rem);
+// }
+//
+// .o-icon--size-2 {
+//     @include icon-variant(currentColor, 2rem);
+// }
+//
+// .o-icon--size-3 {
+//     @include icon-variant(currentColor, 3rem);
+// }
+//
+// .o-icon--size-3 {
+//     @include icon-variant(currentColor, 3rem);
+// }
+//
+// .o-icon--lg {
+//     @include icon-variant($o-icon-color-inverse, 4rem);
+// }
+
+// TODO: Deprecated remove in favor if o-icon--inverse style
+.o-icon__nav--default {
+    width: 1rem;
+    height: 1rem;
+    color: #fff;
+}
+
+// TODO: Refactor to generalize classes
+// Using a dedicated definition for every icon in the set will soon grow
+// unmaintainable with the number of required icons. Hint: when repeating style
+// definitions start to generalize
+.o-icon__ui {
+	&--calendar-dims {
+		width: 4rem;
+		height: 4rem;
+        fill: $gray-500;
+	}
+    &--people-dims {
+        width: 5rem;
+        height: 5rem;
+        fill: $gray-500;
+    }
+    &--timer-dims {
+        width: 4.5rem;
+        height: 4.5rem;
+        fill: $gray-500;
+    }
+    &--check-dims {
+        width: 4.5rem;
+        height: 4.5rem;
+        fill: $gray-500;
+    }
+}

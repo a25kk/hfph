@@ -1,0 +1,42 @@
+---
+layout: simple
+title: Sign in
+slug: signin
+base_url: "../../"
+---
+<div class="o-page o-page--sign-in">
+    <section class="c-sign-in">
+        <header class="c-sign-in__header">
+            {% include components/brandpanel.html %}
+        </header>
+        <div class="c-sign-in__main" id="content">
+            <form class="app-signin-form enableAutoFocus" action="." id="login_form" method="post">
+                <div class="app-signin-group" id="login-form">
+                    <div class="control-group app-signin-control dim-in dim-in-1">
+                        <div class="app-signin-field">
+                            <label class="sr-only" for="__ac_name">E-Mail-Adresse</label>
+                            <input class="form-control app-signin-input" id="ac-name"
+                                   placeholder="E-Mail-Adresse"
+                                   type="text" id="__ac_name" value="" name="__ac_name" size="15">
+                            <a href="#app-signin-content" class="app-signin-suggestion animated hidden" id="app-signin-suggestion"></a>
+                        </div>
+                    </div>
+                    <div class="control-group app-signin-control dim-in dim-in-2">
+                        <div class="app-signin-field">
+                            <label class="sr-only" for="__ac_password">Passwort</label>
+                            <input  class="form-control app-signin-input"
+                                    placeholder="Passwort"
+                                    type="password" id="__ac_password" name="__ac_password" size="15">
+                        </div>
+                    </div>
+                </div>
+                <div class="app-signin-actions">
+                    <div class="control-group app-signin-control dim-in dim-in-3">
+                        <input class="btn btn-primary btn-block btn-lg app-signin-btn" type="submit" value="Anmelden" name="submit">
+                        <a class="btn btn-link btn-sm" href="/mail_password_form?userid=">Passwort vergessen?</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</div>

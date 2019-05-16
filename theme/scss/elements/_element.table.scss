@@ -1,0 +1,81 @@
+$o-table-color:                         $app-color-text;
+$o-table-bg-color:                      $app-color-white;
+
+$o-table-cell-padding:                    .75rem;
+$o-table-cell-padding-sm:                 .3rem;
+
+$o-table-border-width:                  1px;
+$o-table-border-color:                  $app-color-gray-light;
+
+
+table,
+.o-table {
+    width: 100%;
+    margin-bottom: calc(1.5 * $app-font-size-base);
+    color: $o-table-color;
+    background-color: $o-table-bg-color; // Reset for nesting within parents with `background-color`.
+
+    th,
+    td {
+        padding: $o-table-cell-padding;
+        vertical-align: top;
+        border-top: $o-table-border-width solid $o-table-border-color;
+        @include mq($until: lg) {
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+    }
+
+    thead th {
+        vertical-align: bottom;
+        border-bottom: (2 * $o-table-border-width) solid $o-table-border-color;
+    }
+
+    tbody + tbody {
+        border-top: (2 * $o-table-border-width) solid $o-table-border-color;
+    }
+}
+
+// Responsive tables support
+.o-table__container {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    > .o-table--bordered {
+        border: 0;
+    }
+}
+
+
+//
+// Condensed table w/ half padding
+//
+
+.o-table--sm {
+    th,
+    td {
+        padding: $o-table-cell-padding-sm;
+    }
+}
+
+// Table Edit Modules ############################
+
+// Actions row
+.o-table__row {
+    &--actions {
+        border-top: .25rem solid $app-color-text;
+        padding-top: $app-spacer-base;
+    }
+}
+
+.o-table__cell {
+    &--actions {
+        width: 20%;
+        padding-top: $app-spacer-sm !important;
+    }
+    &--primary {
+        width: 40%;
+    }
+}

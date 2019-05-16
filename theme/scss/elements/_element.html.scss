@@ -1,0 +1,20 @@
+html {
+    // font-size: $app-font-size-base; /* [1] */
+    // line-height: $inuit-global-line-height / $inuit-global-font-size; /* [1] */
+    overflow-y: scroll; /* [2] */
+    min-height: 100%; /* [3] */
+    //own:
+    color: $app-color-text;
+    width: 100%;
+    font-family: $app-font-family-base;
+    font-weight: 300;
+    -webkit-text-size-adjust: 100%; // 4
+    -ms-text-size-adjust: 100%; // 4
+    -ms-overflow-style: scrollbar; // 5
+    -webkit-tap-highlight-color: rgba(#000, 0); // 6
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
