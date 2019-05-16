@@ -1,0 +1,7 @@
+<svg class="icon--plus" id="icon-plus" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+    <style>
+        .icon-plus__path{fill:currentColor;stroke:currentColor;stroke-width:2;stroke-miterlimit:10}
+    </style>
+    <path d="M14.157 32h35.686M32 14.157v35.686" class="icon-plus__path"/>
+</svg>
+

@@ -1,0 +1,56 @@
+//
+// Actionbar
+// -------------------------------------
+
+.app-actionbar {
+
+}
+
+.app-actions {
+  display: flex;
+  font-size: 0.85rem;
+}
+
+.app-action {
+  flex: 1;
+  padding: .25rem;
+  color: #fff;
+  background: $app-primary;
+  text-align: center;
+  &:nth-child(even) {
+    color: #fff;
+    background: $app-secondary;
+  }
+}
+
+.app-action-search {
+  flex: 1;
+  color: $app-primary;
+  background: $app-gray;
+}
+
+.app-searchbox-group {
+  display: flex;
+}
+
+.app-searchbox-control {
+  display: flex;
+}
+
+.app-searchbox-field {
+  @extend .form-control;
+  width: 66.6666%;
+  background-color: $app-gray;
+  border-color: $app-gray;
+    // Placeholder
+    &::placeholder {
+          color: $app-primary;
+          // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+          opacity: 1;
+      }
+}
+
+.app-searchbox-btn {
+  flex: 0 0 33.3333%;
+  @include button-variant(#fff, $app-secondary, $app-secondary);
+}

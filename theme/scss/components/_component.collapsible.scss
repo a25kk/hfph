@@ -1,0 +1,62 @@
+$c-collapsible-border-width:                .125rem;
+$c-collapsible-border-color:                $app-color-secondary;
+
+.c-collapsible__header {
+    display: flex;
+    width: 100%;
+    background: $c-nav-list-color-bg;
+    padding: $c-nav-list-padding;
+    @include mq($until: lg) {
+        cursor: pointer;
+        border-bottom: $c-collapsible-border-width solid $c-collapsible-border-color;
+    }
+    &--hidden-lg {
+        @include mq($from: lg) {
+            display: none;
+        }
+    }
+}
+
+.c-collapsible__item {
+    @include mq($until: lg) {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .25s ease-in-out;
+        &--active {
+            display: block;
+            max-height: 100vh;
+        }
+    }
+}
+
+.c-collapsible__link {
+    flex: 1 0 50%;
+    max-width: 50%;
+    margin-bottom: 0;
+    &--icon {
+        text-align: right;
+        color: currentColor;
+        @include mq($from: lg) {
+            display: none;
+        }
+    }
+    @include mq($from: lg) {
+        flex: 1 0 100%;
+        max-width: 100%;
+    }
+}
+
+.c-collapsible__icon {
+    color: currentColor;
+    &--close {
+        display: none;
+    }
+    @include when-inside('.show') {
+        &--open {
+            display: none;
+        }
+        &--close {
+            display: inline-block;
+        }
+    }
+}

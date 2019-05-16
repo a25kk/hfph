@@ -1,0 +1,17 @@
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
+
+# Permalinks
+permalink:        pretty
+
+# Server
+source:           ./templates
+destination:      ./_site
+layouts_dir:      ./_layouts
+exclude:          [".editorconfig", ".gitignore", "config.json", "package.json", "README.md", "assets", "scripts", "templates", "Makefile", "scss"]
+port:             9001
+
+# Custom vars
+current_version:  1.0.0
+repo:             https://github.com/ade25/

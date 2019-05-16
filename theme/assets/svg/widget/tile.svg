@@ -1,0 +1,6 @@
+<svg class="o-icon--svg" xmlns="http://www.w3.org/2000/svg" id="Ebene_1" width="100%" height="100%" viewBox="0 0 64 64">
+    <style>
+        .o-icon__tile--path{fill:none;stroke:currentColor;stroke-width:2;stroke-miterlimit:10}
+    </style>
+    <path d="M13 13h16.215v16.858H13zM34.785 13H51v16.858H34.785zM13 34.142h16.215V51H13zM34.785 34.142H51V51H34.785z" class="o-icon__tile--path"/>
+</svg>

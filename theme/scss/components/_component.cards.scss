@@ -1,0 +1,145 @@
+//
+// Cards displaying thumbnails and data collections
+// ------------------------------------------------------
+$c-card-display-default:                flex;
+$c-card-width-default:                  100%;
+$c-card-font-family-base:               $app-font-family-strong;
+$c-card-font-family-highlight:          $c-card-font-family-base;
+
+$c-card-cap-bg:                         transparent;
+
+$c-card-color:                          $app-color-text;
+$c-card-color-link:                     $app-color-primary;
+$c-card-color-link-hover:               darken($c-card-color, 10%);
+
+$c-card-spacer:                         $app-spacer-sm;
+
+
+.c-card {
+    display: $c-card-display-default;
+    @if $c-card-display-default == 'flex' {
+        height: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+    } @else {
+        height: auto;
+    }
+    width: $c-card-width-default;
+    padding-bottom: $app-spacer-base;
+    @include when-inside('.c-list__item') {
+        padding-bottom: 0;
+    }
+}
+
+.c-card--spacer {
+    padding: $c-card-spacer;
+}
+
+//== Card layout
+//
+//## Reflow card contents based on viewport size
+.c-card__header {
+    background: $c-card-cap-bg;
+    font-family: $c-card-font-family-highlight;
+    &--faculty {
+        display: none;
+    }
+    @include when-inside('.c-card--teaser') {
+        @include mq($from: lg) {
+            flex: 1 0 6.5rem;
+        }
+    }
+}
+
+//** Card content
+.c-card__main {
+    font-family: $app-font-family-base;
+    @include when-inside('.c-card--news') {
+        @include font-size($app-font-size-base);
+    }
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    @include when-inside('.c-card--teaser') {
+        padding-bottom: $app-spacer-base;
+    }
+}
+
+//** Card footer
+.c-card__footer {
+    margin-top: auto;
+    font-family: $c-card-font-family-base;
+    @include when-inside('.c-card--news') {
+        text-align: left;
+    }
+    font-size: $font-size-small;
+    &--centered {
+        text-align: center;
+    }
+    &--action {
+        display: inline-block;
+        margin-top: .7rem;
+        padding: 0;
+        width: 1.1rem;
+        height: 1.1rem;
+        border: 1px solid $app-color-text;
+        line-height: 1;
+        border-radius: 50%;
+    }
+
+    &--link {
+        display: inline-block;
+        padding: 0 0 0 .5rem;
+        margin-top: .5rem;
+        color: $c-card-color-link;
+        //width: 2rem;
+        //height: 2rem;
+    }
+}
+
+// Card element styles
+.c-card__link {
+    display: block;
+    color: $c-card-color-link;
+    text-decoration: none;
+    &:hover {
+        color: $c-card-color-link-hover;
+        text-decoration: none;
+    }
+}
+
+.c-card__date {
+    font-weight: 100;
+    @include font-size($app-font-size-base);
+    color: $c-card-color-link;
+}
+
+
+// TODO: evaluate wether these could be moved to generalized rules
+// Card contents
+.c-card__title {
+    font-family: $c-card-font-family-base;
+    color: $c-card-color-link;
+}
+
+.c-card__section {
+    //margin-bottom: $app-spacer-base;
+    &--centered {
+        text-align: center;
+    }
+}
+
+.c-card__detail {
+    font-family: $c-card-font-family-base;
+}
+
+
+// Alternative card styles and versions
+.c-card--banner {
+    // A banner card consists of a banner element eg a picture and a caption
+    .c-card__header,
+    .c-card__footer {
+        text-align: center;
+    }
+}

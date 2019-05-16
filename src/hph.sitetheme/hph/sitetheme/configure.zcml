@@ -23,7 +23,7 @@
         />
 
     <plone:static
-        directory="resources"
+        directory="theme"
         type="theme"
     />
 
