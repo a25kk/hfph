@@ -175,6 +175,12 @@
         <copy attributes="href" css:content="#portal-logo" css:theme="a.app-navbar-brand" />
         <copy attributes="href" css:content="#portal-logo" css:theme="a.app-brand" />
 
+        <!-- Logo switch -->
+        <drop css:theme="#logo-en"
+              if-not-path="/en/"/>
+        <drop css:theme="#logo-de"
+              if-path="/en/"/>
+
         <!-- Portal searchbox -->
         <copy attributes="*" css:content="#portal-searchbox form"
               css:theme="#app-searchbox" />
@@ -641,6 +647,11 @@
         <!-- footer elements -->
         <replace css:theme-children="#c-toc"
                 css:content-children="#c-toc" />
+        <!-- Footer switch -->
+        <drop css:theme="#footer-meta-en"
+              if-not-path="/en/"/>
+        <drop css:theme="#footer-meta-de"
+              if-path="/en/"/>
 
     </rules>
 
