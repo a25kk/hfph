@@ -1,0 +1,26 @@
+// Body
+$element-body-color:                    $app-color-text;
+$element-body-background-color:         $app-color-white;
+
+// Hr
+$app-hr-margin:                         1rem;
+$app-hr-border-color:                   rgba($app-color-text, .1);
+$app-hr-border-width:                   1px;
+
+// Headings
+$app-headings-margin-bottom:            .5rem;
+$app-headings-line-height:              1.2;
+$app-headings-font-family:              $app-font-family-strong;
+$app-headings-font-family-secondary:    $app-font-family-medium;
+$app-headings-font-weight:              400;
+$app-headings-color:                    $app-color-primary;
+
+// Strong text
+
+
+// Anchor element
+$anchor-color-default:                  $app-color-primary;
+$anchor-color-highlight:                $app-color-primary-darker;
+$anchor-text-transform:                 underline;
+$anchor-transitions-active:             true;
+$anchor-transition:                     color 0.5s linear;

@@ -1,0 +1,16 @@
+///* ========================================================================
+//   #CONFIG
+//   ======================================================================== */
+// Custom web font
+// $app-font-family-base:              "EB Garamond";
+$app-font-family-base:              "adobe-garamond-pro";
+$app-font-family-light:             "adobe-garamond-pro";
+$app-font-family-medium:            "TAZSemiLight";
+$app-font-family-strong:            "TAZ";
+
+// Configure site font stack
+$app-font-family-sans-serif:        $app-font-family-base, Trebuchet MS;
+$app-font-family-serif:             Georgia, 'Times New Roman', Times,serif;
+
+$app-font-weight-base-custom:       $app-font-weight-base;
+$app-font-weight-strong-custom:     600;

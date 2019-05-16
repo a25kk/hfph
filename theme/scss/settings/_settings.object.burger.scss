@@ -1,0 +1,21 @@
+$o-burger-display:                  block;
+$o-burger-flex-direction:           row-reverse;
+
+$o-burger-margin-top:               2rem;
+$o-burger-padding-y:                .25rem;
+
+$o-burger-background-color:         transparent;    // remove default button styles
+$o-burger-border-width:             1px;            // remove default button style
+$o-burger-border-style:             solid;          // remove default button style
+$o-burger-border-color:             transparent;    // remove default button style
+
+$o-burger-font:                     $app-font-family-strong;
+
+// Burger Text
+$o-burger-text-color:               $app-color-primary;
+$o-burger-text-font-size:           1.45rem;
+$o-burger-text-transform:           uppercase;
+
+// Burger icon
+$o-burger-icon-color:               $o-burger-text-color;
+$o-burger-icon-font-size:           1.5rem;

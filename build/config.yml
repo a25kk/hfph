@@ -8,7 +8,8 @@ paths:
   web: ../
   db: ../_db
   docker_data: ../_docker_data
-  site_theme: ../src/hph.sitetheme/hph/sitetheme/resources
+  site_theme: ../theme
+  gulp_location: ../build/gulp
 modules:
   virtualenv:
     python_bin: python2
@@ -17,14 +18,14 @@ modules:
       docker_compose_config_overrides: localhost
       commands:
         npm: &npm
-          workdir: /app/src/hph.sitetheme/hph/sitetheme/resources
+          workdir: /app/build/gulp
           bin: npm
           service: node
         gulp:
           <<: *npm
           bin: ./node_modules/.bin/gulp
         jekyll: &jekyll
-          workdir: /app/web/src/hph.sitetheme/hph/sitetheme/resources
+          workdir: /app/theme
           bin: jekyll
           service: jekyll
   pipenv:
