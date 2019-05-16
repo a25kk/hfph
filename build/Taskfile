@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # b5 Taskfile, see https://git.team23.de/build/b5 for details
 SITE_THEME="${CONFIG_paths_site_theme:-'I have no theme configuration'}"
+GULP_LOCATION="${CONFIG_paths_gulp_location:-'I have no gulp location'}"
 
 task:setup() {
-    cp ${SITE_THEME}/package.json ./gulp/
-    cp ${SITE_THEME}/config.json ./gulp/
+    cp ${SITE_THEME}/package.json ${GULP_LOCATION}
+    cp ${SITE_THEME}/config.json ${GULP_LOCATION}
 }
 
 task:install() {
