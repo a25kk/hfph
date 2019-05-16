@@ -12228,6 +12228,10 @@ img[data-sizes="auto"] {
   display: none;
 }
 
+.template-language-root-view .app-pathbar {
+  display: none;
+}
+
 .app-main--grid .app-pathbar {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 100%;
