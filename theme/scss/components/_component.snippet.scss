@@ -44,7 +44,7 @@ $c-snippet-color:                   $app-color-text;
 }
 
 .c-snippet__footer {
-    margin-top: auto;
+    //margin-top: auto;
     @include font-size($app-font-size-sm);
     font-family: $app-font-family-strong;
     padding-top: $c-snippet-padding;
@@ -58,7 +58,7 @@ $c-snippet-color:                   $app-color-text;
 }
 
 .c-snippet__section {
-    flex-grow: 1;
+    //flex-grow: 1;
     @include font-size($app-font-size-base);
 }
 

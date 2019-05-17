@@ -12423,7 +12423,6 @@ img[data-sizes="auto"] {
 }
 
 .c-snippet__footer {
-  margin-top: auto;
   font-size: 1rem;
   font-family: "TAZ";
   padding-top: 1.25rem;
@@ -12434,9 +12433,6 @@ img[data-sizes="auto"] {
 }
 
 .c-snippet__section {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
   font-size: 1.25rem;
 }
 
