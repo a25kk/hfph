@@ -1,6 +1,6 @@
 $c-snippet-display:                 flex;
-$c-snippet-aside-width:             33.3333%;
-$c-snippet-main-width:              66.6666%;
+$c-snippet-aside-width:             25%;
+$c-snippet-main-width:              75%;
 $c-snippet-flex-direction:          row-reverse;
 $c-snippet-width:                   100%;
 $c-snippet-padding:                 $app-font-size-base;
@@ -44,7 +44,6 @@ $c-snippet-color:                   $app-color-text;
 }
 
 .c-snippet__footer {
-    margin-top: auto;
     @include font-size($app-font-size-sm);
     font-family: $app-font-family-strong;
     padding-top: $c-snippet-padding;
@@ -53,12 +52,10 @@ $c-snippet-color:                   $app-color-text;
 
 // Snippet elements
 .c-snippet__title {
-    //@include font-size(2rem);
     font-weight: $app-font-weight-strong-custom;
 }
 
 .c-snippet__section {
-    flex-grow: 1;
     @include font-size($app-font-size-base);
 }
 
@@ -83,6 +80,7 @@ $c-snippet-color:                   $app-color-text;
 }
 
 .c-snippet__figure {
+    &--constrained-width-md,
     &--faculty {
         @include mq($until: md) {
             max-width: 50%;
