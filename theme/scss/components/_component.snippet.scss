@@ -1,6 +1,6 @@
 $c-snippet-display:                 flex;
-$c-snippet-aside-width:             33.3333%;
-$c-snippet-main-width:              66.6666%;
+$c-snippet-aside-width:             25%;
+$c-snippet-main-width:              75%;
 $c-snippet-flex-direction:          row-reverse;
 $c-snippet-width:                   100%;
 $c-snippet-padding:                 $app-font-size-base;
@@ -83,9 +83,14 @@ $c-snippet-color:                   $app-color-text;
 }
 
 .c-snippet__figure {
+    &--constrained-width-md,
     &--faculty {
         @include mq($until: md) {
             max-width: 50%;
         }
     }
+}
+
+.c-snippet__figure--constrained-width-md {
+
 }
