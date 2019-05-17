@@ -44,7 +44,6 @@ $c-snippet-color:                   $app-color-text;
 }
 
 .c-snippet__footer {
-    margin-top: auto;
     @include font-size($app-font-size-sm);
     font-family: $app-font-family-strong;
     padding-top: $c-snippet-padding;
@@ -53,12 +52,10 @@ $c-snippet-color:                   $app-color-text;
 
 // Snippet elements
 .c-snippet__title {
-    //@include font-size(2rem);
     font-weight: $app-font-weight-strong-custom;
 }
 
 .c-snippet__section {
-    flex-grow: 1;
     @include font-size($app-font-size-base);
 }
 
@@ -89,8 +86,4 @@ $c-snippet-color:                   $app-color-text;
             max-width: 50%;
         }
     }
-}
-
-.c-snippet__figure--constrained-width-md {
-
 }
