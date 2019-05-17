@@ -78,6 +78,15 @@ buildBase.description = 'Compile templates/styles and collect scripts for produc
 
 gulp.task('build:base', buildBase);
 
+// Build styles
+const buildBaseStyles = gulp.series(
+    gulp.parallel('styles:dist', 'styles:editor'),
+    'inject:head'
+);
+
+buildBaseStyles.description = 'Compile styles for production';
+
+gulp.task('build:base:styles', buildBaseStyles);
 
 const buildPat = gulp.series(
     'build:base',
