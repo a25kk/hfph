@@ -157,6 +157,20 @@ define([
         });
     }
 
+    function handleBackDropEvent(options, event, bodyElement) {
+        event.stopPropagation();
+        // If the click happened inside the the container, bail
+        if (!event.target.closest(options.navBar)) {
+            // Handle already active navigation elements
+            if (navBarIsActive && !event.target.classList.contains(options.navBarToggle)) {
+                // deactivateNavigation(options);
+                navigationToggleHandler(event.target, options);
+                bodyElement.style.top = 0;
+                window.scrollTo(0, contentScrollPosition);
+            }
+        }
+    }
+
     function toggleNavigation(options) {
         let navBarToggle = Array.prototype.slice.call(document.querySelectorAll(options.navBarToggle)),
             bodyElement = document.getElementsByTagName('body')[0];
@@ -177,17 +191,11 @@ define([
             }
         });
         // Close navigation via backdrop clicks
-        document.addEventListener('click touchstart', function (event) {
-            // If the click happened inside the the container, bail
-            if (!event.target.closest(options.navBar)) {
-                // Handle already active navigation elements
-                if (navBarIsActive && !event.target.classList.contains(options.navBarToggle)) {
-                    // deactivateNavigation(options);
-                    navigationToggleHandler(event.target, options);
-                    bodyElement.style.top = 0;
-                    window.scrollTo(0, contentScrollPosition);
-                }
-            }
+        document.addEventListener('touchstart', function (event) {
+            handleBackDropEvent(options, event, bodyElement);
+        });
+        document.addEventListener('click', function (event) {
+            handleBackDropEvent(options, event, bodyElement);
         });
         // Nav bar toggle
         navBarToggle.forEach(function(el) {
