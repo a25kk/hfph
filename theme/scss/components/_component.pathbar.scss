@@ -25,6 +25,9 @@ $c-breadcrumb-font-size:                $app-font-size-sm;
     @include when-inside('.template-frontpage-view') {
         display: none;
     }
+    @include when-inside('.template-language-root-view') {
+        display: none;
+    }
     @include when-inside('.app-main--grid') {
         flex: 0 0 100%;
         max-width: 100%;

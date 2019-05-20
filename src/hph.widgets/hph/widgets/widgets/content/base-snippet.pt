@@ -35,7 +35,7 @@
         </div>
     </div>
     <div class="c-snippet__aside" tal:condition="python:content['has_image']">
-        <div class="c-snippet__figure"
+        <div class="c-snippet__figure c-snippet__figure--constrained-width-md"
                  tal:define="responsive_image python:content['content_item'].restrictedTraverse('@@figure')(image_field_name='image', caption_field__name='image', scale='ratio-4:3', aspect_ratio='4/3', lqip=True, lazy_load=True)">
             <a class="c-snippet__link c-snippet__link--figure" tal:attributes="href python:content['url']">
                 <span tal:replace="structure responsive_image" />
