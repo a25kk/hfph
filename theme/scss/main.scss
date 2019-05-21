@@ -139,9 +139,10 @@
 @import 'components/component.widget.editor';
 
 // Utilities
-@import 'utililties/_util.visibility';
-@import 'utililties/_util.backdrop';
-@import 'utililties/_util.display';
-@import 'utililties/_util.color';
-@import 'utililties/_util.text';
+@import 'utililties/util.visibility';
+@import 'utililties/util.backdrop';
+@import 'utililties/util.device';
+@import 'utililties/util.display';
+@import 'utililties/util.color';
+@import 'utililties/util.text';
 @import 'shame.scss';
