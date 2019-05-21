@@ -14331,6 +14331,11 @@ c-list--bordered .c-list__item:last-of-type {
   left: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
+  cursor: pointer;
+}
+
+.u-device--ios * {
+  cursor: pointer;
 }
 
 .u-display--block {
