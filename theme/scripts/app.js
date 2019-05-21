@@ -45,6 +45,10 @@ requirejs(['require',
                 document.documentElement.className += " fonts--loaded";
         });
 
+        if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+            document.documentElement.className += " u-device--ios";
+        };
+
         // SVG Sprite polyfill
         svg4everybody();
 
