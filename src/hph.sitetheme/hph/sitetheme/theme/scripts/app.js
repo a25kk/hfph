@@ -45,13 +45,19 @@ requirejs(['require',
                 document.documentElement.className += " fonts--loaded";
         });
 
+        if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+            document.documentElement.className += " u-device--ios";
+        };
+
         // SVG Sprite polyfill
         svg4everybody();
 
-        const choices = new Choices('.js-choices', {
-            itemSelectText: 'auswählen',
-        });
-
+        let choicesSelector = document.querySelector('.js-choices');
+        if (choicesSelector !== null) {
+            const choices = new Choices('.js-choices', {
+                itemSelectText: 'auswählen',
+            });
+        }
         // Drop mic initialization
         var dropmic = new Dropmic(document.querySelector('[data-dropmic="quick-link-menu"]'), {
             onOpen: function() {

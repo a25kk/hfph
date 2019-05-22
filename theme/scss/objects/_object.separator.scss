@@ -20,3 +20,9 @@ $o-separator-height:                        .25rem;
         }
     }
 }
+
+.o-separator--sm {
+    @include mq($from: lg) {
+        display: none;
+    }
+}

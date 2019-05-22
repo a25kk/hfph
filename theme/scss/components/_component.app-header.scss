@@ -38,8 +38,8 @@
     // flex-direction: column;
     flex-wrap: wrap;
     width: 100%;
-    max-width: 100%;
-    @include mq($from: lg) {
+    max-width: 100%;@include mq($from: lg) {
+
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: flex-end;
