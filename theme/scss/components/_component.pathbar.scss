@@ -11,11 +11,6 @@ $c-breadcrumb-font-size:                $app-font-size-sm;
 
 
 .app-pathbar {
-    // TODO: Evaluate display on small devices
-    // display: none;
-    // @include mq($from: md) {
-    //     display: block;
-    // }
     width: 100%;
     margin-right: auto;
     margin-left: auto;
@@ -32,7 +27,7 @@ $c-breadcrumb-font-size:                $app-font-size-sm;
         flex: 0 0 100%;
         max-width: 100%;
     }
-    @include mq($from: md) {
+    @include mq($from: lg) {
         padding-right: 0;
         padding-left: 0;
     }
