@@ -1,7 +1,11 @@
-$c-list-spacer:                      $app-spacer-base;
-$c-list-margin-x:                    $c-list-spacer;
-$c-list-border-color:                $app-color-text;
-$c-list-border-width:                1px;
+$c-list-spacer:                             $app-spacer-base;
+$c-list-margin-x:                           $c-list-spacer;
+$c-list-border-color:                       $app-color-text;
+$c-list-border-width:                       1px;
+$c-list-separator-color:                    $app-color-primary;
+$c-list-separator-margin:                   calc(#{$app-spacer-base} * 1.5);
+$c-list-separator-width:                    90px;
+$c-list-separator-height:                   .25rem;
 
 .c-list {
     display: block;
@@ -67,11 +71,20 @@ $c-list-border-width:                1px;
 }
 
 .c-list__item--card {
-    // @include mq($from: md, $until: lg) {
-    //     &:not(:nth-child(2n+2)) {
-    //         border-right: 1px solid $c-list-border-color;
-    //     }
-    // }
+    position: relative;
+    &:not(:last-child) {
+        &::after {
+            @include mq($until: lg) {
+                content: "";
+                position: absolute;
+                bottom: -(calc(#{$c-list-separator-margin} / 2));
+                left: 0;
+                width: $c-list-separator-width;
+                height: $c-list-separator-height;
+                background-color: $c-list-separator-color;
+            }
+        }
+    }
     @include mq($from: lg) {
         &:not(:nth-child(3n+3)) {
             border-right: 1px solid $c-list-border-color;

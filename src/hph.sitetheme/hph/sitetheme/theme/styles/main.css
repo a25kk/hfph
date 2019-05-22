@@ -12093,9 +12093,9 @@ img[data-sizes="auto"] {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   line-height: 1;
   background: transparent;
   border: 1px solid transparent;
@@ -12161,9 +12161,9 @@ img[data-sizes="auto"] {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
-          flex-direction: row-reverse;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   line-height: 1;
   background: transparent;
   border: 1px solid transparent;
@@ -13519,6 +13519,22 @@ c-list--bordered .c-list__item {
 
 c-list--bordered .c-list__item:last-of-type {
   border-bottom: 0px;
+}
+
+.c-list__item--card {
+  position: relative;
+}
+
+@media (max-width: 61.99em) {
+  .c-list__item--card:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: -calc(calc(calc(1.25rem * 1.5) * 1.5) / 2);
+    left: 0;
+    width: 90px;
+    height: 0.25rem;
+    background-color: #182f7a;
+  }
 }
 
 @media (min-width: 62em) {

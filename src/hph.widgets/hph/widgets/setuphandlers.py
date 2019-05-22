@@ -11,7 +11,10 @@ def register_content_widgets(site):
 
     @param site: Plone site
     """
-    content_widgets = ['teaser-news', ]
+    content_widgets = [
+        'teaser-news',
+        'hph-image-poster'
+    ]
     widget_settings = api.portal.get_registry_record(
         name='ade25.widgets.widget_settings'
     )
@@ -21,7 +24,7 @@ def register_content_widgets(site):
             # Generate default settings via widgets tool
             stored_widgets.append(widget_type)
     api.portal.set_registry_record(
-        name='ade25.base.listed_content_types',
+        name='ade25.widgets.widget_settings',
         value=json.dumps(stored_widgets)
     )
 
