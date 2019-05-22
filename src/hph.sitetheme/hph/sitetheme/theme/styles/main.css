@@ -12161,9 +12161,9 @@ img[data-sizes="auto"] {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
   line-height: 1;
   background: transparent;
   border: 1px solid transparent;
