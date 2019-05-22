@@ -78,7 +78,7 @@ $c-list-separator-height:                   .25rem;
                 content: "";
                 position: absolute;
                 bottom: -(calc(#{$c-list-separator-margin} / 2));
-                left: 0;
+                left: 2rem;
                 width: $c-list-separator-width;
                 height: $c-list-separator-height;
                 background-color: $c-list-separator-color;

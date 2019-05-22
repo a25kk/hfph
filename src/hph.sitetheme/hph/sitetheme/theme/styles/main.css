@@ -13530,7 +13530,7 @@ c-list--bordered .c-list__item:last-of-type {
     content: "";
     position: absolute;
     bottom: -calc(calc(calc(1.25rem * 1.5) * 1.5) / 2);
-    left: 0;
+    left: 2rem;
     width: 90px;
     height: 0.25rem;
     background-color: #182f7a;
