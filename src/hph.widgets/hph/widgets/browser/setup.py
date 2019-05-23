@@ -4,6 +4,8 @@ from Products.Five import BrowserView
 from plone.protect.interfaces import IDisableCSRFProtection
 from zope.interface import alsoProvides
 
+from ade25.widgets import utils as widget_utils
+
 
 class SetupPackageWidgets(BrowserView):
 
@@ -17,3 +19,17 @@ class SetupPackageWidgets(BrowserView):
 
     def _register_content_widgets(self):
         return
+
+
+class DefaultWidgetsConfiguration(BrowserView):
+    """ Generate Widget settings blue print """
+
+    # TODO: this view should probably migrate to the base widget package
+
+    def __call__(self):
+        alsoProvides(self.request, IDisableCSRFProtection)
+        return self.render()
+
+    def render(self):
+        settings = widget_utils.default_widget_configuration()
+        return settings

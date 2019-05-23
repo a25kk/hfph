@@ -8422,8 +8422,8 @@ table tbody + tbody,
 .o-page {
   display: block;
   position: relative;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: calc(1.25rem * 1.5);
+  padding-left: calc(1.25rem * 1.5);
   width: 100%;
 }
 
