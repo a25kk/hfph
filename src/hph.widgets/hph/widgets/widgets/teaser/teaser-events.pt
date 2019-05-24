@@ -1,0 +1,36 @@
+<div class="c-teaser c-teaser--events"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+         i18n:domain="hph.widgets">
+    <div class="c-teaser__header">
+        <h2 class="c-teaser__title" i18n:translate="">
+            <a href="" tal:attributes="href python:view.widget_more_link()">
+                Events
+            </a>
+        </h2>
+    </div>
+    <div class="c-teaser__main">
+        <div class="c-list c-list--gutter c-list--grid c-list--${context/UID}" tal:define="items python:view.widget_content_items()"
+                 tal:attributes="class python:view.widget_content_list_class()">
+            <tal:items tal:repeat="item items">
+                <div class="c-card-list__item c-card-list__item--width-33" tal:define="item_uuid python:item['uuid'];"
+                         tal:attributes="class python:'c-list__item c-list__item--card ' + item['css_classes']">
+                    <div tal:replace="structure python:context.restrictedTraverse('@@content-widget-hph-event-tile')(widget_data=dict(uuid=item_uuid))">
+                        Content Preview Card
+                    </div>
+                </div>
+            </tal:items>
+        </div>
+    </div>
+    <div class="c-teaser__footer">
+        <a href="/news" tal:attributes="href python:view.widget_more_link()">
+            <div class="o-read-more">
+                <span class="o-read-more__icon c-card__icon">
+                    <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--chevron-dims">
+                        <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron"></use>
+                    </svg>
+                </span>
+                <span class="o-read-more__text c-card__link-text" i18n:translate="">More events</span>
+            </div>
+        </a>
+    </div>
+</div>
