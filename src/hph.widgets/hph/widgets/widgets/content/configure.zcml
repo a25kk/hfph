@@ -36,6 +36,33 @@
 
     <browser:page
             for="*"
+            name="content-widget-hph-event-tile"
+            class=".event.WidgetEventTile"
+            template="event-tile.pt"
+            permission="zope2.View"
+            layer="...interfaces.IHphWidgetsLayer"
+    />
+
+    <browser:page
+            for="*"
+            name="content-widget-event-snippet"
+            class=".event.WidgetEventSnippet"
+            template="event-snippet.pt"
+            permission="zope2.View"
+            layer="...interfaces.IHphWidgetsLayer"
+    />
+
+    <browser:page
+            for="*"
+            name="content-widget-event-card"
+            class=".event.WidgetEventCard"
+            template="event-card.pt"
+            permission="zope2.View"
+            layer="...interfaces.IHphWidgetsLayer"
+    />
+
+    <browser:page
+            for="*"
             name="content-widget-hph-link-tile"
             class=".link.WidgetLinkTile"
             template="link-tile.pt"

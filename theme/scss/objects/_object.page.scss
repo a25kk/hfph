@@ -1,8 +1,8 @@
 .o-page {
     display: block;
     position: relative;
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: $app-spacer-base;
+    padding-left: $app-spacer-base;
     width: 100%;
     @include mq($from: lg) {
         padding-right: 0;
