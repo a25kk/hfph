@@ -8755,8 +8755,8 @@ table tbody + tbody,
 .o-page {
   display: block;
   position: relative;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: calc(1.25rem * 1.5);
+  padding-left: calc(1.25rem * 1.5);
   width: 100%;
 }
 
@@ -9669,7 +9669,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 
 .o-brand {
   display: block;
-  margin: 1rem 1rem 0 1.5rem;
+  margin: 1rem 1rem 0 calc(1.25rem * 1.5);
   width: 115px;
   height: 50px;
 }
@@ -9678,7 +9678,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   .o-brand {
     width: 225px;
     height: 90px;
-    margin: 1rem 1.5rem 0 1.5rem;
+    margin: 1rem 1.5rem 0 calc(1.25rem * 1.5);
   }
 }
 
@@ -10436,8 +10436,8 @@ input, button, select, textarea {
 }
 
 .app-sidebar .o-aside {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: calc(1.25rem * 1.5);
+  padding-right: calc(1.25rem * 1.5);
 }
 
 @media (min-width: 62em) {
