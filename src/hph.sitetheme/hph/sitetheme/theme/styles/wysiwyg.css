@@ -9764,6 +9764,15 @@ input, button, select, textarea {
           justify-content: space-between;
 }
 
+.o-form--widget .o-form__actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .autotoc-section {
   padding-top: calc(1.25rem * 1.5);
 }

@@ -238,6 +238,10 @@ input, button, select, textarea {
         display: flex;
         justify-content: space-between;
     }
+    @include when-inside('.o-form--widget') {
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 // Fieldset in auto TOC
