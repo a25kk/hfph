@@ -234,3 +234,16 @@ $c-panel-controls-display:  flex;
 .c-panel-editor__footer {
     padding: $app-spacer-base 0;
 }
+
+
+.c-panel-overlay {
+    background-color: $app-color-white;
+    &--active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1001;
+    }
+}
