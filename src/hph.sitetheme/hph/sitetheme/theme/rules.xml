@@ -177,9 +177,9 @@
 
         <!-- Logo switch -->
         <drop css:theme="#logo-en"
-              if-not-path="/en/"/>
+              if-not-path="/en"/>
         <drop css:theme="#logo-de"
-              if-path="/en/"/>
+              if-path="/en"/>
 
         <!-- Portal searchbox -->
         <copy attributes="*" css:content="#portal-searchbox form"
@@ -196,9 +196,9 @@
 
         <!-- Language switch translation handling -->
         <drop css:theme="#language-menu-button-de"
-              if-not-path="/en/"/>
+              if-not-path="/en"/>
         <drop css:theme="#language-menu-button-en"
-              if-path="/en/"/>
+              if-path="/en"/>
 
         <drop css:theme="#app-banner"
               css:if-not-content="#app-banner" />
@@ -649,9 +649,9 @@
                 css:content-children="#c-toc" />
         <!-- Footer switch -->
         <drop css:theme="#footer-meta-en"
-              if-not-path="/en/"/>
+              if-not-path="/en"/>
         <drop css:theme="#footer-meta-de"
-              if-path="/en/"/>
+              if-path="/en"/>
 
     </rules>
 

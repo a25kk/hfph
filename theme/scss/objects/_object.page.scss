@@ -1,9 +1,10 @@
 .o-page {
     display: block;
     position: relative;
-    padding-right: 1rem;
-    padding-left: 1rem;
-    @include mq($from: md) {
+    padding-right: $app-spacer-base;
+    padding-left: $app-spacer-base;
+    width: 100%;
+    @include mq($from: lg) {
         padding-right: 0;
         padding-left: 0;
     }
@@ -11,14 +12,18 @@
         &:not(.o-page--panels) {
             margin-right: auto;
             margin-left: auto;
-            @include make-container-max-widths();
+            @include mq($from: lg) {
+                @include make-container-max-widths();
+            }
         }
     }
     @include when-inside('body:not(.portaltype-ade25-panelpage-page)') {
         &:not(.o-page--panels) {
             margin-right: auto;
             margin-left: auto;
-            @include make-container-max-widths();
+            @include mq($from: lg) {
+                @include make-container-max-widths();
+            }
         }
     }
 }

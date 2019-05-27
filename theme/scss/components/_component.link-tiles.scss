@@ -1,15 +1,18 @@
 $c-link-tile-border-color:              $app-color-gray-lighter;
 
 .c-link-tile {
-    display: flex;
+    
     @include mq($from: md) {
+        display: flex;
         flex-direction: column;
     }
 }
 
 .c-link-tile__aside {
-    flex: 0 0 4rem;
-    max-width: 4rem;
+    width: 100%;
+    max-width: 100%;
+    //flex: 0 0 4rem;
+    //max-width: 4rem;
     @include mq($from: md) {
         flex: 0 0 25%;
         max-width: 25%;
@@ -20,11 +23,14 @@ $c-link-tile-border-color:              $app-color-gray-lighter;
 }
 
 .c-link-tile__main {
-    display: flex;
-    align-items: center;
-    flex: 0 0 75%;
-    max-width: 75%;
+    
+    width: 100%;
+    text-align: center;
+    //flex: 0 0 75%;
+    //max-width: 75%;
     @include mq($from: md) {
+        display: flex;
+        align-items: center;
         justify-content: center;
     }
 }
@@ -38,11 +44,12 @@ $c-link-tile-border-color:              $app-color-gray-lighter;
 }
 
 .c-link-tile__asset {
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 3rem;
-    height: 3rem;
+    width: 5rem;
+    height: 5rem;
     border: 1px solid $c-link-tile-border-color;
     border-radius: 50%;
     @include mq($from: md) {
@@ -52,8 +59,8 @@ $c-link-tile-border-color:              $app-color-gray-lighter;
 }
 
 .c-link-tile__icon {
-    width: 3rem;
-    height: 3rem;
+    width: 5rem;
+    height: 5rem;
     margin-right: auto;
     margin-left: auto;
     @include mq($from: md) {
@@ -66,8 +73,8 @@ $c-link-tile-border-color:              $app-color-gray-lighter;
     display: flex;
     align-items: center;
     justify-content: center;
-    @include mq($from: md) {
-        padding-top: $app-spacer-base;
+    padding-top: $app-spacer-base;
+    @include mq($from: md) { 
         text-align: center;
     }
 }

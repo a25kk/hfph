@@ -1265,13 +1265,13 @@ pre code {
 
 @media (min-width: 576px) {
   .container {
-    max-width: 540px;
+    max-width: 100%;
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    max-width: 720px;
+    max-width: 100%;
   }
 }
 
@@ -8422,11 +8422,12 @@ table tbody + tbody,
 .o-page {
   display: block;
   position: relative;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: calc(1.25rem * 1.5);
+  padding-left: calc(1.25rem * 1.5);
+  width: 100%;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 62em) {
   .o-page {
     padding-right: 0;
     padding-left: 0;
@@ -8438,25 +8439,25 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   margin-left: auto;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 62em) and (min-width: 576px) {
   body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
-    max-width: 540px;
+    max-width: 100%;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 62em) and (min-width: 768px) {
   body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
-    max-width: 720px;
+    max-width: 100%;
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62em) and (min-width: 992px) {
   body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
     max-width: 960px;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 62em) and (min-width: 1200px) {
   body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
     max-width: 1140px;
   }
@@ -8467,25 +8468,25 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   margin-left: auto;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 62em) and (min-width: 576px) {
   body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
-    max-width: 540px;
+    max-width: 100%;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 62em) and (min-width: 768px) {
   body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
-    max-width: 720px;
+    max-width: 100%;
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 62em) and (min-width: 992px) {
   body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
     max-width: 960px;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 62em) and (min-width: 1200px) {
   body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
     max-width: 1140px;
   }
@@ -8536,13 +8537,13 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 
 @media (min-width: 576px) {
   .o-page__main {
-    max-width: 540px;
+    max-width: 100%;
   }
 }
 
 @media (min-width: 768px) {
   .o-page__main {
-    max-width: 720px;
+    max-width: 100%;
   }
 }
 
@@ -9763,6 +9764,15 @@ input, button, select, textarea {
           justify-content: space-between;
 }
 
+.o-form--widget .o-form__actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .autotoc-section {
   padding-top: calc(1.25rem * 1.5);
 }
@@ -10198,13 +10208,13 @@ img[data-sizes="auto"] {
 
 @media (min-width: 576px) {
   .app-main > .c-alert {
-    max-width: 540px;
+    max-width: 100%;
   }
 }
 
 @media (min-width: 768px) {
   .app-main > .c-alert {
-    max-width: 720px;
+    max-width: 100%;
   }
 }
 

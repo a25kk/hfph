@@ -1,8 +1,12 @@
 .c-social-menu {
     display: flex;
     flex-wrap: nowrap;
-    width: 360px;
+    width: 100%;
+    max-width: 100%;
     margin: 0 auto 1rem auto;
+    @include mq($from: sm) {
+        width: 360px;
+    }
 }
 
 .c-social-menu__item {
