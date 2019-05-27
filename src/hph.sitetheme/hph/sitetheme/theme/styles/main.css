@@ -10239,6 +10239,15 @@ input, button, select, textarea {
           justify-content: space-between;
 }
 
+.o-form--widget .o-form__actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .autotoc-section {
   padding-top: calc(1.25rem * 1.5);
 }
@@ -12921,6 +12930,19 @@ img[data-sizes="auto"] {
   padding: calc(1.25rem * 1.5) 0;
 }
 
+.c-panel-overlay {
+  background-color: #fff;
+}
+
+.c-panel-overlay--active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1001;
+}
+
 .c-card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14366,6 +14388,14 @@ c-list--bordered .c-list__item:last-of-type {
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
   cursor: pointer;
+}
+
+.u-backdrop--inverse::before {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.u-backdrop--solid::before {
+  background: white;
 }
 
 .u-device--ios * {
