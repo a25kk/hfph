@@ -1,12 +1,9 @@
 .c-toc {
     font-family: $c-toc-font;
     position: relative;
-    padding-left: .5rem;
-    padding-right: .5rem;
     @include font-size($c-toc-item-font-size);
     @include mq($from: md) {
         display: $c-toc-display;
-        padding: 0;
         @if $c-toc-display == flex {
             flex-direction: $c-toc-flex-direction;
             flex-wrap: wrap;
@@ -40,7 +37,7 @@
     &.en {
         display: none;
     }
-    padding: .35rem 0 .35rem 1rem;
+    padding: .35rem 0 .35rem 0;
 	text-transform: none;
     line-height: $c-toc-item-line-height;
 	@include when-inside('.c-toc--level-1') {
