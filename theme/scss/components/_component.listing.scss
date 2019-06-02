@@ -48,8 +48,12 @@ $c-list-separator-height:                   .25rem;
     }
     margin-bottom: calc(#{$c-list-spacer} * 1.5);
     @include when-inside('.c-list--gutter') {
-        padding-right: $c-list-margin-x;
-        padding-left: $c-list-margin-x;
+        @include mq($from: lg) {
+            padding-right: $c-list-margin-x;
+            &:not(:first-of-type) {
+            padding-left: $c-list-margin-x;
+        }
+        } 
     }
     @include when-inside('.c-list--tiles') {
         display: block;
@@ -79,7 +83,7 @@ $c-list-separator-height:                   .25rem;
                 content: "";
                 position: absolute;
                 bottom: -(calc(#{$c-list-separator-margin} / 2));
-                left: 2rem;
+                left: 0;
                 width: $c-list-separator-width;
                 height: $c-list-separator-height;
                 background-color: $c-list-separator-color;
