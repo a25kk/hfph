@@ -10618,7 +10618,7 @@ input, button, select, textarea {
       -ms-flex: 0 0 100%;
           flex: 0 0 100%;
   background: #efefef;
-  padding: 0 .5rem .5rem .5rem;
+  padding: 0 0.5rem 0.5rem calc(1.25rem * 1.5);
 }
 
 @media (min-width: 62em) {
@@ -10770,6 +10770,8 @@ input, button, select, textarea {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  padding-left: calc(1.25rem * 1.5);
+  padding-right: calc(1.25rem * 1.5);
 }
 
 @media (min-width: 576px) {
@@ -10793,6 +10795,12 @@ input, button, select, textarea {
 @media (min-width: 1200px) {
   .app-footer__main {
     max-width: 1140px;
+  }
+}
+
+@media (min-width: 62em) {
+  .app-footer__main {
+    padding: 0;
   }
 }
 
@@ -10800,6 +10808,8 @@ input, button, select, textarea {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+  padding-left: calc(1.25rem * 1.5);
+  padding-right: calc(1.25rem * 1.5);
 }
 
 @media (min-width: 576px) {
@@ -10823,6 +10833,12 @@ input, button, select, textarea {
 @media (min-width: 1200px) {
   .app-footer__aside {
     max-width: 1140px;
+  }
+}
+
+@media (min-width: 62em) {
+  .app-footer__aside {
+    padding: 0;
   }
 }
 
@@ -12088,7 +12104,6 @@ img[data-sizes="auto"] {
       -ms-flex: 1 0 50%;
           flex: 1 0 50%;
   max-width: 50%;
-  padding-left: 1rem;
 }
 
 @media (min-width: 62em) {
@@ -13077,8 +13092,6 @@ img[data-sizes="auto"] {
 .c-toc {
   font-family: "TAZ";
   position: relative;
-  padding-left: .5rem;
-  padding-right: .5rem;
   font-size: 1.25rem;
   margin-left: 0;
   padding-left: 0;
@@ -13090,7 +13103,6 @@ img[data-sizes="auto"] {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding: 0;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -13110,7 +13122,7 @@ img[data-sizes="auto"] {
 
 .c-toc__item {
   display: none;
-  padding: .35rem 0 .35rem 1rem;
+  padding: .35rem 0 .35rem 0;
   text-transform: none;
   line-height: 1.5;
 }
@@ -13523,9 +13535,13 @@ img[data-sizes="auto"] {
   }
 }
 
-.c-list--gutter .c-list__item {
-  padding-right: calc(1.25rem * 1.5);
-  padding-left: calc(1.25rem * 1.5);
+@media (min-width: 62em) {
+  .c-list--gutter .c-list__item {
+    padding-right: calc(1.25rem * 1.5);
+  }
+  .c-list--gutter .c-list__item:not(:first-of-type) {
+    padding-left: calc(1.25rem * 1.5);
+  }
 }
 
 .c-list--tiles .c-list__item {
@@ -13558,7 +13574,7 @@ c-list--bordered .c-list__item:last-of-type {
     content: "";
     position: absolute;
     bottom: -calc(calc(calc(1.25rem * 1.5) * 1.5) / 2);
-    left: 2rem;
+    left: 0;
     width: 90px;
     height: 0.25rem;
     background-color: #182f7a;
@@ -13771,13 +13787,14 @@ c-list--bordered .c-list__item:last-of-type {
 }
 
 .c-teaser {
-  padding-left: calc(1.25rem * 1.5 / 2);
-  padding-right: calc(1.25rem * 1.5 / 2);
+  padding-left: calc(1.25rem * 1.5);
+  padding-right: calc(1.25rem * 1.5);
 }
 
 @media (min-width: 62em) {
   .c-teaser {
-    padding: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 

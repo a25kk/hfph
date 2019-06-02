@@ -1,8 +1,9 @@
 .c-teaser {
-    padding-left: $app-spacer-sm;
-    padding-right: $app-spacer-sm;
+    padding-left: $app-spacer-base;
+    padding-right: $app-spacer-base;
     @include mq($from: lg) {
-        padding: 0;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
     }
 }
 
