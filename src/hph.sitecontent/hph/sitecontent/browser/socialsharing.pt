@@ -1,7 +1,7 @@
 <aside class="c-social-bar"
        xmlns:xlink="http://www.w3.org/1999/xlink"
        i18n:domain="hph.sitecontent">
-    <ul class="o-menu c-social-menu c-social-menu--bar">
+    <ul class="o-menu c-social-menu c-social-menu--default">
         <li class="c-social-menu__item">
             <a class="c-social-menu__link"
                 href="#" tal:attributes="href python:context.absolute_url() + '/share'">
