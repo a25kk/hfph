@@ -1,10 +1,5 @@
 .c-teaser {
-    padding-left: $app-spacer-base;
-    padding-right: $app-spacer-base;
-    @include mq($from: lg) {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
+    width: 100%;
 }
 
 .c-teaser__header {
