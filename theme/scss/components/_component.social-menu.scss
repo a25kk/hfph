@@ -1,3 +1,8 @@
+$c-social-menu-border-width:               1px;
+$c-social-menu-border-style:               solid;
+$c-social-menu-border-color:               currentColor;
+$c-social-menu-border-radius:              50%;
+
 .c-social-menu {
     display: flex;
     flex-wrap: nowrap;
@@ -13,4 +18,10 @@
     flex: 1 0 25%;
     max-width: 25%;
     text-align: center;
+}
+
+.c-social-menu__link {
+    display: inline-block;
+    border: $c-social-menu-border-width $c-social-menu-border-style $c-social-menu-border-color;
+    border-radius: $c-social-menu-border-radius;
 }

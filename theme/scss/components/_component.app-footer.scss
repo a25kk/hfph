@@ -8,8 +8,7 @@
 }
 
 .app-footer__content {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding: $app-spacer-base;
     &--primary {
         color: $white;
         background-color: $app-color-primary;

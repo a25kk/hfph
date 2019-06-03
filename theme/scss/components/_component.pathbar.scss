@@ -1,4 +1,4 @@
-$c-breadcrumb-padding-y:                .25rem;
+$c-breadcrumb-padding-y:                $app-spacer-sm;
 $c-breadcrumb-padding-x:                calc(#{$app-font-size-base} * 1);
 $c-breadcrumb-margin-bottom:            calc(#{$app-font-size-base} * 1.5);
 $c-breadcrumb-bg:                       transparent;
@@ -14,8 +14,8 @@ $c-breadcrumb-font-size:                $app-font-size-sm;
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: $app-spacer-base;
+    padding-left: $app-spacer-base;
     @include make-container-max-widths();
     @include when-inside('.template-frontpage-view') {
         display: none;

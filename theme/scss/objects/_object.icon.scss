@@ -9,6 +9,7 @@ $o-icon-border-radius:              50%;
 
 
 .o-icon {
+    display: inline-block;
     fill: currentColor;
     &--default {
         width: $o-icon-width-default;
@@ -32,9 +33,6 @@ $o-icon-border-radius:              50%;
 .o-icon--circle {
     border: $o-icon-border-width $o-icon-border-style $o-icon-border-color;
     border-radius: $o-icon-border-radius;
-    //&:hover {
-    //    border-color: $app-color-secondary;
-    //}
 }
 
 .o-icon--spacer {
