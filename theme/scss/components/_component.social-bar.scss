@@ -1,0 +1,65 @@
+$c-social-bar-border-width:               1px;
+$c-social-bar-border-style:               solid;
+$c-social-bar-border-color:               currentColor;
+$c-social-bar-border-radius:              50%;
+$c-social-bar-color-facebook:             #3b5998;
+$c-social-bar-color-hover-facebook:       #4273c8;
+$c-social-bar-color-twitter:              #55acee;
+$c-social-bar-color-hover-twitter:        #32bbf5;
+$c-social-bar-color-linkedin:             #0077b5;
+$c-social-bar-color-hover-linkedin:       #0369a0;
+$c-social-bar-color-xing:                 #126567;
+$c-social-bar-color-hover-xing:           #29888a;
+
+.c-social-bar {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: $app-spacer-sm;
+  @include mq($from: sm) {
+    width: 520px;
+  }
+}
+
+.c-social-bar__list {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.c-social-bar__item {
+  flex: 1 0 25%;
+  max-width: 25%;
+  text-align: left;
+}
+
+.c-social-bar__button {
+  @include mq($from: sm) {
+    min-width: 125px;
+  }
+  color: $app-color-white;
+  &:hover,
+  &:visited {
+    color: $app-color-white;
+  }
+}
+
+//.c-social-bar__text {
+//  font-size: calc(#{$app-font-size-base} / 2);
+//}
+
+.c-social-bar__button--facebook {
+  @include button-variant($c-social-bar-color-facebook, $c-social-bar-color-facebook, $c-social-bar-color-hover-facebook, $c-social-bar-color-hover-facebook);
+}
+
+.c-social-bar__button--twitter {
+  @include button-variant($c-social-bar-color-twitter, $c-social-bar-color-twitter, $c-social-bar-color-hover-twitter, $c-social-bar-color-hover-twitter);
+}
+
+.c-social-bar__button--xing {
+  @include button-variant($c-social-bar-color-xing, $c-social-bar-color-xing, $c-social-bar-color-hover-xing, $c-social-bar-color-hover-xing);
+}
+
+.c-social-bar__button--linkedin {
+  @include button-variant($c-social-bar-color-linkedin, $c-social-bar-color-linkedin, $c-social-bar-color-hover-linkedin, $c-social-bar-color-hover-linkedin);
+}

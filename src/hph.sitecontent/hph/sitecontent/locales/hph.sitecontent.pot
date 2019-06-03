@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-04-29 09:51+0000\n"
+"POT-Creation-Date: 2019-06-03 13:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -289,4 +289,12 @@ msgstr ""
 #. Default: "Up to Site Setup"
 #: ./../browser/settings-navigation.pt:26
 msgid "label_up_to_plone_setup"
+msgstr ""
+
+#: ./../browser/socialsharing.pt:20
+msgid "share"
+msgstr ""
+
+#: ./../browser/socialsharing.pt:11
+msgid "tweet"
 msgstr ""
