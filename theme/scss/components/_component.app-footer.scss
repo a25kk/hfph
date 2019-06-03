@@ -20,6 +20,11 @@
     margin-left: auto;
     margin-right: auto;
     @include make-container-max-widths();
+    padding-left: $app-spacer-base;
+    padding-right: $app-spacer-base;
+    @include mq($from: lg) {
+        padding: 0;
+    }
 }
 
 .app-footer__aside {
@@ -27,4 +32,9 @@
     margin-left: auto;
     margin-right: auto;
     @include make-container-max-widths();
+    padding-left: $app-spacer-base;
+    padding-right: $app-spacer-base;
+    @include mq($from: lg) {
+        padding: 0;
+    }
 }
