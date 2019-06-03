@@ -12596,44 +12596,6 @@ img[data-sizes="auto"] {
   overflow: visible;
 }
 
-.c-panels--header {
-  width: 100vw;
-  margin-left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
-  background-color: whitesmoke;
-}
-
-.c-panels--header > * {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@media (min-width: 576px) {
-  .c-panels--header > * {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  .c-panels--header > * {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 992px) {
-  .c-panels--header > * {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .c-panels--header > * {
-    max-width: 1140px;
-  }
-}
-
 .c-panel {
   position: relative;
   padding: 0 0 0 0;

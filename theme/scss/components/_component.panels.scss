@@ -4,18 +4,6 @@
     overflow: visible;
 }
 
-.c-panels--header {
-    width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    background-color: $c-panel-primary-bg-color;
-    > * {
-        margin-right: auto;
-        margin-left: auto;
-        @include make-container-max-widths();
-    }
-}
-
 .c-panel {
     position: relative;
     padding: $c-panel-padding-top $c-panel-padding-right $c-panel-padding-bottom $c-panel-padding-left;
