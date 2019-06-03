@@ -3,7 +3,7 @@
     position: relative;
     flex: 1 0 50%;
     max-width: 50%;
-    padding-right: 1rem;
+    padding-right: $app-spacer-base;
     @include mq($from: lg) {
         padding-right: 0;
     }

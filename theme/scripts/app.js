@@ -52,9 +52,9 @@ requirejs(['require',
         // SVG Sprite polyfill
         svg4everybody();
 
-        let choicesSelector = document.querySelector('.js-choices');
+        let choicesSelector = document.querySelector('.js-choices-selector');
         if (choicesSelector !== null) {
-            const choices = new Choices('.js-choices', {
+            const choices = new Choices('.js-choices-selector', {
                 itemSelectText: 'auswählen',
             });
         }
