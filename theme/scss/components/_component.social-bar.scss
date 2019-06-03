@@ -17,7 +17,7 @@ $c-social-bar-color-hover-xing:           #29888a;
   max-width: 100%;
   margin-bottom: $app-spacer-sm;
   @include mq($from: sm) {
-    width: 480px;
+    width: 520px;
   }
 }
 
@@ -30,16 +30,23 @@ $c-social-bar-color-hover-xing:           #29888a;
 .c-social-bar__item {
   flex: 1 0 25%;
   max-width: 25%;
-  text-align: center;
+  text-align: left;
 }
 
 .c-social-bar__button {
+  @include mq($from: sm) {
+    min-width: 125px;
+  }
   color: $app-color-white;
   &:hover,
   &:visited {
     color: $app-color-white;
   }
 }
+
+//.c-social-bar__text {
+//  font-size: calc(#{$app-font-size-base} / 2);
+//}
 
 .c-social-bar__button--facebook {
   @include button-variant($c-social-bar-color-facebook, $c-social-bar-color-facebook, $c-social-bar-color-hover-facebook, $c-social-bar-color-hover-facebook);

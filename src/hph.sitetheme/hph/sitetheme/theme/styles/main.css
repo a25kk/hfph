@@ -13390,7 +13390,7 @@ img[data-sizes="auto"] {
 
 @media (min-width: 36em) {
   .c-social-bar {
-    width: 480px;
+    width: 520px;
   }
 }
 
@@ -13408,11 +13408,17 @@ img[data-sizes="auto"] {
       -ms-flex: 1 0 25%;
           flex: 1 0 25%;
   max-width: 25%;
-  text-align: center;
+  text-align: left;
 }
 
 .c-social-bar__button {
   color: #fff;
+}
+
+@media (min-width: 36em) {
+  .c-social-bar__button {
+    min-width: 125px;
+  }
 }
 
 .c-social-bar__button:hover, .c-social-bar__button:visited {
