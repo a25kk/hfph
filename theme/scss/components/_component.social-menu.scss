@@ -8,10 +8,14 @@ $c-social-menu-border-radius:              50%;
     flex-wrap: nowrap;
     width: 100%;
     max-width: 100%;
-    margin: 0 auto 1rem auto;
+    margin-bottom: $app-spacer-sm;
     @include mq($from: sm) {
         width: 360px;
     }
+}
+
+.c-social-menu--primary {
+    margin: 0 auto 1rem auto;
 }
 
 .c-social-menu__item {

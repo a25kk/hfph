@@ -1,0 +1,38 @@
+<aside class="c-social-bar"
+       xmlns:xlink="http://www.w3.org/1999/xlink"
+       i18n:domain="hph.sitecontent">
+    <ul class="o-menu c-social-menu c-social-menu--bar">
+        <li class="c-social-menu__item">
+            <a class="c-social-menu__link"
+                href="#" tal:attributes="href python:context.absolute_url() + '/share'">
+                <svg class="o-icon o-icon--size-3 o-icon--spacer o-icon--primary o-icon__brand--twitter-dims">
+                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#brand--twitter"></use>
+                </svg>
+            </a>
+        </li>
+        <li class="c-social-menu__item">
+            <a class="c-social-menu__link"
+               href="#" tal:attributes="href python:context.absolute_url() + '/share'">
+                <svg class="o-icon o-icon--size-3 o-icon--spacer o-icon--primary o-icon__brand--facebook-dims">
+                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#brand--facebook"></use>
+                </svg>
+            </a>
+        </li>
+        <li class="c-social-menu__item">
+            <a class="c-social-menu__link"
+               href="#" tal:attributes="href python:context.absolute_url() + '/share'">
+                <svg class="o-icon o-icon--size-3 o-icon--spacer o-icon--primary o-icon__brand--xing-dims">
+                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#brand--xing"></use>
+                </svg>
+            </a>
+        </li>
+        <li class="c-social-menu__item">
+            <a class="c-social-menu__link"
+               href="#" tal:attributes="href python:context.absolute_url() + '/share'">
+                <svg class="o-icon o-icon--size-3 o-icon--spacer o-icon--primary o-icon__brand--linkedin-dims">
+                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#brand--linkedin"></use>
+                </svg>
+            </a>
+        </li>
+    </ul>
+</aside>
