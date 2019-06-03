@@ -11098,7 +11098,10 @@ fieldset[disabled] a.c-button {
 }
 
 .c-button--sm {
+  padding: 0.25rem 0.5rem;
   font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0;
 }
 
 img[data-sizes="auto"] {
