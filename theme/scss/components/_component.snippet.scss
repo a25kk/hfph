@@ -46,7 +46,7 @@ $c-snippet-color:                   $app-color-text;
 .c-snippet__footer {
     @include font-size($app-font-size-sm);
     font-family: $app-font-family-strong;
-    padding-top: $c-snippet-padding;
+    padding-top: $c-snippet-padding-sm;
 }
 
 
@@ -61,6 +61,7 @@ $c-snippet-color:                   $app-color-text;
 
 .c-page-department {
     font-family: $app-font-family-strong;
+    margin-bottom: 1rem;
 }
 
 .c-snippet__abstract {

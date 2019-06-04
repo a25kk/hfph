@@ -8609,6 +8609,10 @@ p {
   margin-bottom: 1.25rem;
 }
 
+.c-snippet__section p {
+  margin-bottom: 1rem;
+}
+
 p.u-font-test {
   font-family: Trebuchet !important;
 }
@@ -12467,7 +12471,7 @@ img[data-sizes="auto"] {
 .c-snippet__footer {
   font-size: 1rem;
   font-family: "TAZ";
-  padding-top: 1.25rem;
+  padding-top: calc(1.25rem / 2);
 }
 
 .c-snippet__title {
@@ -12480,6 +12484,7 @@ img[data-sizes="auto"] {
 
 .c-page-department {
   font-family: "TAZ";
+  margin-bottom: 1rem;
 }
 
 .c-snippet__abstract {
@@ -13356,7 +13361,7 @@ img[data-sizes="auto"] {
 
 @media (min-width: 36em) {
   .c-social-bar {
-    width: 480px;
+    width: 520px;
   }
 }
 
@@ -13374,11 +13379,17 @@ img[data-sizes="auto"] {
       -ms-flex: 1 0 25%;
           flex: 1 0 25%;
   max-width: 25%;
-  text-align: center;
+  text-align: left;
 }
 
 .c-social-bar__button {
   color: #fff;
+}
+
+@media (min-width: 36em) {
+  .c-social-bar__button {
+    min-width: 125px;
+  }
 }
 
 .c-social-bar__button:hover, .c-social-bar__button:visited {
@@ -13694,8 +13705,9 @@ img[data-sizes="auto"] {
 
 .c-list--grid .c-list__item {
   -webkit-box-flex: 1;
-      -ms-flex: 1 0 100%;
-          flex: 1 0 100%;
+      -ms-flex: 1 0 50%;
+          flex: 1 0 50%;
+  max-width: 50%;
 }
 
 @media (min-width: 36em) and (max-width: 61.99em) {

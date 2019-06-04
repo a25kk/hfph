@@ -45,6 +45,9 @@
                     </div>
                 </div>
             </section>
+            <section class="o-page__section">
+                <div tal:replace="structure python:context.restrictedTraverse('@@social-sharing')()" />
+            </section>
         </div>
 
 
