@@ -11098,7 +11098,10 @@ fieldset[disabled] a.c-button {
 }
 
 .c-button--sm {
+  padding: 0.25rem 0.5rem;
   font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0;
 }
 
 img[data-sizes="auto"] {
@@ -12591,44 +12594,6 @@ img[data-sizes="auto"] {
   display: block;
   width: 100%;
   overflow: visible;
-}
-
-.c-panels--header {
-  width: 100vw;
-  margin-left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
-  background-color: whitesmoke;
-}
-
-.c-panels--header > * {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@media (min-width: 576px) {
-  .c-panels--header > * {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  .c-panels--header > * {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 992px) {
-  .c-panels--header > * {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .c-panels--header > * {
-    max-width: 1140px;
-  }
 }
 
 .c-panel {
