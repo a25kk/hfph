@@ -13909,7 +13909,7 @@ c-list--bordered .c-list__item:last-of-type {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  background: #efefef;
+  background: whitesmoke;
   padding: 0.5rem;
 }
 
@@ -13946,6 +13946,7 @@ c-list--bordered .c-list__item:last-of-type {
           flex: 1 0 50%;
   max-width: 50%;
   margin-bottom: 0;
+  font-family: "TAZSemiLight";
 }
 
 .c-collapsible__link--icon {
