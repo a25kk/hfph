@@ -7,38 +7,38 @@ $c-nav-list-color-bg-highlight:                 $app-color-gray-base;
     font-family: $app-font-family-strong;
 }
 
-.c-nav-list--level-1 {
-    margin: 1rem -($c-nav-list-padding)  0 -($c-nav-list-padding);
-}
-
 .c-nav-list__item {
-    padding: $c-nav-list-padding;
     border-bottom: 1px solid #fff;
     background-color: $c-nav-list-color-bg;
+}
 
-    &--active {
-    	padding: .5rem;
-    	background-color: $gray-600;
-    }
-    &:hover {
-        background-color: $app-color-gray-lighter;
-        color: #fff;
-    }
-    @include when-inside('.c-nav-list--level-1') {
-        padding-left: calc(#{$c-nav-list-padding} * 3);
+.c-nav-list__link {
+    &--open {
+        //border-left: 3px solid red;
     }
 }
 
 .c-nav-list__link {
     display: block;
     width: 100%;
+    padding-top: $c-nav-list-padding;
+    padding-bottom: $c-nav-list-padding; 
     &--active {
         color: #fff;
+        background-color: $app-color-gray-lighter;
     }
     &:hover {
         color: #fff;
+        background-color: $app-color-gray-lighter;
     }
-	@include when-inside('.c-nav-list__item--active') {
-		color: #fff;
-	}
+
+    @include when-inside('.c-nav-list--level-0') {
+        padding-left: calc(#{$c-nav-list-padding} * 2);
+    }
+    @include when-inside('.c-nav-list--level-1') {
+        padding-left: calc(#{$c-nav-list-padding} * 3);
+    }
+    @include when-inside('.c-nav-list--level-2') {
+        padding-left: calc(#{$c-nav-list-padding} * 4);
+    }
 }
