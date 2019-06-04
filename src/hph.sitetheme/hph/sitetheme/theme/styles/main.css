@@ -12084,15 +12084,28 @@ img[data-sizes="auto"] {
 
 .c-nav-list__item--active {
   padding: .5rem;
-  border-bottom: 1px solid #fff;
   background-color: #6c757d;
+}
+
+.c-nav-list__item:hover {
+  background-color: #999999;
+  color: #fff;
 }
 
 .c-nav-list--level-1 .c-nav-list__item {
   padding-left: calc(0.5rem * 3);
 }
 
+.c-nav-list__link {
+  display: block;
+  width: 100%;
+}
+
 .c-nav-list__link--active {
+  color: #fff;
+}
+
+.c-nav-list__link:hover {
   color: #fff;
 }
 
@@ -13911,6 +13924,7 @@ c-list--bordered .c-list__item:last-of-type {
   width: 100%;
   background: whitesmoke;
   padding: 0.5rem;
+  border-bottom: 0.125rem solid #eed343;
 }
 
 @media (max-width: 61.99em) {

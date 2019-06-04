@@ -18,8 +18,11 @@ $c-nav-list-color-bg-highlight:                 $app-color-gray-base;
 
     &--active {
     	padding: .5rem;
-    	border-bottom: 1px solid #fff;
     	background-color: $gray-600;
+    }
+    &:hover {
+        background-color: $app-color-gray-lighter;
+        color: #fff;
     }
     @include when-inside('.c-nav-list--level-1') {
         padding-left: calc(#{$c-nav-list-padding} * 3);
@@ -27,7 +30,12 @@ $c-nav-list-color-bg-highlight:                 $app-color-gray-base;
 }
 
 .c-nav-list__link {
+    display: block;
+    width: 100%;
     &--active {
+        color: #fff;
+    }
+    &:hover {
         color: #fff;
     }
 	@include when-inside('.c-nav-list__item--active') {
