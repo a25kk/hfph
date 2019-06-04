@@ -8609,6 +8609,10 @@ p {
   margin-bottom: 1.25rem;
 }
 
+.c-snippet__section p {
+  margin-bottom: 1rem;
+}
+
 p.u-font-test {
   font-family: Trebuchet !important;
 }
@@ -12467,7 +12471,7 @@ img[data-sizes="auto"] {
 .c-snippet__footer {
   font-size: 1rem;
   font-family: "TAZ";
-  padding-top: 1.25rem;
+  padding-top: calc(1.25rem / 2);
 }
 
 .c-snippet__title {
@@ -12480,6 +12484,7 @@ img[data-sizes="auto"] {
 
 .c-page-department {
   font-family: "TAZ";
+  margin-bottom: 1rem;
 }
 
 .c-snippet__abstract {
