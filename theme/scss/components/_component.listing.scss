@@ -2,7 +2,7 @@ $c-list-spacer:                             $app-spacer-base;
 $c-list-margin-x:                           $c-list-spacer;
 $c-list-border-color:                       $app-color-text;
 $c-list-border-width:                       1px;
-$c-list-separator-color:                    $app-color-primary;
+$c-list-separator-color:                    $app-color-secondary;
 $c-list-separator-margin:                   calc(#{$app-spacer-base} * 1.5);
 $c-list-separator-width:                    90px;
 $c-list-separator-height:                   .25rem;
@@ -30,9 +30,9 @@ $c-list-separator-height:                   .25rem;
 
 .c-list__item {
     @include when-inside('.c-list--grid') {
-        flex: 1 0 50%;
-        max-width: 50%;
-        @include mq($from: sm, $until: lg) {
+        flex: 1 0 100%;
+        max-width: 100%;
+        @include mq($until: lg) {
             &--width-25 {
                 flex: 1 0 50%;
                 max-width: 50%;
@@ -54,7 +54,7 @@ $c-list-separator-height:                   .25rem;
             &:not(:first-of-type) {
             padding-left: $c-list-margin-x;
         }
-        } 
+        }
     }
     @include when-inside('.c-list--tiles') {
         display: block;
