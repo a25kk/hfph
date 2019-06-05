@@ -14155,6 +14155,43 @@ c-list--bordered .c-list__item:last-of-type {
   font-size: 1.25rem;
 }
 
+.c-poster {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.c-poster__main {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 3rem;
+  color: #fff;
+}
+
+@media (min-width: 48em) {
+  .c-poster__main {
+    padding: 6rem;
+  }
+}
+
+.c-poster__header {
+  font-family: "TAZ";
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 48em) {
+  .c-poster__header {
+    line-height: 1.5;
+  }
+}
+
+.c-poster__description {
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
 .c-page-header {
   margin: 0 auto 1.5rem;
 }
