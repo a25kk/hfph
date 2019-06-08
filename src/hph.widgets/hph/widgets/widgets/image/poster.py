@@ -50,8 +50,9 @@ class WidgetImagePoster(BrowserView):
             widget_id = str(uuid_tool.uuid4())
         return widget_id
 
-    def has_lead_image(self):
-        context = aq_inner(self.context)
+    @staticmethod
+    def has_stored_image(image_object):
+        context = image_object
         try:
             lead_img = context.image
         except AttributeError:
@@ -60,18 +61,19 @@ class WidgetImagePoster(BrowserView):
             return True
         return False
 
-    @staticmethod
-    def image_tag(image_uid):
+    def image_tag(self, image_uid):
         image = api.content.get(UID=image_uid)
-        figure = image.restrictedTraverse('@@figure')(
-            image_field_name='image',
-            caption_field_name='image_caption',
-            scale='ratio-4:3',
-            aspect_ratio='4/3',
-            lqip=True,
-            lazy_load=True
-        )
-        return figure
+        if self.has_stored_image(image):
+            figure = image.restrictedTraverse('@@figure')(
+                image_field_name='image',
+                caption_field_name='image_caption',
+                scale='ratio-4:3',
+                aspect_ratio='4/3',
+                lqip=True,
+                lazy_load=True
+            )
+            return figure
+        return None
 
     def widget_image_cover(self):
         context = aq_inner(self.context)

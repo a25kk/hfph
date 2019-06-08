@@ -14571,9 +14571,9 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-widget-editor__item-actions {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 8rem;
-          flex: 0 0 8rem;
-  max-width: 8rem;
+      -ms-flex: 0 0 12rem;
+          flex: 0 0 12rem;
+  max-width: 12rem;
   text-align: right;
 }
 
