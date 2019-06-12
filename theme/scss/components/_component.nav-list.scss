@@ -7,30 +7,42 @@ $c-nav-list-color-bg-highlight:                 $app-color-gray-base;
     font-family: $app-font-family-strong;
 }
 
-.c-nav-list--level-1 {
-    margin: 1rem -($c-nav-list-padding)  0 -($c-nav-list-padding);
-}
-
 .c-nav-list__item {
-    padding: $c-nav-list-padding;
     border-bottom: 1px solid #fff;
     background-color: $c-nav-list-color-bg;
+}
 
-    &--active {
-    	padding: .5rem;
-    	border-bottom: 1px solid #fff;
-    	background-color: $gray-600;
-    }
-    @include when-inside('.c-nav-list--level-1') {
-        padding-left: calc(#{$c-nav-list-padding} * 3);
+.c-nav-list__link {
+    &--open {
+        //border-left: 3px solid red;
     }
 }
 
 .c-nav-list__link {
+    display: block;
+    width: 100%;
+    padding-top: $c-nav-list-padding;
+    padding-bottom: $c-nav-list-padding;
+    @include when-inside('.c-card--faculty') {
+        padding-left: calc(#{$c-nav-list-padding} * 2);
+        padding-right: calc(#{$c-nav-list-padding} * 2);
+        }
     &--active {
         color: #fff;
+        background-color: $app-color-gray-lighter;
     }
-	@include when-inside('.c-nav-list__item--active') {
-		color: #fff;
-	}
+    &:hover {
+        color: #fff;
+        background-color: $app-color-gray-lighter;
+    }
+
+    @include when-inside('.c-nav-list--level-0') {
+        padding-left: calc(#{$c-nav-list-padding} * 2);
+    }
+    @include when-inside('.c-nav-list--level-1') {
+        padding-left: calc(#{$c-nav-list-padding} * 3);
+    }
+    @include when-inside('.c-nav-list--level-2') {
+        padding-left: calc(#{$c-nav-list-padding} * 4);
+    }
 }

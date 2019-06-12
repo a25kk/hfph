@@ -12078,32 +12078,43 @@ img[data-sizes="auto"] {
   font-family: "TAZ";
 }
 
-.c-nav-list--level-1 {
-  margin: 0.5rem -0.5rem;
-}
-
 .c-nav-list__item {
-  padding: 0.5rem;
   border-bottom: 1px solid #fff;
   background-color: #efefef;
 }
 
-.c-nav-list__item--active {
-  padding: .5rem;
-  border-bottom: 1px solid #fff;
-  background-color: #6c757d;
+.c-nav-list__link {
+  display: block;
+  width: 100%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
-.c-nav-list--level-1 .c-nav-list__item {
-  padding-left: calc(0.5rem * 3);
+.c-card--faculty .c-nav-list__link {
+  padding-left: calc(0.5rem * 2);
+  padding-right: calc(0.5rem * 2);
 }
 
 .c-nav-list__link--active {
   color: #fff;
+  background-color: #999999;
 }
 
-.c-nav-list__item--active .c-nav-list__link {
+.c-nav-list__link:hover {
   color: #fff;
+  background-color: #999999;
+}
+
+.c-nav-list--level-0 .c-nav-list__link {
+  padding-left: calc(0.5rem * 2);
+}
+
+.c-nav-list--level-1 .c-nav-list__link {
+  padding-left: calc(0.5rem * 3);
+}
+
+.c-nav-list--level-2 .c-nav-list__link {
+  padding-left: calc(0.5rem * 4);
 }
 
 .c-quick-links {
@@ -13709,7 +13720,7 @@ img[data-sizes="auto"] {
   margin-bottom: calc(calc(1.25rem * 1.5) * 1.5);
 }
 
-.c-list--grid .c-list__item {
+.c-list--grid .c-list__item--width-25 {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 100%;
           flex: 1 0 100%;
@@ -13916,8 +13927,9 @@ c-list--bordered .c-list__item:last-of-type {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  background: #efefef;
+  background: whitesmoke;
   padding: 0.5rem;
+  border-bottom: 0.125rem solid #eed343;
 }
 
 @media (max-width: 61.99em) {
@@ -13953,6 +13965,7 @@ c-list--bordered .c-list__item:last-of-type {
           flex: 1 0 50%;
   max-width: 50%;
   margin-bottom: 0;
+  font-family: "TAZSemiLight";
 }
 
 .c-collapsible__link--icon {
