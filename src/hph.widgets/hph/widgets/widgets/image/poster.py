@@ -4,6 +4,7 @@ import uuid as uuid_tool
 
 from Acquisition import aq_inner
 from Products.Five import BrowserView
+from ade25.widgets.interfaces import IContentWidgets
 from plone import api
 
 
@@ -49,8 +50,9 @@ class WidgetImagePoster(BrowserView):
             widget_id = str(uuid_tool.uuid4())
         return widget_id
 
-    def has_lead_image(self):
-        context = aq_inner(self.context)
+    @staticmethod
+    def has_stored_image(image_object):
+        context = image_object
         try:
             lead_img = context.image
         except AttributeError:
@@ -59,32 +61,32 @@ class WidgetImagePoster(BrowserView):
             return True
         return False
 
-    @staticmethod
-    def image_tag(image_uid):
+    def image_tag(self, image_uid):
         image = api.content.get(UID=image_uid)
-        figure = image.restrictedTraverse('@@figure')(
-            image_field_name='image',
-            caption_field_name='image_caption',
-            scale='4:3',
-            aspect_ratio='4/3',
-            lqip=True,
-            lazy_load=True
-        )
-        return figure
+        if self.has_stored_image(image):
+            figure = image.restrictedTraverse('@@figure')(
+                image_field_name='image',
+                caption_field_name='image_caption',
+                scale='ratio-4:3',
+                aspect_ratio='4/3',
+                lqip=True,
+                lazy_load=True
+            )
+            return figure
+        return None
 
     def widget_image_cover(self):
-        try:
-            content = self.record['data']['content']['poster_image']
-        except (KeyError, TypeError):
-            content = None
+        context = aq_inner(self.context)
+        storage = IContentWidgets(context)
+        content = storage.read_widget(self.widget_uid())
         return content
 
     def widget_content(self):
-        image_uid = self.widget_image_cover()
+        widget_content = self.widget_image_cover()
         data = {
-            'image': self.image_tag(image_uid),
-            'headline': self.record['data']['content']['title'],
-            'text': self.record['data']['content']['text'],
-            'link': self.record['data']['content']['link']
+            'image': self.image_tag(widget_content['image']),
+            'headline': widget_content['title'],
+            'text': widget_content['description'],
+            'public': widget_content['is_public']
         }
         return data

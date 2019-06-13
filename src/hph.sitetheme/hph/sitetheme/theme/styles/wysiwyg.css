@@ -10011,11 +10011,11 @@ input, button, select, textarea {
           box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-.c-button.disabled, .c-button:disabled {
-  opacity: .65;
+.c-button.disabled, .c-button--disabled, .c-button:disabled {
+  opacity: .5;
 }
 
-.c-button:active, .c-button.active {
+.c-button:not(:disabled):not(.disabled):active, .c-button:not(:disabled):not(.disabled).active {
   background-image: none;
 }
 
@@ -10026,8 +10026,14 @@ input, button, select, textarea {
 }
 
 a.c-button.disabled,
+a.c-button--disabled,
 fieldset[disabled] a.c-button {
   pointer-events: none;
+}
+
+a.c-button--active-action {
+  pointer-events: none;
+  border-width: 0 0 1px 0;
 }
 
 .c-button--default {
