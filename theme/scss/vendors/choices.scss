@@ -3,16 +3,16 @@
 ===============================*/
 
 $choices-selector: 'choices' !default;
-$choices-font-size-lg: 16px !default;
+$choices-font-size-lg: $app-font-size-base !default;
 $choices-font-size-md: 14px !default;
-$choices-font-size-sm: 12px !default;
-$choices-guttering: 24px !default;
-$choices-border-radius: 2.5px !default;
-$choices-border-radius-item: 20px !default;
-$choices-bg-color: #f9f9f9 !default;
-$choices-bg-color-disabled: #EAEAEA !default;
+$choices-font-size-sm: $app-font-size-sm !default;
+$choices-guttering: $app-spacer-base !default;
+$choices-border-radius: 0 !default;
+$choices-border-radius-item: $app-spacer-base !default;
+$choices-bg-color: $app-color-white !default;
+$choices-bg-color-disabled: $app-color-gray-light !default;
 $choices-bg-color-dropdown: #FFFFFF !default;
-$choices-text-color: #333333 !default;
+$choices-text-color: $app-color-text !default;
 $choices-keyline-color: #DDDDDD !default;
 $choices-primary-color: #00BCD4 !default;
 $choices-disabled-color: #eaeaea !default;

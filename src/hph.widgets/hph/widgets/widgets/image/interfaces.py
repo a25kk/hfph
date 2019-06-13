@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """Module providing standalone content panel edit forms"""
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.namedfile import field as named_file
