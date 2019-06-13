@@ -78,6 +78,10 @@
             </section>
 
             <section class="o-page__section">
+                <div tal:replace="structure python:context.restrictedTraverse('@@social-sharing')()" />
+            </section>
+
+            <section class="o-page__section">
                 <div class="o-page__body-text" id="parent-fieldname-text"
                          tal:condition="context/text"
                          tal:content="structure context/text/output" />

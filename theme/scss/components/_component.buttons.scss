@@ -67,5 +67,5 @@ fieldset[disabled] a.c-button {
 }
 
 .c-button--sm {
-    font-size: $app-font-size-sm;
+    @include button-size($input-btn-padding-y-sm, $input-btn-padding-x-sm, $app-font-size-sm, $input-btn-line-height-sm, $btn-border-radius);
 }

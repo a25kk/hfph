@@ -1,18 +1,7 @@
 .c-panels {
     display: block;
     width: 100%;
-}
-
-.c-panels--header {
-    width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    background-color: $c-panel-primary-bg-color;
-    > * {
-        margin-right: auto;
-        margin-left: auto;
-        @include make-container-max-widths();
-    }
+    overflow: visible;
 }
 
 .c-panel {
@@ -73,13 +62,21 @@
     width: $c-panel-width;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 2rem;
+    padding-top: $app-spacer-base;
     padding-bottom: 0;
     @include media-breakpoint-up(md) {
-       padding-bottom: 2rem;
+       padding-bottom: $app-spacer-base;
     }
     &--centered {
         @include make-container-max-widths();
+    }
+    @include when-inside('.c-panel--full-width') {
+        padding-right: $app-spacer-base;
+        padding-left: $app-spacer-base;
+        @include mq($from: lg) {
+            padding-right: 0;
+            padding-left: 0;
+        }
     }
 }
 
@@ -238,12 +235,19 @@ $c-panel-controls-display:  flex;
 
 .c-panel-overlay {
     background-color: $app-color-white;
+    overflow: scroll;
     &--active {
         position: fixed;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
         z-index: 1001;
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
     }
+}
+
+.c-panel-overlay__content {
+    padding: $app-spacer-base calc(#{$app-spacer-base} * 1.5) 0;
+    text-align: right;
 }

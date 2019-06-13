@@ -1,16 +1,31 @@
+$c-social-menu-border-width:               1px;
+$c-social-menu-border-style:               solid;
+$c-social-menu-border-color:               currentColor;
+$c-social-menu-border-radius:              50%;
+
 .c-social-menu {
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
     max-width: 100%;
-    margin: 0 auto 1rem auto;
+    margin-bottom: $app-spacer-sm;
     @include mq($from: sm) {
         width: 360px;
     }
+}
+
+.c-social-menu--primary {
+    margin: 0 auto 1rem auto;
 }
 
 .c-social-menu__item {
     flex: 1 0 25%;
     max-width: 25%;
     text-align: center;
+}
+
+.c-social-menu__link {
+    display: inline-block;
+    border: $c-social-menu-border-width $c-social-menu-border-style $c-social-menu-border-color;
+    border-radius: $c-social-menu-border-radius;
 }

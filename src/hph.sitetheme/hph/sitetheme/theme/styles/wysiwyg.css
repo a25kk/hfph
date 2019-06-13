@@ -8276,6 +8276,10 @@ p {
   margin-bottom: 1.25rem;
 }
 
+.c-snippet__section p {
+  margin-bottom: 1rem;
+}
+
 p.u-font-test {
   font-family: Trebuchet !important;
 }
@@ -9335,6 +9339,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-icon {
+  display: inline-block;
   fill: currentColor;
 }
 
@@ -10176,7 +10181,10 @@ fieldset[disabled] a.c-button {
 }
 
 .c-button--sm {
+  padding: 0.25rem 0.5rem;
   font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0;
 }
 
 img[data-sizes="auto"] {

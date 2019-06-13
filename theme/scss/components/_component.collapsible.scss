@@ -1,11 +1,13 @@
 $c-collapsible-border-width:                .125rem;
 $c-collapsible-border-color:                $app-color-secondary;
+$c-collapsible-header-color:                $color-wild-sand;
 
 .c-collapsible__header {
     display: flex;
     width: 100%;
-    background: $c-nav-list-color-bg;
+    background: $c-collapsible-header-color;
     padding: $c-nav-list-padding;
+    border-bottom: $c-collapsible-border-width solid $c-collapsible-border-color;
     @include mq($until: lg) {
         cursor: pointer;
         border-bottom: $c-collapsible-border-width solid $c-collapsible-border-color;
@@ -33,6 +35,7 @@ $c-collapsible-border-color:                $app-color-secondary;
     flex: 1 0 50%;
     max-width: 50%;
     margin-bottom: 0;
+    font-family: $app-font-family-medium;
     &--icon {
         text-align: right;
         color: currentColor;
