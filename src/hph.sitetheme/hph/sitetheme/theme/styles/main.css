@@ -10932,11 +10932,11 @@ input, button, select, textarea {
           box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
-.c-button.disabled, .c-button:disabled {
-  opacity: .65;
+.c-button.disabled, .c-button--disabled, .c-button:disabled {
+  opacity: .5;
 }
 
-.c-button:active, .c-button.active {
+.c-button:not(:disabled):not(.disabled):active, .c-button:not(:disabled):not(.disabled).active {
   background-image: none;
 }
 
@@ -10947,8 +10947,14 @@ input, button, select, textarea {
 }
 
 a.c-button.disabled,
+a.c-button--disabled,
 fieldset[disabled] a.c-button {
   pointer-events: none;
+}
+
+a.c-button--active-action {
+  pointer-events: none;
+  border-width: 0 0 1px 0;
 }
 
 .c-button--default {
@@ -12944,11 +12950,12 @@ img[data-sizes="auto"] {
 .c-panel-overlay--active {
   position: fixed;
   top: 0;
+  bottom: 0;
   left: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
   z-index: 1001;
   width: 100%;
-  height: auto;
-  min-height: 100vh;
 }
 
 .c-panel-overlay__content {
@@ -13713,14 +13720,14 @@ img[data-sizes="auto"] {
   margin-bottom: calc(calc(1.25rem * 1.5) * 1.5);
 }
 
-.c-list--grid .c-list__item--width-25 {
+.c-list--grid .c-list__item {
   -webkit-box-flex: 1;
-      -ms-flex: 1 0 50%;
-          flex: 1 0 50%;
-  max-width: 50%;
+      -ms-flex: 1 0 100%;
+          flex: 1 0 100%;
+  max-width: 100%;
 }
 
-@media (min-width: 36em) and (max-width: 61.99em) {
+@media (max-width: 61.99em) {
   .c-list--grid .c-list__item--width-25 {
     -webkit-box-flex: 1;
         -ms-flex: 1 0 50%;
@@ -13786,7 +13793,7 @@ c-list--bordered .c-list__item:last-of-type {
     left: 0;
     width: 90px;
     height: 0.25rem;
-    background-color: #182f7a;
+    background-color: #eed343;
   }
 }
 
@@ -14165,6 +14172,43 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-link-tile__title {
   font-size: 1.25rem;
+}
+
+.c-poster {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.c-poster__main {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 3rem;
+  color: #fff;
+}
+
+@media (min-width: 48em) {
+  .c-poster__main {
+    padding: 6rem;
+  }
+}
+
+.c-poster__header {
+  font-family: "TAZ";
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 48em) {
+  .c-poster__header {
+    line-height: 1.5;
+  }
+}
+
+.c-poster__description {
+  font-size: 1.25rem;
+  line-height: 1.5;
 }
 
 .c-page-header {
@@ -14546,9 +14590,9 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-widget-editor__item-actions {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 8rem;
-          flex: 0 0 8rem;
-  max-width: 8rem;
+      -ms-flex: 0 0 16rem;
+          flex: 0 0 16rem;
+  max-width: 16rem;
   text-align: right;
 }
 
