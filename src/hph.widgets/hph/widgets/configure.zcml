@@ -37,4 +37,8 @@
         type="theme"
     />
 
+    <utility
+            name="hph.widgets.vocabularies.TeaserLinkIconOptions"
+            component="hph.widgets.vocabulary.TeaserLinkIconVocabulary" />
+
 </configure>
