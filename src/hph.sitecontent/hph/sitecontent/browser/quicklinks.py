@@ -12,8 +12,11 @@ class QuickLinksViewlet(ViewletBase):
     @staticmethod
     def quick_links_storage():
         portal = api.portal.get()
-        quick_links_folder = portal['quick-links']
-        return quick_links_folder
+        try:
+            quick_links_folder = portal['quick-links']
+            return quick_links_folder
+        except KeyError:
+            return None
 
     def get_link_action(self, item):
         context = aq_inner(self.context)
