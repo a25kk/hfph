@@ -10720,6 +10720,10 @@ input, button, select, textarea {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -10741,7 +10745,7 @@ input, button, select, textarea {
         -ms-flex: 1 0 75%;
             flex: 1 0 75%;
     max-width: 75%;
-    padding-left: calc(1.25rem * 1.5);
+    padding-right: calc(1.25rem * 1.5);
   }
 }
 

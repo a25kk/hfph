@@ -22,16 +22,19 @@ class SiteNavigationViewlet(ViewletBase):
 
     def section_types(self):
         section_types = list()
-        configured_types = self.settings.listed_content_types
-        if configured_types:
-            section_types = configured_types
+        try:
+            configured_types = self.settings.listed_content_types
+            if configured_types:
+                section_types = configured_types
+        except KeyError:
+            pass
         return section_types
 
     @property
     def nav_tree_element_close(self):
         try:
             navigation_close = self.settings.navigation_element_close
-        except AttributeError:
+        except (AttributeError, KeyError):
             navigation_close = hph_config.navigation_elements(action='close')
         return navigation_close
 
@@ -54,10 +57,13 @@ class SiteTOCViewlet(ViewletBase):
 
     def section_types(self):
         section_types = list()
-        configured_types = self.settings.listed_content_types
-        if configured_types:
-            section_types = configured_types
-        return section_types
+        try:
+            configured_types = self.settings.listed_content_types
+            if configured_types:
+                section_types = configured_types
+            return section_types
+        except KeyError:
+            return section_types
 
     def available(self):
         if self.section_types():

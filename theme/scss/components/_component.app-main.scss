@@ -30,6 +30,7 @@ $app-main-padding-top:              8rem;
     @include mq($from: lg) {
         display: flex;
         flex-wrap: wrap;
+        flex-direction: row-reverse;
         justify-content: space-between;
     }
 }
@@ -48,7 +49,7 @@ $app-main-padding-top:              8rem;
         @include mq($from: lg) {
             flex: 1 0 75%;
             max-width: 75%;
-            padding-left: $app-spacer-base;
+            padding-right: $app-spacer-base;
         }
     }
 }
