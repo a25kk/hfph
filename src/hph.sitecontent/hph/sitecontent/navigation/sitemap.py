@@ -63,7 +63,7 @@ class SitemapProvider(ContentProviderBase):
     def nav_tree_depth(self):
         try:
             navigation_depth = self.settings.navigation_depth
-        except AttributeError:
+        except (AttributeError, KeyError):
             navigation_depth = 3
         return navigation_depth
 
@@ -71,7 +71,7 @@ class SitemapProvider(ContentProviderBase):
     def nav_tree_element_open(self):
         try:
             navigation_element = self.settings.navigation_element_open
-        except AttributeError:
+        except (AttributeError, KeyError):
             navigation_element = hph_config.navigation_elements(action='open')
         return navigation_element
 
