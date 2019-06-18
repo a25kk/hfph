@@ -7,7 +7,7 @@
     <!-- Content Widget Teaser -->
     <browser:page
             for="*"
-            name="content-widget-teaser-news"
+            name="content-widget-hph-teaser-news"
             class="hph.widgets.widgets.teaser.teaser.WidgetTeaserNews"
             template="teaser-news.pt"
             permission="zope2.View"
@@ -16,7 +16,7 @@
 
     <browser:page
             for="*"
-            name="content-widget-teaser-events"
+            name="content-widget-hph-teaser-events"
             class="hph.widgets.widgets.teaser.teaser.WidgetTeaserEvents"
             template="teaser-events.pt"
             permission="zope2.View"
@@ -25,7 +25,7 @@
 
     <browser:page
             for="*"
-            name="content-widget-teaser-links"
+            name="content-widget-hph-teaser-links"
             class="hph.widgets.widgets.teaser.teaser.WidgetTeaserLinksInternal"
             template="teaser-links-internal.pt"
             permission="zope2.View"
