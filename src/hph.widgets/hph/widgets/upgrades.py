@@ -30,11 +30,11 @@ def register_content_widgets(site):
         if content_widget not in records.keys():
             records[content_widget] = widget_data
     stored_widgets["items"] = records
-    stored_widgets["timestamp"] = six.text_type(int(time.time())),
-    stored_widgets["updated"] = datetime.datetime.now().isoformat(),
+    stored_widgets["timestamp"] = six.text_type(int(time.time()))
+    stored_widgets["updated"] = datetime.datetime.now().isoformat()
     api.portal.set_registry_record(
         name='ade25.widgets.widget_settings',
-        value=json.dumps(stored_widgets)
+        value=six.text_type(json.dumps(stored_widgets))
     )
 
 
