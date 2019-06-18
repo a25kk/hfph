@@ -153,8 +153,12 @@ class WidgetTeaserEvents(BrowserView):
     def record(self):
         return self.params['widget_data']
 
+    @staticmethod
+    def can_edit():
+        return not api.user.is_anonymous()
+
     def has_content(self):
-        if self.widget_content_items():
+        if self.widget_has_data():
             return True
         return False
 
@@ -199,6 +203,9 @@ class WidgetTeaserEvents(BrowserView):
         time_stamp = content_info_provider.time_stamp(date_time)
         return time_stamp
 
+    def widget_has_data(self):
+        return len(self.get_latest_event_items()) > 0
+
     @staticmethod
     def get_latest_event_items(limit=3):
         portal = api.portal.get()
@@ -232,7 +239,7 @@ class WidgetTeaserEvents(BrowserView):
     @staticmethod
     def widget_more_link():
         portal = api.portal.get()
-        more_link = '{0}/nachrichten'.format(portal.absolute_url())
+        more_link = '{0}/@@event-calendar'.format(portal.absolute_url())
         return more_link
 
 
@@ -312,26 +319,13 @@ class WidgetTeaserLinksInternal(BrowserView):
         time_stamp = content_info_provider.time_stamp(date_time)
         return time_stamp
 
-    @staticmethod
-    def get_latest_news_items(limit=3):
-        portal = api.portal.get()
-        items = api.content.find(
-            context=portal,
-            object_provides=INewsEntry.__identifier__,
-            review_state='published',
-            sort_on='Date',
-            sort_order='reverse',
-            sort_limit=limit
-        )[:limit]
-        return items
-
     def recent_news(self):
         results = []
         elements = [
-            '8303a7b4b3ad460f93f23db372f5f2d1',
-            'c5fd0c9ccb484de2aa689d94545e6f20',
-            '9a5c757860f24e5a9985c35fd9c11590',
-            '533766a3059940828c0da7ffce1cc755'
+            #'8303a7b4b3ad460f93f23db372f5f2d1',
+            #'c5fd0c9ccb484de2aa689d94545e6f20',
+            #'9a5c757860f24e5a9985c35fd9c11590',
+            #'533766a3059940828c0da7ffce1cc755'
         ]
         for item_uid in elements:
             brain = api.content.get(UID=item_uid)

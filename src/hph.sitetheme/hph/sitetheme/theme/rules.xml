@@ -227,6 +227,18 @@
                 </li>
             </ol>
         </replace>
+        <replace css:content="#portal-breadcrumbs" method="raw" if-not-content="//*[@id='breadcrumbs-1']">
+            <ol class="c-breadcrumbs c-breadcrumbs--site">
+                <xsl:for-each select="./div/ol/li[not(position() = last())]//a">
+                    <li class="c-breadcrumbs__item">
+                        <xsl:apply-templates select="."/>
+                    </li>
+                </xsl:for-each>
+                <li class="c-breadcrumbs__item c-breadcrumb__item--active" aria-current="page">
+                    <xsl:apply-templates select="./div/ol/li[position() = last()]/*"/>
+                </li>
+            </ol>
+        </replace>
         <replace css:theme-children="#app-pathbar" css:content="#portal-breadcrumbs"
             css:if-not-content=".section-startseite" />
 
