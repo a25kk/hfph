@@ -8,6 +8,7 @@
     </div>
     <div class="c-teaser__main">
         <div class="c-list c-list--gutter c-teaser-list c-list--${context/UID}"
+             tal:condition="python:view.widget_content_items()"
                  tal:define="items python:view.widget_content_items()"
                  tal:attributes="class python:view.widget_content_list_class()">
             <tal:items tal:repeat="item items">

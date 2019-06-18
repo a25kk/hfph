@@ -9,7 +9,9 @@
         </h2>
     </div>
     <div class="c-teaser__main">
-        <div class="c-list c-list--gutter c-list--grid c-list--${context/UID}" tal:define="items python:view.widget_content_items()"
+        <div class="c-list c-list--gutter c-list--grid c-list--${context/UID}"
+             tal:condition="python:view.widget_content_items()"
+                 tal:define="items python:view.widget_content_items()"
                  tal:attributes="class python:view.widget_content_list_class()">
             <tal:items tal:repeat="item items">
                 <div class="c-card-list__item c-card-list__item--width-33" tal:define="item_uuid python:item['uuid'];"
@@ -20,6 +22,12 @@
                 </div>
             </tal:items>
         </div>
+        <tal:admin tal:condition="python:view.can_edit()">
+            <div class="c-alert c-alert--warning" tal:condition="not:python:view.widget_content_items()">
+                Since the database query did not return any events we can not list anything here. Please add at least
+                3 event to provide the necessary contents for the event teaser
+            </div>
+        </tal:admin>
     </div>
     <div class="c-teaser__footer">
         <a href="/news" tal:attributes="href python:view.widget_more_link()">

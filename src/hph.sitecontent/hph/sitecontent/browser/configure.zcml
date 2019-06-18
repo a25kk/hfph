@@ -98,6 +98,14 @@
             permission="zope2.View"
     />
 
+    <browser:page
+            for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+            name="event-calendar"
+            class=".events.EventListView"
+            template="event-calendar.pt"
+            permission="zope2.View"
+    />
+
     <!-- Social Sharing Partial -->
     <browser:page
             for="Products.CMFCore.interfaces.IContentish"
