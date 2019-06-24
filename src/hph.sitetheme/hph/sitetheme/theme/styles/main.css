@@ -14609,6 +14609,15 @@ c-list--bordered .c-list__item:last-of-type {
   padding-right: calc(1.25rem * 1.5 / 2);
 }
 
+.c-widget-editor__item-main--centered {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .c-widget-editor__item-title {
   margin: 0;
   line-height: 1;

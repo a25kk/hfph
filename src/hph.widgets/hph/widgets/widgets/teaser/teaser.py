@@ -5,9 +5,11 @@ import uuid as uuid_tool
 from Acquisition import aq_inner
 from Products.Five import BrowserView
 from ade25.base.interfaces import IContentInfoProvider
+from ade25.widgets.interfaces import IContentWidgets
 from hph.sitecontent.eventitem import IEventItem
 from hph.sitecontent.newsentry import INewsEntry
 from plone import api
+from plone.app.contenttypes.utils import replace_link_variables_by_paths
 
 
 class WidgetTeaserNews(BrowserView):
@@ -285,6 +287,43 @@ class WidgetTeaserLinksInternal(BrowserView):
             widget_id = str(uuid_tool.uuid4())
         return widget_id
 
+    def widget_item_nodes(self):
+        context = aq_inner(self.context)
+        ordered_nodes = list()
+        storage = IContentWidgets(context)
+        stored_widget = storage.read_widget(
+            self.widget_uid()
+        )
+        if stored_widget:
+            ordered_nodes = stored_widget["item_order"]
+        return ordered_nodes
+
+    def has_widget_item_nodes(self):
+        return len(self.widget_item_nodes()) > 0
+
+    def widget_item_content(self, widget_node):
+        context = aq_inner(self.context)
+        item_content = {
+            "uid": widget_node
+        }
+        storage = IContentWidgets(context)
+        stored_widget = storage.read_widget(
+            self.widget_uid()
+        )
+        if stored_widget:
+            content_items = stored_widget["items"]
+            if content_items:
+                try:
+                    item_content.update(content_items[widget_node])
+                except KeyError:
+                    item_content = None
+        return item_content
+
+    def get_link_action(self, link):
+        context = aq_inner(self.context)
+        link_action = replace_link_variables_by_paths(context, link)
+        return link_action
+
     def widget_content_items(self):
         return self.recent_news()
 
@@ -318,32 +357,3 @@ class WidgetTeaserLinksInternal(BrowserView):
         content_info_provider = IContentInfoProvider(item)
         time_stamp = content_info_provider.time_stamp(date_time)
         return time_stamp
-
-    def recent_news(self):
-        results = []
-        elements = [
-            #'8303a7b4b3ad460f93f23db372f5f2d1',
-            #'c5fd0c9ccb484de2aa689d94545e6f20',
-            #'9a5c757860f24e5a9985c35fd9c11590',
-            #'533766a3059940828c0da7ffce1cc755'
-        ]
-        for item_uid in elements:
-            brain = api.content.get(UID=item_uid)
-            results.append({
-                'title': brain.Title(),
-                'description': brain.Description(),
-                'url': brain.absolute_url(),
-                'timestamp': brain.Date(),
-                'uuid': brain.UID(),
-                "css_classes": "o-card-list__item--{0}".format(
-                    brain.UID()
-                ),
-                'item_object': brain
-            })
-        return results
-
-    @staticmethod
-    def widget_more_link():
-        portal = api.portal.get()
-        more_link = '{0}/nachrichten'.format(portal.absolute_url())
-        return more_link

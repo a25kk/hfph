@@ -38,6 +38,10 @@ $c-widget-font-family-highlight:          $c-card-font-family-base;
     max-width: 80%;
     padding-left: $app-spacer-sm;
     padding-right: $app-spacer-sm;
+    &--centered {
+        display: flex;
+        align-items: center;
+    }
 }
 
 
