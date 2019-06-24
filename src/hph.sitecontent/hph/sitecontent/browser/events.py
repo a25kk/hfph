@@ -30,7 +30,13 @@ class EventListView(BrowserView):
 
     def time_stamp(self, date_time):
         context = aq_inner(self.context)
-        content_info_provider = IContentInfoProvider(context)
+        try:
+            content_info_provider = IContentInfoProvider(context)
+        except TypeError:
+            # Since we reuse the view standalone on the site root which is not
+            # content by design we need to adopt the interface to a content item
+            # in order to get hold of the tool
+            content_info_provider = IContentInfoProvider(context['startseite'])
         return content_info_provider.time_stamp(date_time)
 
     def contained_items(self):
