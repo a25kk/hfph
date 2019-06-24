@@ -1,0 +1,18 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:i18n="http://namespaces.zope.org/i18n"
+        xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+        i18n_domain="hph.publications">
+
+    <genericsetup:upgradeStep
+            title="Update default views"
+            description="Update object views in type configuration"
+            source="1"
+            destination="1001"
+            profile="hph.publications:default"
+            handler="hph.widgets.upgrades.upgrade_1002"
+            sortkey="1"
+    />
+
+
+</configure>
