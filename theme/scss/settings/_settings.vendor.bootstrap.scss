@@ -24,8 +24,8 @@ $theme-colors: (
 
 // Font family definitions
 $font-family-sans-serif:            $app-font-family-sans-serif;
-$font-family-base:                  $app-font-family-base, $app-font-family-sans-serif;
-$headings-font-family:              $app-font-family-strong, $app-font-family-serif;
+$font-family-base:                  $app-font-family-base, $app-font-family-serif;
+$headings-font-family:              $app-font-family-strong, $app-font-family-sans-serif;
 
 // Font size base
 $font-size-base:                    $app-font-size-base;
