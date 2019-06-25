@@ -78,11 +78,43 @@
         }
         &:nth-child(2) {
             order: 0;
-            width: 33.3333%;
-            max-width: 33.3333%;
+            width: 33%;
+            max-width: 33%;
             flex: 0 0 33.3333%;
             background: transparent;
             padding: 0;
+        }
+
+    @include mq($from: xl) {
+        width: 16.6666%;
+        flex: 0 0 16.6666%;
+        &:first-child {
+            width: 50%;
+            max-width: 50%;
+            flex: 0 0 50%;
+        }
+        &:nth-child(2) {
+            order: 0;
+            width: 25%;
+            max-width: 25%;
+            flex: 0 0 25%;
+            background: transparent;
+            padding: 0;
+        }
+
+        &--navigation {
+            @include mq($from: xl) {
+                width: 12%;
+                max-width: 12%;
+                flex: 0 0 12%; 
+                }
+            }   
+
+        &--quick-links {
+            @include mq($from: xl) {
+                margin-left: 9.5rem;
+                }  
+            }   
         }
     }
 }
