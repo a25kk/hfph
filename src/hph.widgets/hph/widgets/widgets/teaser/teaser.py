@@ -325,7 +325,7 @@ class WidgetTeaserLinksInternal(BrowserView):
         return link_action
 
     def widget_content_items(self):
-        return self.recent_news()
+        return self.widget_item_nodes()
 
     def widget_custom_styles(self):
         if self.record and 'styles' in self.record:
