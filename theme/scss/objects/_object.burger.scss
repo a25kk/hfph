@@ -1,7 +1,10 @@
 .o-burger {
     display: $o-burger-display;
     margin-top: $o-burger-margin-top;
-    @include mq($from: lg) {
+    @include mq($from: md) {
+        margin-top: 5.5rem;
+    }
+    @include mq($from: xl) {
         margin-top: 0;
     }
 }
@@ -27,7 +30,7 @@
     color: $o-burger-text-color;
     text-transform: $o-burger-text-transform;
     padding-bottom: $o-burger-padding-y;
-    @include mq($from: sm) {
+    @include mq($from: md) {
         font-size: $o-burger-text-font-size;
         padding-bottom: 0;
     }
