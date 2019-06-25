@@ -9694,10 +9694,16 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 
 .o-burger {
   display: block;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
-@media (min-width: 62em) {
+@media (min-width: 48em) {
+  .o-burger {
+    margin-top: 5.5rem;
+  }
+}
+
+@media (min-width: 75em) {
   .o-burger {
     margin-top: 0;
   }
@@ -9735,7 +9741,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   padding-bottom: 0.25rem;
 }
 
-@media (min-width: 36em) {
+@media (min-width: 48em) {
   .o-burger__text {
     font-size: 1.45rem;
     padding-bottom: 0;
