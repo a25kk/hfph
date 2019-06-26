@@ -25,6 +25,10 @@
             </div>
         </header>
 
+        <section class="o-page__section">
+            <div tal:replace="structure python:context.restrictedTraverse('@@social-sharing')()" />
+        </section>
+
         <div class="o-page__main" tal:define="event_start python:view.time_stamp(context.start); event_end python:view.time_stamp(context.end)">
             <section class="o-page__section">
 
@@ -75,10 +79,6 @@
                     </div>
                 </div>
 
-            </section>
-
-            <section class="o-page__section">
-                <div tal:replace="structure python:context.restrictedTraverse('@@social-sharing')()" />
             </section>
 
             <section class="o-page__section">

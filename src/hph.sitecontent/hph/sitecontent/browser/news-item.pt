@@ -26,6 +26,10 @@
             </div>
         </header>
 
+        <section class="o-page__section">
+            <div tal:replace="structure python:context.restrictedTraverse('@@social-sharing')()" />
+        </section>
+
         <div class="o-page__main">
             <section class="o-page__section">
                 <div class="o-grid o-grid--gutter o-grid--md">
@@ -44,9 +48,6 @@
                                  tal:content="structure context/text/output" />
                     </div>
                 </div>
-            </section>
-            <section class="o-page__section">
-                <div tal:replace="structure python:context.restrictedTraverse('@@social-sharing')()" />
             </section>
         </div>
 
