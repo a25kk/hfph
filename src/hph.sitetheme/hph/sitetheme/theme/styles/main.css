@@ -264,7 +264,7 @@
           animation-name: grow;
 }
 
-/* open-sans-300 - latin */
+/* Taz-SemiLight & Taz-SemiBold */
 @font-face {
   font-family: 'Taz-SemiLight';
   src: url("../assets/fonts/TazWt04-SemiLight.woff2") format("woff2"), url("../assets/fonts/TazWt04-SemiLight.woff") format("woff");
@@ -8119,7 +8119,7 @@ a.text-danger:hover, a.text-danger:focus {
   margin-bottom: calc(1.25rem * 1.5);
   font-size: 1.25rem;
   font-weight: 700;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
 }
 
 .choices:focus {
