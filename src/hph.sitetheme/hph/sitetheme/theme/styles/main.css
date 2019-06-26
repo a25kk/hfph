@@ -264,7 +264,7 @@
           animation-name: grow;
 }
 
-/* open-sans-300 - latin */
+/* Taz-SemiLight & Taz-SemiBold */
 @font-face {
   font-family: 'Taz-SemiLight';
   src: url("../assets/fonts/TazWt04-SemiLight.woff2") format("woff2"), url("../assets/fonts/TazWt04-SemiLight.woff") format("woff");
@@ -8118,6 +8118,8 @@ a.text-danger:hover, a.text-danger:focus {
   position: relative;
   margin-bottom: calc(1.25rem * 1.5);
   font-size: 1.25rem;
+  font-weight: 700;
+  font-family: "Taz-SemiBold";
 }
 
 .choices:focus {
@@ -8179,8 +8181,8 @@ a.text-danger:hover, a.text-danger:focus {
 }
 
 .choices[data-type*="select-one"] .choices__button:focus {
-  -webkit-box-shadow: 0px 0px 0px 2px #00BCD4;
-          box-shadow: 0px 0px 0px 2px #00BCD4;
+  -webkit-box-shadow: 0px 0px 0px 2px #182f7a;
+          box-shadow: 0px 0px 0px 2px #182f7a;
 }
 
 .choices[data-type*="select-one"]:after {
@@ -8228,7 +8230,7 @@ a.text-danger:hover, a.text-danger:focus {
   margin-bottom: 0;
   margin-left: 8px;
   padding-left: 16px;
-  border-left: 1px solid #008fa1;
+  border-left: 1px solid #101f4f;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMSAyMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0yLjU5Mi4wNDRsMTguMzY0IDE4LjM2NC0yLjU0OCAyLjU0OEwuMDQ0IDIuNTkyeiIvPjxwYXRoIGQ9Ik0wIDE4LjM2NEwxOC4zNjQgMGwyLjU0OCAyLjU0OEwyLjU0OCAyMC45MTJ6Ii8+PC9nPjwvc3ZnPg==);
   background-size: 8px;
   width: 8px;
@@ -8251,7 +8253,7 @@ a.text-danger:hover, a.text-danger:focus {
   padding: 7.5px 7.5px 3.75px;
   border: 1px solid #DDDDDD;
   border-radius: 0;
-  font-size: 14px;
+  font-size: 1rem;
   min-height: 44px;
   overflow: hidden;
 }
@@ -8303,8 +8305,8 @@ a.text-danger:hover, a.text-danger:focus {
   font-weight: 500;
   margin-right: 3.75px;
   margin-bottom: 3.75px;
-  background-color: #00BCD4;
-  border: 1px solid #00a5bb;
+  background-color: #182f7a;
+  border: 1px solid #142765;
   color: #FFFFFF;
   word-break: break-all;
 }
@@ -8319,8 +8321,8 @@ a.text-danger:hover, a.text-danger:focus {
 }
 
 .choices__list--multiple .choices__item.is-highlighted {
-  background-color: #00a5bb;
-  border: 1px solid #008fa1;
+  background-color: #142765;
+  border: 1px solid #101f4f;
 }
 
 .is-disabled .choices__list--multiple .choices__item {
@@ -8370,7 +8372,7 @@ a.text-danger:hover, a.text-danger:focus {
 .choices__list--dropdown .choices__item {
   position: relative;
   padding: 10px;
-  font-size: 14px;
+  font-size: 1rem;
 }
 
 [dir="rtl"] .choices__list--dropdown .choices__item {
@@ -8456,7 +8458,7 @@ a.text-danger:hover, a.text-danger:focus {
   display: inline-block;
   vertical-align: baseline;
   background-color: #fff;
-  font-size: 14px;
+  font-size: 1.25rem;
   margin-bottom: 5px;
   border: 0;
   border-radius: 0;
@@ -10270,7 +10272,7 @@ input, button, select, textarea {
 /* class applies to select element itself, not a wrapper element */
 .o-select {
   display: block;
-  font-size: 16px;
+  font-size: 1.25rem;
   font-family: sans-serif;
   font-weight: 700;
   color: #444;

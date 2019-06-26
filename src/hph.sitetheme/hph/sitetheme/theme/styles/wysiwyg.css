@@ -264,7 +264,7 @@
           animation-name: grow;
 }
 
-/* open-sans-300 - latin */
+/* Taz-SemiLight & Taz-SemiBold */
 @font-face {
   font-family: 'Taz-SemiLight';
   src: url("../assets/fonts/TazWt04-SemiLight.woff2") format("woff2"), url("../assets/fonts/TazWt04-SemiLight.woff") format("woff");
@@ -9789,7 +9789,7 @@ input, button, select, textarea {
 /* class applies to select element itself, not a wrapper element */
 .o-select {
   display: block;
-  font-size: 16px;
+  font-size: 1.25rem;
   font-family: sans-serif;
   font-weight: 700;
   color: #444;
