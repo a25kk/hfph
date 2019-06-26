@@ -1,44 +1,28 @@
 <div class="c-slider c-slider--default"
      xmlns:xlink="http://www.w3.org/1999/xlink"
          i18n:domain="hph.widgets">
-    <div class="c-teaser__header c-teaser__header--hidden">
-        <h2 class="c-teaser__title" i18n:translate="">
-            Links
-        </h2>
-    </div>
     <div class="c-slider__main">
         <div class="c-slider__items c-slider__items--${context/UID}"
                  tal:condition="python:view.has_widget_item_nodes()"
                  tal:define="items python:view.widget_content_items()"
                  tal:attributes="class python:view.widget_content_list_class()">
             <tal:items tal:repeat="item python:view.widget_item_nodes()">
-                <div class="c-card-list__item c-card-list__item--width-25"
-                         tal:define="item_uuid item; widget_node python:view.widget_item_content(item)"
-                         tal:attributes="class python:'c-list__item c-list__item--width-25 c-list__item--snippet'">
-                    <div class="c-link-tile c-link-tile--default" tal:condition="widget_node">
-                        <div class="c-link-tile__aside">
-                            <div class="c-link-tile__asset"
-                                     tal:define="action_icon python:widget_node['icon'] or 'tile'">
+                <tal:slide tal:define="widget_node python:view.widget_item_content(item)">
+                    <div class="c-slider__slide c-slide"
+                             tal:attributes="class python:'c-slider__slide c-slide c-slide--' + str(item)"
+                             tal:condition="widget_node">
 
-                                <svg class="o-icon o-icon-widget-text-block-dims"
-                                         tal:attributes="class python:'o-icon o-icon--size-5 o-icon--spacer o-icon--muted o-icon-' + action_icon + '-dims c-link-tile__icon'">
-                                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#icon--{action_icon}-block"
-                                             tal:attributes="xlink:href python:'/assets/symbol/svg/sprite.symbol.svg#' + action_icon"></use>
-                                </svg>
-                            </div>
+                        <div class="c-poster__aside" tal:condition="python:widget_node['image']">
+                            <span tal:replace="structure python:widget_node['image']" />
                         </div>
-                        <div class="c-link-tile__main">
-                            <div class="c-link-tile__header">
-                                <h2 class="c-link-tile__title">
-                                    <a class="c-link-tile__link" tal:attributes="href python:view.get_link_action(widget_node['link'])"
-                                             tal:content="python:widget_node['title']">
-                                            ${context/Title}
-                                    </a>
-                                </h2>
+                        <div class="c-slide__main">
+                            <div class="c-slide__content" tal:condition="python:widget_node['text']"
+                                     tal:content="python:widget_node['text']">
+                                Slider content
                             </div>
                         </div>
                     </div>
-                </div>
+                </tal:slide>
             </tal:items>
         </div>
     </div>
