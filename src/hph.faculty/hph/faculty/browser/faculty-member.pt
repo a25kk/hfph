@@ -11,134 +11,128 @@
 <metal:main fill-slot="main">
     <metal:content-core define-macro="main">
 
-        <header class="o-page__header">
-            <div class="o-page__title">
-                <h1 class="o-page__headline" tal:content="context/Title">
-                    Title
-                </h1>
+        <div class="o-page__content o-grid o-grid--lg o-grid--reverse">
+            <div class="o-grid__item o-grid__item--width-25"
+                     tal:define="contained_links python:context.restrictedTraverse('@@folderListing')(portal_type=['Link'])">
+                <aside class="o-aside" id="app-sidebar">
+                    <div class="c-card c-card-nav c-card--faculty"
+                             tal:define="subcontents python:context.restrictedTraverse('@@folderListing')(portal_type=['Folder', 'hph.sitecontent.contentpage'])">
+                        <div class="c-card__header c-collapsible__header c-collapsible__header--hidden-lg js-collapsible-toggle">
+                            <h4 class="c-card__title c-collapsible__link">
+                                Weitere Inhalte
+                            </h4>
+                            <div class="c-collapsible__link c-collapsible__link--icon">
+                                <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--add-dims c-toc__icon c-toc__icon--open">
+                                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--add"></use>
+                                </svg>
+                                <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--remove-dims c-toc__icon c-toc__icon--close">
+                                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--remove"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="c-card__main c-collapsible__item js-collapsible-item">
+                            <ul class="c-nav-list">
+                                <li class="c-nav-list__item" tal:condition="python:view.has_publications()">
+                                    <a class="c-nav-list__link"
+                                             tal:attributes="href string:${context/absolute_url}/@@publications">
+                                        Publikationen</a>
+                                </li>
+                                <li class="c-nav-list__item">
+                                    <a class="c-nav-list__link" tal:attributes="href string:${context/absolute_url}/@@associated-lectures"
+                                             i18n:translate="">Lehrveranstaltungen</a>
+                                </li>
+                                <tal:sub_contents tal:condition="python:subcontents">
+                                    <tal:block tal:repeat="item subcontents">
+                                        <li class="c-nav-list__item" tal:define="item_url item/getURL">
+                                            <a data-appui="pjaxed"
+                                               class="c-nav-list__link"
+                                                     tal:attributes="href item_url;
+                                                            data-source-url string:${item_url}?ajax_load=1#content-core;
+                                                    data-appui-hide string:#page-content"
+                                                     tal:content="item/Title">Filter option</a>
+                                        </li>
+                                    </tal:block>
+                                </tal:sub_contents>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="c-card c-card-nav c-card--faculty c-card--offset"
+                             tal:condition="contained_links">
+                        <div class="c-card__header">
+                            Weiterführende Links
+                        </div>
+                        <div class="c-card__main">
+                            <ul class="c-nav-list">
+                                <tal:block tal:repeat="item contained_links">
+                                    <li class="c-nav-list__item" tal:define="item_url item/getURL">
+                                        <a class="c-nav-list__link"
+                                                 tal:attributes="href item_url"
+                                                 tal:content="item/Title">Filter option</a>
+                                    </li>
+                                </tal:block>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
             </div>
-            <p class="o-page__abstract" tal:condition="context/Description">
-                    ${context/Description}
-            </p>
-        </header>
-
-        <div class="o-page__main">
-
-            <section class="o-page__section">
-                <h2 class="o-page__headline" tal:condition="context/department"
-                         tal:content="context/department" />
-                <h3 tal:condition="context/sidenote"
-                         tal:content="context/sidenote" />
-            </section>
-            <section class="o-page__section">
-                <div class="o-grid o-grid--sm o-grid--gutter">
-                    <div class="o-grid__item o-grid__item--width-33">
-                        <tal:image tal:condition="python:view.has_cover_image()">
-                            <div class="o-page__figure"
-                                     tal:define="responsive_image python:context.restrictedTraverse('@@figure')(image_field_name='image', caption_field__name='image', scale='default', lqip=True, lazy_load=True)">
-                                <span tal:replace="structure responsive_image" />
-                            </div>
-                        </tal:image>
-                        <div class="o-figure" style="--aspect-ratio:1"
-                                 tal:condition="not:python:view.has_cover_image()">
-                            <div class="o-figure__placeholder"></div>
-                        </div>
+            <div class="o-grid__item o-grid__item--width-75">
+                <header class="o-page__header">
+                    <div class="o-page__title">
+                        <h1 class="o-page__headline" tal:content="context/Title">
+                            Title
+                        </h1>
                     </div>
-                    <div class="o-grid__item o-grid__item--width-66">
-                        <address>
-                            <span tal:replace="context/street" /><br />
-                            <span tal:replace="context/city" /><br />
-                            <tal:block tal:condition="context/phone">
-                                <abbr title="Phone">Tel:</abbr> <span tal:replace="context/phone" />
-                            </tal:block><br />
-                            <tal:block tal:condition="context/fax">
-                                <abbr title="Fax">Fax:</abbr> <span tal:replace="context/fax" /><br />
-                            </tal:block>
-                            <a class="text-muted" tal:condition="context/email"
-                                     tal:attributes="href string:mailto:${context/email}"
-                                     tal:content="context/email" />
-                        </address>
-                    </div>
-                </div>
-            </section>
+                    <p class="o-page__abstract" tal:condition="context/Description">
+                            ${context/Description}
+                    </p>
+                </header>
 
-            <section class="o-page__section">
-                <div class="o-grid o-grid--lg o-grid">
-                    <div class="o-grid__item o-grid__item--width-75">
-                        <div class="o-page__section">
-                            <div class="o-page__body-text" tal:condition="context/text">
-                                <div tal:replace="structure context/text/output" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="o-grid__item o-grid__item--width-25"
-                             tal:define="contained_links python:context.restrictedTraverse('@@folderListing')(portal_type=['Link'])">
-                        <div class="o-page__section o-page__section--spacer">
-                            <div class="c-card c-card-nav c-card--faculty"
-                                     tal:define="subcontents python:context.restrictedTraverse('@@folderListing')(portal_type=['Folder', 'hph.sitecontent.contentpage'])">
-                                <div class="c-card__header c-collapsible__header c-collapsible__header--hidden-lg js-collapsible-toggle">
-                                    <h4 class="c-card__title c-collapsible__link">
-                                        Weitere Inhalte
-                                    </h4>
-                                    <div class="c-collapsible__link c-collapsible__link--icon">
-                                        <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--add-dims c-toc__icon c-toc__icon--open">
-                                            <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--add"></use>
-                                        </svg>
-                                        <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--remove-dims c-toc__icon c-toc__icon--close">
-                                            <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--remove"></use>
-                                        </svg>
+                <div class="o-page__main">
+
+                    <section class="o-page__section">
+                        <h2 class="o-page__headline" tal:condition="context/department"
+                                 tal:content="context/department" />
+                        <h3 tal:condition="context/sidenote"
+                                 tal:content="context/sidenote" />
+                    </section>
+                    <section class="o-page__section">
+                        <div class="o-grid o-grid--sm o-grid--gutter">
+                            <div class="o-grid__item o-grid__item--width-33">
+                                <tal:image tal:condition="python:view.has_cover_image()">
+                                    <div class="o-page__figure"
+                                             tal:define="responsive_image python:context.restrictedTraverse('@@figure')(image_field_name='image', caption_field__name='image', scale='default', lqip=True, lazy_load=True)">
+                                        <span tal:replace="structure responsive_image" />
                                     </div>
-                                </div>
-                                <div class="c-card__main c-collapsible__item js-collapsible-item">
-                                    <ul class="c-nav-list">
-                                        <li class="c-nav-list__item" tal:condition="python:view.has_publications()">
-                                            <a class="c-nav-list__link"
-                                                     tal:attributes="href string:${context/absolute_url}/@@publications">
-                                                Publikationen</a>
-                                        </li>
-                                        <li class="c-nav-list__item">
-                                            <a class="c-nav-list__link" tal:attributes="href string:${context/absolute_url}/@@associated-lectures"
-                                                     i18n:translate="">Lehrveranstaltungen</a>
-                                        </li>
-                                        <tal:sub_contents tal:condition="python:subcontents">
-                                            <tal:block tal:repeat="item subcontents">
-                                                <li class="c-nav-list__item" tal:define="item_url item/getURL">
-                                                    <a data-appui="pjaxed"
-                                                       class="c-nav-list__link"
-                                                             tal:attributes="href item_url;
-                                                                    data-source-url string:${item_url}?ajax_load=1#content-core;
-                                                            data-appui-hide string:#page-content"
-                                                             tal:content="item/Title">Filter option</a>
-                                                </li>
-                                            </tal:block>
-                                        </tal:sub_contents>
-                                    </ul>
+                                </tal:image>
+                                <div class="o-figure" style="--aspect-ratio:1"
+                                         tal:condition="not:python:view.has_cover_image()">
+                                    <div class="o-figure__placeholder"></div>
                                 </div>
                             </div>
-                            <div class="c-card c-card-nav c-card--faculty c-card--offset"
-                                     tal:condition="contained_links">
-                                <div class="c-card__header">
-                                    Weiterführende Links
-                                </div>
-                                <div class="c-card__main">
-                                    <ul class="c-nav-list">
-                                        <tal:block tal:repeat="item contained_links">
-                                            <li class="c-nav-list__item" tal:define="item_url item/getURL">
-                                                <a class="c-nav-list__link"
-                                                         tal:attributes="href item_url"
-                                                         tal:content="item/Title">Filter option</a>
-                                            </li>
-                                        </tal:block>
-                                    </ul>
-                                </div>
+                            <div class="o-grid__item o-grid__item--width-66">
+                                <address>
+                                    <span tal:replace="context/street" /><br />
+                                    <span tal:replace="context/city" /><br />
+                                    <tal:block tal:condition="context/phone">
+                                        <abbr title="Phone">Tel:</abbr> <span tal:replace="context/phone" />
+                                    </tal:block><br />
+                                    <tal:block tal:condition="context/fax">
+                                        <abbr title="Fax">Fax:</abbr> <span tal:replace="context/fax" /><br />
+                                    </tal:block>
+                                    <a class="text-muted" tal:condition="context/email"
+                                             tal:attributes="href string:mailto:${context/email}"
+                                             tal:content="context/email" />
+                                </address>
                             </div>
                         </div>
-
+                    </section>
+                    <div class="o-page__section">
+                        <div class="o-page__body-text" tal:condition="context/text">
+                            <div tal:replace="structure context/text/output" />
+                        </div>
                     </div>
                 </div>
-            </section>
-
-
+            </div>
         </div>
 
     </metal:content-core>
