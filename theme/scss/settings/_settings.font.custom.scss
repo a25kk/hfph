@@ -9,8 +9,8 @@ $app-font-family-medium:            "TAZSemiLight";
 $app-font-family-strong:            "TAZ";
 
 // Configure site font stack
-$app-font-family-serif:             $app-font-family-base, Garamont, serif;
-$app-font-family-sans-serif:        'Times New Roman', Times;
+$app-font-family-serif:             $app-font-family-base, Garamont, 'Times New Roman', Times, serif;
+$app-font-family-sans-serif:        'Arial Narrow', Arial;
 
 $app-font-weight-base-custom:       $app-font-weight-base;
 $app-font-weight-strong-custom:     600;
