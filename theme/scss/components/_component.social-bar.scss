@@ -44,9 +44,10 @@ $c-social-bar-color-hover-xing:           #29888a;
   }
 }
 
-//.c-social-bar__text {
-//  font-size: calc(#{$app-font-size-base} / 2);
-//}
+.c-social-bar__text {
+  //font-size: calc(#{$app-font-size-base} / 2);
+  display: none;
+}
 
 .c-social-bar__button--facebook {
   @include button-variant($c-social-bar-color-facebook, $c-social-bar-color-facebook, $c-social-bar-color-hover-facebook, $c-social-bar-color-hover-facebook);
