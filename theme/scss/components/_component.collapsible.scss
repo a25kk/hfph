@@ -6,7 +6,7 @@ $c-collapsible-header-color:                $color-wild-sand;
     display: flex;
     width: 100%;
     background: $c-collapsible-header-color;
-    padding: $c-nav-list-padding;
+    padding: $c-nav-list-padding 1rem;
     border-bottom: $c-collapsible-border-width solid $c-collapsible-border-color;
     @include mq($until: xl) {
         cursor: pointer;
