@@ -266,17 +266,17 @@
 
 /* open-sans-300 - latin */
 @font-face {
-  font-family: 'TAZ';
+  font-family: 'Taz-SemiLight';
+  src: url("../assets/fonts/TazWt04-SemiLight.woff2") format("woff2"), url("../assets/fonts/TazWt04-SemiLight.woff") format("woff");
+  font-weight: normal;
   font-style: normal;
-  font-weight: bold;
-  src: local("TAZ Semibold"), local("TAZ-Semibold"), url("../assets/fonts/taz-semibold-webfont.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'TAZSemiLight';
-  font-style: normal;
+  font-family: 'Taz-SemiBold';
+  src: url("../assets/fonts/TazWt06-SemiBold.woff2") format("woff2"), url("../assets/fonts/TazWt06-SemiBold.woff") format("woff");
   font-weight: normal;
-  src: local("TAZ Semilight"), local("TAZ-Semilight"), url("../assets/fonts/taz-seml-webfont.woff") format("woff");
+  font-style: bold;
 }
 
 .hll {
@@ -645,7 +645,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Times New Roman", Times;
+  --font-family-sans-serif: "Arial Narrow", Arial;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -669,7 +669,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "adobe-garamond-pro", "adobe-garamond-pro", Garamont, serif;
+  font-family: "adobe-garamond-pro", "adobe-garamond-pro", Garamont, "Times New Roman", Times, serif;
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.5;
@@ -985,7 +985,7 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: "TAZ", "Times New Roman", Times;
+  font-family: "Taz-SemiBold", "Arial Narrow", Arial;
   font-weight: 500;
   line-height: 1.2;
 }
@@ -8633,14 +8633,14 @@ ul {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: "TAZ", "Times New Roman", Times;
+  font-family: "Taz-SemiBold", "Arial Narrow", Arial;
   font-weight: 500;
   line-height: 1.2;
 }
 
 h3, h4, h5, h6,
 .h3, .h4, .h5, .h6 {
-  font-family: "TAZSemiLight";
+  font-family: "Taz-SemiLight";
 }
 
 h1, .h1 {
@@ -9736,7 +9736,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 .o-burger__text {
   -ms-flex-item-align: end;
       align-self: flex-end;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   font-size: 1rem;
   color: #182f7a;
   text-transform: uppercase;
@@ -9908,7 +9908,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   top: 100%;
   left: 0;
   background-color: #efefef;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
 }
 
 .o-dropdown--hidden {
@@ -9988,7 +9988,7 @@ input, button, select, textarea {
 }
 
 .o-form__label {
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   font-weight: 400;
   line-height: 1.25;
 }
@@ -10453,7 +10453,7 @@ input, button, select, textarea {
 
 @media (min-width: 62em) {
   .o-aside {
-    margin-top: 5.5rem;
+    margin-top: 5.3rem;
   }
 }
 
@@ -10923,7 +10923,7 @@ input, button, select, textarea {
 
 .c-identifier__content {
   font-size: 1rem;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   text-align: right;
 }
 
@@ -10958,7 +10958,7 @@ input, button, select, textarea {
       -ms-user-select: none;
           user-select: none;
   border: 1px solid transparent;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   padding: 0.375rem 0.75rem;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -11317,7 +11317,7 @@ img[data-sizes="auto"] {
   margin-top: 3rem;
   color: #fff;
   background: #182f7a;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   font-size: 2rem;
   text-transform: uppercase;
   line-height: 1;
@@ -11577,7 +11577,7 @@ img[data-sizes="auto"] {
   width: 100%;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   text-transform: uppercase;
   font-size: 1.25rem;
 }
@@ -11939,7 +11939,7 @@ img[data-sizes="auto"] {
   padding-bottom: .75rem;
   text-decoration: none;
   color: #fff;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   text-transform: none;
   font-weight: 400;
   line-height: .7rem;
@@ -12131,7 +12131,7 @@ img[data-sizes="auto"] {
   margin-left: 0;
   padding-left: 0;
   list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
 }
 
 .c-nav-list__item {
@@ -12213,7 +12213,7 @@ img[data-sizes="auto"] {
 .c-quick-links__text {
   -ms-flex-item-align: end;
       align-self: flex-end;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   font-size: 0.8rem;
   color: #182f7a;
   text-transform: uppercase;
@@ -12283,7 +12283,7 @@ img[data-sizes="auto"] {
 .c-language-menu__text {
   -ms-flex-item-align: end;
       align-self: flex-end;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   font-size: 0.8rem;
   color: #182f7a;
   text-transform: uppercase;
@@ -12442,7 +12442,7 @@ img[data-sizes="auto"] {
   bottom: 14%;
   left: 0;
   padding: 2rem;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   font-size: 1.3rem;
   font-weight: 400;
   margin-bottom: .5rem;
@@ -12543,7 +12543,7 @@ img[data-sizes="auto"] {
 
 .c-snippet__footer {
   font-size: 1rem;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   padding-top: calc(1.25rem / 2);
 }
 
@@ -12556,7 +12556,7 @@ img[data-sizes="auto"] {
 }
 
 .c-page-department {
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   margin-bottom: 1rem;
 }
 
@@ -12656,7 +12656,7 @@ img[data-sizes="auto"] {
 
 .c-toolbar__title {
   text-align: center;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
 }
 
 .c-toolbar__actions {
@@ -12823,7 +12823,7 @@ img[data-sizes="auto"] {
   color: #fff !important;
   background-color: #212529;
   font-size: 1rem;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
 }
 
 .c-panel__icon:hover {
@@ -12938,7 +12938,7 @@ img[data-sizes="auto"] {
   color: #fff;
   background-color: #212529;
   font-size: 1rem;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
 }
 
 .c-panel-factory__action:hover {
@@ -12990,7 +12990,7 @@ img[data-sizes="auto"] {
 }
 
 .c-panel-editor__section-headline {
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   text-transform: uppercase;
 }
 
@@ -13045,7 +13045,7 @@ img[data-sizes="auto"] {
 
 .c-card__header {
   background: transparent;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
 }
 
 .c-card__header--faculty {
@@ -13085,7 +13085,7 @@ img[data-sizes="auto"] {
 
 .c-card__footer {
   margin-top: auto;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   font-size: 1rem;
 }
 
@@ -13133,7 +13133,7 @@ img[data-sizes="auto"] {
 }
 
 .c-card__title {
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   color: #182f7a;
 }
 
@@ -13142,7 +13142,7 @@ img[data-sizes="auto"] {
 }
 
 .c-card__detail {
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
 }
 
 .c-card--banner .c-card__header,
@@ -13151,7 +13151,7 @@ img[data-sizes="auto"] {
 }
 
 .c-toc {
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   position: relative;
   font-size: 1.25rem;
   margin-left: 0;
@@ -13159,7 +13159,7 @@ img[data-sizes="auto"] {
   list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
 }
 
-@media (min-width: 48em) {
+@media (min-width: 75em) {
   .c-toc {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -13170,14 +13170,6 @@ img[data-sizes="auto"] {
             flex-direction: row;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-  }
-}
-
-@media (min-width: 75em) {
-  .c-toc {
-    font-size: 1rem;
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
   }
 }
 
@@ -13197,7 +13189,7 @@ img[data-sizes="auto"] {
       flex-wrap: wrap;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 75em) {
   .c-toc__item--has-subtree {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -13221,7 +13213,7 @@ img[data-sizes="auto"] {
   padding-right: 0;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 75em) {
   .c-toc--level-1 .c-toc__item {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -13231,28 +13223,6 @@ img[data-sizes="auto"] {
         -ms-flex: 1 0 100%;
             flex: 1 0 100%;
     max-width: 100%;
-  }
-}
-
-@media (min-width: 48em) {
-  .c-toc__item {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 50%;
-            flex: 1 0 50%;
-    max-width: 50%;
-    margin-bottom: 1.5rem;
-    padding: .35rem 0 .35rem 0;
-  }
-}
-
-@media (min-width: 48em) {
-  .c-toc__item {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 0 33.3333%;
-            flex: 1 0 33.3333%;
-    max-width: 33.333%;
-    margin-bottom: 1.5rem;
-    padding: .35rem 0 .35rem 0;
   }
 }
 
@@ -13291,7 +13261,7 @@ img[data-sizes="auto"] {
   text-transform: none;
 }
 
-@media (max-width: 47.99em) {
+@media (max-width: 74.99em) {
   .c-toc--level-1 {
     -webkit-box-flex: 1;
         -ms-flex: 1 0 100%;
@@ -13304,7 +13274,7 @@ img[data-sizes="auto"] {
   display: block;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 75em) {
   .c-toc--level-1 {
     display: block;
   }
@@ -13321,7 +13291,7 @@ img[data-sizes="auto"] {
   font-size: 1.25rem;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 75em) {
   .c-toc__link {
     display: block;
     height: calc(1.25rem * 2.5);
@@ -13353,7 +13323,7 @@ img[data-sizes="auto"] {
   color: #fff;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 75em) {
   .c-toc__link-item--icon {
     display: none;
   }
@@ -13368,7 +13338,7 @@ img[data-sizes="auto"] {
   text-align: right;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 75em) {
   .c-toc__toggle {
     display: none;
   }
@@ -13652,7 +13622,7 @@ img[data-sizes="auto"] {
 
 .c-meta-nav__link {
   color: #212529;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   font-size: 1rem;
 }
 
@@ -13711,7 +13681,7 @@ img[data-sizes="auto"] {
 }
 
 .c-interferer__header {
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 1rem;
@@ -13962,14 +13932,14 @@ c-list--bordered .c-list__item:last-of-type {
   padding: .5rem 1rem;
   background: #efefef;
   font-weight: 700;
-  font-family: "TAZSemiLight";
+  font-family: "Taz-SemiLight";
   margin-bottom: .5rem;
 }
 
 .c-filter-list__result-count {
   margin-bottom: 1rem;
   font-weight: 700;
-  font-family: "TAZSemiLight";
+  font-family: "Taz-SemiLight";
 }
 
 .c-filter-list__result-index {
@@ -13988,20 +13958,20 @@ c-list--bordered .c-list__item:last-of-type {
   border-bottom: 0.125rem solid #eed343;
 }
 
-@media (max-width: 61.99em) {
+@media (max-width: 74.99em) {
   .c-collapsible__header {
     cursor: pointer;
     border-bottom: 0.125rem solid #eed343;
   }
 }
 
-@media (min-width: 62em) {
-  .c-collapsible__header--hidden-lg {
+@media (min-width: 75em) {
+  .c-collapsible__header--hidden-xl {
     display: none;
   }
 }
 
-@media (max-width: 61.99em) {
+@media (max-width: 74.99em) {
   .c-collapsible__item {
     max-height: 0;
     overflow: hidden;
@@ -14021,7 +13991,7 @@ c-list--bordered .c-list__item:last-of-type {
           flex: 1 0 50%;
   max-width: 50%;
   margin-bottom: 0;
-  font-family: "TAZSemiLight";
+  font-family: "Taz-SemiLight";
 }
 
 .c-collapsible__link--icon {
@@ -14029,13 +13999,13 @@ c-list--bordered .c-list__item:last-of-type {
   color: currentColor;
 }
 
-@media (min-width: 62em) {
+@media (min-width: 75em) {
   .c-collapsible__link--icon {
     display: none;
   }
 }
 
-@media (min-width: 62em) {
+@media (min-width: 75em) {
   .c-collapsible__link {
     -webkit-box-flex: 1;
         -ms-flex: 1 0 100%;
@@ -14083,7 +14053,7 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-teaser__footer {
   text-align: right;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   padding-bottom: 1rem;
 }
 
@@ -14104,7 +14074,7 @@ c-list--bordered .c-list__item:last-of-type {
 .c-event-info__title {
   margin-bottom: 0;
   padding-top: .3rem;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
 }
 
 @media (min-width: 48em) {
@@ -14251,7 +14221,7 @@ c-list--bordered .c-list__item:last-of-type {
 }
 
 .c-poster__header {
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   font-size: 1.5rem;
   line-height: 1.5;
 }
@@ -14339,7 +14309,7 @@ c-list--bordered .c-list__item:last-of-type {
 }
 
 .c-widget__content--header {
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   font-size: 2rem;
 }
 
@@ -14591,7 +14561,7 @@ c-list--bordered .c-list__item:last-of-type {
 }
 
 .c-widget-selector__headline {
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   text-transform: uppercase;
 }
 
