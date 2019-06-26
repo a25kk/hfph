@@ -9789,7 +9789,7 @@ input, button, select, textarea {
 /* class applies to select element itself, not a wrapper element */
 .o-select {
   display: block;
-  font-size: 16px;
+  font-size: 1.25rem;
   font-family: sans-serif;
   font-weight: 700;
   color: #444;

@@ -4,7 +4,7 @@
 
 $choices-selector: 'choices' !default;
 $choices-font-size-lg: $app-font-size-base !default;
-$choices-font-size-md: 14px !default;
+$choices-font-size-md: $app-font-size-base;
 $choices-font-size-sm: $app-font-size-sm !default;
 $choices-guttering: $app-spacer-base !default;
 $choices-border-radius: 0 !default;
@@ -14,7 +14,7 @@ $choices-bg-color-disabled: $app-color-gray-light !default;
 $choices-bg-color-dropdown: #FFFFFF !default;
 $choices-text-color: $app-color-text !default;
 $choices-keyline-color: #DDDDDD !default;
-$choices-primary-color: #00BCD4 !default;
+$choices-primary-color: $app-color-primary;
 $choices-disabled-color: #eaeaea !default;
 $choices-highlight-color: $choices-primary-color !default;
 $choices-button-dimension: 8px !default;
@@ -26,6 +26,8 @@ $choices-icon-cross-inverse: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiI
     position: relative;
     margin-bottom: $choices-guttering;
     font-size: $choices-font-size-lg;
+    font-weight: 700;
+    font-family: $app-font-family-strong;
     &:focus {
         outline: none;
     }
@@ -145,7 +147,7 @@ $choices-icon-cross-inverse: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiI
     padding: 7.5px 7.5px 3.75px;
     border: 1px solid $choices-keyline-color;
     border-radius: $choices-border-radius;
-    font-size: $choices-font-size-md;
+    font-size: $choices-font-size-sm;
     min-height: 44px;
     overflow: hidden;
     .is-focused &,
@@ -248,7 +250,7 @@ $choices-icon-cross-inverse: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiI
     .#{$choices-selector}__item {
         position: relative;
         padding: 10px;
-        font-size: $choices-font-size-md;
+        font-size: $choices-font-size-sm;
         [dir="rtl"] & {
             text-align: right;
         }
