@@ -266,17 +266,17 @@
 
 /* open-sans-300 - latin */
 @font-face {
-  font-family: 'TAZ';
+  font-family: 'Taz-SemiLight';
+  src: url("../assets/fonts/TazWt04-SemiLight.woff2") format("woff2"), url("../assets/fonts/TazWt04-SemiLight.woff") format("woff");
+  font-weight: normal;
   font-style: normal;
-  font-weight: bold;
-  src: local("TAZ Semibold"), local("TAZ-Semibold"), url("../assets/fonts/taz-semibold-webfont.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'TAZSemiLight';
-  font-style: normal;
+  font-family: 'Taz-SemiBold';
+  src: url("../assets/fonts/TazWt06-SemiBold.woff2") format("woff2"), url("../assets/fonts/TazWt06-SemiBold.woff") format("woff");
   font-weight: normal;
-  src: local("TAZ Semilight"), local("TAZ-Semilight"), url("../assets/fonts/taz-seml-webfont.woff") format("woff");
+  font-style: bold;
 }
 
 @font-face {
@@ -1025,7 +1025,7 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: "TAZ", "Arial Narrow", Arial;
+  font-family: "Taz-SemiBold", "Arial Narrow", Arial;
   font-weight: 500;
   line-height: 1.2;
 }
@@ -8298,14 +8298,14 @@ ul {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: "TAZ", "Arial Narrow", Arial;
+  font-family: "Taz-SemiBold", "Arial Narrow", Arial;
   font-weight: 500;
   line-height: 1.2;
 }
 
 h3, h4, h5, h6,
 .h3, .h4, .h5, .h6 {
-  font-family: "TAZSemiLight";
+  font-family: "Taz-SemiLight";
 }
 
 h1, .h1 {
@@ -9505,7 +9505,7 @@ input, button, select, textarea {
 }
 
 .o-form__label {
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   font-weight: 400;
   line-height: 1.25;
 }
@@ -9981,7 +9981,7 @@ input, button, select, textarea {
       -ms-user-select: none;
           user-select: none;
   border: 1px solid transparent;
-  font-family: "TAZ";
+  font-family: "Taz-SemiBold";
   padding: 0.375rem 0.75rem;
   font-size: 1.25rem;
   line-height: 1.5;
