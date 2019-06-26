@@ -25,10 +25,10 @@ $c-nav-list-color-bg-highlight:                 $app-color-gray-base;
     padding-bottom: $c-nav-list-padding;
     padding-left: calc(#{$c-nav-list-padding} * 2);
     padding-right: calc(#{$c-nav-list-padding} * 2);
-    @include when-inside('.c-card--faculty') {
-        padding-left: calc(#{$c-nav-list-padding} * 2);
-        padding-right: calc(#{$c-nav-list-padding} * 2);
-        }
+    //@include when-inside('.c-card--faculty') {
+    //    padding-left: calc(#{$c-nav-list-padding} * 2);
+    //    padding-right: calc(#{$c-nav-list-padding} * 2);
+    //    }
     &--active {
         color: #fff;
         background-color: $app-color-gray-lighter;
