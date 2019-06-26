@@ -12144,6 +12144,8 @@ img[data-sizes="auto"] {
   width: 100%;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  padding-left: calc(0.5rem * 2);
+  padding-right: calc(0.5rem * 2);
 }
 
 .c-card--faculty .c-nav-list__link {
@@ -13439,6 +13441,10 @@ img[data-sizes="auto"] {
   color: #fff;
 }
 
+.c-social-bar__text {
+  display: none;
+}
+
 .c-social-bar__button--facebook {
   color: #fff;
   background-color: #3b5998;
@@ -13954,7 +13960,7 @@ c-list--bordered .c-list__item:last-of-type {
   display: flex;
   width: 100%;
   background: whitesmoke;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   border-bottom: 0.125rem solid #eed343;
 }
 
