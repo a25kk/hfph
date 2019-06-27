@@ -8118,7 +8118,6 @@ a.text-danger:hover, a.text-danger:focus {
   position: relative;
   margin-bottom: calc(1.25rem * 1.5);
   font-size: 1.25rem;
-  font-weight: 700;
   font-family: "Taz-SemiBold";
 }
 
@@ -11672,14 +11671,6 @@ img[data-sizes="auto"] {
 
 .c-nav__item--has-children {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 .c-nav__link {
@@ -11689,10 +11680,7 @@ img[data-sizes="auto"] {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 calc(100% - 4rem);
-          flex: 1 0 calc(100% - 4rem);
-  max-width: calc(100% - 4rem);
+  width: 100%;
   padding-top: .75rem;
   padding-bottom: .75rem;
   text-decoration: none;
@@ -11748,12 +11736,19 @@ img[data-sizes="auto"] {
   }
 }
 
+.c-nav__link-text {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 calc(100% - 4rem);
+          flex: 1 0 calc(100% - 4rem);
+  max-width: calc(100% - 4rem);
+}
+
 .c-nav__link--action {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 3rem;
           flex: 0 0 3rem;
   max-width: 3rem;
-  padding-left: .25rem;
+  padding-left: .75rem;
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
@@ -11857,10 +11852,6 @@ img[data-sizes="auto"] {
 
 .c-nav__dropdown {
   display: none;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 100%;
-          flex: 1 0 100%;
-  max-width: 100%;
   z-index: 1002;
   width: 100%;
   margin: 0;
