@@ -11,10 +11,10 @@ $c-poster-padding:                $app-spacer-base;
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 3rem;
+  padding: 1rem;
   color: $c-poster-color;
   @include mq($from: md) {
-    padding: 6rem;
+    padding: 3rem;
   }
 }
 

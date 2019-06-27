@@ -6,21 +6,21 @@ $c-collapsible-header-color:                $color-wild-sand;
     display: flex;
     width: 100%;
     background: $c-collapsible-header-color;
-    padding: $c-nav-list-padding;
+    padding: $c-nav-list-padding 1rem;
     border-bottom: $c-collapsible-border-width solid $c-collapsible-border-color;
-    @include mq($until: lg) {
+    @include mq($until: xl) {
         cursor: pointer;
         border-bottom: $c-collapsible-border-width solid $c-collapsible-border-color;
     }
-    &--hidden-lg {
-        @include mq($from: lg) {
+    &--hidden-xl {
+        @include mq($from: xl) {
             display: none;
         }
     }
 }
 
 .c-collapsible__item {
-    @include mq($until: lg) {
+    @include mq($until: xl) {
         max-height: 0;
         overflow: hidden;
         transition: max-height .25s ease-in-out;
@@ -39,11 +39,11 @@ $c-collapsible-header-color:                $color-wild-sand;
     &--icon {
         text-align: right;
         color: currentColor;
-        @include mq($from: lg) {
+        @include mq($from: xl) {
             display: none;
         }
     }
-    @include mq($from: lg) {
+    @include mq($from: xl) {
         flex: 1 0 100%;
         max-width: 100%;
     }

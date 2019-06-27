@@ -1,7 +1,7 @@
 /* class applies to select element itself, not a wrapper element */
 .o-select {
     display: block;
-    font-size: 16px;
+    font-size: $app-font-size-base;
     font-family: sans-serif;
     font-weight: 700;
     color: #444;

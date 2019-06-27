@@ -9,6 +9,7 @@
     <include package=".image" />
     <include package=".content" />
     <include package=".teaser" />
+    <include package=".slider" />
 
     <!-- Content Listing -->
     <browser:page
