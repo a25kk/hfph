@@ -152,14 +152,14 @@ define([
                 let elementParent = element.parentNode;
                 if (elementParent && $elementParent.classList.contains(options.containedDropdownClass)) {
                     navigationDrawerClose(options);
-                    elementParent.classList.removeoptions.containedDropdownClass);
-        }
-    else {
-            navigationDrawerOpen(element, options);
-        }
-    });
-});
-}
+                    elementParent.classList.remove(options.containedDropdownClass);
+                }
+                else {
+                    navigationDrawerOpen(element, options);
+                }
+            });
+        });
+    }
 
     function handleBackDropEvent(options, event, bodyElement) {
         event.stopPropagation();

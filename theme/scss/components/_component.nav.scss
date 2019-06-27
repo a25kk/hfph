@@ -57,6 +57,9 @@ $c-nav-color-highlight:         $app-color-secondary;
         display: flex;
         padding: 0;
     }
+    @include when-inside('.c-nav__dropdown--open') {
+        padding-left: 1rem;
+    }
 }
 
 .c-nav__item--has-children {
@@ -199,6 +202,9 @@ $c-nav-color-highlight:         $app-color-secondary;
         width: 2rem;
         height: 2rem;
     }
+    @include when-inside('.c-nav__item--has-dropdown') {
+        transform: rotate(90deg);
+    }
 }
 
 // Dropdown menus
@@ -213,18 +219,6 @@ $c-nav-color-highlight:         $app-color-secondary;
     &--open {
         display: block;
         height: auto;
-    }
-    @include mq($from: md) {
-        width: 50vw;
-    }
-    @include mq($from: navbar) {
-    //     display: none;
-    //     position: absolute;
-    //     top: 100%;
-    //     left: 0;
-    //     z-index: $zindex-dropdown;
-    //     float: left;
-    //     width: 50vw;
     }
 }
 

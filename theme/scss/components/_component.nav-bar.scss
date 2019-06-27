@@ -5,6 +5,7 @@
     z-index: 1001;
     width: 90vw;
     height: 100vh;
+    overflow-y: scroll;
     @if $nav-bar-overlay-ltr == true {
         left: $nav-bar-position-default;
     } @else {
