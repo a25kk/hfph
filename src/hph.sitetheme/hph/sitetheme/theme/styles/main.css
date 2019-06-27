@@ -10733,7 +10733,7 @@ input, button, select, textarea {
 
 @media (min-width: 48em) and (max-width: 61.99em) {
   .app-main {
-    padding-top: calc(8rem + 1.5rem);
+    padding-top: calc(8rem + 2rem);
   }
 }
 
@@ -14211,13 +14211,13 @@ c-list--bordered .c-list__item:last-of-type {
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 3rem;
+  padding: 1rem;
   color: #fff;
 }
 
 @media (min-width: 48em) {
   .c-poster__main {
-    padding: 6rem;
+    padding: 3rem;
   }
 }
 
@@ -14236,6 +14236,31 @@ c-list--bordered .c-list__item:last-of-type {
 .c-poster__description {
   font-size: 1.25rem;
   line-height: 1.5;
+}
+
+.c-slider {
+  display: block;
+  width: 100%;
+}
+
+.c-slide {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.c-slide__main {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 3rem;
+  color: #fff;
+}
+
+@media (min-width: 48em) {
+  .c-slide__main {
+    padding: 6rem;
+  }
 }
 
 .c-page-header {

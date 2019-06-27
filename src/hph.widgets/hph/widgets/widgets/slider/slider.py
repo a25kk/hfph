@@ -6,6 +6,7 @@ from Acquisition import aq_inner
 from Products.Five import BrowserView
 from ade25.base.interfaces import IContentInfoProvider
 from ade25.widgets.interfaces import IContentWidgets
+from plone import api
 from plone.app.contenttypes.utils import replace_link_variables_by_paths
 
 
@@ -99,7 +100,7 @@ class WidgetSlider(BrowserView):
 
     def widget_content_list_class(self):
         context = aq_inner(self.context)
-        css_class = 'c-slider__ c-slider--gutter c-list--grid c-list--{}'.format(
+        css_class = 'c-slider__items c-slider__items--{}'.format(
             context.UID())
         custom_styles = self.widget_custom_styles()
         if custom_styles:
@@ -121,3 +122,28 @@ class WidgetSlider(BrowserView):
         content_info_provider = IContentInfoProvider(item)
         time_stamp = content_info_provider.time_stamp(date_time)
         return time_stamp
+
+    @staticmethod
+    def has_stored_image(image_object):
+        context = image_object
+        try:
+            lead_img = context.image
+        except AttributeError:
+            lead_img = None
+        if lead_img is not None:
+            return True
+        return False
+
+    def image_tag(self, image_uid):
+        image = api.content.get(UID=image_uid)
+        if self.has_stored_image(image):
+            figure = image.restrictedTraverse('@@figure')(
+                image_field_name='image',
+                caption_field_name='image_caption',
+                scale='ratio-16:9',
+                aspect_ratio='16/9',
+                lqip=True,
+                lazy_load=True
+            )
+            return figure
+        return None
