@@ -34,5 +34,18 @@ PKG_WIDGETS = {
             "title": "Teaser Internal Link",
             "schema": "hph.widgets.widgets.teaser.interfaces.IHPHWidgetLinkInternal"  # noqa
         }
+    },
+    "hph-slider": {
+        "pkg": "hph.widgets",
+        "id": "hph-slider",
+        "name": "HfPH Slider",
+        "title": "Slider",
+        "category": "more",
+        "type": "collection",
+        "schema": "hph.widgets.widgets.slider.interfaces.IHPHWidgetSlider",  # noqa
+        "node": {
+            "title": "Teaser Internal Link",
+            "schema": "hph.widgets.widgets.teaser.interfaces.IHPHWidgetLinkInternal"  # noqa
+        }
     }
 }

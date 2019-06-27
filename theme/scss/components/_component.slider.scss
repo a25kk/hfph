@@ -1,0 +1,24 @@
+$c-poster-color:                  $app-color-white;
+$c-poster-padding:                $app-spacer-base;
+
+.c-slider {
+  display: block;
+  width: 100%;
+}
+
+.c-slide {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.c-slide__main {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 3rem;
+  color: $c-poster-color;
+  @include mq($from: md) {
+    padding: 6rem;
+  }
+}
