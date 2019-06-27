@@ -21,14 +21,8 @@ $c-nav-list-color-bg-highlight:                 $app-color-gray-base;
 .c-nav-list__link {
     display: block;
     width: 100%;
-    padding-top: $c-nav-list-padding;
-    padding-bottom: $c-nav-list-padding;
-    padding-left: calc(#{$c-nav-list-padding} * 2);
-    padding-right: calc(#{$c-nav-list-padding} * 2);
-    //@include when-inside('.c-card--faculty') {
-    //    padding-left: calc(#{$c-nav-list-padding} * 2);
-    //    padding-right: calc(#{$c-nav-list-padding} * 2);
-    //    }
+    padding: $c-nav-list-padding calc(#{$c-nav-list-padding} * 2);
+    transition: none;
     &--active {
         color: #fff;
         background-color: $app-color-gray-lighter;
@@ -36,6 +30,8 @@ $c-nav-list-color-bg-highlight:                 $app-color-gray-base;
     &:hover {
         color: #fff;
         background-color: $app-color-gray-lighter;
+        transition: none;
+        text-decoration: none;
     }
 
     @include when-inside('.c-nav-list--level-0') {

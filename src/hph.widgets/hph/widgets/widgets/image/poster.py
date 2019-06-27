@@ -6,6 +6,7 @@ from Acquisition import aq_inner
 from Products.Five import BrowserView
 from ade25.widgets.interfaces import IContentWidgets
 from plone import api
+from plone.app.contenttypes.utils import replace_link_variables_by_paths
 
 
 class WidgetImagePoster(BrowserView):
@@ -87,6 +88,12 @@ class WidgetImagePoster(BrowserView):
             'image': self.image_tag(widget_content['image']),
             'headline': widget_content['title'],
             'text': widget_content['description'],
-            'public': widget_content['is_public']
+            'public': widget_content['is_public'],
+            'link': widget_content.get('link', None)
         }
         return data
+
+    def get_link_action(self, link):
+        context = aq_inner(self.context)
+        link_action = replace_link_variables_by_paths(context, link)
+        return link_action
