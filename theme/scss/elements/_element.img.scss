@@ -14,7 +14,7 @@ img[data-sizes="auto"] {
 // removing blur when the high quality images have lazy loaded
 .o-image--lazy-load {
     filter: blur(10px);
-    transition: filter 400ms;
+    // transition: filter 400ms;
 }
 
 .o-image--loaded {
