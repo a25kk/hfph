@@ -149,19 +149,17 @@ define([
             element.addEventListener('click', function(event) {
                 event.preventDefault();
                 event.stopPropagation();
-                let $elementParent = element.parentNode;
-                if ($elementParent && $elementParent.classList.contains(options.menuDropdownOpen)) {
-                    console.log('Already open');
-                }
-                if ($elementParent && !$elementParent.classList.contains(options.menuDropdownOpen)) {
-                    navigationDrawerOpen(element, options);
-                } else {
+                let elementParent = element.parentNode;
+                if (elementParent && $elementParent.classList.contains(options.containedDropdownClass)) {
                     navigationDrawerClose(options);
-                }
-                console.log("drawer link clicked");
-            });
-        });
-    }
+                    elementParent.classList.removeoptions.containedDropdownClass);
+        }
+    else {
+            navigationDrawerOpen(element, options);
+        }
+    });
+});
+}
 
     function handleBackDropEvent(options, event, bodyElement) {
         event.stopPropagation();

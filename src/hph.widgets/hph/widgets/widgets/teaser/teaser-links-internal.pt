@@ -17,15 +17,17 @@
                          tal:attributes="class python:'c-list__item c-list__item--width-25 c-list__item--snippet'">
                     <div class="c-link-tile c-link-tile--default" tal:condition="widget_node">
                         <div class="c-link-tile__aside">
-                            <div class="c-link-tile__asset"
-                                tal:define="action_icon python:widget_node['icon'] or 'tile'">
+                            <a class="c-link-tile__link" tal:attributes="href python:view.get_link_action(widget_node['link'])">
+                                <div class="c-link-tile__asset"
+                                    tal:define="action_icon python:widget_node['icon'] or 'tile'">
 
-                                <svg class="o-icon o-icon-widget-text-block-dims"
-                                         tal:attributes="class python:'o-icon o-icon--size-5 o-icon--spacer o-icon--muted o-icon-' + action_icon + '-dims c-link-tile__icon'">
-                                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#icon--{action_icon}-block"
-                                             tal:attributes="xlink:href python:'/assets/symbol/svg/sprite.symbol.svg#' + action_icon"></use>
-                                </svg>
-                            </div>
+                                    <svg class="o-icon o-icon-widget-text-block-dims"
+                                             tal:attributes="class python:'o-icon o-icon--size-5 o-icon--spacer o-icon--muted o-icon-' + action_icon + '-dims c-link-tile__icon'">
+                                        <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#icon--{action_icon}-block"
+                                                 tal:attributes="xlink:href python:'/assets/symbol/svg/sprite.symbol.svg#' + action_icon"></use>
+                                    </svg>
+                                </div>
+                            </a>
                         </div>
                         <div class="c-link-tile__main">
                             <div class="c-link-tile__header">

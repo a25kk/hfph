@@ -22,8 +22,8 @@ requirejs(['require',
         var fontPrimary = new FontFaceObserver('adobe-garamond-pro', {
             weight: 400
         });
-        var fontSecondary = new FontFaceObserver('TAZ');
-        var fontTertiary = new FontFaceObserver('TAZSemiLight');
+        var fontSecondary = new FontFaceObserver('Taz-SemiBold');
+        var fontTertiary = new FontFaceObserver('Taz-SemiLight');
 
         fontPrimary.load(null, 3000).then(function () {
             document.documentElement.className += " font__primary--loaded";

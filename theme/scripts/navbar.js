@@ -107,10 +107,12 @@ define([
     function navigationDrawerOpen(el, options) {
         // Toggle sub level navigation drawers
         let $dropdownToggle = el,
+            navListItem = $dropdownToggle.parentNode,
             $elementParent = el.closest(options.menu),
             currentDropDown = el.nextElementSibling,
             $activeNavLink = document.querySelector(options.dropdownOpenClass),
             $menuDropDownContained = document.querySelector(options.containedDropdownClass);
+        navListItem.classList.add(options.containedDropdownClass);
         currentDropDown.classList.remove(options.menuDropdownDisabled);
         currentDropDown.classList.add(options.menuDropdownOpen);
         setTimeout(function() {
@@ -147,16 +149,17 @@ define([
             element.addEventListener('click', function(event) {
                 event.preventDefault();
                 event.stopPropagation();
-                let $elementParent = element.closest(options.menu);
-                if ($elementParent && !$elementParent.classList.contains(options.menuDropdownOpen)) {
-                    navigationDrawerOpen(element, options);
-                } else {
+                let elementParent = element.parentNode;
+                if (elementParent && $elementParent.classList.contains(options.containedDropdownClass)) {
                     navigationDrawerClose(options);
-                }
-
-            });
-        });
-    }
+                    elementParent.classList.removeoptions.containedDropdownClass);
+        }
+    else {
+            navigationDrawerOpen(element, options);
+        }
+    });
+});
+}
 
     function handleBackDropEvent(options, event, bodyElement) {
         event.stopPropagation();
