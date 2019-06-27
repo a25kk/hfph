@@ -8590,11 +8590,6 @@ img[data-sizes="auto"] {
 .o-image--lazy-load {
   -webkit-filter: blur(10px);
           filter: blur(10px);
-  -webkit-transition: -webkit-filter 400ms;
-  transition: -webkit-filter 400ms;
-  -o-transition: filter 400ms;
-  transition: filter 400ms;
-  transition: filter 400ms, -webkit-filter 400ms;
 }
 
 .o-image--loaded {
@@ -12142,10 +12137,10 @@ img[data-sizes="auto"] {
 .c-nav-list__link {
   display: block;
   width: 100%;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: calc(0.5rem * 2);
-  padding-right: calc(0.5rem * 2);
+  padding: 0.5rem calc(0.5rem * 2);
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
 }
 
 .c-nav-list__link--active {
@@ -12156,6 +12151,10 @@ img[data-sizes="auto"] {
 .c-nav-list__link:hover {
   color: #fff;
   background-color: #999999;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+  text-decoration: none;
 }
 
 .c-nav-list--level-0 .c-nav-list__link {
@@ -14236,6 +14235,15 @@ c-list--bordered .c-list__item:last-of-type {
 .c-poster__description {
   font-size: 1.25rem;
   line-height: 1.5;
+}
+
+.c-poster__link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.c-poster__link:hover {
+  color: #fff;
 }
 
 .c-slider {

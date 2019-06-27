@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module providing standalone content panel edit forms"""
+from plone.app.z3cform.widget import LinkFieldWidget
+from plone.autoform import directives
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.namedfile import field as named_file
 from zope import schema
@@ -27,4 +29,10 @@ class IHPHWidgetImagePoster(Interface):
     image_caption = schema.TextLine(
         title=_(u"Poster Image Copyright Information"),
         required=False
+    )
+    directives.widget(link=LinkFieldWidget)
+    link = schema.TextLine(
+        title=_(u"Link"),
+        description=_(u"Please select link target"),
+        required=False,
     )

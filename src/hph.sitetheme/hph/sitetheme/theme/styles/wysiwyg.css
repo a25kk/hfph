@@ -8255,11 +8255,6 @@ img[data-sizes="auto"] {
 .o-image--lazy-load {
   -webkit-filter: blur(10px);
           filter: blur(10px);
-  -webkit-transition: -webkit-filter 400ms;
-  transition: -webkit-filter 400ms;
-  -o-transition: filter 400ms;
-  transition: filter 400ms;
-  transition: filter 400ms, -webkit-filter 400ms;
 }
 
 .o-image--loaded {
