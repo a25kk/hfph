@@ -9747,7 +9747,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 
 .o-burger__icon {
   margin-right: .25rem;
-  margin-bottom: .075rem;
+  margin-bottom: -.25rem;
   font-size: 1.5rem;
   color: #182f7a;
 }
@@ -12223,7 +12223,6 @@ img[data-sizes="auto"] {
 
 .c-quick-links__icon {
   margin-right: .25rem;
-  margin-bottom: .075rem;
   font-size: 1.5rem;
   color: #182f7a;
   width: 1rem;
@@ -12293,7 +12292,6 @@ img[data-sizes="auto"] {
 
 .c-language-menu__icon {
   margin-right: .5rem;
-  margin-bottom: .075rem;
   font-size: 1.5rem;
   color: #182f7a;
   width: 1rem;
