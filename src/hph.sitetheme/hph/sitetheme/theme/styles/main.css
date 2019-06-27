@@ -14211,13 +14211,13 @@ c-list--bordered .c-list__item:last-of-type {
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 3rem;
+  padding: 1rem;
   color: #fff;
 }
 
 @media (min-width: 48em) {
   .c-poster__main {
-    padding: 6rem;
+    padding: 3rem;
   }
 }
 
