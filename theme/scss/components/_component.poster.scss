@@ -31,3 +31,11 @@ $c-poster-padding:                $app-spacer-base;
   font-size: $app-font-size-base;
   line-height: $app-line-height-sm;
 }
+
+.c-poster__link {
+  color: $c-poster-color;
+  text-decoration: none;
+  &:hover {
+    color: $c-poster-color;
+  }
+}

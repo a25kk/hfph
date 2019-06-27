@@ -14238,6 +14238,15 @@ c-list--bordered .c-list__item:last-of-type {
   line-height: 1.5;
 }
 
+.c-poster__link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.c-poster__link:hover {
+  color: #fff;
+}
+
 .c-slider {
   display: block;
   width: 100%;
