@@ -145,6 +145,7 @@ define([
             isCurrentToggle = false;
         [].forEach.call($dropDownToggle, function(element) {
             element.addEventListener('click', function(event) {
+                event.preventDefault();
                 event.stopPropagation();
                 let $elementParent = element.closest(options.menu);
                 if ($elementParent && !$elementParent.classList.contains(options.menuDropdownOpen)) {

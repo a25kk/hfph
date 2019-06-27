@@ -3,8 +3,8 @@ $c-nav-color-highlight:         $app-color-secondary;
 
 // TODO: refactor styles
 .c-nav {
-    position: absolute;
-    top: 120px;
+    position: relative;
+    // top: 120px;
     width: 100%;
     height: calc(100% - 120px);
     overflow: visible;
@@ -25,19 +25,12 @@ $c-nav-color-highlight:         $app-color-secondary;
         padding-left: .5rem;
         justify-content: space-between;
     }
-    &--level-1 {
-        height: 0;
-        overflow-y: scroll;
-    }
 }
 
 .c-nav--level-1 {
     position: relative;
-    right: -100%;
-    @include mq($from: navbar) {
-        right: 0;
-        display: none;
-    }
+    // height: 0;
+    overflow-y: scroll;
 }
 
 .c-nav__item {
@@ -70,12 +63,14 @@ $c-nav-color-highlight:         $app-color-secondary;
     position: relative;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .c-nav__link {
     display: flex;
     align-items: center;
-    flex: 1 0 auto;
+    flex: 1 0 calc(100% - 4rem);
+    max-width: calc(100% - 4rem);
     padding-top: .75rem;
     padding-bottom: .75rem;
     text-decoration: none;
@@ -124,11 +119,15 @@ $c-nav-color-highlight:         $app-color-secondary;
     }
 }
 
+.c-nav-link__text {
+    flex: 1 0 calc(100% - 4rem);
+    max-width: calc(100% - 4rem);
+}
+
 .c-nav__link--action {
-    flex-grow: 0;
-    width: 3rem;
-    padding-right: 1rem;
-    padding-left: 2rem;
+    flex: 0 0 3rem;
+    max-width: 3rem;
+    padding-left: .75rem;
     align-self: flex-end;
     @include when-inside('.c-nav__item--parent') {
         width: 2rem;
@@ -208,18 +207,19 @@ $c-nav-color-highlight:         $app-color-secondary;
 
 // Dropdown menus
 .c-nav__dropdown {
-    // display: block;
-    position: fixed;
-    top: 4rem;
-    right: 0;
+    display: none;
+    flex: 1 0 100%;
+    max-width: 100%;
     z-index: 1002;
-    width: 90vw;
-    height: calc(100vh - 60px);
-    margin: 2rem 0 0;
+    width: 100%;
+    // height: calc(100vh - 60px);
+    margin: 0;
+    padding: 0;
     background-color: $app-color-primary;
-    // box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    transition:right .25s linear;
+    &--open {
+        display: block;
+        height: auto;
+    }
     @include mq($from: md) {
         width: 50vw;
     }
@@ -235,6 +235,6 @@ $c-nav-color-highlight:         $app-color-secondary;
 }
 
 .c-nav__dropdown--hidden {
-    right: -100%;
-    transition:right .25s linear;
+    // right: -100%;
+    // transition:right .25s linear;
 }

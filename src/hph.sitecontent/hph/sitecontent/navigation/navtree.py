@@ -129,7 +129,8 @@ class NavTreeProvider(ContentProviderBase):
                 is_current=' c-nav__item--current' if it['is_current'] else ''
             )
             out += u"""<a href="{url}" class="c-nav__link c-nav__link--default 
-                    c-nav__link--state-{review_state}" aria-haspopup="true">
+                    c-nav__link--state-{review_state} js-dropdown-toggle"
+                    aria-haspopup="true">
                     {title}</a>{opener}""".format(
                 url=it['url'],
                 review_state=it['review_state'],
