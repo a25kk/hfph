@@ -11675,6 +11675,10 @@ img[data-sizes="auto"] {
   padding-left: 1rem;
 }
 
+.c-nav__dropdown--open .c-nav__item:last-child {
+  border-bottom: 0px solid #dee2e6;
+}
+
 .c-nav__item--has-children {
   position: relative;
 }
@@ -11874,6 +11878,7 @@ img[data-sizes="auto"] {
 .c-nav__dropdown--open {
   display: block;
   height: auto;
+  margin-bottom: 2rem;
 }
 
 .c-nav-list {
