@@ -100,8 +100,10 @@ class WidgetSlider(BrowserView):
 
     def widget_content_list_class(self):
         context = aq_inner(self.context)
-        css_class = 'c-slider__items c-slider__items--{}'.format(
-            context.UID())
+        css_class = 'c-slider__items c-slider__items--{0} {1}'.format(
+            context.UID(),
+            'js-slider'
+        )
         custom_styles = self.widget_custom_styles()
         if custom_styles:
             class_container = custom_styles['class_container']
