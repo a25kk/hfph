@@ -44,8 +44,8 @@ PKG_WIDGETS = {
         "type": "collection",
         "schema": "hph.widgets.widgets.slider.interfaces.IHPHWidgetSlider",  # noqa
         "node": {
-            "title": "Teaser Internal Link",
-            "schema": "hph.widgets.widgets.teaser.interfaces.IHPHWidgetLinkInternal"  # noqa
+            "title": "Slide",
+            "schema": "hph.widgets.widgets.slider.interfaces.IHPHWidgetSliderItem"  # noqa
         }
     }
 }
