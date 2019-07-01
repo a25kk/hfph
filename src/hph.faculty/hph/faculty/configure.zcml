@@ -37,5 +37,6 @@
       />
 
   <!-- -*- extra stuff goes here -*- -->
+    <include file="upgrades.zcml" />
 
 </configure>
