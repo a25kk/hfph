@@ -8587,13 +8587,14 @@ img[data-sizes="auto"] {
 }
 
 .o-image--lazy-load {
-  -webkit-filter: blur(10px);
-          filter: blur(10px);
+  opacity: 0;
+  -webkit-transition: opacity 200ms;
+  -o-transition: opacity 200ms;
+  transition: opacity 200ms;
 }
 
 .o-image--loaded {
-  -webkit-filter: blur(0);
-          filter: blur(0);
+  opacity: 1;
 }
 
 .o-image--inline {
@@ -11512,6 +11513,7 @@ img[data-sizes="auto"] {
   z-index: 1001;
   width: 90vw;
   height: 100vh;
+  overflow-y: scroll;
   right: -100%;
   border-top: 0px solid #212529;
   background-color: #182f7a;

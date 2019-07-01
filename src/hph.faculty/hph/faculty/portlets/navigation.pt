@@ -1,0 +1,66 @@
+<div xmlns:xlink="http://www.w3.org/1999/xlink"
+     i18n:domain="hph.faculty"
+    tal:condition="python:view.available">
+    <div class="c-card c-card-nav c-card--faculty"
+             tal:define="subcontents python:context.restrictedTraverse('@@folderListing')(portal_type=['Folder', 'hph.sitecontent.contentpage'])">
+        <tal:navtree tal:define="contained_items python:view.content_items()">
+            <div class="c-card__header c-collapsible__header c-collapsible__header--hidden-lg js-collapsible-toggle">
+                <h4 class="c-card__title c-collapsible__link">
+                    Weitere Inhalte
+                </h4>
+                <div class="c-collapsible__link c-collapsible__link--icon">
+                    <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--add-dims c-toc__icon c-toc__icon--open">
+                        <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--add"></use>
+                    </svg>
+                    <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--remove-dims c-toc__icon c-toc__icon--close">
+                        <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--remove"></use>
+                    </svg>
+                </div>
+            </div>
+            <div class="c-card__main c-collapsible__item js-collapsible-item">
+                <ul class="c-nav-list">
+                    <li class="c-nav-list__item" tal:condition="python:view.has_publications()">
+                        <a class="c-nav-list__link"
+                                 tal:attributes="href python:view.faculty_member().absolute_url() + '/@@publications'">
+                            Publikationen</a>
+                    </li>
+                    <li class="c-nav-list__item">
+                        <a class="c-nav-list__link"
+                                 tal:attributes="href python:view.faculty_member().absolute_url() + '/@@associated-lectures'"
+                                 i18n:translate="">Lehrveranstaltungen</a>
+                    </li>
+                    <tal:sub_contents tal:condition="python:contained_items">
+                        <tal:block tal:repeat="item contained_items">
+                            <li class="c-nav-list__item">
+                                <a data-appui="pjaxed"
+                                   class="c-nav-list__link"
+                                         tal:attributes="href python:item['url']"
+                                         tal:content="python:item['title']">
+                                    Filter option</a>
+                            </li>
+                        </tal:block>
+                    </tal:sub_contents>
+                </ul>
+            </div>
+        </tal:navtree>
+    </div>
+    <tal:links tal:condition="python:view.has_content_links()">
+        <div class="c-card c-card-nav c-card--faculty c-card--offset"
+                 tal:condition="contained_links">
+            <div class="c-card__header">
+                Weiterführende Links
+            </div>
+            <div class="c-card__main">
+                <ul class="c-nav-list">
+                    <tal:block tal:repeat="item python:view.content_links()">
+                        <li class="c-nav-list__item" tal:define="item_url python:item['url']">
+                            <a class="c-nav-list__link"
+                                     tal:attributes="href item_url"
+                                     tal:content="python:item['title']">Filter option</a>
+                        </li>
+                    </tal:block>
+                </ul>
+            </div>
+        </div>
+    </tal:links>
+</div>

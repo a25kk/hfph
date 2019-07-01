@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<portlets>
+    <portlet
+            addview="hph.faculty.navigation"
+            title="Faculty Member Contents"
+            description="A nav tree card displaying faculty member content"
+    />
+</portlets>
