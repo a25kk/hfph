@@ -59,6 +59,9 @@ $c-nav-color-highlight:         $app-color-secondary;
     }
     @include when-inside('.c-nav__dropdown--open') {
         padding-left: 1rem;
+        &:last-child {
+            border-bottom: 0px solid $gray-300;
+        }
     }
 }
 
@@ -114,7 +117,6 @@ $c-nav-color-highlight:         $app-color-secondary;
         }
     }
     @include when-inside('.c-nav__item--has-children') {
-        // flex: 1 0 95%;
     }
 }
 
@@ -219,6 +221,7 @@ $c-nav-color-highlight:         $app-color-secondary;
     &--open {
         display: block;
         height: auto;
+        margin-bottom: 2rem;
     }
 }
 
