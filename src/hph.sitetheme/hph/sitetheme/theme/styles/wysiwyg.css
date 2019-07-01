@@ -8253,13 +8253,14 @@ img[data-sizes="auto"] {
 }
 
 .o-image--lazy-load {
-  -webkit-filter: blur(10px);
-          filter: blur(10px);
+  opacity: 0;
+  -webkit-transition: opacity 200ms;
+  -o-transition: opacity 200ms;
+  transition: opacity 200ms;
 }
 
 .o-image--loaded {
-  -webkit-filter: blur(0);
-          filter: blur(0);
+  opacity: 1;
 }
 
 .o-image--inline {

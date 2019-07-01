@@ -148,9 +148,9 @@ define([
         [].forEach.call($dropDownToggle, function(element) {
             element.addEventListener('click', function(event) {
                 event.preventDefault();
-                event.stopPropagation();
+                //event.stopPropagation();
                 let elementParent = element.parentNode;
-                if (elementParent && $elementParent.classList.contains(options.containedDropdownClass)) {
+                if (elementParent && elementParent.classList.contains(options.containedDropdownClass)) {
                     navigationDrawerClose(options);
                     elementParent.classList.remove(options.containedDropdownClass);
                 }

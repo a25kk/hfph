@@ -128,12 +128,13 @@ class NavTreeProvider(ContentProviderBase):
                 is_current=' c-nav__item--current' if it['is_current'] else ''
             )
             out += u"""<a href="{url}" class="c-nav__link c-nav__link--default 
-                    c-nav__link--state-{review_state} js-dropdown-toggle"
+                    c-nav__link--state-{review_state}{dropdown_toggle}"
                     aria-haspopup="true"><span class="c-nav__link-text">{title}
                     </span>{opener}</a>""".format(
                 url=it['url'],
                 review_state=it['review_state'],
                 title=utils.safe_unicode(it['title']),
+                dropdown_toggle=' js-dropdown-toggle' if sub else '',
                 opener=opener if sub else ''
             )
             out += sub
