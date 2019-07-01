@@ -1,34 +1,23 @@
-define(["jquery",
-], function($) {
+define([
+    "/scripts/utils.js",
+    "/scripts/flickity.pkgd.js"
+], function(utils, Flickity) {
 
     var slider = {};
 
     var _defaults = {
-        sliderElement: 'js-gallery',
+        sliderElement: '.js-slider',
         autoPlay: true,
         contain: true,
         wrapAround: true,
         imagesLoaded: true,
-        cellSelector: '.app-gallery-cell',
+        cellSelector: '.c-slide',
         cellAlign: 'left'
     };
 
-    function extend_defaults(){
-        for(var i=1; i<arguments.length; i++)
-            for(var key in arguments[i])
-                if(arguments[i].hasOwnProperty(key)) {
-                    if (typeof arguments[0][key] === 'object'
-                        && typeof arguments[i][key] === 'object')
-                        extend(arguments[0][key], arguments[i][key]);
-                    else
-                        arguments[0][key] = arguments[i][key];
-                }
-        return arguments[0];
-    }
-
     function itemSlider(element, options) {
         var flickitySlider = new Flickity(element, options);
-        element.classList.add('app-banner--loaded');
+        element.classList.add('c-slider--active');
     }
 
     function initializeSlider(options) {
@@ -41,7 +30,8 @@ define(["jquery",
 
     slider.init = function (_options) {
         // Initialize here
-        var options = extend_defaults(_defaults, _options);
+        console.log('Initialized Slider');
+        let options = utils.extendDefaultOptions(_defaults, _options);
         return initializeSlider(options);
     };
 
