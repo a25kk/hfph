@@ -19,7 +19,33 @@ $c-slider-padding:                $app-spacer-base;
   padding: 1rem;
   color: $c-slider-color;
   width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
   @include mq($from: md) {
     padding: 3rem;
+  }
+}
+
+/* ---- flickity overrides ---- */
+
+.flickity-prev-next-button {
+  background: transparent;
+}
+
+.flickity-prev-next-button .arrow {
+  fill: #fff;
+}
+
+.flickity-prev-next-button:hover {
+    background: none;
+}
+
+.flickity-page-dots {
+  display: none;
+  @include mq($from: md) {
+    display: block;
+    text-align: center;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
   }
 }
