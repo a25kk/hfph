@@ -155,7 +155,6 @@ define([
                     elementParent.classList.remove(options.containedDropdownClass);
                 }
                 else {
-                    navigationDrawerClose(options);
                     navigationDrawerOpen(element, options);
                 }
             });

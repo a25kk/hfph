@@ -6,6 +6,7 @@ requirejs(['require',
         '/scripts/navbar.js',
         '/scripts/dropdown.js',
         '/scripts/collapsible.js',
+        '/scripts/slider.js',
         '/scripts/paneleditor.js',
         '/scripts/x-ray.js',
         '/scripts/dropmic.js',
@@ -15,7 +16,7 @@ requirejs(['require',
         '/scripts/ls.parent-fit.js',
         '/scripts/lazysizes-umd.js'
     ],
-    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, collapsible, panelEditor, xray, Dropmic, Choices) {
+    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, collapsible, slider, panelEditor, xray, Dropmic, Choices) {
         'use strict';
 
         // Trigger font face observer protection
@@ -84,6 +85,8 @@ requirejs(['require',
         // Panel page and widget editor
         panelEditor.init();
 
+        slider.init();
+
         // Default interdependent select boxes used in module editor
         var _selector_defaults = {
             selector: '.js-module-selector',
@@ -107,39 +110,6 @@ requirejs(['require',
             filterFormActionVisible: 'filter__block--visible'
         };
         interdependentselect.init(_selector_filter);
-
-        // Banner
-        // TODO: refactor as independent script
-        var $bannerBar = document.querySelector('.app-js-carousel'),
-            $galleryContainer = document.querySelector('.js-gallery');
-        if ($bannerBar !== null) {
-            var bannerflkty = new Flickity('.app-js-carousel', {
-                pauseAutoPlayOnHover: false,
-                autoPlay: 7000,
-                contain: true,
-                wrapAround: true,
-                imagesLoaded: true,
-                cellSelector: '.app-banner-item',
-                cellAlign: 'left',
-                selectedAttraction: 0.025,
-                friction: 0.28
-            });
-            $bannerBar.classList.add('app-banner--loaded');
-        }
-        // Content image galleries
-        if ($galleryContainer !== null) {
-            var flkty = new Flickity('.js-gallery', {
-                autoPlay: true,
-                contain: true,
-                wrapAround: true,
-                imagesLoaded: true,
-                cellSelector: '.app-gallery-cell',
-                cellAlign: 'left'
-            });
-            $galleryContainer.classList.add('app-banner--loaded');
-        }
-
-        // Initialize scripts
 
         // Load Slider Resize
         window.addEventListener('load', function() {

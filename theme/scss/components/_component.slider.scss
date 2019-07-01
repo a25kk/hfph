@@ -1,5 +1,5 @@
-$c-poster-color:                  $app-color-white;
-$c-poster-padding:                $app-spacer-base;
+$c-slider-color:                  $app-color-white;
+$c-slider-padding:                $app-spacer-base;
 
 .c-slider {
   display: block;
@@ -17,8 +17,7 @@ $c-poster-padding:                $app-spacer-base;
   bottom: 0;
   left: 0;
   padding: 1rem;
-  color: $c-poster-color;
-  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.45));
+  color: $c-slider-color;
   width: 100%;
   @include mq($from: md) {
     padding: 3rem;
