@@ -11,7 +11,64 @@
 <metal:main fill-slot="main">
     <metal:content-core define-macro="main">
 
-        <div class="o-page__content o-grid o-grid--lg o-grid--reverse">
+        <header class="o-page__header">
+            <div class="o-page__title">
+                <h1 class="o-page__headline" tal:content="context/Title">
+                    Title
+                </h1>
+            </div>
+            <p class="o-page__abstract" tal:condition="context/Description">
+                    ${context/Description}
+            </p>
+        </header>
+
+        <div class="o-page__main">
+
+            <section class="o-page__section">
+                <h2 class="o-page__headline" tal:condition="context/department"
+                         tal:content="context/department" />
+                <h3 tal:condition="context/sidenote"
+                         tal:content="context/sidenote" />
+            </section>
+            <section class="o-page__section">
+                <div class="o-grid o-grid--sm o-grid--gutter">
+                    <div class="o-grid__item o-grid__item--width-33">
+                        <tal:image tal:condition="python:view.has_cover_image()">
+                            <div class="o-page__figure"
+                                     tal:define="responsive_image python:context.restrictedTraverse('@@figure')(image_field_name='image', caption_field__name='image', scale='default', lqip=True, lazy_load=True)">
+                                <span tal:replace="structure responsive_image" />
+                            </div>
+                        </tal:image>
+                        <div class="o-figure" style="--aspect-ratio:1"
+                                 tal:condition="not:python:view.has_cover_image()">
+                            <div class="o-figure__placeholder"></div>
+                        </div>
+                    </div>
+                    <div class="o-grid__item o-grid__item--width-66">
+                        <address>
+                            <span tal:replace="context/street" /><br />
+                            <span tal:replace="context/city" /><br />
+                            <tal:block tal:condition="context/phone">
+                                <abbr title="Phone">Tel:</abbr> <span tal:replace="context/phone" />
+                            </tal:block><br />
+                            <tal:block tal:condition="context/fax">
+                                <abbr title="Fax">Fax:</abbr> <span tal:replace="context/fax" /><br />
+                            </tal:block>
+                            <a class="text-muted" tal:condition="context/email"
+                                     tal:attributes="href string:mailto:${context/email}"
+                                     tal:content="context/email" />
+                        </address>
+                    </div>
+                </div>
+            </section>
+            <div class="o-page__section">
+                <div class="o-page__body-text" tal:condition="context/text">
+                    <div tal:replace="structure context/text/output" />
+                </div>
+            </div>
+        </div>
+
+        <div class="o-page__content o-grid o-grid--lg o-grid--reverse" hidden>
             <div class="o-grid__item o-grid__item--width-25"
                      tal:define="contained_links python:context.restrictedTraverse('@@folderListing')(portal_type=['Link'])">
                 <aside class="o-aside" id="app-sidebar">
@@ -76,62 +133,7 @@
                 </aside>
             </div>
             <div class="o-grid__item o-grid__item--width-75">
-                <header class="o-page__header">
-                    <div class="o-page__title">
-                        <h1 class="o-page__headline" tal:content="context/Title">
-                            Title
-                        </h1>
-                    </div>
-                    <p class="o-page__abstract" tal:condition="context/Description">
-                            ${context/Description}
-                    </p>
-                </header>
 
-                <div class="o-page__main">
-
-                    <section class="o-page__section">
-                        <h2 class="o-page__headline" tal:condition="context/department"
-                                 tal:content="context/department" />
-                        <h3 tal:condition="context/sidenote"
-                                 tal:content="context/sidenote" />
-                    </section>
-                    <section class="o-page__section">
-                        <div class="o-grid o-grid--sm o-grid--gutter">
-                            <div class="o-grid__item o-grid__item--width-33">
-                                <tal:image tal:condition="python:view.has_cover_image()">
-                                    <div class="o-page__figure"
-                                             tal:define="responsive_image python:context.restrictedTraverse('@@figure')(image_field_name='image', caption_field__name='image', scale='default', lqip=True, lazy_load=True)">
-                                        <span tal:replace="structure responsive_image" />
-                                    </div>
-                                </tal:image>
-                                <div class="o-figure" style="--aspect-ratio:1"
-                                         tal:condition="not:python:view.has_cover_image()">
-                                    <div class="o-figure__placeholder"></div>
-                                </div>
-                            </div>
-                            <div class="o-grid__item o-grid__item--width-66">
-                                <address>
-                                    <span tal:replace="context/street" /><br />
-                                    <span tal:replace="context/city" /><br />
-                                    <tal:block tal:condition="context/phone">
-                                        <abbr title="Phone">Tel:</abbr> <span tal:replace="context/phone" />
-                                    </tal:block><br />
-                                    <tal:block tal:condition="context/fax">
-                                        <abbr title="Fax">Fax:</abbr> <span tal:replace="context/fax" /><br />
-                                    </tal:block>
-                                    <a class="text-muted" tal:condition="context/email"
-                                             tal:attributes="href string:mailto:${context/email}"
-                                             tal:content="context/email" />
-                                </address>
-                            </div>
-                        </div>
-                    </section>
-                    <div class="o-page__section">
-                        <div class="o-page__body-text" tal:condition="context/text">
-                            <div tal:replace="structure context/text/output" />
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
