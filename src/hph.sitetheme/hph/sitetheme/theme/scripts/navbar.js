@@ -107,10 +107,12 @@ define([
     function navigationDrawerOpen(el, options) {
         // Toggle sub level navigation drawers
         let $dropdownToggle = el,
+            navListItem = $dropdownToggle.parentNode,
             $elementParent = el.closest(options.menu),
             currentDropDown = el.nextElementSibling,
             $activeNavLink = document.querySelector(options.dropdownOpenClass),
             $menuDropDownContained = document.querySelector(options.containedDropdownClass);
+        navListItem.classList.add(options.containedDropdownClass);
         currentDropDown.classList.remove(options.menuDropdownDisabled);
         currentDropDown.classList.add(options.menuDropdownOpen);
         setTimeout(function() {
@@ -123,36 +125,38 @@ define([
     }
 
     function navigationDrawer(options) {
-        let navItem = document.getElementsByClassName('c-nav__item--has-children');
-        [].forEach.call(navItem, function(el) {
-            // Setup parent Links
-            let navLink = el.firstChild,
-                navLinkNode = navLink.cloneNode(true),
-                backLinkElement = document.createElement('li'),
-                backLinkIcon = '<a href="#close-drawer" class="c-nav__link c-nav__link--action js-dropdown-toggle"><span class="c-nav__toggle c-nav__toggle--close"">\n' +
-                    '<svg class="o-icon o-icon--default o-icon__nav--default o-icon__ui--chevron-left-dims">\n' +
-                    '<use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron-left"></use>\n' +
-                    '</svg></span></a>',
-                currentDropDown = el.querySelector(options.menuDropdown);
-            backLinkElement.classList.add('c-nav__item');
-            backLinkElement.classList.add('c-nav__item--parent');
-            navLinkNode.removeAttribute('aria-haspopup');
-            backLinkElement.appendChild(navLinkNode);
-            backLinkElement.insertAdjacentHTML('afterbegin', backLinkIcon);
-            currentDropDown.insertBefore(backLinkElement, currentDropDown.firstChild);
-        });
+        // let navItem = document.getElementsByClassName('c-nav__item--has-children');
+        // [].forEach.call(navItem, function(el) {
+        //     // Setup parent Links
+        //     let navLink = el.firstChild,
+        //         navLinkNode = navLink.cloneNode(true),
+        //         backLinkElement = document.createElement('li'),
+        //         backLinkIcon = '<a href="#close-drawer" class="c-nav__link c-nav__link--action js-dropdown-toggle"><span class="c-nav__toggle c-nav__toggle--close"">\n' +
+        //             '<svg class="o-icon o-icon--default o-icon__nav--default o-icon__ui--chevron-left-dims">\n' +
+        //             '<use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron-left"></use>\n' +
+        //             '</svg></span></a>',
+        //         currentDropDown = el.querySelector(options.menuDropdown);
+        //     backLinkElement.classList.add('c-nav__item');
+        //     backLinkElement.classList.add('c-nav__item--parent');
+        //     navLinkNode.removeAttribute('aria-haspopup');
+        //     backLinkElement.appendChild(navLinkNode);
+        //     backLinkElement.insertAdjacentHTML('afterbegin', backLinkIcon);
+        //     currentDropDown.insertBefore(backLinkElement, currentDropDown.firstChild);
+        // });
         let $dropDownToggle = document.querySelectorAll(options.drawerToggle),
             isCurrentToggle = false;
         [].forEach.call($dropDownToggle, function(element) {
             element.addEventListener('click', function(event) {
+                event.preventDefault();
                 event.stopPropagation();
-                let $elementParent = element.closest(options.menu);
-                if ($elementParent && !$elementParent.classList.contains(options.menuDropdownOpen)) {
-                    navigationDrawerOpen(element, options);
-                } else {
+                let elementParent = element.parentNode;
+                if (elementParent && elementParent.classList.contains(options.containedDropdownClass)) {
                     navigationDrawerClose(options);
+                    elementParent.classList.remove(options.containedDropdownClass);
                 }
-
+                else {
+                    navigationDrawerOpen(element, options);
+                }
             });
         });
     }

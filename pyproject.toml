@@ -23,6 +23,16 @@ exclude = '''
   | bin
 )/
 '''
+[tool.isort]
+default_section=THIRDPARTY
+indent='    '
+known_first_party=ade25,hph
+known_zope=zope
+known_plone=plone
+multi_line_output=3
+lines_after_imports=2
+sections = FUTURE,STDLIB,ZOPE,PLONE,THIRDPARTY,FIRSTPARTY,LOCALFOLDER
+
 [tool.towncrier]
 filename = "CHANGES.rst"
 directory = "news/"
