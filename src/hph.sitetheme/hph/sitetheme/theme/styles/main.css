@@ -11555,8 +11555,8 @@ img[data-sizes="auto"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-left: 2rem;
-  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-right: 0;
   margin-bottom: 1rem;
   background-color: #182f7a;
   color: #fff;
@@ -11566,6 +11566,7 @@ img[data-sizes="auto"] {
 @media (min-width: 48em) {
   .c-nav-bar__header {
     padding-left: 2rem;
+    padding-right: 1rem;
   }
 }
 
@@ -11748,9 +11749,9 @@ img[data-sizes="auto"] {
 
 .c-nav__link-text {
   -webkit-box-flex: 1;
-      -ms-flex: 1 0 calc(100% - 4rem);
-          flex: 1 0 calc(100% - 4rem);
-  max-width: calc(100% - 4rem);
+      -ms-flex: 1 0 calc(100% - 2rem);
+          flex: 1 0 calc(100% - 2rem);
+  max-width: calc(100% - 2rem);
 }
 
 .c-nav__link--action {
