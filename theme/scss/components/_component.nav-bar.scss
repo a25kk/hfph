@@ -38,14 +38,15 @@
 
 .c-nav-bar__header {
     display: flex;
-    padding-left: 2rem;
-    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-right: 0;
     margin-bottom: 1rem;
     background-color: $app-color-primary;
     color: $white;
     border-bottom: 1px solid $app-color-gray-light;
     @include mq($from: md) {
         padding-left: 2rem;
+        padding-right: 1rem;
     }
 }
 
