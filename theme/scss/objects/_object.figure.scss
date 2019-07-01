@@ -1,5 +1,9 @@
 .o-figure {
     display: block;
+    @include when-inside('.c-poster__aside') {
+        padding-top: 4rem;
+        margin-bottom: 0;
+    }
     figcaption {
         font-size: $app-font-size-sm;
         color: $app-color-gray-lighter;
