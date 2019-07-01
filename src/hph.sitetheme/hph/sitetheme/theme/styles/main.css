@@ -14019,13 +14019,18 @@ c-list--bordered .c-list__item:last-of-type {
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 3rem;
+  padding: 1rem;
   color: #fff;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.45)));
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
+  background: -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
+  width: 100%;
 }
 
 @media (min-width: 48em) {
   .c-slide__main {
-    padding: 6rem;
+    padding: 3rem;
   }
 }
 
