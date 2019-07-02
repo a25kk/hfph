@@ -14194,12 +14194,10 @@ c-list--bordered .c-list__item:last-of-type {
 /* ---- flickity overrides ---- */
 .flickity-prev-next-button {
   background: transparent;
-  display: none;
 }
 
 @media (min-width: 48em) {
   .flickity-prev-next-button {
-    display: block;
     width: 100px;
     height: 100px;
   }
@@ -14213,10 +14211,6 @@ c-list--bordered .c-list__item:last-of-type {
   background: none;
 }
 
-.flickity-page-dots {
-  display: none;
-}
-
 @media (min-width: 48em) {
   .flickity-page-dots {
     display: block;
@@ -14227,8 +14221,10 @@ c-list--bordered .c-list__item:last-of-type {
   }
 }
 
-.flickity-page-dots .dot {
-  background-color: #fff;
+@media (min-width: 48em) {
+  .flickity-page-dots .dot {
+    background-color: #fff;
+  }
 }
 
 .c-page-header {

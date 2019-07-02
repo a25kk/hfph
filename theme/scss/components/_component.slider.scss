@@ -38,9 +38,9 @@ $c-slider-padding:                $app-spacer-base;
 
 .flickity-prev-next-button {
   background: transparent;
-  display: none;
+  //display: none;
   @include mq($from: md) {
-    display: block;
+    //display: block;
     width: 100px;
     height: 100px;
   }
@@ -55,7 +55,7 @@ $c-slider-padding:                $app-spacer-base;
 }
 
 .flickity-page-dots {
-  display: none;
+  //display: none;
   @include mq($from: md) {
     display: block;
     text-align: center;
@@ -64,7 +64,9 @@ $c-slider-padding:                $app-spacer-base;
     right: 2rem;
   }
   .dot {
-    background-color: #fff;
+    @include mq($from: md) {
+      background-color: #fff;
+      } 
     }
 }
 
