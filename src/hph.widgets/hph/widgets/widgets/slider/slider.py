@@ -145,7 +145,8 @@ class WidgetSlider(BrowserView):
                 scale='ratio-16:9',
                 aspect_ratio='16/9',
                 lqip=True,
-                lazy_load=True
+                lazy_load=True,
+                css_class='o-figure--slider c-slide__figure'
             )
             return figure
         return None

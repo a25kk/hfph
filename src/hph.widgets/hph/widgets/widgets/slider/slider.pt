@@ -12,7 +12,7 @@
                              tal:attributes="class python:'c-slider__slide c-slide c-slide--' + str(item)"
                              tal:condition="widget_node">
 
-                        <div class="c-poster__aside" tal:condition="python:widget_node['image']">
+                        <div class="c-slide__aside" tal:condition="python:widget_node['image']">
                             <tal:image tal:define="image_tag python:view.image_tag(widget_node['image'])">
                                 <span tal:replace="structure image_tag" />
                             </tal:image>

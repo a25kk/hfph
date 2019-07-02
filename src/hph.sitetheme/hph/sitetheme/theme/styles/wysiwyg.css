@@ -9910,11 +9910,6 @@ input, button, select, textarea {
   display: block;
 }
 
-.c-poster__aside .o-figure {
-  padding-top: 4rem;
-  margin-bottom: 0;
-}
-
 .o-figure figcaption {
   font-size: 1rem;
   color: #999999;

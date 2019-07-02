@@ -25,6 +25,15 @@ $c-slider-padding:                $app-spacer-base;
   }
 }
 
+.c-slider__items {
+  padding-top: 4rem;
+  margin-bottom: 0;
+}
+
+.c-slide__figure {
+  margin-bottom: 0;
+}
+
 /* ---- flickity overrides ---- */
 
 .flickity-prev-next-button {
