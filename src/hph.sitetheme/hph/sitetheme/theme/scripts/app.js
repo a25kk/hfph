@@ -85,7 +85,9 @@ requirejs(['require',
         // Panel page and widget editor
         panelEditor.init();
 
-        slider.init();
+        slider.init({
+            autoPlay: 6000
+        });
 
         // Default interdependent select boxes used in module editor
         var _selector_defaults = {

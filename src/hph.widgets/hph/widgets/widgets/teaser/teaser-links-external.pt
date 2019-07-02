@@ -1,9 +1,9 @@
 <div class="c-teaser c-teaser--links"
      xmlns:xlink="http://www.w3.org/1999/xlink"
          i18n:domain="hph.widgets">
-    <div class="c-teaser__header c-teaser__header--hidden">
+    <div class="c-teaser__header c-teaser__header--external-links">
         <h2 class="c-teaser__title" i18n:translate="">
-            Links
+            External Links
         </h2>
     </div>
     <div class="c-teaser__main">
@@ -15,7 +15,32 @@
                 <div class="c-card-list__item c-card-list__item--width-25"
                          tal:define="item_uuid item; widget_node python:view.widget_item_content(item)"
                          tal:attributes="class python:'c-list__item c-list__item--width-25 c-list__item--snippet'">
+
+                    <div class="c-card c-card--teaser">
+                        <div class="c-card__header">
+                            <div class="c-card__asset">
+                                <tal:image tal:define="image_tag python:view.image_tag(widget_node['image'])">
+                                    <span tal:replace="structure image_tag" />
+                                </tal:image>
+                            </div>
+                        </div>
+                        <div class="c-card__footer">
+                            <a class="c-card__link" tal:attributes="href python:view.get_link_action(widget_node['link'])">
+                                <div class="o-read-more">
+                                    <span class="o-read-more__icon c-card__icon">
+                                        <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--chevron-dims">
+                                            <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="o-read-more__text c-card__link-text" tal:content="python:widget_node['title']">
+                                        Read more</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="c-link-tile c-link-tile--default" tal:condition="widget_node">
+                        <p tal:content="python:widget_node['image']"></p>
                         <div class="c-link-tile__aside" tal:condition="python:widget_node['image']">
                             <div class="c-link-tile__asset">
                                 <tal:image tal:define="image_tag python:view.image_tag(widget_node['image'])">

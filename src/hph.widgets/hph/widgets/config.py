@@ -35,6 +35,32 @@ PKG_WIDGETS = {
             "schema": "hph.widgets.widgets.teaser.interfaces.IHPHWidgetLinkInternal"  # noqa
         }
     },
+    "hph-teaser-external": {
+        "pkg": "hph.widgets",
+        "id": "hph-teaser-links-external",
+        "name": "HfPH Teaser Links External",
+        "title": "Teaser Links External",
+        "category": "more",
+        "type": "collection",
+        "schema": "hph.widgets.widgets.teaser.interfaces.IHPHWidgetTeaserLinksExternal",  # noqa
+        "node": {
+            "title": "External Link",
+            "schema": "hph.widgets.widgets.teaser.interfaces.IHPHWidgetLinkExternal"  # noqa
+        }
+    },
+    "hph-accordion": {
+        "pkg": "hph.widgets",
+        "id": "hph-accordion",
+        "name": "HfPH Accordion",
+        "title": "Accordion",
+        "category": "more",
+        "type": "collection",
+        "schema": "hph.widgets.widgets.accordion.interfaces.IHPHWidgetAccordion",  # noqa
+        "node": {
+            "title": "Slide",
+            "schema": "hph.widgets.widgets.accordion.interfaces.IHPHWidgetAccordionItem"  # noqa
+        }
+    },
     "hph-slider": {
         "pkg": "hph.widgets",
         "id": "hph-slider",
