@@ -16,6 +16,7 @@
                          tal:define="item_uuid item; widget_node python:view.widget_item_content(item)"
                          tal:attributes="class python:'c-list__item c-list__item--width-25 c-list__item--snippet'">
                     <div class="c-link-tile c-link-tile--default" tal:condition="widget_node">
+                        <p tal:content="python:widget_node['image']"></p>
                         <div class="c-link-tile__aside" tal:condition="python:widget_node['image']">
                             <div class="c-link-tile__asset">
                                 <tal:image tal:define="image_tag python:view.image_tag(widget_node['image'])">
