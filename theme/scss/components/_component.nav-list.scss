@@ -27,12 +27,12 @@ $c-nav-list-color-bg-highlight:                 $app-color-gray-base;
         color: #fff;
         background-color: $app-color-gray-lighter;
     }
-    &:hover {
-        color: #fff;
-        background-color: $app-color-gray-lighter;
-        transition: none;
-        text-decoration: none;
-    }
+    //&:hover {
+    //    color: #fff;
+    //    background-color: $app-color-gray-lighter;
+    //    transition: none;
+    //    text-decoration: none;
+    //}
 
     @include when-inside('.c-nav-list--level-0') {
         padding-left: calc(#{$c-nav-list-padding} * 2);
