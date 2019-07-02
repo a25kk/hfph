@@ -14167,7 +14167,7 @@ c-list--bordered .c-list__item:last-of-type {
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 1rem;
+  padding: 0 3rem;
   color: #fff;
   width: 100%;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.45)));
@@ -14183,7 +14183,6 @@ c-list--bordered .c-list__item:last-of-type {
 }
 
 .c-slider__items {
-  padding-top: 4rem;
   margin-bottom: 0;
 }
 
