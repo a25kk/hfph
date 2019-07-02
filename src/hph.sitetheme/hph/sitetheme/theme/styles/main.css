@@ -10541,7 +10541,6 @@ input, button, select, textarea {
 }
 
 .c-poster__aside .o-figure {
-  padding-top: 4rem;
   margin-bottom: 0;
 }
 
@@ -14190,6 +14189,15 @@ c-list--bordered .c-list__item:last-of-type {
 /* ---- flickity overrides ---- */
 .flickity-prev-next-button {
   background: transparent;
+  display: none;
+}
+
+@media (min-width: 48em) {
+  .flickity-prev-next-button {
+    display: block;
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .flickity-prev-next-button .arrow {
@@ -14212,6 +14220,10 @@ c-list--bordered .c-list__item:last-of-type {
     bottom: 2rem;
     right: 2rem;
   }
+}
+
+.flickity-page-dots .dot {
+  background-color: #fff;
 }
 
 .c-page-header {
