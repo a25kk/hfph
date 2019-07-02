@@ -1,7 +1,7 @@
 .o-figure {
     display: block;
     @include when-inside('.c-poster__aside') {
-        padding-top: 4rem;
+        //padding-top: 4rem;
         margin-bottom: 0;
     }
     figcaption {
