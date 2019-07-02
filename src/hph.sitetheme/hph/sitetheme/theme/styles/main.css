@@ -10540,6 +10540,10 @@ input, button, select, textarea {
   display: block;
 }
 
+.c-poster__aside .o-figure {
+  margin-bottom: 0;
+}
+
 .o-figure figcaption {
   font-size: 1rem;
   color: #999999;
@@ -14182,18 +14186,18 @@ c-list--bordered .c-list__item:last-of-type {
   }
 }
 
-.c-slider__items {
-  padding-top: 4rem;
-  margin-bottom: 0;
-}
-
-.c-slide__figure {
-  margin-bottom: 0;
-}
-
 /* ---- flickity overrides ---- */
 .flickity-prev-next-button {
   background: transparent;
+  display: none;
+}
+
+@media (min-width: 48em) {
+  .flickity-prev-next-button {
+    display: block;
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .flickity-prev-next-button .arrow {
@@ -14216,6 +14220,10 @@ c-list--bordered .c-list__item:last-of-type {
     bottom: 2rem;
     right: 2rem;
   }
+}
+
+.flickity-page-dots .dot {
+  background-color: #fff;
 }
 
 .c-page-header {

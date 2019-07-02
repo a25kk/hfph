@@ -38,6 +38,12 @@ $c-slider-padding:                $app-spacer-base;
 
 .flickity-prev-next-button {
   background: transparent;
+  display: none;
+  @include mq($from: md) {
+    display: block;
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .flickity-prev-next-button .arrow {
@@ -57,4 +63,9 @@ $c-slider-padding:                $app-spacer-base;
     bottom: 2rem;
     right: 2rem;
   }
+  .dot {
+    background-color: #fff;
+    }
 }
+
+
