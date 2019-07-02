@@ -10945,8 +10945,8 @@ input, button, select, textarea {
 }
 
 .app-sidebar {
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-right: calc(1.25rem * 1.5);
+  padding-left: calc(1.25rem * 1.5);
 }
 
 @media (min-width: 62em) {
