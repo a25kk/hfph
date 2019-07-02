@@ -32,4 +32,13 @@
             layer="hph.widgets.interfaces.IHphWidgetsLayer"
     />
 
+    <browser:page
+            for="*"
+            name="content-widget-hph-teaser-links-external"
+            class="hph.widgets.widgets.teaser.teaser.WidgetTeaserLinksExternal"
+            template="teaser-links-external.pt"
+            permission="zope2.View"
+            layer="hph.widgets.interfaces.IHphWidgetsLayer"
+    />
+
 </configure>

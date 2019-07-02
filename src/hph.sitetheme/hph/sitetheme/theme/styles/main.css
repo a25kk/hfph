@@ -10540,10 +10540,6 @@ input, button, select, textarea {
   display: block;
 }
 
-.c-poster__aside .o-figure {
-  margin-bottom: 0;
-}
-
 .o-figure figcaption {
   font-size: 1rem;
   color: #999999;
@@ -14171,7 +14167,7 @@ c-list--bordered .c-list__item:last-of-type {
   position: absolute;
   bottom: 0;
   left: 0;
-  padding: 1rem;
+  padding: 0 3rem;
   color: #fff;
   width: 100%;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.45)));
@@ -14186,15 +14182,21 @@ c-list--bordered .c-list__item:last-of-type {
   }
 }
 
+.c-slider__items {
+  margin-bottom: 0;
+}
+
+.c-slide__figure {
+  margin-bottom: 0;
+}
+
 /* ---- flickity overrides ---- */
 .flickity-prev-next-button {
   background: transparent;
-  display: none;
 }
 
 @media (min-width: 48em) {
   .flickity-prev-next-button {
-    display: block;
     width: 100px;
     height: 100px;
   }
@@ -14208,10 +14210,6 @@ c-list--bordered .c-list__item:last-of-type {
   background: none;
 }
 
-.flickity-page-dots {
-  display: none;
-}
-
 @media (min-width: 48em) {
   .flickity-page-dots {
     display: block;
@@ -14222,8 +14220,10 @@ c-list--bordered .c-list__item:last-of-type {
   }
 }
 
-.flickity-page-dots .dot {
-  background-color: #fff;
+@media (min-width: 48em) {
+  .flickity-page-dots .dot {
+    background-color: #fff;
+  }
 }
 
 .c-page-header {

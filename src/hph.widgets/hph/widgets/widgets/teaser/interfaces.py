@@ -45,6 +45,16 @@ class IHPHWidgetLinkInternal(Interface):
 
 
 @provider(IFormFieldProvider)
+class IHPHWidgetTeaserLinksExternal(Interface):
+    """ Content Widget Teaser Links internal """
+
+    title = schema.TextLine(
+        title=_("Teaser Headline"),
+        required=False
+    )
+
+
+@provider(IFormFieldProvider)
 class IHPHWidgetLinkExternal(Interface):
     """ Content Panel Storage Slots """
 

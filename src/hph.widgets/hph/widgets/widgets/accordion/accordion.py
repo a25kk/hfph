@@ -10,12 +10,12 @@ from plone import api
 from plone.app.contenttypes.utils import replace_link_variables_by_paths
 
 
-class WidgetSlider(BrowserView):
+class WidgetAccordion(BrowserView):
     """ Slider widget """
 
     def __call__(self,
-                 widget_name='hph-slider',
-                 widget_type='hph-slider',
+                 widget_name='hph-accordion',
+                 widget_type='hph-accordion',
                  widget_mode='view',
                  widget_data=None,
                  **kw):
@@ -100,7 +100,7 @@ class WidgetSlider(BrowserView):
 
     def widget_content_list_class(self):
         context = aq_inner(self.context)
-        css_class = 'c-slider__items c-slider__items--{0} {1}'.format(
+        css_class = 'c-accordion__panels c-accordion__panels--{0} {1}'.format(
             context.UID(),
             'js-slider'
         )
@@ -108,7 +108,7 @@ class WidgetSlider(BrowserView):
         if custom_styles:
             class_container = custom_styles['class_container']
             for class_name in class_container.split(' '):
-                css_class = '{0} c-list--{1}'.format(
+                css_class = '{0} c-accordion--{1}'.format(
                     css_class,
                     class_name
                 )
@@ -142,11 +142,10 @@ class WidgetSlider(BrowserView):
             figure = image.restrictedTraverse('@@figure')(
                 image_field_name='image',
                 caption_field_name='image_caption',
-                scale='ratio-16:9',
-                aspect_ratio='16/9',
+                scale='ratio-4:3',
+                aspect_ratio='4/3',
                 lqip=True,
-                lazy_load=True,
-                css_class='o-figure--slider c-slide__figure'
+                lazy_load=True
             )
             return figure
         return None
