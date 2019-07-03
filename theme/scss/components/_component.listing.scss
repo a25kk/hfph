@@ -53,9 +53,19 @@ $c-list-separator-height:                   .25rem;
             padding-right: $c-list-margin-x;
             &:not(:first-of-type) {
             padding-left: $c-list-margin-x;
-        }
+            }
         }
     }
+
+    @include when-inside('.c-teaser--links') {
+        @include mq($from: lg) {
+            padding-right: $c-list-margin-x;
+            &:first-child {
+            padding-left: $c-list-margin-x;
+            }
+        }
+    }
+
     @include when-inside('.c-list--tiles') {
         display: block;
         padding: $c-list-margin-x;

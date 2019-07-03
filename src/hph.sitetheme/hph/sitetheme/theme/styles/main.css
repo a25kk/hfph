@@ -8698,7 +8698,7 @@ strong {
 
 .font__primary--loaded b, .font__primary--loaded
 strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 button {
@@ -11900,6 +11900,7 @@ img[data-sizes="auto"] {
       -ms-flex: 1 0 calc(100% - 2rem);
           flex: 1 0 calc(100% - 2rem);
   max-width: calc(100% - 2rem);
+  line-height: 1.5;
 }
 
 .c-nav__link--action {
@@ -12441,7 +12442,7 @@ img[data-sizes="auto"] {
 }
 
 .c-snippet__title {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .c-snippet__section {
@@ -13679,6 +13680,15 @@ img[data-sizes="auto"] {
     padding-right: calc(1.25rem * 1.5);
   }
   .c-list--gutter .c-list__item:not(:first-of-type) {
+    padding-left: calc(1.25rem * 1.5);
+  }
+}
+
+@media (min-width: 62em) {
+  .c-teaser--links .c-list__item {
+    padding-right: calc(1.25rem * 1.5);
+  }
+  .c-teaser--links .c-list__item:first-child {
     padding-left: calc(1.25rem * 1.5);
   }
 }
