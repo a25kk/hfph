@@ -13684,6 +13684,15 @@ img[data-sizes="auto"] {
   }
 }
 
+@media (min-width: 62em) {
+  .c-teaser--links .c-list__item {
+    padding-right: calc(1.25rem * 1.5);
+  }
+  .c-teaser--links .c-list__item:first-child {
+    padding-left: calc(1.25rem * 1.5);
+  }
+}
+
 .c-list--tiles .c-list__item {
   display: block;
   padding: calc(1.25rem * 1.5);
