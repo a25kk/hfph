@@ -16,11 +16,13 @@
                          tal:define="item_uuid item; widget_node python:view.widget_item_content(item)"
                          tal:attributes="class python:'c-list__item c-list__item--card'">
                     <div class="c-card c-card--teaser-links">
-                        <div class="c-card__header">
+                        <div class="c-card__header" tal:condition="python:widget_node['image']">
                             <div class="c-card__asset">
-                                <tal:image tal:define="image_tag python:view.image_tag(widget_node['image'])">
-                                    <span tal:replace="structure image_tag" />
-                                </tal:image>
+                                <a class="c-card__link" tal:attributes="href python:view.get_link_action(widget_node['link'])">
+                                    <tal:image tal:define="image_tag python:view.image_tag(widget_node['image'])">
+                                        <span tal:replace="structure image_tag" />
+                                    </tal:image>
+                                </a>
                             </div>
                         </div>
                         <div class="c-card__footer">
