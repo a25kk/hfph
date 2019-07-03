@@ -8698,7 +8698,7 @@ strong {
 
 .font__primary--loaded b, .font__primary--loaded
 strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 button {
@@ -12442,7 +12442,7 @@ img[data-sizes="auto"] {
 }
 
 .c-snippet__title {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .c-snippet__section {
