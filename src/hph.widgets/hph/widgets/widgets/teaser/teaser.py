@@ -2,6 +2,7 @@
 """Module providing site widget"""
 import uuid as uuid_tool
 
+import DateTime
 from Acquisition import aq_inner
 from Products.Five import BrowserView
 from ade25.base.interfaces import IContentInfoProvider
@@ -211,12 +212,13 @@ class WidgetTeaserEvents(BrowserView):
     @staticmethod
     def get_latest_event_items(limit=3):
         portal = api.portal.get()
+        date_range_query = {'query': DateTime.DateTime(), 'range': 'min'}
         items = api.content.find(
             context=portal,
             object_provides=IEventItem.__identifier__,
             review_state='published',
-            sort_on='Start',
-            sort_order='reverse',
+            start=date_range_query,
+            sort_on='start',
             sort_limit=limit
         )[:limit]
         return items
@@ -229,7 +231,7 @@ class WidgetTeaserEvents(BrowserView):
                 'title': brain.Title,
                 'description': brain.Description,
                 'url': brain.getURL(),
-                'timestamp': brain.Date,
+                'timestamp': brain.start,
                 'uuid': brain.UID,
                 "css_classes": "o-card-list__item--{0}".format(
                     brain.UID

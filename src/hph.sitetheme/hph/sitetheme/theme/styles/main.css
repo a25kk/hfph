@@ -13878,7 +13878,7 @@ c-list--bordered .c-list__item:last-of-type {
   }
   .c-collapsible__item--active {
     display: block;
-    max-height: 100vh;
+    max-height: 1500px;
   }
 }
 
