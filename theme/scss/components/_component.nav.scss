@@ -123,6 +123,7 @@ $c-nav-color-highlight:         $app-color-secondary;
 .c-nav__link-text {
     flex: 1 0 calc(100% - 2rem);
     max-width: calc(100% - 2rem);
+    line-height: $app-line-height-lg;
 }
 
 .c-nav__link--action {

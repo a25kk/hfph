@@ -11900,6 +11900,7 @@ img[data-sizes="auto"] {
       -ms-flex: 1 0 calc(100% - 2rem);
           flex: 1 0 calc(100% - 2rem);
   max-width: calc(100% - 2rem);
+  line-height: 1.5;
 }
 
 .c-nav__link--action {
