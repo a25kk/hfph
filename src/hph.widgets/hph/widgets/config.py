@@ -57,7 +57,7 @@ PKG_WIDGETS = {
         "type": "collection",
         "schema": "hph.widgets.widgets.accordion.interfaces.IHPHWidgetAccordion",  # noqa
         "node": {
-            "title": "Slide",
+            "title": "Pane",
             "schema": "hph.widgets.widgets.accordion.interfaces.IHPHWidgetAccordionItem"  # noqa
         }
     },

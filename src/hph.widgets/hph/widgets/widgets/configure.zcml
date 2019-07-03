@@ -6,6 +6,7 @@
 
 
     <!-- image widgets -->
+    <include package=".accordion" />
     <include package=".image" />
     <include package=".content" />
     <include package=".teaser" />

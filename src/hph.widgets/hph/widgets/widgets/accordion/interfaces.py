@@ -16,7 +16,7 @@ class IHPHWidgetAccordion(Interface):
 
 
 @provider(IFormFieldProvider)
-class IHPHWidgetAccordionPanel(Interface):
+class IHPHWidgetAccordionItem(Interface):
     """ Slide """
 
     title = schema.TextLine(

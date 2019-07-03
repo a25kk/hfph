@@ -97,10 +97,14 @@ define([
     }
 
     function navigationDrawerClose(options) {
-        let navigationDrawers = document.getElementsByClassName(options.menuDropdownOpen);
+        let navigationDrawers = document.getElementsByClassName(options.menuDropdownOpen),
+            activeDrawers = document.getElementsByClassName(options.containedDropdownClass);
         [].forEach.call(navigationDrawers, function(el) {
             el.classList.remove(options.menuDropdownOpen);
             el.classList.add(options.menuDropdownDisabled);
+        });
+        [].forEach.call(activeDrawers, function(el) {
+            el.classList.remove(options.containedDropdownClass);
         });
     }
 
@@ -155,6 +159,7 @@ define([
                     elementParent.classList.remove(options.containedDropdownClass);
                 }
                 else {
+                    navigationDrawerClose(options);
                     navigationDrawerOpen(element, options);
                 }
             });
