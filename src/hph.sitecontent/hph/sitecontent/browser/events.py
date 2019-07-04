@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module providing event views and listings"""
+import DateTime
 from Acquisition import aq_inner
 from Products.Five import BrowserView
 from ade25.base.interfaces import IContentInfoProvider
@@ -44,8 +45,8 @@ class EventListView(BrowserView):
             context=self.context,
             object_provides=IEventItem.__identifier__,
             review_state="published",
-            sort_on="Start",
-            sort_order="reverse",
+            start={'query': DateTime.DateTime(), 'range': 'min'},
+            sort_on="start",
         )
         return items
 
@@ -59,7 +60,7 @@ class EventListView(BrowserView):
                     "title": brain.Title,
                     "description": brain.Description,
                     "url": brain.getURL(),
-                    "timestamp": brain.Date,
+                    "timestamp": brain.start,
                     "uuid": brain.UID,
                     "event_start_date": self.time_stamp(brain.start),
                     "event_end_date": self.time_stamp(brain.end),
