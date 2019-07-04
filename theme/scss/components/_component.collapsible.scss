@@ -26,7 +26,7 @@ $c-collapsible-header-color:                $color-wild-sand;
         transition: max-height .25s ease-in-out;
         &--active {
             display: block;
-            max-height: 100vh;
+            max-height: 1500px;
         }
     }
 }
