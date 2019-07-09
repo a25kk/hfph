@@ -9914,6 +9914,7 @@ input, button, select, textarea {
 
 .o-figure {
   display: block;
+  margin-bottom: 0;
 }
 
 .o-figure figcaption {
