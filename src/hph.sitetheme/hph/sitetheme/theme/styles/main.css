@@ -9046,6 +9046,12 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   margin-bottom: calc(1.25rem * 1.5);
 }
 
+@media (min-width: 62em) {
+  .template-course-view .o-page__section {
+    width: 80%;
+  }
+}
+
 .o-page__section--spacer {
   margin-bottom: calc(calc(1.25rem * 1.5) * 2);
 }

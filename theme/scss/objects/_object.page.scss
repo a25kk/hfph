@@ -67,6 +67,11 @@
 .o-page__section {
     position: relative;
     margin-bottom: $app-spacer-base;
+    @include when-inside('.template-course-view') {
+        @include mq($from: lg) {
+        width: 80%;
+        }
+    }
     &--spacer {
         margin-bottom: calc(#{$app-spacer-base} * 2);
     }
