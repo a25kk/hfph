@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-04-18 13:30+0000\n"
-"PO-Revision-Date: 2019-04-18 15:32+0200\n"
+"POT-Creation-Date: 2019-07-09 09:10+0000\n"
+"PO-Revision-Date: 2019-07-09 12:34+0200\n"
 "Last-Translator: Christoph Boehner-Figas <cb@ade25.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -14,53 +14,149 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: hph.widgets\n"
 "Language: de\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.2.3\n"
+
+#: ../widgets/teaser/teaser-events.pt:6
+msgid "<a href=\"${DYNAMIC_CONTENT}\"> Events </a>"
+msgstr "<a href=\"${DYNAMIC_CONTENT}\">Termine</a>"
 
 #: ../widgets/teaser/teaser-news.pt:6
 msgid "<a href=\"${DYNAMIC_CONTENT}\"> News </a>"
-msgstr ""
+msgstr "<a href=\"${DYNAMIC_CONTENT}\">Nachrichten</a>"
+
+#: ../vocabulary.py:37
+msgid "Calendar"
+msgstr "Kalender"
+
+#: ../vocabulary.py:38
+msgid "Calendar with Clock"
+msgstr "Kalender mit Uhr"
+
+#: ../vocabulary.py:39
+msgid "Classroom"
+msgstr "Klassenzimmer"
+
+#: ../vocabulary.py:40
+msgid "Counseling"
+msgstr "Beratung"
+
+#: ../vocabulary.py:41
+msgid "Download"
+msgstr "Download"
+
+#: ../widgets/teaser/interfaces.py:62
+msgid "External Link Title"
+msgstr "Titel des externen Links"
+
+#: ../widgets/teaser/teaser-links-external.pt:5
+msgid "External Links"
+msgstr "Externe Links"
 
 #: ../configure.zcml:25
 msgid "HPH Content Widgets"
-msgstr "HfPh Content Widgets"
+msgstr "HPH Content Widgets"
+
+#: ../widgets/teaser/interfaces.py:66
+msgid "Image"
+msgstr "das Bild"
+
+#: ../widgets/slider/interfaces.py:31 ../widgets/teaser/interfaces.py:70
+msgid "Image Copyright Information"
+msgstr "Copyright-Informationen zum Bild"
+
+#: ../widgets/teaser/interfaces.py:28
+msgid "Internal Link Title"
+msgstr "Interner Linktitel"
+
+#: ../widgets/image/interfaces.py:35 ../widgets/teaser/interfaces.py:41
+msgid "Link"
+msgstr "Verweis"
+
+#: ../widgets/teaser/interfaces.py:33
+msgid "Link Icon"
+msgstr "Verknüpfungssymbol"
 
 #: ../widgets/teaser/teaser-links-internal.pt:5
 msgid "Links"
 msgstr "Unsere Schwerpunkte"
 
+#: ../widgets/teaser/teaser-events.pt:40
+msgid "More events"
+msgstr "Weitere Veranstaltungen"
+
 #: ../widgets/teaser/teaser-news.pt:32
 msgid "More news"
 msgstr "Weitere Nachrichten"
 
-#: ../widgets/image/interfaces.py:16
+#: ../widgets/accordion/interfaces.py:28
+msgid "Panel Content"
+msgstr "Panel-Inhalt"
+
+#: ../widgets/accordion/interfaces.py:23
+msgid "Panel Headline"
+msgstr "Panel Überschrift"
+
+#: ../widgets/image/interfaces.py:36 ../widgets/teaser/interfaces.py:42
+msgid "Please select link target"
+msgstr "Bitte wählen Sie ein Linkziel"
+
+#: ../widgets/image/interfaces.py:18
 msgid "Poster Headline"
 msgstr "Poster Überschrift"
 
-#: ../widgets/image/interfaces.py:24
+#: ../widgets/image/interfaces.py:26
 msgid "Poster Image"
 msgstr "Poster Hintergrundbild"
 
-#: ../widgets/image/interfaces.py:28
+#: ../widgets/image/interfaces.py:30
 msgid "Poster Image Copyright Information"
 msgstr "Poster Fussnote (Copyright)"
 
-#: ../widgets/image/interfaces.py:20
+#: ../widgets/image/interfaces.py:22
 msgid "Poster Text"
 msgstr "Poster Text"
 
 #: ../widgets/content/base-card.pt:36 ../widgets/content/base-snippet.pt:32
-#: ../widgets/content/news-card.pt:42
+#: ../widgets/content/event-tile.pt:41
 msgid "Read more"
 msgstr "Weiterlesen"
+
+#: ../vocabulary.py:42
+msgid "Research"
+msgstr "Forschung"
+
+#: ../widgets/teaser/interfaces.py:34
+msgid "Select adequate icon for the linked section"
+msgstr "Wählen Sie das entsprechende Symbol für den verknüpften Abschnitt"
 
 #: ../configure.zcml:25
 msgid "Site specific content widgets for panel pages"
 msgstr "Spezifische Content Widgets für HfPh für die Verwendung mit Panel Pages"
 
-#: ../configure.zcml:33
+#: ../widgets/slider/interfaces.py:27
+msgid "Slide Image"
+msgstr "Slide Bild"
+
+#: ../vocabulary.py:43
+msgid "Teacher"
+msgstr "Lehrer"
+
+#: ../widgets/teaser/interfaces.py:18
+msgid "Teaser Headline"
+msgstr "Teaser Überschrift"
+
+#: ../widgets/slider/interfaces.py:23
+msgid "Text"
+msgstr "Text"
+
+#: ../vocabulary.py:36
+msgid "Tile"
+msgstr "Kachel"
+
+#: ../configure.zcml:41
 msgid "Uninstall HPH Content Widgets (hph.widgets)"
 msgstr "HfPh Content Widgets deinstallierien"
 
-#: ../configure.zcml:33
+#: ../configure.zcml:41
 msgid "Uninstall content widgets and integrations"
 msgstr "Entfernt HfPh Content Widgets und bereinigt die Integrationen"
