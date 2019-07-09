@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2017-10-05 10:02+0000\n"
+"POT-Creation-Date: 2019-07-09 13:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgid "(Example: register until 19.01.2017 via example.tld)"
 msgstr ""
 
 #: ./../browser/course-select-box.pt:9
-#: ./../browser/coursemoduleeditor.pt:96
+#: ./../browser/coursemoduleeditor.pt:93
 msgid "-- select an option --"
 msgstr ""
 
@@ -54,7 +54,7 @@ msgstr ""
 msgid "A single course"
 msgstr ""
 
-#: ./../browser/coursemoduleeditor.pt:49
+#: ./../browser/coursemoduleeditor.pt:46
 msgid "Actions"
 msgstr ""
 
@@ -67,7 +67,7 @@ msgstr ""
 msgid "Add file attachment"
 msgstr ""
 
-#: ./../browser/coursemoduleeditor.pt:171
+#: ./../browser/coursemoduleeditor.pt:167
 msgid "Add module"
 msgstr ""
 
@@ -94,7 +94,7 @@ msgstr ""
 msgid "Attachement edit has been cancelled."
 msgstr ""
 
-#: ./../browser/course-view.pt:107
+#: ./../browser/course-view.pt:106
 #: ./../lecture_templates/view.pt:179
 msgid "Attachements"
 msgstr ""
@@ -128,6 +128,7 @@ msgstr ""
 msgid "Business Ethics (WIR)"
 msgstr ""
 
+#: ./../browser/coursemoduleeditor.pt:24
 #: ./../factory_templates/lectureeditor.pt:112
 msgid "Cancel"
 msgstr ""
@@ -144,7 +145,7 @@ msgstr ""
 msgid "Content item factory has been cancelled."
 msgstr ""
 
-#: ./../browser/course-view.pt:71
+#: ./../browser/course-view.pt:69
 #: ./../coursedetails.py:26
 #: ./../factory_templates/lectureeditor.pt:44
 msgid "Course Aims"
@@ -164,31 +165,31 @@ msgstr ""
 msgid "Course Duration"
 msgstr ""
 
-#: ./../browser/course-view.pt:96
+#: ./../browser/course-view.pt:94
 #: ./../coursedetails.py:46
 #: ./../factory_templates/lectureeditor.pt:69
 msgid "Course Literature"
 msgstr ""
 
-#: ./../browser/course-view.pt:76
+#: ./../browser/course-view.pt:74
 #: ./../coursedetails.py:30
 #: ./../factory_templates/lectureeditor.pt:49
 msgid "Course Method"
 msgstr ""
 
-#: ./../browser/course-view.pt:101
+#: ./../browser/course-view.pt:99
 #: ./../coursedetails.py:50
 #: ./../factory_templates/lectureeditor.pt:74
 msgid "Course Notes"
 msgstr ""
 
-#: ./../browser/course-view.pt:81
+#: ./../browser/course-view.pt:79
 #: ./../coursedetails.py:34
 #: ./../factory_templates/lectureeditor.pt:54
 msgid "Course Prerequirements"
 msgstr ""
 
-#: ./../browser/course-view.pt:86
+#: ./../browser/course-view.pt:84
 #: ./../coursedetails.py:38
 #: ./../factory_templates/lectureeditor.pt:59
 msgid "Course Qualification"
@@ -204,13 +205,13 @@ msgstr ""
 msgid "Course Semester"
 msgstr ""
 
-#: ./../browser/course-view.pt:91
+#: ./../browser/course-view.pt:89
 #: ./../coursedetails.py:42
 #: ./../factory_templates/lectureeditor.pt:64
 msgid "Course Target"
 msgstr ""
 
-#: ./../browser/course-view.pt:66
+#: ./../browser/course-view.pt:64
 #: ./../coursedetails.py:22
 #: ./../factory_templates/lectureeditor.pt:39
 msgid "Course Theme"
@@ -288,7 +289,7 @@ msgstr ""
 msgid "Display Selection"
 msgstr ""
 
-#: ./../browser/courselisting.pt:37
+#: ./../browser/courselisting.pt:47
 msgid "Drucken"
 msgstr ""
 
@@ -300,7 +301,7 @@ msgstr ""
 msgid "Economic Ethics"
 msgstr ""
 
-#: ./../browser/course-view.pt:39
+#: ./../browser/course-view.pt:25
 #: ./../lecture_templates/view.pt:42
 msgid "Edit"
 msgstr ""
@@ -453,12 +454,12 @@ msgstr ""
 msgid "Introductory seminar source"
 msgstr ""
 
-#: ./../browser/course-view.pt:44
+#: ./../browser/course-view.pt:19
 #: ./../lecture_templates/view.pt:47
 msgid "It appears that you are listed as constributor on this content item"
 msgstr ""
 
-#: ./../browser/courselisting.pt:16
+#: ./../browser/courselisting.pt:17
 msgid "It appears that you are logged in as staff member. Use the link <em>XHR integrations</em> to open an overview of code snippets that can be used to integrate 3rd party project course listings via ajax"
 msgstr ""
 
@@ -537,7 +538,7 @@ msgstr ""
 msgid "Medicine Ethics (MEZ)"
 msgstr ""
 
-#: ./../browser/coursemoduleeditor.pt:47
+#: ./../browser/coursemoduleeditor.pt:44
 msgid "Modul"
 msgstr ""
 
@@ -577,16 +578,12 @@ msgstr ""
 msgid "Module Studies Spiritual Care"
 msgstr ""
 
-#: ./../browser/coursemoduleeditor.pt:23
-msgid "Module bearbeiten"
-msgstr ""
-
 #: ./../lecture.py:109
 msgid "Moodle Link"
 msgstr ""
 
-#: ./../browser/course-view.pt:43
-#: ./../browser/courselisting.pt:15
+#: ./../browser/course-view.pt:18
+#: ./../browser/courselisting.pt:16
 #: ./../lecture_templates/view.pt:46
 msgid "Note:"
 msgstr ""
@@ -642,10 +639,6 @@ msgstr ""
 msgid "Please select the course type."
 msgstr ""
 
-#: ./../browser/coursemoduleeditor.pt:19
-msgid "Quit"
-msgstr ""
-
 #: ./../factory_templates/lecturefactory.pt:61
 msgid "Quit editor"
 msgstr ""
@@ -662,7 +655,7 @@ msgstr ""
 msgid "Raum"
 msgstr ""
 
-#: ./../browser/course-preview.pt:40
+#: ./../browser/course-preview.pt:50
 msgid "Raum:"
 msgstr ""
 
@@ -690,7 +683,7 @@ msgstr ""
 msgid "Save changes"
 msgstr ""
 
-#: ./../browser/coursemoduleeditor.pt:48
+#: ./../browser/coursemoduleeditor.pt:45
 msgid "Schwerpunkt"
 msgstr ""
 
@@ -698,15 +691,15 @@ msgstr ""
 msgid "Select file to upload to this lecture object"
 msgstr ""
 
-#: ./../browser/courselisting.py:571
+#: ./../browser/courselisting.py:570
 msgid "Session cleared"
 msgstr ""
 
-#: ./../browser/courselisting.py:557
+#: ./../browser/courselisting.py:556
 msgid "Session reset"
 msgstr ""
 
-#: ./../browser/courselisting.pt:22
+#: ./../browser/courselisting.pt:23
 msgid "Show integration options"
 msgstr ""
 
@@ -727,7 +720,7 @@ msgstr ""
 msgid "Storage for course module json data. This field should ideally not be edited directly and should be hidden form the base edit form"
 msgstr ""
 
-#: ./../browser/coursemoduleeditor.pt:46
+#: ./../browser/coursemoduleeditor.pt:43
 msgid "Studiengang"
 msgstr ""
 
@@ -739,7 +732,7 @@ msgstr ""
 msgid "Summer Semester"
 msgstr ""
 
-#: ./../browser/course-preview.pt:43
+#: ./../browser/course-preview.pt:54
 msgid "Termine:"
 msgstr ""
 
@@ -786,10 +779,7 @@ msgstr ""
 msgid "VV"
 msgstr ""
 
-#: ./../browser/coursemoduleeditor.pt:28
-msgid "View"
-msgstr ""
-
+#: ./../browser/course-view.pt:51
 #: ./../lecture_templates/view.pt:126
 msgid "View lecture in moodle"
 msgstr ""
@@ -854,11 +844,11 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
-#: ./../browser/coursemoduleeditor.pt:75
+#: ./../browser/coursemoduleeditor.pt:72
 msgid "delete"
 msgstr ""
 
-#: ./../browser/course-preview.pt:48
+#: ./../browser/course-view.pt:37
 #: ./../lecture_templates/view.pt:98
 msgid "edit modules"
 msgstr ""
@@ -867,7 +857,6 @@ msgstr ""
 msgid "pro‐philosophia‐extra"
 msgstr ""
 
-#: ./../browser/course-view.pt:32
 #: ./../lecture_templates/view.pt:34
 msgid "remove filter"
 msgstr ""
