@@ -11715,7 +11715,7 @@ img[data-sizes="auto"] {
   margin-bottom: 1rem;
   background-color: #182f7a;
   color: #fff;
-  border-bottom: 1px solid #efefef;
+  border-bottom: 1px solid #6c757d;
 }
 
 @media (min-width: 48em) {
@@ -11797,7 +11797,7 @@ img[data-sizes="auto"] {
   width: 100%;
   margin: 0;
   padding: 0;
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #6c757d;
   background-color: #182f7a;
 }
 
@@ -11820,7 +11820,7 @@ img[data-sizes="auto"] {
 }
 
 .c-nav__item--back-link, .c-nav__item--parent {
-  border-bottom: 1px solid #dee2e6;
+  border-bottom: 1px solid #6c757d;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11832,7 +11832,7 @@ img[data-sizes="auto"] {
 }
 
 .c-nav__dropdown--open .c-nav__item:last-child {
-  border-bottom: 0px solid #dee2e6;
+  border-bottom: 0px solid #6c757d;
 }
 
 .c-nav__item--has-children {
