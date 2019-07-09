@@ -12064,6 +12064,14 @@ img[data-sizes="auto"] {
   background-color: #999999;
 }
 
+.c-nav-list__link--active:hover {
+  color: #fff;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+  text-decoration: none;
+}
+
 .c-nav-list--level-0 .c-nav-list__link {
   padding-left: calc(0.5rem * 2);
 }
