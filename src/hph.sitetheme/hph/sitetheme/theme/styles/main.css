@@ -10544,6 +10544,7 @@ input, button, select, textarea {
 
 .o-figure {
   display: block;
+  margin-bottom: 0;
 }
 
 .o-figure figcaption {
@@ -12993,6 +12994,10 @@ img[data-sizes="auto"] {
   text-align: left;
 }
 
+.c-card--teaser-links .c-card__footer {
+  text-align: center;
+}
+
 .c-card__footer--centered {
   text-align: center;
 }
@@ -13681,6 +13686,31 @@ img[data-sizes="auto"] {
   }
 }
 
+.c-widget--hph-teaser-links-external .c-list__item {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 100%;
+          flex: 1 0 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 48em) {
+  .c-widget--hph-teaser-links-external .c-list__item {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 50%;
+            flex: 1 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 62em) {
+  .c-widget--hph-teaser-links-external .c-list__item {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 33.3333%;
+            flex: 1 0 33.3333%;
+    max-width: 33.3333%;
+  }
+}
+
 @media (min-width: 62em) {
   .c-list--gutter .c-list__item {
     padding-right: calc(1.25rem * 1.5);
@@ -13734,6 +13764,10 @@ c-list--bordered .c-list__item:last-of-type {
     height: 0.25rem;
     background-color: #eed343;
   }
+}
+
+.c-teaser--links .c-list__item--card::after {
+  display: none;
 }
 
 @media (min-width: 62em) {
