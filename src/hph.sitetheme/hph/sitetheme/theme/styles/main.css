@@ -11891,15 +11891,15 @@ img[data-sizes="auto"] {
 }
 
 @media (min-width: 277777.75em) {
-  .c-nav__link {
-    font-size: 1rem;
-    padding-right: 0.25rem;
-    padding-left: 0.25rem;
-    line-height: 1rem;
-  }
   .c-nav__link:after {
     display: none;
   }
+}
+
+.c-nav__dropdown .c-nav__link {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  font-size: 1rem;
 }
 
 .c-nav__link-text {
