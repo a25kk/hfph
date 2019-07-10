@@ -2,23 +2,20 @@ $c-social-bar-border-width:               1px;
 $c-social-bar-border-style:               solid;
 $c-social-bar-border-color:               currentColor;
 $c-social-bar-border-radius:              50%;
-$c-social-bar-color-facebook:             #3b5998;
+$c-social-bar-color-facebook:             $app-color-gray-lighter;
 $c-social-bar-color-hover-facebook:       #4273c8;
-$c-social-bar-color-twitter:              #55acee;
+$c-social-bar-color-twitter:              $app-color-gray-lighter;
 $c-social-bar-color-hover-twitter:        #32bbf5;
-$c-social-bar-color-linkedin:             #0077b5;
+$c-social-bar-color-linkedin:             $app-color-gray-lighter;
 $c-social-bar-color-hover-linkedin:       #0369a0;
-$c-social-bar-color-xing:                 #126567;
+$c-social-bar-color-xing:                 $app-color-gray-lighter;
 $c-social-bar-color-hover-xing:           #29888a;
 
 .c-social-bar {
   display: block;
   width: 100%;
-  //max-width: 349px;
+  color: $app-color-white;
   margin-bottom: $app-spacer-sm;
-  //@include mq($from: sm) {
-  //  width: 520px;
-  //}
 }
 
 .c-social-bar__list {
@@ -38,11 +35,10 @@ $c-social-bar-color-hover-xing:           #29888a;
 .c-social-bar__button {
   width: 100%;
   padding: 0;
-  //@include mq($from: sm) {
-  //  min-width: 125px;
-  //}
   color: $app-color-white;
-  &:hover,
+  &:hover {
+    color: $app-color-white;
+  }
   &:visited {
     color: $app-color-white;
   }
