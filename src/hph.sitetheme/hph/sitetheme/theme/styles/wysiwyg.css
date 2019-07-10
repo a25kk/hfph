@@ -9408,6 +9408,12 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   height: 2rem;
 }
 
+.o-icon--size-2-5 {
+  fill: currentColor;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
 .o-icon--size-3 {
   fill: currentColor;
   width: 3rem;

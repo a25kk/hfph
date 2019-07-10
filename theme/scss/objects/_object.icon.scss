@@ -28,6 +28,9 @@ $o-icon-border-radius:              50%;
     //&:hover {
     //    fill: $app-color-secondary;
     //}
+    //@include when-inside('.c-social-bar__button') {
+    //    fill: $app-color-text;
+    //}
 }
 
 .o-icon--circle {
@@ -50,6 +53,7 @@ $icon-sizes: (
     lg: 4rem,
     size-1: 1rem,
     size-2: 2rem,
+    size-2-5: 2.5rem,
     size-3: 3rem,
     size-4: 4rem,
     size-5: 5rem,
