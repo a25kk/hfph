@@ -86,10 +86,8 @@ class WidgetImagePoster(BrowserView):
         widget_content = self.widget_image_cover()
         data = {
             'image': self.image_tag(widget_content['image']),
-            'headline': widget_content['title'],
-            'text': widget_content['description'],
-            'public': widget_content['is_public'],
-            'link': widget_content.get('link', None)
+            'text': widget_content['text'],
+            'public': widget_content['is_public']
         }
         return data
 
