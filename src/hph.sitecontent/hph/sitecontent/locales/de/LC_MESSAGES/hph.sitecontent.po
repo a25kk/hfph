@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2019-06-03 13:17+0000\n"
-"PO-Revision-Date: 2019-06-03 15:19+0200\n"
+"POT-Creation-Date: 2019-07-09 13:34+0000\n"
+"PO-Revision-Date: 2019-07-09 15:35+0200\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,7 @@ msgstr "Banner und Vorschaubild"
 msgid "Basic site content for hph site"
 msgstr "Inhaltstypen für HfPH"
 
-#: ../browser/controlpanel.py:35
+#: ../browser/controlpanel.py:36
 msgid "Choose if the main navigation should include a home link pointing at the front page."
 msgstr "Wählen Sie bitte hier, ob die Navigation einen Link zur Startseite beinhalten soll."
 
@@ -64,15 +64,15 @@ msgstr "Cover-Bild Unterschrift"
 msgid "Details"
 msgstr "Details"
 
-#: ../browser/controlpanel.py:72
+#: ../browser/controlpanel.py:73
 msgid "Element used as close trigger that may contain svg icon code."
 msgstr "Element, das als Auslöser zum Schließen verwendet wird und möglicherweise einen SVG-Symbolcode enthält."
 
-#: ../browser/controlpanel.py:81
+#: ../browser/controlpanel.py:82
 msgid "Element used as navigation dropdown trigger.Warning: please make sure to keep the placeholder that allow to interpolate the required classes by the nav tree recursive renderer."
 msgstr "Element, das als Dropdown-Auslöser für die Navigation verwendet wird. Warnung: Stellen Sie sicher, dass der Platzhalter beibehalten wird, der die Interpolation der erforderlichen Klassen durch den rekursiven Renderer für die Baumnavigation ermöglicht."
 
-#: ../browser/controlpanel.py:34
+#: ../browser/controlpanel.py:35
 msgid "Enable Home Link"
 msgstr "Startseiten Link aktivieren"
 
@@ -80,7 +80,7 @@ msgstr "Startseiten Link aktivieren"
 msgid "End date"
 msgstr "Ende"
 
-#: ../browser/events.py:101
+#: ../browser/events.py:108
 msgid "Event"
 msgstr "Event"
 
@@ -103,6 +103,10 @@ msgstr "Terminordner"
 #: ../profiles/default/types/hph.sitecontent.eventitem.xml
 msgid "EventItem"
 msgstr "Aktueller Termin"
+
+#: ../browser/event-calendar.pt:17
+msgid "Events"
+msgstr "Veranstaltungen"
 
 #: ../behavior/display.py:54
 msgid "Exclude from footer navigation"
@@ -148,7 +152,7 @@ msgstr "Sprachordner"
 msgid "Link"
 msgstr "Verweis"
 
-#: ../browser/controlpanel.py:42
+#: ../browser/controlpanel.py:43
 msgid "Listed Content Types"
 msgstr "Angezeigte Inhaltstypen"
 
@@ -168,15 +172,15 @@ msgstr "Medien"
 msgid "Mediaethics"
 msgstr "Medienethik"
 
-#: ../browser/controlpanel.py:71
+#: ../browser/controlpanel.py:72
 msgid "Navigation Close Element"
 msgstr "Element zum Schließen der Navigation"
 
-#: ../browser/controlpanel.py:80
+#: ../browser/controlpanel.py:81
 msgid "Navigation Open Element"
 msgstr "Element „Navigation öffnen“"
 
-#: ../browser/controlpanel.py:63
+#: ../browser/controlpanel.py:64
 msgid "Navigation depth"
 msgstr "Tiefe des Navigationsbaumes"
 
@@ -188,7 +192,7 @@ msgstr "Aktuelle Nachricht"
 msgid "NewsFolder"
 msgstr "Nachrichtenordner"
 
-#: ../browser/controlpanel.py:64
+#: ../browser/controlpanel.py:65
 msgid "Number of folder levels to show in the site navigation."
 msgstr "Anzahl der Ordnerebenen, die in der Site-Navigation angezeigt werden sollen."
 
@@ -200,7 +204,7 @@ msgstr "Optionale benutzerdefinierte Überschrift zum Trennen von Navigation und
 msgid "Optional internal or external link that will be used as redirection target when section is accessed.Logged in users will see the target link instead."
 msgstr "Optionaler interner oder externer Link, der beim Zugriff auf einen Abschnitt als Umleitungsziel verwendet wird. Angemeldete Benutzer sehen stattdessen den Ziel-Link."
 
-#: ../browser/controlpanel.py:54
+#: ../browser/controlpanel.py:55
 msgid "Path to be used as navigation root, relative to Plone site root.Starts with '/'"
 msgstr "Pfad, der als Navigationsstamm verwendet werden soll, relativ zum Plone-Standortstamm. Beginnt mit ‚/‚"
 
@@ -228,7 +232,7 @@ msgstr "Veranstaltung"
 msgid "Research"
 msgstr "Forschung"
 
-#: ../browser/controlpanel.py:53
+#: ../browser/controlpanel.py:54
 msgid "Root"
 msgstr "Wurzelverzeichnis"
 
@@ -248,7 +252,7 @@ msgstr "Wählen Sie diese Option aus, um dieses Element für die Anzeige auf Üb
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: ../browser/controlpanel.py:27
+#: ../browser/controlpanel.py:28
 msgid "Setup initialized."
 msgstr "Setup wurde initialisiert."
 
