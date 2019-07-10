@@ -35,6 +35,10 @@ $c-card-spacer:                         $app-spacer-sm;
     padding: $c-card-spacer;
 }
 
+.c-card--nav {
+    justify-content: flex-start;
+}
+
 //== Card layout
 //
 //## Reflow card contents based on viewport size
