@@ -12958,6 +12958,12 @@ img[data-sizes="auto"] {
   padding: calc(1.25rem * 1.5 / 2);
 }
 
+.c-card--nav {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
 .c-card__header {
   background: transparent;
   font-family: "Taz-SemiBold";
@@ -14195,6 +14201,80 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-poster__link:hover {
   color: #fff;
+}
+
+.c-slider {
+  display: block;
+  width: 100%;
+}
+
+.c-slide {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.c-slide__main {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 0 3rem;
+  color: #fff;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.45)));
+  background: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
+  background: -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
+}
+
+@media (min-width: 48em) {
+  .c-slide__main {
+    padding: 3rem;
+  }
+}
+
+.c-slider__items {
+  margin-bottom: 0;
+}
+
+.c-slide__figure {
+  margin-bottom: 0;
+}
+
+/* ---- flickity overrides ---- */
+.flickity-prev-next-button {
+  background: transparent;
+}
+
+@media (min-width: 48em) {
+  .flickity-prev-next-button {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.flickity-prev-next-button .arrow {
+  fill: #fff;
+}
+
+.flickity-prev-next-button:hover {
+  background: none;
+}
+
+@media (min-width: 48em) {
+  .flickity-page-dots {
+    display: block;
+    text-align: center;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+  }
+}
+
+@media (min-width: 48em) {
+  .flickity-page-dots .dot {
+    background-color: #fff;
+  }
 }
 
 .c-pane {
