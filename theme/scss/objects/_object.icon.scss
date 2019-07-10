@@ -28,6 +28,9 @@ $o-icon-border-radius:              50%;
     //&:hover {
     //    fill: $app-color-secondary;
     //}
+    //@include when-inside('.c-social-bar__button') {
+    //    fill: $app-color-text;
+    //}
 }
 
 .o-icon--circle {
