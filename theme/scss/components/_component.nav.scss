@@ -32,7 +32,7 @@ $c-nav-font-size-secondary:             $app-font-size-sm;
 .c-nav--level-1 {
     position: relative;
     // height: 0;
-    overflow-y: scroll;
+    overflow-y: visible;
 }
 
 .c-nav__item {

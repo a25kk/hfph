@@ -102,7 +102,7 @@ class WidgetAccordion(BrowserView):
         context = aq_inner(self.context)
         css_class = 'c-accordion__panels c-accordion__panels--{0} {1}'.format(
             context.UID(),
-            'js-slider'
+            'js-accordion'
         )
         custom_styles = self.widget_custom_styles()
         if custom_styles:

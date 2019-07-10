@@ -1,0 +1,52 @@
+.c-pane {
+  margin: 0;
+}
+
+.c-pane__header {
+  width: 100%;
+  cursor: pointer;
+}
+
+.c-pane__title {
+  display: flex;
+  width: 100%;
+  padding: $app-spacer-sm;
+  margin-bottom: 0;
+  border-bottom: 1px solid $app-color-gray-lighter;
+  background-color: $app-color-gray-light;
+}
+
+.c-pane__headline {
+  flex: 0 1 calc(100% - 4rem);
+}
+
+.c-pane__toggle {
+  flex: 0 1 4rem;
+}
+
+.c-pane__main {
+  display: none;
+  &.c-collapsible__item--active {
+    display: block;
+  }
+}
+
+.c-pane__content {
+  display: block;
+  padding: $app-spacer-base 0;
+}
+
+.c-pane__icon {
+  color: currentColor;
+  &--close {
+    display: none;
+  }
+  @include when-inside('.show') {
+    &--open {
+      display: none;
+    }
+    &--close {
+      display: inline-block;
+    }
+  }
+}

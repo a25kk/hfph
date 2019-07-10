@@ -5,7 +5,7 @@
         <li class="c-social-bar__item">
             <a class="c-button c-button--sm c-social-bar__button c-social-bar__button--twitter"
                 href="#" tal:attributes="href python:view.share_link(service='twitter')" target="_blank">
-                <svg class="o-icon o-icon--size-2 o-icon--spacer o-icon__brand--twitter-dims">
+                <svg class="o-icon o-icon--size-2-5 o-icon--spacer o-icon__brand--twitter-dims">
                     <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#brand--twitter"></use>
                 </svg>
                 <span class="c-social-bar__text" i18n:translate="">tweet</span>
@@ -14,7 +14,7 @@
         <li class="c-social-bar__item">
             <a class="c-button c-button--sm c-social-bar__button c-social-bar__button--facebook"
                href="#" tal:attributes="href python:view.share_link(service='facebook')" target="_blank">
-                <svg class="o-icon o-icon--size-2 o-icon--spacer o-icon__brand--facebook-dims">
+                <svg class="o-icon o-icon--size-2-5 o-icon--spacer o-icon__brand--facebook-dims">
                     <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#brand--facebook"></use>
                 </svg>
                 <span class="c-social-bar__text" i18n:translate="">share</span>
@@ -23,7 +23,7 @@
         <li class="c-social-bar__item">
             <a class="c-button c-button--sm c-social-bar__button c-social-bar__button--xing"
                href="#" tal:attributes="href python:view.share_link(service='xing')" target="_blank">
-                <svg class="o-icon o-icon--size-2 o-icon--spacer o-icon__brand--xing-dims">
+                <svg class="o-icon o-icon--size-2-5 o-icon--spacer o-icon__brand--xing-dims">
                     <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#brand--xing"></use>
                 </svg>
                 <span class="c-social-bar__text" i18n:translate="">share</span>
@@ -32,7 +32,7 @@
         <li class="c-social-bar__item">
             <a class="c-button c-button--sm c-social-bar__button c-social-bar__button--linkedin"
                href="#" tal:attributes="href python:view.share_link(service='linkedin')" target="_blank">
-                <svg class="o-icon o-icon--size-2 o-icon--spacer o-icon__brand--linkedin-dims">
+                <svg class="o-icon o-icon--size-2-5 o-icon--spacer o-icon__brand--linkedin-dims">
                     <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#brand--linkedin"></use>
                 </svg>
                 <span class="c-social-bar__text" i18n:translate="">share</span>
