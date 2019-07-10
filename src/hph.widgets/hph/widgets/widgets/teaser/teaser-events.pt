@@ -2,8 +2,8 @@
      xmlns:xlink="http://www.w3.org/1999/xlink"
          i18n:domain="hph.widgets">
     <div class="c-teaser__header">
-        <h2 class="c-teaser__title" i18n:translate="">
-            <a href="" tal:attributes="href python:view.widget_more_link()">
+        <h2 class="c-teaser__title">
+            <a href="" tal:attributes="href python:view.widget_more_link()" i18n:translate="">
                 Events
             </a>
         </h2>
