@@ -73,6 +73,9 @@ $c-card-spacer:                         $app-spacer-sm;
     @include when-inside('.c-card--news') {
         text-align: left;
     }
+    @include when-inside('.c-card--teaser-links') {
+        text-align: center;
+    }
     font-size: $font-size-small;
     &--centered {
         text-align: center;
