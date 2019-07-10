@@ -98,6 +98,19 @@ class EventItemView(BrowserView):
             return True
         return False
 
+    def is_full_day_event(self):
+        context = aq_inner(self.context)
+        return getattr(context, 'full_day', False)
+
+    def is_open_end_event(self):
+        context = aq_inner(self.context)
+        return getattr(context, 'open_end', False)
+
+    def show_event_end_date(self):
+        if not self.is_full_day_event() and not self.is_open_end_event():
+            return True
+        return False
+
     def time_stamp(self, date_time):
         context = aq_inner(self.context)
         content_info_provider = IContentInfoProvider(context)
