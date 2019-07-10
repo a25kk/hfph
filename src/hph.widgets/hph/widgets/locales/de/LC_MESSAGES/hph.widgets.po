@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2019-07-09 09:10+0000\n"
-"PO-Revision-Date: 2019-07-09 12:34+0200\n"
+"POT-Creation-Date: 2019-07-10 11:30+0000\n"
+"PO-Revision-Date: 2019-07-10 13:31+0200\n"
 "Last-Translator: Christoph Boehner-Figas <cb@ade25.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -15,10 +15,6 @@ msgstr ""
 "Domain: hph.widgets\n"
 "Language: de\n"
 "X-Generator: Poedit 2.2.3\n"
-
-#: ../widgets/teaser/teaser-events.pt:6
-msgid "<a href=\"${DYNAMIC_CONTENT}\"> Events </a>"
-msgstr "<a href=\"${DYNAMIC_CONTENT}\">Termine</a>"
 
 #: ../widgets/teaser/teaser-news.pt:6
 msgid "<a href=\"${DYNAMIC_CONTENT}\"> News </a>"
@@ -43,6 +39,10 @@ msgstr "Beratung"
 #: ../vocabulary.py:41
 msgid "Download"
 msgstr "Download"
+
+#: ../widgets/teaser/teaser-events.pt:6
+msgid "Events"
+msgstr "Veranstaltungen"
 
 #: ../widgets/teaser/interfaces.py:62
 msgid "External Link Title"
