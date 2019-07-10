@@ -1,5 +1,7 @@
-$c-nav-color:                   $app-color-white;
-$c-nav-color-highlight:         $app-color-secondary;
+$c-nav-color:                           $app-color-white;
+$c-nav-color-highlight:                 $app-color-secondary;
+$c-nav-font-size-base:                  $app-font-size-base;
+$c-nav-font-size-secondary:             $app-font-size-sm;
 
 // TODO: refactor styles
 .c-nav {
@@ -82,7 +84,7 @@ $c-nav-color-highlight:         $app-color-secondary;
     font-weight: 400;
     line-height: .7rem;
     transition: background-color 0.5s ease;
-    @include font-size($app-font-size-base);
+    font-size: $c-nav-font-size-base;
     @include when-inside('.c-nav-bar__toggle') {
         line-height: 1rem;
     }
@@ -108,15 +110,14 @@ $c-nav-color-highlight:         $app-color-secondary;
         }
     }
     @include mq($from: navbar) {
-        @include font-size(1rem);
-        padding-right: 0.25rem;
-        padding-left: 0.25rem;
-        line-height: 1rem;
         &:after {
             display: none;
         }
     }
-    @include when-inside('.c-nav__item--has-children') {
+    @include when-inside('.c-nav__dropdown') {
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+        font-size: $c-nav-font-size-secondary;
     }
 }
 
