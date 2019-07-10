@@ -9974,6 +9974,12 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   height: 2rem;
 }
 
+.o-icon--size-2-5 {
+  fill: currentColor;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
 .o-icon--size-3 {
   fill: currentColor;
   width: 3rem;
@@ -11788,7 +11794,7 @@ img[data-sizes="auto"] {
 
 .c-nav--level-1 {
   position: relative;
-  overflow-y: scroll;
+  overflow-y: visible;
 }
 
 .c-nav__item {
@@ -13311,14 +13317,7 @@ img[data-sizes="auto"] {
 .c-social-bar {
   display: block;
   width: 100%;
-  max-width: 100%;
   margin-bottom: calc(1.25rem * 1.5 / 2);
-}
-
-@media (min-width: 36em) {
-  .c-social-bar {
-    width: 520px;
-  }
 }
 
 .c-social-bar__list {
@@ -13328,6 +13327,7 @@ img[data-sizes="auto"] {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   width: 100%;
+  margin-bottom: 0;
 }
 
 .c-social-bar__item {
@@ -13336,16 +13336,13 @@ img[data-sizes="auto"] {
           flex: 1 0 25%;
   max-width: 25%;
   text-align: left;
+  border: 1px solid #fff;
 }
 
 .c-social-bar__button {
+  width: 100%;
+  padding: 0;
   color: #fff;
-}
-
-@media (min-width: 36em) {
-  .c-social-bar__button {
-    min-width: 125px;
-  }
 }
 
 .c-social-bar__button:hover, .c-social-bar__button:visited {
