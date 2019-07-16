@@ -9923,6 +9923,17 @@ input, button, select, textarea {
   margin-bottom: 0;
 }
 
+.c-widget--hph-teaser-links-external .o-figure {
+  max-width: 70%;
+  margin: auto;
+}
+
+@media (min-width: 62em) {
+  .c-widget--hph-teaser-links-external .o-figure {
+    max-width: 100%;
+  }
+}
+
 .o-figure figcaption {
   font-size: 1rem;
   color: #999999;

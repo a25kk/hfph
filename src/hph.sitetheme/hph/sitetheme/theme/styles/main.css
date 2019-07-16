@@ -10553,6 +10553,17 @@ input, button, select, textarea {
   margin-bottom: 0;
 }
 
+.c-widget--hph-teaser-links-external .o-figure {
+  max-width: 70%;
+  margin: auto;
+}
+
+@media (min-width: 62em) {
+  .c-widget--hph-teaser-links-external .o-figure {
+    max-width: 100%;
+  }
+}
+
 .o-figure figcaption {
   font-size: 1rem;
   color: #999999;
@@ -13712,9 +13723,9 @@ img[data-sizes="auto"] {
 @media (min-width: 48em) {
   .c-widget--hph-teaser-links-external .c-list__item {
     -webkit-box-flex: 1;
-        -ms-flex: 1 0 50%;
-            flex: 1 0 50%;
-    max-width: 50%;
+        -ms-flex: 1 0 33.3333%;
+            flex: 1 0 33.3333%;
+    max-width: 33.3333%;
   }
 }
 
