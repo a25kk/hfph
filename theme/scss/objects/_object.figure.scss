@@ -1,6 +1,13 @@
 .o-figure {
     display: block;
     margin-bottom: 0;
+        @include when-inside('.c-widget--hph-teaser-links-external') { 
+        max-width: 70%;
+        margin: auto;
+        @include mq($from: lg) {
+            max-width: 100%;
+        }
+    }
     figcaption {
         font-size: $app-font-size-sm;
         color: $app-color-gray-lighter;
