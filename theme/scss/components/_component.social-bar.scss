@@ -2,14 +2,14 @@ $c-social-bar-border-width:               1px;
 $c-social-bar-border-style:               solid;
 $c-social-bar-border-color:               currentColor;
 $c-social-bar-border-radius:              50%;
-$c-social-bar-color-facebook:             $app-color-gray-lighter;
-$c-social-bar-color-hover-facebook:       #4273c8;
-$c-social-bar-color-twitter:              $app-color-gray-lighter;
-$c-social-bar-color-hover-twitter:        #32bbf5;
-$c-social-bar-color-linkedin:             $app-color-gray-lighter;
-$c-social-bar-color-hover-linkedin:       #0369a0;
-$c-social-bar-color-xing:                 $app-color-gray-lighter;
-$c-social-bar-color-hover-xing:           #29888a;
+$c-social-bar-color-facebook:             $app-color-gray-lightest;
+$c-social-bar-color-hover-facebook:       $app-color-secondary;
+$c-social-bar-color-twitter:              $app-color-gray-lightest;
+$c-social-bar-color-hover-twitter:        $app-color-secondary;
+$c-social-bar-color-linkedin:             $app-color-gray-lightest;
+$c-social-bar-color-hover-linkedin:       $app-color-secondary;
+$c-social-bar-color-xing:                 $app-color-gray-lightest;
+$c-social-bar-color-hover-xing:           $app-color-secondary;
 
 .c-social-bar {
   display: block;
@@ -35,12 +35,12 @@ $c-social-bar-color-hover-xing:           #29888a;
 .c-social-bar__button {
   width: 100%;
   padding: 0;
-  color: $app-color-white;
+  color: #000;
   &:hover {
-    color: $app-color-white;
+    color: $app-color-primary !important;
   }
   &:visited {
-    color: $app-color-white;
+    color: $app-color-primary !important;
   }
 }
 
