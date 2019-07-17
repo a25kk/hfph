@@ -14245,8 +14245,20 @@ c-list--bordered .c-list__item:last-of-type {
 
 @media (min-width: 48em) {
   .c-slide__main {
-    padding: 3rem;
+    padding: 3rem 5rem;
   }
+}
+
+.c-slide__content a {
+  color: #fff;
+}
+
+.c-slide__content a:hover {
+  color: #fff;
+}
+
+.c-slide__content a:visited {
+  color: #fff;
 }
 
 .c-slider__items {
@@ -14262,7 +14274,7 @@ c-list--bordered .c-list__item:last-of-type {
   background: transparent;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 62em) {
   .flickity-prev-next-button {
     width: 100px;
     height: 100px;
