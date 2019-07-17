@@ -52,8 +52,8 @@ $c-list-separator-height:                   .25rem;
         flex: 1 0 100%;
         max-width: 100%;
         @include mq($from: md) {
-            flex: 1 0 50%;
-            max-width: 50%;
+            flex: 1 0 33.3333%;
+            max-width: 33.3333%;
         }
         @include mq($from: lg) {
             flex: 1 0 33.3333%;
