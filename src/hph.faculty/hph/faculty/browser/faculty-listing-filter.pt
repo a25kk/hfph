@@ -6,7 +6,7 @@
         <h4 class="c-card__title c-collapsible__link" i18n:translate="">
             Filter
         </h4>
-        <div class="c-collapsible__link c-collapsible__link--icon">
+        <div class="c-collapsible__link c-collapsible__link--hidden-lg c-collapsible__link--icon">
             <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--add-dims c-toc__icon c-toc__icon--open">
                 <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--add"></use>
             </svg>
@@ -15,7 +15,7 @@
             </svg>
         </div>
     </div>
-    <div class="c-card__main c-collapsible__item js-collapsible-item">
+    <div class="c-card__main c-collapsible__item c-collapsible__item--lg js-collapsible-item">
         <ul class="c-nav-list">
             <tal:block tal:repeat="filter view/filter_options">
                 <li class="c-nav-list__item"
