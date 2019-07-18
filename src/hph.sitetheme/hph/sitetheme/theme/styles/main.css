@@ -13015,6 +13015,13 @@ img[data-sizes="auto"] {
   padding-bottom: calc(1.25rem * 1.5);
 }
 
+@media (min-width: 62em) {
+  .c-card--nav .c-card__main {
+    max-height: 1500px;
+    display: block;
+  }
+}
+
 .c-card__footer {
   margin-top: auto;
   font-family: "Taz-SemiBold";
@@ -13967,6 +13974,15 @@ c-list--bordered .c-list__item:last-of-type {
   font-family: "Taz-SemiLight";
 }
 
+@media (min-width: 62em) {
+  .c-card--nav .c-collapsible__link {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 100%;
+            flex: 1 0 100%;
+    max-width: 100%;
+  }
+}
+
 .c-collapsible__link--icon {
   text-align: right;
   color: currentColor;
@@ -13974,6 +13990,12 @@ c-list--bordered .c-list__item:last-of-type {
 
 @media (min-width: 75em) {
   .c-collapsible__link--icon {
+    display: none;
+  }
+}
+
+@media (min-width: 62em) {
+  .c-card--nav .c-collapsible__link--icon {
     display: none;
   }
 }

@@ -68,6 +68,13 @@ $c-card-spacer:                         $app-spacer-sm;
     @include when-inside('.c-card--teaser') {
         padding-bottom: $app-spacer-base;
     }
+    @include when-inside('.c-card--nav') {
+        @include mq($from: lg) {
+            //overflow: visible;
+            max-height: 1500px;
+            display: block;
+        } 
+    }
 }
 
 //** Card footer
