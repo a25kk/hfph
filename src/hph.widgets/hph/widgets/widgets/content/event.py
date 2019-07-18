@@ -266,6 +266,13 @@ class WidgetEventSnippet(BrowserView):
         time_stamp = content_info_provider.time_stamp(date_time)
         return time_stamp
 
+    @staticmethod
+    def content_snippet(item, text_field):
+        content_info_provider = IContentInfoProvider(item)
+        text_snippet = content_info_provider.teaser_text(
+            text_field, characters=200)
+        return text_snippet
+
     def event_type_title(self, event_type):
         context = aq_inner(self.context)
         factory = getUtility(IVocabularyFactory, "hph.sitecontent.EventTypes")
@@ -281,6 +288,7 @@ class WidgetEventSnippet(BrowserView):
         details = {
             "title": context.Title(),
             "description": context.Description(),
+            "snippet": self.content_snippet(context, context.Description()),
             "url": context.absolute_url(),
             "timestamp": context.Date,
             "uuid": context.UID(),
