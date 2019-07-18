@@ -41,7 +41,7 @@ $c-nav-font-size-secondary:             $app-font-size-sm;
     width: 100%;
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid $gray-600;
+    border-bottom: 2px solid rgba(255,255,255, 0.1);
     background-color: $app-color-primary;
     @include mq($from: navbar) {
         width: auto;
@@ -55,7 +55,7 @@ $c-nav-font-size-secondary:             $app-font-size-sm;
     }
     &--back-link,
     &--parent {
-        border-bottom: 1px solid $gray-600;
+        border-bottom: 2px solid rgba(255,255,255, 0.1);
         display: flex;
         padding: 0;
     }
