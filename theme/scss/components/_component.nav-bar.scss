@@ -43,7 +43,7 @@
     margin-bottom: 1rem;
     background-color: $app-color-primary;
     color: $white;
-    border-bottom: 1px solid $gray-600;
+    border-bottom: 2px solid rgba(255,255,255, 0.1);
     @include mq($from: md) {
         padding-left: 2rem;
         padding-right: 1rem;

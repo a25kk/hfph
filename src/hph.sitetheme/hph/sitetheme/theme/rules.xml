@@ -12,7 +12,7 @@
                 <div class="c-card__title c-collapsible__link">
                     Weitere Inhalte
                 </div>
-                <div class="c-collapsible__link c-collapsible__link--icon">
+                <div class="c-collapsible__link c-collapsible__link--icon c-collapsible__link--hidden-lg">
                     <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--add-dims c-collapsible__icon c-collapsible__icon--open">
                         <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--add"></use>
                     </svg>

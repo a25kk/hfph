@@ -33,14 +33,14 @@ class TeaserLinkIconVocabularyFactory(object):
     @staticmethod
     def get_display_options():
         display_options = {
-            'widget--tile': _(u'Tile'),
-            'ui--calendar': _(u'Calendar'),
-            'content--calendar-clock': _(u'Calendar with Clock'),
-            'content--classroom': _(u'Classroom'),
-            'content--counseling': _(u'Counseling'),
-            'content--download-action': _(u'Download'),
-            'content--research': _(u'Research'),
-            'content--teacher': _(u'Teacher'),
+            'content--lecture-directory': _(u'Lecture Directory'),
+            'content--semester-dates': _(u'Semester Dates'),
+            'content--course-guidance-service': _(u'Course Guidance Service'),
+            'content--study-downloads': _(u'Study Downloads'),
+            'content--education': _(u'Education'),
+            'content--further-education': _(u'Further Education'),
+            'content--research-projects': _(u'Research projects'),
+            'content--teachers': _(u'Teachers'),
         }
         return display_options
 
