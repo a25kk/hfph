@@ -63,16 +63,22 @@ def learning_modules_bachelor():
         'III/2': _(u"III/2"),
         'IV/1': _(u"IV/1"),
         'IV/2': _(u"IV/2"),
-        'wp-theology': _(u"WP Theology"),
-        'wp-cultures': _(u"WP Cultures"),
-        'wp-globalization': _(u"WP Globalization"),
-        'wp-environmental-ethics': _(u"WP Environmental Ethics"),
-        'wp-nature-philosophy': _(u"WP Nature Philosophy"),
-        'wp-logic': _(u"WP Logic"),
-        'wp-media': _(u"WP Media"),
-        'wp-cultural-admission': _(u"WP Cultural Admission"),
-        'wp-education': _(u"WP Education"),
-        'wp-internship': _(u"WP Internship"),
+        'wp-theology': _(u"WP Theology (expiring)"),
+        'wp-cultures': _(u"WP Cultures  (expiring)"),
+        'wp-globalization': _(u"WP Globalization (expiring)"),
+        'wp-environmental-ethics': _(u"WP Environmental Ethics (expiring)"),
+        'wp-nature-philosophy': _(u"WP Nature Philosophy (expiring)"),
+        'wp-logic': _(u"WP Logic (expiring)"),
+        'wp-media': _(u"WP Media (expiring)"),
+        'wp-cultural-admission': _(u"WP Cultural Admission (expiring)"),
+        'wp-education': _(u"WP Education (expiring)"),
+        'wp-internship': _(u"WP Internship (expiring)"),
+        "module-theology": _("WP Theology"),
+        "module-globalization": _("WP Globalization"),
+        "module-natural-scientific-border-issues": _("WP Natural Scientific Border Issues"),  # noqa
+        "module-interculturality": _("WP Interculturality"),
+        "module-media": _("WP Media"),
+        "module-internship": _("WP Internship")
     }
     return modules
 
@@ -91,7 +97,8 @@ def course_core_themes():
         'ma-ethic': {
             'wir': _('WIR'),
             'med': _('MED'),
-            'mez': _('MEZ')
+            'mez': _('MEZ'),
+            'edid': _("EdiD")
         },
         'ma-ib': {
             'ie': _('IE'),
@@ -118,7 +125,8 @@ def course_core_theme_names():
         'ie': _('Intercultural Education (IE)'),
         'vv': _('International Understanding (VV)'),
         'sc': _('Spiritual Care (SC)'),
-        'pb': _('Personal Development (PB)')
+        'pb': _('Personal Development (PB)'),
+        'edid': _("Ethics of Intercultural Dialogue")
     }
     return themes
 
