@@ -1,35 +1,45 @@
 <div class="c-snippet c-snippet--event"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
          tal:define="content python:view.widget_content()"
          tal:attributes="class python:'c-snippet c-snippet--default ' + content['css_classes']">
     <div class="c-snippet__main">
-        <div class="c-snippet__header">
-            <h3 class="c-snippet__title">
-                <a class="c-snippet__link" tal:attributes="href python:content['url']"
-                         tal:content="python:content['title']">
+        <div class="c-card__header c-card__header--teaser">
+            <a class="c-card__link" tal:attributes="href python:content['url']">
+                <div class="c-card__kicker">
+                    <tal:event tal:condition="python:content['event_start_date']">
+                        <time tal:define="event_start python:content['event_start_date']"
+                                 tal:attributes="datetime python:event_start['date_long']">
+                            <span tal:replace="python:event_start['day']" />.<span tal:replace="python:event_start['month']" />.<span tal:replace="python:event_start['year']" />
+                        </time> |
+                    </tal:event>
+                    <tal:event-type tal:condition="python:content['event_type']">
+                            <span tal:content="python:content['event_type']">
+                                Event Type
+                            </span>
+                    </tal:event-type>
+                </div>
+                <h3 class="c-card__title" tal:content="python:content['title']">
                         ${context/Title}
-                </a>
-            </h3>
+                </h3>
+            </a>
         </div>
-        <div class="c-snippet__section" tal:condition="python:content['event_type']">
-            <h6 class="c-snippet__title--secondary" tal:content="python:content['event_type']">
-                Event Type
-            </h6>
-        </div>
-        <div class="c-snippet__section">
-            <div class="c-snippet__details" tal:condition="python:content['event_start_date']">
-                <tal:event tal:define="event_start python:content['event_start_date']">
-                    <time tal:attributes="datetime python:event_start['date_long']">
-                        <span tal:replace="python:event_start['day_name']" />,
-                        <span tal:replace="python:event_start['day']" />. <span tal:replace="python:event_start['month_name']" />,
-                        <span tal:replace="python:event_start['time']" />
-                    </time>
-                </tal:event>
+        <div class="c-card__main">
+            <div class="c-card__section">
+                <div class="c-card__details" tal:condition="python:content['snippet']">
+                    <span tal:replace="python:content['snippet']" />
+                </div>
             </div>
         </div>
-        <div class="c-snippet__footer">
-            <a class="c-snippet__link c-snippet__link--footer" tal:attributes="href python:content['url']"
-                     i18n:translate="">
-                Read more
+        <div class="c-card__footer c-card__footer--teaser">
+            <a class="c-card__link" tal:attributes="href python:content['url']">
+                <div class="o-read-more">
+                <span class="o-read-more__icon c-card__icon">
+                    <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--chevron-dims">
+                        <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron"></use>
+                    </svg>
+                </span>
+                    <span class="o-read-more__text c-card__link-text" i18n:translate="">Read more</span>
+                </div>
             </a>
         </div>
     </div>

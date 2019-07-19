@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-07-09 13:37+0000\n"
+"POT-Creation-Date: 2019-07-18 21:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,15 +30,15 @@ msgstr ""
 msgid "-- select an option --"
 msgstr ""
 
-#: ./../vocabulary.py:200
+#: ./../vocabulary.py:208
 msgid "1 hour"
 msgstr ""
 
-#: ./../vocabulary.py:201
+#: ./../vocabulary.py:209
 msgid "2 hour"
 msgstr ""
 
-#: ./../vocabulary.py:202
+#: ./../vocabulary.py:210
 msgid "3 hour"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 msgid "3rd party projects"
 msgstr ""
 
-#: ./../vocabulary.py:203
+#: ./../vocabulary.py:211
 msgid "4 hour"
 msgstr ""
 
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Additional information on a specific lecture or course"
 msgstr ""
 
-#: ./../vocabulary.py:219
+#: ./../vocabulary.py:227
 msgid "Advanced seminar"
 msgstr ""
 
@@ -115,7 +115,7 @@ msgstr ""
 msgid "BA (Bachelor)"
 msgstr ""
 
-#: ./../vocabulary.py:222
+#: ./../vocabulary.py:230
 msgid "Basic module"
 msgstr ""
 
@@ -124,7 +124,7 @@ msgstr ""
 msgid "Block Lecture"
 msgstr ""
 
-#: ./../vocabulary.py:115
+#: ./../vocabulary.py:122
 msgid "Business Ethics (WIR)"
 msgstr ""
 
@@ -137,7 +137,7 @@ msgstr ""
 msgid "Check to mark this item as current"
 msgstr ""
 
-#: ./../vocabulary.py:221
+#: ./../vocabulary.py:229
 msgid "Colloquium"
 msgstr ""
 
@@ -293,12 +293,16 @@ msgstr ""
 msgid "Drucken"
 msgstr ""
 
-#: ./../vocabulary.py:89
+#: ./../vocabulary.py:95
 msgid "EG"
 msgstr ""
 
-#: ./../vocabulary.py:156
+#: ./../vocabulary.py:164
 msgid "Economic Ethics"
+msgstr ""
+
+#: ./../vocabulary.py:101
+msgid "EdiD"
 msgstr ""
 
 #: ./../browser/course-view.pt:25
@@ -314,11 +318,15 @@ msgstr ""
 msgid "Enter corresponding product detail value"
 msgstr ""
 
-#: ./../vocabulary.py:114
+#: ./../vocabulary.py:121
 msgid "Ethics and Society (EG)"
 msgstr ""
 
-#: ./../vocabulary.py:220
+#: ./../vocabulary.py:129
+msgid "Ethics of Intercultural Dialogue"
+msgstr ""
+
+#: ./../vocabulary.py:228
 msgid "Exercise"
 msgstr ""
 
@@ -342,11 +350,11 @@ msgstr ""
 msgid "Filter successfully updated"
 msgstr ""
 
-#: ./../vocabulary.py:87
+#: ./../vocabulary.py:93
 msgid "GN"
 msgstr ""
 
-#: ./../vocabulary.py:139
+#: ./../vocabulary.py:147
 msgid "Global Solidarity"
 msgstr ""
 
@@ -382,7 +390,7 @@ msgstr ""
 msgid "I/6"
 msgstr ""
 
-#: ./../vocabulary.py:97
+#: ./../vocabulary.py:104
 msgid "IE"
 msgstr ""
 
@@ -442,15 +450,15 @@ msgstr ""
 msgid "Integrations"
 msgstr ""
 
-#: ./../vocabulary.py:118
+#: ./../vocabulary.py:125
 msgid "Intercultural Education (IE)"
 msgstr ""
 
-#: ./../vocabulary.py:119
+#: ./../vocabulary.py:126
 msgid "International Understanding (VV)"
 msgstr ""
 
-#: ./../vocabulary.py:218
+#: ./../vocabulary.py:226
 msgid "Introductory seminar source"
 msgstr ""
 
@@ -464,7 +472,7 @@ msgid "It appears that you are logged in as staff member. Use the link <em>XHR i
 msgstr ""
 
 #: ./../profiles/default/types/hph.lectures.lecture.xml
-#: ./../vocabulary.py:217
+#: ./../vocabulary.py:225
 msgid "Lecture"
 msgstr ""
 
@@ -478,11 +486,11 @@ msgstr ""
 msgid "Lecure Number"
 msgstr ""
 
-#: ./../vocabulary.py:237
+#: ./../vocabulary.py:245
 msgid "MA Ethics"
 msgstr ""
 
-#: ./../vocabulary.py:238
+#: ./../vocabulary.py:246
 msgid "MA kons"
 msgstr ""
 
@@ -494,7 +502,7 @@ msgstr ""
 msgid "MA-Ethics (Continuing Master Ethics)"
 msgstr ""
 
-#: ./../vocabulary.py:242
+#: ./../vocabulary.py:250
 msgid "MA-IB"
 msgstr ""
 
@@ -514,15 +522,15 @@ msgstr ""
 msgid "MAcons (Consecutive Master)"
 msgstr ""
 
-#: ./../vocabulary.py:93
+#: ./../vocabulary.py:99
 msgid "MED"
 msgstr ""
 
-#: ./../vocabulary.py:94
+#: ./../vocabulary.py:100
 msgid "MEZ"
 msgstr ""
 
-#: ./../vocabulary.py:240
+#: ./../vocabulary.py:248
 msgid "Mag"
 msgstr ""
 
@@ -530,11 +538,11 @@ msgstr ""
 msgid "Manage lectures"
 msgstr ""
 
-#: ./../vocabulary.py:116
+#: ./../vocabulary.py:123
 msgid "Media Ethics (MED)"
 msgstr ""
 
-#: ./../vocabulary.py:117
+#: ./../vocabulary.py:124
 msgid "Medicine Ethics (MEZ)"
 msgstr ""
 
@@ -546,27 +554,27 @@ msgstr ""
 msgid "Module Information"
 msgstr ""
 
-#: ./../vocabulary.py:132
+#: ./../vocabulary.py:140
 msgid "Module Studies Adult Education"
 msgstr ""
 
-#: ./../vocabulary.py:131
+#: ./../vocabulary.py:139
 msgid "Module Studies Economic Ethics"
 msgstr ""
 
-#: ./../vocabulary.py:137
+#: ./../vocabulary.py:145
 msgid "Module Studies International Understanding"
 msgstr ""
 
-#: ./../vocabulary.py:136
+#: ./../vocabulary.py:144
 msgid "Module Studies Media Ethics"
 msgstr ""
 
-#: ./../vocabulary.py:140
+#: ./../vocabulary.py:148
 msgid "Module Studies Medicine Ethics"
 msgstr ""
 
-#: ./../vocabulary.py:133
+#: ./../vocabulary.py:141
 msgid "Module Studies Personal Development"
 msgstr ""
 
@@ -574,7 +582,7 @@ msgstr ""
 msgid "Module Studies Recommendations"
 msgstr ""
 
-#: ./../vocabulary.py:141
+#: ./../vocabulary.py:149
 msgid "Module Studies Spiritual Care"
 msgstr ""
 
@@ -593,19 +601,19 @@ msgstr ""
 msgid "Online Lecture"
 msgstr ""
 
-#: ./../vocabulary.py:100
+#: ./../vocabulary.py:107
 msgid "PB"
 msgstr ""
 
-#: ./../vocabulary.py:121
+#: ./../vocabulary.py:128
 msgid "Personal Development (PB)"
 msgstr ""
 
-#: ./../vocabulary.py:130
+#: ./../vocabulary.py:138
 msgid "Philosophicum"
 msgstr ""
 
-#: ./../vocabulary.py:134
+#: ./../vocabulary.py:142
 msgid "Philosophy & Leadership Certificate"
 msgstr ""
 
@@ -647,7 +655,7 @@ msgstr ""
 msgid "Quit xhr integrations"
 msgstr ""
 
-#: ./../vocabulary.py:88
+#: ./../vocabulary.py:94
 msgid "RV"
 msgstr ""
 
@@ -659,7 +667,7 @@ msgstr ""
 msgid "Raum:"
 msgstr ""
 
-#: ./../vocabulary.py:223
+#: ./../vocabulary.py:231
 msgid "Reading course"
 msgstr ""
 
@@ -667,11 +675,11 @@ msgstr ""
 msgid "Related lecturer"
 msgstr ""
 
-#: ./../vocabulary.py:113
+#: ./../vocabulary.py:120
 msgid "Religion and Reason (RV)"
 msgstr ""
 
-#: ./../vocabulary.py:99
+#: ./../vocabulary.py:106
 msgid "SC"
 msgstr ""
 
@@ -708,11 +716,11 @@ msgstr ""
 msgid "Since you are signed in as editor you can add file attachments to this content item"
 msgstr ""
 
-#: ./../vocabulary.py:112
+#: ./../vocabulary.py:119
 msgid "Spirit and Nature (GN)"
 msgstr ""
 
-#: ./../vocabulary.py:120
+#: ./../vocabulary.py:127
 msgid "Spiritual Care (SC)"
 msgstr ""
 
@@ -728,7 +736,7 @@ msgstr ""
 msgid "Subtitle"
 msgstr ""
 
-#: ./../vocabulary.py:185
+#: ./../vocabulary.py:193
 msgid "Summer Semester"
 msgstr ""
 
@@ -775,7 +783,7 @@ msgstr ""
 msgid "VII"
 msgstr ""
 
-#: ./../vocabulary.py:98
+#: ./../vocabulary.py:105
 msgid "VV"
 msgstr ""
 
@@ -784,59 +792,83 @@ msgstr ""
 msgid "View lecture in moodle"
 msgstr ""
 
-#: ./../vocabulary.py:92
+#: ./../vocabulary.py:98
 msgid "WIR"
 msgstr ""
 
 #: ./../vocabulary.py:73
-msgid "WP Cultural Admission"
+msgid "WP Cultural Admission (expiring)"
 msgstr ""
 
 #: ./../vocabulary.py:67
-msgid "WP Cultures"
+msgid "WP Cultures  (expiring)"
 msgstr ""
 
 #: ./../vocabulary.py:74
-msgid "WP Education"
+msgid "WP Education (expiring)"
 msgstr ""
 
 #: ./../vocabulary.py:69
-msgid "WP Environmental Ethics"
+msgid "WP Environmental Ethics (expiring)"
 msgstr ""
 
-#: ./../vocabulary.py:68
+#: ./../vocabulary.py:77
 msgid "WP Globalization"
 msgstr ""
 
-#: ./../vocabulary.py:75
+#: ./../vocabulary.py:68
+msgid "WP Globalization (expiring)"
+msgstr ""
+
+#: ./../vocabulary.py:79
+msgid "WP Interculturality"
+msgstr ""
+
+#: ./../vocabulary.py:81
 msgid "WP Internship"
 msgstr ""
 
-#: ./../vocabulary.py:71
-msgid "WP Logic"
+#: ./../vocabulary.py:75
+msgid "WP Internship (expiring)"
 msgstr ""
 
-#: ./../vocabulary.py:72
+#: ./../vocabulary.py:71
+msgid "WP Logic (expiring)"
+msgstr ""
+
+#: ./../vocabulary.py:80
 msgid "WP Media"
 msgstr ""
 
+#: ./../vocabulary.py:72
+msgid "WP Media (expiring)"
+msgstr ""
+
+#: ./../vocabulary.py:78
+msgid "WP Natural Scientific Border Issues"
+msgstr ""
+
 #: ./../vocabulary.py:70
-msgid "WP Nature Philosophy"
+msgid "WP Nature Philosophy (expiring)"
+msgstr ""
+
+#: ./../vocabulary.py:76
+msgid "WP Theology"
 msgstr ""
 
 #: ./../vocabulary.py:66
-msgid "WP Theology"
+msgid "WP Theology (expiring)"
 msgstr ""
 
 #: ./../coursefolder.py:30
 msgid "When activated the item will be displayed as current lecture listing. This settings automatically enables the module filter and search indexing."
 msgstr ""
 
-#: ./../vocabulary.py:186
+#: ./../vocabulary.py:194
 msgid "Winter Semester"
 msgstr ""
 
-#: ./../vocabulary.py:241
+#: ./../vocabulary.py:249
 msgid "ZEP"
 msgstr ""
 
