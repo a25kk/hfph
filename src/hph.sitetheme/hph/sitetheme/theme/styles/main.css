@@ -10062,7 +10062,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #efefef;
+  background-color: #e0e0e0;
   font-family: "Taz-SemiBold";
 }
 
@@ -12052,7 +12052,7 @@ img[data-sizes="auto"] {
 .c-nav__dropdown--open {
   display: block;
   height: auto;
-  margin-bottom: 2rem;
+  margin-top: 1rem;
 }
 
 .c-nav-list {
