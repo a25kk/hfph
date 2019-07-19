@@ -13945,22 +13945,44 @@ c-list--bordered .c-list__item:last-of-type {
   }
 }
 
+@media (min-width: 62em) {
+  .c-collapsible__header--hidden-lg {
+    display: none;
+  }
+}
+
 @media (min-width: 75em) {
   .c-collapsible__header--hidden-xl {
     display: none;
   }
 }
 
-@media (max-width: 74.99em) {
-  .c-collapsible__item {
-    max-height: 0;
-    overflow: hidden;
-    -webkit-transition: max-height .25s ease-in-out;
-    -o-transition: max-height .25s ease-in-out;
-    transition: max-height .25s ease-in-out;
+.c-collapsible__item {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: max-height .75s ease-in-out;
+  -o-transition: max-height .75s ease-in-out;
+  transition: max-height .75s ease-in-out;
+}
+
+@media (min-width: 48em) {
+  .c-collapsible__item--md {
+    max-height: 1500px;
   }
+}
+
+@media (min-width: 62em) {
+  .c-collapsible__item--lg {
+    max-height: 1500px;
+  }
+}
+
+.c-collapsible__item--active {
+  display: block;
+}
+
+@media (min-width: 75em) {
   .c-collapsible__item--active {
-    display: block;
     max-height: 1500px;
   }
 }
