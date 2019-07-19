@@ -39,6 +39,9 @@
 .o-burger__icon {
     margin-right: .25rem;
     margin-bottom: -.25rem;
-    font-size: $o-burger-icon-font-size;
+    font-size: $o-burger-icon-font-small;
     color: $o-burger-icon-color;
+    @include mq($from: md) {
+        font-size: $o-burger-icon-font-size;
+    }
 }
