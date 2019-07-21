@@ -1,0 +1,28 @@
+.actionMenu {
+    display: none;
+}
+
+.searchPage .input-group {
+    margin-bottom: 1rem;
+}
+
+.searchPage .input-group {
+    @include media-breakpoint-down(sm) {
+        display: none;
+    }
+}
+
+.searchResults {
+    padding-left: 1rem;
+
+    > li {
+        border-bottom: 1px solid #ccc;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        list-style-position: outside;
+        > cite {
+            display: block;
+            font-size: $font-size-sm;
+        }
+    }
+}
