@@ -15,8 +15,8 @@ img[data-sizes="auto"] {
 // Reveal low quality image placeholders by applying a filter and
 // removing blur when the high quality images have lazy loaded
 .image--lazy-load {
-    filter: blur(10px);
-    transition: filter 400ms;
+    filter: blur(2px);
+    transition: filter 200ms;
 }
 
 .image--loaded {
