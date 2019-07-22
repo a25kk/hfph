@@ -13,15 +13,15 @@ img[data-sizes="auto"] {
 // Reveal low quality image placeholders by applying a filter and
 // removing blur when the high quality images have lazy loaded
 .o-image--lazy-load {
-    //opacity: 0;
-    //transition: opacity 200ms;
-    filter: blur(2px);
-    transition: filter 200ms;
+    opacity: 0;
+    transition: opacity 200ms;
+    //filter: blur(2px);
+    //transition: filter 200ms;
 }
 
 .o-image--loaded {
-    filter: blur(0);
-    // opacity: 1;
+    //filter: blur(0);
+    opacity: 1;
 }
 
 .o-image--inline {

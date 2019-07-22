@@ -11412,26 +11412,6 @@ a.c-button--active-action {
   border-radius: 0;
 }
 
-img[data-sizes="auto"] {
-  display: block;
-  width: 100%;
-}
-
-.image--lazy-load {
-  -webkit-filter: blur(2px);
-          filter: blur(2px);
-  -webkit-transition: -webkit-filter 200ms;
-  transition: -webkit-filter 200ms;
-  -o-transition: filter 200ms;
-  transition: filter 200ms;
-  transition: filter 200ms, -webkit-filter 200ms;
-}
-
-.image--loaded {
-  -webkit-filter: blur(0);
-          filter: blur(0);
-}
-
 .c-call-out {
   background-color: #efefef;
   padding: calc(1.25rem * 1.5 / 2);
