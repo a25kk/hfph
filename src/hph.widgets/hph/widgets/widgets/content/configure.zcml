@@ -70,4 +70,14 @@
             layer="hph.widgets.interfaces.IHphWidgetsLayer"
     />
 
+    <!-- Content widget content alias -->
+    <browser:page
+            for="*"
+            name="content-widget-hph-content-alias"
+            class=".alias.WidgetHPHContentAlias"
+            template="alias.pt"
+            permission="zope2.View"
+            layer="...interfaces.IHphWidgetsLayer"
+    />
+
 </configure>
