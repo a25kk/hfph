@@ -72,3 +72,23 @@
         padding-top: percentage(1 / 1);
     }
 }
+
+.o-figure__card {
+    @include when-inside('.c-slide__figure') {
+        &::before {
+            @include mq($until: md) {
+                padding-bottom: 100%;
+            }
+        }
+    }   
+}
+
+.o-figure__card {
+    @include when-inside('.c-poster__aside') {
+        &::before {
+            @include mq($until: md) {
+                padding-bottom: 100%;
+            }
+        }
+    }   
+}
