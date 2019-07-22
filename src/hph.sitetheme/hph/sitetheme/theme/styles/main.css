@@ -12486,6 +12486,7 @@ a.c-button--active-action {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 100%;
           flex: 1 0 100%;
+  padding-bottom: 1.25rem;
 }
 
 @media (min-width: 48em) {
@@ -12495,6 +12496,7 @@ a.c-button--active-action {
             flex: 1 0 25%;
     max-width: 25%;
     padding-right: 1.25rem;
+    padding-bottom: 0;
   }
 }
 
@@ -12559,7 +12561,7 @@ a.c-button--active-action {
   text-decoration: none;
 }
 
-@media (max-width: 47.99em) {
+@media (min-width: 36em) and (max-width: 47.99em) {
   .c-snippet__figure--constrained-width-md, .c-snippet__figure--faculty {
     max-width: 50%;
   }
