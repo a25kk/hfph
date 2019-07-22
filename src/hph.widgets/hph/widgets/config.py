@@ -12,6 +12,16 @@ PKG_WIDGETS = {
         "schema": "hph.widgets.widgets.image.interfaces.IHPHWidgetImagePoster",  # noqa
         "node": {}
     },
+    "hph-content-alias": {
+        "pkg": "hph.widgets",
+        "id": "hph-content-alias",
+        "name": "HfPH Content Alias",
+        "title": "Content Alias",
+        "category": "more",
+        "type": "content-item",
+        "schema": "hph.widgets.widgets.content.interfaces.IHPHWidgetContentAlias",  # noqa
+        "node": {}
+    },
     "hph-teaser-events": {
         "pkg": "hph.widgets",
         "id": "hph-teaser-events",
