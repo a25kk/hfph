@@ -11418,13 +11418,13 @@ img[data-sizes="auto"] {
 }
 
 .image--lazy-load {
-  -webkit-filter: blur(10px);
-          filter: blur(10px);
-  -webkit-transition: -webkit-filter 400ms;
-  transition: -webkit-filter 400ms;
-  -o-transition: filter 400ms;
-  transition: filter 400ms;
-  transition: filter 400ms, -webkit-filter 400ms;
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+  -webkit-transition: -webkit-filter 200ms;
+  transition: -webkit-filter 200ms;
+  -o-transition: filter 200ms;
+  transition: filter 200ms;
+  transition: filter 200ms, -webkit-filter 200ms;
 }
 
 .image--loaded {
