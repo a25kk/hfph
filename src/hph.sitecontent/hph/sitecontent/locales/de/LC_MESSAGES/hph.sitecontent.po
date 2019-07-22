@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2019-07-22 15:38+0000\n"
-"PO-Revision-Date: 2019-07-22 21:58+0200\n"
+"PO-Revision-Date: 2019-07-22 22:09+0200\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -130,7 +130,7 @@ msgstr "Ordner der benutzt wird, um die Navigationsstruktur und Seitenhierarchie
 
 #: ../eventitem.py:36
 msgid "Full Day"
-msgstr "ganztägig"
+msgstr "Ganztägig"
 
 #: ../browser/settings-navigation.pt:31
 msgid "HfPH Settings Overview"
@@ -202,7 +202,7 @@ msgstr "Anzahl der Ordnerebenen, die in der Site-Navigation angezeigt werden sol
 
 #: ../eventitem.py:41
 msgid "Open End"
-msgstr "offenes Ende"
+msgstr "Offenes Ende"
 
 #: ../contentpage.py:22
 msgid "Optional custom headline to seperate navigation and content title"
