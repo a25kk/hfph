@@ -24,10 +24,12 @@ $c-snippet-color:                   $app-color-text;
 
 .c-snippet__aside {
     flex: 1 0 100%;
+    padding-bottom: $c-snippet-padding;
     @include mq($from: md) {
         flex: 1 0 $c-snippet-aside-width;
         max-width: $c-snippet-aside-width;
         padding-right: $c-snippet-padding;
+        padding-bottom: 0;
     }
 }
 
@@ -83,7 +85,7 @@ $c-snippet-color:                   $app-color-text;
 .c-snippet__figure {
     &--constrained-width-md,
     &--faculty {
-        @include mq($until: md) {
+        @include mq($from: sm, $until: md) {
             max-width: 50%;
         }
     }

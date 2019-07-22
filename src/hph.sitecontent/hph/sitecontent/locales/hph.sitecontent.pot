@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-07-09 13:34+0000\n"
+"POT-Creation-Date: 2019-07-22 15:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,12 +59,12 @@ msgid "ContentPage"
 msgstr ""
 
 #: ./../contentpage.py:45
-#: ./../eventitem.py:59
+#: ./../eventitem.py:69
 #: ./../languagefolder.py:53
 msgid "Cover Image Caption"
 msgstr ""
 
-#: ./../eventitem.py:37
+#: ./../eventitem.py:47
 msgid "Details"
 msgstr ""
 
@@ -84,11 +84,11 @@ msgstr ""
 msgid "End date"
 msgstr ""
 
-#: ./../browser/events.py:108
+#: ./../browser/events.py:121
 msgid "Event"
 msgstr ""
 
-#: ./../eventitem.py:41
+#: ./../eventitem.py:51
 msgid "Event Description"
 msgstr ""
 
@@ -120,7 +120,7 @@ msgstr ""
 msgid "Extension profile for Basic site content for hph site"
 msgstr ""
 
-#: ./../eventitem.py:68
+#: ./../eventitem.py:78
 msgid "Featured item"
 msgstr ""
 
@@ -130,6 +130,10 @@ msgstr ""
 
 #: ./../profiles/default/types/hph.sitecontent.mainsection.xml
 msgid "Forder to represent the main site sections"
+msgstr ""
+
+#: ./../eventitem.py:36
+msgid "Full Day"
 msgstr ""
 
 #: ./../browser/settings-navigation.pt:31
@@ -170,7 +174,7 @@ msgid "MainSection"
 msgstr ""
 
 #: ./../contentpage.py:33
-#: ./../eventitem.py:47
+#: ./../eventitem.py:57
 #: ./../languagefolder.py:41
 msgid "Media"
 msgstr ""
@@ -203,6 +207,10 @@ msgstr ""
 msgid "Number of folder levels to show in the site navigation."
 msgstr ""
 
+#: ./../eventitem.py:41
+msgid "Open End"
+msgstr ""
+
 #: ./../contentpage.py:22
 msgid "Optional custom headline to seperate navigation and content title"
 msgstr ""
@@ -225,12 +233,12 @@ msgid "Philosophy and Motivation"
 msgstr ""
 
 #: ./../contentpage.py:38
-#: ./../eventitem.py:52
+#: ./../eventitem.py:62
 #: ./../newsentry.py:29
 msgid "Preview Image"
 msgstr ""
 
-#: ./../eventitem.py:76
+#: ./../eventitem.py:86
 msgid "Promote to front page"
 msgstr ""
 
@@ -250,16 +258,16 @@ msgstr ""
 msgid "Rottendorf Project"
 msgstr ""
 
-#: ./../eventitem.py:77
+#: ./../eventitem.py:87
 msgid "Select to mark this item for display on the sites front page. Note: the number of displayed items on the front page might be limited or ordered by publication date and the selection does not force the item to be promoted in any case."
 msgstr ""
 
-#: ./../eventitem.py:69
+#: ./../eventitem.py:79
 msgid "Select to mark this item for featured display on overview pages like for example the parent container."
 msgstr ""
 
 #: ./../behavior/display.py:49
-#: ./../eventitem.py:64
+#: ./../eventitem.py:74
 msgid "Settings"
 msgstr ""
 
@@ -285,7 +293,7 @@ msgid "Upload preview image that can be used in search results and listings and 
 msgstr ""
 
 #: ./../contentpage.py:39
-#: ./../eventitem.py:53
+#: ./../eventitem.py:63
 #: ./../newsentry.py:30
 msgid "Upload preview image that can be used in search results and listings."
 msgstr ""
