@@ -33,8 +33,8 @@
                             <div class="c-link-tile__header">
                                 <h2 class="c-link-tile__title">
                                     <a class="c-link-tile__link" tal:attributes="href python:view.get_link_action(widget_node['link'])"
-                                             tal:content="python:widget_node['title']">
-                                            ${context/Title}
+                                             tal:content="structure python:widget_node['title']">
+                                            Title
                                     </a>
                                 </h2>
                             </div>

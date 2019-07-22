@@ -83,3 +83,9 @@ a.c-button--active-action {
 .c-button--sm {
     @include button-size($input-btn-padding-y-sm, $input-btn-padding-x-sm, $app-font-size-sm, $input-btn-line-height-sm, $btn-border-radius);
 }
+
+.c-button--cancel {
+    // background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='#ccc' viewBox='0 0 12 12'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.1'/></svg>") no-repeat;
+    // background-size: 16px 16px;
+    // background-position: 0 100%;
+}
