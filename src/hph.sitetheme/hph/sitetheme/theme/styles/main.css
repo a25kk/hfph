@@ -12681,7 +12681,7 @@ img[data-sizes="auto"] {
 }
 
 .c-panels--header .c-panel--1 {
-  padding-top: 3rem;
+  padding-top: 0;
 }
 
 .c-panel--full-width {
@@ -12759,7 +12759,7 @@ img[data-sizes="auto"] {
   margin-left: auto;
   margin-right: auto;
   padding-top: calc(1.25rem * 1.5);
-  padding-bottom: 0;
+  padding-bottom: calc(1.25rem * 1.5);
 }
 
 @media (min-width: 768px) {
@@ -12790,6 +12790,10 @@ img[data-sizes="auto"] {
   .c-panel__main--centered {
     max-width: 1140px;
   }
+}
+
+.c-panel--1 .c-panel__main {
+  padding-top: 0;
 }
 
 .c-panel--full-width .c-panel__main {
