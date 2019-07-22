@@ -32,10 +32,20 @@ class IEventItem(form.Schema):
         title=_(u"End date"),
         required=True,
     )
+    full_day = schema.Bool(
+        title=_(u"Full Day"),
+        required=False,
+        default=False
+    )
+    open_end = schema.Bool(
+        title=_(u"Open End"),
+        required=False,
+        default=False
+    )
     fieldset(
         'details',
         label=_(u"Details"),
-        fields=['text',]
+        fields=['text', ]
     )
     text = RichText(
         title=_(u"Event Description"),

@@ -53,7 +53,13 @@
                             <div class="o-grid o-grid--gutter o-grid--md">
                                 <h5 class="o-grid__item  o-grid__item--width-33 c-event-info__title ">Veranstaltungsende:</h5>
                                 <div class="o-grid__item o-grid__item--width-66">
-                                    <time tal:attributes="datetime context/end">
+                                    <tal:fullday tal:condition="python:view.is_full_day_event()">
+                                        <span i18n:translate="">Full day event</span>
+                                    </tal:fullday>
+                                    <tal:openend tal:condition="python:view.is_open_end_event()">
+                                        <span i18n:translate="">Open end</span>
+                                    </tal:openend>
+                                    <time tal:attributes="datetime context/end" tal:condition="python:view.show_event_end_date()">
                                         <span tal:replace="python:event_end['day_name']" />,
                                         <span tal:replace="python:event_end['day']" />. <span tal:replace="python:event_end['month_name']" />,
                                         <span tal:replace="python:event_end['time']" />

@@ -1,12 +1,12 @@
 $o-dropdown-font:                     $app-font-family-strong;
 $o-dropdown-font-size:                1rem;
-$o-dropdown-background:               $app-color-gray-base;
+$o-dropdown-background:               $app-color-gray-dropdown;
 
 .o-dropdown {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: $o-dropdown-background;
+    background-color: $o-dropdown-background ;
     font-family: $o-dropdown-font;
     &--hidden {
         display: none;

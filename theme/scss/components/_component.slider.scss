@@ -21,10 +21,21 @@ $c-slider-padding:                $app-spacer-base;
   width: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
   @include mq($from: md) {
-    padding: 3rem;
+    padding: 3rem 5rem;
   }
 }
 
+.c-slide__content {
+  a {
+    color: #fff;
+    &:hover {
+      color: #fff;
+    }
+    &:visited {
+      color: #fff;
+    }
+  }
+}
 .c-slider__items {
   //padding-top: 4rem;
   margin-bottom: 0;
@@ -34,12 +45,22 @@ $c-slider-padding:                $app-spacer-base;
   margin-bottom: 0;
 }
 
+.o-figure__card {
+    @include when-inside('.c-slide__figure') {
+        &::before {
+            @include mq($until: md) {
+                padding-bottom: 100%;
+            }
+        }
+    }   
+}
+
 /* ---- flickity overrides ---- */
 
 .flickity-prev-next-button {
   background: transparent;
   //display: none;
-  @include mq($from: md) {
+  @include mq($from: lg) {
     //display: block;
     width: 100px;
     height: 100px;

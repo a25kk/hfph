@@ -9923,6 +9923,17 @@ input, button, select, textarea {
   margin-bottom: 0;
 }
 
+.c-widget--hph-teaser-links-external .o-figure {
+  max-width: 70%;
+  margin: auto;
+}
+
+@media (min-width: 62em) {
+  .c-widget--hph-teaser-links-external .o-figure {
+    max-width: 100%;
+  }
+}
+
 .o-figure figcaption {
   font-size: 1rem;
   color: #999999;
@@ -10077,6 +10088,45 @@ a.c-button--active-action {
 .show > .c-button--default.dropdown-toggle:focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(90, 95, 100, 0.5);
           box-shadow: 0 0 0 0.2rem rgba(90, 95, 100, 0.5);
+}
+
+.searchPage .c-button--default {
+  color: #fff;
+  border-color: #fff;
+}
+
+.searchPage .c-button--default:hover {
+  color: #182f7a;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.searchPage .c-button--default:focus, .searchPage .c-button--default.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+
+.searchPage .c-button--default.disabled, .searchPage .c-button--default:disabled {
+  color: #fff;
+  background-color: transparent;
+}
+
+.searchPage .c-button--default:not(:disabled):not(.disabled):active, .searchPage .c-button--default:not(:disabled):not(.disabled).active,
+.show > .searchPage .c-button--default.dropdown-toggle {
+  color: #212529;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.searchPage .c-button--default:not(:disabled):not(.disabled):active:focus, .searchPage .c-button--default:not(:disabled):not(.disabled).active:focus,
+.show > .searchPage .c-button--default.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+}
+
+.searchPage .c-button--default:hover {
+  color: #fff;
+  background: #1e3b9a;
 }
 
 .c-button--danger {

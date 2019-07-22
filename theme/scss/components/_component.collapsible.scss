@@ -1,3 +1,4 @@
+$c-collapsible-max-height:                  1500px;
 $c-collapsible-border-width:                .125rem;
 $c-collapsible-border-color:                $app-color-secondary;
 $c-collapsible-header-color:                $color-wild-sand;
@@ -12,6 +13,11 @@ $c-collapsible-header-color:                $color-wild-sand;
         cursor: pointer;
         border-bottom: $c-collapsible-border-width solid $c-collapsible-border-color;
     }
+    &--hidden-lg {
+        @include mq($from: lg) {
+            display: none;
+        }
+    }
     &--hidden-xl {
         @include mq($from: xl) {
             display: none;
@@ -20,14 +26,25 @@ $c-collapsible-header-color:                $color-wild-sand;
 }
 
 .c-collapsible__item {
-    @include mq($until: xl) {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height .25s ease-in-out;
-        &--active {
-            display: block;
-            max-height: 1500px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .75s ease-in-out;
+    &--md {
+        @include mq($from: md) {
+            max-height: $c-collapsible-max-height;
         }
+    }
+    &--lg {
+        @include mq($from: lg) {
+            max-height: $c-collapsible-max-height;
+        }
+    }
+}
+
+.c-collapsible__item--active {
+    display: block;
+    @include mq($from: xl) {
+        max-height: $c-collapsible-max-height;
     }
 }
 
@@ -36,11 +53,23 @@ $c-collapsible-header-color:                $color-wild-sand;
     max-width: 50%;
     margin-bottom: 0;
     font-family: $app-font-family-medium;
+    @include when-inside('.c-card--nav') {
+        @include mq($from: lg) {
+            flex: 1 0 100%;
+            max-width: 100%;
+            } 
+        }
     &--icon {
         text-align: right;
         color: currentColor;
         @include mq($from: xl) {
             display: none;
+        }
+
+        @include when-inside('.c-card--nav') {
+            @include mq($from: lg) {
+                display: none;
+            } 
         }
     }
     @include mq($from: xl) {

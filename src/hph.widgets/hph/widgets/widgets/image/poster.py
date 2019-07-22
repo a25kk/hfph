@@ -68,7 +68,7 @@ class WidgetImagePoster(BrowserView):
             figure = image.restrictedTraverse('@@figure')(
                 image_field_name='image',
                 caption_field_name='image_caption',
-                scale='ratio-16:9',
+                scale='poster',
                 aspect_ratio='16/9',
                 lqip=True,
                 lazy_load=True
@@ -86,10 +86,8 @@ class WidgetImagePoster(BrowserView):
         widget_content = self.widget_image_cover()
         data = {
             'image': self.image_tag(widget_content['image']),
-            'headline': widget_content['title'],
-            'text': widget_content['description'],
-            'public': widget_content['is_public'],
-            'link': widget_content.get('link', None)
+            'text': widget_content['text'],
+            'public': widget_content['is_public']
         }
         return data
 
