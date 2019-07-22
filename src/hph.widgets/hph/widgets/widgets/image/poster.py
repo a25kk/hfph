@@ -68,7 +68,7 @@ class WidgetImagePoster(BrowserView):
             figure = image.restrictedTraverse('@@figure')(
                 image_field_name='image',
                 caption_field_name='image_caption',
-                scale='ratio-16:9',
+                scale='poster',
                 aspect_ratio='16/9',
                 lqip=True,
                 lazy_load=True
