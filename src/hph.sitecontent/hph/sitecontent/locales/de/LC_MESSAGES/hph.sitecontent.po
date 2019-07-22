@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2019-07-09 13:34+0000\n"
-"PO-Revision-Date: 2019-07-09 15:35+0200\n"
+"POT-Creation-Date: 2019-07-22 15:38+0000\n"
+"PO-Revision-Date: 2019-07-22 21:58+0200\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -56,11 +56,11 @@ msgstr "Überschrift des Inhalts"
 msgid "ContentPage"
 msgstr "Inhaltsseite"
 
-#: ../contentpage.py:45 ../eventitem.py:59 ../languagefolder.py:53
+#: ../contentpage.py:45 ../eventitem.py:69 ../languagefolder.py:53
 msgid "Cover Image Caption"
 msgstr "Cover-Bild Unterschrift"
 
-#: ../eventitem.py:37
+#: ../eventitem.py:47
 msgid "Details"
 msgstr "Details"
 
@@ -80,11 +80,11 @@ msgstr "Startseiten Link aktivieren"
 msgid "End date"
 msgstr "Ende"
 
-#: ../browser/events.py:108
+#: ../browser/events.py:121
 msgid "Event"
 msgstr "Event"
 
-#: ../eventitem.py:41
+#: ../eventitem.py:51
 msgid "Event Description"
 msgstr "Terminbeschreibung"
 
@@ -116,7 +116,7 @@ msgstr "Von der Fußzeilennavigation ausschließen"
 msgid "Extension profile for Basic site content for hph site"
 msgstr "Erweiterungsprofil für Basis-Site-Inhalt für hph-Site"
 
-#: ../eventitem.py:68
+#: ../eventitem.py:78
 msgid "Featured item"
 msgstr "Exponierte Darstellung"
 
@@ -127,6 +127,10 @@ msgstr "Ordner, der als Sprachstamm dient"
 #: ../profiles/default/types/hph.sitecontent.mainsection.xml
 msgid "Forder to represent the main site sections"
 msgstr "Ordner der benutzt wird, um die Navigationsstruktur und Seitenhierarchie zur erstellen"
+
+#: ../eventitem.py:36
+msgid "Full Day"
+msgstr "ganztägig"
 
 #: ../browser/settings-navigation.pt:31
 msgid "HfPH Settings Overview"
@@ -164,7 +168,7 @@ msgstr "Haupttext"
 msgid "MainSection"
 msgstr "Hauptordner"
 
-#: ../contentpage.py:33 ../eventitem.py:47 ../languagefolder.py:41
+#: ../contentpage.py:33 ../eventitem.py:57 ../languagefolder.py:41
 msgid "Media"
 msgstr "Medien"
 
@@ -196,6 +200,10 @@ msgstr "Nachrichtenordner"
 msgid "Number of folder levels to show in the site navigation."
 msgstr "Anzahl der Ordnerebenen, die in der Site-Navigation angezeigt werden sollen."
 
+#: ../eventitem.py:41
+msgid "Open End"
+msgstr "offenes Ende"
+
 #: ../contentpage.py:22
 msgid "Optional custom headline to seperate navigation and content title"
 msgstr "Optionale benutzerdefinierte Überschrift zum Trennen von Navigation und Inhalt"
@@ -216,11 +224,11 @@ msgstr "Philosophie und Führung"
 msgid "Philosophy and Motivation"
 msgstr "Philosophie und Motivation"
 
-#: ../contentpage.py:38 ../eventitem.py:52 ../newsentry.py:29
+#: ../contentpage.py:38 ../eventitem.py:62 ../newsentry.py:29
 msgid "Preview Image"
 msgstr "Vorschaubild"
 
-#: ../eventitem.py:76
+#: ../eventitem.py:86
 msgid "Promote to front page"
 msgstr "Darstellung auf der Startseite"
 
@@ -240,15 +248,15 @@ msgstr "Wurzelverzeichnis"
 msgid "Rottendorf Project"
 msgstr "Rottendorf-Projekt"
 
-#: ../eventitem.py:77
+#: ../eventitem.py:87
 msgid "Select to mark this item for display on the sites front page. Note: the number of displayed items on the front page might be limited or ordered by publication date and the selection does not force the item to be promoted in any case."
 msgstr "Wählen Sie diese Option aus, um dieses Element für die Anzeige auf der Startseite der Websites zu markieren. Hinweis: Die Anzahl der angezeigten Elemente auf der Startseite ist möglicherweise begrenzt oder nach Veröffentlichungsdatum sortiert. Die Auswahl erzwingt in keinem Fall die Promotion des Artikels."
 
-#: ../eventitem.py:69
+#: ../eventitem.py:79
 msgid "Select to mark this item for featured display on overview pages like for example the parent container."
 msgstr "Wählen Sie diese Option aus, um dieses Element für die Anzeige auf Übersichtsseiten wie dem übergeordneten Container zu markieren."
 
-#: ../behavior/display.py:49 ../eventitem.py:64
+#: ../behavior/display.py:49 ../eventitem.py:74
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -272,7 +280,7 @@ msgstr "Text"
 msgid "Upload preview image that can be used in search results and listings and act as a content cover."
 msgstr "Laden Sie ein Vorschaubild hoch, das in Suchergebnissen und Listen verwendet werden kann und als Inhaltsbild dient."
 
-#: ../contentpage.py:39 ../eventitem.py:53 ../newsentry.py:30
+#: ../contentpage.py:39 ../eventitem.py:63 ../newsentry.py:30
 msgid "Upload preview image that can be used in search results and listings."
 msgstr "Laden Sie ein Voschaubild hoch, dass in Auflistungen und bei der Anzeige von Suchtreffern verwendet wird."
 
