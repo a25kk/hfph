@@ -9988,18 +9988,6 @@ input, button, select, textarea {
   padding-top: 100%;
 }
 
-@media (max-width: 47.99em) {
-  .c-slide__figure .o-figure__card::before {
-    padding-bottom: 100%;
-  }
-}
-
-@media (max-width: 47.99em) {
-  .c-poster__aside .o-figure__card::before {
-    padding-bottom: 100%;
-  }
-}
-
 .c-button {
   display: inline-block;
   font-weight: 400;

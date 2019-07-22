@@ -10654,18 +10654,6 @@ input, button, select, textarea {
   padding-top: 100%;
 }
 
-@media (max-width: 47.99em) {
-  .c-slide__figure .o-figure__card::before {
-    padding-bottom: 100%;
-  }
-}
-
-@media (max-width: 47.99em) {
-  .c-poster__aside .o-figure__card::before {
-    padding-bottom: 100%;
-  }
-}
-
 @media (min-width: 62em) {
   .o-aside {
     margin-top: 5.3rem;
@@ -14350,6 +14338,12 @@ c-list--bordered .c-list__item:last-of-type {
   color: #fff;
 }
 
+@media (max-width: 47.99em) {
+  .c-poster__aside .o-figure__card::before {
+    padding-bottom: 100%;
+  }
+}
+
 .c-slider {
   display: block;
   width: 100%;
@@ -14398,6 +14392,12 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-slide__figure {
   margin-bottom: 0;
+}
+
+@media (max-width: 47.99em) {
+  .c-slide__figure .o-figure__card::before {
+    padding-bottom: 100%;
+  }
 }
 
 /* ---- flickity overrides ---- */

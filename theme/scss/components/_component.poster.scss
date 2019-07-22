@@ -39,3 +39,13 @@ $c-poster-padding:                $app-spacer-base;
     color: $c-poster-color;
   }
 }
+
+.o-figure__card {
+    @include when-inside('.c-poster__aside') {
+        &::before {
+            @include mq($until: md) {
+                padding-bottom: 100%;
+            }
+        }
+    }   
+}
