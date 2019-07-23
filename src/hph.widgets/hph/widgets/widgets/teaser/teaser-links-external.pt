@@ -13,8 +13,8 @@
                  tal:attributes="class python:view.widget_content_list_class()">
             <tal:items tal:repeat="item python:view.widget_item_nodes()">
                 <div class="c-card-list__item c-card-list__item--width-25"
-                         tal:define="item_uuid item; widget_node python:view.widget_item_content(item)"
-                         tal:attributes="class python:'c-list__item c-list__item--card'">
+                         tal:define="item_uuid item;widget_node python:view.widget_item_content(item);is_first repeat/item/start;is_last repeat/item/end;item_is_first_class python:is_first and ' c-list__item--first' or '';item_is_last_class python:is_last and ' c-list__item--last' or '';item_index repeat/item/index"
+                         tal:attributes="class python:'c-list__item c-list__item--card c-list__item--' + str(item_index) + item_is_first_class + item_is_last_class">
                     <div class="c-card c-card--teaser-links">
                         <div class="c-card__header" tal:condition="python:widget_node['image']">
                             <div class="c-card__asset">
