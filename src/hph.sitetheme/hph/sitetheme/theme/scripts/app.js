@@ -6,6 +6,7 @@ requirejs(['require',
         '/scripts/navbar.js',
         '/scripts/dropdown.js',
         '/scripts/collapsible.js',
+        '/scripts/accordion.js',
         '/scripts/slider.js',
         '/scripts/paneleditor.js',
         '/scripts/x-ray.js',
@@ -16,7 +17,7 @@ requirejs(['require',
         '/scripts/ls.parent-fit.js',
         '/scripts/lazysizes-umd.js'
     ],
-    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, collapsible, slider, panelEditor, xray, Dropmic, Choices) {
+    function(require, svg4everybody, Flickity, eventbox, interdependentselect, navbar, dropdown, collapsible, accordion, slider, panelEditor, xray, Dropmic, Choices) {
         'use strict';
 
         // Trigger font face observer protection
@@ -81,6 +82,9 @@ requirejs(['require',
 
         // Collapsible element
         collapsible.init();
+
+        // Collapsible element
+        accordion.init();
 
         // Panel page and widget editor
         panelEditor.init();

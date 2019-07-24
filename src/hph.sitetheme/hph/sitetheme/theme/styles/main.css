@@ -9930,7 +9930,7 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-burger__icon {
-  margin-right: .25rem;
+  margin-right: .5rem;
   margin-bottom: -.25rem;
   font-size: 1rem;
   color: #182f7a;
@@ -14040,6 +14040,7 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-collapsible__item--active {
   display: block;
+  max-height: 1500px;
 }
 
 @media (min-width: 75em) {
@@ -14438,8 +14439,8 @@ c-list--bordered .c-list__item:last-of-type {
   width: 100%;
   padding: calc(1.25rem * 1.5 / 2);
   margin-bottom: 0;
-  border-bottom: 1px solid #999999;
-  background-color: #efefef;
+  border-bottom: 1px solid #efefef;
+  background-color: whitesmoke;
 }
 
 .c-pane__headline {
@@ -14452,19 +14453,30 @@ c-list--bordered .c-list__item:last-of-type {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 4rem;
           flex: 0 1 4rem;
+  text-align: right;
 }
 
 .c-pane__main {
   display: none;
+  -webkit-transition: ease .3s all;
+  -o-transition: ease .3s all;
+  transition: ease .3s all;
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: .6s;
+          animation-duration: .6s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  will-change: transform;
 }
 
-.c-pane__main.c-collapsible__item--active {
+.c-pane__main--active, .c-pane__main.c-collapsible__item--active {
   display: block;
 }
 
 .c-pane__content {
   display: block;
-  padding: calc(1.25rem * 1.5) 0;
+  padding: calc(1.25rem * 1.5) calc(1.25rem * 1.5 / 2);
 }
 
 .c-pane__icon {

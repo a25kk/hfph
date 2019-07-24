@@ -12,7 +12,7 @@
                              tal:attributes="class python:'c-accordion__pane c-pane c-pane--' + str(item)"
                              tal:condition="widget_node">
 
-                        <div class="c-pane__header js-collapsible-toggle" tal:condition="python:widget_node['title']">
+                        <div class="c-pane__header js-accordion-item" tal:condition="python:widget_node['title']">
                             <h5 class="c-pane__title">
                                 <span class="c-pane__headline" tal:content="python:widget_node['title']">
                                     Pane Title
@@ -25,7 +25,7 @@
                                 </span>
                             </h5>
                         </div>
-                        <div class="c-pane__main js-collapsible-item">
+                        <div class="c-pane__main js-accordion-content">
                             <div class="c-pane__content" tal:condition="python:widget_node['text']"
                                      tal:content="structure python:widget_node['text']">
                                 Pane Content
