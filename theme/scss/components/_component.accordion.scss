@@ -12,8 +12,8 @@
   width: 100%;
   padding: $app-spacer-sm;
   margin-bottom: 0;
-  border-bottom: 1px solid $app-color-gray-lighter;
-  background-color: $app-color-gray-light;
+  border-bottom: 1px solid $app-color-gray-light;
+  background-color: $app-color-gray-lightest;
 }
 
 .c-pane__headline {
@@ -22,10 +22,17 @@
 
 .c-pane__toggle {
   flex: 0 1 4rem;
+  text-align: right;
 }
 
 .c-pane__main {
   display: none;
+  transition: ease .3s all;
+  animation-name: fadeIn;
+  animation-duration: .6s;
+  animation-fill-mode: both;
+  will-change: transform;
+  &--active,
   &.c-collapsible__item--active {
     display: block;
   }
@@ -33,7 +40,7 @@
 
 .c-pane__content {
   display: block;
-  padding: $app-spacer-base 0;
+  padding: $app-spacer-base $app-spacer-sm;
 }
 
 .c-pane__icon {

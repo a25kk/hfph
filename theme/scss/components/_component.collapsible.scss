@@ -43,6 +43,7 @@ $c-collapsible-header-color:                $color-wild-sand;
 
 .c-collapsible__item--active {
     display: block;
+    max-height: $c-collapsible-max-height;
     @include mq($from: xl) {
         max-height: $c-collapsible-max-height;
     }
@@ -57,7 +58,7 @@ $c-collapsible-header-color:                $color-wild-sand;
         @include mq($from: lg) {
             flex: 1 0 100%;
             max-width: 100%;
-            } 
+            }
         }
     &--icon {
         text-align: right;
@@ -69,7 +70,7 @@ $c-collapsible-header-color:                $color-wild-sand;
         @include when-inside('.c-card--nav') {
             @include mq($from: lg) {
                 display: none;
-            } 
+            }
         }
     }
     @include mq($from: xl) {
