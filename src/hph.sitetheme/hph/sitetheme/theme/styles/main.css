@@ -11945,7 +11945,7 @@ a.c-button--active-action {
   -webkit-transition: background-color 0.5s ease;
   -o-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
-  font-size: 1.25rem;
+  font-size: 1.3rem;
 }
 
 .c-nav-bar__toggle .c-nav__link {
@@ -11986,7 +11986,7 @@ a.c-button--active-action {
 .c-nav__dropdown .c-nav__link {
   padding-top: .5rem;
   padding-bottom: .5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .c-nav__link-text {
@@ -12122,7 +12122,7 @@ a.c-button--active-action {
 .c-nav__dropdown--open {
   display: block;
   height: auto;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .c-nav-list {
