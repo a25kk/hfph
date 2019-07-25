@@ -38,6 +38,7 @@ $c-social-bar-color-hover-xing:           $app-color-secondary;
   color: #000;
   &:hover {
     color: $app-color-primary !important;
+    background: $app-color-secondary !important;
   }
   &:visited {
     color: $app-color-primary !important;

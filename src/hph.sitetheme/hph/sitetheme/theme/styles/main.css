@@ -8670,6 +8670,12 @@ https://flickity.metafizzy.co
   font-size: 0.875rem;
 }
 
+.searchResults .result-title {
+  font-family: "Taz-SemiBold";
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
 html {
   overflow-y: scroll;
   /* [2] */
@@ -13442,6 +13448,7 @@ a.c-button--active-action {
 
 .c-social-bar__button:hover {
   color: #182f7a !important;
+  background: #eed343 !important;
 }
 
 .c-social-bar__button:visited {
