@@ -7895,10 +7895,17 @@ a.text-danger:hover, a.text-danger:focus {
   top: auto;
   right: auto;
   bottom: 0;
-  left: 0;
+  left: 30px;
   -webkit-transform: translateY(calc(100% + 10px));
       -ms-transform: translateY(calc(100% + 10px));
           transform: translateY(calc(100% + 10px));
+}
+
+@media (min-width: 62em) {
+  .dropmic-menu,
+  [data-dropmic-direction="bottom-right"] .dropmic-menu {
+    left: 0;
+  }
 }
 
 [data-dropmic-direction="bottom-left"] .dropmic-menu {

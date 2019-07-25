@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2019-07-18 21:54+0000\n"
-"PO-Revision-Date: 2019-07-19 00:06+0200\n"
+"PO-Revision-Date: 2019-07-24 21:42+0200\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -809,7 +809,7 @@ msgstr "WP Medien"
 
 #: ../vocabulary.py:72
 msgid "WP Media (expiring)"
-msgstr "WP Media (auslaufend)"
+msgstr "WP Medien (auslaufend)"
 
 #: ../vocabulary.py:78
 msgid "WP Natural Scientific Border Issues"
