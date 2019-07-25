@@ -84,7 +84,7 @@ $c-nav-font-size-secondary:             $app-font-size-sm;
     font-weight: 400;
     line-height: .7rem;
     transition: background-color 0.5s ease;
-    font-size: $c-nav-font-size-base;
+    font-size: $app-font-size-md;
     @include when-inside('.c-nav-bar__toggle') {
         line-height: 1rem;
     }
@@ -117,7 +117,7 @@ $c-nav-font-size-secondary:             $app-font-size-sm;
     @include when-inside('.c-nav__dropdown') {
         padding-top: .5rem;
         padding-bottom: .5rem;
-        font-size: $c-nav-font-size-secondary;
+        font-size: $app-font-size-mds;
     }
 }
 
@@ -223,7 +223,7 @@ $c-nav-font-size-secondary:             $app-font-size-sm;
     &--open {
         display: block;
         height: auto;
-        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 }
 
