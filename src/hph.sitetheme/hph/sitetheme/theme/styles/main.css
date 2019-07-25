@@ -14397,7 +14397,7 @@ c-list--bordered .c-list__item:last-of-type {
   margin-bottom: 0;
 }
 
-@media (max-width: 47.99em) {
+@media (max-width: 35.99em) {
   .c-slide__figure .o-figure__card::before {
     padding-bottom: 100%;
   }
