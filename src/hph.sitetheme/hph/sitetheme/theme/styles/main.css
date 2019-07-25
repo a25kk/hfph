@@ -14247,7 +14247,7 @@ c-list--bordered .c-list__item:last-of-type {
           justify-content: center;
   width: 5rem;
   height: 5rem;
-  border: 1px solid #999999;
+  border: 2px solid whitesmoke;
   border-radius: 50%;
 }
 
@@ -14259,8 +14259,8 @@ c-list--bordered .c-list__item:last-of-type {
 }
 
 .c-link-tile__icon {
-  width: 5rem;
-  height: 5rem;
+  width: 3.5rem;
+  height: 3.5rem;
   margin-right: auto;
   margin-left: auto;
 }

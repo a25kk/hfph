@@ -1,4 +1,4 @@
-$c-link-tile-border-color:              $app-color-gray-lighter;
+$c-link-tile-border-color:              $app-color-gray-lightest;
 
 .c-link-tile {
     
@@ -50,7 +50,7 @@ $c-link-tile-border-color:              $app-color-gray-lighter;
     justify-content: center;
     width: 5rem;
     height: 5rem;
-    border: 1px solid $c-link-tile-border-color;
+    border: 2px solid $c-link-tile-border-color;
     border-radius: 50%;
     @include mq($from: md) {
         width: 8rem;
@@ -59,8 +59,8 @@ $c-link-tile-border-color:              $app-color-gray-lighter;
 }
 
 .c-link-tile__icon {
-    width: 5rem;
-    height: 5rem;
+    width: 3.5rem;
+    height: 3.5rem;
     margin-right: auto;
     margin-left: auto;
     @include mq($from: md) {
