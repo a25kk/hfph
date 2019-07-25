@@ -25,4 +25,10 @@
             font-size: $font-size-sm;
         }
     }
+
+    .result-title {
+        font-family: $app-font-family-strong; 
+        font-weight: 500; 
+        font-size: 1.3rem;
+    }
 }
