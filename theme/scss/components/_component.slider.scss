@@ -48,7 +48,7 @@ $c-slider-padding:                $app-spacer-base;
 .o-figure__card {
     @include when-inside('.c-slide__figure') {
         &::before {
-            @include mq($until: md) {
+            @include mq($until: sm) {
                 padding-bottom: 100%;
             }
         }
