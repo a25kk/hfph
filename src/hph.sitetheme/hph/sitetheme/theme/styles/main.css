@@ -8641,12 +8641,6 @@ https://flickity.metafizzy.co
   margin-bottom: 1rem;
 }
 
-@media (max-width: 767.98px) {
-  .searchPage .input-group {
-    display: none;
-  }
-}
-
 .searchResults {
   padding-left: 1rem;
 }
@@ -8661,6 +8655,10 @@ https://flickity.metafizzy.co
 .searchResults > li > cite {
   display: block;
   font-size: 0.875rem;
+}
+
+.searchResults > li .discreet {
+  display: none;
 }
 
 html {

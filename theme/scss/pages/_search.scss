@@ -6,12 +6,6 @@
     margin-bottom: 1rem;
 }
 
-.searchPage .input-group {
-    @include media-breakpoint-down(sm) {
-        display: none;
-    }
-}
-
 .searchResults {
     padding-left: 1rem;
 
@@ -23,6 +17,9 @@
         > cite {
             display: block;
             font-size: $font-size-sm;
+        }
+        .discreet {
+            display: none;
         }
     }
 }
