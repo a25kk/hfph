@@ -13179,12 +13179,12 @@ a.c-button--active-action {
   text-align: center;
 }
 
-.c-card--publication {
+.c-card--publications {
   padding-right: 0;
 }
 
 @media (min-width: 48em) {
-  .c-card--publication {
+  .c-card--publications {
     padding-right: 1rem;
   }
 }
