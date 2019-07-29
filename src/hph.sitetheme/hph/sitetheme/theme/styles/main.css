@@ -8648,12 +8648,6 @@ https://flickity.metafizzy.co
   margin-bottom: 1rem;
 }
 
-@media (max-width: 767.98px) {
-  .searchPage .input-group {
-    display: none;
-  }
-}
-
 .searchResults {
   padding-left: 1rem;
 }
@@ -13167,6 +13161,18 @@ a.c-button--active-action {
 .c-card--banner .c-card__header,
 .c-card--banner .c-card__footer {
   text-align: center;
+}
+
+.c-card--publications {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+@media (min-width: 48em) {
+  .c-card--publications {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
 }
 
 .c-toc {
