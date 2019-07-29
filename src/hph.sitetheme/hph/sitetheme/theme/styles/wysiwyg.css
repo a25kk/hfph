@@ -8608,7 +8608,13 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 }
 
 .o-page__lead-image {
-  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+@media (min-width: 48em) {
+  .o-page__lead-image {
+    margin-right: calc(1.25rem * 1.5 / 2);
+  }
 }
 
 .o-grid {
