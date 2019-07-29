@@ -9125,16 +9125,6 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   }
 }
 
-.o-page__lead-image {
-  padding-bottom: 1rem;
-}
-
-@media (min-width: 48em) {
-  .o-page__lead-image {
-    margin-right: calc(1.25rem * 1.5 / 2);
-  }
-}
-
 .o-grid {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13181,11 +13171,13 @@ a.c-button--active-action {
 
 .c-card--publications {
   padding-right: 0;
+  padding-left: 0;
 }
 
 @media (min-width: 48em) {
   .c-card--publications {
     padding-right: 1rem;
+    padding-left: 1rem;
   }
 }
 
