@@ -158,7 +158,7 @@ $c-card-spacer:                         $app-spacer-sm;
     }
 }
 
-.c-card--publication {
+.c-card--publications {
     padding-right: 0;
     @include mq($from: md) {
         padding-right: 1rem;
