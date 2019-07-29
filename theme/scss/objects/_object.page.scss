@@ -101,5 +101,8 @@
 }
 
 .o-page__lead-image {
-    padding-right: 1rem;
+    padding-bottom: 1rem;
+    @include mq($from: md) {
+        margin-right: $app-spacer-sm;
+    }
 }

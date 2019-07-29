@@ -157,3 +157,10 @@ $c-card-spacer:                         $app-spacer-sm;
         text-align: center;
     }
 }
+
+.c-card--publication {
+    padding-right: 0;
+    @include mq($from: md) {
+        padding-right: 1rem;
+    }
+}
