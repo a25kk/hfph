@@ -3,9 +3,10 @@
 import uuid as uuid_tool
 
 import DateTime
-from Acquisition import aq_inner
+from Acquisition import aq_inner, aq_parent
 from Products.Five import BrowserView
 from ade25.base.interfaces import IContentInfoProvider
+from ade25.panelpage.page import IPage
 from ade25.widgets.interfaces import IContentWidgets
 from hph.sitecontent.eventitem import IEventItem
 from hph.sitecontent.newsentry import INewsEntry
@@ -209,12 +210,15 @@ class WidgetTeaserEvents(BrowserView):
     def widget_has_data(self):
         return len(self.get_latest_event_items()) > 0
 
-    @staticmethod
-    def get_latest_event_items(limit=3):
-        portal = api.portal.get()
+    def get_latest_event_items(self, limit=3):
+        context = aq_inner(self.context)
+        if IPage.providedBy(context):
+            container = aq_parent(context)
+        else:
+            container = context
         date_range_query = {'query': DateTime.DateTime(), 'range': 'min'}
         items = api.content.find(
-            context=portal,
+            context=container,
             object_provides=IEventItem.__identifier__,
             review_state='published',
             start=date_range_query,
@@ -224,7 +228,7 @@ class WidgetTeaserEvents(BrowserView):
         return items
 
     def recent_events(self):
-        results = []
+        results = list()
         brains = self.get_latest_event_items()
         for brain in brains:
             results.append({

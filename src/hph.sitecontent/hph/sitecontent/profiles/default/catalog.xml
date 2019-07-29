@@ -6,6 +6,14 @@
     <index name="exclude_from_toc" meta_type="BooleanIndex">
         <indexed_attr value="exclude_from_toc"/>
     </index>
+    <index name="is_featured" meta_type="BooleanIndex">
+        <indexed_attr value="is_featured"/>
+    </index>
+    <index name="is_promoted" meta_type="BooleanIndex">
+        <indexed_attr value="is_promoted"/>
+    </index>
     <column value="exclude_from_nav"/>
     <column value="exclude_from_toc"/>
+    <column value="is_featured"/>
+    <column value="is_promoted"/>
 </object>
