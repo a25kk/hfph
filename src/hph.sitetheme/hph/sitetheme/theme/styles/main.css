@@ -9125,6 +9125,10 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   }
 }
 
+.o-page__lead-image {
+  padding-right: 1rem;
+}
+
 .o-grid {
   display: -webkit-box;
   display: -ms-flexbox;
