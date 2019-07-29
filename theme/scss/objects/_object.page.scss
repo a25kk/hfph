@@ -99,10 +99,3 @@
         margin-right: $app-spacer-sm;
     }
 }
-
-.o-page__lead-image {
-    padding-bottom: 1rem;
-    @include mq($from: md) {
-        margin-right: $app-spacer-sm;
-    }
-}

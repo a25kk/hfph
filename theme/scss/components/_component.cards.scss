@@ -160,7 +160,9 @@ $c-card-spacer:                         $app-spacer-sm;
 
 .c-card--publications {
     padding-right: 0;
+    padding-left: 0;
     @include mq($from: md) {
         padding-right: 1rem;
+        padding-left: 1rem;
     }
 }
