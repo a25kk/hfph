@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-07-22 15:38+0000\n"
+"POT-Creation-Date: 2019-07-30 15:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -136,6 +136,10 @@ msgstr ""
 msgid "Full Day"
 msgstr ""
 
+#: ./../browser/event-item.pt:57
+msgid "Full day event"
+msgstr ""
+
 #: ./../browser/settings-navigation.pt:31
 msgid "HfPH Settings Overview"
 msgstr ""
@@ -209,6 +213,10 @@ msgstr ""
 
 #: ./../eventitem.py:41
 msgid "Open End"
+msgstr ""
+
+#: ./../browser/event-item.pt:60
+msgid "Open end"
 msgstr ""
 
 #: ./../contentpage.py:22
