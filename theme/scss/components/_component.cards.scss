@@ -73,7 +73,7 @@ $c-card-spacer:                         $app-spacer-sm;
             //overflow: visible;
             max-height: 1500px;
             display: block;
-        } 
+        }
     }
 }
 
@@ -155,5 +155,14 @@ $c-card-spacer:                         $app-spacer-sm;
     .c-card__header,
     .c-card__footer {
         text-align: center;
+    }
+}
+
+.c-card--publications {
+    padding-right: 0;
+    padding-left: 0;
+    @include mq($from: md) {
+        padding-right: 1rem;
+        padding-left: 1rem;
     }
 }

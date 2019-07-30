@@ -7895,10 +7895,17 @@ a.text-danger:hover, a.text-danger:focus {
   top: auto;
   right: auto;
   bottom: 0;
-  left: 0;
+  left: 30px;
   -webkit-transform: translateY(calc(100% + 10px));
       -ms-transform: translateY(calc(100% + 10px));
           transform: translateY(calc(100% + 10px));
+}
+
+@media (min-width: 62em) {
+  .dropmic-menu,
+  [data-dropmic-direction="bottom-right"] .dropmic-menu {
+    left: 0;
+  }
 }
 
 [data-dropmic-direction="bottom-left"] .dropmic-menu {
@@ -10250,26 +10257,6 @@ a.c-button--active-action {
   font-size: 1rem;
   line-height: 1.5;
   border-radius: 0;
-}
-
-img[data-sizes="auto"] {
-  display: block;
-  width: 100%;
-}
-
-.image--lazy-load {
-  -webkit-filter: blur(10px);
-          filter: blur(10px);
-  -webkit-transition: -webkit-filter 400ms;
-  transition: -webkit-filter 400ms;
-  -o-transition: filter 400ms;
-  transition: filter 400ms;
-  transition: filter 400ms, -webkit-filter 400ms;
-}
-
-.image--loaded {
-  -webkit-filter: blur(0);
-          filter: blur(0);
 }
 
 .c-alert {

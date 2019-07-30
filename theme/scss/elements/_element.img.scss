@@ -15,12 +15,12 @@ img[data-sizes="auto"] {
 .o-image--lazy-load {
     opacity: 0;
     transition: opacity 200ms;
-    // filter: blur(10px);
-    // transition: filter 400ms;
+    //filter: blur(2px);
+    //transition: filter 200ms;
 }
 
 .o-image--loaded {
-    // filter: blur(0);
+    //filter: blur(0);
     opacity: 1;
 }
 

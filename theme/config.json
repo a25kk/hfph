@@ -25,6 +25,7 @@
   "scripts": {
     "app": [
       "scripts/app.js",
+      "scripts/accordion.js",
       "scripts/collapsible.js",
       "scripts/dropdown.js",
       "scripts/eventbox.js",
