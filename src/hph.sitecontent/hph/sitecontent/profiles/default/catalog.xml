@@ -7,10 +7,10 @@
         <indexed_attr value="exclude_from_toc"/>
     </index>
     <index name="is_featured" meta_type="BooleanIndex">
-        <indexed_attr value="is_featured"/>
+        <indexed_attr value="featured"/>
     </index>
     <index name="is_promoted" meta_type="BooleanIndex">
-        <indexed_attr value="is_promoted"/>
+        <indexed_attr value="promoted"/>
     </index>
     <column value="exclude_from_nav"/>
     <column value="exclude_from_toc"/>
