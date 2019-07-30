@@ -59,4 +59,15 @@
             handler="hph.sitecontent.upgrades.upgrade_1005"
             sortkey="1"
     />
+
+    <genericsetup:upgradeStep
+            title="Add promoted content support"
+            description="Provide catalog indexer for featured and promoted content"
+            source="1005"
+            destination="1006"
+            profile="hph.sitecontent:default"
+            handler="hph.sitecontent.upgrades.upgrade_1006"
+            sortkey="1"
+    />
+
 </configure>
