@@ -9,4 +9,12 @@
             name="exclude_from_toc"
             factory="hph.sitecontent.indexers.index_exclude_from_toc" />
 
+    <adapter
+            name="is_promoted"
+            factory="hph.sitecontent.indexers.content_is_promoted" />
+
+    <adapter
+            name="is_featured"
+            factory="hph.sitecontent.indexers.content_is_featured" />
+
 </configure>
