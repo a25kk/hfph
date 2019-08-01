@@ -581,6 +581,16 @@
             </ul>
         </replace>
 
+        <replace css:content=".xsearchResults">
+            <ol class="o-menu c-search-results">
+                <li class="o-menu__item o-separator c-search-result">
+                    <div class="c-search-result__content">
+                        <xsl:apply-templates select="./li/*"/>
+                    </div>
+                </li>
+            </ol>
+        </replace>
+
         <!-- Navtree -->
         <replace css:content=".portletNavigationTree" css:if-not-content=".template-overview-controlpanel">
             <xsl:call-template name="nav-tree" />

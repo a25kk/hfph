@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"POT-Creation-Date: 2019-07-22 15:38+0000\n"
-"PO-Revision-Date: 2019-07-22 22:09+0200\n"
+"POT-Creation-Date: 2019-07-30 15:21+0000\n"
+"PO-Revision-Date: 2019-07-30 17:24+0200\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -132,6 +132,10 @@ msgstr "Ordner der benutzt wird, um die Navigationsstruktur und Seitenhierarchie
 msgid "Full Day"
 msgstr "Ganztägig"
 
+#: ../browser/event-item.pt:57
+msgid "Full day event"
+msgstr "Ganztägige Veranstaltung"
+
 #: ../browser/settings-navigation.pt:31
 msgid "HfPH Settings Overview"
 msgstr "HPH Einstellungen Übersicht"
@@ -202,6 +206,10 @@ msgstr "Anzahl der Ordnerebenen, die in der Site-Navigation angezeigt werden sol
 
 #: ../eventitem.py:41
 msgid "Open End"
+msgstr "Offenes Ende"
+
+#: ../browser/event-item.pt:60
+msgid "Open end"
 msgstr "Offenes Ende"
 
 #: ../contentpage.py:22

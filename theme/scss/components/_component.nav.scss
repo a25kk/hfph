@@ -224,6 +224,9 @@ $c-nav-font-size-secondary:             $app-font-size-sm;
         display: block;
         height: auto;
         margin-bottom: 1rem;
+        @include when-inside('.c-quick-links') {
+        margin-bottom: 0;
+        }
     }
 }
 

@@ -3,11 +3,14 @@
 import uuid as uuid_tool
 
 import DateTime
-from Acquisition import aq_inner
+from Acquisition import aq_inner, aq_parent
+from Products.CMFCore.interfaces import ISiteRoot
 from Products.Five import BrowserView
 from ade25.base.interfaces import IContentInfoProvider
+from ade25.panelpage.page import IPage
 from ade25.widgets.interfaces import IContentWidgets
 from hph.sitecontent.eventitem import IEventItem
+from hph.sitecontent.mainsection import IMainSection
 from hph.sitecontent.newsentry import INewsEntry
 from plone import api
 from plone.app.contenttypes.utils import replace_link_variables_by_paths
@@ -89,11 +92,10 @@ class WidgetTeaserNews(BrowserView):
         time_stamp = content_info_provider.time_stamp(date_time)
         return time_stamp
 
-    @staticmethod
-    def get_latest_news_items(limit=3):
-        portal = api.portal.get()
+    def get_latest_news_items(self, limit=3):
+        context = aq_inner(self.context)
         items = api.content.find(
-            context=portal,
+            context=context,
             object_provides=INewsEntry.__identifier__,
             review_state='published',
             sort_on='Date',
@@ -210,13 +212,58 @@ class WidgetTeaserEvents(BrowserView):
         return len(self.get_latest_event_items()) > 0
 
     @staticmethod
-    def get_latest_event_items(limit=3):
-        portal = api.portal.get()
+    def _get_acquisition_chain(context_object):
+        """
+        @return: List of objects from context, its parents to the portal root
+
+        Example::
+
+            chain = getAcquisitionChain(self.context)
+            print "I will look up objects:" + str(list(chain))
+
+        @param object: Any content object
+        @return: Iterable of all parents from the direct parent to the site root
+        """
+
+        # It is important to use inner to bootstrap the traverse,
+        # or otherwise we might get surprising parents
+        # E.g. the context of the view has the view as the parent
+        # unless inner is used
+        inner = context_object.aq_inner
+
+        content_node = inner
+
+        while content_node is not None:
+            yield content_node
+
+            if ISiteRoot.providedBy(content_node):
+                break
+            if not hasattr(content_node, "aq_parent"):
+                raise RuntimeError(
+                    "Parent traversing interrupted by object: {}".format(
+                        str(content_node)
+                    )
+                )
+            content_node = content_node.aq_parent
+
+    def get_latest_event_items(self, limit=3):
+        context = aq_inner(self.context)
+        container = context
+        if IPage.providedBy(container):
+            container = aq_parent(container)
+        acquisition_chain = self._get_acquisition_chain(context)
+        for node in acquisition_chain:
+            if IMainSection.providedBy(node):
+                container = node
         date_range_query = {'query': DateTime.DateTime(), 'range': 'min'}
+        promoted = False
+        if ISiteRoot.providedBy(container):
+            promoted = True
         items = api.content.find(
-            context=portal,
+            context=container,
             object_provides=IEventItem.__identifier__,
             review_state='published',
+            is_promoted=promoted,
             start=date_range_query,
             sort_on='start',
             sort_limit=limit
@@ -224,7 +271,7 @@ class WidgetTeaserEvents(BrowserView):
         return items
 
     def recent_events(self):
-        results = []
+        results = list()
         brains = self.get_latest_event_items()
         for brain in brains:
             results.append({
