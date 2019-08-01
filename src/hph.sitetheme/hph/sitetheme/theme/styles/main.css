@@ -8664,6 +8664,10 @@ https://flickity.metafizzy.co
   font-size: 0.875rem;
 }
 
+.searchResults > li .discreet {
+  display: none;
+}
+
 .searchResults .result-title {
   font-family: "Taz-SemiBold";
   font-weight: 500;
@@ -12117,6 +12121,10 @@ a.c-button--active-action {
   display: block;
   height: auto;
   margin-bottom: 1rem;
+}
+
+.c-quick-links .c-nav__dropdown--open {
+  margin-bottom: 0;
 }
 
 .c-nav-list {
