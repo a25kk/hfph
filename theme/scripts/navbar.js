@@ -199,7 +199,7 @@ define([
                 }
             }
         });
-        document.addEventListener('touchstart', function (event) {
+        document.addEventListener('touchstart touchend', function (event) {
             handleBackDropEvent(options, event, bodyElement);
         });
         // Close navigation via backdrop clicks
