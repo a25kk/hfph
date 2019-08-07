@@ -56,6 +56,9 @@
                                     <tal:fullday tal:condition="python:view.is_full_day_event()">
                                         <span i18n:translate="">Full day event</span>
                                     </tal:fullday>
+                                    <tal:separator tal:condition="python:view.is_full_day_event() and view.is_open_end_event()">
+                                        <br>
+                                    </tal:separator>
                                     <tal:openend tal:condition="python:view.is_open_end_event()">
                                         <span i18n:translate="">Open end</span>
                                     </tal:openend>

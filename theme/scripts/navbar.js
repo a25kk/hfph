@@ -199,13 +199,17 @@ define([
                 }
             }
         });
+        // document.addEventListener('touchstart', function (event) {
+        //     handleBackDropEvent(options, event, bodyElement);
+        // });
+        document.addEventListener('touchend', function (event) {
+            handleBackDropEvent(options, event, bodyElement);
+            event.preventDefault();
+        });
         // Close navigation via backdrop clicks
         document.addEventListener('click', function (event) {
             handleBackDropEvent(options, event, bodyElement);
         });
-        // document.addEventListener('touchstart', function (event) {
-        //     handleBackDropEvent(options, event, bodyElement);
-        // });
         // Nav bar toggle
         navBarToggle.forEach(function(el) {
             el.addEventListener("click", function(event) {
