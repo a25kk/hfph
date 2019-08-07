@@ -202,7 +202,7 @@ define([
         // document.addEventListener('touchstart', function (event) {
         //     handleBackDropEvent(options, event, bodyElement);
         // });
-        document.addEventListener('touchend', function (event) {
+        document.addEventListener('touch', function (event) {
             handleBackDropEvent(options, event, bodyElement);
             event.preventDefault();
         });
