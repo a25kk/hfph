@@ -9,7 +9,10 @@
     padding: $c-panel-padding-top $c-panel-padding-right $c-panel-padding-bottom $c-panel-padding-left;
     &--1 {
         @include when-inside('.c-panels--header') {
-            padding-top: 1rem;
+            padding-top: 0;
+            @include mq($from: md) {
+                padding-top: 1rem;
+            }    
         }
     }
 }
