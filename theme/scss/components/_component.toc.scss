@@ -38,9 +38,9 @@
         display: none;
     }
     padding: .35rem 0 .35rem 0;
-	text-transform: none;
+    text-transform: none;
     line-height: $c-toc-item-line-height;
-	@include when-inside('.c-toc--level-1') {
+    @include when-inside('.c-toc--level-1') {
         display: $c-toc-item-display;
         @if $c-toc-item-display == flex {
             @include mq($from: xl) {
@@ -79,21 +79,21 @@
 }
 
 .c-toc__item--has-subtree {
-    border: 0 solid #fff;
+    border: 0px solid hsla(0,0%,100%,.1);
     @include mq($from: xl) {
         &:nth-child(even) {
-            border-left-width: 1px;
+            border-left-width: 2px;
         }
     }
     @include mq($from: xl) {
         &:not(:first-child) {
-            border-left-width: 1px;
+            border-left-width: 2px;
         }
     }
 }
 
 .c-toc--level-1 {
-	display: none;
+    display: none;
     @include mq($until: xl) {
         flex: 1 0 100%;
         max-width: 100%;
@@ -104,8 +104,8 @@
     @include mq($from: xl) {
         display: block;
     }
-	text-transform: none;
-	// font-family: $app-font-family-medium;
+    text-transform: none;
+    // font-family: $app-font-family-medium;
 }
 
 .c-toc__link {
@@ -119,7 +119,7 @@
         text-decoration: none;
         cursor: pointer;
     }
-	color: $c-toc-link-color;
+    color: $c-toc-link-color;
     font-size: $c-toc-item-font-size;
     @include when-inside('.c-toc--level-1') {
         display: block;
