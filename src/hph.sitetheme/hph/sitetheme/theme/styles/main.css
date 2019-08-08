@@ -13280,18 +13280,18 @@ a.c-button--active-action {
 }
 
 .c-toc__item--has-subtree {
-  border: 0 solid #fff;
+  border: 0px solid rgba(255, 255, 255, 0.1);
 }
 
 @media (min-width: 75em) {
   .c-toc__item--has-subtree:nth-child(even) {
-    border-left-width: 1px;
+    border-left-width: 2px;
   }
 }
 
 @media (min-width: 75em) {
   .c-toc__item--has-subtree:not(:first-child) {
-    border-left-width: 1px;
+    border-left-width: 2px;
   }
 }
 
