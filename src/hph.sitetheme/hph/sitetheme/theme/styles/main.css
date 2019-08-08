@@ -12680,7 +12680,13 @@ a.c-button--active-action {
 }
 
 .c-panels--header .c-panel--1 {
-  padding-top: 1rem;
+  padding-top: 0;
+}
+
+@media (min-width: 48em) {
+  .c-panels--header .c-panel--1 {
+    padding-top: 1rem;
+  }
 }
 
 .c-panel--full-width {
