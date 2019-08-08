@@ -14397,6 +14397,16 @@ c-list--bordered .c-list__item:last-of-type {
   }
 }
 
+.c-slide__content {
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 48em) {
+  .c-slide__content {
+    padding-bottom: 0;
+  }
+}
+
 .c-slide__content a {
   color: #fff;
 }

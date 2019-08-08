@@ -26,6 +26,11 @@ $c-slider-padding:                $app-spacer-base;
 }
 
 .c-slide__content {
+  padding-bottom: 3rem;
+  @include mq($from: md) {
+    padding-bottom: 0;
+  }
+
   a {
     color: #fff;
     &:hover {
