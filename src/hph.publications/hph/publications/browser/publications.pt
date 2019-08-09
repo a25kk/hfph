@@ -13,7 +13,7 @@
         <div class="o-page__content o-grid o-grid--lg o-grid--reverse">
             <div class="o-grid__item o-grid__item--width-25">
                 <div class="o-aside">
-                    <div class="c-card c-card-nav c-card--publication">
+                    <div class="c-card c-card--nav c-card--publication">
                         <div class="c-card__header c-collapsible__header js-collapsible-toggle">
                             <h4 class="c-card__title c-collapsible__link" i18n:translate="">
                                 Media
