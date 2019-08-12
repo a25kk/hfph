@@ -34,7 +34,8 @@
       "scripts/paneleditor.js",
       "scripts/polyfills.js",
       "scripts/slider.js",
-      "scripts/utils.js"
+      "scripts/utils.js",
+      "scripts/utils.touchhandler.js"
     ],
     "src": [
       "choices.js/public/assets/scripts/choices.min.js",

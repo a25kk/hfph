@@ -11425,6 +11425,11 @@ a.c-button--active-action {
   border-radius: 0;
 }
 
+.c-button--reorder {
+  cursor: move;
+  pointer-events: none;
+}
+
 .c-call-out {
   background-color: #efefef;
   padding: calc(1.25rem * 1.5 / 2);
@@ -14368,7 +14373,21 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-slider {
   display: block;
-  width: 100%;
+  width: 100vw;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+@media (min-width: 62em) {
+  .c-slider {
+    width: 100%;
+    margin-left: 0;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+  }
 }
 
 .c-slide {

@@ -11,11 +11,29 @@ from ade25.panelpage import MessageFactory as _
 
 
 @provider(IFormFieldProvider)
+class IHPHWidgetTeaserEvents(Interface):
+    """ Content Widget Teaser Events """
+
+    title = schema.TextLine(
+        title=_("Event Teaser Headline"),
+        required=False
+    )
+    directives.widget(link=LinkFieldWidget)
+    link = schema.TextLine(
+        title=_(u"Event Teaser Link"),
+        description=_(u"Please select link target for global read more action. "
+                      u"Leave empty to fall back to the global event calendar"
+                      u" link."),
+        required=False,
+    )
+
+
+@provider(IFormFieldProvider)
 class IHPHWidgetTeaserLinksInternal(Interface):
     """ Content Widget Teaser Links internal """
 
     title = schema.TextLine(
-        title=_("Teaser Headline"),
+        title=_("Teaser Links Internal Headline"),
         required=False
     )
 
@@ -49,7 +67,7 @@ class IHPHWidgetTeaserLinksExternal(Interface):
     """ Content Widget Teaser Links internal """
 
     title = schema.TextLine(
-        title=_("Teaser Headline"),
+        title=_("Teaser Links External Headline"),
         required=False
     )
 
