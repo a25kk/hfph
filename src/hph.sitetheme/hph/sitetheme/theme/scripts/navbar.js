@@ -1,5 +1,5 @@
 define([
-    "/scripts/utils.js"
+    "/scripts/utils.js",
 ], function(utils) {
 
     var navBar = {};
@@ -199,14 +199,13 @@ define([
                 }
             }
         });
-        // document.addEventListener('touchstart', function (event) {
-        //     handleBackDropEvent(options, event, bodyElement);
-        // });
-        document.addEventListener('touch', function (event) {
+        // Close navigation via backdrop clicks or tabs
+        document.addEventListener('touchstart', function (event) {
             handleBackDropEvent(options, event, bodyElement);
-            event.preventDefault();
         });
-        // Close navigation via backdrop clicks
+        document.addEventListener('touchend', function (event) {
+            handleBackDropEvent(options, event, bodyElement);
+        });
         document.addEventListener('click', function (event) {
             handleBackDropEvent(options, event, bodyElement);
         });
