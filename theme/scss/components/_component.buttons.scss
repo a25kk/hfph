@@ -89,3 +89,8 @@ a.c-button--active-action {
     // background-size: 16px 16px;
     // background-position: 0 100%;
 }
+
+.c-button--reorder {
+    cursor: move;
+    pointer-events: none;
+}

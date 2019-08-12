@@ -11425,6 +11425,11 @@ a.c-button--active-action {
   border-radius: 0;
 }
 
+.c-button--reorder {
+  cursor: move;
+  pointer-events: none;
+}
+
 .c-call-out {
   background-color: #efefef;
   padding: calc(1.25rem * 1.5 / 2);
@@ -11751,7 +11756,7 @@ a.c-button--active-action {
   position: fixed;
   top: 0;
   z-index: 1001;
-  width: 50vw;
+  width: 90vw;
   height: 100vh;
   overflow-y: scroll;
   right: -100%;
@@ -12082,7 +12087,6 @@ a.c-button--active-action {
   padding: 0;
   width: 1rem;
   height: 1rem;
-  border: 1px solid #dee2e6;
   line-height: 1;
   border-radius: 50%;
 }
@@ -12680,7 +12684,13 @@ a.c-button--active-action {
 }
 
 .c-panels--header .c-panel--1 {
-  padding-top: 1rem;
+  padding-top: 0;
+}
+
+@media (min-width: 48em) {
+  .c-panels--header .c-panel--1 {
+    padding-top: 1rem;
+  }
 }
 
 .c-panel--full-width {
@@ -13274,18 +13284,18 @@ a.c-button--active-action {
 }
 
 .c-toc__item--has-subtree {
-  border: 0 solid #fff;
+  border: 0px solid rgba(255, 255, 255, 0.1);
 }
 
 @media (min-width: 75em) {
   .c-toc__item--has-subtree:nth-child(even) {
-    border-left-width: 1px;
+    border-left-width: 2px;
   }
 }
 
 @media (min-width: 75em) {
   .c-toc__item--has-subtree:not(:first-child) {
-    border-left-width: 1px;
+    border-left-width: 2px;
   }
 }
 
@@ -14363,7 +14373,21 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-slider {
   display: block;
-  width: 100%;
+  width: 100vw;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+@media (min-width: 62em) {
+  .c-slider {
+    width: 100%;
+    margin-left: 0;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+  }
 }
 
 .c-slide {
@@ -14388,6 +14412,16 @@ c-list--bordered .c-list__item:last-of-type {
 @media (min-width: 48em) {
   .c-slide__main {
     padding: 3rem 5rem;
+  }
+}
+
+.c-slide__content {
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 48em) {
+  .c-slide__content {
+    padding-bottom: 0;
   }
 }
 

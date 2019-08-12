@@ -23,5 +23,6 @@ class IHPHWidgetImagePoster(Interface):
     )
     text = RichText(
         title=_(u"Text"),
-        required=False
+        required=False,
+        allowed_mime_types=('text/html', ),
     )
