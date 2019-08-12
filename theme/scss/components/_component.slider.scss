@@ -6,7 +6,7 @@ $c-slider-padding:                $app-spacer-base;
   width: 100vw;
   margin-left: 50%;
   transform: translateX(-50%);
-  @include mq($from: md) {
+  @include mq($from: lg) {
     width: 100%;
     margin-left: 0;
     transform: none;
