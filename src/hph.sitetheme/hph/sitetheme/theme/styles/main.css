@@ -14373,7 +14373,21 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-slider {
   display: block;
-  width: 100%;
+  width: 100vw;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+@media (min-width: 48em) {
+  .c-slider {
+    width: 100%;
+    margin-left: 0;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+  }
 }
 
 .c-slide {

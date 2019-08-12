@@ -3,7 +3,14 @@ $c-slider-padding:                $app-spacer-base;
 
 .c-slider {
   display: block;
-  width: 100%;
+  width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  @include mq($from: md) {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
 }
 
 .c-slide {
@@ -57,7 +64,7 @@ $c-slider-padding:                $app-spacer-base;
                 padding-bottom: 100%;
             }
         }
-    }   
+    }
 }
 
 /* ---- flickity overrides ---- */
@@ -92,7 +99,7 @@ $c-slider-padding:                $app-spacer-base;
   .dot {
     @include mq($from: md) {
       background-color: #fff;
-      } 
+      }
     }
 }
 
