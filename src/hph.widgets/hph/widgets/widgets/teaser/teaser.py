@@ -190,11 +190,18 @@ class WidgetTeaserEvents(BrowserView):
 
     def widget_content(self):
         widget_content = self.widget_data()
-        data = {
-            'title': widget_content['title'],
-            'public': widget_content['is_public'],
-            'display': self.widget_display(widget_content["is_public"])
-        }
+        if widget_content:
+            data = {
+                'title': widget_content.get('title', None),
+                'public': widget_content['is_public'],
+                'display': self.widget_display(widget_content["is_public"])
+            }
+        else:
+            data = {
+                'title': None,
+                'public': True,
+                'display': True
+            }
         return data
 
     def widget_content_items(self):
@@ -319,7 +326,7 @@ class WidgetTeaserEvents(BrowserView):
         context = aq_inner(self.context)
         portal = api.portal.get()
         widget_data = self.widget_data()
-        if widget_data['link']:
+        if widget_data and widget_data['link']:
             more_link = replace_link_variables_by_paths(
                 context, widget_data['link'])
         else:
@@ -385,11 +392,20 @@ class WidgetTeaserLinksInternal(BrowserView):
 
     def widget_content(self):
         widget_content = self.widget_data()
-        data = {
-            'title': widget_content['title'],
-            'public': widget_content['is_public'],
-            'display': self.widget_display(widget_content["is_public"])
-        }
+        if widget_content:
+            data = {
+                'title': widget_content.get('title', None),
+                'public': widget_content.get('is_public', None),
+                'display': self.widget_display(
+                    widget_content.get('is_public', None)
+                )
+            }
+        else:
+            data = {
+                'title': None,
+                'public': True,
+                'display': True
+            }
         return data
 
     def widget_item_nodes(self):
@@ -505,6 +521,37 @@ class WidgetTeaserLinksExternal(BrowserView):
         except (KeyError, TypeError):
             widget_id = str(uuid_tool.uuid4())
         return widget_id
+
+    def widget_data(self):
+        context = aq_inner(self.context)
+        storage = IContentWidgets(context)
+        stored_widget = storage.read_widget(
+            self.widget_uid()
+        )
+        return stored_widget
+
+    @staticmethod
+    def widget_display(public):
+        if not public and api.user.is_anonymous():
+            return False
+        return True
+
+    def widget_content(self):
+        widget_content = self.widget_data()
+        if widget_content:
+            is_public = widget_content.get('is_public', None)
+            data = {
+                'title': widget_content.get('title', None),
+                'public': is_public,
+                'display': self.widget_display(is_public)
+            }
+        else:
+            data = {
+                'title': None,
+                'public': True,
+                'display': True
+            }
+        return data
 
     def widget_item_nodes(self):
         context = aq_inner(self.context)
