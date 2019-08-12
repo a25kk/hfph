@@ -14380,7 +14380,7 @@ c-list--bordered .c-list__item:last-of-type {
           transform: translateX(-50%);
 }
 
-@media (min-width: 48em) {
+@media (min-width: 62em) {
   .c-slider {
     width: 100%;
     margin-left: 0;
