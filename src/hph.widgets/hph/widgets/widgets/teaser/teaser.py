@@ -174,6 +174,29 @@ class WidgetTeaserEvents(BrowserView):
             widget_id = str(uuid_tool.uuid4())
         return widget_id
 
+    def widget_data(self):
+        context = aq_inner(self.context)
+        storage = IContentWidgets(context)
+        stored_widget = storage.read_widget(
+            self.widget_uid()
+        )
+        return stored_widget
+
+    @staticmethod
+    def widget_display(public):
+        if not public and api.user.is_anonymous():
+            return False
+        return True
+
+    def widget_content(self):
+        widget_content = self.widget_data()
+        data = {
+            'title': widget_content['title'],
+            'public': widget_content['is_public'],
+            'display': self.widget_display(widget_content["is_public"])
+        }
+        return data
+
     def widget_content_items(self):
         return self.recent_events()
 
@@ -287,10 +310,20 @@ class WidgetTeaserEvents(BrowserView):
             })
         return results
 
-    @staticmethod
-    def widget_more_link():
+    def get_link_action(self, link):
+        context = aq_inner(self.context)
+        link_action = replace_link_variables_by_paths(context, link)
+        return link_action
+
+    def widget_more_link(self):
+        context = aq_inner(self.context)
         portal = api.portal.get()
-        more_link = '{0}/@@event-calendar'.format(portal.absolute_url())
+        widget_data = self.widget_data()
+        if widget_data['link']:
+            more_link = replace_link_variables_by_paths(
+                context, widget_data['link'])
+        else:
+            more_link = '{0}/@@event-calendar'.format(portal.absolute_url())
         return more_link
 
 
@@ -335,6 +368,29 @@ class WidgetTeaserLinksInternal(BrowserView):
         except (KeyError, TypeError):
             widget_id = str(uuid_tool.uuid4())
         return widget_id
+
+    def widget_data(self):
+        context = aq_inner(self.context)
+        storage = IContentWidgets(context)
+        stored_widget = storage.read_widget(
+            self.widget_uid()
+        )
+        return stored_widget
+
+    @staticmethod
+    def widget_display(public):
+        if not public and api.user.is_anonymous():
+            return False
+        return True
+
+    def widget_content(self):
+        widget_content = self.widget_data()
+        data = {
+            'title': widget_content['title'],
+            'public': widget_content['is_public'],
+            'display': self.widget_display(widget_content["is_public"])
+        }
+        return data
 
     def widget_item_nodes(self):
         context = aq_inner(self.context)

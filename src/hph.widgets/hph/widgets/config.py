@@ -28,8 +28,8 @@ PKG_WIDGETS = {
         "name": "HfPH Teaser Events",
         "title": "Teaser Events",
         "category": "more",
-        "type": "base",
-        "schema": "",
+        "type": "content-item",
+        "schema": "hph.widgets.widgets.teaser.interfaces.IHPHWidgetTeaserEvents",  # noqa
         "node": {}
     },
     "hph-teaser-links": {
