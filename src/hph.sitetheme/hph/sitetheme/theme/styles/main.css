@@ -12091,6 +12091,10 @@ a.c-button--active-action {
   border-radius: 50%;
 }
 
+.c-nav__toggle--close {
+  border: 1px solid #dee2e6;
+}
+
 @media (min-width: 277777.75em) {
   .c-nav__toggle {
     display: none;
