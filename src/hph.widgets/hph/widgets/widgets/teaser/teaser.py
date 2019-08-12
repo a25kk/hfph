@@ -190,11 +190,18 @@ class WidgetTeaserEvents(BrowserView):
 
     def widget_content(self):
         widget_content = self.widget_data()
-        data = {
-            'title': widget_content['title'],
-            'public': widget_content['is_public'],
-            'display': self.widget_display(widget_content["is_public"])
-        }
+        if widget_content:
+            data = {
+                'title': widget_content.get('title', None),
+                'public': widget_content['is_public'],
+                'display': self.widget_display(widget_content["is_public"])
+            }
+        else:
+            data = {
+                'title': None,
+                'public': True,
+                'display': True
+            }
         return data
 
     def widget_content_items(self):
@@ -319,7 +326,7 @@ class WidgetTeaserEvents(BrowserView):
         context = aq_inner(self.context)
         portal = api.portal.get()
         widget_data = self.widget_data()
-        if widget_data['link']:
+        if widget_data and widget_data['link']:
             more_link = replace_link_variables_by_paths(
                 context, widget_data['link'])
         else:
@@ -385,11 +392,20 @@ class WidgetTeaserLinksInternal(BrowserView):
 
     def widget_content(self):
         widget_content = self.widget_data()
-        data = {
-            'title': widget_content['title'],
-            'public': widget_content['is_public'],
-            'display': self.widget_display(widget_content["is_public"])
-        }
+        if widget_content:
+            data = {
+                'title': widget_content.get('title', None),
+                'public': widget_content.get('is_public', None),
+                'display': self.widget_display(
+                    widget_content.get('is_public', None)
+                )
+            }
+        else:
+            data = {
+                'title': None,
+                'public': True,
+                'display': True
+            }
         return data
 
     def widget_item_nodes(self):
