@@ -522,6 +522,37 @@ class WidgetTeaserLinksExternal(BrowserView):
             widget_id = str(uuid_tool.uuid4())
         return widget_id
 
+    def widget_data(self):
+        context = aq_inner(self.context)
+        storage = IContentWidgets(context)
+        stored_widget = storage.read_widget(
+            self.widget_uid()
+        )
+        return stored_widget
+
+    @staticmethod
+    def widget_display(public):
+        if not public and api.user.is_anonymous():
+            return False
+        return True
+
+    def widget_content(self):
+        widget_content = self.widget_data()
+        if widget_content:
+            is_public = widget_content.get('is_public', None)
+            data = {
+                'title': widget_content.get('title', None),
+                'public': is_public,
+                'display': self.widget_display(is_public)
+            }
+        else:
+            data = {
+                'title': None,
+                'public': True,
+                'display': True
+            }
+        return data
+
     def widget_item_nodes(self):
         context = aq_inner(self.context)
         ordered_nodes = list()
