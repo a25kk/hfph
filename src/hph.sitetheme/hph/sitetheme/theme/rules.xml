@@ -111,6 +111,7 @@
 
     <!-- Setup custom login form -->
     <theme href="signin/index.html" css:if-content="body.template-login" />
+    <theme href="signin/index.html" css:if-content="body.template-login_form" />
     <theme href="signin/index.html" css:if-content="body.template-login-help" />
     <theme href="signin/index.html" css:if-content="body.template-passwordreset" />
 
