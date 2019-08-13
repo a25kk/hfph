@@ -193,9 +193,11 @@ $c-nav-font-size-secondary:             $app-font-size-sm;
     padding: 0;
     width: 1rem;
     height: 1rem;
-    //border: 1px solid $gray-300;
     line-height: 1;
     border-radius: 50%;
+    &--close {
+        border: 1px solid $gray-300;
+    }
     @include mq($from: navbar) {
         display: none;
     }
