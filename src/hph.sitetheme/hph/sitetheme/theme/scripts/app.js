@@ -40,12 +40,12 @@ requirejs(['require',
         });
 
         Promise.all([fontPrimary.load(null, 3000),
-                     fontSecondary.load(null, 3000),
-                     fontTertiary.load(null, 3000)
+            fontSecondary.load(null, 3000),
+            fontTertiary.load(null, 3000)
         ])
             .then(function () {
                 document.documentElement.className += " fonts--loaded";
-        });
+            });
 
         if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
             document.documentElement.className += " u-device--ios";
@@ -61,14 +61,17 @@ requirejs(['require',
             });
         }
         // Drop mic initialization
-        var dropmic = new Dropmic(document.querySelector('[data-dropmic="quick-link-menu"]'), {
-            onOpen: function() {
-                // dropmic.updateTargetBtn("Click to close");
-            },
-            onClose: function() {
-                // dropmic.updateTargetBtn("Bottom right (default)");
-            }
-        });
+        let dropMicSelector = document.querySelector('[data-dropmic="quick-link-menu"]');
+        if (dropMicSelector !== null) {
+            var dropmic = new Dropmic(document.querySelector('[data-dropmic="quick-link-menu"]'), {
+                onOpen: function() {
+                    // dropmic.updateTargetBtn("Click to close");
+                },
+                onClose: function() {
+                    // dropmic.updateTargetBtn("Bottom right (default)");
+                }
+            });
+        }
 
         // Nav Bar
         navbar.init({
