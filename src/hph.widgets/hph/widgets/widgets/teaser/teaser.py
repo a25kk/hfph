@@ -276,8 +276,22 @@ class WidgetTeaserEvents(BrowserView):
                 )
             content_node = content_node.aq_parent
 
+    def _base_query(self):
+        context = aq_inner(self.context)
+        date_range_query = {'query': DateTime.DateTime(), 'range': 'min'}
+        obj_provides = IEventItem.__identifier__
+        return dict(object_provides=obj_provides,
+                    path=dict(query='/'.join(context.getPhysicalPath()),
+                              depth=1),
+                    review_state='published',
+                    start=date_range_query,
+                    sort_on='start')
+
     def get_latest_event_items(self, limit=3):
         context = aq_inner(self.context)
+        catalog = api.portal.get_tool(name='portal_catalog')
+        query = self._base_query()
+        query['sort_limit'] = limit
         container = context
         if IPage.providedBy(container):
             container = aq_parent(container)
@@ -285,19 +299,11 @@ class WidgetTeaserEvents(BrowserView):
         for node in acquisition_chain:
             if IMainSection.providedBy(node):
                 container = node
-        date_range_query = {'query': DateTime.DateTime(), 'range': 'min'}
-        promoted = False
+        query['path'] = dict(query='/'.join(container.getPhysicalPath()),
+                             depth=3)
         if ISiteRoot.providedBy(container):
-            promoted = True
-        items = api.content.find(
-            context=container,
-            object_provides=IEventItem.__identifier__,
-            review_state='published',
-            is_promoted=promoted,
-            start=date_range_query,
-            sort_on='start',
-            sort_limit=limit
-        )[:limit]
+            query['is_promoted'] = True
+        items = catalog.searchResults(query)[:limit]
         return items
 
     def recent_events(self):

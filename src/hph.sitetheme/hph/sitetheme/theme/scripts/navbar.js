@@ -33,7 +33,7 @@ define([
 
     function navigationOffsetMarker(options) {
         var $menuContainer = document.querySelector(options.menuContainer),
-            $menuContainerScrolled = $menuContainer.offsetTop;
+            $menuContainerScrolled = $menuContainer.offsetTop || 0;
         window.addEventListener("scroll", function() {
             if (window.pageYOffset > $menuContainerScrolled) {
                 $menuContainer.classList.add(options.menuContainerOffsetMarker);
