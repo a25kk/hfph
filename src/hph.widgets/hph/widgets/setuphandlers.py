@@ -2,12 +2,17 @@
 """Module providing custom setup steps"""
 import datetime
 import json
+import logging
 import time
 
 import six
+from Products.CMFPlone.utils import safe_unicode
 
 from hph.widgets.config import PKG_WIDGETS
 from plone import api
+from plone.api.exc import InvalidParameterError
+
+logger = logging.getLogger(__name__)
 
 
 def register_content_widgets(site):
@@ -18,7 +23,7 @@ def register_content_widgets(site):
     """
     content_widgets = PKG_WIDGETS
     widget_settings = api.portal.get_registry_record(
-        name='ade25.widgets.widget_settings'
+        name="ade25.widgets.widget_settings"
     )
     stored_widgets = json.loads(widget_settings)
     records = stored_widgets['items']
@@ -30,7 +35,7 @@ def register_content_widgets(site):
     stored_widgets["updated"] = datetime.datetime.now().isoformat(),
     api.portal.set_registry_record(
         name='ade25.widgets.widget_settings',
-        value=json.dumps(stored_widgets)
+        value=safe_unicode(json.dumps(stored_widgets))
     )
 
 
