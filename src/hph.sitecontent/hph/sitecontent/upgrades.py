@@ -88,7 +88,11 @@ def upgrade_1003(setup):
 
 
 def upgrade_1004(setup):
-    setup.runImportStepFromProfile(default_profile, 'typeinfo')
+    setup.runImportStepFromProfile(
+        default_profile,
+        'typeinfo',
+        'plone.app.registry'
+    )
 
 
 def upgrade_1005(setup):

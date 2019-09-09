@@ -13357,6 +13357,14 @@ a.c-button--active-action {
   color: #fff;
 }
 
+.c-toc__link--toggle {
+  text-decoration: none;
+}
+
+.c-toc__link--toggle:hover {
+  text-decoration: none;
+}
+
 .c-toc__link-item {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 50%;

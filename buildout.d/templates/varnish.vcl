@@ -29,7 +29,7 @@ sub vcl_hit {
             return (deliver);
         } else {
             # No candidate for grace. Fetch a fresh object.
-            return (restart);
+            return (pass);
      }
     } else {
         # backend is sick - use full grace
@@ -38,7 +38,7 @@ sub vcl_hit {
             return (deliver);
         } else {
             # no graced object.
-            return (restart);
+            return (pass);
      }
     }
 }
