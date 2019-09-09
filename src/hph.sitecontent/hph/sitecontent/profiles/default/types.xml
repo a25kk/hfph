@@ -14,4 +14,5 @@
   <object name="hph.sitecontent.eventitem" meta_type="Dexterity FTI" />
   <object name="hph.sitecontent.newsentry" meta_type="Dexterity FTI" />
   <object name="hph.sitecontent.contentpage" meta_type="Dexterity FTI" />
+  <object name="hph.sitecontent.languagefolder" meta_type="Dexterity FTI" />
 </object>

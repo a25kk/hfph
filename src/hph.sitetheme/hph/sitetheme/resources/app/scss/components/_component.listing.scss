@@ -1,0 +1,111 @@
+$c-list-spacer:                      $app-spacer-base;
+$c-list-margin-x:                    $c-list-spacer;
+$c-list-border-color:                $app-color-text;
+$c-list-border-width:                1px;
+
+.c-list {
+    display: block;
+    &--grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    &--baseline {
+        align-content: baseline;
+    }
+    &--gutter {
+        width: 100%;
+        margin-right: -($c-list-margin-x);
+        margin-left: -($c-list-margin-x);
+    }
+    &--tiles {
+        margin-bottom: $app-spacer-base;
+    }
+}
+
+.c-list__item {
+    @include when-inside('.c-list--grid') {
+        flex: 1 0 100%;
+        @include mq($from: md, $until: lg) {
+            &--width-25 {
+                flex: 1 0 50%;
+                max-width: 50%;
+            }
+        }
+        @include mq($from: lg) {
+            flex: 1 0 33.3333%;
+            max-width: 33.3333%;
+            &--width-25 {
+                flex: 1 0 25%;
+                max-width: 25%;
+            }
+        }
+    }
+    margin-bottom: calc(#{$c-list-spacer} * 1.5);
+    @include when-inside('.c-list--gutter') {
+        padding-right: $c-list-margin-x;
+        padding-left: $c-list-margin-x;
+    }
+    @include when-inside('.c-list--tiles') {
+        display: block;
+        padding: $c-list-margin-x;
+        margin-bottom: 0;
+        border: $c-list-border-width solid $c-list-border-color;
+        border-top-width: 0;
+        // border-width: 0 $c-list-border-width $c-list-border-width $c-list-border-width;
+        color: $app-color-text;
+        &:first-child {
+            border-top-width: $c-list-border-width;
+        }
+    }
+    @include when-inside('c-list--bordered') {
+        border-bottom: 1px solid $c-list-border-color;
+        &:last-of-type {
+            border-bottom: 0px;
+        }
+    }
+}
+
+.c-list__item--card {
+    // @include mq($from: md, $until: lg) {
+    //     &:not(:nth-child(2n+2)) {
+    //         border-right: 1px solid $c-list-border-color;
+    //     }
+    // }
+    @include mq($from: lg) {
+        &:not(:nth-child(3n+3)) {
+            border-right: 1px solid $c-list-border-color;
+        }
+    }
+}
+
+.c-list__item--action {
+    color: lighten($app-color-text, 20%);
+    &:hover {
+        text-decoration: none;
+        background-color: $app-color-gray-light;
+        color: $app-color-text;
+    }
+}
+
+
+.c-card-list {
+
+}
+
+.c-card-list__item {
+    @include when-inside('.c-card-list') {
+        padding-right: $app-spacer-base;
+        &:not(:first-of-type) {
+            padding-left: $app-spacer-base;
+        }
+        &:not(last) {
+            @include mq($from: md) {
+                border-right: 1px solid $app-color-gray;
+            }
+        }
+        &:last-of-type {
+            border-right: 0;
+        }
+    }
+}

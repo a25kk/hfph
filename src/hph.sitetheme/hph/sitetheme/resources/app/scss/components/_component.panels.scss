@@ -1,0 +1,236 @@
+.c-panels {
+    display: block;
+    width: 100%;
+}
+
+.c-panels--header {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    background-color: $c-panel-primary-bg-color;
+    > * {
+        margin-right: auto;
+        margin-left: auto;
+        @include make-container-max-widths();
+    }
+}
+
+.c-panel {
+    position: relative;
+    padding: $c-panel-padding-top $c-panel-padding-right $c-panel-padding-bottom $c-panel-padding-left;
+    &--1 {
+        @include when-inside('.c-panels--header') {
+            padding-top: 3rem;
+        }
+    }
+}
+
+.c-panel--full-width {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.c-panel--centered {
+    margin-right: auto;
+    margin-left: auto;
+    @include make-container-max-widths();
+}
+
+.c-panel--primary {
+    color: $c-panel-primary-color;
+    background-color: $c-panel-primary-bg-color;
+}
+
+.c-panel--secondary {
+    background-color: $c-panel-primary-bg-color;
+}
+
+.c-panel--disabled {
+    opacity: .5;
+}
+
+.c-panel__header {
+    // Includes panel edit toolbar
+    position: $c-panel-header-position;
+    top: $c-panel-header-position-top;
+    right: $c-panel-header-position-right;
+    bottom: $c-panel-header-position-bottom;
+    left: $c-panel-header-position-left;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    opacity: 1;
+    // background-color: rgba($c-panel-action-background-color, .125);
+    transition: opacity .25s ease-in-out;
+    @include when-inside('.c-panels--view') {
+        display: none;
+    }
+}
+
+.c-panel__main {
+    position: relative;
+    width: $c-panel-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2rem;
+    padding-bottom: 0;
+    @include media-breakpoint-up(md) {
+       padding-bottom: 2rem;
+    }
+    &--centered {
+        @include make-container-max-widths();
+    }
+}
+
+.c-panel__footer {
+    // Includes panel add action
+    @include when-inside('.c-panels--view') {
+        display: none;
+    }
+}
+
+.c-panel__icon {
+    display: none;
+    @if $c-panel-action-display == flex {
+        align-items: center;
+        justify-content: center;
+    }
+    width: $c-panel-action-width;
+    height: $c-panel-action-height;
+    z-index: 11;
+    border: $c-panel-action-border-width $c-panel-action-border-style $c-panel-action-border-color;
+    border-radius: $c-panel-action-border-radius;
+    color: $c-panel-action-text-color !important;
+    background-color: $c-panel-action-background-color;
+    font-size: $c-panel-action-font-size;
+    font-family: $c-panel-action-font-family;
+    &:hover {
+        color: $c-panel-action-text-color-hover;
+    }
+    @include when-inside('.c-panel__header:hover') {
+        display: $c-panel-action-display;
+    }
+    &--fixed-bottom {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+$c-panel-controls-width: 2rem;
+$c-panel-controls-display:  flex;
+
+.c-panel__controls {
+    // Panel + widget edit bar
+    position: relative;
+    left: calc(100% - #{$c-panel-controls-width});
+    display: $c-panel-controls-display;
+    width: $c-panel-controls-width;
+    height: 0;
+    color: #fff;
+    background-color: $c-panel-primary-color;
+    transition: height .25s ease;
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: $c-panel-controls-position-top;
+        left: calc(#{$c-panel-controls-position-left} - #{$c-panel-controls-border-width} / 2);
+        overflow: hidden;
+        width: $c-panel-actions-border-width;
+        height: 0;
+        background-color: $c-panel-primary-color;
+        transition: height .25s ease;
+    }
+    @include when-inside('.c-panel__header:hover') {
+        height: 100%;
+        &::before {
+            height: 100%;
+        }
+    }
+}
+
+.c-panel-factory {
+    position: relative;
+    left: 0;
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+    width: $c-panel-width;
+    // overflow-y: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    padding: $c-panel-actions-padding-x $c-panel-actions-padding-y;
+    // @include make-container-max-widths();
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: calc(#{$c-panel-action-position-top} - #{$c-panel-actions-border-width} / 2);
+        left: $c-panel-action-position-left;
+        overflow: hidden;
+        width: 0;
+        height: $c-panel-actions-border-width;
+        background-color: $c-panel-primary-color;
+        transition: width .25s ease;
+    }
+    &:hover {
+        opacity: 1;
+        &::before {
+            width: 100%;
+        }
+    }
+    @include when-inside('.c-panels--view') {
+        display: none;
+    }
+}
+
+.c-panel-factory__action {
+    position: relative;
+    left: calc(0 - #{$c-panel-action-width} / 2);
+    display: $c-panel-action-display;
+    @if $c-panel-action-display == flex {
+        align-items: center;
+        justify-content: center;
+    }
+    width: $c-panel-action-width;
+    height: $c-panel-action-height;
+    border: $c-panel-action-border-width $c-panel-action-border-style $c-panel-action-border-color;
+    border-radius: $c-panel-action-border-radius;
+    color: $c-panel-action-text-color;
+    background-color: $c-panel-action-background-color;
+    font-size: $c-panel-action-font-size;
+    font-family: $c-panel-action-font-family;
+    &:hover {
+        color: $c-panel-action-text-color-hover;
+    }
+}
+
+.c-panel-editor {
+    position: relative;
+    &--centered {
+        margin-right: auto;
+        margin-left: auto;
+        @include make-container-max-widths();
+    }
+}
+
+.c-panel-editor__header {
+    // position: absolute;
+    height: 4rem;
+    min-height: 4rem;
+}
+
+.c-panel-editor__section-headline {
+    padding: .5rem;
+    margin-bottom: 1rem;
+    border-bottom: .0125rem solid $c-toolbar-background;
+}
+
+.c-panel-editor__section-headline {
+    font-family: $app-font-family-strong;
+    text-transform: uppercase;
+}
+
+.c-panel-editor__footer {
+    padding: $app-spacer-base 0;
+}

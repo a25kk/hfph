@@ -1,0 +1,54 @@
+$c-panels-display:                          block;
+$c-panels-width:                            100%;
+$c-panels-bg-color-default:                 $app-color-gray-light;
+
+$c-panel-width:                             100%;
+
+$c-panel-padding-top:                       0;
+$c-panel-padding-right:                     0;
+$c-panel-padding-bottom:                    0;
+$c-panel-padding-left:                      0;
+$c-panel-margin-bottom:                     2rem;
+
+
+// Colors
+$c-panel-primary-color:                     $app-color-text;
+$c-panel-primary-bg-color:                  $app-color-gray-lightest;
+
+// Panel controls
+$c-panel-controls-position-top:             0;
+$c-panel-controls-position-left:            50%;
+$c-panel-controls-border-width:             .2rem;
+
+// Panel header
+$c-panel-header-position:                   absolute;
+$c-panel-header-position-top:               0;
+$c-panel-header-position-right:             0;
+$c-panel-header-position-bottom:            0;
+$c-panel-header-position-left:              0;
+
+
+// Panel actions
+$c-panel-actions-padding-x:                 .25rem;
+$c-panel-actions-padding-y:                 0;
+$c-panel-actions-border-width:              .2rem;
+
+$c-panel-action-display:                    flex;
+$c-panel-action-width:                      2rem;
+$c-panel-action-height:                     2rem;
+$c-panel-action-position-top:               50%;
+$c-panel-action-position-right:             0;
+$c-panel-action-position-right-active:      100%;
+$c-panel-action-position-bottom:            0;
+$c-panel-action-position-left:              0;
+
+$c-panel-action-text-color:                 $app-color-white;
+$c-panel-action-text-color-hover:           $app-color-gray-light;
+$c-panel-action-background-color:           $c-panel-primary-color;
+$c-panel-action-border-width:               .125rem;
+$c-panel-action-border-style:               solid;
+$c-panel-action-border-color:               $c-panel-primary-color;
+$c-panel-action-border-radius:              50%;
+$c-panel-action-font-size:                  $app-font-size-sm;
+$c-panel-action-font-family:                $app-font-family-strong;
+

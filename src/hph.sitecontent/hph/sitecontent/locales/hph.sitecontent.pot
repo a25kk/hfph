@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-10-04 08:36+0000\n"
+"POT-Creation-Date: 2019-07-30 15:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,20 +37,67 @@ msgstr ""
 msgid "An event with a start and end date"
 msgstr ""
 
+#: ./../languagefolder.py:46
+#: ./../mainsection.py:46
+msgid "Banner and Preview Image"
+msgstr ""
+
+#: ./../configure.zcml:31
+msgid "Basic site content for hph site"
+msgstr ""
+
+#: ./../browser/controlpanel.py:36
+msgid "Choose if the main navigation should include a home link pointing at the front page."
+msgstr ""
+
+#: ./../contentpage.py:21
+msgid "Content Headline"
+msgstr ""
+
 #: ./../profiles/default/types/hph.sitecontent.contentpage.xml
 msgid "ContentPage"
 msgstr ""
 
-#: ./../eventitem.py:29
+#: ./../contentpage.py:45
+#: ./../eventitem.py:69
+#: ./../languagefolder.py:53
+msgid "Cover Image Caption"
+msgstr ""
+
+#: ./../eventitem.py:47
+msgid "Details"
+msgstr ""
+
+#: ./../browser/controlpanel.py:73
+msgid "Element used as close trigger that may contain svg icon code."
+msgstr ""
+
+#: ./../browser/controlpanel.py:82
+msgid "Element used as navigation dropdown trigger.Warning: please make sure to keep the placeholder that allow to interpolate the required classes by the nav tree recursive renderer."
+msgstr ""
+
+#: ./../browser/controlpanel.py:35
+msgid "Enable Home Link"
+msgstr ""
+
+#: ./../eventitem.py:32
 msgid "End date"
 msgstr ""
 
-#: ./../eventitem.py:33
+#: ./../browser/events.py:121
+msgid "Event"
+msgstr ""
+
+#: ./../eventitem.py:51
 msgid "Event Description"
 msgstr ""
 
-#: ./../eventitem.py:21
+#: ./../eventitem.py:19
 msgid "Event Location"
+msgstr ""
+
+#: ./../eventitem.py:23
+msgid "Event Type"
 msgstr ""
 
 #: ./../profiles/default/types/hph.sitecontent.eventfolder.xml
@@ -61,8 +108,95 @@ msgstr ""
 msgid "EventItem"
 msgstr ""
 
-#: ./../newsentry.py:23
+#: ./../browser/event-calendar.pt:17
+msgid "Events"
+msgstr ""
+
+#: ./../behavior/display.py:54
+msgid "Exclude from footer navigation"
+msgstr ""
+
+#: ./../configure.zcml:31
+msgid "Extension profile for Basic site content for hph site"
+msgstr ""
+
+#: ./../eventitem.py:78
+msgid "Featured item"
+msgstr ""
+
+#: ./../profiles/default/types/hph.sitecontent.languagefolder.xml
+msgid "Folder acting as a language root"
+msgstr ""
+
+#: ./../profiles/default/types/hph.sitecontent.mainsection.xml
+msgid "Forder to represent the main site sections"
+msgstr ""
+
+#: ./../eventitem.py:36
+msgid "Full Day"
+msgstr ""
+
+#: ./../browser/event-item.pt:57
+msgid "Full day event"
+msgstr ""
+
+#: ./../browser/settings-navigation.pt:31
+msgid "HfPH Settings Overview"
+msgstr ""
+
+#: ./../browser/settings-navigation.pt:20
+msgid "HfPH Site Settings - Navigation"
+msgstr ""
+
+#: ./../vocabulary.py:37
+msgid "IGP"
+msgstr ""
+
+#: ./../behavior/display.py:56
+msgid "If selected, this item will not appear in the table of contents listing in the site footer"
+msgstr ""
+
+#: ./../profiles/default/types/hph.sitecontent.languagefolder.xml
+msgid "Language Folder"
+msgstr ""
+
+#: ./../languagefolder.py:32
+#: ./../mainsection.py:32
+msgid "Link"
+msgstr ""
+
+#: ./../browser/controlpanel.py:43
+msgid "Listed Content Types"
+msgstr ""
+
+#: ./../newsentry.py:40
 msgid "Main Text"
+msgstr ""
+
+#: ./../profiles/default/types/hph.sitecontent.mainsection.xml
+msgid "MainSection"
+msgstr ""
+
+#: ./../contentpage.py:33
+#: ./../eventitem.py:57
+#: ./../languagefolder.py:41
+msgid "Media"
+msgstr ""
+
+#: ./../vocabulary.py:38
+msgid "Mediaethics"
+msgstr ""
+
+#: ./../browser/controlpanel.py:72
+msgid "Navigation Close Element"
+msgstr ""
+
+#: ./../browser/controlpanel.py:81
+msgid "Navigation Open Element"
+msgstr ""
+
+#: ./../browser/controlpanel.py:64
+msgid "Navigation depth"
 msgstr ""
 
 #: ./../profiles/default/types/hph.sitecontent.newsentry.xml
@@ -73,28 +207,114 @@ msgstr ""
 msgid "NewsFolder"
 msgstr ""
 
-#: ./../contentpage.py:21
-#: ./../newsentry.py:17
-msgid "Preview Image"
+#: ./../browser/controlpanel.py:65
+msgid "Number of folder levels to show in the site navigation."
 msgstr ""
 
-#: ./../eventitem.py:25
-msgid "Start date"
+#: ./../eventitem.py:41
+msgid "Open End"
 msgstr ""
 
-#: ./../contentpage.py:17
-msgid "Text"
-msgstr ""
-
-#: ./../eventitem.py:17
-msgid "Title"
-msgstr ""
-
-#: ./../newsentry.py:18
-msgid "Upload a preview image that will be used in news teasers."
+#: ./../browser/event-item.pt:60
+msgid "Open end"
 msgstr ""
 
 #: ./../contentpage.py:22
+msgid "Optional custom headline to seperate navigation and content title"
+msgstr ""
+
+#: ./../languagefolder.py:33
+#: ./../mainsection.py:33
+msgid "Optional internal or external link that will be used as redirection target when section is accessed.Logged in users will see the target link instead."
+msgstr ""
+
+#: ./../browser/controlpanel.py:55
+msgid "Path to be used as navigation root, relative to Plone site root.Starts with '/'"
+msgstr ""
+
+#: ./../vocabulary.py:36
+msgid "Philosophy and Leadership"
+msgstr ""
+
+#: ./../vocabulary.py:35
+msgid "Philosophy and Motivation"
+msgstr ""
+
+#: ./../contentpage.py:38
+#: ./../eventitem.py:62
+#: ./../newsentry.py:29
+msgid "Preview Image"
+msgstr ""
+
+#: ./../eventitem.py:86
+msgid "Promote to front page"
+msgstr ""
+
+#: ./../vocabulary.py:19
+msgid "Public Event"
+msgstr ""
+
+#: ./../vocabulary.py:18
+msgid "Research"
+msgstr ""
+
+#: ./../browser/controlpanel.py:54
+msgid "Root"
+msgstr ""
+
+#: ./../vocabulary.py:34
+msgid "Rottendorf Project"
+msgstr ""
+
+#: ./../eventitem.py:87
+msgid "Select to mark this item for display on the sites front page. Note: the number of displayed items on the front page might be limited or ordered by publication date and the selection does not force the item to be promoted in any case."
+msgstr ""
+
+#: ./../eventitem.py:79
+msgid "Select to mark this item for featured display on overview pages like for example the parent container."
+msgstr ""
+
+#: ./../behavior/display.py:49
+#: ./../eventitem.py:74
+msgid "Settings"
+msgstr ""
+
+#: ./../browser/controlpanel.py:28
+msgid "Setup initialized."
+msgstr ""
+
+#: ./../eventitem.py:28
+msgid "Start date"
+msgstr ""
+
+#: ./../vocabulary.py:17
+msgid "Studies"
+msgstr ""
+
+#: ./../contentpage.py:27
+msgid "Text"
+msgstr ""
+
+#: ./../languagefolder.py:47
+#: ./../mainsection.py:47
+msgid "Upload preview image that can be used in search results and listings and act as a content cover."
+msgstr ""
+
+#: ./../contentpage.py:39
+#: ./../eventitem.py:63
+#: ./../newsentry.py:30
 msgid "Upload preview image that can be used in search results and listings."
 msgstr ""
 
+#. Default: "Up to Site Setup"
+#: ./../browser/settings-navigation.pt:26
+msgid "label_up_to_plone_setup"
+msgstr ""
+
+#: ./../browser/socialsharing.pt:20
+msgid "share"
+msgstr ""
+
+#: ./../browser/socialsharing.pt:11
+msgid "tweet"
+msgstr ""

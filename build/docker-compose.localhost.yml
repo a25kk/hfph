@@ -4,3 +4,6 @@ services:
   web:
     ports:
       - "8000:8000"
+  jekyll:
+    ports:
+      - "4000:4000"

@@ -1,0 +1,71 @@
+.app-page {
+
+}
+
+//== Page styles
+//
+//## Define content specific styles
+.app-page-header {
+    margin: 2rem 0;
+    border-bottom: 1px solid gray('400');
+}
+
+.app-page-title,
+.app-page-headline {
+    font-size: 2rem;
+}
+
+
+// Use custom lead element for page desciptions
+// that has proper line-height on all media types
+.app-page-lead,
+.app-page-abstract {
+  margin-bottom: $spacer;
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.5;
+  @include media-breakpoint-up(sm) {
+    font-size: 1.5rem;
+  }
+}
+
+
+//== Page section
+//
+//## Container providing visual separation
+.app-page-section {
+  margin: 1rem 0 2rem;
+}
+
+
+//
+// Content specific image and media styles
+//
+// Should be removed or refacored to use proper base classes
+// e.g. app-img
+// Note: classes can easily be changed using the diazo transform chain
+// or the tinymce configuration
+.app-img {
+	@extend .img-fluid;
+  width: 100%;
+}
+
+// DEPRECATED
+// Should be replaced with the more generic
+// .app-page-embed class
+.embed-responsive {
+  margin-bottom: 1rem;
+}
+
+.sg-example {
+    border: 1px solid $gray-200;
+    padding: 1.5rem;
+}
+
+.highlight {
+    padding: .5rem;
+    text-align: left;
+    background-color: $gray-100;
+    border: 1px solid $gray-600;
+    margin-bottom: $app-spacer-base;
+}

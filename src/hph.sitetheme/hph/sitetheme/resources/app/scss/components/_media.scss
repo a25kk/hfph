@@ -1,0 +1,24 @@
+//
+// Media and images
+//
+
+
+
+
+//== Lazy load image
+img[data-sizes="auto"] {
+    display: block;
+    width: 100%;
+}
+
+//== Image blur effect
+// Reveal low quality image placeholders by applying a filter and
+// removing blur when the high quality images have lazy loaded
+.image--lazy-load {
+    filter: blur(10px);
+    transition: filter 400ms;
+}
+
+.image--loaded {
+    filter: blur(0);
+}

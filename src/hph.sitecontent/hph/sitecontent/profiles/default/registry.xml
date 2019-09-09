@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<registry>
+
+    <records interface="hph.sitecontent.browser.controlpanel.IHphBaseControlPanelNavigation"
+             prefix="hph.base" />
+
+</registry>

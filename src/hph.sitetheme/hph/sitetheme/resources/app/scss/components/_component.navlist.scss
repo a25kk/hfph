@@ -1,0 +1,75 @@
+//
+// Navigation Card Styles
+// ------------------------------------------------------
+
+.app-nav-tree {
+    display: none;
+    background-color: transparent;
+    font-weight: 500;
+    @include media-breakpoint-up(lg) {
+        display: block;
+    }
+}
+
+
+.app-nav__list {
+    padding-left: 0;
+    list-style: none;
+    &--level-1,
+    &--level-2 {
+        margin-left: .5rem;
+    }
+}
+
+.app-nav-tree-list {
+    padding-left: 0;
+    list-style: none;
+    li {
+        width: 100%;
+    }
+}
+
+.app-nav__list-item {
+    text-transform: uppercase;
+    margin-left: 0;
+    padding: .5rem .25rem;
+    &:not(last) {
+        margin-bottom: .25rem;
+        border-bottom: 1px solid $app-color-gray;
+    }
+    &:last-of-type {
+        border-bottom: 0px;
+    }
+}
+
+.app-nav__list-link {
+    color: #000;
+    &:hover {
+        color: darken($app-color-primary, 10%);
+    }
+    &.navTreeCurrentNode {
+        color: $app-color-gray;
+    }
+}
+
+.app-nav__list-link--open {
+    color: $app-color-primary;
+}
+
+.app-nav__list-link--active {
+    color: $app-color-primary;
+}
+
+.app-nav__list--level-0 {
+    margin-bottom: 0;
+}
+
+.app-nav__list--level-1 {
+    margin-left: 0;
+    //margin-top: 1rem;
+}
+
+
+.app-nav__list--level-2 {
+    //border: 1px solid red;
+}

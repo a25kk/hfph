@@ -1,0 +1,45 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser">
+
+    <!-- Nav Tree Content Provider -->
+    <adapter
+            factory=".navtree.NavTreeProvider"
+            for="*
+             *
+             *"
+            name="hph.navtree"
+            provides="zope.contentprovider.interfaces.IContentProvider"
+    />
+
+    <!-- Site navigation -->
+    <browser:viewlet
+            name="hph-site-navigation-viewlet"
+            manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+            for="*"
+            class="hph.sitecontent.navigation.viewlet.SiteNavigationViewlet"
+            template="navigation.pt"
+            permission="zope2.View"
+    />
+
+    <!-- Nav Tree Content Provider -->
+    <adapter
+            factory=".sitemap.SitemapProvider"
+            for="*
+             *
+             *"
+            name="hph.sitemap"
+            provides="zope.contentprovider.interfaces.IContentProvider"
+    />
+
+    <!-- Site navigation -->
+    <browser:viewlet
+            name="hph-site-toc-viewlet"
+            manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+            for="*"
+            class="hph.sitecontent.navigation.viewlet.SiteTOCViewlet"
+            template="sitemap.pt"
+            permission="zope2.View"
+    />
+
+</configure>

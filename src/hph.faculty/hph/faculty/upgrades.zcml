@@ -1,0 +1,18 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:i18n="http://namespaces.zope.org/i18n"
+        xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+        i18n_domain="hph.faculty">
+
+    <genericsetup:upgradeStep
+            title="Update default views and add navigation"
+            description="Update object views in type configuration and provide faculty member navigation"
+            source="1"
+            destination="1001"
+            profile="hph.faculty:default"
+            handler="hph.faculty.upgrades.upgrade_1001"
+            sortkey="1"
+    />
+
+
+</configure>

@@ -1,0 +1,29 @@
+.c-identifier {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    // z-index: 102;
+    padding: .25rem 1rem;
+    width: 100%;
+    display: block;
+    color: $identifier-color;
+    background-color: $identifier-bg-color;
+    font-size: $font-size-small;
+    @include media-breakpoint-up(md) {
+        @include when-inside('.plone-toolbar-left') {
+            left: 60px;
+            width: calc(100% - 60px);
+        }
+        @include when-inside('.plone-toolbar-left-expanded') {
+            left: 120px;
+            width: calc(100% - 120px);
+        }
+    }
+}
+
+.c-identifier__content {
+    // @include make-container-max-widths();
+    @include font-size($font-size-small);
+    font-family: $app-font-family-strong;
+    text-align: right;
+}

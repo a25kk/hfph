@@ -1,0 +1,103 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <header class="o-page__header">
+            <div class="o-page__section c-page-header">
+                <div class="c-page-header__title">
+                    <h1 class="c-page-header__headline">
+                        <span tal:replace="python:context.Title()">
+                            Page Headline</span>
+                    </h1>
+                </div>
+                <p class="c-page-header__abstract" tal:condition="context/Description"
+                         tal:content="python:context.Description()">
+                        ${context/Description}
+                </p>
+            </div>
+        </header>
+
+        <div class="o-page__main" tal:define="event_start python:view.time_stamp(context.start); event_end python:view.time_stamp(context.end)">
+            <section class="o-page__section">
+
+                <div class="o-grid o-grid--gutter o-grid--lg">
+                    <div class="o-grid__item o-grid__item--width-33">
+                        <div tal:replace="structure python:context.restrictedTraverse('@@social-sharing')()" />
+                        <div class="o-page__lead-image" tal:condition="view/has_lead_image">
+                            <div class="o-page__asset"
+                                     tal:define="responsive_image python:context.restrictedTraverse('@@figure')(image_field_name='image', caption_field_name='image_caption', scale='ratio-4:3', aspect_ratio='4/3', lqip=True, lazy_load=True)">
+                                <span tal:replace="structure responsive_image" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="o-grid__item o-grid__item--width-66">
+                        <div class="c-event-info">
+                            <div class="o-grid o-grid--gutter o-grid--md">
+                                <h5 class="o-grid__item o-grid__item--width-33 c-event-info__title">Veranstaltungsbeginn:</h5>
+                                <div class="o-grid__item o-grid__item--width-66">
+                                    <time tal:attributes="datetime context/start">
+                                        <span tal:replace="python:event_start['day_name']" />,
+                                        <span tal:replace="python:event_start['day']" />. <span tal:replace="python:event_start['month_name']" />,
+                                        <span tal:replace="python:event_start['time']" />
+                                    </time>
+                                </div>
+                            </div>
+                            <div class="o-grid o-grid--gutter o-grid--md">
+                                <h5 class="o-grid__item  o-grid__item--width-33 c-event-info__title ">Veranstaltungsende:</h5>
+                                <div class="o-grid__item o-grid__item--width-66">
+                                    <tal:fullday tal:condition="python:view.is_full_day_event()">
+                                        <span i18n:translate="">Full day event</span>
+                                    </tal:fullday>
+                                    <tal:separator tal:condition="python:view.is_full_day_event() and view.is_open_end_event()">
+                                        <br>
+                                    </tal:separator>
+                                    <tal:openend tal:condition="python:view.is_open_end_event()">
+                                        <span i18n:translate="">Open end</span>
+                                    </tal:openend>
+                                    <time tal:attributes="datetime context/end" tal:condition="python:view.show_event_end_date()">
+                                        <span tal:replace="python:event_end['day_name']" />,
+                                        <span tal:replace="python:event_end['day']" />. <span tal:replace="python:event_end['month_name']" />,
+                                        <span tal:replace="python:event_end['time']" />
+                                    </time>
+                                </div>
+                            </div>
+                            <div class="o-grid o-grid--gutter o-grid--md">
+                                <h5 class="o-grid__item  o-grid__item--width-33 c-event-info__title">Veranstaltungsort:</h5>
+                                <div class="o-grid__item o-grid__item--width-66">
+                                    <span tal:replace="python:context.location"></span>
+                                </div>
+                            </div>
+                            <div class="o-grid o-grid--gutter o-grid--md">
+                                <h5 class="o-grid__item  o-grid__item--width-33 c-event-info__title">Kategorie:</h5>
+                                <div class="o-grid__item o-grid__item--width-66">
+                                    <p tal:content="python:view.event_type_title()"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section class="o-page__section">
+                <div class="o-page__body-text" id="parent-fieldname-text"
+                         tal:condition="context/text"
+                         tal:content="structure context/text/output" />
+            </section>
+
+        </div>
+
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>

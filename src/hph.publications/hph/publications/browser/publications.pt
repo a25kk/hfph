@@ -1,0 +1,168 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.publications">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+        <div class="o-page__content o-grid o-grid--lg o-grid--reverse">
+            <div class="o-grid__item o-grid__item--width-25">
+                <div class="o-aside">
+                    <div class="c-card c-card--nav c-card--publication">
+                        <div class="c-card__header c-collapsible__header js-collapsible-toggle">
+                            <h4 class="c-card__title c-collapsible__link" i18n:translate="">
+                                Media
+                            </h4>
+                            <div class="c-collapsible__link c-collapsible__link--icon">
+                                <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--add-dims c-toc__icon c-toc__icon--open">
+                                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--add"></use>
+                                </svg>
+                                <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--remove-dims c-toc__icon c-toc__icon--close">
+                                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--remove"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="c-card__main c-collapsible__item js-collapsible-item">
+                            <ul class="c-nav-list">
+                                <tal:block tal:repeat="filter_media view/media_filter_options">
+                                    <li class="c-nav-list__item"
+                                             tal:define="filter_value_media filter_media/value"
+                                             tal:attributes="class python:view.computed_klass('media', filter_value_media)">
+                                        <a class="c-nav-list__link"
+                                                 tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;media=${filter_media/value}"
+                                                 tal:content="filter_media/title">Filter option</a>
+                                    </li>
+                                </tal:block>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="c-card c-card--nav c-card--publication">
+                        <div class="c-card__header c-collapsible__header js-collapsible-toggle">
+                            <h4 class="c-card__title c-collapsible__link" i18n:translate="">
+                                Series
+                            </h4>
+                            <div class="c-collapsible__link c-collapsible__link--icon">
+                                <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--add-dims c-toc__icon c-toc__icon--open">
+                                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--add"></use>
+                                </svg>
+                                <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--remove-dims c-toc__icon c-toc__icon--close">
+                                    <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--remove"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="c-card__main c-collapsible__item js-collapsible-item">
+                            <ul class="c-nav-list">
+                                <tal:block tal:repeat="filter view/series_filter_options">
+                                    <li class="c-nav-list__item"
+                                             tal:define="filter_value filter/value"
+                                             tal:attributes="class python:view.computed_klass('bookSeries', filter_value)">
+                                        <a class="c-nav-list__link"
+                                                 tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;bookSeries=${filter/value}"
+                                                 tal:content="filter/title">Filter option</a>
+                                    </li>
+                                </tal:block>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="app-box-footer">
+                        <a class="c-button c-button--danger c-button--sm" tal:condition="view/has_active_filter"
+                                 tal:attributes="href string:${context/absolute_url}">
+                            &times; <span i18n:translate="">remove filter</span></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="o-grid__item o-grid__item--width-75">
+                <header class="o-page__header">
+                    <div class="o-page__section c-page-header">
+                        <div class="c-page-header__title">
+                            <h1 class="c-page-header__headline" tal:content="context/Title">
+                                Page Title
+                            </h1>
+                        </div>
+                        <p class="c-page-header__abstract" tal:condition="context/Description"
+                                 tal:content="python:context.Description()">
+                                ${context/Description}
+                        </p>
+                    </div>
+                </header>
+                <div class="o-page__main">
+                    <div class="o-page__section">
+                        <div class="c-alert c-alert--default" tal:condition="not:view/has_publications">
+                            <h4>Note:</h4>
+                            <p>There are no publications available yet</p>
+                        </div>
+                        <tal:block tal:condition="view/has_publications">
+                            <div class="c-list o-page__body-text"
+                                     tal:define="Batch python:modules['Products.CMFPlone'].Batch;
+                                            b_size python:int(request.get('b_size', 20));
+                                                    b_start python:int(request.get('b_start', 0));
+                                                            results view/publications;
+                                                                    batch python:Batch(results, b_size, b_start);">
+                                <tal:block tal:repeat="item batch">
+                                    <div class="c-list__item o-separator" tal:define="item_obj python:item.getObject()">
+                                        <div class="o-grid o-grid--md">
+                                            <div class="o-grid__item o-grid__item--width-25">
+                                                <div class="o-page__lead-image" tal:condition="item_obj/image">
+                                                    <div class="o-page__asset o-page__asset--md"
+                                                             tal:define="responsive_image python:item_obj.restrictedTraverse('@@figure')(image_field_name='image', caption_field_name='image_caption', scale='ratio-2:3', aspect_ratio='2/3', lqip=True, lazy_load=True)">
+                                                        <span tal:replace="structure responsive_image" />
+                                                    </div>
+                                                </div>
+                                                <div tal:condition="not:item_obj/image">
+                                                    <div class="o-figure" style="--aspect-ratio:1">
+                                                        <div class="o-figure__placeholder"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="o-grid__item o-grid__item--width-75">
+                                                <div class="c-card c-card--publications">
+                                                    <div class="c-card__main">
+                                                        <div class="c-card__header">
+                                                            <div class="c-card__kicker">
+                                                                <span tal:condition="item_obj/authorOne"
+                                                                         tal:replace="item_obj/authorOne" /><span tal:condition="item_obj/authorTwo">,
+                                      <span tal:replace="item_obj/authorTwo" /></span><span tal:condition="item_obj/authorThree">,
+                                      <span tal:replace="item_obj/authorThree" />
+                                    </span>
+                                                                <span tal:condition="item_obj/authorPlus"
+                                                                         i18n:translate="">a.o.</span>
+
+                                                            </div>
+                                                            <h2 class="c-card__title"
+                                                                     tal:content="python:item.Title">
+                                                                Title
+                                                            </h2>
+                                                        </div>
+                                                        <div class="c-card__section">
+                                                            <div class="c-card__abstract">
+                                                                <div tal:condition="item_obj/summary"
+                                                                         tal:content="structure item_obj/summary/output" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </tal:block>
+                                <tal:batchnavigation
+                                        define="batchnavigation nocall:context/@@batchnavigation"
+                                        replace="structure python:batchnavigation(batch)" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

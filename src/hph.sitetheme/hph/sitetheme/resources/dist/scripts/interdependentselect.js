@@ -14,6 +14,7 @@ define(["jquery",
         $selectBoxes.each(function (){
             var $el = $(this);
             $el.on('change', function(e) {
+                console.log('Element changed');
                 var $selectedValue = $(this).find(":selected").val(),
                     $connectedSelect = $(this).data('target-list'),
                     $selectorType = $(this).data('selector');

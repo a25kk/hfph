@@ -1,0 +1,46 @@
+<div class="c-card c-card--default"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+         i18n:domain="hph.widgets"
+         tal:define="content python:view.widget_content()"
+         tal:attributes="class python:'c-card c-card--teaser ' + content['css_classes']">
+    <div class="c-card__header c-card__header--teaser">
+        <a class="c-card__link" tal:attributes="href python:content['url']">
+            <div class="c-card__kicker">
+                <tal:block tal:condition="python:content['release_date']">
+                    <tal:event tal:define="news_date python:content['release_date']">
+                        <time tal:attributes="datetime python:news_date['date_long']">
+                            <span tal:replace="python:news_date['day']" />.<span tal:replace="python:news_date['month']" />.<span tal:replace="python:news_date['year']" />
+                        </time>
+                    </tal:event>
+                </tal:block>
+                <tal:event-type tal:condition="python:content['news_type']">
+                    | <span tal:content="python:content['news_type']">
+                                Event Type
+                            </span>
+                </tal:event-type>
+            </div>
+            <h3 class="c-card__title" tal:content="python:content['title']">
+                    ${context/Title}
+            </h3>
+        </a>
+    </div>
+    <div class="c-card__main">
+        <div class="c-card__section">
+            <div class="c-card__details" tal:condition="python:content['snippet']">
+                <span tal:replace="python:content['snippet']" />
+            </div>
+        </div>
+    </div>
+    <div class="c-card__footer c-card__footer--teaser">
+        <a class="c-card__link" tal:attributes="href python:content['url']">
+            <div class="o-read-more">
+                <span class="o-read-more__icon c-card__icon">
+                    <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--chevron-dims">
+                        <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron"></use>
+                    </svg>
+                </span>
+                <span class="o-read-more__text c-card__link-text" i18n:translate="">Read more</span>
+            </div>
+        </a>
+    </div>
+</div>

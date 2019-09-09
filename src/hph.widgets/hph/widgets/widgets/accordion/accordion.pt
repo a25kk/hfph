@@ -1,0 +1,39 @@
+<div class="c-accordion c-accordion--default"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+         i18n:domain="hph.widgets">
+    <div class="c-accordion__main">
+        <div class="c-accordion__items c-accordion__items--${context/UID}"
+                 tal:condition="python:view.has_widget_item_nodes()"
+                 tal:define="items python:view.widget_content_items()"
+                 tal:attributes="class python:view.widget_content_list_class()">
+            <tal:items tal:repeat="item python:view.widget_item_nodes()">
+                <tal:slide tal:define="widget_node python:view.widget_item_content(item)">
+                    <div class="c-accordion__panel"
+                             tal:attributes="class python:'c-accordion__pane c-pane c-pane--' + str(item)"
+                             tal:condition="widget_node">
+
+                        <div class="c-pane__header js-accordion-item" tal:condition="python:widget_node['title']">
+                            <h5 class="c-pane__title">
+                                <span class="c-pane__headline" tal:content="python:widget_node['title']">
+                                    Pane Title
+                                </span>
+                                <span class="c-pane__toggle">
+                                    <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--add-dims c-pane__icon c-pane__icon--open">
+                                        <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--add"></use></svg>
+                                    <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--remove-dims c-pane__icon c-pane__icon--close">
+                                        <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--remove"></use></svg>
+                                </span>
+                            </h5>
+                        </div>
+                        <div class="c-pane__main js-accordion-content">
+                            <div class="c-pane__content" tal:condition="python:widget_node['text']"
+                                     tal:content="structure python:widget_node['text']">
+                                Pane Content
+                            </div>
+                        </div>
+                    </div>
+                </tal:slide>
+            </tal:items>
+        </div>
+    </div>
+</div>

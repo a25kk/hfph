@@ -23,16 +23,16 @@
 <metal:main fill-slot="main">
   <metal:content-core define-macro="main">
 
-    <div class="row"
+    <div class="o-grid o-grid--gutter"
         tal:define="item view/content_item">
-        <div class="col-xs-12 col-sm-3">
-            <aside class="app-aside hidden-print" id="app-sidebar">
-                <div class="app-card app-card-nav app-card-lecture">
-                    <div class="app-card__header">
+        <div class="o-grid__item o-grid__item--width-33">
+            <aside class="c-aside hidden-print" id="c-sidebar">
+                <div class="c-card c-card-nav c-card-lecture">
+                    <div class="c-card__header">
                         <h2 i18n:translate="">Lecture Factory</h2>
                     </div>
-                    <div class="app-card__main app-card__main--bordered">
-                        <ul class="app-nav-list"
+                    <div class="c-card__main c-card__main--bordered">
+                        <ul class="c-nav-list"
                             tal:define="current view/getFieldname">
                             <li tal:define="fieldname string:courseTheme"
                                 tal:attributes="class python:fieldname == current and 'nav-item active' or 'nav-item'">
@@ -79,24 +79,24 @@
                 </div>
             </aside>
         </div>
-        <div class="col-xs-12 col-sm-9">
-            <div class="app-item-editable">
+        <div class="o-grid__item o-grid__item--width-66">
+            <div class="c-item-editable">
                 <h1 i18n:translate="">Feldinhalt bearbeiten</h1>
 
-                <div class="app-field-editable">
+                <div class="c-field-editable">
                     <div class="editable" id="editable-text"
                         data-appui="content-editable"
                         tal:content="structure view/getFieldData">
                         Editable Content Section
                     </div>
                 </div>
-                <div class="app-item-editable-actions">
-                    <form class="app-form js-form js-form-hidden"
+                <div class="c-item-editable-actions">
+                    <form class="c-form js-form js-form-hidden"
                         id="js-form"
                         method="post" role="form"
                         data-appui="content-editable-form"
                         tal:attributes="action request/URL">
-                        <textarea class="form-control app-field-editable content-editable-form-body hidden"
+                        <textarea class="form-control c-field-editable content-editable-form-body hidden"
                             id="content-editable-form-body"
                             name="content-editable-form-body">
                             {{ text area }}
@@ -105,11 +105,11 @@
                             type="hidden" name="field-name"
                             tal:attributes="value view/getFieldname">
                         <span tal:replace="structure context/@@authenticator/authenticator"/>
-                        <button class="app-btn app-btn-primary"
+                        <button class="c-button c-button--primary"
                                 name="form.button.Submit"
                                 id="form.button.Submit"
                                 i18n:translate="">Save changes</button>
-                        <a class="app-btn app-btn-default" href="${context/absolute_url}/@@lecture-factory/${item/@@uuid}"
+                        <a class="c-button c-button--default" href="${context/absolute_url}/@@lecture-factory/${item/@@uuid}"
                             i18n:translate="">Cancel</a>
                     </form>
                 </div>

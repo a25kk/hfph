@@ -1,0 +1,11 @@
+<div class="c-alias" tal:condition="python:view.has_content()">
+    <tal:block tal:define="widget_content python:view.widget_content()">
+        <div class="c-alias__main">
+            <div class="c-alias__text" tal:condition="python:widget_content['text']"
+                     tal:define="widget_text python:widget_content['text']"
+                     tal:content="structure widget_text/output">
+                Poster Teaser Text
+            </div>
+        </div>
+    </tal:block>
+</div>

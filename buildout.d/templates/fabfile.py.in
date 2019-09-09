@@ -1,18 +1,32 @@
+import os
 import getpass
 from fabric.api import task
 from fabric.api import cd
 from fabric.api import env
 from fabric.api import run
 from fabric.api import roles
-from fabric.api import settings
+from fabric.api import require
+from fabric.api import execute as fab_execute
 
-from ade25.fabfiles import server
-from ade25.fabfiles import project
+from fabric.contrib.console import confirm
+from fabric.contrib import project
 
+#from ade25.fabfiles import project
+from ade25.fabfiles.server import status
 from ade25.fabfiles.server import controls
 
 from slacker import Slacker
-slack = Slacker('${settings:slack-api-token}')
+slack = Slacker(
+    '${settings:slack-api-token}'
+)
+
+################################################
+# Set working directory to the fabfile location
+BUILD_PATH = os.path.dirname(os.path.realpath(os.path.abspath(__file__)))
+os.chdir(BUILD_PATH)
+
+################################################
+# Settings
 
 env.use_ssh_config = True
 env.forward_agent = True
@@ -29,37 +43,116 @@ env.actor = ${settings:username}
 
 
 env.roledefs = {
-    'production': ['hph'],
-    'staging': ['z3']
+    'production': ['${fabric:host}'],
+    'staging': ['${fabric:host_staging}']
 }
+
+###################################################
+# GIT factory
+
+def _deploy_git_factory():
+    import fabdeploit
+
+    class GitFilter(fabdeploit.GitFilter):
+
+        def filter(self):
+            for obj in self.filtered_tree:
+                if obj.path in ('build', 'docs'):
+                    self.remove(obj.name)
+
+    class Git(fabdeploit.Git):
+        local_repository_path = os.path.dirname(BUILD_PATH)
+        release_author = 'Kreativkombinat GbR <info@kreativkombinat.de>'
+        release_commit_filter_class = GitFilter
+
+    return Git
+
+def _deploy_base_env():
+    require('git')
+    env.use_ssh_config = True
+
+
+###################################################
+# Base Tasks
+
+@task
+def deploy_push_files():
+    require('git')
+    env.git.pull()
+    env.git.create_release_commit()
+    env.git.push()
+
+@task
+def deploy_apply_files():
+    require('git')
+    env.git.switch_release()
+
+################################################################################
+# ENVIRONMENTS
+
+@task
+def testing():
+    """ Execute task on staging environment """
+    env.git = _deploy_git_factory()(
+        remote_repository_path='${fabric:directory_testing}',
+        release_branch='testing',
+    )
+    _deploy_base_env()
+    env.hosts = ['${fabric:host_testing}']
 
 @task
 def staging():
     """ Execute task on staging environment """
+    env.git = _deploy_git_factory()(
+        remote_repository_path='${fabric:directory_staging}',
+        release_branch='staging',
+    )
+    _deploy_base_env()
     env.hosts = ['${fabric:host_staging}']
 
 @task
 def production():
     """ Execute task on production environment """
+    env.git = _deploy_git_factory()(
+        remote_repository_path='${fabric:directory}',
+        release_branch='production',
+    )
+    _deploy_base_env()
     env.hosts = ['${fabric:host_production}']
+
+####################################################
+# Deployment
+
+@task
+def deploy_setup(*args):
+    fab_execute(deploy_push_files)
+    fab_execute(deploy_apply_files)
+    print("-" * 70)
+    print("Next: Setup secret.cfg and run build")
+    print("-" * 70)
+
 
 @task
 def develop():
-    """ Restart all """
-    with cd(env.code_root):
+    """ Update source packages """
+    with cd(env.git.remote_repository_path):
         run('nice bin/develop up')
 
 
 @task
 def restart():
-    """ Restart all """
-    project.cluster.restart_clients()
+    """ Restart clients """
+    with cd(env.git.remote_repository_path):
+            run('nice bin/supervisorctl restart instance1')
+            run('nice bin/supervisorctl restart instance2')
+            run('nice bin/supervisorctl restart instance3')
+            run('nice bin/supervisorctl restart instance4')
 
 
 @task
 def restart_all():
     """ Restart all """
-    with cd(env.webserver):
+    with cd(env.git.remote_repository_path):
         run('nice bin/supervisorctl restart all')
 
 
@@ -84,76 +177,80 @@ def restart_haproxy():
 @task
 def ctl(*cmd):
     """Runs an arbitrary supervisorctl command."""
-    with cd(env.code_root):
+    with cd(env.git.remote_repository_path):
         run('nice bin/supervisorctl ' + ' '.join(cmd))
 
 
 @task
-def deploy(actor=None):
+def deploy(*args):
     """ Deploy current master to production server """
     opts = dict(
         sitename=env.get('sitename'),
-        actor=actor or env.get('actor') or getpass.getuser(),
+        actor=env.get('actor') or getpass.getuser(),
     )
-    controls.update()
-    controls.build()
-    project.cluster.restart_clients()
+    fab_execute(deploy_push_files)
+    fab_execute(deploy_apply_files)
+    if 'develop' in args:
+        with cd(env.git.remote_repository_path):
+            run('bin/develop up')
+    if 'build' in args:
+        with cd(env.git.remote_repository_path):
+            run('bin/buildout -Nc deployment.cfg')
+    if 'rebuild' in args:
+        with cd(env.git.remote_repository_path):
+            run('bin/buildout -c deployment.cfg')
+    restart()
     msg = '[hph] *%(sitename)s* deployed by %(actor)s' % opts
     user = 'fabric'
     icon = ':shipit:'
-    slack.chat.post_message('#development', msg, username=user, icon_emoji=icon)
-
+    slack.chat.post_message('#hph', msg, username=user, icon_emoji=icon)
 
 @task
-@roles('staging')
-def stage(actor=None):
-    """ Deploy current master to staging server """
-    opts = dict(
-        sitename=env.get('sitename'),
-        actor=actor or env.get('actor') or getpass.getuser()
+def download(path=None):
+    """ Database download """
+
+    if not env.get('confirm'):
+        confirm("This will destroy all current Zope data on your local "
+                " machine. Are you sure you want to continue?")
+    project.rsync_project(
+        remote_dir='{0}/var/filestorage/Data.fs'.format(
+            env.git.remote_repository_path),
+        local_dir="{0}/var/filestorage/".format(env.local_root),
+        upload=False,
+        exclude=['*.tmp', '*.index', '*.old', '*.lock']
     )
-    with settings(port=22222, webserver='/opt/webserver/buildout.webserver'):
-        project.site.update()
-        with cd(env.code_root):
-            run('bin/buildout -Nc staging.cfg')
-        project.site.restart()
-    msg = ('[z3] *%(sitename)s* deployed to *staging* by %(actor)s' % opts)
-    user = 'fabric'
-    icon = ':shipit:'
-    slack.chat.post_message('#development', msg, username=user, icon_emoji=icon)
+    project.rsync_project(
+        remote_dir='{0}/var/blobstorage/'.format(
+            env.git.remote_repository_path),
+        local_dir="{0}/var/blobstorage/".format(env.local_root),
+        upload=False,
+        exclude=['*.layout']
+    )
 
 
 @task
-def deploy_full():
-    """ Deploy current master to production and run buildout """
-    project.site.update()
-    project.site.build()
-    project.cluster.restart_clients()
+def download_backup(path=None):
+    """ Database backup download """
+    project.rsync_project(
+        remote_dir='/opt/backups/{0}/zipbackups/*'.format(env.sitename),
+        local_dir="{0}/var/zipbackups".format(env.local_root),
+        upload=False,
+        exclude=['*.tmp', '*.old', '*.lock']
+    )
+    project.rsync_project(
+        remote_dir='/opt/backups/{0}/backups/blobzip/*'.format(env.sitename),
+        local_dir="{0}/var/zipblobbackups".format(env.local_root),
+        upload=False,
+        exclude=['*.layout']
+    )
 
 
 @task
-def rebuild():
-    """ Deploy current master and run full buildout """
-    with settings(port=22):
-        project.site.update()
-        project.site.build_full()
-        project.site.restart()
+def get_secrets():
+    """  Download secrets.cfg from production environment """
+    project.rsync_project(
+        remote_dir='{0}/secret.cfg'.format(env.git.remote_repository_path),
+        local_dir="./secret.cfg",
+        upload=False,
+    )
 
-
-@task
-def get_backup():
-    """ Copy zipbackup for local development """
-    run('ethtool -K eth0 tx off rx off')
-    project.db.download_backup()
-
-
-@task
-def get_data():
-    """ Copy live database for local development """
-    project.db.download()
-
-
-@task
-def server_status():
-    """ Show server load and disk status """
-    server.status.status()

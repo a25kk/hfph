@@ -1,0 +1,6 @@
+.u-device {
+  &--ios * {
+    // Utility to aid event bubbling for ios devices
+    cursor: pointer;
+  }
+}

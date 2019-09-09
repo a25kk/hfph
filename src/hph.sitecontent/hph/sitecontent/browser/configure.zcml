@@ -2,7 +2,58 @@
         xmlns="http://namespaces.zope.org/zope"
         xmlns:browser="http://namespaces.zope.org/browser"
         xmlns:z3c="http://namespaces.zope.org/z3c"
-        i18n_domain="hph.lectures">
+        i18n_domain="hph.sitecontent">
+
+    <!-- Control panels -->
+    <browser:page
+            name="hph-base-controlpanel"
+            for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+            class="hph.sitecontent.browser.controlpanel.HphBaseSettings"
+            permission="cmf.ManagePortal"
+            template="settings.pt"
+    />
+
+    <browser:page
+            name="hph-settings-navigation"
+            for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+            class="hph.sitecontent.browser.controlpanel.HphBaseSettingsNavigation"
+            template="settings-navigation.pt"
+            permission="cmf.ManagePortal"
+    />
+
+    <!-- Site navigation -->
+    <browser:viewlet
+            name="hph-site-quick-links-viewlet"
+            manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+            for="*"
+            class="hph.sitecontent.browser.quicklinks.QuickLinksViewlet"
+            template="quick-links.pt"
+            permission="zope2.View"
+    />
+
+    <browser:page
+            for="hph.sitecontent.languagefolder.ILanguageFolder"
+            name="language-root-view"
+            class="hph.sitecontent.browser.languageroot.LanguageRootView"
+            template="language-root.pt"
+            permission="zope2.View"
+    />
+
+    <browser:page
+            for="hph.sitecontent.mainsection.IMainSection"
+            name="section-view"
+            class="hph.sitecontent.browser.section.MainSectionView"
+            template="section.pt"
+            permission="zope2.View"
+    />
+
+    <browser:page
+            for="hph.sitecontent.contentpage.IContentPage"
+            name="content-page-view"
+            class="hph.sitecontent.browser.contentpage.ContentPageView"
+            template="contentpage.pt"
+            permission="zope2.View"
+    />
 
     <!-- News item listing -->
     <browser:page
@@ -18,6 +69,49 @@
             name="news-entry-card"
             class=".news.NewsEntryCard"
             template="news-entry-card.pt"
+            permission="zope2.View"
+    />
+
+    <browser:page
+            for="hph.sitecontent.newsentry.INewsEntry"
+            name="news-item"
+            class=".news.NewsItemView"
+            template="news-item.pt"
+            permission="zope2.View"
+    />
+
+    <!-- Event views and listings -->
+    <browser:page
+            for="hph.sitecontent.eventitem.IEventItem"
+            name="event-item"
+            class=".events.EventItemView"
+            template="event-item.pt"
+            permission="zope2.View"
+    />
+
+    <!-- News item listing -->
+    <browser:page
+            for="hph.sitecontent.eventfolder.IEventFolder"
+            name="event-listing"
+            class=".events.EventListView"
+            template="event-listing.pt"
+            permission="zope2.View"
+    />
+
+    <browser:page
+            for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+            name="event-calendar"
+            class=".events.EventListView"
+            template="event-calendar.pt"
+            permission="zope2.View"
+    />
+
+    <!-- Social Sharing Partial -->
+    <browser:page
+            for="Products.CMFCore.interfaces.IContentish"
+            name="social-sharing"
+            class=".socialsharing.SocialSharing"
+            template="socialsharing.pt"
             permission="zope2.View"
     />
 

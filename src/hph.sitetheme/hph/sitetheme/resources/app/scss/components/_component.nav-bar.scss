@@ -1,0 +1,250 @@
+// Main site nav bar
+.c-nav-bar {
+    position: fixed;
+    top: 0;
+    z-index: 1001;
+    width: 90vw;
+    height: 100vh;
+    @if $nav-bar-overlay-ltr == true {
+        left: $nav-bar-position-default;
+    } @else {
+        right: $nav-bar-position-default;
+    }
+    border-top: 0px solid $gray-900;
+    background-color: $app-color-primary;
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.25), 0 .65rem .65rem rgba(0,0,0,0.22);
+    &--overlay {
+        pointer-events: all;
+        right: 0;
+        transition:right .5s linear;
+        @include mq($from: md) {
+            width: 50vw;
+        }
+    }
+    @include mq($from: navbar) {
+        position: relative;
+        display: block;
+        right: 0;
+        min-height: 3rem;
+        background: $gray-600;
+    }
+}
+
+.c-nav-bar--hidden {
+    // height: 0;
+    transition: right .5s linear;
+}
+
+.c-nav-bar__header {
+    display: flex;
+    padding-left: 2rem;
+    padding-right: 1rem;
+    margin-bottom: 1rem;
+    background-color: $app-color-primary;
+    color: $white;
+    border-bottom: 1px solid $app-color-gray-light;
+    @include mq($from: md) {
+        padding-left: 2rem;
+    }
+}
+
+.c-nav-bar__title {
+    width: 100%;
+    // padding: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    font-family: $app-font-family-strong;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    //display: none;
+}
+
+.c-nav-bar__toggle {
+    width: 4rem;
+    // align-self: flex-end;
+    line-height: 1;
+    background: transparent; // remove default button style
+    border: 1px solid transparent; // remove default button style
+    // font-size: 3rem;
+    color: $white;
+}
+
+.app-nav__toggle-icon {
+    > polygon {
+        fill: $app-color-white;
+    }
+}
+
+
+// TODO: Remove after completing refactored component implementation
+.app-nav {
+    width: 100%;
+    list-style: none;
+    padding: 0 1rem;
+    background-color: $app-color-primary;
+    @include mq($from: navbar) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: .5rem;
+        justify-content: space-between;
+    }
+    &--level-1 {
+        height: 0;
+        overflow-y: scroll;
+    }
+}
+
+.app-nav--level-1 {
+    position: relative;
+    right: -100%;
+    @include mq($from: navbar) {
+        right: 0;
+        display: none;
+    }
+}
+
+.app-nav__item {
+    position: relative;
+    overflow: visible;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid $gray-300;
+    background-color: $app-color-primary;
+    @include mq($from: navbar) {
+        width: auto;
+        flex: 1 0 0%;
+        padding: 1rem 0;
+        margin-right: 1rem;
+        border: none;
+    }
+    @include media-breakpoint-up(xl) {
+        margin-right: 1rem;
+    }
+    &--back-link {
+        background-color: $gray-300;
+        display: flex;
+        padding: 0;
+    }
+}
+
+.app-nav__item--has-children {
+    position: relative;
+}
+
+.app-nav__link {
+    display: block;
+    text-decoration: none;
+    color: $white;
+    font-family: $app-font-family-base;
+    text-transform: none;
+    font-weight: 400;
+    line-height: 1;
+    transition: background-color 0.5s ease;
+    font-size: 1rem;
+    @include mq($from: navbar) {
+        text-transform: uppercase;
+    }
+    &:hover {
+        text-decoration: none;
+        background: transparent;
+    }
+    &--active,
+    &--open {
+        text-decoration: none;
+        background: transparent;
+    }
+    @include when-inside('.app-nav--level-1') {
+        &:after {
+            display: none;
+        }
+    }
+    @include mq($from: navbar) {
+        font-size: 1rem;
+        padding-right: 0.25rem;
+        padding-left: 0.25rem;
+        line-height: 1rem;
+        &:after {
+            display: none;
+        }
+    }
+}
+
+.app-nav__link--back-link {
+    height: 3rem;
+    // margin-top: .5rem;
+}
+
+.app-nav__link--has-icon {
+    @include mq($until: navbar) {
+        display: flex;
+    }
+}
+
+.app-nav__tab {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem;
+    @include when-inside('.app-nav__link--has-icon') {
+        display: block;
+        @include mq($from: navbar) {
+            display: inline-block;
+        }
+    }
+    &--hide-text {
+        text-indent: -9999px;
+        overflow: hidden;
+        width: 0;
+        padding: 0;
+    }
+    &--action {
+        display: inline-block;
+        margin-top: .5rem;
+        padding: 0;
+        width: 2rem;
+        height: 2rem;
+        @include mq($from: navbar) {
+            display: none;
+        }
+        @include when-inside('.app-nav__link--back-link') {
+            display: inline-block;
+        }
+    }
+    @include mq($from: navbar) {
+        padding: 0;
+    }
+}
+
+// Dropdown menus
+.app-nav__dropdown {
+    // display: block;
+    position: fixed;
+    top: 4rem;
+    right: 0;
+    z-index: 1002;
+    width: 90vw;
+    height: calc(100vh - 60px);
+    margin: 2rem 0 0;
+    background-color: $white;
+    // box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    transition:right .25s linear;
+    @include mq($from: navbar) {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: $zindex-dropdown;
+        float: left;
+        width: 50vw;
+    }
+}
+
+.app-nav__dropdown--hidden {
+    right: -100%;
+    transition:right .25s linear;
+}

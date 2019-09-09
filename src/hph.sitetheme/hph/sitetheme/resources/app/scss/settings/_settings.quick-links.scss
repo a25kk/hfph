@@ -1,0 +1,19 @@
+$c-quick-links-display:                  block;
+$c-quick-links-flex-direction:           row-reverse;
+
+$c-quick-links-background-color:         transparent;    // remove default button styles
+$c-quick-links-border-width:             1px;            // remove default button style
+$c-quick-links-border-style:             solid;          // remove default button style
+$c-quick-links-border-color:             transparent;    // remove default button style
+
+$c-quick-links-font:                     $app-font-family-strong;
+
+// Burger Text
+$c-quick-links-text-color:               $app-color-primary;
+$c-quick-links-text-font-size:           1.45rem;
+$c-quick-links-text-font-size-small:	 .8rem;
+$c-quick-links-text-transform:           uppercase;
+
+// Burger icon
+$c-quick-links-icon-color:               $o-burger-text-color;
+$c-quick-links-icon-font-size:           1.5rem;

@@ -1,0 +1,77 @@
+$c-link-tile-border-color:              $app-color-gray-lighter;
+
+.c-link-tile {
+    display: flex;
+    @include mq($from: md) {
+        flex-direction: column;
+    }
+}
+
+.c-link-tile__aside {
+    flex: 0 0 4rem;
+    max-width: 4rem;
+    @include mq($from: md) {
+        flex: 0 0 25%;
+        max-width: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.c-link-tile__main {
+    display: flex;
+    align-items: center;
+    flex: 0 0 75%;
+    max-width: 75%;
+    @include mq($from: md) {
+        justify-content: center;
+    }
+}
+
+.c-link-tile__aside,
+.c-link-tile__main {
+    @include mq($from: md) {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.c-link-tile__asset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid $c-link-tile-border-color;
+    border-radius: 50%;
+    @include mq($from: md) {
+        width: 8rem;
+        height: 8rem;
+    }
+}
+
+.c-link-tile__icon {
+    width: 3rem;
+    height: 3rem;
+    margin-right: auto;
+    margin-left: auto;
+    @include mq($from: md) {
+        width: 5rem;
+        height: 5rem;
+    }
+}
+
+.c-link-tile__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include mq($from: md) {
+        padding-top: $app-spacer-base;
+        text-align: center;
+    }
+}
+
+.c-link-tile__title {
+    font-size: $app-font-size-base;
+}

@@ -1,0 +1,7 @@
+ul {
+    margin-bottom: calc(#{$app-font-size-base} * 1.5);
+    padding-left: 1rem;
+    @include mq($from: md) {
+    	padding-left: calc(#{$app-font-size-base} * 2);
+    }
+}

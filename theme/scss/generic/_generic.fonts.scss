@@ -1,0 +1,17 @@
+/* Taz-SemiLight & Taz-SemiBold */
+
+@font-face {
+     font-family: 'Taz-SemiLight';
+     src: url('../assets/fonts/TazWt04-SemiLight.woff2') format('woff2'),
+          url('../assets/fonts/TazWt04-SemiLight.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+
+@font-face {
+     font-family: 'Taz-SemiBold';
+     src: url('../assets/fonts/TazWt06-SemiBold.woff2') format('woff2'),
+          url('../assets/fonts/TazWt06-SemiBold.woff') format('woff');
+     font-weight: normal;
+     font-style: bold;
+}

@@ -19,4 +19,13 @@
             permission="cmf.ModifyPortalContent"
     />
 
+    <!-- News item listing -->
+    <browser:page
+            for="hph.publications.publicationfolder.IPublicationFolder"
+            name="publications-listing"
+            class=".publications.PublicationsListView"
+            template="publications.pt"
+            permission="zope2.View"
+    />
+
 </configure>

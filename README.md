@@ -3,7 +3,7 @@
 
 * `Source code @ GitHub <https://github.com/a25kk/hfph>`_
 * `Production @ LRZ <https://www.hfph.de>`_
-* `Staging @ KK <https://hph.ade25.de>`_
+* `Staging @ KK <https://hfph.ade25.de>`_
 
 
 ## Installation
