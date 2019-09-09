@@ -140,7 +140,7 @@ class SitemapProvider(ContentProviderBase):
                 'opener':  self._opener_markup_template.format(**item),
                 'aria_haspopup': ' aria-haspopup="true"',
                 'has_sub_class': ' c-toc__item--has-subtree',
-                'js_class': ' js-collapsible-toggle'
+                'js_class': ' c-toc__link--toggle js-collapsible-toggle'
             })
         else:
             item.update({
