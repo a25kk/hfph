@@ -123,7 +123,7 @@
                     tal:condition="context/Description"
                     tal:content="context/Description" />
                 <p tal:condition="context/moodle">
-                    <a class="app-btn app-btn-default"
+                    <a class="c-button c-button--default"
                         href="${context/moodle}"
                         i18n:translate="">
                         View lecture in moodle

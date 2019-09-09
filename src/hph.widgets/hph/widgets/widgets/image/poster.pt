@@ -1,0 +1,14 @@
+<div class="c-poster" tal:condition="python:view.has_content()">
+    <tal:block tal:define="widget_content python:view.widget_content()">
+        <div class="c-poster__aside" tal:condition="python:widget_content['image']">
+            <span tal:replace="structure python:widget_content['image']" />
+        </div>
+        <div class="c-poster__main">
+                <div class="c-poster__text" tal:condition="python:widget_content['text']"
+                         tal:define="widget_text python:widget_content['text']"
+                         tal:content="structure widget_text/output">
+                    Poster Teaser Text
+                </div>
+        </div>
+    </tal:block>
+</div>

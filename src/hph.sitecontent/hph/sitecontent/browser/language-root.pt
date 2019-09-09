@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="ade25.sitecontent">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+        <section class="o-page__section">
+            <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context.UID(), section='header', mode='view')"></tal:content-panels>
+        </section>
+
+        <tal:toolbar tal:replace="structure python:context.restrictedTraverse('@@panel-editor-toolbar')()">
+            Content Panel Toolbar
+        </tal:toolbar>
+
+        <header class="o-page__header">
+            <div class="o-page__section c-page-header">
+                <div class="c-page-header__title">
+                    <h1 class="c-page-header__headline" tal:content="python:context.Title()">
+                        Page Title
+                    </h1>
+                </div>
+                <p class="c-page-header__abstract" tal:condition="context/Description"
+                         tal:content="python:context.Description()">
+                        ${context/Description}
+                </p>
+            </div>
+        </header>
+
+        <div class="o-page__main" tal:define="context_uid context/UID">
+
+            <section class="o-page__section">
+                <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context.UID(), section='main', mode='view')"></tal:content-panels>
+            </section>
+        </div>
+
+        <div class="o-page__footer">
+            <section class="o-page__section">
+                <tal:content-panels tal:replace="structure python:context.restrictedTraverse('@@content-panels')(identifier=context.UID(), section='footer', mode='view')"></tal:content-panels>
+            </section>
+        </div>
+
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

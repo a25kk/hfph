@@ -1,0 +1,21 @@
+// Shame CSS
+//
+// If it’s a hack, it goes in shame.css.
+// 1. Document all hacks fully:
+// 1.1. What part of the codebase does it relate to?
+// 1.2. Why was this needed?
+// 1.3. How does this fix it?
+// 1.4. How might you fix it properly, given more time?
+// 2. Do not blame the developer; if they explained why they had to do it then
+// their reasons are probably (hopefully) valid.
+// 3. Try and clean shame.css up when you have some down time.
+// 3.1 Even better, get a tech-debt story in which you can dedicate actual sprint time to it.
+//
+// See: http://csswizardry.com/2013/04/shame-css/
+// -----------------------------------------------------
+
+
+// Plone edit zone toolbar personal bar contents
+[id="personal-bar-container"] {
+    z-index: 105;
+}

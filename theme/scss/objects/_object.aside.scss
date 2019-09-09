@@ -1,0 +1,12 @@
+.o-aside {
+	@include mq($from: lg) {
+		margin-top: 5.3rem;
+	}
+    @include when-inside('.app-sidebar') {
+        padding-left: $app-spacer-base;
+        padding-right: $app-spacer-base;
+        @include mq($from: lg) {
+            padding: 0;
+        }
+    }
+}

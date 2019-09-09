@@ -1,0 +1,34 @@
+<div class="c-card c-card-nav c-card--faculty"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+         i18n:domain="hph.faculty"
+         tal:define="active_filter view/filter">
+    <div class="c-card__header c-collapsible__header js-collapsible-toggle">
+        <h4 class="c-card__title c-collapsible__link" i18n:translate="">
+            Filter
+        </h4>
+        <div class="c-collapsible__link c-collapsible__link--hidden-lg c-collapsible__link--icon">
+            <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--add-dims c-toc__icon c-toc__icon--open">
+                <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--add"></use>
+            </svg>
+            <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--remove-dims c-toc__icon c-toc__icon--close">
+                <use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--remove"></use>
+            </svg>
+        </div>
+    </div>
+    <div class="c-card__main c-collapsible__item c-collapsible__item--lg js-collapsible-item">
+        <ul class="c-nav-list">
+            <tal:block tal:repeat="filter view/filter_options">
+                <li class="c-nav-list__item"
+                         tal:define="active_filter python:view.active_filter();
+                                     filter_value filter/value;
+                                     is_active python:active_filter == filter_value"
+                         tal:attributes="class python:view.computed_klass(filter_value)">
+                    <a class="c-nav-list__link"
+                             tal:attributes="href string:${view/filter_base_url}?content_filter=1&amp;academicRole=${filter/value};
+                                            class python:is_active and 'c-nav-list__link c-nav-list__link--active' or 'c-nav-list__link'"
+                             tal:content="filter/title">Filter option</a>
+                </li>
+            </tal:block>
+        </ul>
+    </div>
+</div>

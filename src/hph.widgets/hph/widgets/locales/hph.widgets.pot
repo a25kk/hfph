@@ -1,0 +1,167 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-07-10 11:30+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: hph.widgets\n"
+
+#: ./../widgets/teaser/teaser-news.pt:6
+msgid "<a href=\"${DYNAMIC_CONTENT}\"> News </a>"
+msgstr ""
+
+#: ./../vocabulary.py:37
+msgid "Calendar"
+msgstr ""
+
+#: ./../vocabulary.py:38
+msgid "Calendar with Clock"
+msgstr ""
+
+#: ./../vocabulary.py:39
+msgid "Classroom"
+msgstr ""
+
+#: ./../vocabulary.py:40
+msgid "Counseling"
+msgstr ""
+
+#: ./../vocabulary.py:41
+msgid "Download"
+msgstr ""
+
+#: ./../widgets/teaser/teaser-events.pt:6
+msgid "Events"
+msgstr ""
+
+#: ./../widgets/teaser/interfaces.py:62
+msgid "External Link Title"
+msgstr ""
+
+#: ./../widgets/teaser/teaser-links-external.pt:5
+msgid "External Links"
+msgstr ""
+
+#: ./../configure.zcml:25
+msgid "HPH Content Widgets"
+msgstr ""
+
+#: ./../widgets/teaser/interfaces.py:66
+msgid "Image"
+msgstr ""
+
+#: ./../widgets/slider/interfaces.py:31
+#: ./../widgets/teaser/interfaces.py:70
+msgid "Image Copyright Information"
+msgstr ""
+
+#: ./../widgets/teaser/interfaces.py:28
+msgid "Internal Link Title"
+msgstr ""
+
+#: ./../widgets/image/interfaces.py:35
+#: ./../widgets/teaser/interfaces.py:41
+msgid "Link"
+msgstr ""
+
+#: ./../widgets/teaser/interfaces.py:33
+msgid "Link Icon"
+msgstr ""
+
+#: ./../widgets/teaser/teaser-links-internal.pt:5
+msgid "Links"
+msgstr ""
+
+#: ./../widgets/teaser/teaser-events.pt:40
+msgid "More events"
+msgstr ""
+
+#: ./../widgets/teaser/teaser-news.pt:32
+msgid "More news"
+msgstr ""
+
+#: ./../widgets/accordion/interfaces.py:28
+msgid "Panel Content"
+msgstr ""
+
+#: ./../widgets/accordion/interfaces.py:23
+msgid "Panel Headline"
+msgstr ""
+
+#: ./../widgets/image/interfaces.py:36
+#: ./../widgets/teaser/interfaces.py:42
+msgid "Please select link target"
+msgstr ""
+
+#: ./../widgets/image/interfaces.py:18
+msgid "Poster Headline"
+msgstr ""
+
+#: ./../widgets/image/interfaces.py:26
+msgid "Poster Image"
+msgstr ""
+
+#: ./../widgets/image/interfaces.py:30
+msgid "Poster Image Copyright Information"
+msgstr ""
+
+#: ./../widgets/image/interfaces.py:22
+msgid "Poster Text"
+msgstr ""
+
+#: ./../widgets/content/base-card.pt:36
+#: ./../widgets/content/base-snippet.pt:32
+#: ./../widgets/content/event-tile.pt:41
+msgid "Read more"
+msgstr ""
+
+#: ./../vocabulary.py:42
+msgid "Research"
+msgstr ""
+
+#: ./../widgets/teaser/interfaces.py:34
+msgid "Select adequate icon for the linked section"
+msgstr ""
+
+#: ./../configure.zcml:25
+msgid "Site specific content widgets for panel pages"
+msgstr ""
+
+#: ./../widgets/slider/interfaces.py:27
+msgid "Slide Image"
+msgstr ""
+
+#: ./../vocabulary.py:43
+msgid "Teacher"
+msgstr ""
+
+#: ./../widgets/teaser/interfaces.py:18
+msgid "Teaser Headline"
+msgstr ""
+
+#: ./../widgets/slider/interfaces.py:23
+msgid "Text"
+msgstr ""
+
+#: ./../vocabulary.py:36
+msgid "Tile"
+msgstr ""
+
+#: ./../configure.zcml:41
+msgid "Uninstall HPH Content Widgets (hph.widgets)"
+msgstr ""
+
+#: ./../configure.zcml:41
+msgid "Uninstall content widgets and integrations"
+msgstr ""

@@ -1,0 +1,39 @@
+<div class="c-card c-card--default"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     i18n:domain="hph.widgets"
+     tal:define="content python:view.widget_content()"
+     tal:attributes="class python:'c-card c-card--default ' + content['css_classes']">
+    <div class="c-card__aside" tal:condition="python:content['has_image']">
+        <div class="c-card__figure"
+                 tal:define="responsive_image python:content['content_item'].restrictedTraverse('@@figure')(image_field_name='image', caption_field__name='image', scale='default', aspect_ratio='4/3', lqip=True, lazy_load=True)">
+            <a class="c-card__link c-card__link--figure" tal:attributes="href python:content['url']">
+                <span tal:replace="structure responsive_image" />
+            </a>
+        </div>
+    </div>
+    <div class="c-card__main">
+        <div class="c-card__header">
+            <div class="c-card__title">
+                <a class="c-card__link" tal:attributes="href python:content['url']"
+                         tal:content="python:content['title']">
+                        ${context/Title}
+                </a>
+            </div>
+        </div>
+        <div class="c-card__section">
+            <div class="c-card__abstract" tal:condition="python:content['description']">
+                <a class="c-card__link"
+                         tal:attributes="href python:content['url']"
+                         tal:content="python:content['description']">
+                        ${context/Description}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="c-card__footer">
+        <a class="c-card__link" tal:attributes="href python:content['url']">
+            <svg class="o-icon o-icon--default o-icon__ui--chevron-dims"><use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--chevron"></use></svg>
+            <span class="c-card__link-text" i18n:translate="">Read more</span>
+        </a>
+    </div>
+</div>

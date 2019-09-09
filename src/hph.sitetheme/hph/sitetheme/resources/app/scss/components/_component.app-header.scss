@@ -1,0 +1,92 @@
+//
+// Header
+// ------------------------------------------
+.app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 8rem;
+    z-index: 100;
+    display: block;
+    background-color: $app-color-gray-lightest;
+    padding-bottom: 1rem;
+    @include media-breakpoint-up(md) {
+        margin: 0 auto 1rem;
+        padding-bottom: 1rem;
+        @include when-inside('.plone-toolbar-left') {
+            left: 60px;
+            width: calc(100% - 60px);
+        }
+        @include when-inside('.plone-toolbar-left-expanded') {
+            left: 120px;
+            width: calc(100% - 120px);
+        }
+    }
+    &.u-backdrop {
+        background: $app-color-gray-light;
+    }
+}
+
+.c-header {
+    padding-top: 1.5rem;
+    @include make-container-max-widths();
+}
+
+.app-header__content {
+    display: flex;
+    // flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+    @include mq($from: lg) {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+        margin-right: auto;
+        margin-left: auto;
+        @include make-container-max-widths();
+    }
+}
+
+.app-header__section {
+    display: block;
+    position: relative;
+    width: 50%;
+    max-width: 50%;
+    flex: 0 0 50%;
+    &:first-child {
+        width: 50%;
+        max-width: 50%;
+        flex: 0 0 50%;
+    }
+    &:nth-child(2) {
+        order: -1;
+        width: 100%;
+        max-width: 100%;
+        flex: 0 0 100%;
+        background: $app-color-gray-base;
+        padding: 0 .5rem .5rem .5rem;
+    }
+    @include mq($from: lg) {
+        width: 16.6666%;
+        flex: 0 0 16.6666%;
+        &:first-child {
+            width: 50%;
+            max-width: 50%;
+            flex: 0 0 50%;
+        }
+        &:nth-child(2) {
+            order: 0;
+            width: 33.3333%;
+            max-width: 33.3333%;
+            flex: 0 0 33.3333%;
+            background: transparent;
+            padding: 0;
+        }
+    }
+}
+
+.app-header__section--quick-links {
+    display: flex;
+}

@@ -1,0 +1,47 @@
+//
+// Banner
+// -----------------------------------------
+
+//** Fullscreen container bar
+.app-bannerbar {
+  background: $app-primary;
+}
+
+//== Banner container
+//
+//## Uses a container mixin for responsive sizing
+.app-banner {
+  @extend .container;
+  position: relative;
+	// min-height: 430px;
+}
+
+//== Single banner item
+//
+//## This part will be filled dynamically with
+//## content and a lazyloaded background image
+.app-banner-item {
+  position: relative;
+  height: 100%;
+  min-height: 430px;
+}
+
+//** Banner caption
+.app-banner-item-caption {
+  position: absolute;
+  top: 66%;
+  left: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.25;
+  color: gray('400');
+  a {
+    color: gray('400');
+    text-decoration: underline;
+  }
+}
+
+.app-banner-item-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+}

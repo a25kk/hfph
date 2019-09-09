@@ -1,0 +1,69 @@
+//== Colors
+//
+//## Brand colors used across the project
+$color-cadetblue:               rgba(95,158,160,1) !default; // #5F9EA0
+
+$color-powderblue:              rgba(176,224,230,1) !default; // #B0E0E6
+
+$color-firebrick:               rgba(139, 0, 0, 1) !default; // #8b0000
+
+//== Colors
+//
+//## Brand colors used across the project
+$color-jackson-purple:          rgba(24, 47, 122, 1) !default; // #182F7A
+$color-ronchi:                  rgba(238, 211, 67, 1) !default; // #EED343
+
+// Adjusted brand color versions for better contrast and visibility
+$color-midnight-blue:               rgba(0, 51, 102, 1); // #003366;
+$color-sun-glow:                    rgba(255, 204, 51, 1); // #ffcc33
+$color-tundora:                     rgba(64, 64, 64, 1); // #404040
+$color-shuttle-gray:                rgba(90, 95, 100, 1); // #5A5F64
+$color-dusty-gray:                  rgba(153, 153, 153, 1); // #999999
+$color-gallery:                     rgba(239, 239, 239, 1); // #efefef
+$color-wild-sand:                   rgba(245, 245, 245, 1); // #f5f5f5
+
+$app-color-blue-primary:            rgba(5, 81, 125, 1);
+$app-color-blue-secondary:          rgba(55, 116, 151, 1);
+$app-color-brown:                   rgba(159, 123, 15, 1);
+$app-color-green:                   rgba(9, 130, 39, 1);
+$app-color-red:                     rgba(144, 7, 7, 1);
+$app-color-violet:                  rgba(71, 19, 123, 1);
+$app-color-purple:                  rgba(126, 4, 167, 1);
+
+// Gray baseline
+$app-color-gray-base:                       $color-gallery;
+$app-color-gray:                            $color-shuttle-gray;
+$app-color-gray-light:				        $color-gallery;
+$app-color-gray-lighter:				    $color-dusty-gray;
+$app-color-gray-lightest:				    $color-wild-sand;
+
+$app-color-white:                   #fff !default;
+
+// Main text color value (initially setup to mirror bootstraps gray 900 color
+$app-color-text:                       #212529;
+
+
+//== Brand and Section specific variables
+//
+//## Used in mixin and modifier classes
+
+//** Primary brand color
+$app-color-primary-base:              $color-jackson-purple !default;
+$app-color-primary-darker:            darken($app-color-primary-base, 15%)  !default;
+$app-color-primary-dark:              darken($app-color-primary-base, 7.5%) !default;
+$app-color-primary:                   $app-color-primary-base               !default; // #274d38
+$app-color-primary-light:             lighten($app-color-primary-base, 7.5%) !default;
+$app-color-primary-lighter:           lighten($app-color-primary-base, 15%) !default;
+
+//** Secondary brand color
+$app-color-secondary-base:              $color-ronchi !default;
+$app-color-secondary-darker:            darken($app-color-secondary-base, 15%)  !default;
+$app-color-secondary-dark:              darken($app-color-secondary-base, 7.5%) !default;
+$app-color-secondary:                   $app-color-secondary-base               !default; // #588c73
+$app-color-secondary-light:             lighten($app-color-secondary-base, 7.5%) !default;
+$app-color-secondary-lighter:           lighten($app-color-secondary-base, 15%) !default;
+
+
+//** Brand primary color schema used as default
+$app-color-default:                 $app-color-primary-base;
+$app-color-danger:                  $app-color-red;

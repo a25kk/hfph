@@ -1,0 +1,59 @@
+.c-banner {
+
+}
+
+// TODO: refactor when implementing real widget code
+.c-banner--front-page {
+    margin-top: 8.5rem;
+    //margin-bottom: 4rem;
+    @include make-container-max-widths();
+
+}
+
+.c-banner__content {
+    //padding: 6rem;
+    //border: 1px solid $app-color-gray;
+    text-align: center;
+    background-color: $app-color-white;
+    background: url("../assets/images/static-banner.jpg") center no-repeat;
+    background-size: cover;
+    color: $app-color-white;
+    min-height: 400px;
+    @include mq($from: md) {
+		min-height: 600px;
+	}
+    
+}
+
+.c-banner__header {
+	position: absolute;
+	bottom: 14%;
+	left: 0;
+	padding: 2rem;
+	font-family: $app-font-family-strong;
+	font-size: 1.3rem;
+	font-weight: 400;
+	margin-bottom: .5rem;
+	line-height: 1rem;
+	@include mq($from: md) {
+		font-size: 1.5rem;
+	}
+	@include mq($from: lg) {
+		bottom: 14%;
+		padding: 0 6rem;
+		font-size: 2rem;
+	}
+	
+}
+
+.c-banner__description {
+	text-align: left;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 4rem 2rem;
+	font-size: 1rem;
+	@include mq($from: lg) {
+		padding: 0 6rem 4rem 6rem;
+	}
+}

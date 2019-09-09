@@ -1,0 +1,18 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:plone="http://namespaces.plone.org/plone"
+        i18n_domain="hph.faculty">
+
+    <include package="plone.app.portlets" />
+
+    <plone:portlet
+            name="hph.faculty.navigation"
+            interface=".navigation.IFacultyNavigationPortlet"
+            assignment=".navigation.Assignment"
+            view_permission="zope2.View"
+            edit_permission="cmf.ManagePortal"
+            renderer=".navigation.Renderer"
+            addview=".navigation.AddForm"
+            editview=".navigation.EditForm"
+    />
+</configure>

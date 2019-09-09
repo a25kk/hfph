@@ -1,0 +1,78 @@
+$c-toolbar-height:              3.5rem;
+$c-toolbar-width:               100%;
+$c-toolbar-position:            absolute;
+$c-toolbar-position-top:        0;
+$c-toolbar-position-left:       0;
+
+$c-toolbar-padding-x:           .5rem;
+$c-toolbar-padding-y:           $app-spacer-sm;
+
+$c-toolbar-color:               darken($app-color-white, 15%);
+$c-toolbar-background:          $app-color-text;
+
+$c-toolbar-item-display:        flex;
+
+// Grow
+@keyframes toolBarEntrance {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: $c-toolbar-height;
+    }
+}
+
+.u-animation--grow {
+    animation-name: toolBarEntrance;
+}
+
+.c-toolbar {
+    display: block;
+    &--default {
+        margin-bottom: 1.5rem;
+    }
+    &--primary {
+        position: $c-toolbar-position;
+        top: $c-toolbar-position-top;
+        left: $c-toolbar-position-left;
+        width: $c-toolbar-width;
+        height: 0;
+        animation-name: toolBarEntrance;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
+}
+
+.c-toolbar + .o-page__header {
+    margin-top: $c-toolbar-height;
+}
+
+.c-toolbar__content {
+    display: flex;
+    padding: $c-toolbar-padding-x $c-toolbar-padding-y;
+    color: $c-toolbar-color;
+    background-color: $c-toolbar-background;
+}
+
+.c-toolbar__item {
+    display: $c-toolbar-item-display;
+    @if $c-toolbar-item-display == flex {
+        align-items: center;
+    }
+    flex: 1 0 auto;
+}
+
+.c-toolbar__title {
+    text-align: center;
+    font-family: $app-font-family-strong;
+}
+
+.c-toolbar__actions {
+    width: 100%;
+    text-align: right;
+}
+
+.c-toolbar__action {
+    color: $c-toolbar-color;
+}

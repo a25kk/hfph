@@ -1,0 +1,17 @@
+//== Mixin providing a list style resets
+//
+//## Uses a pseudo element to restore accessibility allowing assistive
+//## devices like screen readers to correctly recognize and interpret the
+//## element as a list.
+//## Warning: this might interfere with specific menu styles
+@mixin list-reset() {
+    margin-left: 0;
+    padding-left: 0;
+    // list-style: none;
+    list-style: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E");
+    // li:before {
+    //     // Add zero content width space for accessibility
+    //     content: "\200B";
+    //     position: absolute;
+    // }
+}

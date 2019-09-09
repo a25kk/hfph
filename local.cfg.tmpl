@@ -1,0 +1,11 @@
+# Host names/IP addresses for local environment
+[hosts]
+# The public hostname used in virtual hosting, i.e. the public facing domain
+public          = hfph.ade25.de
+public1         = hfph.ade25.de
+private         = hfph.ade25.de
+
+[ssl]
+certificate = ${buildout:directory}/etc/hfph.chained.crt
+key = ${buildout:directory}/etc/hfph.key
+ca = ${buildout:directory}/etc/gd_bundle-g2-g1.crt

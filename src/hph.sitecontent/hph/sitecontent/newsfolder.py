@@ -1,5 +1,8 @@
-from five import grok
+# -*- coding: utf-8 -*-
+"""Module providing news folder content type"""
+from plone.dexterity.content import Container
 from plone.directives import dexterity, form
+from zope.interface import implementer
 
 
 class INewsFolder(form.Schema):
@@ -8,11 +11,6 @@ class INewsFolder(form.Schema):
     """
 
 
-class NewsFolder(dexterity.Container):
-    grok.implements(INewsFolder)
-
-
-class View(grok.View):
-    grok.context(INewsFolder)
-    grok.require('zope2.View')
-    grok.name('view')
+@implementer(INewsFolder)
+class NewsFolder(Container):
+    pass

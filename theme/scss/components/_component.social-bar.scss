@@ -1,0 +1,67 @@
+$c-social-bar-border-width:               1px;
+$c-social-bar-border-style:               solid;
+$c-social-bar-border-color:               currentColor;
+$c-social-bar-border-radius:              50%;
+$c-social-bar-color-facebook:             $app-color-gray-lightest;
+$c-social-bar-color-hover-facebook:       $app-color-secondary;
+$c-social-bar-color-twitter:              $app-color-gray-lightest;
+$c-social-bar-color-hover-twitter:        $app-color-secondary;
+$c-social-bar-color-linkedin:             $app-color-gray-lightest;
+$c-social-bar-color-hover-linkedin:       $app-color-secondary;
+$c-social-bar-color-xing:                 $app-color-gray-lightest;
+$c-social-bar-color-hover-xing:           $app-color-secondary;
+
+.c-social-bar {
+  display: block;
+  width: 100%;
+  color: $app-color-white;
+  margin-bottom: $app-spacer-sm;
+}
+
+.c-social-bar__list {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.c-social-bar__item {
+  flex: 1 0 25%;
+  max-width: 25%;
+  text-align: left;
+  border: 1px solid #fff;
+}
+
+.c-social-bar__button {
+  width: 100%;
+  padding: 0;
+  color: #000;
+  &:hover {
+    color: $app-color-primary !important;
+    background: $app-color-secondary !important;
+  }
+  &:visited {
+    color: $app-color-primary !important;
+  }
+}
+
+.c-social-bar__text {
+  //font-size: calc(#{$app-font-size-base} / 2);
+  display: none;
+}
+
+.c-social-bar__button--facebook {
+  @include button-variant($c-social-bar-color-facebook, $c-social-bar-color-facebook, $c-social-bar-color-hover-facebook, $c-social-bar-color-hover-facebook);
+}
+
+.c-social-bar__button--twitter {
+  @include button-variant($c-social-bar-color-twitter, $c-social-bar-color-twitter, $c-social-bar-color-hover-twitter, $c-social-bar-color-hover-twitter);
+}
+
+.c-social-bar__button--xing {
+  @include button-variant($c-social-bar-color-xing, $c-social-bar-color-xing, $c-social-bar-color-hover-xing, $c-social-bar-color-hover-xing);
+}
+
+.c-social-bar__button--linkedin {
+  @include button-variant($c-social-bar-color-linkedin, $c-social-bar-color-linkedin, $c-social-bar-color-hover-linkedin, $c-social-bar-color-hover-linkedin);
+}

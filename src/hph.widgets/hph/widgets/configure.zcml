@@ -1,0 +1,54 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="hph.widgets">
+
+    <!-- Include configuration for dependencies listed in setup.py -->
+    <includeDependencies package="." />
+
+    <include package=".widgets" />
+
+    <!-- Register locales directory -->
+    <i18n:registerTranslations directory="locales" />
+
+    <!-- Register the installation GenericSetup extension profile -->
+    <genericsetup:registerProfile
+        name="default"
+        title="HPH Content Widgets"
+        directory="profiles/default"
+        description="Site specific content widgets for panel pages"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <genericsetup:importStep
+            name="hph.widgets"
+            title="hph.widgets special import handlers"
+            description=""
+            handler="hph.widgets.setuphandlers.setup_various"
+    />
+
+    <!-- Uninstall -->
+    <genericsetup:registerProfile
+            name="uninstall"
+            title="Uninstall HPH Content Widgets (hph.widgets)"
+            directory="profiles/uninstall"
+            description="Uninstall content widgets and integrations"
+            provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+    <include file="upgrades.zcml" />
+
+    <plone:static
+        directory="resources"
+        type="theme"
+    />
+
+    <utility
+            name="hph.widgets.vocabularies.TeaserLinkIconOptions"
+            component="hph.widgets.vocabulary.TeaserLinkIconVocabulary" />
+
+</configure>

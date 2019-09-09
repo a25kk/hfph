@@ -10,27 +10,29 @@
   <property name="icon_expr">string:${portal_url}/folder_icon.png</property>
   <property name="factory">hph.sitecontent.eventfolder</property>
   <property name="global_allow">True</property>
-  <property name="filter_content_types">True</property>  
+  <property name="filter_content_types">True</property>
   <property name="allowed_content_types">
     <element value="hph.sitecontent.eventitem" />
   </property>
   <property name="allow_discussion">False</property>
 
   <!-- schema and class used for content items -->
-  <property name="schema">hph.sitecontent.eventfolder.IEventFolder</property> 
+  <property name="schema">hph.sitecontent.eventfolder.IEventFolder</property>
   <property name="klass">hph.sitecontent.eventfolder.EventFolder</property>
 
   <property name="behaviors">
      <element value="plone.app.content.interfaces.INameFromTitle" />
      <element value="plone.app.dexterity.behaviors.metadata.IBasic"/>
+      <element value="plone.app.dexterity.behaviors.exclfromnav.IExcludeFromNavigation" />
+      <element value="hph.sitecontent.behavior.display.IExcludeFromFooterNavigation" />
    </property>
 
   <!-- View information -->
   <property name="link_target"></property>
   <property name="immediate_view">view</property>
-  <property name="default_view">view</property>
+  <property name="default_view">event-listing</property>
   <property name="view_methods">
-   <element value="view"/>
+   <element value="event-listing"/>
   </property>
   <property name="default_view_fallback">False</property>
   <property name="add_permission">cmf.AddPortalContent</property>

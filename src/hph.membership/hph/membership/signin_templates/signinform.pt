@@ -27,6 +27,10 @@
         <div class="app-page-content">
           <metal:block use-macro="context/@@ploneform-macros/titlelessform" />
         </div>
+          <button class="x-ray" data-x-ray="#__ac_password" data-default="show">
+              <span class="x-ray-show" data-x-ray-show>Show Password</span>
+              <span class="x-ray-hide" data-x-ray-hide>Hide Password</span>
+          </button>
         <div class="app-page-footer">
           <p class="trouble">Trouble logging in? <a href="@@login-help">Get help.</a></p>
         </div>

@@ -1,0 +1,10 @@
+$c-call-out-bg-color:                       $app-color-gray-light;
+$c-call-out-border-color:                   #ccc;
+$c-call-out-border-width:                   1rem;
+$c-call-out-spacer:                         $app-spacer-sm;
+
+.c-call-out {
+    background-color: $c-call-out-bg-color;
+    padding: $c-call-out-spacer;
+    border-left: $c-call-out-border-width solid $c-call-out-border-color;
+}

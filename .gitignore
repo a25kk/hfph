@@ -1,7 +1,12 @@
+!cache_control_assets.conf
+!disable_logging.conf
+!proxy_settings.conf
+# build
+# Enable nginx specific settings
 *-ck.js
 *.EGG
-*.EGG-INFO
 *.egg
+*.EGG-INFO
 *.egg-info
 *.eggs
 *.mo
@@ -12,9 +17,15 @@
 .hg
 .installed.cfg
 .mr.developer.cfg
+.Python
 .svn
+.vscode
+/.vscode
+/env/*
+/ENV/*
+/venv/*
+_site
 bin
-# build
 build/docker/nginx/site.conf
 coverage
 develop-eggs
@@ -24,8 +35,12 @@ eggs
 etc/**/*
 fabfile.py
 fake-eggs
+include
+lib
+local.cfg
 parts
 pip-selfcheck.json
+secret.cfg
 src/ade25.*
 src/bobtemplates.*
 src/collective.*
@@ -34,4 +49,3 @@ src/plone.*
 src/sauna.reload
 src/vwc.*
 var
-secret.cfg

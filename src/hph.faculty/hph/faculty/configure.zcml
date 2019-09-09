@@ -13,6 +13,8 @@
 
     <include package=".browser" />
 
+    <include package=".portlets" />
+
   <!-- Grok the package to initialize schema interfaces and content classes -->
   <grok:grok package="." />
 
@@ -35,5 +37,6 @@
       />
 
   <!-- -*- extra stuff goes here -*- -->
+    <include file="upgrades.zcml" />
 
 </configure>

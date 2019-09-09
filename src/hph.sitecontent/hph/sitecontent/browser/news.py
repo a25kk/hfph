@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module providing news browser views"""
+from Acquisition import aq_inner
 from Products.Five import BrowserView
 from hph.sitecontent.newsentry import INewsEntry
 from plone import api
@@ -55,3 +56,23 @@ class NewsEntryCard(BrowserView):
 
     def render(self):
         return self.index()
+
+
+class NewsItemView(BrowserView):
+    """ news item"""
+
+    def __call__(self):
+        return self.render()
+
+    def render(self):
+        return self.index()
+
+    def has_lead_image(self):
+        context = aq_inner(self.context)
+        try:
+            lead_img = context.image
+        except AttributeError:
+            lead_img = None
+        if lead_img is not None:
+            return True
+        return False

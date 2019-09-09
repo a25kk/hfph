@@ -1,0 +1,84 @@
+$c-link-tile-border-color:              $app-color-gray-lightest;
+
+.c-link-tile {
+    
+    @include mq($from: md) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.c-link-tile__aside {
+    width: 100%;
+    max-width: 100%;
+    //flex: 0 0 4rem;
+    //max-width: 4rem;
+    @include mq($from: md) {
+        flex: 0 0 25%;
+        max-width: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.c-link-tile__main {
+    
+    width: 100%;
+    text-align: center;
+    //flex: 0 0 75%;
+    //max-width: 75%;
+    @include mq($from: md) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.c-link-tile__aside,
+.c-link-tile__main {
+    @include mq($from: md) {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.c-link-tile__asset {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    border: 2px solid $c-link-tile-border-color;
+    border-radius: 50%;
+    @include mq($from: md) {
+        width: 8rem;
+        height: 8rem;
+    }
+}
+
+.c-link-tile__icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-right: auto;
+    margin-left: auto;
+    @include mq($from: md) {
+        width: 5rem;
+        height: 5rem;
+    }
+}
+
+.c-link-tile__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: $app-spacer-base;
+    @include mq($from: md) { 
+        text-align: center;
+    }
+}
+
+.c-link-tile__title {
+    font-size: $app-font-size-base;
+}

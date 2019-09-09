@@ -1,0 +1,10 @@
+<div metal:define-macro="hph-site-navigation"
+         i18n:domain="hph.sitecontent">
+    <tal:sitemap tal:condition="view/available">
+        <div class="c-nav-bar__main" id="c-site-nav">
+            <ul class="c-toc" id="c-toc">
+                <div tal:replace="structure provider:hph.sitemap" />
+            </ul>
+        </div>
+    </tal:sitemap>
+</div>

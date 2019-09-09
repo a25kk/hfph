@@ -11,10 +11,10 @@ a25.navbar = (function($, undefined) {
         menuDropdown: "app-nav__dropdown",
         menuDropdownDisabled: "app-nav__dropdown--hidden",
         menu: ".app-nav",
-        navBar: ".app-nav-bar",
+        navBar: ".c-nav-bar",
         navBarToggle: ".js-nav-toggle",
-        navBarOverlay: "app-nav-bar--overlay",
-        navBarHidden: "app-nav-bar--hidden",
+        navBarOverlay: "c-nav-bar--overlay",
+        navBarHidden: "c-nav-bar--hidden",
         dropdownOpenClass: "app-nav__link--open",
         containedDropdownClass: "app-nav__item--has-dropdown"
     };
@@ -36,13 +36,19 @@ a25.navbar = (function($, undefined) {
         // Navbar toggle
         $(options.navBarToggle).on("click", function(event) {
             var $menuContainer = $(options.menuContainer),
-                $menuContainerActiveClass = options.menuContainerActive;
+                $menuContainerActiveClass = options.menuContainerActive,
+                $navBar = document.querySelector(options.navBar);
             event.preventDefault();
-            $(options.navBar).toggleClass("app-nav-bar--overlay");
-            $(options.navBar).toggleClass("app-nav-bar--hidden");
+            if ($navBar !== null) {
+                console.log('NAvbar found ' + options.navBarOverlay);
+                $navBar.classList.add(options.navBarOverlay);
+                $navBar.classList.remove(options.navBarHidden);
+            }
+            // $(options.navBar).toggleClass("c-nav-bar--overlay");
+            // $(options.navBar).toggleClass("c-nav-bar--hidden");
             $menuContainer.toggleClass($menuContainerActiveClass);
             $("body").toggleClass("no-scroll");
-            $(this).toggleClass("app-nav-bar__toggle--active");
+            $(this).toggleClass("c-nav-bar__toggle--active");
             $(".app-nav__link--open").removeClass("app-nav__link--open");
             $("." + options.menuDropdown).removeClass(options.menuDropdown);
             $("." + options.containedDropdownClass).removeClass(
@@ -104,7 +110,7 @@ a25.navbar = (function($, undefined) {
                     $el.parent().addClass($containedDropdownClass);
                     $currentDropdown.addClass($openClass);
                     $currentDropdown.removeClass(options.menuDropdownDisabled);
-                    if ($activeOverlay.length == 0) {
+                    if ($activeOverlay.length === 0) {
                         $("body").addClass("no-scroll");
                     }
                 }
@@ -134,10 +140,10 @@ a25.navbar = (function($, undefined) {
     }
 
     return {
-        init: init
+        init: init(options)
     };
 })(jQuery);
 
-jQuery(function() {
-    a25.navbar.init();
-});
+// jQuery(function() {
+//     a25.navbar.init();
+// });

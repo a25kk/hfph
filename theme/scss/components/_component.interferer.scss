@@ -1,0 +1,52 @@
+.c-interferer {
+
+}
+
+// TODO: refactor when implementing real widget code
+.c-interferer--front-page {
+    @include make-container-max-widths();
+    background: url("../assets/images/static-interferer.jpg") center no-repeat;
+    background-size: cover;
+    min-height: 400px;
+    @include mq($from: md) {
+		min-height: 530px;
+	}
+
+}
+
+.c-interferer__content {
+    padding: 3rem; 
+    color: $app-color-white;
+    position: absolute;
+	bottom: 0;
+	left: 0;
+	@include mq($from: md) {
+		padding: 6rem;
+	}
+    
+    
+}
+
+.c-interferer__header {
+	font-family: $app-font-family-strong;
+	font-size: 1.2rem;
+	font-weight: 400;
+	line-height: 1rem;
+	text-align: left;
+	@include mq($from: md) {
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+	}
+	@include mq($from: lg) {
+		font-size: 2rem;
+	}
+	
+}
+
+.c-interferer__description {
+	font-size: 1rem;
+	line-height: 1rem;
+	@include mq($from: lg) {
+		padding: 0;
+	}
+}
