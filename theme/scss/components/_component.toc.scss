@@ -131,6 +131,13 @@
     }
 }
 
+.c-toc__link--toggle {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 .c-toc__link-item {
     flex: 1 0 50%;
     max-width: 50%;
