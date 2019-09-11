@@ -321,7 +321,7 @@
           css:content="#app-contact-viewlet-elements"
           css:if-content="#app-contact-viewlet-elements" />
 
-        <rules css:if-not-content=".template-frontpage-view, .section-newsletter">
+        <rules css:if-not-content=".template-frontpage-view, .xsection-newsletter">
             <rules css:if-not-content="#portal-column-one">
                 <drop css:theme="#app-sidebar" />
                 <replace css:content-children="#content"
