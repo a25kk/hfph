@@ -13359,6 +13359,7 @@ a.c-button--active-action {
 
 .c-toc__link--toggle {
   text-decoration: none;
+  cursor: default;
 }
 
 .c-toc__link--toggle:hover {
