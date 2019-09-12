@@ -14384,6 +14384,14 @@ c-list--bordered .c-list__item:last-of-type {
   }
 }
 
+.c-poster__text a {
+  color: #fff;
+}
+
+.c-poster__text a:hover {
+  color: #fff;
+}
+
 .c-slider {
   display: block;
   width: 100vw;
