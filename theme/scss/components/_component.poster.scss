@@ -49,3 +49,12 @@ $c-poster-padding:                $app-spacer-base;
         }
     }   
 }
+
+.c-poster__text {
+  a {
+    color: $c-poster-color;
+  }
+  a:hover {
+    color: $c-poster-color;
+  }
+}
