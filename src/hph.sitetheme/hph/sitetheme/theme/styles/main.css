@@ -8739,7 +8739,7 @@ strong {
 
 .font__primary--loaded b, .font__primary--loaded
 strong {
-  font-weight: 500;
+  font-weight: 700;
 }
 
 button {
@@ -12556,7 +12556,7 @@ a.c-button--active-action {
 }
 
 .c-snippet__title {
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .c-snippet__section {
