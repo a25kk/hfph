@@ -304,6 +304,14 @@
             </xsl:copy>
         </replace>
 
+        <replace css:content=".link-parent">
+            <xsl:copy>
+                <xsl:copy-of select="@*" />
+                <xsl:attribute name="class">c-button c-button--default c-button--link-parent</xsl:attribute>
+                <xsl:apply-templates />
+            </xsl:copy>
+        </replace>
+
 
         <!-- Add classes to content core -->
         <replace css:content="#content-core">
