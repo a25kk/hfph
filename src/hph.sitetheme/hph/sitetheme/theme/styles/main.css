@@ -14659,6 +14659,11 @@ c-list--bordered .c-list__item:last-of-type {
   }
 }
 
+.c-widget--hph-content-alias {
+  margin-top: -calc(1.25rem * 1.5);
+  margin-bottom: -calc(1.25rem * 1.5);
+}
+
 .c-widget {
   display: block;
 }
