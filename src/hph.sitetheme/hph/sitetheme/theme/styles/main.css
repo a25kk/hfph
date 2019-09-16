@@ -12556,7 +12556,7 @@ a.c-button--active-action {
 }
 
 .c-snippet__title {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .c-snippet__section {
@@ -14205,7 +14205,6 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-event-info__title {
   margin-bottom: 0;
-  padding-top: .3rem;
   font-family: "Taz-SemiBold";
 }
 
@@ -14658,6 +14657,11 @@ c-list--bordered .c-list__item:last-of-type {
   .c-page-header__abstract {
     font-size: calc(1.275rem + 0.3vw) ;
   }
+}
+
+.c-widget--hph-content-alias {
+  margin-top: -calc(1.25rem * 1.5);
+  margin-bottom: -calc(1.25rem * 1.5);
 }
 
 .c-widget {

@@ -1,5 +1,6 @@
 <div class="c-snippet c-snippet--event"
      xmlns:xlink="http://www.w3.org/1999/xlink"
+         i18n:domain="hph.widgets"
          tal:define="content python:view.widget_content()"
          tal:attributes="class python:'c-snippet c-snippet--default ' + content['css_classes']">
     <div class="c-snippet__main">
