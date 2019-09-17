@@ -37,23 +37,29 @@ $c-slider-padding:                $app-spacer-base;
 }
 
 .c-slide__content {
-  //padding-bottom: 3rem;
-  @include mq($from: md) {
-    padding-bottom: 0;
-  }
-
   a {
-    color: #fff;
+    color: $app-color-primary;
     &:hover {
-      color: #fff;
+      color: $app-color-primary;
     }
     &:visited {
+      color: $app-color-primary;
+    }
+  }
+  @include mq($from: md) {
+    padding-bottom: 0;
+      a {
       color: #fff;
+      &:hover {
+      color: #fff;
+      }
+      &:visited {
+      color: #fff;
+      }
     }
   }
 }
 .c-slider__items {
-  //padding-top: 4rem;
   margin-bottom: 0;
 }
 
@@ -101,8 +107,9 @@ $c-slider-padding:                $app-spacer-base;
 }
 
 .flickity-page-dots {
-  top: 55%;
+  top: 52%;
   padding-top: 0;
+  max-height: 30px;
   @include mq($from: md) {
     display: block;
     text-align: center;
