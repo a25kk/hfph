@@ -14418,7 +14418,7 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-slide__main {
   position: relative;
-  padding: 2rem;
+  padding: 2rem 2rem .5rem 2rem;
   color: #212529;
   width: 100%;
   background: #fff;
