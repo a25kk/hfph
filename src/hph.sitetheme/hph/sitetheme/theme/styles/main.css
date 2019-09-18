@@ -10355,6 +10355,10 @@ input, button, select, textarea {
   left: -9999px;
 }
 
+.listingCheckbox .o-form__control--checkbox {
+  position: initial;
+}
+
 .o-form__control--checkbox + label {
   position: relative;
   padding-left: 1.95em;
