@@ -163,6 +163,9 @@ input, button, select, textarea {
 .o-form__control--checkbox {
     position: absolute;
     left: -9999px;
+    @include when-inside('.listingCheckbox') {
+        position: initial;
+    }
 }
 
 .o-form__control--checkbox + label {
