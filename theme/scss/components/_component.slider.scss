@@ -115,13 +115,14 @@ $c-slider-padding:                $app-spacer-base;
 }
 
 .flickity-page-dots {
-  top: 52%;
+  display: block;
+  text-align: center;
+  position: absolute;
+  top: 55%;
   padding-top: 0;
   max-height: 30px;
-  @include mq($from: md) {
-    display: block;
-    text-align: center;
-    position: absolute;
+  @include mq($from: md) { 
+    border: 0;
     top: 85%;
     bottom: 2rem;
     padding-top: 1rem;
