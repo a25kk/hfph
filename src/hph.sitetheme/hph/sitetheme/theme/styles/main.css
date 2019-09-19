@@ -14396,11 +14396,6 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-slider {
   display: block;
-  width: 100vw;
-  margin-left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
 }
 
 @media (min-width: 62em) {
@@ -14415,7 +14410,6 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-slider__main {
   width: 100%;
-  border: 1px solid red;
   -ms-touch-action: none;
       touch-action: none;
   -webkit-user-select: none;
