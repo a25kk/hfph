@@ -13,6 +13,14 @@ $c-slider-padding:                $app-spacer-base;
   }
 }
 
+.c-slider__main {
+  width: 100%;
+  border: 1px solid red;
+  touch-action: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
 .c-slide {
   display: block;
   position: relative;
