@@ -14396,15 +14396,16 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-slider {
   display: block;
+  width: 100vw;
+  margin-left: -calc(1.25rem * 1.5);
+  margin-right: -calc(1.25rem * 1.5);
 }
 
 @media (min-width: 62em) {
   .c-slider {
     width: 100%;
     margin-left: 0;
-    -webkit-transform: none;
-        -ms-transform: none;
-            transform: none;
+    margin-right: 0;
   }
 }
 
@@ -14414,6 +14415,12 @@ c-list--bordered .c-list__item:last-of-type {
       touch-action: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
+}
+
+.c-slider__items {
+  display: block;
+  position: relative;
+  width: 100%;
 }
 
 .c-slide {
