@@ -200,12 +200,12 @@ define([
             }
         });
         // Close navigation via backdrop clicks or tabs
-        document.addEventListener('touchstart', function (event) {
-            handleBackDropEvent(options, event, bodyElement);
-        });
-        document.addEventListener('touchend', function (event) {
-            handleBackDropEvent(options, event, bodyElement);
-        });
+        // document.addEventListener('touchstart', function (event) {
+        //     handleBackDropEvent(options, event, bodyElement);
+        // });
+        // document.addEventListener('touchend', function (event) {
+        //     handleBackDropEvent(options, event, bodyElement);
+        // });
         document.addEventListener('click', function (event) {
             handleBackDropEvent(options, event, bodyElement);
         });
