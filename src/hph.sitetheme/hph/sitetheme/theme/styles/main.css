@@ -8492,7 +8492,7 @@ a.text-danger:hover, a.text-danger:focus {
 }
 
 /*=====  End of Choices  ======*/
-/*! Flickity v2.2.0
+/*! Flickity v2.2.1
 https://flickity.metafizzy.co
 ---------------------------------------------- */
 .flickity-enabled {
@@ -8518,7 +8518,6 @@ https://flickity.metafizzy.co
 /* draggable */
 .flickity-enabled.is-draggable {
   -webkit-tap-highlight-color: transparent;
-  tap-highlight-color: transparent;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -14430,6 +14429,7 @@ c-list--bordered .c-list__item:last-of-type {
 }
 
 .c-slide__main {
+  display: none;
   position: relative;
   padding: 2rem 2rem .5rem 2rem;
   color: #212529;
