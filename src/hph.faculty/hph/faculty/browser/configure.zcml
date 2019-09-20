@@ -45,4 +45,11 @@
             permission="zope2.View"
     />
 
+    <browser:page
+            for="*"
+            name="faculty-member-content-factory"
+            class=".faculty.FacultyMemberContentFactory"
+            permission="cmf.ManagePortal"
+    />
+
 </configure>
