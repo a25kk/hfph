@@ -1,11 +1,16 @@
 # -*- coding: utf-8 -*-
 """Module providing faculty member views"""
+import logging
+
 from Acquisition import aq_inner, aq_parent
-from Products.Five import BrowserView
-from hph.faculty.facultymember import IFacultyMember
 from plone import api
 from plone.app.contentlisting.interfaces import IContentListing
+from Products.Five import BrowserView
 from zope.schema.vocabulary import getVocabularyRegistry
+
+from hph.faculty.facultymember import IFacultyMember
+
+logger = logging.getLogger("HfPH Faculty")
 
 
 class FacultyListing(BrowserView):
@@ -158,3 +163,49 @@ class FacultyMember(BrowserView):
         if content is not None:
             return True
         return False
+
+
+class FacultyMemberContentFactory(BrowserView):
+
+    def __call__(self):
+        return self.render()
+
+    def render(self):
+        context = aq_inner(self.context)
+        self._create_faculty_member_content()
+        api.portal.show_message(
+            message='Faculty member default content successfully created.',
+            request=self.request
+        )
+        return self.request.response.redirect(context.absolute_url())
+
+    @staticmethod
+    def _create_faculty_member_content():
+        content_views = {
+            'publications': "Publikationen",
+            'associated-lectures': "Lehrveranstaltungen"
+        }
+        items = api.content.find(
+            context=api.portal.get(),
+            portal_type="hph.faculty.facultymember"
+        )
+        for item in items:
+            if 'publikationen' not in item.keys():
+                # handle content creation
+                faculty_member = item.getObject()
+                url_path = faculty_member.absolute_url_path()
+                for view_name, title in content_views.items():
+                    content_object = api.content.create(
+                        container=faculty_member,
+                        type='Link',
+                        title=title,
+                        remoteUrl='{url}/@@{view}'.format(
+                            url=url_path,
+                            view=view_name
+                        )
+                    )
+                    api.content.transition(
+                        content_object,
+                        transition='publish'
+                    )
+                    logger.info(" - created content for {0}".format(url_path))
