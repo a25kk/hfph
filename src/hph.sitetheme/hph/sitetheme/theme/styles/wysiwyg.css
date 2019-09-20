@@ -1253,18 +1253,6 @@ pre code {
   margin-left: auto;
 }
 
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-
 @media (min-width: 992px) {
   .container {
     max-width: 960px;
@@ -1277,24 +1265,12 @@ pre code {
   }
 }
 
-.container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
+.container-fluid, .container-lg, .container-xl {
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-}
-
-@media (min-width: 576px) {
-  .container, .container-sm {
-    max-width: 540px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container, .container-sm, .container-md {
-    max-width: 720px;
-  }
 }
 
 @media (min-width: 992px) {
@@ -8820,18 +8796,6 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
   margin-left: auto;
 }
 
-@media (min-width: 62em) and (min-width: 576px) {
-  body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
-    max-width: 540px;
-  }
-}
-
-@media (min-width: 62em) and (min-width: 768px) {
-  body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
-    max-width: 720px;
-  }
-}
-
 @media (min-width: 62em) and (min-width: 992px) {
   body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
     max-width: 960px;
@@ -8847,18 +8811,6 @@ body:not(.portaltype-hph-sitecontent-mainsection) .o-page:not(.o-page--panels) {
 body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
   margin-right: auto;
   margin-left: auto;
-}
-
-@media (min-width: 62em) and (min-width: 576px) {
-  body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
-    max-width: 540px;
-  }
-}
-
-@media (min-width: 62em) and (min-width: 768px) {
-  body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
-    max-width: 720px;
-  }
 }
 
 @media (min-width: 62em) and (min-width: 992px) {
@@ -8916,18 +8868,6 @@ body:not(.portaltype-ade25-panelpage-page) .o-page:not(.o-page--panels) {
 .o-page__main {
   margin-right: auto;
   margin-left: auto;
-}
-
-@media (min-width: 576px) {
-  .o-page__main {
-    max-width: 540px;
-  }
-}
-
-@media (min-width: 768px) {
-  .o-page__main {
-    max-width: 720px;
-  }
 }
 
 @media (min-width: 992px) {
@@ -10733,18 +10673,6 @@ a.c-button--active-action {
   margin: calc(1.25rem * 1.5 / 2) auto;
   border: 1px solid #eee;
   border-left-width: .25rem;
-}
-
-@media (min-width: 576px) {
-  .app-main > .c-alert {
-    max-width: 540px;
-  }
-}
-
-@media (min-width: 768px) {
-  .app-main > .c-alert {
-    max-width: 720px;
-  }
 }
 
 @media (min-width: 992px) {
