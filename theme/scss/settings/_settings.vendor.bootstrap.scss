@@ -54,8 +54,8 @@ $btn-primary-border: 			        $app-color-primary;
 
 // Update container variables to allow for small device full screen display
 $container-max-widths: (
-        sm: 100%,
-        md: 100%,
-        lg: 960px,
-        xl: 1140px
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px
 );

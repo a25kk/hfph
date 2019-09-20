@@ -22,6 +22,7 @@
         "browser-sync": "^2.26.7",
         "csscomb": "^4.3.0",
         "del": "^5.1.0",
+        "event-stream": "^4.0.1",
         "gulp": "^4.0.1",
         "gulp-autoprefixer": "^7.0.0",
         "gulp-babel": "^8.0.0",
@@ -84,5 +85,13 @@
         "tether": "^1.4.7",
         "vh-check": "^2.0.5",
         "x-ray": "github:cferdinandi/x-ray"
-    }
+    },
+    "browserslist": [
+        "last 2 versions",
+        "ie >= 9",
+        "Android >= 2.3",
+        "ChromeAndroid > 20",
+        "FirefoxAndroid > 20",
+        "iOS >= 8"
+    ]
 }
