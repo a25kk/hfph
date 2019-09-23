@@ -4,13 +4,29 @@ $c-slider-padding:                $app-spacer-base;
 .c-slider {
   display: block;
   width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  //width: 100vw;
+  //margin-left: 50%;
+  //transform: translateX(-50%);
+  margin-left: -($app-spacer-base);
+  margin-right: -($app-spacer-base);
   @include mq($from: lg) {
     width: 100%;
     margin-left: 0;
-    transform: none;
+    margin-right: 0;
   }
+}
+
+.c-slider__main {
+  width: 100%;
+  //touch-action: none;
+  //-webkit-user-select: none;
+  //-webkit-user-drag: none;
+}
+
+.c-slider__items {
+  display: block;
+  position: relative;
+  width: 100%;
 }
 
 .c-slide {
@@ -113,7 +129,7 @@ $c-slider-padding:                $app-spacer-base;
   top: 55%;
   padding-top: 0;
   max-height: 30px;
-  @include mq($from: md) { 
+  @include mq($from: md) {
     border: 0;
     top: 85%;
     bottom: 2rem;
