@@ -18,9 +18,9 @@ $c-slider-padding:                $app-spacer-base;
 
 .c-slider__main {
   width: 100%;
-  touch-action: none;
-  -webkit-user-select: none;
-  -webkit-user-drag: none;
+  //touch-action: none;
+  //-webkit-user-select: none;
+  //-webkit-user-drag: none;
 }
 
 .c-slider__items {
