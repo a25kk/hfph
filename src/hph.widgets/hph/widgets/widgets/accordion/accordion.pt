@@ -27,7 +27,7 @@
                         </div>
                         <div class="c-pane__main js-accordion-content">
                             <div class="c-pane__content" tal:condition="python:widget_node['text']"
-                                     tal:content="structure python:widget_node['text']">
+                                     tal:content="structure python:view.widget_text_content(widget_node['text'])">
                                 Pane Content
                             </div>
                         </div>
