@@ -8,6 +8,7 @@ from ade25.base.interfaces import IContentInfoProvider
 from ade25.widgets.interfaces import IContentWidgets
 from plone import api
 from plone.app.contenttypes.utils import replace_link_variables_by_paths
+from plone.app.textfield import IRichTextValue
 
 
 class WidgetSlider(BrowserView):
@@ -83,6 +84,12 @@ class WidgetSlider(BrowserView):
                 except KeyError:
                     item_content = None
         return item_content
+
+    @staticmethod
+    def widget_text_content(text):
+        if IRichTextValue.providedBy(text):
+            return text.output
+        return text
 
     def get_link_action(self, link):
         context = aq_inner(self.context)
