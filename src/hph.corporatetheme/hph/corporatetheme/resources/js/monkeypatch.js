@@ -1,0 +1,1 @@
+$.fn.extend({showPassword: function(c) {  }});

@@ -1,0 +1,597 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2017-02-15 08:58+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: hph.membership\n"
+
+#: ./../workspace_templates/view.pt:103
+msgid "A list of content items you are asigned as a contributor"
+msgstr ""
+
+#: ./../setpassword.py:92
+msgid "A new password has been set"
+msgstr ""
+
+#: ./../userfactory.py:102
+msgid "A new user acount has successfully been created"
+msgstr ""
+
+#: ./../useraccount_templates/useraccount.pt:14
+#: ./../useraccount_templates/useraccounterror.pt:14
+msgid "Activate account"
+msgstr ""
+
+#: ./../asignment_templates/asignmentview.pt:61
+msgid "Active Asignments"
+msgstr ""
+
+#: ./../setpassword.py:40
+msgid "Add new password"
+msgstr ""
+
+#: ./../setpassword.py:62
+#: ./../userfactory.py:54
+msgid "Add new user"
+msgstr ""
+
+#: ./../userfactory.py:47
+msgid "Add new user account"
+msgstr ""
+
+#: ./../setpassword.py:25
+msgid "Again for confirmation"
+msgstr ""
+
+#: ./../asignment_templates/asignmentusers.pt:54
+msgid "Allow user to contribute in this context"
+msgstr ""
+
+#: ./../workspace.py:106
+msgid "Alumni description"
+msgstr ""
+
+#: ./../asignment_templates/asignmentusers.pt:17
+#: ./../asignment_templates/asignmentview.pt:17
+msgid "Asignment"
+msgstr ""
+
+#: ./../discourse_templates/discoursessoerror.pt:19
+msgid "Authentication with our discussion forum located at http://discourse.hfph.de is provided via single sign on (SSO)."
+msgstr ""
+
+#: ./../discourse_templates/discoursessoerror.pt:37
+msgid "Back to discussion forum"
+msgstr ""
+
+#: ./../invitation_templates/invitenewuser.pt:31
+msgid "Back to user manager"
+msgstr ""
+
+#: ./../signin.py:40
+msgid "Came From"
+msgstr ""
+
+#: ./../browser/user-details.pt:56
+#: ./../workspace_templates/view.pt:37
+msgid "Change password"
+msgstr ""
+
+#: ./../useraccount_templates/useraccount.pt:38
+msgid "Confirm"
+msgstr ""
+
+#: ./../profiles/default/types/hph.membership.memberfolder.xml
+msgid "Container for member workspaces"
+msgstr ""
+
+#: ./../memberfolder_templates/memberrecords.pt:24
+msgid "Dangerzone: manage external user database integration"
+msgstr ""
+
+#: ./../interfaces.py:33
+msgid "Discourse Base URL"
+msgstr ""
+
+#: ./../interfaces.py:37
+msgid "Discourse SSO Secret"
+msgstr ""
+
+#: ./../userfactory.py:21
+msgid "E-Mail"
+msgstr ""
+
+#: ./../invitation.py:133
+msgid "Einladung zur neuen hfph.de Seite"
+msgstr ""
+
+#: ./../memberinfo_templates/enableuseraccount.pt:32
+msgid "Enable/Disable User"
+msgstr ""
+
+#: ./../interfaces.py:34
+msgid "Enter the URL of the discourse installation"
+msgstr ""
+
+#: ./../asignment_templates/asignmentview.pt:25
+msgid "Enumerating all registered users would have certain performance implications and therefore a user group must be selected"
+msgstr ""
+
+#: ./../configure.zcml:37
+msgid "Extension profile for HPH user management and membership tools"
+msgstr ""
+
+#: ./../memberfolder.py:326
+msgid "External records stored for import"
+msgstr ""
+
+#: ./../userfactory.py:25
+msgid "Fullname"
+msgstr ""
+
+#: ./../asignment_templates/asignmentview.pt:42
+msgid "Group Selection"
+msgstr ""
+
+#: ./../profiles/default/controlpanel.xml
+msgid "HPH Membership Tool"
+msgstr ""
+
+#: ./../configure.zcml:37
+msgid "HPH user management and membership tools"
+msgstr ""
+
+#: ./../discourse_templates/discoursessoerror.pt:23
+msgid "If you see this page than either the url you were trying to open does not exist or an error happened when trying to authenticate your credentials."
+msgstr ""
+
+#: ./../memberfolder.py:30
+msgid "Importable API Records"
+msgstr ""
+
+#: ./../tool.py:125
+msgid "Invitation to join the HfPH portal"
+msgstr ""
+
+#: ./../invitation.py:71
+msgid "Invitation to join the HfPH relaunch"
+msgstr ""
+
+#: ./../invitation_templates/invitenewuser.pt:26
+msgid "Invite new users by passing a list of email addresses"
+msgstr ""
+
+#: ./../asignment_templates/asignmentusers.pt:64
+msgid "Klick to remove user asignment"
+msgstr ""
+
+#: ./../workspace.py:110
+msgid "Lectures description"
+msgstr ""
+
+#: ./../discourse.py:59
+#: ./../signin.py:54
+msgid "Log in"
+msgstr ""
+
+#: ./../discourse.py:33
+#: ./../signin.py:30
+msgid "Login Name"
+msgstr ""
+
+#: ./../discourse.py:109
+#: ./../signin.py:105
+msgid "Login failed. Both email address and password are case sensitive, check that caps lock is not enabled."
+msgstr ""
+
+#: ./../discourse.py:115
+#: ./../signin.py:110
+msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled."
+msgstr ""
+
+#: ./../browser/user-details.pt:52
+#: ./../workspace_templates/view.pt:33
+msgid "Login:"
+msgstr ""
+
+#: ./../signin.py:55
+msgid "Long time no see."
+msgstr ""
+
+#: ./../memberinfo_templates/enableuseraccount.pt:24
+msgid "Manage user workspaces and user accounts"
+msgstr ""
+
+#: ./../memberfolder_templates/memberrecords.pt:32
+msgid "Manage users"
+msgstr ""
+
+#: ./../profiles/default/types/hph.membership.memberfolder.xml
+msgid "MemberFolder"
+msgstr ""
+
+#: ./../interfaces.py:27
+msgid "Membership Tool API Token"
+msgstr ""
+
+#: ./../interfaces.py:24
+msgid "MembershipTool API Key"
+msgstr ""
+
+#: ./../interfaces.py:21
+msgid "MembershipTool API Version"
+msgstr ""
+
+#: ./../interfaces.py:18
+msgid "MembershipTool IP"
+msgstr ""
+
+#: ./../setpassword.py:21
+#: ./../useraccount_templates/useraccount.pt:28
+msgid "New Password"
+msgstr ""
+
+#: ./../memberfolder_templates/workspacemissing.pt:23
+msgid "No activity recorded yet"
+msgstr ""
+
+#: ./../asignment.py:97
+#: ./../browser/usermanager.py:278
+#: ./../workspace.py:49
+msgid "No email provided"
+msgstr ""
+
+#: ./../useraccount.py:74
+msgid "No matching user account found"
+msgstr ""
+
+#: ./../useraccount.py:81
+msgid "No stored access token found"
+msgstr ""
+
+#: ./../asignment_templates/asignmentusers.pt:25
+msgid "Only one action can be performed due to security reindexing taking place. Please be patient."
+msgstr ""
+
+#: ./../discourse.py:37
+#: ./../signin.py:35
+msgid "Password"
+msgstr ""
+
+#: ./../useraccount.py:115
+msgid "Passwords must consist of at least 8 characters"
+msgstr ""
+
+#: ./../useraccount_templates/useraccount.pt:18
+msgid "Passwords require a minimum length of 8 characters."
+msgstr ""
+
+#: ./../workspace_templates/view.pt:100
+msgid "Personal Contents"
+msgstr ""
+
+#: ./../profiles/default/types/hph.membership.workspace.xml
+msgid "Personal workspace container for members"
+msgstr ""
+
+#: ./../tool.py:114
+msgid "Please change your account information for HfPH"
+msgstr ""
+
+#: ./../useraccount_templates/useraccounterror.pt:19
+msgid "Please check wether the requested URL is complete and contains the required access token to verify your identity. If the url is correct and the error persists it is most likely due to an incorrectly generated user account. Our team has already been informed about this error by our automatic exception handler system."
+msgstr ""
+
+#: ./../useraccount_templates/useraccount.pt:56
+msgid "Please check wether the requested URL is complete and contains the required access token to verify your identity. If the url is correct and the error persists it is most likely due to an incorrectly gernerated user account. Please contact our team if you have any questions."
+msgstr ""
+
+#: ./../discourse.py:60
+msgid "Please enter your credentials to verify SSO login"
+msgstr ""
+
+#: ./../asignment_templates/asignmentview.pt:22
+msgid "Please select the user group to display for user selection"
+msgstr ""
+
+#: ./../asignment_templates/asignmentusers.pt:22
+msgid "Please select the user to update from the list"
+msgstr ""
+
+#: ./../useraccount_templates/useraccount.pt:15
+msgid "Please set a password to finalize and activate your account."
+msgstr ""
+
+#: ./../setpassword.py:74
+#: ./../userfactory.py:66
+msgid "Process has been cancelled."
+msgstr ""
+
+#: ./../workspace.py:108
+msgid "Prophil description"
+msgstr ""
+
+#: ./../asignment_templates/asignmentusers.pt:32
+msgid "Quit user selection"
+msgstr ""
+
+#: ./../workspace.py:173
+msgid "Removed {0} broken assignments from worklist"
+msgstr ""
+
+#: ./../signin.py:185
+msgid "Request sent."
+msgstr ""
+
+#: ./../discourse.py:168
+msgid "Required parameters for SSO credential verification are missing in the request"
+msgstr ""
+
+#: ./../asignment.py:163
+msgid "Responsible user asignment successfully updated"
+msgstr ""
+
+#: ./../discourse.py:45
+msgid "SSO Signature"
+msgstr ""
+
+#: ./../discourse.py:41
+msgid "SSO payload"
+msgstr ""
+
+#: ./../useraccount_templates/useraccount.pt:45
+msgid "Save"
+msgstr ""
+
+#: ./../invitation_templates/invitenewuser.pt:66
+msgid "Send password reset mails"
+msgstr ""
+
+#: ./../asignment_templates/asignmentview.pt:29
+msgid "Setting and revoking user roles and permissions is a highly critical task and will always have certain performance implications. Therefore lists of user roles are most likely cached heavily by any larger application server and might appear to be out of date. Please be patient and check back later."
+msgstr ""
+
+#: ./../useraccount_templates/useraccounterror.pt:24
+msgid "Should you encounter this error repeatedly than do not hesitate to contact our website team and we will try to resolve the specific issue."
+msgstr ""
+
+#: ./../discourse_templates/discoursesigninform.pt:25
+#: ./../signin_templates/signinform.pt:25
+msgid "Sign in"
+msgstr ""
+
+#: ./../discourse_templates/discoursessoerror.pt:16
+msgid "Signin error"
+msgstr ""
+
+#: ./../browser/user-details.pt:60
+#: ./../workspace_templates/view.pt:41
+msgid "Signout"
+msgstr ""
+
+#: ./../discourse_templates/discoursessoerror.pt:35
+msgid "Site frontpage"
+msgstr ""
+
+#: ./../workspace.py:102
+msgid "Standard description for workspace links"
+msgstr ""
+
+#: ./../memberfolder_templates/memberrecords.pt:42
+msgid "Stored Records"
+msgstr ""
+
+#: ./../workspace.py:104
+msgid "Students and guests description"
+msgstr ""
+
+#: ./../discourse.py:152
+msgid "The Discourse SSO endpoint can only be accessed via SSL since we do not support transfer of authentication tokens via unencrypted connections."
+msgstr ""
+
+#: ./../discourse.py:161
+msgid "The Discourse SSO endpoint has not been configured yet"
+msgstr ""
+
+#: ./../useraccount.py:120
+msgid "The entered password and confirmation do not match."
+msgstr ""
+
+#: ./../browser/usermanager.py:108
+msgid "There were errors."
+msgstr ""
+
+#: ./../interfaces.py:28
+msgid "This API token can be used to authenticate with the portal e.g. when calling the member updater via external cronjob"
+msgstr ""
+
+#: ./../browser/usermanager.py:367
+#: ./../invitation.py:52
+#: ./../memberfolder.py:115
+msgid "This field is required"
+msgstr ""
+
+#: ./../discourse_templates/discoursessoerror.pt:28
+msgid "This incident will be reported to our technical staff. No further action is required on your part."
+msgstr ""
+
+#: ./../setpassword.py:85
+msgid "This password request reset is invalid"
+msgstr ""
+
+#: ./../signin.py:188
+msgid "Unable to send request."
+msgstr ""
+
+#: ./../useraccount_templates/useraccount.pt:53
+msgid "Unauthorized"
+msgstr ""
+
+#: ./../memberfolder_templates/memberrecords.pt:34
+msgid "Update and manage user records coming from an external database and provided via url endpoint"
+msgstr ""
+
+#: ./../memberinfo_templates/enableuseraccount.pt:51
+msgid "Update user status"
+msgstr ""
+
+#: ./../memberfolder_templates/memberrecords.pt:54
+msgid "User Accounts"
+msgstr ""
+
+#: ./../invitation_templates/invitenewuser.pt:21
+#: ./../invitation_templates/userinvitation.pt:21
+msgid "User Invitations"
+msgstr ""
+
+#: ./../browser/user-details.pt:26
+#: ./../browser/usermanager.pt:17
+#: ./../invitation_templates/userinvitation.pt:32
+msgid "User Manager"
+msgstr ""
+
+#: ./../memberfolder_templates/memberrecords.pt:18
+msgid "User Records"
+msgstr ""
+
+#: ./../asignment_templates/asignmentusers.pt:38
+msgid "User Selection"
+msgstr ""
+
+#: ./../invitation.py:223
+msgid "User invitation email has been sent successfully."
+msgstr ""
+
+#: ./../useraccount_templates/useraccounterror.pt:15
+msgid "We are sorry to inform you that this request can not be processed."
+msgstr ""
+
+#: ./../useraccount_templates/useraccount.pt:54
+msgid "We are sorry to inform you that this request can not be resolved."
+msgstr ""
+
+#: ./../discourse_templates/discoursessoerror.pt:33
+msgid "Where do you want to go next?"
+msgstr ""
+
+#: ./../browser/user-details.pt:41
+#: ./../memberfolder_templates/workspacemissing.pt:18
+#: ./../profiles/default/types/hph.membership.workspace.xml
+msgid "Workspace"
+msgstr ""
+
+#: ./../memberfolder_templates/usermanager.pt:21
+msgid "Workspaces"
+msgstr ""
+
+#: ./../discourse.py:129
+#: ./../signin.py:133
+#: ./../useraccount.py:152
+msgid "You are now logged in."
+msgstr ""
+
+#: ./../asignment_templates/asignmentusers.pt:59
+msgid "asigned"
+msgstr ""
+
+#. Default: "${number} Benutzer wurden gefunden."
+#: ./../browser/usermanager.pt:83
+msgid "batch_x_items_matching_your_criteria"
+msgstr ""
+
+#: ./../setpassword.py:70
+#: ./../userfactory.py:62
+msgid "cancel"
+msgstr ""
+
+#. Default: "This search form enables you to find users by specifying one or more search criteria."
+#: ./../browser/usermanager.py:103
+msgid "description_member_search"
+msgstr ""
+
+#. Default: "Search for users"
+#: ./../browser/usermanager.py:102
+msgid "heading_member_search"
+msgstr ""
+
+#. Default: "Find users whose email address contain"
+#: ./../browser/usermanager.py:43
+msgid "help_search_email"
+msgstr ""
+
+#. Default: "Find users whose full names contain"
+#: ./../browser/usermanager.py:50
+msgid "help_search_fullname"
+msgstr ""
+
+#. Default: "Find all members of selected groups."
+#: ./../browser/usermanager.py:64
+msgid "help_search_groups"
+msgstr ""
+
+#. Default: "Find users whose login name contain"
+#: ./../browser/usermanager.py:36
+msgid "help_search_name"
+msgstr ""
+
+#. Default: "E-mail"
+#: ./../browser/usermanager.py:42
+msgid "label_email"
+msgstr ""
+
+#. Default: "Full Name"
+#: ./../browser/usermanager.py:49
+msgid "label_fullname"
+msgstr ""
+
+#. Default: "Group(s)"
+#: ./../browser/usermanager.py:63
+msgid "label_groups"
+msgstr ""
+
+#. Default: "Name"
+#: ./../browser/usermanager.py:35
+msgid "label_name"
+msgstr ""
+
+#. Default: "Search"
+#: ./../browser/usermanager.py:190
+msgid "label_search"
+msgstr ""
+
+#. Default: "User Search Criteria"
+#: ./../browser/usermanager.py:29
+msgid "legend_member_search_criteria"
+msgstr ""
+
+#. Default: "User Group Search"
+#: ./../browser/usermanager.py:57
+msgid "legend_member_search_groups"
+msgstr ""
+
+#. Default: "You are not allowed to list portal members."
+#: ./../browser/user-details.pt:36
+#: ./../browser/usermanager.pt:76
+msgid "member_listing_not_allowed"
+msgstr ""
+
+#. Default: "Abgelegt unter"
+#: ./../workspace_templates/view.pt:121
+msgid "text_searchitem_location"
+msgstr ""
+
+#: ./../invitation.py:120
+msgid "{0} invitation emails successfully sent."
+msgstr ""

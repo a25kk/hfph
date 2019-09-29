@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="Ebene_1" width="64" height="64" viewBox="0 0 64 64">
+    <style>
+        .st4{fill-rule:evenodd;clip-rule:evenodd;fill:none;stroke:#4a4a4a;stroke-width:2;stroke-miterlimit:10}
+    </style>
+    <circle cx="32" cy="32" r="19.677" fill="none" stroke="#4a4a4a" stroke-miterlimit="10" stroke-width="2"/>
+    <path d="M23.337 32h17.326M32 23.337v17.326" class="st4"/>
+</svg>
+

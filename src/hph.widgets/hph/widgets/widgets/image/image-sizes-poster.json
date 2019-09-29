@@ -1,0 +1,58 @@
+{
+  "poster": [
+    {
+      "id": "xs",
+      "name": "XS",
+      "size": "xs",
+      "width": "320",
+      "height": "180",
+      "direction": "down",
+      "quality": "auto"
+    },
+    {
+      "id": "sm",
+      "name": "SM",
+      "size": "sm",
+      "width": "540",
+      "height": "540",
+      "direction": "down",
+      "quality": "auto"
+    },
+    {
+      "id": "md",
+      "name": "MD",
+      "size": "md",
+      "width": "720",
+      "height": "405",
+      "direction": "down",
+      "quality": "auto"
+    },
+    {
+      "id": "lg",
+      "name": "LG",
+      "size": "lg",
+      "width": "960",
+      "height": "540",
+      "direction": "down",
+      "quality": "auto"
+    },
+    {
+      "id": "xl",
+      "name": "XL",
+      "size": "xl",
+      "width": "1140",
+      "height": "641",
+      "direction": "down",
+      "quality": "auto"
+    },
+    {
+      "id": "xxl",
+      "name": "XXL",
+      "size": "xxl",
+      "width": "1400",
+      "height": "788",
+      "direction": "down",
+      "quality": "auto"
+    }
+  ]
+}

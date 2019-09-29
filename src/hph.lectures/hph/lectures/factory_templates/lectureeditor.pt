@@ -1,0 +1,138 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.lectures">
+
+<head>
+    <metal:block metal:fill-slot="head_slot">
+        <!--[if lt IE 9]>
+            <script src="//cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js"></script>
+        <![endif]-->
+        <link rel="stylesheet"
+            tal:attributes="href string:${context/@@plone_portal_state/portal_url}/++resource++hph.lectures/medium-editor.css" />
+        <script type="text/javascript" src="test.js"
+            tal:attributes="src string:${context/@@plone_portal_state/portal_url}/++resource++hph.lectures/medium-editor.js"></script>
+    </metal:block>
+</head>
+
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <div class="o-grid o-grid--gutter"
+        tal:define="item view/content_item">
+        <div class="o-grid__item o-grid__item--width-33">
+            <aside class="c-aside hidden-print" id="c-sidebar">
+                <div class="c-card c-card-nav c-card-lecture">
+                    <div class="c-card__header">
+                        <h2 i18n:translate="">Lecture Factory</h2>
+                    </div>
+                    <div class="c-card__main c-card__main--bordered">
+                        <ul class="c-nav-list"
+                            tal:define="current view/getFieldname">
+                            <li tal:define="fieldname string:courseTheme"
+                                tal:attributes="class python:fieldname == current and 'nav-item active' or 'nav-item'">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseTheme"
+                                    i18n:translate="">Course Theme</a>
+                            </li>
+                            <li tal:define="fieldname string:courseAims"
+                                tal:attributes="class python:fieldname == current and 'nav-item active' or 'nav-item'">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseAims"
+                                    i18n:translate="">Course Aims</a>
+                            </li>
+                            <li tal:define="fieldname string:courseMethod"
+                                tal:attributes="class python:fieldname == current and 'nav-item active' or 'nav-item'">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseMethod"
+                                    i18n:translate="">Course Method</a>
+                            </li>
+                            <li tal:define="fieldname string:coursePrereq"
+                                tal:attributes="class python:fieldname == current and 'nav-item active' or 'nav-item'">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/coursePrereq"
+                                    i18n:translate="">Course Prerequirements</a>
+                            </li>
+                            <li tal:define="fieldname string:courseQualification"
+                                tal:attributes="class python:fieldname == current and 'nav-item active' or 'nav-item'">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseQualification"
+                                    i18n:translate="">Course Qualification</a>
+                            </li>
+                            <li tal:define="fieldname string:courseTarget"
+                                tal:attributes="class python:fieldname == current and 'nav-item active' or 'nav-item'">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseTarget"
+                                    i18n:translate="">Course Target</a>
+                            </li>
+                            <li tal:define="fieldname string:courseLiterature"
+                                tal:attributes="class python:fieldname == current and 'nav-item active' or 'nav-item'">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseLiterature"
+                                    i18n:translate="">Course Literature</a>
+                            </li>
+                            <li tal:define="fieldname string:courseNotes"
+                                tal:attributes="class python:fieldname == current and 'nav-item active' or 'nav-item'">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseNotes"
+                                    i18n:translate="">Course Notes</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <div class="o-grid__item o-grid__item--width-66">
+            <div class="c-item-editable">
+                <h1 i18n:translate="">Feldinhalt bearbeiten</h1>
+
+                <div class="c-field-editable">
+                    <div class="editable" id="editable-text"
+                        data-appui="content-editable"
+                        tal:content="structure view/getFieldData">
+                        Editable Content Section
+                    </div>
+                </div>
+                <div class="c-item-editable-actions">
+                    <form class="c-form js-form js-form-hidden"
+                        id="js-form"
+                        method="post" role="form"
+                        data-appui="content-editable-form"
+                        tal:attributes="action request/URL">
+                        <textarea class="form-control c-field-editable content-editable-form-body hidden"
+                            id="content-editable-form-body"
+                            name="content-editable-form-body">
+                            {{ text area }}
+                        </textarea>
+                        <input class="form-control" id="field-name"
+                            type="hidden" name="field-name"
+                            tal:attributes="value view/getFieldname">
+                        <span tal:replace="structure context/@@authenticator/authenticator"/>
+                        <button class="c-button c-button--primary"
+                                name="form.button.Submit"
+                                id="form.button.Submit"
+                                i18n:translate="">Save changes</button>
+                        <a class="c-button c-button--default" href="${context/absolute_url}/@@lecture-factory/${item/@@uuid}"
+                            i18n:translate="">Cancel</a>
+                    </form>
+                </div>
+                <script>
+                    // Medium editor
+                    var $editor = new MediumEditor('.editable', {
+                        anchorInputPlaceholder: 'Type a link',
+                        buttons: ['bold', 'italic', 'anchor', 'header1', 'header2', 'quote', 'unorderedlist']
+                    });
+                    $('#js-form').submit(function (e) {
+                        // e.preventDefault();
+                        var contentObj = $('#editable-text').html();
+                        $("#content-editable-form-body").val(contentObj);
+                        // this.submit();
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

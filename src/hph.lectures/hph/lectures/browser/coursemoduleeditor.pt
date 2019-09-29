@@ -1,0 +1,180 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.lectures">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+        <div class="app-page-editor">
+
+            <div class="c-toolbar">
+                <div class="c-toolbar__content">
+                    <div class="c-toolbar__item">
+                        <div class="c-toolbar__title">
+                            Module bearbeiten
+                        </div>
+                    </div>
+                    <div class="c-toolbar__item">
+                        <div class="c-toolbar__actions">
+                            <a class="c-toolbar__action c-button c-button--default" href="/@@cancel"
+                                     tal:attributes="href python:context.absolute_url()" i18n:translate="">
+                                Cancel
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-module-editor">
+                <form class="app-form app-create-form"
+                      id="createBlockForm"
+                      method="post" role="form"
+                      tal:define="errors view/errors"
+                      tal:attributes="action request/URL">
+                    <table class="app-table-modules">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th i18n:translate="">Studiengang</th>
+                                <th i18n:translate="">Modul</th>
+                                <th i18n:translate="">Schwerpunkt</th>
+                                <th i18n:translate="">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tal:items tal:condition="view/has_course_information">
+                                <tal:block tal:define="stored_data view/course_information;
+                                                        courses stored_data/items">
+                                    <tr tal:repeat="item python:stored_data['items']">
+                                        <th scope="row">${repeat/item/number}</th>
+                                        <td><span tal:condition="exists:item/degree">${item/degree}</span>
+                                            <span tal:condition="exists:item/degree-course">
+                                                <span tal:define="degree_course item/degree-course; degree_title python:view.get_degree_course_title(degree_course)">${degree_title}</span>
+                                            </span>
+                                        </td>
+                                        <td><span tal:condition="exists:item/info">${item/info}</span>
+                                            <span tal:condition="exists:item/module">
+                                                <span tal:define="degree_course item/degree-course; item_module item/module; module_name python:view.get_learning_modules(degree_course, item_module)">${module_name}</span>
+                                            </span>
+                                        </td>
+                                        <td><span tal:condition="exists:item/course-theme">${item/course-theme}</span>
+                                            <small tal:condition="not:exists:item/course-theme">keine Auswahl</small>
+                                        </td>
+                                        <td tal:define="url string:${context/absolute_url}/@@module-editor-remove/${repeat/item/index};
+                                                        protected_url python:view.generate_protected_url(url)">
+                                            <a href="${protected_url}">
+                                                <i class="ion ion-ios-backspace-outline pp-icon"></i>
+                                                <span tal:omit-tag="" i18n:translate="">delete</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tal:block>
+                            </tal:items>
+                            <tr class="o-table__row--actions">
+                                <th scope="row">&nbsp;</th>
+                                <td class="o-table__cell--actions o-table__cell--primary">
+                                    <div class="form-group field"
+                                             tal:define="req_value request/title | nothing">
+                                        <input class="form-control" id="degree"
+                                               type="text" name="degree"
+                                               placeholder="Enter degree title"
+                                                 tal:attributes="value req_value" hidden>
+                                        <select class="o-form__control o-form__control--select form-field__select o-form__field--visible js-module-selector"
+                                                id="selector__degree-courses"
+                                                name="degree-course"
+                                                data-target-list="#selector__course-modules"
+                                                data-selector="master"
+                                            tal:define="options view/degree_courses">
+                                            <option disabled selected value i18n:translate=""> -- select an option -- </option>
+                                            <tal:block tal:repeat="value options">
+                                                <option tal:define="token python:options[value]"
+                                                    tal:attributes="value string:${token};">
+                                                    ${value}
+                                                </option>
+                                            </tal:block>
+                                        </select>
+                                    </div> <!-- /title field -->
+                                </td>
+                                <td class="o-table__cell--actions">
+                                    <div class="form-group field"
+                                             tal:define="req_value request/info | nothing">
+                                        <input class="form-control" id="info"
+                                               type="text" name="info"
+                                               placeholder="Please enter information"
+                                                 tal:attributes="value req_value" hidden>
+                                        <!-- learning modules -->
+                                        <select class="o-form__control o-form__control--select form-field__select o-form__field--hidden o-form__control--hidden js-module-selector"
+                                                id="selector__course-modules--master"
+                                                name="module"
+                                                 tal:define="options view/learning_modules_master">
+                                            <option disabled selected value i18n:translate=""> -- select an option -- </option>
+                                            <tal:block tal:repeat="value options">
+                                                <option tal:define="token python:options[value]"
+                                                         tal:attributes="value string:${value};
+                                                                name string:course:${value}">
+                                                        ${token}
+                                                </option>
+                                            </tal:block>
+                                        </select>
+                                        <!-- learning modules bachelor-->
+                                        <select class="o-form__control o-form__control--select form-field__select o-form__field--hidden o-form__control--hidden js-module-selector"
+                                                id="selector__course-modules--bachelor"
+                                                name="module"
+                                                 tal:define="options view/learning_modules_bachelor">
+                                            <option disabled selected value i18n:translate=""> -- select an option -- </option>
+                                            <tal:block tal:repeat="value options">
+                                                <option tal:define="token python:options[value]"
+                                                         tal:attributes="value string:${value};
+                                                                name string:course:${value}">
+                                                        ${token}
+                                                </option>
+                                            </tal:block>
+                                        </select>
+                                    </div> <!-- /title field -->
+                                </td>
+                                <td class="o-table__cell--actions">
+                                    <div class="form-group field"
+                                             tal:define="req_value request/theme | nothing;
+                                                         theme_groups view/course_core_themes">
+                                        <tal:course-themes tal:repeat="theme_group theme_groups">
+                                            <select class="o-form__control o-form__control--select form-field__select o-form__field--hidden o-form__control--hidden js-module-selector js-selector-course-theme form__control--themes-${theme_group}"
+                                                    id="selector__core-theme--${theme_group}"
+                                                    name="course-theme"
+                                                    tal:define="options python:theme_groups[theme_group]">
+                                                <option disabled selected value i18n:translate=""> -- select an option -- </option>
+                                                <tal:block tal:repeat="value options">
+                                                    <option tal:define="token python:options[value]"
+                                                             tal:attributes="value string:${token};
+                                                                    name string:course:${token}">
+                                                            ${token}
+                                                    </option>
+                                                </tal:block>
+                                            </select>
+                                        </tal:course-themes>
+                                    </div> <!-- /course theme field -->
+                                </td>
+                                <td class="o-table__cell--actions">
+                                    <div class="form-group">
+                                        <span tal:replace="structure context/@@authenticator/authenticator"/>
+                                        <button class="c-button c-button--default"
+                                                name="form.button.Submit"
+                                                id="form.button.Submit">
+                                            <span i18n:translate="">Add module</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </metal:content-core>
+</metal:main>
+</body>
+</html>

@@ -1,0 +1,47 @@
+.o-burger {
+    display: $o-burger-display;
+    margin-top: $o-burger-margin-top;
+    @include mq($from: md) {
+        margin-top: 5.5rem;
+    }
+    @include mq($from: xl) {
+        margin-top: 0;
+    }
+}
+
+.o-burger__button {
+    display: flex;
+    flex-direction: $o-burger-flex-direction;
+    line-height: 1;
+    background: $o-burger-background-color; // remove default button style
+    border: $o-burger-border-width $o-burger-border-style $o-burger-border-color; // remove default button style
+    cursor: pointer;
+    width: 100%;
+    padding: 0 $app-spacer-base 0 0;
+    @include mq($from: lg) {
+        padding-right: 0;
+    }
+}
+
+.o-burger__text {
+    align-self: flex-end;
+    font-family: $o-burger-font;
+    font-size: $app-font-size-sm;
+    color: $o-burger-text-color;
+    text-transform: $o-burger-text-transform;
+    padding-bottom: $o-burger-padding-y;
+    @include mq($from: md) {
+        font-size: $o-burger-text-font-size;
+        padding-bottom: 0;
+    }
+}
+
+.o-burger__icon {
+    margin-right: .5rem;
+    margin-bottom: -.25rem;
+    font-size: $o-burger-icon-font-small;
+    color: $o-burger-icon-color;
+    @include mq($from: md) {
+        font-size: $o-burger-icon-font-size;
+    }
+}

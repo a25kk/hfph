@@ -1,0 +1,33 @@
+<div class="app-ticker-bar hidden-print" id="app-tickerbar"
+    tal:condition="viewlet/available"
+    tal:define="portal_url context/portal_url">
+    <div class="app-ticker">
+
+        <div class="app-ticker-content">
+            <div class="app-ticker-title">
+                <i class="ion ion-ios-alert-outline app-icon app-icon--lg app-ticker__icon"></i>
+                <div class="app-ticker__headline">Wichtige Hinweise</div>
+            </div>
+            <div class="app-ticker-main">
+                <div class="marquee app-marquee js-ticker"
+                     data-duplicated="true"
+                        tal:define="items viewlet/active_bulletins">
+                    <tal:block tal:repeat="item items">
+                        <div class="app-marquee__item"
+                            tal:define="item_obj item/getObject">
+                            <div class="app-marquee__content">
+                                <div class="app-marquee__bulletin">
+                                    +++
+                                    <span tal:replace="item/Title" />
+                                    <a class="app-marquee__link" href="${portal_url}/schwarzes-brett/" tal:condition="item_obj/text">
+                                        (weitere Informationen)</a>
+                                    +++
+                                </div>
+                            </div>
+                        </div>
+                    </tal:block>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

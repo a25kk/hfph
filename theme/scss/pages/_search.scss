@@ -1,0 +1,31 @@
+.actionMenu {
+    display: none;
+}
+
+.searchPage .input-group {
+    margin-bottom: 1rem;
+}
+
+.searchResults {
+    padding-left: 1rem;
+
+    > li {
+        border-bottom: 1px solid #ccc;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        list-style-position: outside;
+        > cite {
+            display: block;
+            font-size: $font-size-sm;
+        }
+        .discreet {
+            display: none;
+        }
+    }
+
+    .result-title {
+        font-family: $app-font-family-strong; 
+        font-weight: 500; 
+        font-size: 1.3rem;
+    }
+}

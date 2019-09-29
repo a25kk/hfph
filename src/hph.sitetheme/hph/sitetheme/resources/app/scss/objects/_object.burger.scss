@@ -1,0 +1,41 @@
+.o-burger {
+    display: $o-burger-display;
+    margin-top: $o-burger-margin-top;
+    @include mq($from: lg) {
+        margin-top: 0;
+    }
+}
+
+.o-burger__button {
+    display: flex;
+    flex-direction: $o-burger-flex-direction;
+    line-height: 1;
+    background: $o-burger-background-color; // remove default button style
+    border: $o-burger-border-width $o-burger-border-style $o-burger-border-color; // remove default button style
+    cursor: pointer;
+    width: 100%;
+    padding: 0 1.5rem 0 0;
+    @include mq($from: lg) {
+        padding-right: 0;
+    }
+}
+
+.o-burger__text {
+    align-self: flex-end;
+    font-family: $o-burger-font;
+    font-size: $app-font-size-sm;
+    color: $o-burger-text-color;
+    text-transform: $o-burger-text-transform;
+    padding-bottom: $o-burger-padding-y;
+    @include mq($from: sm) {
+        font-size: $o-burger-text-font-size;
+        padding-bottom: 0;
+    }
+}
+
+.o-burger__icon {
+    margin-right: .25rem;
+    margin-bottom: .075rem;
+    font-size: $o-burger-icon-font-size;
+    color: $o-burger-icon-color;
+}

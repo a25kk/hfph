@@ -1,0 +1,8 @@
+// Prevent fake bolds
+b,
+strong {
+    font-weight: $app-font-weight-strong;
+    @include when-inside('.font__primary--loaded') {
+        font-weight: $app-font-weight-strong-custom;
+    }
+}

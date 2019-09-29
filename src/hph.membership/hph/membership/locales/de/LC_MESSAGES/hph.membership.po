@@ -1,0 +1,576 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: 2017-02-15 08:58+0000\n"
+"PO-Revision-Date: 2017-02-15 10:15+0100\n"
+"Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
+"Language-Team: KK Language Team <info@kreativkombinat.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Language-Code: de\n"
+"Language-Name: German\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: hph.membership\n"
+"Language: de\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#: ../workspace_templates/view.pt:103
+msgid "A list of content items you are asigned as a contributor"
+msgstr "Eine Liste von Inhalten, zu denen Sie beitragen."
+
+#: ../setpassword.py:92
+msgid "A new password has been set"
+msgstr "Ein neues Passwort wurde gespeichert"
+
+#: ../userfactory.py:102
+msgid "A new user acount has successfully been created"
+msgstr "Der neue Benutzerzugang wurde erstellt"
+
+#: ../useraccount_templates/useraccount.pt:14
+#: ../useraccount_templates/useraccounterror.pt:14
+msgid "Activate account"
+msgstr "Zugang aktivieren"
+
+#: ../asignment_templates/asignmentview.pt:61
+msgid "Active Asignments"
+msgstr "Aktive Zuweisungen"
+
+#: ../setpassword.py:40
+msgid "Add new password"
+msgstr "Neues Passwort hinzufügen"
+
+#: ../setpassword.py:62 ../userfactory.py:54
+msgid "Add new user"
+msgstr "Neuen Benutzer hinzufügen"
+
+#: ../userfactory.py:47
+msgid "Add new user account"
+msgstr "Neues Benutzerkonto erstellen"
+
+#: ../setpassword.py:25
+msgid "Again for confirmation"
+msgstr "Bitte zur Bestätigung wiederholen"
+
+#: ../asignment_templates/asignmentusers.pt:54
+msgid "Allow user to contribute in this context"
+msgstr "Benutzer zur Mitarbeit an diesem Inhalt aktivieren"
+
+#: ../workspace.py:106
+msgid "Alumni description"
+msgstr "Sie haben ein Studium an der Hochschule abgeschlossen und wollen gerne auf dem Laufenden bleiben darüber, was die Hochschule bewegt? Dann sind Sie im Bereich der Alumnae und Alumni genau richtig. Dieser Link führt Sie direkt dorthin. "
+
+#: ../asignment_templates/asignmentusers.pt:17
+#: ../asignment_templates/asignmentview.pt:17
+msgid "Asignment"
+msgstr "Zuweisung"
+
+#: ../discourse_templates/discoursessoerror.pt:19
+msgid "Authentication with our discussion forum located at http://discourse.hfph.de is provided via single sign on (SSO)."
+msgstr "Die Anmeldung zu unserem Diskussionsforum unter http://forum.hfph.de wird über Single Sign On (SSO) bereitgestellt."
+
+#: ../discourse_templates/discoursessoerror.pt:37
+msgid "Back to discussion forum"
+msgstr "Zum Diskussionsforum"
+
+#: ../invitation_templates/invitenewuser.pt:31
+msgid "Back to user manager"
+msgstr "Zurück zur Benutzerverwaltung"
+
+#: ../signin.py:40
+msgid "Came From"
+msgstr "Zuletzt besucht"
+
+#: ../browser/user-details.pt:56 ../workspace_templates/view.pt:37
+msgid "Change password"
+msgstr "Passwort ändern"
+
+#: ../useraccount_templates/useraccount.pt:38
+msgid "Confirm"
+msgstr "Wiederholen"
+
+#: ../profiles/default/types/hph.membership.memberfolder.xml
+msgid "Container for member workspaces"
+msgstr "Ordner für Benutzerbereiche"
+
+#: ../memberfolder_templates/memberrecords.pt:24
+msgid "Dangerzone: manage external user database integration"
+msgstr "Dangerzone: benutzerverwaltung über Schnittstelle zur Hochschuldatenbank"
+
+#: ../interfaces.py:33
+msgid "Discourse Base URL"
+msgstr "Discourse URL"
+
+#: ../interfaces.py:37
+msgid "Discourse SSO Secret"
+msgstr "Discourse SSO Secret"
+
+#: ../userfactory.py:21
+msgid "E-Mail"
+msgstr "E-Mail-Adresse"
+
+#: ../invitation.py:133
+msgid "Einladung zur neuen hfph.de Seite"
+msgstr "Einladung zur neuen hfph Seite"
+
+#: ../memberinfo_templates/enableuseraccount.pt:32
+msgid "Enable/Disable User"
+msgstr "Zugang aktiveren/deaktivieren"
+
+#: ../interfaces.py:34
+msgid "Enter the URL of the discourse installation"
+msgstr "Geben Sie hier die vollständige URL der Discourse Installation ein"
+
+#: ../asignment_templates/asignmentview.pt:25
+msgid "Enumerating all registered users would have certain performance implications and therefore a user group must be selected"
+msgstr "Da die Auflistung aller Benutzerkonten sich negativ auf die Performance der Seite auswirkt, muss zur Auswahl einer Benutzers zunächst eine Benutzergruppe selektiert werden"
+
+#: ../configure.zcml:37
+msgid "Extension profile for HPH user management and membership tools"
+msgstr "Erweiterungsprofil für Benutzerkonten und Benutzerverwaltung"
+
+#: ../memberfolder.py:326
+msgid "External records stored for import"
+msgstr "Externe Daten für den Import"
+
+#: ../userfactory.py:25
+msgid "Fullname"
+msgstr "Vollständiger Name"
+
+#: ../asignment_templates/asignmentview.pt:42
+msgid "Group Selection"
+msgstr "Gruppenauswahl"
+
+#: ../profiles/default/controlpanel.xml
+msgid "HPH Membership Tool"
+msgstr "HPH Membership Tool"
+
+#: ../configure.zcml:37
+msgid "HPH user management and membership tools"
+msgstr "HPH Benutzerverwaltung"
+
+#: ../discourse_templates/discoursessoerror.pt:23
+msgid "If you see this page than either the url you were trying to open does not exist or an error happened when trying to authenticate your credentials."
+msgstr "Diese Seite wird angezeigt, weil die aufgerufene URL nicht korrekt ist oder ein Fehler in der Freigabe der Zugangsdaten augetreten ist."
+
+#: ../memberfolder.py:30
+msgid "Importable API Records"
+msgstr "Importierbare DAten aus der API"
+
+#: ../tool.py:125
+msgid "Invitation to join the HfPH portal"
+msgstr "Hochschule für Philosophie München: Einladung zur Webseite"
+
+#: ../invitation.py:71
+msgid "Invitation to join the HfPH relaunch"
+msgstr "Einladung zur neugestalteten HfPH Seite"
+
+#: ../invitation_templates/invitenewuser.pt:26
+msgid "Invite new users by passing a list of email addresses"
+msgstr "Laden Sie neue Benutzer zur Teilnahme ein, indem Sie eine Liste von E-Mail-Adressen bereitstellen"
+
+#: ../asignment_templates/asignmentusers.pt:64
+msgid "Klick to remove user asignment"
+msgstr "Anklicken, um die ZUweisung zu diesem Inhalt zu entfernen"
+
+#: ../workspace.py:110
+msgid "Lectures description"
+msgstr "Über diesen Link können Sie direkt auf die Profilseiten aller Mitglieder des Lehrkörpers an der Hochschule für Philosophie zugreifen. Wenn Sie selbst Lehrender bzw. Lehrende sind, können Sie Ihre persönliche Seite (inkl. Unterseiten) dort bearbeiten."
+
+#: ../discourse.py:59 ../signin.py:54
+msgid "Log in"
+msgstr "Login"
+
+#: ../discourse.py:33 ../signin.py:30
+msgid "Login Name"
+msgstr "Anmeldename"
+
+#: ../discourse.py:109 ../signin.py:105
+msgid "Login failed. Both email address and password are case sensitive, check that caps lock is not enabled."
+msgstr "Die Anmeldung ist fehlgeschlagen. Sowohl bei der E-Mail-Adresse als auch beim Passwort ist die Gross-/Kleinschreibung zu beachten"
+
+#: ../discourse.py:115 ../signin.py:110
+msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled."
+msgstr "Die Anmeldung ist fehlgeschlagen. Sowohl bei der E-Mail-Adresse als auch beim Passwort ist die Gross-/Kleinschreibung zu beachten"
+
+#: ../browser/user-details.pt:52 ../workspace_templates/view.pt:33
+msgid "Login:"
+msgstr "Login:"
+
+#: ../signin.py:55
+msgid "Long time no see."
+msgstr "Lange nicht mehr gesehen"
+
+#: ../memberinfo_templates/enableuseraccount.pt:24
+msgid "Manage user workspaces and user accounts"
+msgstr "Verwalten Sie Benutzerkonten und Arbeitsplätze"
+
+#: ../memberfolder_templates/memberrecords.pt:32
+msgid "Manage users"
+msgstr "Verwalten der Benutzerzugänge"
+
+#: ../profiles/default/types/hph.membership.memberfolder.xml
+msgid "MemberFolder"
+msgstr "Benutzerordner"
+
+#: ../interfaces.py:27
+msgid "Membership Tool API Token"
+msgstr "Member Tool API Token"
+
+#: ../interfaces.py:24
+msgid "MembershipTool API Key"
+msgstr "API Schlüssel für die Benutzerverwaltung"
+
+#: ../interfaces.py:21
+msgid "MembershipTool API Version"
+msgstr "API Version der externen Benutzerdatenbank"
+
+#: ../interfaces.py:18
+msgid "MembershipTool IP"
+msgstr "IP Adresse der Benutzerdatenbank"
+
+#: ../setpassword.py:21 ../useraccount_templates/useraccount.pt:28
+msgid "New Password"
+msgstr "Neues Passwort"
+
+#: ../memberfolder_templates/workspacemissing.pt:23
+msgid "No activity recorded yet"
+msgstr "Er wurde bis dato noch keine Aktivität aufgezeichnet."
+
+#: ../asignment.py:97 ../browser/usermanager.py:278 ../workspace.py:49
+msgid "No email provided"
+msgstr "Es wurde keine E-Mail-Addresse übermittelt"
+
+#: ../useraccount.py:74
+msgid "No matching user account found"
+msgstr "Es wurde kein passendes Benutzerkonto zu Ihrer Anfrage gefunden"
+
+#: ../useraccount.py:81
+msgid "No stored access token found"
+msgstr "Es wurde kein gültiger Token zur Verifizierung Ihrer Anfrage gefunden."
+
+#: ../asignment_templates/asignmentusers.pt:25
+msgid "Only one action can be performed due to security reindexing taking place. Please be patient."
+msgstr "Leider kann aufgrund der im Hintergrund durchgeführten Aktualisierung der Security Settings in der Datenbank nur jeweils eine Aktion ausgeführt werden. Eine Mehrfachauswahl ist deswegen leider nicht möglich."
+
+#: ../discourse.py:37 ../signin.py:35
+msgid "Password"
+msgstr "Passwort"
+
+#: ../useraccount.py:115
+msgid "Passwords must consist of at least 8 characters"
+msgstr "Passwörter müssen mindestens 8 Zeichen lang sein"
+
+#: ../useraccount_templates/useraccount.pt:18
+msgid "Passwords require a minimum length of 8 characters."
+msgstr "Passwörter sollten eine Länge von mindestens 8 Zeichen aufweisen"
+
+#: ../workspace_templates/view.pt:100
+msgid "Personal Contents"
+msgstr "Persönliche Inhalte"
+
+#: ../profiles/default/types/hph.membership.workspace.xml
+msgid "Personal workspace container for members"
+msgstr "Persönlicher Arbeitsbereich für Benutzer"
+
+#: ../tool.py:114
+msgid "Please change your account information for HfPH"
+msgstr "Bitte aktualisieren Sie Ihre Benutzerinformationen für HfPH"
+
+#: ../useraccount_templates/useraccounterror.pt:19
+msgid "Please check wether the requested URL is complete and contains the required access token to verify your identity. If the url is correct and the error persists it is most likely due to an incorrectly generated user account. Our team has already been informed about this error by our automatic exception handler system."
+msgstr "Bitte überprüfen Sie die aufgerufene Adresse auf Vollständigkeit insbesondere im Hinblick auf den Zugriffsschlüssel zur Identifizierung Ihres Benutzerkontos. Sollten die URL korrekt sein oder ein Link in einer E-Mail diese Seite aufgerufen haben, dann wurde wahrscheinlich Ihr Benutzerkonto nicht oder nicht vollständig angelegt. Unser Team wurde in diesem Fall bereits automatisch über unser System informiert."
+
+#: ../useraccount_templates/useraccount.pt:56
+msgid "Please check wether the requested URL is complete and contains the required access token to verify your identity. If the url is correct and the error persists it is most likely due to an incorrectly gernerated user account. Please contact our team if you have any questions."
+msgstr "Bitte überprüfen Sie die aufgerufene URL auf Vollständigkeit und das Vorhandensein eines Zugriffsschlüssel zur Betätigung Ihrer Identität. Wenn die URL korrekt zu sein scheint und der Fehler weiterhin auftritt, dann liegt das möglicherweise an einem nicht korrekt erstellten Benutzerkonto. Bitte kontaktieren Sie unser Webseiten-Team für Fragen bezüglich dem weitern Vorgehen."
+
+#: ../discourse.py:60
+msgid "Please enter your credentials to verify SSO login"
+msgstr "Um Ihre Zugangsdaten zur Teilnahme an unserem Diskussionsforum zu verwenden, geben Sie diese bitte zur Bestätigung hier ein."
+
+#: ../asignment_templates/asignmentview.pt:22
+msgid "Please select the user group to display for user selection"
+msgstr "Bitte wählen Sie die Gruppe aus, deren Mitgleider zur Zuweisung angezeigt werden sollen"
+
+#: ../asignment_templates/asignmentusers.pt:22
+msgid "Please select the user to update from the list"
+msgstr "Bitte Benutzerkonto auswählen, um die Zugriffsberechtigungen zu aktualisieren"
+
+#: ../useraccount_templates/useraccount.pt:15
+msgid "Please set a password to finalize and activate your account."
+msgstr "Bitte geben Sie ein Passwort ein, um Ihr Benutzerkonto zu vervollständigen"
+
+#: ../setpassword.py:74 ../userfactory.py:66
+msgid "Process has been cancelled."
+msgstr "Der Prozess wurde abgebrochen"
+
+#: ../workspace.py:108
+msgid "Prophil description"
+msgstr "Als Mitglied von pro philosophia e.V. haben Sie hier direkten Zugriff auf alle wichtigen Informationen rund um den Förderverein der Freunde und Alumni der Hochschule für Philosophie. "
+
+#: ../asignment_templates/asignmentusers.pt:32
+msgid "Quit user selection"
+msgstr "Benutzerauswahl abbrechen"
+
+#: ../workspace.py:173
+msgid "Removed {0} broken assignments from worklist"
+msgstr "{0} nicht korrekte Zuweisungen werden automatisch aus der Liste entfernt."
+
+#: ../signin.py:185
+msgid "Request sent."
+msgstr "Die Anfrage wurde versandt"
+
+#: ../discourse.py:168
+msgid "Required parameters for SSO credential verification are missing in the request"
+msgstr "Die notwendigen Parameter, um Ihre Anmeldedaten für die Verwendung zur Anmeldung am Diskussionsforum zu verwenden, fehlen in dieser Anfrage"
+
+#: ../asignment.py:163
+msgid "Responsible user asignment successfully updated"
+msgstr "Der für diesen Inhalt zugewiesene verantwortliche User wurde aktualisiert"
+
+#: ../discourse.py:45
+msgid "SSO Signature"
+msgstr "SSO Signatur"
+
+#: ../discourse.py:41
+msgid "SSO payload"
+msgstr "SSO Payload"
+
+#: ../useraccount_templates/useraccount.pt:45
+msgid "Save"
+msgstr "Speichern"
+
+#: ../invitation_templates/invitenewuser.pt:66
+msgid "Send password reset mails"
+msgstr "Passwort senden"
+
+#: ../asignment_templates/asignmentview.pt:29
+msgid "Setting and revoking user roles and permissions is a highly critical task and will always have certain performance implications. Therefore lists of user roles are most likely cached heavily by any larger application server and might appear to be out of date. Please be patient and check back later."
+msgstr "Das Zuweisen von Rollen und Rechten ist ein systemkritischer Vorgang und wird deshalb immer zu Lasten der Performance gehen. Aus diesem Grund ist z.B. auch die Liste der aktiven Rollen in einem Kontext in der Regel bei grosseren Applikationen stark gecached und kann deshalb unter Umständen nicht aktuell angezeigt werden."
+
+#: ../useraccount_templates/useraccounterror.pt:24
+msgid "Should you encounter this error repeatedly than do not hesitate to contact our website team and we will try to resolve the specific issue."
+msgstr "Sollten Sie diesen Fehler zum wiederholten Male erhalten, kontaktieren Sie bitte unser Webseiten Team. Wir werden dann versuchen das Problem zu analysieren. Vielen Dank."
+
+#: ../discourse_templates/discoursesigninform.pt:25
+#: ../signin_templates/signinform.pt:25
+msgid "Sign in"
+msgstr "Anmelden"
+
+#: ../discourse_templates/discoursessoerror.pt:16
+msgid "Signin error"
+msgstr "Fehler bei der Anmeldung"
+
+#: ../browser/user-details.pt:60 ../workspace_templates/view.pt:41
+msgid "Signout"
+msgstr "Abmelden"
+
+#: ../discourse_templates/discoursessoerror.pt:35
+msgid "Site frontpage"
+msgstr "Startseite"
+
+#: ../workspace.py:102
+msgid "Standard description for workspace links"
+msgstr "Standard Beschreibung"
+
+#: ../memberfolder_templates/memberrecords.pt:42
+msgid "Stored Records"
+msgstr "Gespeicherte Benutzerdaten"
+
+#: ../workspace.py:104
+msgid "Students and guests description"
+msgstr "Sie haben nun – neben den Standard-Features der Homepage – zusätzlich die Möglichkeit, auf bestimmte geschützte Bereiche zuzugreifen (unter anderem auf die Seiten der studentischen Initiativen). Über diesen Quicklink gelangen Sie direkt zu den Lehrveranstaltungen des laufenden Semesters, wo Sie die zugehörigen Materialien herunterladen können. "
+
+#: ../discourse.py:152
+msgid "The Discourse SSO endpoint can only be accessed via SSL since we do not support transfer of authentication tokens via unencrypted connections."
+msgstr "Die Seite zur Freigabe von Benutzerdaten für die Anmeldung am Diskussionsforum kann nur über eine gesicherte Verbindung aufgerufen werden. Die Übertragung von Freigabedaten über eine unverschlüsselte Verbindung wird nicht unterstützt"
+
+#: ../discourse.py:161
+msgid "The Discourse SSO endpoint has not been configured yet"
+msgstr "SSO für das Diskussionsforum wurde noch nicht konfiguriert"
+
+#: ../useraccount.py:120
+msgid "The entered password and confirmation do not match."
+msgstr "Die angegeben Passwörter stimmen nicht überein. Bitte versuchen Sie es erneut."
+
+#: ../browser/usermanager.py:108
+msgid "There were errors."
+msgstr "Es sind Fehler aufgetreten."
+
+#: ../interfaces.py:28
+msgid "This API token can be used to authenticate with the portal e.g. when calling the member updater via external cronjob"
+msgstr "Dieser Token kann verwendet werden, um sich am Portal anzumelden, z.B. bei Aufrufen über externe Dienste"
+
+#: ../browser/usermanager.py:367 ../invitation.py:52 ../memberfolder.py:115
+msgid "This field is required"
+msgstr "Dieses Feld ist ein Pflichtfeld"
+
+#: ../discourse_templates/discoursessoerror.pt:28
+msgid "This incident will be reported to our technical staff. No further action is required on your part."
+msgstr "Dieses Problem wird im System aufgezeichnet"
+
+#: ../setpassword.py:85
+msgid "This password request reset is invalid"
+msgstr "Die Anfrage zum Setzen eines neuen Passworts ist ungültig"
+
+#: ../signin.py:188
+msgid "Unable to send request."
+msgstr "Die Anfrage konnte nicht versandt werden"
+
+#: ../useraccount_templates/useraccount.pt:53
+msgid "Unauthorized"
+msgstr "Unzureichende Berechtigungen"
+
+#: ../memberfolder_templates/memberrecords.pt:34
+msgid "Update and manage user records coming from an external database and provided via url endpoint"
+msgstr "Aktualisierung und Verwaltung der Benutzerdaten, die von der externen Datenbank der Hochschule geladen werden"
+
+#: ../memberinfo_templates/enableuseraccount.pt:51
+msgid "Update user status"
+msgstr "Benutzerstatus ändern"
+
+#: ../memberfolder_templates/memberrecords.pt:54
+msgid "User Accounts"
+msgstr "Benutzerkonten"
+
+#: ../invitation_templates/invitenewuser.pt:21
+#: ../invitation_templates/userinvitation.pt:21
+msgid "User Invitations"
+msgstr "Benutzer Einladungen"
+
+#: ../browser/user-details.pt:26 ../browser/usermanager.pt:17
+#: ../invitation_templates/userinvitation.pt:32
+msgid "User Manager"
+msgstr "Benutzerverwaltung"
+
+#: ../memberfolder_templates/memberrecords.pt:18
+msgid "User Records"
+msgstr "Benutzerdaten"
+
+#: ../asignment_templates/asignmentusers.pt:38
+msgid "User Selection"
+msgstr "Benutzerauswahl"
+
+#: ../invitation.py:223
+msgid "User invitation email has been sent successfully."
+msgstr "Eine E-Mail mit Informationen zur Teilnahme an der neuen Webseite wurde verschickt"
+
+#: ../useraccount_templates/useraccounterror.pt:15
+msgid "We are sorry to inform you that this request can not be processed."
+msgstr "Leider kann diese Anfrage nicht ausgeführt werden."
+
+#: ../useraccount_templates/useraccount.pt:54
+msgid "We are sorry to inform you that this request can not be resolved."
+msgstr "Verzeihung, Ihre Anfrage kann nicht korrekt aufgelöst und beantwortet werden."
+
+#: ../discourse_templates/discoursessoerror.pt:33
+msgid "Where do you want to go next?"
+msgstr "Weiterführende Verweise:"
+
+#: ../browser/user-details.pt:41
+#: ../memberfolder_templates/workspacemissing.pt:18
+#: ../profiles/default/types/hph.membership.workspace.xml
+msgid "Workspace"
+msgstr "Arbeitsplatz"
+
+#: ../memberfolder_templates/usermanager.pt:21
+msgid "Workspaces"
+msgstr "Arbeitsplätze"
+
+#: ../discourse.py:129 ../signin.py:133 ../useraccount.py:152
+msgid "You are now logged in."
+msgstr "Sie sind nun angemeldet"
+
+#: ../asignment_templates/asignmentusers.pt:59
+msgid "asigned"
+msgstr "zugewiesen"
+
+#. Default: "${number} Benutzer wurden gefunden."
+#: ../browser/usermanager.pt:83
+msgid "batch_x_items_matching_your_criteria"
+msgstr "Ergebnisse für Ihre Anfrage"
+
+#: ../setpassword.py:70 ../userfactory.py:62
+msgid "cancel"
+msgstr "abbrechen"
+
+#. Default: "This search form enables you to find users by specifying one or more search criteria."
+#: ../browser/usermanager.py:103
+msgid "description_member_search"
+msgstr "Formular, um Benutzer nach Kriterien in Kombination mit Gruppenzugehörigkeit zu finden."
+
+#. Default: "Search for users"
+#: ../browser/usermanager.py:102
+msgid "heading_member_search"
+msgstr "Benutzersuche"
+
+#. Default: "Find users whose email address contain"
+#: ../browser/usermanager.py:43
+msgid "help_search_email"
+msgstr "Benutzer finden, deren E-Mail-Adresse folgenden text enthält"
+
+#. Default: "Find users whose full names contain"
+#: ../browser/usermanager.py:50
+msgid "help_search_fullname"
+msgstr "Benutzer finden, deren voller Name folgende Inhalte enthält"
+
+#. Default: "Find all members of selected groups."
+#: ../browser/usermanager.py:64
+msgid "help_search_groups"
+msgstr "Finden Sie alle Mitglieder der folgenden Benutzergruppen."
+
+#. Default: "Find users whose login name contain"
+#: ../browser/usermanager.py:36
+msgid "help_search_name"
+msgstr "Benutzer, deren Login Name (üblicherweise eine E-Mail-Adresse) folgende Parameter enthält."
+
+#. Default: "E-mail"
+#: ../browser/usermanager.py:42
+msgid "label_email"
+msgstr "E-Mail-Adresse"
+
+#. Default: "Full Name"
+#: ../browser/usermanager.py:49
+msgid "label_fullname"
+msgstr "Voller Name"
+
+#. Default: "Group(s)"
+#: ../browser/usermanager.py:63
+msgid "label_groups"
+msgstr "Benutzergruppen"
+
+#. Default: "Name"
+#: ../browser/usermanager.py:35
+msgid "label_name"
+msgstr "Anmeldename"
+
+#. Default: "Search"
+#: ../browser/usermanager.py:190
+msgid "label_search"
+msgstr "Benutzersuche"
+
+#. Default: "User Search Criteria"
+#: ../browser/usermanager.py:29
+msgid "legend_member_search_criteria"
+msgstr "Suchkriterien Benutzer"
+
+#. Default: "User Group Search"
+#: ../browser/usermanager.py:57
+msgid "legend_member_search_groups"
+msgstr "Suchkriterien Benutzergruppen"
+
+#. Default: "You are not allowed to list portal members."
+#: ../browser/user-details.pt:36 ../browser/usermanager.pt:76
+msgid "member_listing_not_allowed"
+msgstr "Der Benutzer, mit dem Sie angemeldet sind, hat nicht die notwendigen Zugriffsrechte, um Details zu anderen Benutzern anzuzeigen."
+
+#. Default: "Abgelegt unter"
+#: ../workspace_templates/view.pt:121
+msgid "text_searchitem_location"
+msgstr "Ort in der Seite"
+
+#: ../invitation.py:120
+msgid "{0} invitation emails successfully sent."
+msgstr "{0} E-Mail-Einladungen wurden erfolgreich verschickt"

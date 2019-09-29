@@ -1,0 +1,77 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.membership">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <div class="app-section">
+      <div class="app-section-aside">
+          <div class="app-box app-box-workspaces">
+              <div class="app-box-header">
+                  <h2 class="app-box-heading" i18n:translate="">
+                      Asignment
+                  </h2>
+              </div>
+              <div class="app-box-content">
+                  <p class="lead" i18n:translate="">
+                    Please select the user group to display for user selection
+                  </p>
+                  <p i18n:translate="">Enumerating all registered users would have
+                    certain performance implications and therefore a user group
+                    must be selected
+                  </p>
+                  <p class="app-callout app-callout-warning" i18n:translate="">
+                    Setting and revoking user roles and permissions is a highly
+                    critical task and will always have certain performance
+                    implications. Therefore lists of user roles are most likely
+                    cached heavily by any larger application server and might
+                    appear to be out of date. Please be patient and
+                    check back later.
+                  </p>
+              </div>
+          </div>
+      </div>
+      <div class="app-section-main">
+        <div class="app-page-header">
+            <h1 i18n:translate="">Group Selection</h1>
+            <p class="lead" tal:content="context/Title">Available groups:</p>
+        </div>
+        <div class="app-page-body">
+            <div class="list-group">
+                <tal:block tal:repeat="item view/groups">
+                    <a href="#" class="list-group-item justify-content-between"
+                        tal:attributes="href string:${context/absolute_url}/@@asignment-users/${item/name}">
+                      <h4 class="list-group-item-heading"
+                        tal:content="item/name">
+                        List group item heading
+                      </h4>
+                      <span class="pull-right tag" tal:content="item/users">index</span>
+                    </a>
+                </tal:block>
+            </div>
+        </div>
+        <div class="app-page-body">
+            <div class="app-page-header">
+                <h2 i18n:translate="">Active Asignments</h2>
+            </div>
+
+          <ul>
+            <li tal:repeat="item view/active_asignments">
+              <a href="${context/portal_url}/ws/${item/userid}">
+                ${item/name}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </metal:content-core>
+</metal:main>
+</body>
+</html>

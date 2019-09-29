@@ -1,0 +1,55 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:browser="http://namespaces.zope.org/browser"
+        xmlns:z3c="http://namespaces.zope.org/z3c"
+        i18n_domain="hph.faculty">
+
+    <!-- Page section snippet -->
+    <browser:page
+            for="hph.faculty.facultydirectory.IFacultyDirectory"
+            name="faculty-listing"
+            class=".faculty.FacultyListing"
+            template="faculty-listing.pt"
+            permission="zope2.View"
+    />
+
+    <browser:page
+            for="*"
+            name="faculty-listing-filter"
+            class=".faculty.FacultyListingFilter"
+            template="faculty-listing-filter.pt"
+            permission="zope2.View"
+    />
+
+    <browser:page
+            for="hph.faculty.facultymember.IFacultyMember"
+            name="faculty-member"
+            class=".faculty.FacultyMember"
+            template="faculty-member.pt"
+            permission="zope2.View"
+    />
+
+    <browser:page
+            for="hph.faculty.facultymember.IFacultyMember"
+            name="associated-lectures"
+            class=".lectures.CourseView"
+            template="lectures.pt"
+            permission="zope2.View"
+    />
+
+    <browser:page
+            for="hph.faculty.facultymember.IFacultyMember"
+            name="publications"
+            class=".publications.FacultyMemberPublicationsView"
+            template="publications.pt"
+            permission="zope2.View"
+    />
+
+    <browser:page
+            for="*"
+            name="faculty-member-content-factory"
+            class=".faculty.FacultyMemberContentFactory"
+            permission="cmf.ManagePortal"
+    />
+
+</configure>

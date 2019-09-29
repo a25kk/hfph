@@ -1,0 +1,41 @@
+//
+// Plone album and gallary view
+// ---------------------------------
+
+.photoAlbumFolder {
+    background-image: none;
+    margin-right: 38px !important;
+    margin-bottom: 20px !important;
+}
+
+.photoAlbumEntry {
+    background-image: none;
+    background-repeat: no-repeat;
+    border: 0;
+    float: left;
+    height: 185px;
+    margin: floor((@line-height-computed * 0.75));
+    padding: @line-height-computed;
+    text-align: center;
+    box-shadow: 0 0 3px rgba(50, 50, 50, 0.75);
+}
+
+.photoAlbumEntry a {
+    display: block;
+    font-size: (@font-size-small - 2);
+    height: 169px;
+    margin: 0 auto 0;
+    text-decoration: none;
+    width: 130px;
+}
+
+.photoAlbumEntryTitle {
+    display: block;
+    height: 3.6em;
+    overflow: hidden;
+    width: 128px;
+}
+
+.visualClear {
+    .clearfix()
+}

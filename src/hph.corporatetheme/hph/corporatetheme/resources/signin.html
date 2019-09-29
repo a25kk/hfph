@@ -1,0 +1,50 @@
+---
+layout: simple
+title: Sign in
+slug: signin
+base_url: "../../"
+---
+<main class="app-content-body">
+  <div class="container">
+    <section class="app-signin" id="app-signin">
+        <div class="row">
+            <div class="col-xs-12 col-md-6">
+                <div class="page-aside">
+                    <a class="page-aside-brand" href="/">
+                        <img class="img-responsive" src="{{ page.base_url }}assets/img/logo.jpg"
+                            width="243" height="97"
+                            alt="Hochschule für Philosophie München" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <section class="page page-signin">
+                    <article class="page-content" id="app-signin-content">
+                        <header class="page-header">
+                            <h2>
+                                Anmelden
+                            </h2>
+                        </header>
+                        <form class="enableAutoFocus" action="." id="login_form" method="post">
+                            <div id="login-form">
+                                <div class="field">
+                                    <label for="__ac_name">E-Mail-Adresse</label>
+                                    <input type="text" id="__ac_name" value="" name="__ac_name" size="15">
+                                </div>
+                                <div class="field">
+                                        <label for="__ac_password">Passwort</label>
+                                        <input type="password" id="__ac_password" name="__ac_password" size="15">
+                                </div>
+                                <div class="formControls text-right">
+                                    <a class="btn btn-link btn-sm" href="/mail_password_form?userid=">Passwort vergessen?</a>
+                                    <input type="submit" value="Anmelden" name="submit" class="btn btn-primary btn-lg">
+                                </div>
+                            </div>
+                        </form>
+                    </article>
+                </section>
+            </div>
+        </div>
+    </section>
+  </div>
+</main>

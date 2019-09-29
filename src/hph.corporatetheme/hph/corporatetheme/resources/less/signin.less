@@ -1,0 +1,55 @@
+//
+// Custom signin page styles
+// ---------------------------------------------------
+
+.app-simple {
+    margin-top: @navbar-height;
+    border-top: (@line-height-computed / 2) solid @brand-primary;
+}
+
+.app-signin {
+    .center-block();
+    max-width: @screen-sm;
+    margin-top: (@navbar-height * 2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: @border-radius-base;
+}
+
+.page-aside {
+    position:relative;
+    padding: (@line-height-computed * 2) @line-height-computed;
+}
+
+.page-signin {
+    max-width: 480px;
+    background: #fff;
+    #gradient > .vertical(@start-color: #fff; @end-color: @gray-lighter);
+    color: @gray-light;
+    .page-content {
+        padding: @line-height-computed;
+    }
+    @media (min-width: @screen-tablet) {
+        border-left: 1px solid @gray-lighter;
+    }
+}
+
+.page-signin .documentDescription {
+    margin-bottom: @line-height-computed;
+}
+.page-signin p {
+    .text-muted();
+}
+
+// registration
+.app-register {
+    margin-bottom: @navbar-height;
+    border-bottom: 5px solid @brand-success;
+}
+
+.app-register-actions {
+    padding: @line-height-computed 0;
+}
+
+

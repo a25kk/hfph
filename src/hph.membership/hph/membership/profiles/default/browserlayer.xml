@@ -1,0 +1,6 @@
+<layers>
+  <layer
+    name="hph.membership.layer"
+    interface="hph.membership.interfaces.IHPHMembershipTool"
+  />
+</layers>

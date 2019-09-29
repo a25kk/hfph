@@ -1,0 +1,70 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.lectures">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <div class="app-page-section">
+      <div class="app-page-section-aside">
+          <div class="app-box app-box-workspaces">
+              <div class="app-box-header">
+                  <h2 class="app-box-heading" i18n:translate="">
+                      Integrations
+                  </h2>
+              </div>
+              <div class="app-box-content">
+                  <p class="lead" i18n:translate="">
+                    Please select the 3rd party project and copy the integration
+                    code
+                  </p>
+                  <p i18n:translate="">
+                    The code must be copy and pasted as displayed here in order
+                    to trigger the ajax call. Note: since the load is asynchronous
+                    and the script is loaded defered, it might take a moment for
+                    the caller to run.
+                  </p>
+              </div>
+              <div class="app-box-footer">
+                  <a class="btn btn-danger btn-sm"
+                      tal:attributes="href string:${context/absolute_url}">
+                      &times; <span i18n:translate="">Quit xhr integrations</span></a>
+              </div>
+          </div>
+      </div>
+      <div class="app-page-section-main">
+        <div class="app-page-header">
+            <h1 i18n:translate="">3rd party projects</h1>
+        </div>
+        <div class="app-page-body">
+            <div class="list-group">
+                <tal:block tal:repeat="filter view/filter_options">
+                    <div class="list-group-item">
+                      <h4 class="list-group-item-heading">
+                        ${filter/title}
+                      </h4>
+                      <p class="list-group-item-text" i18n:translate="">
+                          Filter course listing on <code>${filter/value}</code>:
+                          <a href="${context/absolute_url}?content_filter=1&amp;project=${filter/value}">Preview</a>
+                      </p>
+                    <pre>
+&lt;div data-appui="ajaxified"
+    data-appui-target="${context/absolute_url}?content_filter=1&amp;project=${filter/value}"&gt;
+    &lt;a href="${context/absolute_url}?content_filter=1&amp;project=${filter/value}"&gt;${filter/title} Listing&lt;/a&gt;
+&lt;/div&gt;
+                    </pre>
+                    </div>
+                </tal:block>
+            </div>
+        </div>
+      </div>
+    </div>
+  </metal:content-core>
+</metal:main>
+</body>
+</html>

@@ -1,0 +1,167 @@
+//
+// Custom signin page styles
+// ---------------------------------------------------
+
+.app-layout-simple {
+    background: gray('800');
+}
+
+.app-signin-wrapper {
+    margin: 0 auto;
+    max-width: 480px;
+}
+
+.app-signin {
+    margin-top: ($spacer * 2);
+    border-radius: 0;
+}
+
+.app-signin-header {
+    padding-bottom: 1.5rem;
+    text-align: center;
+}
+
+.app-signin-brand {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.app-signin-title {
+    font-weight: 400;
+    color: $app-primary;
+}
+
+.app-signin-content {
+    padding-bottom: 1.5rem;
+}
+
+.app-signin-form {
+
+}
+
+.app-signin-group {
+    padding: 0;
+    // background: $navbar-default-bg;
+    &.app-signin-group-text {
+        margin-top: $spacer;
+        padding: $spacer 0;
+        border-top: 1px dotted gray('400');
+    }
+    label,
+    .signin-label {
+        font-weight: 300;
+        color: gray('600');
+    }
+}
+
+.app-signin-field {
+    position: relative;
+}
+
+.app-signin-control {
+    padding-bottom: 1rem;
+    &.app-signin-control-bordered {
+        border-bottom: 1px dotted gray('400');
+    }
+}
+
+.page-aside {
+    position:relative;
+    padding: ($spacer * 2) $spacer;
+}
+
+.page-signin {
+    color: gray('400');
+}
+
+.page-signin .documentDescription {
+    margin-bottom: $spacer;
+}
+.page-signin p {
+    @extend .text-muted;
+}
+
+// registration
+.app-register {
+    margin-bottom: ($spacer * 2);
+    border-bottom: 5px solid theme-color('success');
+}
+
+.app-signin-actions,
+.app-register-actions {
+    padding: 2rem 0 0;
+    text-align: center;
+}
+
+.app-signin-btn {
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+}
+
+//== Mailcheck suggestion
+//
+//## Suggestions for email address typos by mailcheck.js
+//## recieve a custom styling
+.app-signin-suggestion {
+    display: block;
+    position: absolute;
+    top: -5px;
+    right: -265px;
+    width: 260px;
+    margin-top: 5px;
+    padding: 0.5rem 5px;
+    color: gray('300') !important;
+    font-size: 0.75rem;
+    text-align: center;
+    text-decoration: none;
+    background-color: gray('800');
+    &:hover {
+        color: #fff !important;
+    }
+}
+
+
+// Testing the floeat label pattern
+/*
+ * Default jvFloat theme.
+ * modify it as you wish!
+ */
+
+.jvFloat {
+    position: relative;
+    display: block;
+    margin-top: 1.5rem;
+}
+
+.jvFloat .placeHolder.required {
+    color: red;
+}
+
+/* Start CSS3 Animations on supported browser */
+.jvFloat .placeHolder {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    font-weight: 400;
+    color: gray('600');
+    transform: translate(0, 0);
+    transition: transform 150ms, opacity 100ms, visibility 100ms;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/*Allows textarea floating placeholder to be positioned distinctly from the normal .placeHolder class
+ * This is required when working with Multiline text areas
+ */
+.jvFloat .placeHolder.textarea {
+    /*top: 0px;*/
+}
+
+.jvFloat .placeHolder.active {
+    display: block;
+    width: 100%;
+    visibility: visible;
+    transform: translate(0, -1em);
+    transition: transform 100ms, opacity 120ms, visibility 120ms;
+    opacity: 1;
+}

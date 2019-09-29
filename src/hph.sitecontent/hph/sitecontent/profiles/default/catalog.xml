@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+    <index name="exclude_from_nav" meta_type="BooleanIndex">
+        <indexed_attr value="exclude_from_nav"/>
+    </index>
+    <index name="exclude_from_toc" meta_type="BooleanIndex">
+        <indexed_attr value="exclude_from_toc"/>
+    </index>
+    <index name="is_featured" meta_type="BooleanIndex">
+        <indexed_attr value="featured"/>
+    </index>
+    <index name="is_promoted" meta_type="BooleanIndex">
+        <indexed_attr value="promoted"/>
+    </index>
+    <column value="exclude_from_nav"/>
+    <column value="exclude_from_toc"/>
+    <column value="is_featured"/>
+    <column value="is_promoted"/>
+</object>

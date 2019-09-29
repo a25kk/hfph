@@ -1,0 +1,151 @@
+//
+// Event Listing and content styles adopted from plone.app.event
+// -------------------------------------------------------------
+
+
+div.event {
+    margin-top: @line-height-computed;
+}
+
+/* BEGIN COMMON EVENT STYLES */
+
+.vevent {
+    background-color: @gray-lighter;
+    border-radius: 0;
+    margin-top: @line-height-computed;
+    padding: @line-height-computed;
+    .cal_date {
+        float:left;
+        vertical-align:top;
+        margin: 0 @line-height-computed floor((@line-height-computed / 2)) 0;
+        padding:floor((@line-height-computed / 2));
+        background-color:white;
+        border:none;
+        border-radius:0;
+        box-shadow: 0.25em 0.25em 0.2em black;
+        min-width:ceil((@navbar-height * 2));
+    }
+    .cal_wkday {
+        display:block;
+        font-size:2.3em;
+        font-weight:bold;
+        border-bottom:2px solid black;
+        padding-bottom:0.3em;
+    }
+    .cal_day {
+        font-size:1.7em;
+        display:inline-block;
+        padding-top:0.3em;
+    }
+    .cal_month {
+        font-size:1.3em;
+        line-height:1.3em;
+        display:inline-block;
+    }
+    .cal_info {
+        margin-left:8em;
+    }
+    .documentByLine {
+        background: none repeat scroll 0 0 transparent;
+        color: black !important;
+        font-size: 1em !important;
+        font-weight: bold;
+        padding: 0;
+    }
+}
+
+.event_listing {
+    .mode_selector {
+        .nav();
+        .nav-tabs();
+        .selected > a {
+          &,
+          &:hover,
+          &:focus {
+            color: @nav-tabs-active-link-hover-color;
+            background-color: @nav-tabs-active-link-hover-bg;
+            border: 1px solid @nav-tabs-active-link-hover-border-color;
+            border-bottom-color: transparent;
+            cursor: default;
+          }
+        }
+    }
+    .sub_nav {
+        .pull-right();
+        .nav();
+        .nav-pills();
+    }
+}
+
+/* horizontal event metadata */
+#content .vevent ul.metadata { margin: 0.8em 0; }
+#content .vevent ul.horizontal { padding: 0; }
+#content .vevent ul.horizontal li {
+    display: inline-block;
+    line-height: 1.5em;
+    list-style-image: none;
+    list-style-type: none;
+}
+.vevent .horizontal.metadata li:after { content: " \2014 "; }
+.vevent .horizontal.metadata li:last-child:after { content: ""; }
+.vevent .horizontal.metadata .category span:after { content: ","; }
+.vevent .horizontal.metadata .category span:last-child:after { content: ""; }
+
+.vevent .timezone {
+    display:none;
+    margin-top:0.5em;
+    padding:0.2em 0;
+    background-color:#ffe;
+    color:#354;
+    width:100%;
+}
+
+.vevent .timerange,
+.vevent .timezone {
+    font-size:85%;
+    line-height:1em;
+    white-space:nowrap;
+}
+
+.vevent .datedisplay {
+    line-height:1.5em;
+    margin-bottom:0.2em;
+    font-weight:bold;
+    font-size:100%;
+}
+
+.vevent abbr.dtstart {
+    font-weight:bold;
+}
+/* END COMMON EVENT STYLES */
+
+.eventDetails {
+    margin-top: @line-height-computed;
+}
+
+.event.summary {
+    clear: both;
+    float: left;
+    border: 1px solid #dddddd;
+    margin-right: @line-height-computed;
+
+
+    dt {
+        background: #eeeeee;
+        padding: (@line-height-computed / 2);
+        border-top: 1px solid #dddddd;
+    }
+
+    dd {
+        padding: (@line-height-computed / 2);
+        border-top: 1px solid #dddddd;
+    }
+
+    .timezone {
+        display: none;
+    }
+}
+
+.hCalendar-hidden {
+    .hidden();
+}

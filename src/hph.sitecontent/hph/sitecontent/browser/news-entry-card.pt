@@ -1,0 +1,30 @@
+<article class="app-card news-entry-card"
+         i18n:domain="hph.sitecontent">
+    <div class="media-item">
+        <aside class="media-item__aside">
+            <div class="media-item__figure"
+                     tal:define="responsive_image python:context.restrictedTraverse('@@figure')(image_field_name='image', caption_field__name='image', scale='default', lqip=True, lazy_load=True)">
+                <span tal:replace="structure responsive_image" />
+            </div>
+        </aside>
+        <section class="media-item__main">
+            <header class="media-item__header">
+                <h4 class="media-item__title"><a href="" tal:content="context/Title"
+                         tal:attributes="href context/absolute_url" /></h4>
+            </header>
+            <div class="media-item__content"
+                tal:define="toLocalizedTime nocall:context/@@plone/toLocalizedTime">
+                <div class="media-item__abstract"
+                         tal:condition="context/Description"
+                         tal:content="context/Description" />
+
+                <div class="media-item__meta"
+                         tal:define="date context/effective">
+                    <span>(Erstellt am</span>
+                    <span tal:attributes="datetime date"
+                             tal:content="python:toLocalizedTime(date)" />)
+                </div>
+            </div>
+        </section>
+    </div>
+</article>

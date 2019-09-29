@@ -1,0 +1,91 @@
+<section class="o-page__section c-course-filter">
+    <form class="o-form o-form--filter-bar"
+          id="course-filter-form"
+
+        method="post"
+             tal:attributes="action request/URL">
+        <div class="app-callout app-callout-default" hidden>
+            <h4>Filter Code Test</h4>
+            <pre tal:content="python:context.restrictedTraverse('@@course-filter-select')(selector='child', identifier='course-modules--bachelor', target=None, data_set='core-themes', visibility='hidden')" />
+        </div>
+
+        <div class="c-filter__section">
+            <div class="c-filter__items filter__items--unit">
+                <div class="c-filter__item">
+                    <div class="c-filter-item">
+                        <div class="c-filter-item__header">
+                            <div class="c-filter-item__heading">Veranstaltungstyp</div>
+                        </div>
+                        <div class="c-filter-item__main c-filter-item__main--bordered-top"
+                                 tal:define="template python:context.restrictedTraverse('@@course-filter-select')(selector='master', identifier='course-types', target=None, data_set='course-types', visibility='visible-always');">
+                            <span tal:replace="structure template" />
+                        </div>
+                    </div>
+                </div>
+                <div class="c-filter__item">
+                    <div class="c-filter-item">
+                        <div class="c-filter-item__header">
+                            <div class="c-filter-item__heading">Studiengang</div>
+                        </div>
+                        <div class="c-filter-item__main c-filter-item__main--bordered-top"
+                                 tal:define="template python:context.restrictedTraverse('@@course-filter-select')(selector='master', identifier='degree-courses', target='course-modules', data_set='courses', visibility='visible-always');">
+                            <span tal:replace="structure template" />
+                        </div>
+                    </div>
+                </div>
+                <div class="c-filter__item">
+                    <div class="c-filter-item">
+                        <div class="c-filter-item__header">
+                            <div class="c-filter-item__heading">Modul</div>
+                        </div>
+                        <div class="c-filter-item__main c-filter-item__main--bordered-top"
+                                 tal:define="template_master python:context.restrictedTraverse('@@course-filter-select')(selector='child', identifier='course-modules--master', target=None, data_set='modules-ma', visibility='hidden');
+                                template_bachelor python:context.restrictedTraverse('@@course-filter-select')(selector='child', identifier='course-modules--bachelor', target=None, data_set='modules-ba', visibility='hidden');">
+                            <span tal:replace="structure template_master" />
+                            <span tal:replace="structure template_bachelor" />
+                        </div>
+                    </div>
+                </div>
+                <div class="c-filter__item">
+                    <div class="c-filter-item">
+                        <div class="c-filter-item__header">
+                            <div class="c-filter-item__heading">Schwerpunkt</div>
+                        </div>
+                        <div class="c-filter-item__main c-filter-item__main--bordered">
+                            <tal:block tal:define="template python:context.restrictedTraverse('@@course-filter-select')(selector='child', identifier='core-theme--macon', target=None, data_set='core-theme-macon', visibility='hidden');">
+                                <span tal:replace="structure template" />
+                            </tal:block>
+                            <tal:block tal:define="template python:context.restrictedTraverse('@@course-filter-select')(selector='child', identifier='core-theme--ma-ethic', target=None, data_set='core-theme-ma-ethic', visibility='hidden');">
+                                <span tal:replace="structure template" />
+                            </tal:block>
+                            <tal:block tal:define="template python:context.restrictedTraverse('@@course-filter-select')(selector='child', identifier='core-theme--ma-ib', target=None, data_set='core-theme-ma-ib', visibility='hidden');">
+                                <span tal:replace="structure template" />
+                            </tal:block>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="c-filter__section">
+            <div class="c-filter__block c-filter__block--action filter__block--visible animated fadeIn" id="filter__action--main" tal:condition="view/has_active_session">
+                <button class="c-button c-button--primary app-btn--lg filter__action filter__action--hidden"
+                        name="form.button.Submit"
+                        id="form.button.Submit">
+                    <i class="ion ion-ios-arrow-dropright-outline pp-icon pp-icon-sm"></i>
+                    <span tal:omit-tag="" i18n:translate="">Filter aktualisieren</span>
+                </button>
+            </div>
+            <div class="c-filter__block c-filter__block--action filter__block--hidden animated fadeIn js-filter-action" id="filter__action--main"
+                     tal:condition="not:view/has_active_session">
+                <button class="c-button c-button--primary filter__action filter__action--hidden"
+                        name="form.button.Submit"
+                        id="form.button.Submit">
+                    <i class="ion ion-ios-arrow-dropright-outline pp-icon pp-icon-sm"></i>
+                    <span tal:omit-tag="" i18n:translate="">Filter anwenden</span>
+                </button>
+            </div>
+        </div>
+        <span tal:replace="structure context/@@authenticator/authenticator"/>
+    </form>
+</section>

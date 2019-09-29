@@ -1,0 +1,148 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      lang="en"
+         metal:use-macro="context/main_template/macros/master"
+         i18n:domain="hph.lectures">
+<body>
+
+<metal:main fill-slot="main">
+    <metal:content-core define-macro="main">
+
+                <tal:can_edit tal:condition="view/display_edit_notification">
+                    <div class="c-alert c-alert--warning">
+                        <div class="o-grid">
+                            <div class="o-grid__item o-grid__item--width-75">
+                                <h4 i18n:translate="">Note:</h4>
+                                <p i18n:translate="">
+                                    It appears that you are listed as constributor on this
+                                    content item
+                                </p>
+                            </div>
+                            <div class="o-grid__item o-grid__item--width-25">
+                                <a class="c-button c-button--default c-button--sm"
+                                         tal:attributes="href string:${context/absolute_url}/@@edit"
+                                         i18n:translate="">
+                                    Edit</a>
+                            </div>
+                        </div>
+                    </div>
+                </tal:can_edit>
+
+                <div class="c-alert c-alert--default" tal:condition="python:view.can_edit()">
+                        <div class="o-grid">
+                            <div class="o-grid__item o-grid__item--width-75">
+                                <span i18n:translate="">edit modules</span>
+                            </div>
+                            <div class="o-grid__item o-grid__item--width-25">
+                                <a class="c-button c-button--default c-button--sm" href="${context/absolute_url}/@@module-editor">Editor &ouml;ffnen</a>
+                            </div>
+                        </div>
+                </div>
+
+                <header class="o-page__header" tal:define="item_uuid context/UID">
+                    <div class="o-page__section">
+                        <span tal:replace="structure python:view.rendered_course_card(item_uuid)" />
+                    </div>
+                    <div class="o-page__section" tal:condition="python:context.moodle">
+                        <p>
+                            <a class="c-button c-button--default"
+                               href="${context/moodle}"
+                                     i18n:translate="">
+                                View lecture in moodle
+                            </a>
+                        </p>
+                    </div>
+                </header>
+
+
+                <div class="o-page__main">
+                    <div class="o-page__section"
+                             tal:condition="context/courseTheme">
+                        <h2 i18n:translate="">Course Theme</h2>
+                        <div class="c-text-block" tal:content="structure python:view.render_course_detail(context.courseTheme)">Test</div>
+                    </div>
+                    <div class="o-page__section"
+                             tal:condition="context/courseAims">
+                        <h2 i18n:translate="">Course Aims</h2>
+                        <div class="c-text-block" tal:content="structure python:view.render_course_detail(context.courseAims)">Test</div>
+                    </div>
+                    <div class="o-page__section"
+                             tal:condition="context/courseMethod">
+                        <h2 i18n:translate="">Course Method</h2>
+                        <div tal:content="structure python:view.render_course_detail(context.courseMethod)">Test</div>
+                    </div>
+                    <div class="o-page__section"
+                             tal:condition="context/coursePrereq">
+                        <h2 i18n:translate="">Course Prerequirements</h2>
+                        <div class="c-text-block" tal:content="structure python:view.render_course_detail(context.coursePrereq)">Test</div>
+                    </div>
+                    <div class="o-page__section"
+                             tal:condition="context/courseQualification">
+                        <h2 i18n:translate="">Course Qualification</h2>
+                        <div class="c-text-block" tal:content="structure python:view.render_course_detail(context.courseQualification)">Test</div>
+                    </div>
+                    <div class="o-page__section"
+                             tal:condition="context/courseTarget">
+                        <h2 i18n:translate="">Course Target</h2>
+                        <div class="c-text-block" tal:content="structure python:view.render_course_detail(context.courseTarget)">Test</div>
+                    </div>
+                    <div class="o-page__section"
+                             tal:condition="context/courseLiterature">
+                        <h2 i18n:translate="">Course Literature</h2>
+                        <div class="c-text-block" tal:content="structure python:view.render_course_detail(context.courseLiterature)">Test</div>
+                    </div>
+                    <div class="o-page__section"
+                             tal:condition="context/courseNotes">
+                        <h2 i18n:translate="">Course Notes</h2>
+                        <div class="c-text-block" tal:content="structure python:view.render_course_detail(context.courseNotes)">Test</div>
+                    </div>
+                </div>
+
+                <tal:authenticated tal:condition="not:view/is_anon">
+                    <div class="o-page__section" tal:condition="view/has_attachments">
+                        <h3 i18n:translate="">Attachements</h3>
+                        <div class="c-list c-list--tiles">
+                            <div class="c-list__item" tal:repeat="item view/attachments">
+                                <tal:item
+                                         tal:define="item_obj item/getObject;
+                                                content_type item/file/contentType|nothing;
+                                                        v python:context.restrictedTraverse('contenttype_utils');">
+                                    <h5 tal:content="item/Title">File Title</h5>
+                                    <p>
+                                        <a tal:attributes="href string:${item/getURL}/@@download/file/${item/file/filename}">
+                                        <img tal:attributes="src python: v.getMimeTypeIcon(item.file);
+                                                alt content_type;" border="0"  />
+                                                <tal:name tal:content="item/file/filename" >Filename</tal:name>
+                                        </a>
+                                        <span class="discreet"
+                                                 tal:define="size item/file/getSize;
+                                                        kb python:size/1024">
+                                          &mdash; <span tal:replace="kb" /> KB</span>
+                                    </p>
+                                </tal:item>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="visualClear" tal:condition="view/can_edit">
+                        <div class="c-alert c-alert--default">
+                            <p i18n:translate="">
+                                Since you are signed in as editor you can add file
+                                attachments to this content item</p>
+                            <a class="app-btn app-btn-default app-btn-sm"
+                                     i18n:translate=""
+                                     tal:attributes="href string:${context/absolute_url}/++add++File">
+                                Add attachment</a>
+                        </div>
+                    </div>
+                </tal:authenticated>
+
+
+    </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

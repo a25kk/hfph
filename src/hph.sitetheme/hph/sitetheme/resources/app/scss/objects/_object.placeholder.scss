@@ -1,0 +1,25 @@
+//== Placeholder for missing content
+//
+//## Provide call to actions and descriptions on empty elements
+//## by providing highlighted content
+.o-placeholder {
+    margin: 0.5rem auto;
+    padding: 1rem;
+    text-align: center;
+    @include mq($from: md) {
+        padding: 2rem 1rem;
+        width: 66.66%;
+    }
+}
+
+//** Round hellip sign
+.o-placeholder__sign {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto;
+    padding-top: 0.5rem;
+    border-radius: 50%;
+    border: 1px solid gray('400');
+    color: gray('400');
+    font-size: 2rem;
+}

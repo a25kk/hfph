@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: docker/nginx
+    volumes:
+      - ../:/app:cached
+
+  node:
+    image: node:11
+    volumes:
+      - ../:/app/:cached
+    command:
+      - sh
+      - /app/build/node_entrypoint.sh
+    expose:
+      - "80"
+      - "3001"
+
+  jekyll:
+    image: jekyll/jekyll
+    volumes:
+      - ../:/app/:cached
+    command:
+      - sh
+    expose:
+      - "80"
+      - "4000"

@@ -1,0 +1,95 @@
+$c-collapsible-max-height:                  1500px;
+$c-collapsible-border-width:                .125rem;
+$c-collapsible-border-color:                $app-color-secondary;
+$c-collapsible-header-color:                $color-wild-sand;
+
+.c-collapsible__header {
+    display: flex;
+    width: 100%;
+    background: $c-collapsible-header-color;
+    padding: $c-nav-list-padding 1rem;
+    border-bottom: $c-collapsible-border-width solid $c-collapsible-border-color;
+    @include mq($until: xl) {
+        cursor: pointer;
+        border-bottom: $c-collapsible-border-width solid $c-collapsible-border-color;
+    }
+    &--hidden-lg {
+        @include mq($from: lg) {
+            display: none;
+        }
+    }
+    &--hidden-xl {
+        @include mq($from: xl) {
+            display: none;
+        }
+    }
+}
+
+.c-collapsible__item {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .75s ease-in-out;
+    &--md {
+        @include mq($from: md) {
+            max-height: $c-collapsible-max-height;
+        }
+    }
+    &--lg {
+        @include mq($from: lg) {
+            max-height: $c-collapsible-max-height;
+        }
+    }
+}
+
+.c-collapsible__item--active {
+    display: block;
+    max-height: $c-collapsible-max-height;
+    @include mq($from: xl) {
+        max-height: $c-collapsible-max-height;
+    }
+}
+
+.c-collapsible__link {
+    flex: 1 0 50%;
+    max-width: 50%;
+    margin-bottom: 0;
+    font-family: $app-font-family-medium;
+    @include when-inside('.c-card--nav') {
+        @include mq($from: lg) {
+            flex: 1 0 100%;
+            max-width: 100%;
+            }
+        }
+    &--icon {
+        text-align: right;
+        color: currentColor;
+        @include mq($from: xl) {
+            display: none;
+        }
+
+        @include when-inside('.c-card--nav') {
+            @include mq($from: lg) {
+                display: none;
+            }
+        }
+    }
+    @include mq($from: xl) {
+        flex: 1 0 100%;
+        max-width: 100%;
+    }
+}
+
+.c-collapsible__icon {
+    color: currentColor;
+    &--close {
+        display: none;
+    }
+    @include when-inside('.show') {
+        &--open {
+            display: none;
+        }
+        &--close {
+            display: inline-block;
+        }
+    }
+}

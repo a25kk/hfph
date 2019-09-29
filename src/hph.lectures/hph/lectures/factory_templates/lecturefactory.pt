@@ -1,0 +1,121 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="hph.lectures">
+<body>
+
+<metal:main fill-slot="main">
+  <metal:content-core define-macro="main">
+
+    <div class="o-grid o-grid--gutter"
+        tal:define="item view/content_item">
+        <div class="o-grid__item o-grid__item--width-33">
+            <aside class="c-aside hidden-print" id="c-sidebar">
+                <div class="c-card c-card-nav c-card-lecture"
+                         tal:define="active_filter request/academicRole | nothing">
+                    <div class="c-card-header">
+                        <h4 i18n:translate="">Lecture Factory</h4>
+                    </div>
+                    <div class="c-card-main">
+                        <ul class="c-nav-list">
+                            <li class="c-nav-list-item">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseTheme"
+                                         i18n:translate="">Course Theme</a>
+                            </li>
+                            <li class="c-nav-list-item">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseAims"
+                                         i18n:translate="">Course Aims</a>
+                            </li>
+                            <li class="c-nav-list-item">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseMethod"
+                                         i18n:translate="">Course Method</a>
+                            </li>
+                            <li class="c-nav-list-item">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/coursePrereq"
+                                         i18n:translate="">Course Prerequirements</a>
+                            </li>
+                            <li class="c-nav-list-item">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseQualification"
+                                         i18n:translate="">Course Qualification</a>
+                            </li>
+                            <li class="c-nav-list-item">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseTarget"
+                                         i18n:translate="">Course Target</a>
+                            </li>
+                            <li class="c-nav-list-item">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseLiterature"
+                                         i18n:translate="">Course Literature</a>
+                            </li>
+                            <li class="c-nav-list-item">
+                                <a tal:attributes="href string:${context/absolute_url}/lecture-editor/${item/@@uuid}/courseNotes"
+                                         i18n:translate="">Course Notes</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="c-card-footer">
+                        <a class="c-button c-button--danger"
+                                 tal:attributes="href string:${context/absolute_url}">
+                            &times; <span i18n:translate="">Quit editor</span></a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        <div class="o-grid__item o-grid__item--width-66">
+            <div class="c-list-item"
+                tal:define="item view/content_item">
+                <div class="c-list-item-kicker">
+                    <span tal:replace="item/courseNumber" /><span tal:condition="item/blockLecture">*</span><span tal:condition="item/onlineLecture">@</span>
+                    <tal:lecturer tal:condition="item/lecturer">
+                        <tal:items tal:repeat="node item/lecturer">
+                            <span tal:replace="node/to_object/Title" /><tal:separator condition="not: repeat/node/end">,</tal:separator>
+                        </tal:items>
+                    </tal:lecturer>
+                </div>
+                <h2>
+                    <span tal:content="item/Title" />
+                </h2>
+                <tal:comment tal:content="nothing"><p tal:condition="exists:context/subtitle" tal:content="context/subtitle" /></tal:comment>
+                <p tal:condition="item/lecturerAdditional">
+                    <span i18n:translate="">Additional Lecturer</span>
+                    <span tal:replace="item/lecturerAdditional" />
+                </p>
+                <tal:comment  tal:content="nothing">
+                <p class="text-muted"
+                    tal:define="duration item/courseDuration;
+                                pretty_duration python:view.prettify_duration(duration)">
+                    <span tal:content="pretty_duration" i18n:translate="">Duration</span>
+                    <span tal:replace="context/courseTime" />
+                </p>
+                <p class="text-muted">
+                    <span i18n:translate="">Raum</span>
+                    <span tal:replace="context/courseRoom" />
+                <p class="text-muted">
+                    <span i18n:translate="">Dates</span>:
+                    <span tal:replace="context/courseDates" />
+                <p class="text-muted" tal:condition="context/moduledetails">
+                    <tal:items tal:repeat="node context/moduledetails">
+                        <span tal:define="degree node/degree;
+                                          pretty_degree python:view.prettify_degree(degree)"
+                            tal:content="pretty_degree"
+                            i18n:translate="" />:
+                        <span tal:replace="node/info" />
+                        <tal:separator condition="not: repeat/node/end"><br></tal:separator>
+                    </tal:items>
+                </p>
+                </tal:comment>
+                <p class="text-discreet text-muted"
+                    tal:condition="item/Description"
+                    tal:content="item/Description" />
+            </div>
+        </div>
+    </div>
+
+  </metal:content-core>
+</metal:main>
+
+</body>
+</html>
+

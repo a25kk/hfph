@@ -1,0 +1,73 @@
+<configure
+        xmlns="http://namespaces.zope.org/zope"
+        xmlns:i18n="http://namespaces.zope.org/i18n"
+        xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+        i18n_domain="hph.sitecontent">
+
+    <genericsetup:upgradeSteps
+            source="1"
+            destination="1001"
+            profile="hph.sitecontent:default">
+
+        <genericsetup:upgradeDepends
+                title="Apply registry.xml to enable custom control panel"
+                import_profile="hph.sitecontent:default"
+                import_steps="plone.app.registry"
+        />
+
+    </genericsetup:upgradeSteps>
+
+    <genericsetup:upgradeSteps
+            source="1001"
+            destination="1002"
+            profile="hph.sitecontent:default">
+
+        <genericsetup:upgradeDepends
+                title="Apply registry.xml to add navigation elements custom control panel"
+                import_profile="hph.sitecontent:default"
+                import_steps="plone.app.registry"
+        />
+
+    </genericsetup:upgradeSteps>
+
+    <genericsetup:upgradeStep
+            title="Update and cleanup five:grok"
+            description="Update typeinfo and register content widgets'"
+            source="1002"
+            destination="1003"
+            profile="hph.sitecontent:default"
+            handler="hph.sitecontent.upgrades.upgrade_1003"
+            sortkey="1"
+    />
+
+    <genericsetup:upgradeStep
+            title="Add language root content type"
+            description="Update typeinfo and register content type'"
+            source="1003"
+            destination="1004"
+            profile="hph.sitecontent:default"
+            handler="hph.sitecontent.upgrades.upgrade_1004"
+            sortkey="1"
+    />
+
+    <genericsetup:upgradeStep
+            title="Add exclude from footer toc behavior"
+            description="Provide behavior and integrate catalog index"
+            source="1004"
+            destination="1005"
+            profile="hph.sitecontent:default"
+            handler="hph.sitecontent.upgrades.upgrade_1005"
+            sortkey="1"
+    />
+
+    <genericsetup:upgradeStep
+            title="Add promoted content support"
+            description="Provide catalog indexer for featured and promoted content"
+            source="1005"
+            destination="1006"
+            profile="hph.sitecontent:default"
+            handler="hph.sitecontent.upgrades.upgrade_1006"
+            sortkey="1"
+    />
+
+</configure>

@@ -1,0 +1,96 @@
+.c-button {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: normal;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    font-family: $app-font-family-strong;
+    @include button-size($input-btn-padding-y, $input-btn-padding-x, $font-size-base, $input-btn-line-height, $btn-border-radius);
+    @include transition($btn-transition);
+
+    // Share hover and focus styles
+    @include hover-focus {
+        text-decoration: none !important;
+    }
+    &:focus,
+    &.focus {
+        outline: 0;
+        box-shadow: $btn-focus-box-shadow;
+    }
+
+    // Disabled comes first so active can properly restyle
+    &.disabled,
+    &--disabled,
+    &:disabled {
+        opacity: .5;
+        @include box-shadow(none);
+    }
+
+    &:not(:disabled):not(.disabled):active,
+    &:not(:disabled):not(.disabled).active {
+        background-image: none;
+        @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+    }
+
+    @include media-breakpoint-up(md) {
+        white-space: nowrap;
+    }
+}
+
+// Future-proof disabling of clicks on `<a>` elements
+a.c-button.disabled,
+a.c-button--disabled,
+fieldset[disabled] a.c-button {
+    pointer-events: none;
+}
+
+a.c-button--active-action {
+    pointer-events: none;
+    border-width: 0 0 1px 0;
+}
+
+.c-button--default {
+    @include button-outline-variant($app-color-gray, $white);
+    @include when-inside('.searchPage') {
+        @include button-outline-variant($white, $app-color-primary);
+        &:hover {
+            color: #fff;
+            background: $app-color-primary-light;
+        }
+    }
+}
+
+.c-button--danger {
+    @include button-outline-variant($app-color-danger, $white);
+}
+
+.c-button--primary {
+    @include button-variant($app-color-gray, $app-color-gray);
+}
+
+.c-button--link {
+    @include button-variant($app-color-gray, $app-color-gray);
+}
+
+.c-button + .c-button {
+    margin-left: calc(#{$app-font-size-base} * .5);
+}
+
+.c-button--sm {
+    @include button-size($input-btn-padding-y-sm, $input-btn-padding-x-sm, $app-font-size-sm, $input-btn-line-height-sm, $btn-border-radius);
+}
+
+.c-button--cancel {
+    // background: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='#ccc' viewBox='0 0 12 12'><circle cx='6' cy='6' r='4.5'/><path stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/><circle cx='6' cy='8.2' r='.1'/></svg>") no-repeat;
+    // background-size: 16px 16px;
+    // background-position: 0 100%;
+}
+
+.c-button--reorder {
+    cursor: move;
+    pointer-events: none;
+}

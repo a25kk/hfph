@@ -1,0 +1,72 @@
+//
+// Info and action boxes
+// -------------------------------------------------
+
+.app-box {
+    padding: @line-height-computed / 2;
+}
+
+.app-box-header {
+    padding: 0 @line-height-computed / 2;
+}
+
+.app-box-heading {
+    color: @app-blue;
+    margin-top: ceil((@line-height-computed / 2));
+}
+
+.app-box-content {
+    border: 1px solid @gray-lighter;
+    border-top: 4px solid @app-yellow;
+    > p {
+        margin: ceil((@line-height-computed / 2));
+    }
+}
+
+.app-box-nav {
+    > li > a:hover {
+        border-right: 1px solid @gray;
+        border-radius: 0;
+    }
+}
+
+// App box items can be attached to anchor tags for clickable
+// boxes
+
+.app-box-item {
+    display: block;
+    .clearfix();
+    padding: (@line-height-computed / 2);
+    color: @app-gray;
+    .app-box-date {
+        display: block;
+        margin-bottom: ceil(@line-height-computed / 3);
+    }
+    .app-box-item-more {
+        display: block;
+    }
+}
+
+.app-box-footer {
+    padding: @line-height-computed / 2 0;
+}
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.app-box-striped {
+    .app-box-item:nth-child(odd) {
+        background-color: @table-bg-accent;
+    }
+}
+
+
+// Remove padding on frontpage news box
+.app-box-newsitem > .app-box-header {
+    min-height: @navbar-height;
+}
+.app-box-newsitem > .app-box-footer {
+    padding: 0;
+}
+

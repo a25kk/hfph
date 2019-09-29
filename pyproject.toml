@@ -1,0 +1,55 @@
+# NOTE: you have to use single-quoted strings in TOML for regular expressions.
+# It's the equivalent of r-strings in Python.  Multiline strings are treated as
+# verbose regular expressions by Black.  Use [ ] to denote a significant space
+# character.
+
+[tool.black]
+line-length = 79
+py36 = true
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | lib
+  | include
+  | bin
+)/
+'''
+[tool.isort]
+default_section=THIRDPARTY
+indent='    '
+known_first_party=ade25,hph
+known_zope=zope
+known_plone=plone
+multi_line_output=3
+lines_after_imports=2
+sections = FUTURE,STDLIB,ZOPE,PLONE,THIRDPARTY,FIRSTPARTY,LOCALFOLDER
+
+[tool.towncrier]
+filename = "CHANGES.rst"
+directory = "news/"
+title_format = "{version} ({project_date})"
+underlines = ["-", ""]
+
+[[tool.towncrier.type]]
+directory = "breaking"
+name = "Breaking changes:"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "feature"
+name = "New features:"
+showcontent = true
+
+[[tool.towncrier.type]]
+directory = "bugfix"
+name = "Bug fixes:"
+showcontent = true

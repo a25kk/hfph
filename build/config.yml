@@ -1,0 +1,33 @@
+# This is the central configuration for all tools we use/execute. It is parsed inside
+# the Taskfile, too. See $CONFIG_application_web_path for example.
+project:
+  name: Hochschule für Philosophie München
+  key: hph
+  url: https://www.hfph.de/
+paths:
+  web: ../
+  db: ../_db
+  docker_data: ../_docker_data
+  site_theme: ../theme
+  gulp_location: ../build/gulp
+modules:
+  virtualenv:
+    python_bin: python2
+  docker:
+      data_path: ../_docker_data
+      docker_compose_config_overrides: localhost
+      commands:
+        npm: &npm
+          workdir: /app/build/gulp
+          bin: npm
+          service: node
+        gulp:
+          <<: *npm
+          bin: ./node_modules/.bin/gulp
+        jekyll: &jekyll
+          workdir: /app/theme
+          bin: jekyll
+          service: jekyll
+  pipenv:
+  npm:
+    base_path: ../src/hph.sitetheme/hph/sitetheme/resources

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<rolemap>
+  <roles>
+    <role name="StaffMember" />
+  </roles>
+  <permissions>
+      <permission name="View" acquire="True">
+        <role name="Owner" />
+        <role name="Manager" />
+        <role name="Site Administrator" />
+        <role name="Contributor" />
+        <role name="Reader" />
+        <role name="Editor" />
+        <role name="StaffMember" />
+    </permission>
+    <!-- Examples
+    <permission name="Optilux: Add Promotion" acquire="False">
+        <role name="Manager" />
+        <role name="Site Administrator" />
+        <role name="Owner" />
+        <role name="Editor" />
+        <role name="StaffMember" />
+    </permission> -->
+    
+    <!-- This disables the dashboard for regular members -->
+    <permission name="Portlets: Manage own portlets" acquire="False">
+        <role name="Manager" />
+        <role name="StaffMember" />
+    </permission>
+    
+  </permissions>
+</rolemap>

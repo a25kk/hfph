@@ -1,0 +1,7 @@
+.app-sidebar {
+  padding-right: $app-spacer-base;
+  padding-left: $app-spacer-base;
+  @include mq($from: lg) {
+    padding: 0;
+  }
+}

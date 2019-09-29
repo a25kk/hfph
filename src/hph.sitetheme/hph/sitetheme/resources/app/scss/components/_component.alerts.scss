@@ -1,0 +1,49 @@
+//
+// Callouts
+// --------------------------------------------------
+.c-alert {
+    padding: $app-spacer-sm $app-spacer-base;
+    margin: $app-spacer-sm auto;
+    border: 1px solid #eee;
+    border-left-width: .25rem;
+    @include when-inside('.app-main >') {
+        @include make-container-max-widths();
+    }
+}
+
+// Common spacing and style resets
+.c-alert__title {
+    margin-top: 0;
+    margin-bottom: .25rem;
+}
+
+.c-alert p:last-child {
+    margin-bottom: 0;
+}
+
+// Custom button styles
+.c-alert__button {
+    float: right;
+    margin-bottom: .5rem;
+}
+
+// Callout variants used as addon classes
+.c-alert--default {
+    @include alert-variant($app-color-white, $gray-500, $black);
+}
+
+.c-alert--success {
+    @include alert-variant($app-color-white, $green, $green);
+}
+
+.c-alert--danger {
+    @include alert-variant($app-color-white, $red, $red);
+}
+
+.c-alert--warning {
+    @include alert-variant($app-color-white, $yellow, $yellow);
+}
+
+.c-alert--primary {
+    @include alert-variant($app-color-white, $app-color-gray, $app-color-text);
+}

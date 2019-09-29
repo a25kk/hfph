@@ -1,0 +1,47 @@
+//
+// Main site theme
+// --------------------------------------
+
+
+//== Main content area
+//
+//## Provides optional fullscreen layouts
+.app-main {
+    padding-top: 12rem;
+  @include make-container();
+  &-fullscreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.app-content {
+  @extend .container;
+  &-centerstage {
+    @extend .container-fluid;
+    margin: 0 auto;
+    max-width: 480px;
+  }
+}
+
+//** Add full height to layout components
+.app-section {
+    @include make-row()
+}
+
+.app-section-aside {
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+        @include make-col(3);
+        padding: 0 1rem 1rem 1rem;
+    }
+}
+
+.app-section-main {
+    @include make-col(12);
+    @include media-breakpoint-up(md) {
+        @include make-col(9);
+        padding: 0 1rem 0 0;
+    }
+}

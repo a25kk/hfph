@@ -1,0 +1,40 @@
+$c-configlet-spacer-y:                  .5rem;
+$c-configlet-spacer-x:                  1rem;
+$c-configlet-color:                     $app-color-white;
+$c-configlet-bg:                        $app-color-primary;
+$c-configlet-font-family-highlight:     $app-font-family-strong;
+
+// Site setup configlets - plone control panel
+.c-control-panel {
+}
+
+.c-control-panel__header {
+    display: inline-block;
+    padding: $c-configlet-spacer-y $c-configlet-spacer-x;
+    margin-top: 3rem;
+    color: $c-configlet-color;
+    background: $c-configlet-bg;
+    font-family: $c-configlet-font-family-highlight;
+    @include font-size($app-font-size-h2);
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.c-configlet,
+.configlets {
+	padding-top: 1rem;
+    padding-bottom: 1rem;
+    @include list-reset();
+    > form {
+        padding-top: 1rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        &:not(:first-child) {
+            border-top: 1px solid $app-color-gray;
+        }
+        > button {
+            float: right;
+            width: auto;
+        }
+    }
+}

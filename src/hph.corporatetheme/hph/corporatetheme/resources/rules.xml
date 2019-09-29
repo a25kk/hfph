@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rules
+    xmlns="http://namespaces.plone.org/diazo"
+    xmlns:css="http://namespaces.plone.org/diazo/css"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+    <!-- Add alternativ theme templates -->
+    <!-- Example to add minimal theme template for the
+         tiles editiong overlays -->
+    <!--<theme href="dist/overlay/index.html" if-path="@@edit-tile" />-->
+
+    <!-- Signin and registration forms -->
+    <theme href="dist/signin/index.html" css:if-content="body.template-login_form" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-logged_out" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-login_failed" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_form" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-mail_password_response" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_form" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-pwreset_finish" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-useraccount" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-useraccount-error" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-signin-form" />
+
+
+    <!-- Discourse signin and error page -->
+    <theme href="dist/signin/index.html" css:if-content="body.template-discourse-signin" />
+    <theme href="dist/signin/index.html" css:if-content="body.template-discourse-sso-error" />
+    <!-- Project specific theme files -->
+    <theme href="dist/igp/index.html" css:if-content="body.subsection-institute-gesellschaftspolitik" />
+    <theme href="dist/pp/index.html" css:if-content="body.section-pro-philosophia" />
+
+    <!-- Landingpages -->
+    <theme href="dist/frontpage/index.html" css:if-content="body.template-frontpage-view" />
+    <theme href="dist/frontpage/index.html" css:if-content="body.portaltype-hph-sitecontent-mainsection" />
+    <theme href="dist/landingpage/index.html" css:if-content="body.section-nachrichten" />
+    <theme href="dist/landingpage/index.html" css:if-content="body.section-termine" />
+    <theme href="dist/landingpage/index.html" css:if-content="body.section-impressum" />
+
+    <!--<theme href="dist/landingpage.html" css:if-content="body.section-presse-oeffentlichkeitsarbeit" />-->
+
+    <!-- Opac und newsletter templates -->
+    <!-- <theme href="dist/opac/index.html" css:if-content="body.subsection-bibliotheken-opac-recherche" /> -->
+    <theme href="dist/newsletter/index.html" css:if-content="body.section-newsletter" />
+
+    <!-- Rules applying to a standard Plone web page -->
+    <rules css:if-content="#visual-portal-wrapper">
+
+        <notheme if="$ajax_load" />
+        <theme href="dist/index.html" />
+
+       <replace css:theme="title" css:content="title" />
+        <after theme="/html/head/title" css:content="base" />
+        <!-- Add meta tags -->
+        <!-- <drop theme="/html/head/meta" />-->
+        <drop css:content="meta[name='viewport']" />
+        <before content="/html/head/meta" theme="/html/head/title" />
+
+        <rules css:if-content="body.userrole-authenticated">
+             <!-- Copy style, script and link tags in the order they appear in the content -->
+             <after
+                 content="/html/head/style | /html/head/script | /html/head/link"
+                 theme-children="/html/head"
+                 />
+
+             <drop theme="/html/head/style" />
+             <drop theme="/html/head/link" />
+
+             <!-- Drop scripts from theme footer if present -->
+             <drop theme="/html/body/script" />
+         </rules>
+
+        <!-- Drop scripts from theme footer if present
+            <drop theme="/html/body/script" />
+        <after theme-children="/html/body" css:if-content="body.userrole-anonymous">
+            <script type="text/javascript">
+function downloadJSAtOnload() {
+var element = document.createElement("script");
+element.src = "/++theme++hph.corporatetheme/dist/js/hph.min.js";
+document.body.appendChild(element);
+}
+if (window.addEventListener)
+window.addEventListener("load", downloadJSAtOnload, false);
+else if (window.attachEvent)
+window.attachEvent("onload", downloadJSAtOnload);
+else window.onload = downloadJSAtOnload;
+</script>
+        </after>-->
+
+
+        <!-- Custom favicon implementation -->
+        <drop css:content="head link[rel='apple-touch-icon']" />
+        <drop css:content="head link[rel='shortcut icon']" />
+        <after theme-children="/html/head">
+            <link rel="shortcut icon" href="/++theme++hph.corporatetheme/assets/img/favicon.ico" type="images/x-icon" />
+        </after>
+
+        <!-- Copy over the id/class attributes on the body tag.
+             This is important for per-section styling -->
+        <merge attributes="class" css:content="body" css:theme="body" />
+        <copy attributes="*" css:content="body" css:theme="body" />
+
+        <!-- CMSUI Editbar replacements -->
+        <drop css:theme="#app-toolbar"
+            css:if-content="#anon-personalbar" />
+        <replace css:theme="#app-toolbar" css:content="#app-toolbar" />
+
+        <before css:theme-children="#content"
+            css:content="#content-views"
+            css:if-content="body.template-caching-controlpanel" />
+
+        <!-- Logo (link target) -->
+        <copy attributes="href" css:content="#portal-logo" css:theme="#brandbar-brand" />
+
+        <copy attributes="href" css:content="#portal-logo" css:theme=".navbar-brand" />
+
+
+        <before css:content=".portalMessage" theme-children="/html/body" />
+
+        <!-- Site actions -->
+        <!--<replace css:content="#portal-siteactions li" css:theme-children="#global-nav" />-->
+
+        <!-- Portal searchbox -->
+        <!--<copy attributes="action" css:content="#portal-searchbox form"
+            css:theme="#portal-searchbox" />-->
+
+        <drop css:theme="#brandbar-label"
+            css:if-not-content="#brandbar-sectionname" />
+        <replace css:content="#brandbar-sectionname"
+            css:theme="#brandbar-sectionname" />
+
+        <replace css:content-children="#portal-navigation"
+            css:theme-children="#app-sections"
+            css:if-not-content="body.template-frontpage-view" />
+
+        <!-- FIXME: Global navigation -->
+        <!--<replace css:content-children="#portal-navigation"
+            css:theme-children="#app-navbar-main" />-->
+
+        <replace css:content-children="#portal-navigation"
+            css:theme-children="#app-navbar-main"
+            css:if-content="body.template-frontpage-view" />
+
+        <replace css:content-children="#portal-subnavigation"
+            css:theme-children="#app-navbar-main" />
+
+        <drop css:theme="#app-subnavbar"
+            css:if-not-content="#subsubsections" />
+        <replace css:content-children="#portal-subsubnavigation"
+            css:theme-children="#app-subnavigation" />
+
+        <drop css:theme="#app-tickerbar"
+            css:if-not-content="#app-tickerbar" />
+        <replace css:theme="#app-tickerbar"
+            css:content="#app-tickerbar"
+            css:if-content="#app-tickerbar" />
+
+        <!-- Breadcrumbs -->
+        <replace css:content-children='#portal-breadcrumbs'
+            css:theme-children='#breadcrumbs' />
+        <before css:theme="#header"
+            css:content="#tickerbar" />
+
+        <!-- Login form rules -->
+        <replace css:content-children="#content-core"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-login_form" />
+        <replace css:content-children="#content-core"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-signin-form" />
+        <replace css:content-children="#content-core"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-login_failed" />
+        <replace css:content-children="#content-core"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-logged_out" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-mail_password_form" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-mail_password_response" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-pwreset_form" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-pwreset_finish" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-useraccount" />
+        <replace css:content-children="#content"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-useraccount-error" />
+
+        <!-- Discourse error -->
+        <!-- Login form rules -->
+        <replace css:content-children="#content-core"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-discourse-signin" />
+        <replace css:content-children="#content-core"
+                css:theme-children="#app-signin-content"
+                css:if-content="body.template-discourse-sso-error" />
+
+        <rules css:if-content="body.portaltype-hph-sitecontent-mainsection">
+            <replace css:content-children="#app-content"
+                css:theme-children="#content"
+                css:if-content="#app-content" />
+            <drop css:theme="#app-aside-content"
+                css:if-not-content="#app-aside-content" />
+            <replace css:content-children="#app-aside-content"
+                css:theme-children="#app-aside-content"
+                css:if-content="#app-aside-content" />
+        </rules>
+
+        <rules css:if-content="body.template-frontpage-view">
+            <replace css:content-children="#app-content"
+                css:theme-children="#content" />
+            <replace css:content-children="#app-aside-content"
+                css:theme-children="#app-aside-content"
+                css:if-content="#app-aside-content" />
+        </rules>
+
+        <!-- Document Content -->
+        <replace css:content-children="#content"
+            css:theme-children="#content" />
+
+        <!-- Columns -->
+        <rules css:if-not-content="#portal-column-one">
+            <drop css:theme="#app-col-sidebar" />
+            <before css:theme-children="#app-col-content">
+                <xsl:attribute name="class">col-xs-12 col-sm-12</xsl:attribute>
+            </before>
+        </rules>
+
+        <replace css:content-children="#portal-column-one > *"
+            css:theme-children="#app-sidebar" />
+
+        <!-- Fix table styles -->
+        <replace css:content="table.listing">
+          <table>
+            <xsl:copy-of select="@*"/>
+            <xsl:attribute name="class">table table-hover</xsl:attribute>
+            <xsl:apply-templates />
+          </table>
+        </replace>
+
+        <replace css:content=".portletNavigationTree">
+            <div class="app-box app-box-nav">
+                <div class="app-box-header">
+                    <h4 class="app-box-heading">
+                        <xsl:apply-templates css:select=".portletHeader > *"/>
+                    </h4>
+                </div>
+                <div class="app-box-content">
+                    <ul class="nav nav-list navTree navTreeLevel0">
+                        <xsl:if css:test=".portletHeader">
+                            <li class="list-header"></li>
+                            <li class="divider"></li>
+                        </xsl:if>
+                        <li>
+                            <xsl:apply-templates css:select=".portletItem > *"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </replace>
+
+    </rules>
+
+</rules>
