@@ -170,7 +170,7 @@
 
         <!-- Mode Alert -->
         <drop css:theme=".c-identifier"
-              if="$mode = 'test'" />
+              if="$mode = 'production'" />
 
         <!-- Logo (link target) -->
         <copy attributes="href" css:content="#portal-logo" css:theme="a.app-navbar-brand" />
