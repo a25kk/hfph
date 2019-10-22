@@ -5,6 +5,11 @@ public          = hfph.ade25.de
 public1         = hfph.ade25.de
 private         = hfph.ade25.de
 
+[host-rewrites]
+public          =
+public1         = www.
+private         =
+
 [ssl]
 certificate = ${buildout:directory}/etc/hfph.chained.crt
 certificate-private = ${buildout:directory}/etc/hfph.chained.crt
