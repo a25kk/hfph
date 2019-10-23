@@ -5,6 +5,14 @@ public          = hfph.ade25.de
 public1         = hfph.ade25.de
 private         = hfph.ade25.de
 
+[host-rewrites]
+public_prefix   = www.
+public_rewrite  =
+
+[http-auth]
+basic           = off
+basic_user_file = ${buildout:directory}/etc/.htpasswd
+
 [ssl]
 certificate = ${buildout:directory}/etc/hfph.chained.crt
 certificate-private = ${buildout:directory}/etc/hfph.chained.crt
