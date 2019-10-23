@@ -23,11 +23,11 @@
         </header>
         <div class="o-page__main">
             <div class="o-page__section o-page__body-text">
-                <div class="c-alert c-alert--default" tal:condition="not:view/has_publications">
+                <div class="c-alert c-alert--default" tal:condition="python:not view.has_publications">
                     <p>Es liegen leider keine Publikationen vor.</p>
                 </div>
 
-                <tal:block tal:condition="view/publications">
+                <tal:block tal:condition="python:view.has_publications">
                     <div class="c-list o-page__body-text">
                         <tal:block tal:repeat="item view/publications">
                             <div class="c-list__item o-separator">
