@@ -12,7 +12,7 @@ class FacultyMemberPublicationsView(BrowserView):
     """ List associated publications for faculty member"""
 
     def __call__(self):
-        self.has_publications = len(self.publications()) > 0
+        self.has_publications = len(self.associated_publications()) > 0
         return self.render()
 
     def render(self):
