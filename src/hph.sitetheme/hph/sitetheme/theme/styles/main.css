@@ -14778,12 +14778,6 @@ c-list--bordered .c-list__item:last-of-type {
   color: #fff;
 }
 
-@media (max-width: 47.99em) {
-  .c-poster__aside .o-figure__card::before {
-    padding-bottom: 100%;
-  }
-}
-
 .c-poster__text a {
   color: #fff;
 }
