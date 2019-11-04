@@ -544,7 +544,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
+    height: auto;
   }
 }
 
@@ -14881,12 +14881,6 @@ c-list--bordered .c-list__item:last-of-type {
   margin-bottom: 0;
 }
 
-@media (max-width: 35.99em) {
-  .c-slide__figure .o-figure__card::before {
-    padding-bottom: 100%;
-  }
-}
-
 /* ---- flickity overrides ---- */
 .flickity-prev-next-button {
   background: transparent;
@@ -14902,7 +14896,7 @@ c-list--bordered .c-list__item:last-of-type {
 .flickity-prev-next-button .flickity-button-icon {
   position: absolute;
   left: 20%;
-  top: -200%;
+  top: -280%;
   width: 60%;
   height: 60%;
 }
