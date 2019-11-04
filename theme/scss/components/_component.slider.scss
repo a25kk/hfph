@@ -84,15 +84,15 @@ $c-slider-padding:                $app-spacer-base;
   margin-bottom: 0;
 }
 
-.o-figure__card {
-    @include when-inside('.c-slide__figure') {
-        &::before {
-            @include mq($until: sm) {
-                padding-bottom: 100%;
-            }
-        }
-    }
-}
+//.o-figure__card {
+//    @include when-inside('.c-slide__figure') {
+//        &::before {
+//            @include mq($until: sm) {
+//                padding-bottom: 100%;
+//            }
+//        }
+//    }
+//}
 
 /* ---- flickity overrides ---- */
 
@@ -107,7 +107,7 @@ $c-slider-padding:                $app-spacer-base;
 .flickity-prev-next-button .flickity-button-icon {
   position: absolute;
   left: 20%;
-  top: -200%;
+  top: -280%;
   width: 60%;
   height: 60%;
   @include mq($from: md) {
