@@ -12,8 +12,13 @@ class FacultyMemberPublicationsView(BrowserView):
     """ List associated publications for faculty member"""
 
     def __call__(self):
-        self.has_publications = len(self.publications()) > 0
         return self.render()
+
+    @property
+    def has_publications(self):
+        if self.associated_publications():
+            return True
+        return False
 
     def render(self):
         return self.index()
