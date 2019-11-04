@@ -10,7 +10,8 @@
         <div class="c-card c-card--nav">
             <div class="c-card__header c-card__header--nav-list c-collapsible__header js-collapsible-toggle">
                 <div class="c-card__title c-collapsible__link">
-                    Weitere Inhalte
+                    <span class="c-card__title--en">Further content</span>
+                    <span class="c-card__title--de">Weitere Inhalte</span>            
                 </div>
                 <div class="c-collapsible__link c-collapsible__link--icon c-collapsible__link--hidden-lg">
                     <svg class="o-icon o-icon--default o-icon--circle o-icon__ui--add-dims c-collapsible__icon c-collapsible__icon--open">
