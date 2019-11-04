@@ -13538,6 +13538,18 @@ a.c-button--active-action {
   }
 }
 
+.site-en .c-card__title--de {
+  display: none;
+}
+
+:not(.site-en) .c-card__title--en {
+  display: none;
+}
+
+.site-en .c-card__title--en {
+  display: block;
+}
+
 .c-toc {
   font-family: "Taz-SemiBold";
   position: relative;
