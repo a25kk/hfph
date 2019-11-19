@@ -2,10 +2,10 @@
   "name": "hfph",
   "paths": {
     "app": "../../theme/",
-    "base": "../../src/hph.sitetheme/hph/sitetheme/theme",
+    "base": "../../resources/theme/hph.theme/",
     "dev": "../../theme/_site/",
-    "dist": "../../src/hph.sitetheme/hph/sitetheme/theme/",
-    "diazoPrefix": "/++theme++hph.sitetheme/",
+    "dist": "../../resources/theme/hph.theme/",
+    "diazoPrefix": "/++theme++hph.theme/",
     "src": "node_modules/",
     "theme": "../../theme/"
   },
@@ -69,70 +69,6 @@
       "sass-mq/_mq.scss"
     ]
   },
-  "replacementPatterns": {
-    "base": [
-      {
-        "match": "/../../src/hph.sitetheme/hph/sitetheme/theme/styles/",
-        "replacement": "/styles/"
-      },
-      {
-        "match": "/dist/styles/",
-        "replacement": "/styles/"
-      }
-    ],
-    "server": [
-      {
-        "match": "../../assets/",
-        "replacement": "../assets/"
-      },
-      {
-        "match": "../../dist/styles/",
-        "replacement": "/styles/"
-      },
-      {
-        "match": "../dist/styles/",
-        "replacement": "/styles/"
-      },
-      {
-        "match": "../../dist/scripts/",
-        "replacement": "/scripts/"
-      },
-      {
-        "match": "../dist/scripts/",
-        "replacement": "/scripts/"
-      }
-    ],
-    "pat": [
-      {
-        "match": "../assets/",
-        "replacement": "assets/"
-      },
-      {
-        "match": "assets/",
-        "replacement": "/++theme++hfph.sitetheme//dist/assets/"
-      },
-      {
-        "match": "../styles/",
-        "replacement": "/++theme++hfph.sitetheme/dist/styles/"
-      },
-      {
-        "match": "styles/",
-        "replacement": "/++theme++hfph.sitetheme/dist/styles/"
-      },
-      {
-        "match": "/styles/",
-        "replacement": "/++theme++hfph.sitetheme/dist/styles/"
-      },
-      {
-        "match": "../scripts/",
-        "replacement": "/++theme++hfph.sitetheme/scripts/"
-      },
-      {
-        "match": "scripts/",
-        "replacement": "/++theme++hfph.sitetheme/scripts/"
-      }
-    ]
-  },
   "sprite": {
     "mode": {
       "symbol": {
@@ -143,5 +79,17 @@
         }
       }
     }
+  },
+  "replacementPatterns": {
+    "base": [
+      {
+        "match": "/../../resources/theme/hph.theme/styles/",
+        "replacement": "/styles/"
+      },
+      {
+        "match": "/dist/styles/",
+        "replacement": "/styles/"
+      }
+    ]
   }
 }
