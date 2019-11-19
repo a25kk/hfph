@@ -54,6 +54,21 @@ requirejs(['require',
         // SVG Sprite polyfill
         svg4everybody();
 
+        // Viewport height variable helper
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+        var resizeTimeout;
+        window.addEventListener('resize', () => {
+            if (resizeTimeout) {
+                window.cancelAnimationFrame(resizeTimeout);
+            }
+            resizeTimeout = window.requestAnimationFrame(function () {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            });
+        });
+
+        // Choices select
         let choicesSelector = document.querySelector('.js-choices-selector');
         if (choicesSelector !== null) {
             const choices = new Choices('.js-choices-selector', {
@@ -77,32 +92,6 @@ requirejs(['require',
         navbar.init({
             backdropDisplay: true
         });
-
-
-        // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-        let vh = window.innerHeight * 0.01;
-        // Then we set the value in the --vh custom property to the root of the document
-        document.documentElement.style.setProperty('--vh', `${vh}px`);
-        // Setup a timer
-        var resizeTimeout;
-        // We listen to the resize event
-        window.addEventListener('resize', () => {
-            // If there's a timer, cancel it
-            if (resizeTimeout) {
-                window.cancelAnimationFrame(resizeTimeout);
-            }
-            // Setup the new requestAnimationFrame()
-            timeout = window.requestAnimationFrame(function () {
-                // Run our scroll functions
-                console.log('debounced');
-                // We execute the same script as before
-                let vh = window.innerHeight * 0.01;
-                document.documentElement.style.setProperty('--vh', `${vh}px`);
-            });
-
-        });
-
-
 
         // Quick links
         // dropdown.init({});
