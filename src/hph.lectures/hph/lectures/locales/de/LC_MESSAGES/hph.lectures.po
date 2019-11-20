@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2019-07-18 21:54+0000\n"
-"PO-Revision-Date: 2019-07-24 21:42+0200\n"
+"PO-Revision-Date: 2019-11-20 09:49+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 "Language: de\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.2.4\n"
 
 #: ../lecture.py:82
 msgid "(Example 1: maximum participants 12)(Example 2: Participation only for students of the ethics master)"
@@ -282,7 +282,7 @@ msgstr "Medianethik"
 
 #: ../vocabulary.py:101
 msgid "EdiD"
-msgstr "EdiD"
+msgstr "EID"
 
 #: ../browser/course-view.pt:25 ../lecture_templates/view.pt:42
 msgid "Edit"
