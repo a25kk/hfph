@@ -63,7 +63,7 @@
             </a>
         </div>
         <div class="c-filter-list__result-index" tal:condition="view/has_active_session">
-            <span class="result-count">${view/result_count} Suchreffer</span>
+            <span class="result-count">${view/result_count} Suchtreffer</span>
         </div>
 
         <hr>
