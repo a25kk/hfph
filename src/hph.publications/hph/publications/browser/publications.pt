@@ -31,10 +31,9 @@
                             <ul class="c-nav-list">
                                 <tal:block tal:repeat="filter_media view/media_filter_options">
                                     <li class="c-nav-list__item"
-                                             tal:define="filter_value_media filter_media/value"
-                                             tal:attributes="class python:view.computed_klass('media', filter_value_media)">
+                                             tal:define="filter_value_media filter_media/value">
                                         <a class="c-nav-list__link"
-                                                 tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;media=${filter_media/value}"
+                                                 tal:attributes="class python:view.computed_klass('media', filter_value_media); href string:${context/absolute_url}?content_filter=1&amp;media=${filter_media/value}"
                                                  tal:content="filter_media/title">Filter option</a>
                                     </li>
                                 </tal:block>
@@ -60,10 +59,10 @@
                             <ul class="c-nav-list">
                                 <tal:block tal:repeat="filter view/series_filter_options">
                                     <li class="c-nav-list__item"
-                                             tal:define="filter_value filter/value"
-                                             tal:attributes="class python:view.computed_klass('bookSeries', filter_value)">
+                                             tal:define="filter_value filter/value">
                                         <a class="c-nav-list__link"
-                                                 tal:attributes="href string:${context/absolute_url}?content_filter=1&amp;bookSeries=${filter/value}"
+                                                 tal:attributes="class python:view.computed_klass('bookSeries', filter_value);
+                                                                 href string:${context/absolute_url}?content_filter=1&amp;bookSeries=${filter/value}"
                                                  tal:content="filter/title">Filter option</a>
                                     </li>
                                 </tal:block>

@@ -78,9 +78,9 @@ class PublicationsListView(BrowserView):
         return filtered
 
     def computed_klass(self, filter_name, value):
-        klass = 'c-nav-list__item'
+        klass = 'c-nav-list__link'
         if self.filter:
             active_filter = getattr(self.request, filter_name, value)
             if active_filter == value:
-                klass += ' c-nav-list__item--active'
+                klass += ' c-nav-list__link--active'
         return klass
