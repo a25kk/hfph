@@ -20,8 +20,10 @@ $c-list-separator-height:                   .25rem;
     &--gutter {
         // width: 100%;
         // margin: auto;
-        margin-right: -($c-list-margin-x);
-        margin-left: -($c-list-margin-x);
+        @include mq($from: lg) {
+            margin-right: -($c-list-margin-x);
+            margin-left: -($c-list-margin-x);
+        }
     }
     &--tiles {
         margin-bottom: $app-spacer-base;

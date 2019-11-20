@@ -544,7 +544,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
+    height: auto;
   }
 }
 
@@ -13554,6 +13554,18 @@ a.c-button--active-action {
   }
 }
 
+.site-en .c-card__title--de {
+  display: none;
+}
+
+:not(.site-en) .c-card__title--en {
+  display: none;
+}
+
+.site-en .c-card__title--en {
+  display: block;
+}
+
 .c-toc {
   font-family: "Taz-SemiBold";
   position: relative;
@@ -14160,9 +14172,11 @@ a.c-button--active-action {
           align-content: baseline;
 }
 
-.c-list--gutter {
-  margin-right: -calc(1.25rem * 1.5);
-  margin-left: -calc(1.25rem * 1.5);
+@media (min-width: 62em) {
+  .c-list--gutter {
+    margin-right: -calc(1.25rem * 1.5);
+    margin-left: -calc(1.25rem * 1.5);
+  }
 }
 
 .c-list--tiles {
@@ -14790,12 +14804,6 @@ c-list--bordered .c-list__item:last-of-type {
   color: #fff;
 }
 
-@media (max-width: 47.99em) {
-  .c-poster__aside .o-figure__card::before {
-    padding-bottom: 100%;
-  }
-}
-
 .c-poster__text a {
   color: #fff;
 }
@@ -14821,6 +14829,7 @@ c-list--bordered .c-list__item:last-of-type {
 
 .c-slider__main {
   width: 100%;
+  background: #fff;
 }
 
 .c-slider__items {
@@ -14892,12 +14901,6 @@ c-list--bordered .c-list__item:last-of-type {
   margin-bottom: 0;
 }
 
-@media (max-width: 35.99em) {
-  .c-slide__figure .o-figure__card::before {
-    padding-bottom: 100%;
-  }
-}
-
 /* ---- flickity overrides ---- */
 .flickity-prev-next-button {
   background: transparent;
@@ -14913,7 +14916,7 @@ c-list--bordered .c-list__item:last-of-type {
 .flickity-prev-next-button .flickity-button-icon {
   position: absolute;
   left: 20%;
-  top: -200%;
+  top: -280%;
   width: 60%;
   height: 60%;
 }
@@ -14933,7 +14936,7 @@ c-list--bordered .c-list__item:last-of-type {
 }
 
 .flickity-page-dots {
-  display: block;
+  display: none;
   text-align: center;
   position: absolute;
   top: 55%;
@@ -14943,6 +14946,7 @@ c-list--bordered .c-list__item:last-of-type {
 
 @media (min-width: 48em) {
   .flickity-page-dots {
+    display: block;
     border: 0;
     top: 85%;
     bottom: 2rem;
