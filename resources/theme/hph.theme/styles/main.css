@@ -14161,8 +14161,8 @@ a.c-button--active-action {
 }
 
 .c-list--gutter {
-  width: 100%;
-  margin: auto;
+  margin-right: -calc(1.25rem * 1.5);
+  margin-left: -calc(1.25rem * 1.5);
 }
 
 .c-list--tiles {
@@ -14238,6 +14238,7 @@ a.c-button--active-action {
 
 @media (min-width: 62em) {
   .c-list--gutter .c-list__item {
+    padding-left: calc(1.25rem * 1.5);
     padding-right: calc(1.25rem * 1.5);
   }
   .c-list--gutter .c-list__item:not(:first-of-type) {
@@ -14279,10 +14280,13 @@ c-list--bordered .c-list__item:last-of-type {
   position: relative;
 }
 
+.c-list__item--card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+}
+
 @media (max-width: 61.99em) {
   .c-list__item--card:not(:last-child)::after {
-    content: "";
-    position: absolute;
     bottom: -calc(calc(calc(1.25rem * 1.5) * 1.5) / 2);
     left: 0;
     width: 90px;
@@ -14291,14 +14295,18 @@ c-list--bordered .c-list__item:last-of-type {
   }
 }
 
-.c-teaser--links .c-list__item--card::after {
-  display: none;
+@media (min-width: 62em) {
+  .c-list__item--card:not(:last-child)::after {
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #212529;
+  }
 }
 
-@media (min-width: 62em) {
-  .c-list__item--card:not(:nth-child(3n+3)) {
-    border-right: 1px solid #212529;
-  }
+.c-teaser--links .c-list__item--card::after {
+  display: none;
 }
 
 .c-list__item--action {
