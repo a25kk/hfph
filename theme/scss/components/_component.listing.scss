@@ -19,10 +19,10 @@ $c-list-separator-height:                   .25rem;
     }
     &--gutter {
         // width: 100%;
-        // margin: auto;
+        justify-content: space-between;
         @include mq($from: lg) {
-            margin-right: -($c-list-margin-x);
             margin-left: -($c-list-margin-x);
+            margin-right: -($c-list-margin-x);
         }
     }
     &--tiles {
@@ -68,17 +68,18 @@ $c-list-separator-height:                   .25rem;
         @include mq($from: lg) {
             padding-left: $c-list-margin-x;
             padding-right: $c-list-margin-x;
-            &:not(:first-of-type) {
-            padding-left: $c-list-margin-x;
+            &:nth-child(3n) {
+                // padding-right: 0;
             }
         }
     }
 
     @include when-inside('.c-teaser--links') {
         @include mq($from: lg) {
+            padding-left: $c-list-margin-x;
             padding-right: $c-list-margin-x;
             &:first-child {
-            padding-left: $c-list-margin-x;
+             // padding-left: $c-list-margin-x;
             }
         }
     }
