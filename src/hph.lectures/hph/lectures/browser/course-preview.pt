@@ -86,6 +86,11 @@
                 </tal:contexts>
             </div>
         </div>
+        <div class="c-card__section" tal:condition="python:context.lecturerAdditional">
+            <p class="u-text--word-wrap u-text--compact"
+                     tal:content="python:context.lecturerAdditional" />
+        </div>
+
         <div class="c-card__section">
             <p class="u-text--word-wrap u-text--compact"
                      tal:condition="context/Description"
