@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2019-07-09 13:36+0000\n"
+"POT-Creation-Date: 2019-11-20 11:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,7 +73,11 @@ msgstr ""
 msgid "Book"
 msgstr ""
 
-#: ./../vocabulary.py:34
+#: ./../vocabulary.py:39
+msgid "Boundary Studies"
+msgstr ""
+
+#: ./../vocabulary.py:36
 msgid "Contexts"
 msgstr ""
 
@@ -109,7 +113,7 @@ msgstr ""
 msgid "Faculty member successfully assigned"
 msgstr ""
 
-#: ./../vocabulary.py:31
+#: ./../vocabulary.py:33
 msgid "Global Culture"
 msgstr ""
 
@@ -137,7 +141,7 @@ msgstr ""
 msgid "More Authors"
 msgstr ""
 
-#: ./../vocabulary.py:35
+#: ./../vocabulary.py:37
 msgid "Munich Philosophy"
 msgstr ""
 
@@ -145,7 +149,7 @@ msgstr ""
 msgid "Note:"
 msgstr ""
 
-#: ./../vocabulary.py:33
+#: ./../vocabulary.py:35
 msgid "Philosophy"
 msgstr ""
 
@@ -157,7 +161,7 @@ msgstr ""
 msgid "Please upload a cover image"
 msgstr ""
 
-#: ./../vocabulary.py:37
+#: ./../vocabulary.py:38
 msgid "Practical Philosophy"
 msgstr ""
 
@@ -188,7 +192,7 @@ msgstr ""
 msgid "Since this view will update the faculty member database entry new associations might not be available for display immediately."
 msgstr ""
 
-#: ./../vocabulary.py:32
+#: ./../vocabulary.py:34
 msgid "Solidarity"
 msgstr ""
 
@@ -198,10 +202,6 @@ msgstr ""
 
 #: ./../publication.py:35
 msgid "The entered value will be used to associate this publication with the corresponding faculty member"
-msgstr ""
-
-#: ./../vocabulary.py:36
-msgid "Theology"
 msgstr ""
 
 #: ./../publication.py:69
