@@ -12,7 +12,6 @@ task:install() {
     cd .. && chmod 775 ./bootstrap.sh && ./bootstrap.sh
     virtualenv:install
     docker:install
-    task:setup
     docker:command:npm install
 }
 

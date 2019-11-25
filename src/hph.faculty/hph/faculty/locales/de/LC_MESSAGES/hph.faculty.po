@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: 2014-07-28 19:20+0000\n"
-"PO-Revision-Date: 2014-07-28 21:23+0100\n"
+"PO-Revision-Date: 2019-11-19 11:00+0100\n"
 "Last-Translator: Christoph Boehner <cb@vorwaerts-werbung.de>\n"
 "Language-Team: KK Language Team <info@kreativkombinat.de>\n"
 "MIME-Version: 1.0\n"
@@ -14,115 +14,114 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: hph.faculty\n"
 "Language: de\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 2.2.4\n"
 
-#: ./../profiles/default/types/hph.faculty.facultydirectory.xml
+#: ../profiles/default/types/hph.faculty.facultydirectory.xml
 msgid "A directory of faculty staff members"
 msgstr "Eine Liste aller Lehrbeauftragten"
 
-#: ./../profiles/default/types/hph.faculty.facultymember.xml
+#: ../profiles/default/types/hph.faculty.facultymember.xml
 msgid "A faculty staff member"
 msgstr "Ein Lehrender"
 
-#: ./../facultymember.py:35
+#: ../facultymember.py:35
 msgid "Accademic Role or Position"
 msgstr "Rolle"
 
-#: ./../facultymember.py:73
+#: ../facultymember.py:73
 msgid "Body Text"
 msgstr "Haupttext"
 
-#: ./../facultymember.py:53
+#: ../facultymember.py:53
 msgid "City"
 msgstr "PLZ/Ort"
 
-#: ./../facultymember.py:45
+#: ../facultymember.py:45
 msgid "Department"
 msgstr "Fachbereich"
 
-#: ./../facultymember.py:65
+#: ../facultymember.py:65
 msgid "E-Mail"
 msgstr "E-Mail-Adresse"
 
-#: ./../facultymember_templates/view.pt:67
+#: ../facultymember_templates/view.pt:67
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: ./../vocabulary.py:18
+#: ../vocabulary.py:18
 msgid "Emeriti"
 msgstr "Emeriti"
 
-#: ./../profiles/default/types/hph.faculty.facultydirectory.xml
+#: ../profiles/default/types/hph.faculty.facultydirectory.xml
 msgid "FacultyDirectory"
 msgstr "Index Lehrende"
 
-#: ./../profiles/default/types/hph.faculty.facultymember.xml
+#: ../profiles/default/types/hph.faculty.facultymember.xml
 msgid "FacultyMember"
 msgstr "Lehrender"
 
-#: ./../facultymember.py:61
+#: ../facultymember.py:61
 msgid "Fax"
 msgstr "Fax"
 
-#: ./../facultymember_templates/view.pt:72
+#: ../facultymember_templates/view.pt:72
 msgid "It appears that you are the owner in this context and you are therefore allowed to change this content item"
 msgstr "Sie sind als Eigentümer dieses Seiteninhalts gelistet und können an dieser Stelle Änderungen vornehmen"
 
-#: ./../facultymember.py:30
+#: ../facultymember.py:30
 msgid "Lastname"
 msgstr "Nachname"
 
-#: ./../vocabulary.py:17
+#: ../vocabulary.py:17
 msgid "Lecturer"
 msgstr "Lehrbeauftragte"
 
-#: ./../facultymember_templates/view.pt:71
+#: ../facultymember_templates/view.pt:71
 msgid "Note:"
 msgstr "Hinweis:"
 
-#: ./../facultymember.py:41
+#: ../facultymember.py:41
 msgid "Optional additional information/sidenote"
 msgstr "Zusatzinformation"
 
-#: ./../facultymember.py:57
+#: ../facultymember.py:57
 msgid "Phone"
 msgstr "Telefon"
 
-#: ./../facultymember.py:69
+#: ../facultymember.py:69
 msgid "Portrait Image"
 msgstr "Bild"
 
-#: ./../vocabulary.py:15
+#: ../vocabulary.py:15
 msgid "Professor"
-msgstr "Professoren"
+msgstr "ProfessorInnen"
 
-#: ./../facultymember.py:31
+#: ../facultymember.py:31
 msgid "Provide last name for better filtering and search"
 msgstr "Der Nachname wird zur besseren Filterung und Findbarkeit in Auflistungen der Lehrenden verwendet"
 
-#: ./../facultymember.py:81
+#: ../facultymember.py:81
 msgid "Publication"
 msgstr "Publikation"
 
-#: ./../facultymember_templates/publications.pt:44
-#: ./../facultymember_templates/view.pt:41
+#: ../facultymember_templates/publications.pt:44
+#: ../facultymember_templates/view.pt:41
 msgid "Publications"
 msgstr "Publikationen"
 
-#: ./../facultymember.py:40
+#: ../facultymember.py:40
 msgid "Sidenote"
 msgstr "Zusatzinfo"
 
-#: ./../facultymember.py:49
+#: ../facultymember.py:49
 msgid "Street"
 msgstr "Strasse"
 
-#: ./../vocabulary.py:16
+#: ../vocabulary.py:16
 msgid "docent"
 msgstr "DozentInnen"
 
-#: ./../facultydirectory_templates/contentfilter.pt:21
-#: ./../facultymember_templates/view.pt:58
+#: ../facultydirectory_templates/contentfilter.pt:21
+#: ../facultymember_templates/view.pt:58
 msgid "remove filter"
 msgstr "Filter entfernen"
-
