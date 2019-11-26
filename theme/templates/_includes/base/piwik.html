@@ -1,16 +1,20 @@
-<!-- Piwik -->
+<!-- Matomo -->
 <script type="text/javascript">
   var _paq = _paq || [];
-  _paq.push(["setDomains", ["*.example.tld"]]);
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
     var u="//tkr.ade25.de/";
     _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', XXX]);
+    _paq.push(['setSiteId', '94']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
     g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
   })();
 </script>
-<noscript><p><img src="//tkr.ade25.de/piwik.php?idsite=XXX" style="border:0;" alt="" /></p></noscript>
-<!-- End Piwik Code -->
+<!-- Matomo Image Tracker-->
+<noscript>
+<img src="https://tkr.ade25.de/piwik.php?idsite=94&rec=1" style="border:0" alt="" />
+</noscript>
+<!-- End Matomo Code -->
+

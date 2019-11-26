@@ -284,7 +284,7 @@ class WidgetTeaserEvents(BrowserView):
                     path=dict(query='/'.join(context.getPhysicalPath()),
                               depth=1),
                     review_state='published',
-                    start=date_range_query,
+                    end=date_range_query,
                     sort_on='start')
 
     def get_latest_event_items(self, limit=3):

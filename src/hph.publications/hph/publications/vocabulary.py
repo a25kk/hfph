@@ -19,6 +19,8 @@ class PublicationMediaVocabulary(object):
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
                                 in MEDIA.iteritems()])
+
+
 grok.global_utility(PublicationMediaVocabulary,
                     name=u"hph.publications.publicationMedia")
 
@@ -33,11 +35,13 @@ class PublicationSeriesVocabulary(object):
             _(u"Philosophy"): 'philosophy',
             _(u"Contexts"): 'contexts',
             _(u"Munich Philosophy"): 'munich',
-            _(u"Theology"): 'theology',
             _(u"Practical Philosophy"): 'practical-philosophy',
+            _(u"Boundary Studies"): 'boundary-studies'
         }
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
                                 in TYPES.iteritems()])
+
+
 grok.global_utility(PublicationSeriesVocabulary,
                     name=u"hph.publications.publicationSeries")

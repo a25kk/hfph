@@ -40,15 +40,15 @@ $c-poster-padding:                $app-spacer-base;
   }
 }
 
-.o-figure__card {
-    @include when-inside('.c-poster__aside') {
-        &::before {
-            @include mq($until: md) {
-                padding-bottom: 100%;
-            }
-        }
-    }   
-}
+//.o-figure__card {
+//    @include when-inside('.c-poster__aside') {
+//        &::before {
+//            @include mq($until: md) {
+//                padding-bottom: 100%;
+//            }
+//        }
+//    }   
+//}
 
 .c-poster__text {
   a {
