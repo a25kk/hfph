@@ -166,3 +166,17 @@ $c-card-spacer:                         $app-spacer-sm;
         padding-left: 1rem;
     }
 }
+
+.c-card__title--de {
+    @include when-inside('.site-en') {
+    display: none;
+    }
+}
+.c-card__title--en {
+    @include when-inside(':not(.site-en)') {
+    display: none;
+    }
+    @include when-inside('.site-en') {
+    display: block;
+    }
+}
