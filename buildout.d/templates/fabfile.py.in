@@ -203,7 +203,7 @@ def deploy(*args):
     msg = '[hph] *%(sitename)s* deployed by %(actor)s' % opts
     user = 'fabric'
     icon = ':shipit:'
-    slack.chat.post_message('#hph', msg, username=user, icon_emoji=icon)
+    slack.chat.post_message('#development', msg, username=user, icon_emoji=icon)
 
 @task
 def download(path=None):
