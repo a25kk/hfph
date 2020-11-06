@@ -6,7 +6,7 @@
 
     <div class="c-card__overlay" tal:condition="context/courseCancelled">
         <div class="c-card__overlay--title">
-            <div class="c-alert c-alert--default">Kurs entfällt</div>
+            <div class="c-alert c-alert--default">Der folgende Kurs entfällt</div>
         </div>
     </div>
 
