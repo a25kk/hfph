@@ -39,4 +39,11 @@
   <!-- -*- extra stuff goes here -*- -->
     <include file="upgrades.zcml" />
 
+
+    <utility
+            name="hph.faculty.academicRole"
+            provides="zope.schema.interfaces.IVocabularyFactory"
+            component="hph.faculty.vocabulary.AcademicRoleVocabulary"
+    />
+
 </configure>
