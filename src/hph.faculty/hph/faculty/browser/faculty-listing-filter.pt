@@ -17,16 +17,16 @@
     </div>
     <div class="c-card__main c-collapsible__item c-collapsible__item--lg js-collapsible-item">
         <ul class="c-nav-list">
-            <tal:block tal:repeat="filter view/filter_options">
+            <tal:block tal:repeat="filter view/filter_options_list">
                 <li class="c-nav-list__item"
                          tal:define="active_filter python:view.active_filter();
-                                     filter_value filter/value;
-                                     is_active python:active_filter == filter_value"
+                                     filter_value filter;
+                                     is_active python:active_filter == filter"
                          tal:attributes="class python:view.computed_klass(filter_value)">
                     <a class="c-nav-list__link"
-                             tal:attributes="href string:${view/filter_base_url}?content_filter=1&amp;academicRole=${filter/value};
+                             tal:attributes="href string:${view/filter_base_url}?content_filter=1&amp;academicRole=${filter};
                                             class python:is_active and 'c-nav-list__link c-nav-list__link--active' or 'c-nav-list__link'"
-                             tal:content="filter/title">Filter option</a>
+                             tal:content="python:get_filter_title(filter)">Filter option</a>
                 </li>
             </tal:block>
         </ul>

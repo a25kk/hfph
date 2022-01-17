@@ -60,11 +60,19 @@ class FacultyListingFilter(BrowserView):
     def render(self):
         return self.index()
 
+    def filter_options_list(self):
+        filter = ['professor', 'emeriti', 'lecturer']
+        return filter
+
     def filter_options(self):
         context = aq_inner(self.context)
         vr = getVocabularyRegistry()
         vocab = vr.get(context, 'hph.faculty.academicRole')
         return vocab
+
+    def get_filter_title(self, filter):
+        filter_title = self.filter_options().get(filter, '')
+        return filter_title
 
     def active_filter(self):
         context = aq_inner(self.context)
