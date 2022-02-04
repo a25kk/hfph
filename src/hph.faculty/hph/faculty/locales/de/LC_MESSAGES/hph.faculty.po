@@ -50,7 +50,7 @@ msgstr "Bearbeiten"
 
 #: ../vocabulary.py:18
 msgid "Emeriti"
-msgstr "Emeriti"
+msgstr "Entpflichtete ProfessorInnen"
 
 #: ../profiles/default/types/hph.faculty.facultydirectory.xml
 msgid "FacultyDirectory"

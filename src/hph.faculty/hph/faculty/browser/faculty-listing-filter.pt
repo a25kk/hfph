@@ -26,7 +26,7 @@
                     <a class="c-nav-list__link"
                              tal:attributes="href string:${view/filter_base_url}?content_filter=1&amp;academicRole=${filter};
                                             class python:is_active and 'c-nav-list__link c-nav-list__link--active' or 'c-nav-list__link'"
-                             tal:content="python:get_filter_title(filter)">Filter option</a>
+                             tal:content="python:view.get_filter_title(filter)">Filter option</a>
                 </li>
             </tal:block>
         </ul>

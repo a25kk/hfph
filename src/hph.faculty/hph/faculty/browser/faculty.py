@@ -71,8 +71,8 @@ class FacultyListingFilter(BrowserView):
         return vocab
 
     def get_filter_title(self, filter):
-        filter_title = self.filter_options().get(filter, '')
-        return filter_title
+        filter_title = self.filter_options().getTermByToken(filter)
+        return filter_title.title
 
     def active_filter(self):
         context = aq_inner(self.context)
