@@ -58,7 +58,7 @@
         "matchdep": "^2.0.0",
         "minimatch": "^3.0.4",
         "moment": "^2.29.1",
-        "node-sass": "^4.14.1",
+        "node-sass": "^7.0.0",
         "opn": "^6.0.0",
         "pump": "^3.0.0",
         "rev-del": "^2.0.0",
