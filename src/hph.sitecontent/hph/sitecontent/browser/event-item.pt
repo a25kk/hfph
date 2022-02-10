@@ -45,7 +45,8 @@
                                 <div class="o-grid__item o-grid__item--width-66">
                                     <time tal:attributes="datetime context/start">
                                         <span tal:replace="python:event_start['day_name']" />,
-                                        <span tal:replace="python:event_start['day']" />. <span tal:replace="python:event_start['month_name']" /> <span tal:replace="python:event_start['year']" />,
+                                        <span tal:replace="python:event_start['day']" />. <span tal:replace="python:event_start['month_name']" />
+                                        <span tal:replace="python:event_start['year']" />,
                                         <span tal:replace="python:event_start['time']" />
                                     </time>
                                 </div>
@@ -64,7 +65,8 @@
                                     </tal:openend>
                                     <time tal:attributes="datetime context/end" tal:condition="python:view.show_event_end_date()">
                                         <span tal:replace="python:event_end['day_name']" />,
-                                        <span tal:replace="python:event_end['day']" />. <span tal:replace="python:event_end['month_name']" />,
+                                        <span tal:replace="python:event_end['day']" />. <span tal:replace="python:event_end['month_name']" />
+                                        <span tal:replace="python:event_start['year']" />,
                                         <span tal:replace="python:event_end['time']" />
                                     </time>
                                 </div>
