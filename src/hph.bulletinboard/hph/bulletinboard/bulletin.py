@@ -1,12 +1,14 @@
 from five import grok
-from plone.directives import dexterity, form
+
+from z3c.form import form
+from plone.autoform.form import AutoExtensibleForm
 
 from plone.app.textfield import RichText
 
 from hph.bulletinboard import MessageFactory as _
 
 
-class IBulletin(form.Schema):
+class IBulletin(AutoExtensibleForm, form.Form):
     """
     A single bulletin or announcement
     """

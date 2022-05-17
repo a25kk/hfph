@@ -1,6 +1,6 @@
 from zope import schema
 from zope.interface import alsoProvides
-from plone.directives import form
+from z3c.form import form
 
 from plone.autoform.interfaces import IFormFieldProvider
 

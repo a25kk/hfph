@@ -1,5 +1,5 @@
 from five import grok
-from plone.directives import dexterity, form
+from z3c.form import form
 
 
 class IEventFolder(form.Schema):

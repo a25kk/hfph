@@ -9,7 +9,7 @@ from plone.app.textfield import RichText
 from plone.app.z3cform.widget import RelatedItemsWidget
 from plone.autoform import directives
 from plone.dexterity.content import Container
-from plone.directives import form
+from z3c.form import form
 from plone.formwidget.contenttree import ObjPathSourceBinder
 from plone.indexer import indexer
 from plone.namedfile.field import NamedBlobImage

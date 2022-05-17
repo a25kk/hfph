@@ -17,7 +17,7 @@ from DateTime import DateTime
 from five import grok
 from plone import api
 from plone.app.layout.navigation.interfaces import INavigationRoot
-from plone.directives import form
+from z3c.form import form
 from zope import schema
 from zope.interface import Interface
 from z3c.form import button

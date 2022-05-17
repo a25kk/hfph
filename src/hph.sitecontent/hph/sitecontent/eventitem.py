@@ -1,6 +1,6 @@
 import datetime
 from five import grok
-from plone.directives import dexterity, form
+from z3c.form import form
 from plone.namedfile.field import NamedBlobImage
 from plone.supermodel.directives import fieldset
 

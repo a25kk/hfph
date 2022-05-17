@@ -4,7 +4,7 @@ from five import grok
 from plone import api
 from plone.app.contentlisting.interfaces import IContentListing
 from plone.dexterity.content import Container
-from plone.directives import form
+from z3c.form import form
 from plone.keyring import django_random
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.memoize.view import memoize

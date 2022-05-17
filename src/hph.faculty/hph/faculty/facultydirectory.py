@@ -5,7 +5,7 @@ from plone import api
 from zope.schema.vocabulary import getVocabularyRegistry
 
 from plone.dexterity.content import Container
-from plone.directives import form
+from z3c.form import form
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.app.contentlisting.interfaces import IContentListing
 

@@ -6,7 +6,7 @@ from Acquisition import aq_inner
 from Products.CMFPlone.utils import safe_unicode
 from five import grok
 from plone import api
-from plone.directives import form
+from z3c.form import form
 from z3c.form import button
 from zope.component import getMultiAdapter
 from zope.lifecycleevent import modified

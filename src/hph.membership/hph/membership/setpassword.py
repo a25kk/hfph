@@ -2,7 +2,7 @@ from Acquisition import aq_inner
 from five import grok
 from hph.membership import MessageFactory as _
 from plone import api
-from plone.directives import form
+from z3c.form import form
 from z3c.form import button
 from zope import schema
 from zope.publisher.interfaces import IPublishTraverse

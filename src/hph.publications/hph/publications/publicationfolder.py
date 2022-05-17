@@ -7,7 +7,7 @@ from five import grok
 from hph.publications.publication import IPublication
 from plone import api
 from plone.app.contentlisting.interfaces import IContentListing
-from plone.directives import dexterity, form
+from z3c.form import form
 from zope.lifecycleevent import modified
 from zope.schema.vocabulary import getVocabularyRegistry
 

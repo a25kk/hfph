@@ -8,7 +8,7 @@ from hph.membership.tool import api_group_mapper
 from hph.membership.tool import user_group_mapper
 from plone import api
 from plone.dexterity.content import Container
-from plone.directives import form
+from z3c.form import form
 from plone.memoize import ram
 from plone.namedfile.interfaces import IImageScaleTraversable
 from time import time

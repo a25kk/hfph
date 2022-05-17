@@ -9,7 +9,7 @@ from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from plone.stringinterp import Interpolator
-from plone.directives import form
+from z3c.form import form
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 from plone.z3cform import layout

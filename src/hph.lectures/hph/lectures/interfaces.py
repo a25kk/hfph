@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 """Lecture edit form schema interfaces"""
 
-from plone.directives import form
+from z3c.form import form
 from plone.namedfile.field import NamedBlobFile
 from plone.theme.interfaces import IDefaultPloneLayer
 from z3c.form.browser.checkbox import CheckBoxFieldWidget

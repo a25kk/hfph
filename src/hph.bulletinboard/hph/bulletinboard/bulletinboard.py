@@ -4,7 +4,8 @@ from five import grok
 from Acquisition import aq_inner
 
 from plone import api
-from plone.directives import dexterity, form
+from plone.autoform.form import AutoExtensibleForm
+
 
 from Products.CMFCore.utils import getToolByName
 

@@ -4,7 +4,7 @@ from five import grok
 from plone import api
 from plone.app.textfield import RichText
 from plone.autoform import directives as form
-from plone.directives import dexterity, form
+#from z3c.form import form
 from plone.indexer import indexer
 from plone.namedfile.field import NamedBlobImage
 from plone.namedfile.interfaces import IImageScaleTraversable
