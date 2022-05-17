@@ -1,5 +1,3 @@
-from five import grok
-
 from z3c.form import form
 from plone.autoform.form import AutoExtensibleForm
 

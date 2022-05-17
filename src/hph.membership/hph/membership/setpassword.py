@@ -25,7 +25,7 @@ class IUserPassword(form.Schema):
     )
 
 
-class SetUserPassword(form.SchemaForm):
+class SetUserPassword(form.Form):
     grok.context(INavigationRoot)
     grok.implements(IPublishTraverse)
     grok.require('zope2.View')

@@ -42,7 +42,7 @@ class ISigninForm(Interface):
     )
 
 
-class SigninForm(form.SchemaForm):
+class SigninForm(form.Form):
     """ Implementation of the login form """
     grok.context(INavigationRoot)
     grok.require('zope2.View')
