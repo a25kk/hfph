@@ -29,7 +29,7 @@ setup(name='hph.sitecontent',
           'plone.api',
           'plone.app.dexterity',
           'plone.app.relationfield',
-          'five.grok',
+          # 'five.grok',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
