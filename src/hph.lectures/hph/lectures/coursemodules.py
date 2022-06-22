@@ -11,7 +11,7 @@ from collective.z3cform.datagridfield import DictRow
 from hph.lectures import MessageFactory as _
 
 
-class ICourseModules(form.Schema):
+class ICourseModules(model.Schema):
     """
         Schema for course modules
     """
@@ -28,7 +28,7 @@ class ICourseModules(form.Schema):
     )
 
 
-class ICourseModuleInformation(form.Schema):
+class ICourseModuleInformation(model.Schema):
     """
        Marker/Form interface for Module Information
     """

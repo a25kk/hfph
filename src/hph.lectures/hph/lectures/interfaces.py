@@ -5,6 +5,7 @@ from z3c.form import form
 from plone.namedfile.field import NamedBlobFile
 from plone.theme.interfaces import IDefaultPloneLayer
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
+from plone.supermodel import model
 from zope import schema
 from zope.interface import Interface
 
@@ -96,7 +97,7 @@ class ICourseFilterUpdater(Interface):
     """
 
 
-class ILectureBase(form.Schema):
+class ILectureBase(model.Schema):
     """
     A single course
     """
@@ -180,7 +181,7 @@ class ILectureBase(form.Schema):
     )
 
 
-class ILectureAttachment(form.Schema):
+class ILectureAttachment(model.Schema):
     """Schema for attachment handling"""
 
     title = schema.TextLine(
