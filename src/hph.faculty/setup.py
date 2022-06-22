@@ -26,7 +26,7 @@ setup(name='hph.faculty',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'plone.app.dexterity [grok, relations]',
+          'plone.app.dexterity [relations]',
           'plone.app.relationfield',
           'plone.namedfile [blobs]',
           # -*- Extra requirements: -*-
