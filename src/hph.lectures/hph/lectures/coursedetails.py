@@ -12,7 +12,7 @@ from hph.lectures import MessageFactory as _
 class ICourseDetails(model.Schema):
     """ Behavior interface providing course details """
 
-    form.fieldset(
+    model.fieldset(
         'details',
         label=_(u"Course Details"),
         fields=['courseTheme', 'courseAims',
