@@ -39,10 +39,7 @@ class CourseFolder(Container):
     pass
 
 
-class View(grok.View):
-    grok.context(ICourseFolder)
-    grok.require('zope2.View')
-    grok.name('view')
+class View(object):
 
     def update(self):
         self.filter = self.request.get('content_filter', None)
@@ -142,10 +139,7 @@ class View(grok.View):
         return allowed
 
 
-class XHRIntegration(grok.View):
-    grok.context(ICourseFolder)
-    grok.require('zope2.View')
-    grok.name('xhr-integration')
+class XHRIntegration(object):
 
     def filter_options(self):
         context = aq_inner(self.context)

@@ -170,8 +170,11 @@ class ModuleStudiesVocabularyFactory(object):
         return SimpleVocabulary(terms)
 
 
+moduleStudiesVocabulary = ModuleStudiesVocabularyFactory()
+
+
+@implementer(IVocabularyFactory)
 class ModuleStudiesVocabulary(object):
-    grok.implements(IVocabularyFactory)
 
     def __call__(self, context):
         module_studies = {
@@ -185,8 +188,8 @@ grok.global_utility(ModuleStudiesVocabulary,
                     name=u"hph.lectures.moduleStudies")
 
 
+@implementer(IVocabularyFactory)
 class CourseSemesterVocabulary(object):
-    grok.implements(IVocabularyFactory)
 
     def __call__(self, context):
         TYPES = {
@@ -200,8 +203,8 @@ grok.global_utility(CourseSemesterVocabulary,
                     name=u"hph.lectures.CourseSemester")
 
 
+@implementer(IVocabularyFactory)
 class CourseDurationVocabulary(object):
-    grok.implements(IVocabularyFactory)
 
     def __call__(self, context):
         TYPES = {
@@ -217,8 +220,8 @@ grok.global_utility(CourseDurationVocabulary,
                     name=u"hph.lectures.CourseDuration")
 
 
+@implementer(IVocabularyFactory)
 class CourseTypeVocabulary(object):
-    grok.implements(IVocabularyFactory)
 
     def __call__(self, context):
         TYPES = {
@@ -236,8 +239,8 @@ class CourseTypeVocabulary(object):
 grok.global_utility(CourseTypeVocabulary, name=u"hph.lectures.CourseType")
 
 
+@implementer(IVocabularyFactory)
 class CourseDegreeVocabulary(object):
-    grok.implements(IVocabularyFactory)
 
     def __call__(self, context):
         DEGREES = {

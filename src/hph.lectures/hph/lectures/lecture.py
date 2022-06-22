@@ -188,10 +188,7 @@ class EditForm(edit.DefaultEditForm):
         self.course_module_data_grid()
 
 
-class View(grok.View):
-    grok.context(ILecture)
-    grok.require('zope2.View')
-    grok.name('view')
+class View(object):
 
     def update(self):
         self.anon = self.is_anon()
