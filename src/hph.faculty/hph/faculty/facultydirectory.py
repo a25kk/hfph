@@ -5,6 +5,7 @@ from plone import api
 from zope.schema.vocabulary import getVocabularyRegistry
 
 from plone.dexterity.content import Container
+from plone.supermodel import model
 from z3c.form import form
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.app.contentlisting.interfaces import IContentListing
@@ -15,7 +16,7 @@ from hph.faculty.facultymember import IFacultyMember
 from hph.faculty import MessageFactory as _
 
 
-class IFacultyDirectory(form.Schema, IImageScaleTraversable):
+class IFacultyDirectory(model.Schema, IImageScaleTraversable):
     """
     A directory of faculty staff members
     """
@@ -26,10 +27,7 @@ class FacultyDirectory(Container):
     pass
 
 
-class View(grok.View):
-    grok.context(IFacultyDirectory)
-    grok.require('zope2.View')
-    grok.name('view')
+class View(object):
 
     def update(self):
         self.filter = self.request.get('content_filter', None)
@@ -62,10 +60,7 @@ class View(grok.View):
                     )
 
 
-class ContentFilter(grok.View):
-    grok.context(IFacultyDirectory)
-    grok.require('zope2.View')
-    grok.name('content-filter-faculty')
+class ContentFilter(object):
 
     def filter_options(self):
         context = aq_inner(self.context)
