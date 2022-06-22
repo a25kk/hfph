@@ -1,13 +1,15 @@
+# -*- coding: utf-8 -*-
+"""Module providing schema definitions"""
+from plone.autoform.interfaces import IFormFieldProvider
+from plone.supermodel import model
+from z3c.form import form
 from zope import schema
 from zope.interface import alsoProvides
-from z3c.form import form
-
-from plone.autoform.interfaces import IFormFieldProvider
 
 from hph.lectures import MessageFactory as _
 
 
-class ICourseDetails(form.Schema):
+class ICourseDetails(model.Schema):
     """ Behavior interface providing course details """
 
     form.fieldset(
@@ -50,5 +52,6 @@ class ICourseDetails(form.Schema):
         title=_("Course Notes"),
         required=False,
     )
+
 
 alsoProvides(ICourseDetails, IFormFieldProvider)
