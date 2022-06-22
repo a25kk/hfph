@@ -77,4 +77,16 @@
              name="hph.lectures.vocabulary.moduleStudies"
              provides="zope.schema.interfaces.IVocabularyFactory" />
 
+    <utility component="hph.lectures.vocabulary.CourseTypeVocabulary"
+             name="hph.lectures.vocabulary.CourseType"
+             provides="zope.schema.interfaces.IVocabularyFactory" />
+
+    <utility component="hph.lectures.vocabulary.CourseDurationVocabulary"
+             name="hph.lectures.vocabulary.CourseDuration"
+             provides="zope.schema.interfaces.IVocabularyFactory" />
+
+    <utility component="hph.lectures.vocabulary.CourseDegreeVocabulary"
+             name="hph.lectures.vocabulary.CourseDegree"
+             provides="zope.schema.interfaces.IVocabularyFactory" />
+
 </configure>
