@@ -6,6 +6,7 @@ from zope import schema
 from zope.schema.vocabulary import getVocabularyRegistry
 
 from plone.dexterity.content import Container
+from plone.supermodel import model
 
 from z3c.form import form
 from plone.namedfile.interfaces import IImageScaleTraversable
@@ -20,7 +21,7 @@ from hph.lectures.interfaces import ICourseModuleTool
 from hph.lectures import MessageFactory as _
 
 
-class ICourseFolder(form.Schema, IImageScaleTraversable):
+class ICourseFolder(model.Schema, IImageScaleTraversable):
     """
     Manage lectures
     """
