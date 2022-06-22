@@ -87,40 +87,12 @@ class IPublication(model.Schema, IImageScaleTraversable):
     )
 
 
-@indexer(IPublication)
-def authorLastNameIndexer(obj):
-    return obj.lastname
-grok.global_adapter(authorLastNameIndexer, name="lastname")
-
-
-@indexer(IPublication)
-def externalFundsProjectIndexer(obj):
-    return obj.externalFundsProject
-grok.global_adapter(externalFundsProjectIndexer, name="externalFundsProject")
-
-
-@indexer(IPublication)
-def pubMediumIndexer(obj):
-    return obj.media
-grok.global_adapter(pubMediumIndexer, name="media")
-
-
-@indexer(IPublication)
-def pubSeriesIndexer(obj):
-    return obj.bookSeries
-grok.global_adapter(pubSeriesIndexer, name="bookSeries")
-
-
 @implementer(IPublication)
 class Publication(Item):
     pass
 
 
-
-class View(grok.View):
-    grok.context(IPublication)
-    grok.require('zope2.View')
-    grok.name('view')
+class View(object):
 
     def item_contributor(self):
         if api.user.is_anonymous():

@@ -27,10 +27,7 @@ class PublicationFolder(Container):
 
 
 
-class View(grok.View):
-    grok.context(IPublicationFolder)
-    grok.require('zope2.View')
-    grok.name('view')
+class View(object):
 
     def update(self):
         self.has_publications = len(self.all_publications()) > 0
@@ -99,10 +96,7 @@ class View(grok.View):
         return klass
 
 
-class CleanupView(grok.View):
-    grok.context(IPublicationFolder)
-    grok.require('zope2.View')
-    grok.name('cleanup-publications')
+class CleanupView(object):
 
     def update(self):
         self.has_publications = len(self.publications()) > 0
