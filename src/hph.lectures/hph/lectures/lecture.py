@@ -130,18 +130,6 @@ class ILecture(model.Schema, IImageScaleTraversable):
     )
 
 
-@indexer(ILecture)
-def courseTypeIndexer(obj):
-    return obj.courseType
-grok.global_adapter(courseTypeIndexer, name="courseType")
-
-
-@indexer(ILecture)
-def externalFundsProjectIndexer(obj):
-    return obj.externalFundsProject
-grok.global_adapter(externalFundsProjectIndexer, name="externalFundsProject")
-
-
 @implementer(ILecture)
 class Lecture(Container):
     pass
