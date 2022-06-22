@@ -1,5 +1,5 @@
 from Acquisition import aq_inner
-from five import grok
+# from five import grok
 from hph.membership import MessageFactory as _
 from plone import api
 from z3c.form import form

@@ -2,7 +2,7 @@ import os
 from Acquisition import aq_inner
 from AccessControl import Unauthorized
 from string import Template
-from five import grok
+# from five import grok
 from plone import api
 
 from plone.keyring import django_random

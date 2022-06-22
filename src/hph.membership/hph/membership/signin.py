@@ -2,7 +2,7 @@
 import urllib
 from Products.CMFCore.interfaces import ISiteRoot
 from email import message_from_string
-from five import grok
+# from five import grok
 from AccessControl import getSecurityManager
 from DateTime import DateTime
 from Products.CMFCore.utils import getToolByName

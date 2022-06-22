@@ -1,7 +1,7 @@
 import json
 from Acquisition import aq_inner
 from DateTime import DateTime
-from five import grok
+# from five import grok
 from plone import api
 from zope.component import getMultiAdapter
 from Products.CMFCore.utils import getToolByName

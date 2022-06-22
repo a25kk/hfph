@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from five import grok
+# # from five import grok
 from operator import attrgetter
 from plone import api
 from plone.app.contentlisting.interfaces import IContentListing
@@ -18,6 +18,7 @@ from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from zope import schema
 from zope.schema.vocabulary import getVocabularyRegistry
+from zope.interface import implementer
 
 from hph.publications.publication import IPublication
 
@@ -108,8 +109,9 @@ def academicRoleIndexer(obj):
 grok.global_adapter(academicRoleIndexer, name="academicRole")
 
 
+@implementer(IFacultyMember)
 class FacultyMember(Container):
-    grok.implements(IFacultyMember)
+    pass
 
 
 class View(grok.View):

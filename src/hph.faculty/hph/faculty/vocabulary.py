@@ -1,4 +1,3 @@
-from five import grok
 from zope.interface import implementer
 
 from zope.schema.vocabulary import SimpleTerm
@@ -10,7 +9,6 @@ from hph.faculty import MessageFactory as _
 
 @implementer(IVocabularyFactory)
 class AcademicRoleVocabularyFactory(object):
-    grok.implements(IVocabularyFactory)
 
     def __call__(self, context):
         TYPES = {

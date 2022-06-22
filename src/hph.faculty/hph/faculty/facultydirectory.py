@@ -1,5 +1,5 @@
 from Acquisition import aq_inner
-from five import grok
+# # from five import grok
 from plone import api
 
 from zope.schema.vocabulary import getVocabularyRegistry
@@ -8,6 +8,7 @@ from plone.dexterity.content import Container
 from z3c.form import form
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.app.contentlisting.interfaces import IContentListing
+from zope.interface import implementer
 
 from hph.faculty.facultymember import IFacultyMember
 
@@ -20,8 +21,9 @@ class IFacultyDirectory(form.Schema, IImageScaleTraversable):
     """
 
 
+@implementer(IFacultyDirectory)
 class FacultyDirectory(Container):
-    grok.implements(IFacultyDirectory)
+    pass
 
 
 class View(grok.View):

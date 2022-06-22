@@ -3,7 +3,7 @@
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from Products.CMFCore.utils import getToolByName
-from five import grok
+# from five import grok
 from hph.publications.publication import IPublication
 from plone import api
 from plone.app.contentlisting.interfaces import IContentListing

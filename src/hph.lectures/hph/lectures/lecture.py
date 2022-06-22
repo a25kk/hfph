@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module providing lecture content"""
 from Acquisition import aq_inner
-from five import grok
+# # from five import grok
 from plone import api
 from plone.app.vocabularies.catalog import CatalogSource
 from plone.app.z3cform.widget import RelatedItemsWidget

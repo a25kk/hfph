@@ -1,6 +1,6 @@
 from binascii import b2a_qp
 
-from five import grok
+# from five import grok
 from zope.interface import implementer
 
 from zope.schema.vocabulary import SimpleTerm

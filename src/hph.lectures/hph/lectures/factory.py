@@ -4,7 +4,7 @@
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
 from Products.CMFPlone.utils import safe_unicode
-from five import grok
+# # from five import grok
 from plone import api
 from z3c.form import form
 from z3c.form import button

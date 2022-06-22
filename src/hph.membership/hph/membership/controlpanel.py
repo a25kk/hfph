@@ -1,4 +1,4 @@
-from five import grok
+# from five import grok
 from Products.CMFCore.interfaces import ISiteRoot
 
 from plone.z3cform import layout

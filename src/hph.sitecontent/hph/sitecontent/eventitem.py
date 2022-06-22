@@ -1,5 +1,5 @@
 import datetime
-from five import grok
+# from five import grok
 from z3c.form import form
 from plone.namedfile.field import NamedBlobImage
 from plone.supermodel.directives import fieldset

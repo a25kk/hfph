@@ -1,6 +1,6 @@
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from five import grok
+# from five import grok
 from plone import api
 from z3c.form import form
 

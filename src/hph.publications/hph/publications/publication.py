@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 from Acquisition import aq_inner
-from five import grok
+# from five import grok
 from plone import api
 from plone.app.textfield import RichText
 from plone.autoform import directives as form

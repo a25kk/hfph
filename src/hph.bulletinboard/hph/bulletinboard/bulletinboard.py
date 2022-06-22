@@ -1,6 +1,6 @@
 import json
 import DateTime
-from five import grok
+# # from five import grok
 from Acquisition import aq_inner
 
 from plone import api
@@ -8,21 +8,26 @@ from plone.autoform.form import AutoExtensibleForm
 
 
 from Products.CMFCore.utils import getToolByName
+from plone.dexterity.content import Container
+from plone.supermodel import model
 
 from plone.app.contentlisting.interfaces import IContentListing
+from zope.interface import implementer
+
 from hph.bulletinboard.bulletin import IBulletin
 
 from hph.bulletinboard import MessageFactory as _
 
 
-class IBulletinBoard(form.Schema):
+class IBulletinBoard(model.Schema):
     """
     A bulletin board holding announcements
     """
 
 
-class BulletinBoard(dexterity.Container):
-    grok.implements(IBulletinBoard)
+@implementer(IBulletinBoard)
+class BulletinBoard(Container):
+    pass
 
 
 class View(grok.View):

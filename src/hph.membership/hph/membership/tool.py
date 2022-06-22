@@ -4,7 +4,7 @@ import requests
 import contextlib
 
 from DateTime import DateTime
-from five import grok
+# from five import grok
 from plone import api
 
 from zope.component import getUtility

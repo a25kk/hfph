@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 from Acquisition import aq_inner
-from five import grok
+# from five import grok
 from plone import api
 from plone.app.contentlisting.interfaces import IContentListing
 from plone.dexterity.content import Container

@@ -3,7 +3,7 @@
 
 from DateTime import DateTime
 from Acquisition import aq_inner
-from five import grok
+# # from five import grok
 from plone import api
 from Products.CMFCore.interfaces import IContentish
 from zope.component import getUtility

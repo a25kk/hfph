@@ -2,7 +2,7 @@
 from Acquisition import aq_inner
 from Products.CMFPlone.utils import safe_unicode
 from Products.statusmessages.interfaces import IStatusMessage
-from five import grok
+# from five import grok
 from hph.membership.tool import IHPHMemberTool
 from hph.membership.tool import api_group_mapper
 from hph.membership.tool import user_group_mapper

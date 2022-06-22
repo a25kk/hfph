@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module providing section container content type"""
 from Acquisition import aq_inner
-from five import grok
+# from five import grok
 from plone.app.z3cform.widget import LinkFieldWidget
 from plone.autoform import directives
 from plone.dexterity.content import Container

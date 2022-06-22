@@ -1,4 +1,4 @@
-from five import grok
+# from five import grok
 from plone import api
 from urllib import unquote
 from Acquisition import aq_inner

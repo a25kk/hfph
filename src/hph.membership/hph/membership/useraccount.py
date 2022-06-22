@@ -1,6 +1,6 @@
 from AccessControl import Unauthorized
 from DateTime import DateTime
-from five import grok
+# from five import grok
 from plone import api
 from zope.component import getMultiAdapter
 
