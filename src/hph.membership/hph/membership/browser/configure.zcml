@@ -3,6 +3,13 @@
         xmlns:browser="http://namespaces.zope.org/browser"
         i18n_domain="hph.membership">
 
+    <browser:page
+            for="hph.membership.memberfolder.IMemberFolder"
+            name="view"
+            class=".memberfolder.MemberFolderView"
+            permission="zope2.Public"
+    />
+
     <!-- Faculty member assignment -->
     <browser:page
             for="hph.membership.memberfolder.IMemberFolder"

@@ -1,28 +1,28 @@
 # -*- coding: UTF-8 -*-
-from Acquisition import aq_inner
-from Products.CMFPlone.utils import safe_unicode
-from Products.statusmessages.interfaces import IStatusMessage
-# from five import grok
-from hph.membership.tool import IHPHMemberTool
-from hph.membership.tool import api_group_mapper
-from hph.membership.tool import user_group_mapper
-from plone import api
-from plone.dexterity.content import Container
-from z3c.form import form
-from plone.memoize import ram
-from plone.namedfile.interfaces import IImageScaleTraversable
-from time import time
-from zope import schema
-from zope.component import getUtility
-from zope.component import getMultiAdapter
-from zope.lifecycleevent import modified
 import datetime
 import json
+from time import time
+
+from Acquisition import aq_inner
+from plone import api
+from plone.dexterity.content import Container
+from plone.memoize import ram
+from plone.namedfile.interfaces import IImageScaleTraversable
+from plone.supermodel import model
+from Products.CMFPlone.utils import safe_unicode
+from Products.statusmessages.interfaces import IStatusMessage
+from z3c.form import form
+from zope import schema
+from zope.component import getMultiAdapter, getUtility
+from zope.interface import implementer
+from zope.lifecycleevent import modified
 
 from hph.membership import MessageFactory as _
+from hph.membership.tool import (IHPHMemberTool, api_group_mapper,
+                                 user_group_mapper)
 
 
-class IMemberFolder(form.Schema, IImageScaleTraversable):
+class IMemberFolder(model.Schema, IImageScaleTraversable):
     """
     Container for member workspaces
     """
@@ -32,8 +32,8 @@ class IMemberFolder(form.Schema, IImageScaleTraversable):
     )
 
 
+@implementer(IMemberFolder)
 class MemberFolder(Container):
-    grok.implements(IMemberFolder)
     pass
 
 
