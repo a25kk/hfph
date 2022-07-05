@@ -72,8 +72,7 @@ class IHPHMemberTool(Interface):
         """
 
 
-class MemberTool(grok.GlobalUtility):
-    grok.provides(IHPHMemberTool)
+class MemberTool(object):
 
     def can_manage_users(self, object):
         """ Enhance basic modify portal content permission

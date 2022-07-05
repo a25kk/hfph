@@ -43,4 +43,8 @@
          zope.publisher.interfaces.IRequest"
     />
 
+    <utility
+         factory="hph.membership.tool.CourseModuleTool"
+         provides="hph.membership.tool.IHPHMemberTool"/>
+
 </configure>
