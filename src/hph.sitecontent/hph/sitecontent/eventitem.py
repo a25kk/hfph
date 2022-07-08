@@ -4,6 +4,7 @@ from z3c.form import form
 from plone.dexterity.content import Item
 from plone.namedfile.field import NamedBlobImage
 from plone.supermodel.directives import fieldset
+from plone.supermodel import model
 
 from zope import schema
 
@@ -13,7 +14,7 @@ from zope.interface import implementer
 from hph.sitecontent import MessageFactory as _
 
 
-class IEventItem(form.Schema):
+class IEventItem(model.Schema):
     """
     An event with a start and end date
     """
