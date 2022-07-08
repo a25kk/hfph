@@ -2,11 +2,12 @@
 """Module providing login redirects"""
 from plone import api
 from plone.login.interfaces import IRedirectAfterLogin
+from Products.PluggableAuthService.interfaces.events import IUserLoggedInEvent
 from Products.CMFPlone.utils import safe_unicode
 from zope.interface import implementer
 
 
-@implementer(IRedirectAfterLogin)
+@implementer(IUserLoggedInEvent)
 class RedirectAfterLoginAdapter(object):
 
     def __init__(self, context, request):
