@@ -14,6 +14,16 @@ from zope.interface import implementer
 from hph.sitecontent import MessageFactory as _
 
 
+def startDefaultValue(data):
+    # To get hold of the folder, do: context = data.context
+    return datetime.datetime.today() + datetime.timedelta(7)
+
+
+def endDefaultValue(data):
+    # To get hold of the folder, do: context = data.context
+    return datetime.datetime.today() + datetime.timedelta(10)
+
+
 class IEventItem(model.Schema):
     """
     An event with a start and end date
@@ -30,10 +40,12 @@ class IEventItem(model.Schema):
     start = schema.Datetime(
         title=_(u"Start date"),
         required=True,
+        defaultFactory=startDefaultValue,
     )
     end = schema.Datetime(
         title=_(u"End date"),
         required=True,
+        defaultFactory=endDefaultValue,
     )
     full_day = schema.Bool(
         title=_(u"Full Day"),
@@ -95,18 +107,6 @@ class IEventItem(model.Schema):
         default=False,
         required=False
     )
-
-
-@form.default_value(field=IEventItem['start'])
-def startDefaultValue(data):
-    # To get hold of the folder, do: context = data.context
-    return datetime.datetime.today() + datetime.timedelta(7)
-
-
-@form.default_value(field=IEventItem['end'])
-def endDefaultValue(data):
-    # To get hold of the folder, do: context = data.context
-    return datetime.datetime.today() + datetime.timedelta(10)
 
 
 @implementer(IEventItem)
