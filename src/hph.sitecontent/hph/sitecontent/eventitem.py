@@ -1,12 +1,14 @@
 import datetime
 # from five import grok
 from z3c.form import form
+from plone.dexterity.content import Item
 from plone.namedfile.field import NamedBlobImage
 from plone.supermodel.directives import fieldset
 
 from zope import schema
 
 from plone.app.textfield import RichText
+from zope.interface import implementer
 
 from hph.sitecontent import MessageFactory as _
 
@@ -106,5 +108,6 @@ def endDefaultValue(data):
     return datetime.datetime.today() + datetime.timedelta(10)
 
 
-class EventItem(dexterity.Item):
-    grok.implements(IEventItem)
+@implementer(IEventItem)
+class EventItem(Item):
+    pass
