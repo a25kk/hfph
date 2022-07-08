@@ -24,7 +24,7 @@ class IPublicationFolder(model.Schema):
 
 @implementer(IPublicationFolder)
 class PublicationFolder(Container):
-
+    pass
 
 
 class View(object):
