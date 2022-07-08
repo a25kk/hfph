@@ -44,7 +44,7 @@
     />
 
     <utility
-         factory="hph.membership.tool.CourseModuleTool"
+         factory="hph.membership.tool.MemberTool"
          provides="hph.membership.tool.IHPHMemberTool"/>
 
 </configure>
