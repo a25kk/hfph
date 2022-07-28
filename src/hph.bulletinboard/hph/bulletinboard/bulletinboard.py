@@ -30,10 +30,7 @@ class BulletinBoard(Container):
     pass
 
 
-class View(grok.View):
-    grok.context(IBulletinBoard)
-    grok.require('zope2.View')
-    grok.name('view')
+class View(object):
 
     def update(self):
         self.has_bulletins = len(self.active_bulletins()) > 0
@@ -49,10 +46,8 @@ class View(grok.View):
         return IContentListing(results)
 
 
-class BulletinView(grok.View):
-    grok.context(IBulletinBoard)
-    grok.require('zope2.View')
-    grok.name('bulletins')
+class BulletinView(object):
+
 
     def update(self):
         self.data = self.active_bulletins()
