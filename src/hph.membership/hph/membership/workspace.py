@@ -10,6 +10,7 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.memoize.view import memoize
 from plone.supermodel import model
 from zope.component import getMultiAdapter
+from zope.interface import implementer
 
 from hph.lectures.lecture import ILecture
 
@@ -21,16 +22,12 @@ class IWorkspace(model.Schema, IImageScaleTraversable):
     Personal workspace container for members
     """
 
-
+@implementer(IWorkspace)
 class Workspace(Container):
-    grok.implements(IWorkspace)
     pass
 
 
-class View(grok.View):
-    grok.context(IWorkspace)
-    grok.require('cmf.ModifyPortalContent')
-    grok.name('view')
+class View(object):
 
     def update(self):
         self.flash_msg = self.display_welcome_msg()
