@@ -8,6 +8,7 @@ from z3c.form import form
 from plone.keyring import django_random
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.memoize.view import memoize
+from plone.supermodel import model
 from zope.component import getMultiAdapter
 
 from hph.lectures.lecture import ILecture
@@ -15,7 +16,7 @@ from hph.lectures.lecture import ILecture
 from hph.membership import MessageFactory as _
 
 
-class IWorkspace(form.Schema, IImageScaleTraversable):
+class IWorkspace(model.Schema, IImageScaleTraversable):
     """
     Personal workspace container for members
     """
