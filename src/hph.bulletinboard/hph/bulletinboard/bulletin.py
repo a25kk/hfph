@@ -2,11 +2,14 @@ from z3c.form import form
 from plone.autoform.form import AutoExtensibleForm
 
 from plone.app.textfield import RichText
+from plone.supermodel import model
+from plone.dexterity.content import Item
+from zope.interface import implementer
 
 from hph.bulletinboard import MessageFactory as _
 
 
-class IBulletin(AutoExtensibleForm, form.Form):
+class IBulletin(model.Schema):
     """
     A single bulletin or announcement
     """
@@ -16,11 +19,8 @@ class IBulletin(AutoExtensibleForm, form.Form):
     )
 
 
-class Bulletin(dexterity.Item):
-    grok.implements(IBulletin)
+@implementer(IBulletin)
+class Bulletin(Item):
+    pass
 
 
-class View(grok.View):
-    grok.context(IBulletin)
-    grok.require('zope2.View')
-    grok.name('view')
