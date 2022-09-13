@@ -2,7 +2,10 @@
 """Module providing workspace browser views"""
 from Acquisition import aq_inner
 from plone import api
+from plone.memoize.view import memoize
 from Products.Five import BrowserView
+
+from hph.lectures.lecture import ILecture
 
 
 class WorkSpaceView(BrowserView):
