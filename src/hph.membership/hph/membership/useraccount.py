@@ -10,6 +10,7 @@ from plone.app.layout.navigation.interfaces import INavigationRoot
 from zope.publisher.interfaces import IPublishTraverse
 
 from hph.membership import MessageFactory as _
+from six.moves import zip
 
 
 class UserAccount(grok.View):

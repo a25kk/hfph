@@ -6,6 +6,7 @@ from zope.schema.interfaces import IVocabularyFactory
 from zope.interface import implementer
 
 from hph.lectures import MessageFactory as _
+import six
 
 
 def degree_courses():
@@ -150,7 +151,7 @@ def module_studies_vocabulary(context):
     }
     terms = [
         SimpleTerm(value, title=title)
-        for title, value in module_studies_recommendations.iteritems()
+        for title, value in six.iteritems(module_studies_recommendations)
     ]
     return SimpleVocabulary(terms)
 
@@ -165,7 +166,7 @@ class ModuleStudiesVocabularyFactory(object):
         }
         terms = [
             SimpleTerm(value, title=title)
-            for title, value in module_studies.iteritems()
+            for title, value in six.iteritems(module_studies)
         ]
         return SimpleVocabulary(terms)
 
@@ -185,7 +186,7 @@ class CourseDurationVocabularyFactory(object):
         }
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
-                                in TYPES.iteritems()])
+                                in six.iteritems(TYPES)])
 
 
 CourseDurationVocabulary = CourseDurationVocabularyFactory
@@ -206,7 +207,7 @@ class CourseTypeVocabularyFactory(object):
         }
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
-                                in TYPES.iteritems()])
+                                in six.iteritems(TYPES)])
 
 
 CourseTypeVocabulary = CourseTypeVocabularyFactory()
@@ -227,7 +228,7 @@ class CourseDegreeVocabularyFactory(object):
         }
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
-                                in DEGREES.iteritems()])
+                                in six.iteritems(DEGREES)])
 
 
 CourseDegreeVocabulary = CourseDegreeVocabularyFactory()

@@ -1,6 +1,6 @@
 # from five import grok
 from plone import api
-from urllib import unquote
+from six.moves.urllib.parse import unquote
 from Acquisition import aq_inner
 from zope.interface import implements
 from zope.component import getMultiAdapter

@@ -25,7 +25,7 @@ class MemberFolderView(BrowserView):
         here_url = context.absolute_url()
         user = api.user.get_current()
         userid = user.getId()
-        if userid in context.keys():
+        if userid in list(context.keys()):
             url = '{0}/{1}'.format(here_url, userid)
         else:
             url = '{0}/@@workspace-missing'.format(here_url)

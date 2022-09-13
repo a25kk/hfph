@@ -113,7 +113,7 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
 
     def has_workspace(self, user_id):
         context = aq_inner(self.context)
-        if user_id in context.keys():
+        if user_id in list(context.keys()):
             return True
         return False
 
@@ -174,7 +174,7 @@ class UserSearchForm(AutoExtensibleForm, form.Form):
                 buf = entry.copy()
                 buf.update(output[key])
                 output[key] = buf
-        return output.values()
+        return list(output.values())
 
     @button.buttonAndHandler(_(u'label_search', default=u'Search'),
                              name='search')

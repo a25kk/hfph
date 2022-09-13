@@ -19,6 +19,7 @@ from zope.schema.vocabulary import getVocabularyRegistry
 
 from hph.lectures import vocabulary
 from hph.lectures import MessageFactory as _
+import six
 
 
 class CourseListing(BrowserView):
@@ -125,7 +126,7 @@ class CourseListing(BrowserView):
         for key, value in form_data.items():
             if key == 'degree-course':
                 # Clean possible duplicates
-                if not isinstance(value, basestring):
+                if not isinstance(value, six.string_types):
                     updated_filters[key] = list(set(value))
             else:
                 updated_filters[key] = value
@@ -467,7 +468,7 @@ class CourseFilterSelectBox(BrowserView):
                 active_filters = filter_data['filter']
             except KeyError:
                 return False
-            if filter_value in active_filters.values():
+            if filter_value in list(active_filters.values()):
                 return True
         return False
 

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module providing definitions"""
+from __future__ import print_function
 from AccessControl import Unauthorized
 from Acquisition import aq_inner, aq_parent
 from Products.Five import BrowserView
@@ -74,7 +75,7 @@ class CourseView(BrowserView):
                 brains = catalog(path={'query': rel.to_path, 'depth': 0})
                 results.append(brains[0])
             except (IndexError, Unauthorized):
-                print(rel.from_object.Title)
+                print((rel.from_object.Title))
                 pass
         return results
 

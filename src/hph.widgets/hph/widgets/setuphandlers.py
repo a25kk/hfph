@@ -28,7 +28,7 @@ def register_content_widgets(site):
     stored_widgets = json.loads(widget_settings)
     records = stored_widgets['items']
     for content_widget, widget_data in content_widgets.items():
-        if content_widget not in records.keys():
+        if content_widget not in list(records.keys()):
             records[content_widget] = widget_data
     stored_widgets["items"] = records
     stored_widgets["timestamp"] = six.text_type(int(time.time())),

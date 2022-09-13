@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import urllib
+import six.moves.urllib.request, six.moves.urllib.parse, six.moves.urllib.error
 from Products.CMFCore.interfaces import ISiteRoot
 from email import message_from_string
 # from five import grok
@@ -21,6 +21,7 @@ from z3c.form import button
 from z3c.form.interfaces import HIDDEN_MODE
 
 from hph.membership import MessageFactory as _
+import six
 
 
 class ISigninForm(Interface):
@@ -152,7 +153,7 @@ class RequireLoginView(BrowserView):
             url = "%s/login" % portal.absolute_url()
             came_from = self.request.get('came_from', None)
             if came_from:
-                url += '?came_from=%s' % urllib.quote(came_from)
+                url += '?came_from=%s' % six.moves.urllib.parse.quote(came_from)
             #return portal.restrictedTraverse('login')()
         else:
             url = "%s/insufficient-privileges" % portal.absolute_url()
@@ -197,7 +198,7 @@ class RequestAccessView(BrowserView):
         encoding = getUtility(ISiteRoot).getProperty('email_charset', 'utf-8')
         # The mail headers are not properly encoded we need to extract
         # them and let MailHost manage the encoding.
-        if isinstance(mail_text, unicode):
+        if isinstance(mail_text, six.text_type):
             mail_text = mail_text.encode(encoding)
         message_obj = message_from_string(mail_text.strip())
         subject = message_obj['Subject']

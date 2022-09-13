@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module providing base widget"""
+from __future__ import print_function
 import uuid as uuid_tool
 
 from AccessControl import Unauthorized
@@ -67,7 +68,7 @@ class WidgetHPHContentAlias(BrowserView):
                     brains = catalog(path={'query': rel.to_path, 'depth': 0})
                     results.append(brains[0])
                 except (Unauthorized, IndexError):
-                    print(rel.from_object.Title)
+                    print((rel.from_object.Title))
                     pass
         return results
 

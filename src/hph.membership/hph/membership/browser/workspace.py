@@ -11,6 +11,7 @@ from Products.Five import BrowserView
 from hph.lectures.lecture import ILecture
 
 from hph.membership import MessageFactory as _
+import six
 
 
 class WorkSpaceView(BrowserView):
@@ -209,7 +210,7 @@ class WorkSpaceView(BrowserView):
             return None
         if len(breadcrumbs) > 3:
             # if we have too long breadcrumbs, emit the middle elements
-            empty = {'absolute_url': '', 'Title': unicode('…', 'utf-8')}
+            empty = {'absolute_url': '', 'Title': six.text_type('…', 'utf-8')}
             breadcrumbs = [breadcrumbs[0], empty] + breadcrumbs[-2:]
         return breadcrumbs
 

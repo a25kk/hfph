@@ -4,12 +4,13 @@
 import base64
 import hmac
 import hashlib
-import urlparse
+import six.moves.urllib.parse
+from six.moves import zip
 
 try:  # py3
     from urllib.parse import unquote, urlencode
 except ImportError:
-    from urllib import unquote, urlencode
+    from six.moves.urllib.parse import unquote, urlencode
 
 from requests.exceptions import HTTPError
 
@@ -238,7 +239,7 @@ class DiscourseSSOHandler(grok.View):
 
         # nonce = decoded.split('=')[1]
 
-        sso = urlparse.parse_qs(payload.decode('base64'))
+        sso = six.moves.urllib.parse.parse_qs(payload.decode('base64'))
         nonce = sso['nonce'][0]
 
         return nonce

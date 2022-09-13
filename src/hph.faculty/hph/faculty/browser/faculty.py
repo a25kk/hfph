@@ -198,7 +198,7 @@ class FacultyMemberContentFactory(BrowserView):
             portal_type="hph.faculty.facultymember"
         )
         for item in items:
-            if 'publikationen' not in item.keys():
+            if 'publikationen' not in list(item.keys()):
                 # handle content creation
                 faculty_member = item.getObject()
                 url_path = faculty_member.absolute_url_path()

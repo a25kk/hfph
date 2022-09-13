@@ -14,6 +14,7 @@ from zope.lifecycleevent import modified
 from hph.membership.tool import api_group_mapper
 from hph.membership.tool import user_group_mapper
 from hph.membership.tool import IHPHMemberTool
+from six.moves import zip
 
 
 class MemberRecords(grok.View):

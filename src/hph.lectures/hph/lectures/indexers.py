@@ -13,6 +13,7 @@ from hph.lectures import vocabulary
 from hph.lectures.interfaces import ICourseFilterTool
 from hph.lectures.interfaces import ICourseModuleTool
 from hph.lectures.lecture import ILecture
+import six
 
 
 def _unicode_save_string_concat(*args):
@@ -21,7 +22,7 @@ def _unicode_save_string_concat(*args):
     """
     result = ''
     for value in args:
-        if isinstance(value, unicode):
+        if isinstance(value, six.text_type):
             value = value.encode('utf-8', 'replace')
         result = ' '.join((result, value))
     return result

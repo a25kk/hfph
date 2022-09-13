@@ -6,6 +6,7 @@ from zope.schema.interfaces import IVocabularyFactory
 from zope.interface import implementer
 
 from hph.publications import MessageFactory as _
+import six
 
 
 @implementer(IVocabularyFactory)
@@ -19,7 +20,7 @@ class PublicationMediaVocabulary(object):
         }
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
-                                in MEDIA.iteritems()])
+                                in six.iteritems(MEDIA)])
 
 
 PublicationMediaVocabulary = PublicationMediaVocabulary()
@@ -40,7 +41,7 @@ class PublicationSeriesVocabulary(object):
         }
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
-                                in TYPES.iteritems()])
+                                in six.iteritems(TYPES)])
 
 
 PublicationSeriesVocabulary = PublicationSeriesVocabulary()
