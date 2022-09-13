@@ -2,18 +2,20 @@
 """Module providing site widget"""
 import uuid as uuid_tool
 
+from plone import api
+from plone.app.contenttypes.utils import replace_link_variables_by_paths
+
 import DateTime
 from Acquisition import aq_inner, aq_parent
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.Five import BrowserView
+
 from ade25.base.interfaces import IContentInfoProvider
 from ade25.panelpage.page import IPage
 from ade25.widgets.interfaces import IContentWidgets
 from hph.sitecontent.eventitem import IEventItem
 from hph.sitecontent.mainsection import IMainSection
 from hph.sitecontent.newsentry import INewsEntry
-from plone import api
-from plone.app.contenttypes.utils import replace_link_variables_by_paths
 
 
 class WidgetTeaserNews(BrowserView):

@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 """Module providing helper views for widget management"""
-from Products.Five import BrowserView
-from plone.protect.interfaces import IDisableCSRFProtection
 from zope.interface import alsoProvides
+
+from plone.protect.interfaces import IDisableCSRFProtection
+
+from Products.Five import BrowserView
 
 from ade25.widgets import utils as widget_utils
 

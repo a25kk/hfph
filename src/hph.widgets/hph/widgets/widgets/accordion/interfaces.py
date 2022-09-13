@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 """Module providing standalone content panel edit forms"""
+from zope import schema
+from zope.interface import Interface, provider
+
 from plone.app.textfield import RichText
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.namedfile import field as named_file
-from zope import schema
-from zope.interface import Interface, provider
 
 from ade25.panelpage import MessageFactory as _
 

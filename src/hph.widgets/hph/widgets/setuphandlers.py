@@ -5,12 +5,14 @@ import json
 import logging
 import time
 
+from plone import api
+from plone.api.exc import InvalidParameterError
+
 import six
 from Products.CMFPlone.utils import safe_unicode
 
 from hph.widgets.config import PKG_WIDGETS
-from plone import api
-from plone.api.exc import InvalidParameterError
+
 
 logger = logging.getLogger(__name__)
 

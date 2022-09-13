@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 """Module providing standalone content panel edit forms"""
-from plone.autoform.interfaces import IFormFieldProvider
-from plone.autoform import directives as form, directives
-from plone.app.z3cform.widget import LinkFieldWidget
 from zope import schema
 from zope.interface import Interface, provider
+
+from plone.app.z3cform.widget import LinkFieldWidget
+from plone.autoform import directives
+from plone.autoform import directives as form
+from plone.autoform.interfaces import IFormFieldProvider
 from plone.namedfile import field as named_file
 
 from ade25.panelpage import MessageFactory as _

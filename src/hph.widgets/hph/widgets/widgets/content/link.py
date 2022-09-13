@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 """Module providing preview cards"""
 import uuid as uuid_tool
-from Acquisition import aq_inner
-from Products.Five import BrowserView
+
+from zope.component import queryUtility
+
 from plone import api
 from plone.i18n.normalizer import IIDNormalizer
-from zope.component import queryUtility
+
+from Acquisition import aq_inner
+from Products.Five import BrowserView
 
 
 class WidgetLinkTile(BrowserView):

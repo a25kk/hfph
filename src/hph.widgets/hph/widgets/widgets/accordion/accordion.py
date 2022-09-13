@@ -2,13 +2,15 @@
 """Module providing site widget"""
 import uuid as uuid_tool
 
-from Acquisition import aq_inner
-from Products.Five import BrowserView
-from ade25.base.interfaces import IContentInfoProvider
-from ade25.widgets.interfaces import IContentWidgets
 from plone import api
 from plone.app.contenttypes.utils import replace_link_variables_by_paths
 from plone.app.textfield import IRichTextValue
+
+from Acquisition import aq_inner
+from Products.Five import BrowserView
+
+from ade25.base.interfaces import IContentInfoProvider
+from ade25.widgets.interfaces import IContentWidgets
 
 
 class WidgetAccordion(BrowserView):

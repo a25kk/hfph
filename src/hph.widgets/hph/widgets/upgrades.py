@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
 # Module providing version specific upgrade steps
-import logging
 import datetime
 import json
+import logging
 import time
+
+from plone import api
 
 import six
 
 from hph.widgets.config import PKG_WIDGETS
-from plone import api
+
 
 default_profile = 'profile-hph.widgets:default'
 logger = logging.getLogger(__name__)

@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
 """Module providing content listing widgets"""
 import uuid as uuid_tool
-from Acquisition import aq_inner
-from Products.Five import BrowserView
+
+from zope.component import queryUtility
+
 from plone import api
 from plone.app.vocabularies.catalog import KeywordsVocabulary
 from plone.i18n.normalizer import IIDNormalizer
-from zope.component import queryUtility
+
+from Acquisition import aq_inner
+from Products.Five import BrowserView
 
 
 class WidgetContentListing(BrowserView):

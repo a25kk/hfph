@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
 """Base module for unittesting."""
 
-from plone.app.testing import applyProfile
-from plone.app.testing import FunctionalTesting
-from plone.app.testing import IntegrationTesting
-from plone.app.testing import login
-from plone.app.testing import PLONE_FIXTURE
-from plone.app.testing import PloneSandboxLayer
-from plone.app.testing import setRoles
-from plone.app.testing import TEST_USER_ID
-from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import (
+    PLONE_FIXTURE,
+    TEST_USER_ID,
+    TEST_USER_NAME,
+    FunctionalTesting,
+    IntegrationTesting,
+    PloneSandboxLayer,
+    applyProfile,
+    login,
+    setRoles
+)
 from plone.testing import z2
 
 import unittest2 as unittest

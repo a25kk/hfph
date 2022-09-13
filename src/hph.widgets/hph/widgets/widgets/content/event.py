@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
 """Module providing preview cards"""
 import uuid as uuid_tool
-from Acquisition import aq_inner
-from Products.Five import BrowserView
-from ade25.base.interfaces import IContentInfoProvider
+
+from zope.component import getUtility, queryUtility
+from zope.schema.interfaces import IVocabularyFactory
+
 from plone import api
 from plone.i18n.normalizer import IIDNormalizer
-from zope.component import queryUtility, getUtility
-from zope.schema.interfaces import IVocabularyFactory
+
+from Acquisition import aq_inner
+from Products.Five import BrowserView
+
+from ade25.base.interfaces import IContentInfoProvider
 
 
 class WidgetEventCard(BrowserView):

@@ -1,14 +1,17 @@
 # -*- coding: utf-8 -*-
 """Module providing base widget"""
 from __future__ import print_function
+
 import uuid as uuid_tool
+
+from plone import api
+from plone.app.contenttypes.utils import replace_link_variables_by_paths
 
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
 from Products.Five import BrowserView
+
 from ade25.widgets.interfaces import IContentWidgets
-from plone import api
-from plone.app.contenttypes.utils import replace_link_variables_by_paths
 
 
 class WidgetHPHContentAlias(BrowserView):

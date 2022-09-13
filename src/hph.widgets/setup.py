@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """Installer for the hph.widgets package."""
 
-from setuptools import find_packages
-from setuptools import setup
-
 import os
+
+from setuptools import find_packages, setup
 
 
 def read(*rnames):

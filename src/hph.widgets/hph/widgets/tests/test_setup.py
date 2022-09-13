@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """Setup/installation tests for this package."""
 
-from hph.widgets.testing import IntegrationTestCase
 from plone import api
+
+from hph.widgets.testing import IntegrationTestCase
 
 
 class TestInstall(IntegrationTestCase):
@@ -25,6 +26,7 @@ class TestInstall(IntegrationTestCase):
     # browserlayer.xml
     def test_browserlayer(self):
         """Test that IHphWidgetsLayer is registered."""
-        from hph.widgets.interfaces import IHphWidgetsLayer
         from plone.browserlayer import utils
+
+        from hph.widgets.interfaces import IHphWidgetsLayer
         self.failUnless(IHphWidgetsLayer in utils.registered_layers())
