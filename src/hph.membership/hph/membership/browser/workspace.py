@@ -2,11 +2,15 @@
 """Module providing workspace browser views"""
 from Acquisition import aq_inner
 from plone import api
-from plone.memoize.view import memoize
-from Products.Five import BrowserView
 from plone.app.contentlisting.interfaces import IContentListing
+from plone.keyring import django_random
+from plone.memoize.view import memoize
+from zope.component import getMultiAdapter
 
 from hph.lectures.lecture import ILecture
+
+from hph.membership import MessageFactory as _
+
 
 
 class WorkSpaceView(BrowserView):
