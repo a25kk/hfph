@@ -1,0 +1,19 @@
+[theme]
+title = {{ config.project.key }} Theme
+description = Diazo theme for {{ config.project.name }}
+rules = /++theme++{{ config.application.key }}.theme/rules.xml
+prefix = /++theme++{{ config.application.key }}.theme
+doctype = <!DOCTYPE html>
+
+enabled-bundles =
+disabled-bundles =
+
+development-css =
+production-css =
+
+development-js = /++theme++{{ config.application.key }}.theme/scripts/app.umd.js
+production-js = /++theme++{{ config.application.key }}.theme/scripts/app.umd.js
+
+[theme:parameters]
+ajax_load = python: request.form.get('ajax_load')
+mode = string:test

@@ -9,10 +9,10 @@ task:setup() {
 }
 
 task:install() {
-    cd .. && chmod 775 ./bootstrap.sh && ./bootstrap.sh
-    virtualenv:install
     docker:install
     docker:command:npm install
+    template:render --overwrite ask-if-older templates/config.local.yml.jinja2 config.local.yml
+    template:render --overwrite ask-if-older templates/local.cfg.jinja2 ../local.cfg
 }
 
 task:install:theme() {

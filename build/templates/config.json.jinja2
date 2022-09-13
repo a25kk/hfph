@@ -1,0 +1,55 @@
+{
+  "name": "{{ config.application.key }}",
+  "paths": {
+    "app": "{{ config.paths.theme_app }}",
+    "base": "{{ config.paths.theme_base }}",
+    "dev": "{{ config.paths.theme_dev }}",
+    "dist": "{{ config.paths.theme_dist }}",
+    "diazoPrefix": "{{ config.paths.theme_diazo }}",
+    "src": "{{ config.paths.theme_src }}",
+    "theme": "{{ config.paths.theme_theme }}"
+  },
+  "favicon": {
+    "dataFile": "faviconData.json",
+    "masterPicture": "favicon.png",
+    "iconPath": "assets/ico/",
+    "ios": "#ffffff",
+    "windows": "#2d89ef",
+    "androidBackground": "#ffffff",
+    "androidColor": "#ffffff",
+    "safariColor": "#5bbad5",
+    "revisionKey": "iet7OjeChoz1",
+    "html": "_includes/base/head.html",
+    "htmlDist": "_includes/base/"
+  },
+  "sprite": {
+    "mode": {
+      "symbol": {
+        "prefix": "o-icon__",
+        "example": true,
+        "render": {
+          "scss": true
+        }
+      }
+    }
+  },
+  "styles": {
+    "src": {{ config.application.styles.src | tojson }}
+  },
+  "scripts": {
+    "app": {{ config.application.scripts.app | tojson }},
+    "src": {{ config.application.scripts.src | tojson }}
+  },
+  "replacementPatterns": {
+    "base": [
+      {
+        "match": "/../../resources/theme/{{ config.application.key }}.theme/styles/",
+        "replacement": "/styles/"
+      },
+      {
+        "match": "/dist/styles/",
+        "replacement": "/styles/"
+      }
+    ]
+  }
+}

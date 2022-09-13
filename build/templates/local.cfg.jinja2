@@ -1,0 +1,53 @@
+# Host names/IP addresses for local environment
+[hosts]
+# The public hostname used in virtual hosting, i.e. the public facing domain
+public          = web.{{ config.project.key }}.${traefik:domain}
+public1         = web.{{ config.project.key }}.${traefik:domain}
+private         = private.{{ config.project.key }}.${traefik:domain}
+static          = static.{{ config.project.key }}.${traefik:domain}
+
+[host-rewrites]
+public_prefix   = www.
+public_rewrite  =
+
+[http-auth]
+basic           = off
+basic_user_file = ${buildout:directory}/etc/.htpasswd
+
+[ssl]
+certificate = ${buildout:directory}/etc/fullchain.pem
+certificate-private = ${buildout:directory}/etc/fullchain.pem
+key = ${buildout:directory}/etc/privkey.
+key-private = ${buildout:directory}/etc/privkey.
+
+[site]
+sitename = lra
+
+[plone-site]
+site-id = lra
+
+
+##########################
+# Development configuration
+###########################
+
+[instance-debug]
+zope-conf-additional =
+    <product-config beaker>
+    session.type            file
+    session.data_dir        ${buildout:directory}/var/sessions/data
+    session.lock_dir        ${buildout:directory}/var/sessions/lock
+    session.key             beaker.session.{{ config.project.key }}
+    session.secret          ij4WarWxzaynrwa79sy99HgAoztY3fou-{{ config.project.key }}
+    </product-config>
+
+# Uncomment and configure to work on package translations
+[i18nize-site]
+recipe = collective.recipe.template
+input = ${buildout:directory}/buildout.d/templates/i18nize.in
+output = ${buildout:bin-directory}/i18nize-site
+mode = 775
+dollar = $
+domain = ${site:sitename}.site
+packagepath = ${buildout:directory}/src/${site:sitename}.site/${site:sitename}/site
+languages = de
