@@ -47,4 +47,13 @@
             permission="cmf.ModifyPortalContent"
     />
 
+    <!-- Workspace views -->
+    <browser:page
+            for="hph.membership.workspace.IWorkspace"
+            name="view"
+            class=".workspace.WorkSpaceView"
+            template="workspace.pt"
+            permission="zope2.Public"
+    />
+
 </configure>

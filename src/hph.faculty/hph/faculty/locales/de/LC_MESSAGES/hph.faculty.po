@@ -58,7 +58,7 @@ msgstr "Index Lehrende"
 
 #: ../profiles/default/types/hph.faculty.facultymember.xml
 msgid "FacultyMember"
-msgstr "Lehrender"
+msgstr "Weitere Lehrende"
 
 #: ../facultymember.py:61
 msgid "Fax"
