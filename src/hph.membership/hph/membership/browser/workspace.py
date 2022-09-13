@@ -6,6 +6,7 @@ from plone.app.contentlisting.interfaces import IContentListing
 from plone.keyring import django_random
 from plone.memoize.view import memoize
 from zope.component import getMultiAdapter
+from Products.Five import BrowserView
 
 from hph.lectures.lecture import ILecture
 
