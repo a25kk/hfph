@@ -4,6 +4,7 @@ from Acquisition import aq_inner
 from plone import api
 from plone.memoize.view import memoize
 from Products.Five import BrowserView
+from plone.app.contentlisting.interfaces import IContentListing
 
 from hph.lectures.lecture import ILecture
 
