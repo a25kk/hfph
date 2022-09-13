@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module providing content page type"""
-from five import grok
+# from five import grok
 from plone.app.textfield import RichText
 from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobImage

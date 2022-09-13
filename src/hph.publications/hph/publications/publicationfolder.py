@@ -3,31 +3,31 @@
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from Products.CMFCore.utils import getToolByName
-from five import grok
+# from five import grok
 from hph.publications.publication import IPublication
 from plone import api
 from plone.app.contentlisting.interfaces import IContentListing
-from plone.directives import dexterity, form
+from plone.dexterity.content import Container
+from plone.supermodel import model
 from zope.lifecycleevent import modified
 from zope.schema.vocabulary import getVocabularyRegistry
+from zope.interface import implementer
 
 from hph.publications import MessageFactory as _
 
 
-class IPublicationFolder(form.Schema):
+class IPublicationFolder(model.Schema):
     """
     A  central collection of publications with filter functionality
     """
 
 
-class PublicationFolder(dexterity.Container):
-    grok.implements(IPublicationFolder)
+@implementer(IPublicationFolder)
+class PublicationFolder(Container):
+    pass
 
 
-class View(grok.View):
-    grok.context(IPublicationFolder)
-    grok.require('zope2.View')
-    grok.name('view')
+class View(object):
 
     def update(self):
         self.has_publications = len(self.all_publications()) > 0
@@ -96,10 +96,7 @@ class View(grok.View):
         return klass
 
 
-class CleanupView(grok.View):
-    grok.context(IPublicationFolder)
-    grok.require('zope2.View')
-    grok.name('cleanup-publications')
+class CleanupView(object):
 
     def update(self):
         self.has_publications = len(self.publications()) > 0

@@ -1,7 +1,7 @@
 import json
 from Acquisition import aq_inner
 from DateTime import DateTime
-from five import grok
+# from five import grok
 from plone import api
 from zope.component import getMultiAdapter
 from Products.CMFCore.utils import getToolByName
@@ -17,10 +17,10 @@ from plone.app.event.dx.interfaces import IDXEvent
 from hph.sitecontent.newsentry import INewsEntry
 
 
-class FrontpageView(grok.View):
-    grok.context(INavigationRoot)
-    grok.require('zope2.View')
-    grok.name('frontpage-view')
+class FrontpageView(object):
+    # grok.context(INavigationRoot)
+    # grok.require('zope2.View')
+    # grok.name('frontpage-view')
 
     def update(self):
         self.has_events = len(self.eventitems()) > 0
@@ -64,10 +64,10 @@ class FrontpageView(grok.View):
         return data
 
 
-class RecentEventsView(grok.View):
-    grok.context(INavigationRoot)
-    grok.require('zope2.View')
-    grok.name('json-eventlist')
+class RecentEventsView(object):
+    #grok.context(INavigationRoot)
+    #grok.require('zope2.View')
+    #grok.name('json-eventlist')
 
     def render(self):
         return json.dumps(self.event_data())

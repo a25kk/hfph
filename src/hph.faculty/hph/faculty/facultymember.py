@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from five import grok
+# # from five import grok
 from operator import attrgetter
 from plone import api
 from plone.app.contentlisting.interfaces import IContentListing
@@ -9,14 +9,16 @@ from plone.app.textfield import RichText
 from plone.app.z3cform.widget import RelatedItemsWidget
 from plone.autoform import directives
 from plone.dexterity.content import Container
-from plone.directives import form
 from plone.formwidget.contenttree import ObjPathSourceBinder
 from plone.indexer import indexer
 from plone.namedfile.field import NamedBlobImage
 from plone.namedfile.interfaces import IImageScaleTraversable
+from plone.supermodel import model
+from z3c.form import form
 from z3c.relationfield.schema import RelationChoice
 from z3c.relationfield.schema import RelationList
 from zope import schema
+from zope.interface import implementer
 from zope.schema.vocabulary import getVocabularyRegistry
 
 from hph.publications.publication import IPublication
@@ -24,7 +26,7 @@ from hph.publications.publication import IPublication
 from hph.faculty import MessageFactory as _
 
 
-class IFacultyMember(form.Schema, IImageScaleTraversable):
+class IFacultyMember(model.Schema, IImageScaleTraversable):
     """
     A faculty staff member
     """
@@ -95,28 +97,13 @@ class IFacultyMember(form.Schema, IImageScaleTraversable):
     )
 
 
-
-@indexer(IFacultyMember)
-def lastNameIndexer(obj):
-    return obj.lastname
-grok.global_adapter(lastNameIndexer, name="lastname")
-
-
-@indexer(IFacultyMember)
-def academicRoleIndexer(obj):
-    return obj.academicRole
-grok.global_adapter(academicRoleIndexer, name="academicRole")
-
-
+@implementer(IFacultyMember)
 class FacultyMember(Container):
-    grok.implements(IFacultyMember)
+    pass
 
 
-class View(grok.View):
+class View(object):
     """ Faculty member view """
-    grok.context(IFacultyMember)
-    grok.require('zope2.View')
-    grok.name('view')
 
     def parent_url(self):
         context = aq_inner(self.context)

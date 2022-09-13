@@ -1,13 +1,14 @@
 from Acquisition import aq_inner
-from five import grok
+# # # from five import grok
 from plone import api
 from zope import schema
 
 from zope.schema.vocabulary import getVocabularyRegistry
 
 from plone.dexterity.content import Container
+from plone.supermodel import model
 
-from plone.directives import form
+from z3c.form import form
 from plone.namedfile.interfaces import IImageScaleTraversable
 
 from plone.app.contentlisting.interfaces import IContentListing
@@ -20,7 +21,7 @@ from hph.lectures.interfaces import ICourseModuleTool
 from hph.lectures import MessageFactory as _
 
 
-class ICourseFolder(form.Schema, IImageScaleTraversable):
+class ICourseFolder(model.Schema, IImageScaleTraversable):
     """
     Manage lectures
     """
@@ -39,10 +40,7 @@ class CourseFolder(Container):
     pass
 
 
-class View(grok.View):
-    grok.context(ICourseFolder)
-    grok.require('zope2.View')
-    grok.name('view')
+class View(object):
 
     def update(self):
         self.filter = self.request.get('content_filter', None)
@@ -142,10 +140,7 @@ class View(grok.View):
         return allowed
 
 
-class XHRIntegration(grok.View):
-    grok.context(ICourseFolder)
-    grok.require('zope2.View')
-    grok.name('xhr-integration')
+class XHRIntegration(object):
 
     def filter_options(self):
         context = aq_inner(self.context)

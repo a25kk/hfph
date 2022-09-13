@@ -4,9 +4,9 @@
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
 from Products.CMFPlone.utils import safe_unicode
-from five import grok
+# # from five import grok
 from plone import api
-from plone.directives import form
+from z3c.form import form
 from z3c.form import button
 from zope.component import getMultiAdapter
 from zope.lifecycleevent import modified
@@ -19,10 +19,7 @@ from hph.membership.workspace import IWorkspace
 from hph.lectures import MessageFactory as _
 
 
-class LectureFactory(grok.View):
-    grok.context(IWorkspace)
-    grok.require('cmf.ModifyPortalContent')
-    grok.name('lecture-factory')
+class LectureFactory(object):
 
     @property
     def traverse_subpath(self):
@@ -41,9 +38,7 @@ class LectureFactory(grok.View):
 
 
 class LectureBaseEditForm(form.SchemaEditForm):
-    grok.context(IWorkspace)
-    grok.require('cmf.AddPortalContent')
-    grok.name('lecture-base')
+    # grok.name('lecture-base')
 
     schema = ILectureBase
     ignoreContext = False
@@ -111,9 +106,7 @@ class LectureBaseEditForm(form.SchemaEditForm):
 
 
 class LectureEditor(grok.View):
-    grok.context(IWorkspace)
-    grok.require('cmf.ModifyPortalContent')
-    grok.name('lecture-editor')
+    # grok.name('lecture-editor')
 
     def update(self):
         context = aq_inner(self.context)
@@ -192,9 +185,7 @@ class LectureEditor(grok.View):
 
 
 class LectureAttachment(form.SchemaEditForm):
-    grok.context(IWorkspace)
-    grok.require('cmf.ModifyPortalContent')
-    grok.name('lecture-attachment-editor')
+    # grok.name('lecture-attachment-editor')
 
     schema = ILectureAttachment
     ignoreContext = False

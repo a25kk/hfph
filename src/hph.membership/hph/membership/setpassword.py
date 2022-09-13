@@ -1,8 +1,8 @@
 from Acquisition import aq_inner
-from five import grok
+# from five import grok
 from hph.membership import MessageFactory as _
 from plone import api
-from plone.directives import form
+from z3c.form import form
 from z3c.form import button
 from zope import schema
 from zope.publisher.interfaces import IPublishTraverse
@@ -25,7 +25,7 @@ class IUserPassword(form.Schema):
     )
 
 
-class SetUserPassword(form.SchemaForm):
+class SetUserPassword(form.Form):
     grok.context(INavigationRoot)
     grok.implements(IPublishTraverse)
     grok.require('zope2.View')

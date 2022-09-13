@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Module providing lecture content"""
 from Acquisition import aq_inner
-from five import grok
+# # from five import grok
 from plone import api
 from plone.app.vocabularies.catalog import CatalogSource
 from plone.app.z3cform.widget import RelatedItemsWidget
@@ -49,7 +49,7 @@ class ILecture(model.Schema, IImageScaleTraversable):
         title=_(u"Course Type"),
         description=_(u"Please select the course type."),
         required=False,
-        vocabulary=u'hph.lectures.CourseType',
+        vocabulary=u'hph.lectures.vocabulary.CourseType',
     )
     title = schema.TextLine(
         title=_(u"Course Title"),
@@ -62,7 +62,7 @@ class ILecture(model.Schema, IImageScaleTraversable):
     courseDuration = schema.Choice(
         title=_(u"Course Duration"),
         required=False,
-        vocabulary=u'hph.lectures.CourseDuration',
+        vocabulary=u'hph.lectures.vocabulary.CourseDuration',
     )
     courseDates = schema.TextLine(
         title=_(u"Course Dates"),
@@ -129,37 +129,6 @@ class ILecture(model.Schema, IImageScaleTraversable):
         required=False,
     )
 
-    # Omitted fields
-    # TODO: remove after browser view cleanup
-    directives.omitted('courseTime')
-    courseTime = schema.TextLine(
-        title=_(u"Course Time"),
-        required=True,
-    )
-    directives.omitted('courseSemester')
-    courseSemester = schema.Choice(
-        title=_(u"Course Semester"),
-        description=_(u"Please select the course semester for filtering"),
-        required=True,
-        vocabulary=u'hph.lectures.CourseSemester',
-    )
-    directives.omitted('courseYear')
-    courseYear = schema.TextLine(
-        title=_(u"Course Year"),
-        required=True,
-    )
-
-@indexer(ILecture)
-def courseTypeIndexer(obj):
-    return obj.courseType
-grok.global_adapter(courseTypeIndexer, name="courseType")
-
-
-@indexer(ILecture)
-def externalFundsProjectIndexer(obj):
-    return obj.externalFundsProject
-grok.global_adapter(externalFundsProjectIndexer, name="externalFundsProject")
-
 
 @implementer(ILecture)
 class Lecture(Container):
@@ -188,10 +157,7 @@ class EditForm(edit.DefaultEditForm):
         self.course_module_data_grid()
 
 
-class View(grok.View):
-    grok.context(ILecture)
-    grok.require('zope2.View')
-    grok.name('view')
+class View(object):
 
     def update(self):
         self.anon = self.is_anon()

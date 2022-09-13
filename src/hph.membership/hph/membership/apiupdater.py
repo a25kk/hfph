@@ -3,7 +3,7 @@ import json
 import time
 
 from Products.CMFPlone.utils import safe_unicode
-from five import grok
+# # from five import grok
 from plone import api
 from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.protect.interfaces import IDisableCSRFProtection

@@ -12,8 +12,6 @@
 
   <include package=".browser" />
 
-  <!-- Grok the package to initialise schema interfaces and content classes -->
-  <grok:grok package="." />
 
   <i18n:registerTranslations directory="locales" />
 
@@ -28,5 +26,18 @@
       />
 
     <include file="upgrades.zcml" />
+
+   <!-- Package utilities -->
+      <utility
+              name="hph.publications.publicationMedia"
+              provides="zope.schema.interfaces.IVocabularyFactory"
+              component="hph.publications.vocabulary.PublicationMediaVocabulary"
+      />
+
+      <utility
+              name="hph.publications.publicationSeries"
+              provides="zope.schema.interfaces.IVocabularyFactory"
+              component="hph.publications.vocabulary.PublicationSeriesVocabulary"
+      />
 
 </configure>

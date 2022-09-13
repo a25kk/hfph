@@ -1,17 +1,30 @@
 import datetime
-from five import grok
-from plone.directives import dexterity, form
+# from five import grok
+from z3c.form import form
+from plone.dexterity.content import Item
 from plone.namedfile.field import NamedBlobImage
 from plone.supermodel.directives import fieldset
+from plone.supermodel import model
 
 from zope import schema
 
 from plone.app.textfield import RichText
+from zope.interface import implementer
 
 from hph.sitecontent import MessageFactory as _
 
 
-class IEventItem(form.Schema):
+def startDefaultValue(data):
+    # To get hold of the folder, do: context = data.context
+    return datetime.datetime.today() + datetime.timedelta(7)
+
+
+def endDefaultValue(data):
+    # To get hold of the folder, do: context = data.context
+    return datetime.datetime.today() + datetime.timedelta(10)
+
+
+class IEventItem(model.Schema):
     """
     An event with a start and end date
     """
@@ -27,10 +40,12 @@ class IEventItem(form.Schema):
     start = schema.Datetime(
         title=_(u"Start date"),
         required=True,
+        defaultFactory=startDefaultValue,
     )
     end = schema.Datetime(
         title=_(u"End date"),
         required=True,
+        defaultFactory=endDefaultValue,
     )
     full_day = schema.Bool(
         title=_(u"Full Day"),
@@ -94,17 +109,6 @@ class IEventItem(form.Schema):
     )
 
 
-@form.default_value(field=IEventItem['start'])
-def startDefaultValue(data):
-    # To get hold of the folder, do: context = data.context
-    return datetime.datetime.today() + datetime.timedelta(7)
-
-
-@form.default_value(field=IEventItem['end'])
-def endDefaultValue(data):
-    # To get hold of the folder, do: context = data.context
-    return datetime.datetime.today() + datetime.timedelta(10)
-
-
-class EventItem(dexterity.Item):
-    grok.implements(IEventItem)
+@implementer(IEventItem)
+class EventItem(Item):
+    pass

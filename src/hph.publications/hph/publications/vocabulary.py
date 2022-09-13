@@ -1,14 +1,15 @@
-from five import grok
+# from five import grok
 
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.interfaces import IVocabularyFactory
+from zope.interface import implementer
 
 from hph.publications import MessageFactory as _
 
 
+@implementer(IVocabularyFactory)
 class PublicationMediaVocabulary(object):
-    grok.implements(IVocabularyFactory)
 
     def __call__(self, context):
         MEDIA = {
@@ -21,12 +22,11 @@ class PublicationMediaVocabulary(object):
                                 in MEDIA.iteritems()])
 
 
-grok.global_utility(PublicationMediaVocabulary,
-                    name=u"hph.publications.publicationMedia")
+PublicationMediaVocabulary = PublicationMediaVocabulary()
 
 
+@implementer(IVocabularyFactory)
 class PublicationSeriesVocabulary(object):
-    grok.implements(IVocabularyFactory)
 
     def __call__(self, context):
         TYPES = {
@@ -43,5 +43,4 @@ class PublicationSeriesVocabulary(object):
                                 in TYPES.iteritems()])
 
 
-grok.global_utility(PublicationSeriesVocabulary,
-                    name=u"hph.publications.publicationSeries")
+PublicationSeriesVocabulary = PublicationSeriesVocabulary()

@@ -1,8 +1,10 @@
 from Acquisition import aq_inner
 from Acquisition import aq_parent
-from five import grok
+# from five import grok
 from plone import api
-from plone.directives import dexterity, form
+from z3c.form import form
+
+from plone.dexterity.content import Container
 
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.namedfile.field import NamedBlobImage
@@ -13,6 +15,7 @@ from plone.supermodel import model
 from hph.sitecontent import MessageFactory as _
 from plone.supermodel.directives import fieldset
 from zope import schema
+from zope.interface import implementer
 
 
 class INewsEntry(model.Schema, IImageScaleTraversable):
@@ -42,5 +45,6 @@ class INewsEntry(model.Schema, IImageScaleTraversable):
     )
 
 
-class NewsEntry(dexterity.Container):
-    grok.implements(INewsEntry)
+@implementer(INewsEntry)
+class NewsEntry(Container):
+    pass

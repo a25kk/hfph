@@ -1,4 +1,4 @@
-from five import grok
+# # from five import grok
 
 from zope.schema.vocabulary import SimpleTerm
 from zope.schema.vocabulary import SimpleVocabulary
@@ -170,38 +170,11 @@ class ModuleStudiesVocabularyFactory(object):
         return SimpleVocabulary(terms)
 
 
-class ModuleStudiesVocabulary(object):
-    grok.implements(IVocabularyFactory)
-
-    def __call__(self, context):
-        module_studies = {
-            _(u"Philosophicum"): 'philosophicum',
-            _(u"Economic Ethics"): 'economic-ethics'
-        }
-        return SimpleVocabulary([SimpleTerm(value, title=title)
-                                 for title, value
-                                 in module_studies.iteritems()])
-grok.global_utility(ModuleStudiesVocabulary,
-                    name=u"hph.lectures.moduleStudies")
+ModuleStudiesVocabulary = ModuleStudiesVocabularyFactory()
 
 
-class CourseSemesterVocabulary(object):
-    grok.implements(IVocabularyFactory)
-
-    def __call__(self, context):
-        TYPES = {
-            _(u"Summer Semester"): 'summer-semester',
-            _(u"Winter Semester"): 'winter-semester'
-        }
-        return SimpleVocabulary([SimpleTerm(value, title=title)
-                                for title, value
-                                in TYPES.iteritems()])
-grok.global_utility(CourseSemesterVocabulary,
-                    name=u"hph.lectures.CourseSemester")
-
-
-class CourseDurationVocabulary(object):
-    grok.implements(IVocabularyFactory)
+@implementer(IVocabularyFactory)
+class CourseDurationVocabularyFactory(object):
 
     def __call__(self, context):
         TYPES = {
@@ -213,12 +186,13 @@ class CourseDurationVocabulary(object):
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
                                 in TYPES.iteritems()])
-grok.global_utility(CourseDurationVocabulary,
-                    name=u"hph.lectures.CourseDuration")
 
 
-class CourseTypeVocabulary(object):
-    grok.implements(IVocabularyFactory)
+CourseDurationVocabulary = CourseDurationVocabularyFactory
+
+
+@implementer(IVocabularyFactory)
+class CourseTypeVocabularyFactory(object):
 
     def __call__(self, context):
         TYPES = {
@@ -233,11 +207,13 @@ class CourseTypeVocabulary(object):
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
                                 in TYPES.iteritems()])
-grok.global_utility(CourseTypeVocabulary, name=u"hph.lectures.CourseType")
 
 
-class CourseDegreeVocabulary(object):
-    grok.implements(IVocabularyFactory)
+CourseTypeVocabulary = CourseTypeVocabularyFactory()
+
+
+@implementer(IVocabularyFactory)
+class CourseDegreeVocabularyFactory(object):
 
     def __call__(self, context):
         DEGREES = {
@@ -252,4 +228,6 @@ class CourseDegreeVocabulary(object):
         return SimpleVocabulary([SimpleTerm(value, title=title)
                                 for title, value
                                 in DEGREES.iteritems()])
-grok.global_utility(CourseDegreeVocabulary, name=u"hph.lectures.CourseDegree")
+
+
+CourseDegreeVocabulary = CourseDegreeVocabularyFactory()

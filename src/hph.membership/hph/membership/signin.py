@@ -2,14 +2,14 @@
 import urllib
 from Products.CMFCore.interfaces import ISiteRoot
 from email import message_from_string
-from five import grok
+# from five import grok
 from AccessControl import getSecurityManager
 from DateTime import DateTime
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.statusmessages.interfaces import IStatusMessage
 from plone.stringinterp import Interpolator
-from plone.directives import form
+from z3c.form import form
 from zope.component import getUtility
 from plone.registry.interfaces import IRegistry
 from plone.z3cform import layout
@@ -42,7 +42,7 @@ class ISigninForm(Interface):
     )
 
 
-class SigninForm(form.SchemaForm):
+class SigninForm(form.Form):
     """ Implementation of the login form """
     grok.context(INavigationRoot)
     grok.require('zope2.View')

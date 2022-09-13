@@ -3,6 +3,13 @@
         xmlns:browser="http://namespaces.zope.org/browser"
         i18n_domain="hph.membership">
 
+    <browser:page
+            for="hph.membership.memberfolder.IMemberFolder"
+            name="view"
+            class=".memberfolder.MemberFolderView"
+            permission="zope2.Public"
+    />
+
     <!-- Faculty member assignment -->
     <browser:page
             for="hph.membership.memberfolder.IMemberFolder"
@@ -38,6 +45,15 @@
             name="user-remove"
             class=".usermanager.UserRemove"
             permission="cmf.ModifyPortalContent"
+    />
+
+    <!-- Workspace views -->
+    <browser:page
+            for="hph.membership.workspace.IWorkspace"
+            name="view"
+            class=".workspace.WorkSpaceView"
+            template="workspace.pt"
+            permission="zope2.Public"
     />
 
 </configure>

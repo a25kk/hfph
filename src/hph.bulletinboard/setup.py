@@ -26,7 +26,7 @@ setup(name='hph.bulletinboard',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'plone.app.dexterity [grok,relations]',
+          'plone.app.dexterity [relations]',
           'plone.namedfile [blobs]',
           # -*- Extra requirements: -*-
       ],

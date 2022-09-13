@@ -1,39 +1,25 @@
-# -*- coding: UTF-8 -*-
+# -*- coding: utf-8 -*-
+"""Module providing workspace browser views"""
 from Acquisition import aq_inner
-# from five import grok
 from plone import api
-from plone.app.contentlisting.interfaces import IContentListing
-from plone.dexterity.content import Container
-from z3c.form import form
-from plone.keyring import django_random
-from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.memoize.view import memoize
-from plone.supermodel import model
-from zope.component import getMultiAdapter
-from zope.interface import implementer
+from Products.Five import BrowserView
 
 from hph.lectures.lecture import ILecture
 
-from hph.membership import MessageFactory as _
 
+class WorkSpaceView(BrowserView):
+    """ Workspace view """
 
-class IWorkspace(model.Schema, IImageScaleTraversable):
-    """
-    Personal workspace container for members
-    """
-
-@implementer(IWorkspace)
-class Workspace(Container):
-    pass
-
-
-class View(object):
-
-    def update(self):
+    def __call__(self, **kw):
         self.flash_msg = self.display_welcome_msg()
         self.has_personel_contents = len(self.personal_contents()) > 0
         self.has_contributing_content = len(self.contributing()) > 0
         self.has_worklist = len(self.worklist()) > 0
+        return self.render()
+
+    def render(self):
+        return self.index()
 
     def display_welcome_msg(self):
         return self.request.get('welcome_msg', False)
@@ -240,3 +226,4 @@ class View(object):
             token = django_random.get_random_string(length=12)
             user.setMemberProperties(mapping={'token': token})
         return token
+

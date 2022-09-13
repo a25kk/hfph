@@ -1,4 +1,4 @@
-from five import grok
+# from five import grok
 from zope.component import getUtility
 
 from plone.app.layout.navigation.interfaces import INavigationRoot

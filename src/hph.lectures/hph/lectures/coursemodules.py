@@ -1,7 +1,7 @@
 from plone.autoform.interfaces import IFormFieldProvider
 from plone.autoform import directives
 from plone.supermodel import model
-from plone.directives import form
+from z3c.form import form
 from zope import schema
 from zope.interface import alsoProvides
 
@@ -18,7 +18,7 @@ class ICourseModules(model.Schema):
     degree = schema.Choice(
         title=_(u"Degree"),
         description=_(u"Please select module degree"),
-        vocabulary=u'hph.lectures.CourseDegree',
+        vocabulary=u'hph.lectures.vocabulary.CourseDegree',
         required=False,
     )
     info = schema.TextLine(

@@ -1,20 +1,23 @@
 # -*- coding: UTF-8 -*-
 from Acquisition import aq_inner
-from five import grok
+# from five import grok
 from plone import api
 from plone.app.textfield import RichText
 from plone.autoform import directives as form
-from plone.directives import dexterity, form
+#from z3c.form import form
+from plone.dexterity.content import Item
+from plone.supermodel import model
 from plone.indexer import indexer
 from plone.namedfile.field import NamedBlobImage
 from plone.namedfile.interfaces import IImageScaleTraversable
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
 from zope import schema
+from zope.interface import implementer
 
 from hph.publications import MessageFactory as _
 
 
-class IPublication(form.Schema, IImageScaleTraversable):
+class IPublication(model.Schema, IImageScaleTraversable):
     """
     A single publication like a book, dvd or magazine
     """
@@ -84,38 +87,12 @@ class IPublication(form.Schema, IImageScaleTraversable):
     )
 
 
-@indexer(IPublication)
-def authorLastNameIndexer(obj):
-    return obj.lastname
-grok.global_adapter(authorLastNameIndexer, name="lastname")
+@implementer(IPublication)
+class Publication(Item):
+    pass
 
 
-@indexer(IPublication)
-def externalFundsProjectIndexer(obj):
-    return obj.externalFundsProject
-grok.global_adapter(externalFundsProjectIndexer, name="externalFundsProject")
-
-
-@indexer(IPublication)
-def pubMediumIndexer(obj):
-    return obj.media
-grok.global_adapter(pubMediumIndexer, name="media")
-
-
-@indexer(IPublication)
-def pubSeriesIndexer(obj):
-    return obj.bookSeries
-grok.global_adapter(pubSeriesIndexer, name="bookSeries")
-
-
-class Publication(dexterity.Item):
-    grok.implements(IPublication)
-
-
-class View(grok.View):
-    grok.context(IPublication)
-    grok.require('zope2.View')
-    grok.name('view')
+class View(object):
 
     def item_contributor(self):
         if api.user.is_anonymous():
