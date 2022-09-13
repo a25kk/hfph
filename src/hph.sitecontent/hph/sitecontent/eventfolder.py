@@ -1,8 +1,10 @@
 # from five import grok
-from z3c.form import form
+from zope.interface import implementer
+
 from plone.dexterity.content import Container
 from plone.supermodel import model
-from zope.interface import implementer
+
+from z3c.form import form
 
 
 class IEventFolder(model.Schema):

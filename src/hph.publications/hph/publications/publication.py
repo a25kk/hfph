@@ -1,18 +1,20 @@
 # -*- coding: UTF-8 -*-
-from Acquisition import aq_inner
+from zope import schema
+from zope.interface import implementer
+
 # from five import grok
 from plone import api
 from plone.app.textfield import RichText
 from plone.autoform import directives as form
 #from z3c.form import form
 from plone.dexterity.content import Item
-from plone.supermodel import model
 from plone.indexer import indexer
 from plone.namedfile.field import NamedBlobImage
 from plone.namedfile.interfaces import IImageScaleTraversable
+from plone.supermodel import model
+
+from Acquisition import aq_inner
 from z3c.form.browser.checkbox import CheckBoxFieldWidget
-from zope import schema
-from zope.interface import implementer
 
 from hph.publications import MessageFactory as _
 

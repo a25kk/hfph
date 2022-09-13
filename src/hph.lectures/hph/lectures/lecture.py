@@ -1,27 +1,28 @@
 # -*- coding: utf-8 -*-
 """Module providing lecture content"""
-from Acquisition import aq_inner
+from zope import schema
+from zope.component import getUtility
+from zope.interface import implementer
+from zope.schema.vocabulary import getVocabularyRegistry
+
 # # from five import grok
 from plone import api
 from plone.app.vocabularies.catalog import CatalogSource
 from plone.app.z3cform.widget import RelatedItemsWidget
-from plone.autoform import directives as form, directives
+from plone.autoform import directives
+from plone.autoform import directives as form
 from plone.dexterity.browser import edit
 from plone.dexterity.content import Container
 from plone.indexer import indexer
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.supermodel import model
-from z3c.form.browser.checkbox import CheckBoxFieldWidget
-from z3c.relationfield.schema import RelationChoice
-from z3c.relationfield.schema import RelationList
-from zope import schema
-from zope.schema.vocabulary import getVocabularyRegistry
-from zope.component import getUtility
-from zope.interface import implementer
 
-from hph.lectures.interfaces import ICourseModuleTool
+from Acquisition import aq_inner
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
+from z3c.relationfield.schema import RelationChoice, RelationList
 
 from hph.lectures import MessageFactory as _
+from hph.lectures.interfaces import ICourseModuleTool
 
 
 class ILecture(model.Schema, IImageScaleTraversable):

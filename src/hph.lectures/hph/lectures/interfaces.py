@@ -1,12 +1,15 @@
 # -*- coding: UTF-8 -*-
 """Lecture edit form schema interfaces"""
-from plone.namedfile.field import NamedBlobFile
-from plone.theme.interfaces import IDefaultPloneLayer
-from z3c.form.browser.checkbox import CheckBoxFieldWidget
-from plone.supermodel import model
-from plone.autoform import directives as form, directives
 from zope import schema
 from zope.interface import Interface
+
+from plone.autoform import directives
+from plone.autoform import directives as form
+from plone.namedfile.field import NamedBlobFile
+from plone.supermodel import model
+from plone.theme.interfaces import IDefaultPloneLayer
+
+from z3c.form.browser.checkbox import CheckBoxFieldWidget
 
 from hph.lectures import MessageFactory as _
 

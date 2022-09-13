@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 # Module providing version specific upgrade steps
+import logging
+
 from plone import api
 
-import logging
 
 default_profile = 'profile-hph.faculty:default'
 logger = logging.getLogger(__name__)

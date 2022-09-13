@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """Module providing custom navigation strategy"""
-from Acquisition import aq_inner
 from plone import api
 from plone.app.contenttypes.utils import replace_link_variables_by_paths
 from plone.app.layout.viewlets import ViewletBase
+
+from Acquisition import aq_inner
 
 
 class QuickLinksViewlet(ViewletBase):

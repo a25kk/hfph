@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """Module providing custom catalog indexers"""
-from hph.faculty.facultymember import IFacultyMember
 from plone.indexer import indexer
+
+from hph.faculty.facultymember import IFacultyMember
 
 
 @indexer(IFacultyMember)

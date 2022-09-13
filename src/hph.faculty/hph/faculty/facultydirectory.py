@@ -1,19 +1,18 @@
-from Acquisition import aq_inner
-# # from five import grok
-from plone import api
-
+from zope.interface import implementer
 from zope.schema.vocabulary import getVocabularyRegistry
 
-from plone.dexterity.content import Container
-from plone.supermodel import model
-from z3c.form import form
-from plone.namedfile.interfaces import IImageScaleTraversable
+# # from five import grok
+from plone import api
 from plone.app.contentlisting.interfaces import IContentListing
-from zope.interface import implementer
+from plone.dexterity.content import Container
+from plone.namedfile.interfaces import IImageScaleTraversable
+from plone.supermodel import model
 
-from hph.faculty.facultymember import IFacultyMember
+from Acquisition import aq_inner
+from z3c.form import form
 
 from hph.faculty import MessageFactory as _
+from hph.faculty.facultymember import IFacultyMember
 
 
 class IFacultyDirectory(model.Schema, IImageScaleTraversable):

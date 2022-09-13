@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
 """Module providing lecture views"""
 from __future__ import print_function
-from AccessControl import Unauthorized
-from Acquisition import aq_inner
-from hph.lectures.interfaces import ICourseModuleTool
-from plone import api
-from Products.Five import BrowserView
+
 from zope.component import getUtility
 from zope.schema.vocabulary import getVocabularyRegistry
 
-from hph.lectures.interfaces import ICourseFilterTool
-from hph.lectures import vocabulary
+from plone import api
+
+from AccessControl import Unauthorized
+from Acquisition import aq_inner
+from Products.Five import BrowserView
+
 from hph.lectures import MessageFactory as _
+from hph.lectures import vocabulary
+from hph.lectures.interfaces import ICourseFilterTool, ICourseModuleTool
 
 
 class CourseView(BrowserView):

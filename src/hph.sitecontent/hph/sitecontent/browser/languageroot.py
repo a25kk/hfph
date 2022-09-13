@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """Module providing views for the folderish content page type"""
-from Acquisition import aq_inner
-from Products.Five.browser import BrowserView
 from plone import api
 from plone.app.z3cform.utils import replace_link_variables_by_paths
+
+from Acquisition import aq_inner
+from Products.Five.browser import BrowserView
 
 
 class LanguageRootView(BrowserView):

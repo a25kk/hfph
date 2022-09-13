@@ -1,15 +1,16 @@
 # -*- coding: utf-8 -*-
 """Module providing faculty member assignment functionality"""
-from Acquisition import aq_inner
-from plone import api
-from plone.protect.utils import addTokenToUrl
-from Products.Five.browser import BrowserView
+from zope.interface import implementer
 from zope.lifecycleevent import modified
 from zope.publisher.interfaces.browser import IPublishTraverse
-from zope.interface import implementer
+
+from plone import api
+from plone.protect.utils import addTokenToUrl
+
+from Acquisition import aq_inner
+from Products.Five.browser import BrowserView
 
 from hph.faculty.facultymember import IFacultyMember
-
 from hph.publications import MessageFactory as _
 
 

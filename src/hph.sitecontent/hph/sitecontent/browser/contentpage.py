@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """Module providing views for the folderish content page type"""
+from plone import api
+
 from Acquisition import aq_inner
 from Products.Five.browser import BrowserView
-from plone import api
 
 from hph.sitecontent.contentpage import IContentPage
 

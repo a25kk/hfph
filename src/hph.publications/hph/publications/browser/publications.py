@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 """Module providing publication browser views"""
-from Acquisition import aq_inner, aq_parent
+from zope.schema.vocabulary import getVocabularyRegistry
+
 from plone import api
 from plone.app.contentlisting.interfaces import IContentListing
+
+from Acquisition import aq_inner, aq_parent
 from Products.Five import BrowserView
-from zope.schema.vocabulary import getVocabularyRegistry
 
 from hph.publications.publication import IPublication
 

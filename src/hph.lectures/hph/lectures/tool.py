@@ -4,13 +4,17 @@ import datetime
 import json
 import time
 import uuid as uuid_tool
-from Products.CMFPlone.utils import safe_unicode
-from collective.beaker.interfaces import ISession
-from hph.lectures import vocabulary
-from plone import api
-from plone.memoize.view import memoize
+
 from zope.globalrequest import getRequest
 from zope.lifecycleevent import modified
+
+from plone import api
+from plone.memoize.view import memoize
+
+from collective.beaker.interfaces import ISession
+from Products.CMFPlone.utils import safe_unicode
+
+from hph.lectures import vocabulary
 
 
 class CourseModuleTool(object):

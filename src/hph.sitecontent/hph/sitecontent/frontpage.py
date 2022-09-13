@@ -1,18 +1,17 @@
 import json
-from Acquisition import aq_inner
-from DateTime import DateTime
+
+from zope.component import getMultiAdapter
+
 # from five import grok
 from plone import api
-from zope.component import getMultiAdapter
-from Products.CMFCore.utils import getToolByName
-
-from plone.app.layout.navigation.interfaces import INavigationRoot
 from plone.app.contentlisting.interfaces import IContentListing
-
-from plone.app.event.base import RET_MODE_ACCESSORS
-from plone.app.event.base import get_events
-from plone.app.event.base import localized_now
+from plone.app.event.base import RET_MODE_ACCESSORS, get_events, localized_now
 from plone.app.event.dx.interfaces import IDXEvent
+from plone.app.layout.navigation.interfaces import INavigationRoot
+
+from Acquisition import aq_inner
+from DateTime import DateTime
+from Products.CMFCore.utils import getToolByName
 
 from hph.sitecontent.newsentry import INewsEntry
 

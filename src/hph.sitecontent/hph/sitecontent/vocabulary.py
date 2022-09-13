@@ -2,10 +2,8 @@ from binascii import b2a_qp
 
 # from five import grok
 from zope.interface import implementer
-
-from zope.schema.vocabulary import SimpleTerm
-from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.interfaces import IVocabularyFactory
+from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
 
 from hph.sitecontent import MessageFactory as _
 

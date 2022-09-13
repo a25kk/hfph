@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 """Module providing schema definitions"""
-from plone.autoform.interfaces import IFormFieldProvider
-from plone.supermodel import model
-from plone.autoform import directives as form, directives
 from zope import schema
 from zope.interface import alsoProvides
+
+from plone.autoform import directives
+from plone.autoform import directives as form
+from plone.autoform.interfaces import IFormFieldProvider
+from plone.supermodel import model
 
 from hph.lectures import MessageFactory as _
 

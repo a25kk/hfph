@@ -1,19 +1,20 @@
 # -*- coding: UTF-8 -*-
 
-from Acquisition import aq_inner
-from Acquisition import aq_parent
-from Products.CMFCore.utils import getToolByName
-# from five import grok
-from hph.publications.publication import IPublication
+from zope.interface import implementer
+from zope.lifecycleevent import modified
+from zope.schema.vocabulary import getVocabularyRegistry
+
 from plone import api
 from plone.app.contentlisting.interfaces import IContentListing
 from plone.dexterity.content import Container
 from plone.supermodel import model
-from zope.lifecycleevent import modified
-from zope.schema.vocabulary import getVocabularyRegistry
-from zope.interface import implementer
+
+from Acquisition import aq_inner, aq_parent
+from Products.CMFCore.utils import getToolByName
 
 from hph.publications import MessageFactory as _
+# from five import grok
+from hph.publications.publication import IPublication
 
 
 class IPublicationFolder(model.Schema):

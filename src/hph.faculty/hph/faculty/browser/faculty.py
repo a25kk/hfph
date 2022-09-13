@@ -2,13 +2,16 @@
 """Module providing faculty member views"""
 import logging
 
-from Acquisition import aq_inner, aq_parent
-from plone import api
-from plone.app.contentlisting.interfaces import IContentListing
-from Products.Five import BrowserView
 from zope.schema.vocabulary import getVocabularyRegistry
 
+from plone import api
+from plone.app.contentlisting.interfaces import IContentListing
+
+from Acquisition import aq_inner, aq_parent
+from Products.Five import BrowserView
+
 from hph.faculty.facultymember import IFacultyMember
+
 
 logger = logging.getLogger("HfPH Faculty")
 

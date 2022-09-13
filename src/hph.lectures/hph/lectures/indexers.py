@@ -1,19 +1,20 @@
 # -*- coding: utf-8 -*-
 """Module providing a custom indexing setup for site content"""
-from Acquisition import aq_inner
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
+from zope.component import getUtility
+
 from plone import api
 from plone.app.contenttypes.behaviors.richtext import IRichText
 from plone.app.textfield.value import IRichTextValue
 from plone.indexer.decorator import indexer
-from zope.component import getUtility
+
+import six
+from Acquisition import aq_inner
+from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import safe_unicode
 
 from hph.lectures import vocabulary
-from hph.lectures.interfaces import ICourseFilterTool
-from hph.lectures.interfaces import ICourseModuleTool
+from hph.lectures.interfaces import ICourseFilterTool, ICourseModuleTool
 from hph.lectures.lecture import ILecture
-import six
 
 
 def _unicode_save_string_concat(*args):

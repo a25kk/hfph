@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """Module providing course folder views"""
+from plone import api
+
 from Acquisition import aq_inner
 from Products.Five import BrowserView
-from plone import api
 
 
 class CourseFolderView(BrowserView):

@@ -2,23 +2,22 @@
 """Module providing views for course module editing"""
 import collections
 
-from Acquisition import aq_inner
-from AccessControl import Unauthorized
-from Products.CMFPlone.utils import safe_unicode
-from Products.Five.browser import BrowserView
-from hph.lectures.lecture import ILecture
+from zope.component import getMultiAdapter, getUtility
+from zope.interface import implementer
+from zope.publisher.interfaces.browser import IPublishTraverse
+
 from plone import api
 from plone.protect.utils import addTokenToUrl
-from zope.component import getUtility
-from zope.component import getMultiAdapter
-from zope.publisher.interfaces.browser import IPublishTraverse
-from zope.interface import implementer
 
+from AccessControl import Unauthorized
+from Acquisition import aq_inner
+from Products.CMFPlone.utils import safe_unicode
+from Products.Five.browser import BrowserView
+
+from hph.lectures import MessageFactory as _
 from hph.lectures import vocabulary
 from hph.lectures.interfaces import ICourseModuleTool
 from hph.lectures.lecture import ILecture
-
-from hph.lectures import MessageFactory as _
 
 
 class CourseModuleEditor(BrowserView):

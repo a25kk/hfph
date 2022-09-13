@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 """Module providing content page type"""
 # from five import grok
+from zope import schema
+from zope.interface import implementer
+
 from plone.app.textfield import RichText
 from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobImage
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
-from zope import schema
-from zope.interface import implementer
 
 from hph.sitecontent import MessageFactory as _
 

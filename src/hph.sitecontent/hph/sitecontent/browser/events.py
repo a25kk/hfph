@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 """Module providing event views and listings"""
+from zope.component import getUtility
+from zope.schema.interfaces import IVocabularyFactory
+
+from plone import api
+
 import DateTime
 from Acquisition import aq_inner
 from Products.Five import BrowserView
+
 from ade25.base.interfaces import IContentInfoProvider
+from hph.sitecontent import MessageFactory as _
 from hph.sitecontent.eventitem import IEventItem
 from hph.sitecontent.vocabulary import EventCategoryVocabulary
-from hph.sitecontent import MessageFactory as _
-from plone import api
-from zope.component import getUtility
-from zope.schema.interfaces import IVocabularyFactory
 
 
 class EventListView(BrowserView):

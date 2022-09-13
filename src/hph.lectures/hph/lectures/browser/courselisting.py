@@ -5,21 +5,22 @@ import hashlib
 import json
 import uuid
 
+from zope.component import getMultiAdapter, getUtility
+from zope.schema.vocabulary import getVocabularyRegistry
+
+from plone import api
+from plone.keyring import django_random
+
+import six
 from AccessControl import Unauthorized
 from Acquisition import aq_inner
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five import BrowserView
+
+from hph.lectures import MessageFactory as _
+from hph.lectures import vocabulary
 from hph.lectures.interfaces import ICourseFilterTool
 from hph.lectures.lecture import ILecture
-from plone import api
-from plone.keyring import django_random
-
-from zope.component import getMultiAdapter, getUtility
-from zope.schema.vocabulary import getVocabularyRegistry
-
-from hph.lectures import vocabulary
-from hph.lectures import MessageFactory as _
-import six
 
 
 class CourseListing(BrowserView):

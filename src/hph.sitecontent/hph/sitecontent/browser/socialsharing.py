@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 """Module providing embeddable social sharing bar"""
-from requests import utils
 from Acquisition import aq_inner
 from Products.Five import BrowserView
-from ade25.base.interfaces import IContentInfoProvider
+from requests import utils
 from requests.utils import requote_uri
+
+from ade25.base.interfaces import IContentInfoProvider
 
 
 class SocialSharing(BrowserView):

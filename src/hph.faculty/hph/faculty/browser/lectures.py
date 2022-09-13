@@ -1,18 +1,21 @@
 # -*- coding: utf-8 -*-
 """Module providing definitions"""
 from __future__ import print_function
+
+from zope.component import getUtility, queryUtility
+from zope.intid.interfaces import IIntIds
+from zope.schema.vocabulary import getVocabularyRegistry
+
+from plone import api
+from plone.app.linkintegrity.handlers import referencedRelationship
+
 from AccessControl import Unauthorized
 from Acquisition import aq_inner, aq_parent
 from Products.Five import BrowserView
+from zc.relation.interfaces import ICatalog
+
 from hph.lectures.coursefolder import ICourseFolder
 from hph.lectures.lecture import ILecture
-from plone import api
-from zc.relation.interfaces import ICatalog
-from zope.component import queryUtility
-from zope.component import getUtility
-from zope.intid.interfaces import IIntIds
-from plone.app.linkintegrity.handlers import referencedRelationship
-from zope.schema.vocabulary import getVocabularyRegistry
 
 
 class CourseView(BrowserView):

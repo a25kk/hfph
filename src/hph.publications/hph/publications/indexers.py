@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """Module providing custom catalog indexers"""
-from hph.publications.publication import IPublication
 from plone.indexer import indexer
+
+from hph.publications.publication import IPublication
 
 
 @indexer(IPublication)

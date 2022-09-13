@@ -1,12 +1,12 @@
 # from five import grok
 
-from zope.schema.vocabulary import SimpleTerm
-from zope.schema.vocabulary import SimpleVocabulary
-from zope.schema.interfaces import IVocabularyFactory
 from zope.interface import implementer
+from zope.schema.interfaces import IVocabularyFactory
+from zope.schema.vocabulary import SimpleTerm, SimpleVocabulary
+
+import six
 
 from hph.publications import MessageFactory as _
-import six
 
 
 @implementer(IVocabularyFactory)

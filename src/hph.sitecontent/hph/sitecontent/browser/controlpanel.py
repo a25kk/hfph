@@ -1,14 +1,19 @@
 # -*- coding: utf-8 -*-
 """Module providing control panel views"""
-from Products.Five import BrowserView
-from Products.statusmessages.interfaces import IStatusMessage
-from plone.app.registry.browser.controlpanel import ControlPanelFormWrapper
-from plone.app.registry.browser.controlpanel import RegistryEditForm
-from plone.z3cform import layout
 from zope import schema
 from zope.interface import Interface
 
+from plone.app.registry.browser.controlpanel import (
+    ControlPanelFormWrapper,
+    RegistryEditForm
+)
+from plone.z3cform import layout
+
+from Products.Five import BrowserView
+from Products.statusmessages.interfaces import IStatusMessage
+
 from hph.sitecontent import MessageFactory as _
+
 
 CLOSE = u'<svg class="o-icon o-icon--inverse o-icon--nav-toggle o-icon__ui--close-dims app-nav__toggle-icon"><use xlink:href="/assets/symbol/svg/sprite.symbol.svg#ui--close"></use></svg>'  # noqa
 

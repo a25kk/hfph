@@ -1,24 +1,21 @@
-from Acquisition import aq_inner
-# # # from five import grok
-from plone import api
 from zope import schema
-
-from zope.schema.vocabulary import getVocabularyRegistry
-
-from plone.dexterity.content import Container
-from plone.supermodel import model
-
-from z3c.form import form
-from plone.namedfile.interfaces import IImageScaleTraversable
-
-from plone.app.contentlisting.interfaces import IContentListing
 from zope.component import getUtility
 from zope.interface import implementer
+from zope.schema.vocabulary import getVocabularyRegistry
 
-from hph.lectures.lecture import ILecture
-from hph.lectures.interfaces import ICourseModuleTool
+# # # from five import grok
+from plone import api
+from plone.app.contentlisting.interfaces import IContentListing
+from plone.dexterity.content import Container
+from plone.namedfile.interfaces import IImageScaleTraversable
+from plone.supermodel import model
+
+from Acquisition import aq_inner
+from z3c.form import form
 
 from hph.lectures import MessageFactory as _
+from hph.lectures.interfaces import ICourseModuleTool
+from hph.lectures.lecture import ILecture
 
 
 class ICourseFolder(model.Schema, IImageScaleTraversable):

@@ -1,21 +1,19 @@
-from Acquisition import aq_inner
-from Acquisition import aq_parent
-# from five import grok
-from plone import api
-from z3c.form import form
-
-from plone.dexterity.content import Container
-
-from plone.namedfile.interfaces import IImageScaleTraversable
-from plone.namedfile.field import NamedBlobImage
-
-from plone.app.textfield import RichText
-from plone.supermodel import model
-
-from hph.sitecontent import MessageFactory as _
-from plone.supermodel.directives import fieldset
 from zope import schema
 from zope.interface import implementer
+
+# from five import grok
+from plone import api
+from plone.app.textfield import RichText
+from plone.dexterity.content import Container
+from plone.namedfile.field import NamedBlobImage
+from plone.namedfile.interfaces import IImageScaleTraversable
+from plone.supermodel import model
+from plone.supermodel.directives import fieldset
+
+from Acquisition import aq_inner, aq_parent
+from z3c.form import form
+
+from hph.sitecontent import MessageFactory as _
 
 
 class INewsEntry(model.Schema, IImageScaleTraversable):

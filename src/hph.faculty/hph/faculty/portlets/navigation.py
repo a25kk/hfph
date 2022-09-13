@@ -1,18 +1,19 @@
 # -*- coding: utf-8 -*-
 """Module providing faculty content navigation"""
-from Acquisition import aq_inner
+from zope.interface import implements
+
 from plone import api
 from plone.app.portlets.portlets import base
 from plone.portlets.interfaces import IPortletDataProvider
+
+from Acquisition import aq_inner
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFPlone import utils
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.interface import implements
-
-from hph.faculty.facultymember import IFacultyMember
-from hph.sitecontent.contentpage import IContentPage
 
 from hph.faculty import MessageFactory as _
+from hph.faculty.facultymember import IFacultyMember
+from hph.sitecontent.contentpage import IContentPage
 
 
 class IFacultyNavigationPortlet(IPortletDataProvider):

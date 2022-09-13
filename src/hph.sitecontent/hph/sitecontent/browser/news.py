@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 """Module providing news browser views"""
+from plone import api
+
 from Acquisition import aq_inner
 from Products.Five import BrowserView
+
 from hph.sitecontent.newsentry import INewsEntry
-from plone import api
 
 
 class NewsListView(BrowserView):

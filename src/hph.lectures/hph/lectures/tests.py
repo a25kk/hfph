@@ -1,14 +1,13 @@
 import doctest
 import unittest
 
-from Testing import ZopeTestCase as ztc
-
 from Products.Five import zcml
 from Products.PloneTestCase import PloneTestCase as ptc
-from Products.PloneTestCase.layer import PloneSite
-from Products.PloneTestCase.layer import onsetup
+from Products.PloneTestCase.layer import PloneSite, onsetup
+from Testing import ZopeTestCase as ztc
 
 import hph.lectures
+
 
 OPTION_FLAGS = doctest.NORMALIZE_WHITESPACE | \
                doctest.ELLIPSIS

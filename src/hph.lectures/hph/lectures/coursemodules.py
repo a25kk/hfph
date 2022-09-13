@@ -1,12 +1,12 @@
-from plone.autoform.interfaces import IFormFieldProvider
-from plone.autoform import directives
-from plone.supermodel import model
-from z3c.form import form
 from zope import schema
 from zope.interface import alsoProvides
 
-from collective.z3cform.datagridfield import DataGridFieldFactory
-from collective.z3cform.datagridfield import DictRow
+from plone.autoform import directives
+from plone.autoform.interfaces import IFormFieldProvider
+from plone.supermodel import model
+
+from collective.z3cform.datagridfield import DataGridFieldFactory, DictRow
+from z3c.form import form
 
 from hph.lectures import MessageFactory as _
 

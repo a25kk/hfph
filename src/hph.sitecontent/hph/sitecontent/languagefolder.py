@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """Module providing section container content type"""
-from Acquisition import aq_inner
+from zope import schema
+from zope.component import getMultiAdapter
+from zope.interface import implementer
+
 # from five import grok
 from plone.app.z3cform.widget import LinkFieldWidget
 from plone.autoform import directives
@@ -9,9 +12,8 @@ from plone.namedfile.field import NamedBlobImage
 from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
-from zope import schema
-from zope.component import getMultiAdapter
-from zope.interface import implementer
+
+from Acquisition import aq_inner
 
 from hph.sitecontent import MessageFactory as _
 

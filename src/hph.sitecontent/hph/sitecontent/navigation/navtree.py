@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
 """Module providing catalog query based nav trees"""
-from Products.CMFPlone import utils
-from hph.sitecontent.browser.controlpanel import IHphBaseControlPanelNavigation
+from zope.component import getUtility
+from zope.contentprovider.provider import ContentProviderBase
+
 from plone import api
 from plone.app.layout.navigation.root import getNavigationRoot
 from plone.i18n.normalizer import IIDNormalizer
 from plone.registry.interfaces import IRegistry
-from zope.component import getUtility
-from zope.contentprovider.provider import ContentProviderBase
+
+from Products.CMFPlone import utils
 
 from hph.sitecontent import config as hph_config
+from hph.sitecontent.browser.controlpanel import IHphBaseControlPanelNavigation
 
 
 class NavTreeProvider(ContentProviderBase):

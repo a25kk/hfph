@@ -2,10 +2,12 @@
 """Module providing publication listing"""
 from operator import attrgetter
 
-from Acquisition import aq_inner, aq_parent
-from plone import api
-from Products.Five import BrowserView
 from zope.schema.vocabulary import getVocabularyRegistry
+
+from plone import api
+
+from Acquisition import aq_inner, aq_parent
+from Products.Five import BrowserView
 
 
 class FacultyMemberPublicationsView(BrowserView):

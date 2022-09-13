@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 """Module providing custom catalog indexers"""
-from Products.CMFCore.interfaces import IContentish
 from plone.indexer import indexer
+
+from Products.CMFCore.interfaces import IContentish
 
 
 @indexer(IContentish)

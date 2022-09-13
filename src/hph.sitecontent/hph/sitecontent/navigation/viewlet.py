@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 """Module providing custom navigation strategy"""
+from zope.component import getUtility
+
 from plone import api
 from plone.app.layout.viewlets import ViewletBase
 from plone.registry.interfaces import IRegistry
-from zope.component import getUtility
 
 from hph.sitecontent import config as hph_config
 from hph.sitecontent.browser.controlpanel import IHphBaseControlPanelNavigation
