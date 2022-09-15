@@ -6,6 +6,7 @@ from zope.interface import implements
 from zope.component import getMultiAdapter
 from zope.component import getUtility
 from zope.interface import Interface
+from zope.interface import implementer
 from zope.browsermenu.interfaces import IBrowserMenu
 from zope.traversing.interfaces import ITraversable
 from plone.app.layout.viewlets.interfaces import IPortalHeader
@@ -214,8 +215,8 @@ class ToolbarViewlet(grok.Viewlet):
         return is_adm
 
 
+@implementer(ITraversable)
 class UnthemedRequest(object):
-    implements(ITraversable)
 
     def __init__(self, context, request=None):
         self.context = context

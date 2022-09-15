@@ -40,7 +40,7 @@
     <adapter
             factory="hph.membership.signinredirect.RedirectAfterLoginAdapter"
             for="OFS.interfaces.ITraversable
-         zope.publisher.interfaces.IRequest"
+            zope.publisher.interfaces.IRequest"
     />
 
     <utility

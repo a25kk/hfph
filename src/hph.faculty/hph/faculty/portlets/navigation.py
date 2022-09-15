@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Module providing faculty content navigation"""
-from zope.interface import implements
+from zope.interface import implementer
 
 from plone import api
 from plone.app.portlets.portlets import base
