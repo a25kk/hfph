@@ -11,6 +11,8 @@ from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFPlone import utils
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
+from zope.interface import implementer
+
 from hph.faculty import MessageFactory as _
 from hph.faculty.facultymember import IFacultyMember
 from hph.sitecontent.contentpage import IContentPage
@@ -24,15 +26,13 @@ class IFacultyNavigationPortlet(IPortletDataProvider):
     same.
     """
 
-
+@implementer(IFacultyNavigationPortlet)
 class Assignment(base.Assignment):
     """Portlet assignment.
 
     This is what is actually managed through the portlets UI and associated
     with columns.
     """
-
-    implements(IFacultyNavigationPortlet)
 
     @property
     def title(self):
