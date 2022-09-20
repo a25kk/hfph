@@ -15,12 +15,12 @@ from plone.memoize.instance import memoize
 from hph.membership.interfaces import IHPHMembershipTool
 
 
-class ToolbarViewlet(grok.Viewlet):
-    grok.context(Interface)
-    grok.layer(IHPHMembershipTool)
-    grok.require('zope2.View')
-    grok.viewletmanager(IPortalHeader)
-    grok.name('hph.membership.ToolbarViewlet')
+class ToolbarViewlet(object):
+    # context(Interface)
+    # layer(IHPHMembershipTool)
+    # require('zope2.View')
+    # viewletmanager(IPortalHeader)
+    # name('hph.membership.ToolbarViewlet')
 
     def update(self):
         self.context = aq_inner(self.context)

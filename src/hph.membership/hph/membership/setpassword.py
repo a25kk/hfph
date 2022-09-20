@@ -26,10 +26,10 @@ class IUserPassword(form.Schema):
 
 
 class SetUserPassword(form.Form):
-    grok.context(INavigationRoot)
-    grok.implements(IPublishTraverse)
-    grok.require('zope2.View')
-    grok.name('set-user-password')
+    # context(INavigationRoot)
+    # implements(IPublishTraverse)
+    # require('zope2.View')
+    # name('set-user-password')
 
     schema = IUserPassword
     ignoreContext = True

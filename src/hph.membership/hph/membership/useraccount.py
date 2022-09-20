@@ -13,11 +13,11 @@ from hph.membership import MessageFactory as _
 from six.moves import zip
 
 
-class UserAccount(grok.View):
-    grok.context(INavigationRoot)
-    grok.implements(IPublishTraverse)
-    grok.require('zope2.View')
-    grok.name('useraccount')
+class UserAccount(object):
+    # context(INavigationRoot)
+    # implements(IPublishTraverse)
+    # require('zope2.View')
+    # name('useraccount')
 
     def update(self):
         self.key = self.traverse_subpath[0]
@@ -154,8 +154,8 @@ class UserAccount(grok.View):
         self.request.response.redirect(next_url)
 
 
-class UserAccountError(grok.View):
-    grok.context(INavigationRoot)
-    grok.implements(IPublishTraverse)
-    grok.require('zope2.View')
-    grok.name('useraccount-error')
+class UserAccountError(object):
+    context(INavigationRoot)
+    implements(IPublishTraverse)
+    require('zope2.View')
+    name('useraccount-error')
