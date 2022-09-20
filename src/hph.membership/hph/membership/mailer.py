@@ -12,11 +12,11 @@ import lxml
 import os
 import socket
 
-from email.MIMEMultipart import MIMEMultipart
-from email.MIMEText import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from email.utils import formataddr
 from email.utils import parseaddr
-from htmllib import HTMLParser
+from html.parser import HTMLParser
 from lxml.html.clean import Cleaner
 from smtplib import SMTPException
 from string import Template
