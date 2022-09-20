@@ -155,7 +155,7 @@ class UserAccount(object):
 
 
 class UserAccountError(object):
-    context(INavigationRoot)
-    implements(IPublishTraverse)
-    require('zope2.View')
-    name('useraccount-error')
+    # context(INavigationRoot)
+    # implements(IPublishTraverse)
+    # require('zope2.View')
+    # name('useraccount-error')

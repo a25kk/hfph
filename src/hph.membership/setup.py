@@ -28,9 +28,9 @@ setup(name='hph.membership',
           'setuptools',
           'requests',
           'plone.app.dexterity',
-          'plone.app.relationfield',
-          'plone.namedfile [blobs]',
-          'plone.principalsource',
+          #'plone.app.relationfield',
+          #'plone.namedfile [blobs]',
+          #'plone.principalsource',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
