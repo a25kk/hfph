@@ -2,7 +2,10 @@
 """ Module providing utility functions for composing and sending
     html and plaintext messages
 """
-import cStringIO
+try:
+    from StringIO import StringIO ## for Python 2
+except ImportError:
+    from io import StringIO ## for Python 3
 import formatter
 import logging
 import lxml
