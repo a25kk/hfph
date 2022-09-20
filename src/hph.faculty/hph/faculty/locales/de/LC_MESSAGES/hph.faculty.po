@@ -74,7 +74,7 @@ msgstr "Nachname"
 
 #: ../vocabulary.py:17
 msgid "Lecturer"
-msgstr "Lehrbeauftragte"
+msgstr "Weitere Lehrende"
 
 #: ../facultymember_templates/view.pt:71
 msgid "Note:"
