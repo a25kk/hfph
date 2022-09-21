@@ -48,6 +48,15 @@
     />
 
     <!-- Workspace views -->
+
+    <browser:page
+            for="hph.membership.memberfolder.IMemberFolder"
+            name="workspace-missing"
+            class=".memberfolder.WorkspaceMissingView"
+            template="workspacemissing.pt"
+            permission="zope2.Public"
+    />
+
     <browser:page
             for="hph.membership.workspace.IWorkspace"
             name="view"
