@@ -324,7 +324,7 @@ class CoursePreview(BrowserView):
     def prettify_duration(self, value):
         context = aq_inner(self.context)
         vr = getVocabularyRegistry()
-        vocab = vr.get(context, 'hph.lectures.CourseDuration')
+        vocab = vr.get(context, 'hph.lectures.vocabulary.CourseDuration')
         title = _(u"undefined")
         if value is not None:
             for term in vocab:
@@ -335,7 +335,7 @@ class CoursePreview(BrowserView):
     def prettify_degree(self, value):
         context = aq_inner(self.context)
         vr = getVocabularyRegistry()
-        vocab = vr.get(context, 'hph.lectures.CourseDegree')
+        vocab = vr.get(context, 'hph.lectures.vocabulary.CourseDegree')
         title = _(u"undefined")
         if value is not None:
             for term in vocab:
@@ -346,7 +346,7 @@ class CoursePreview(BrowserView):
     def prettify_course_type(self, value):
         context = aq_inner(self.context)
         vr = getVocabularyRegistry()
-        vocab = vr.get(context, 'hph.lectures.CourseType')
+        vocab = vr.get(context, 'hph.lectures.vocabulary.CourseType')
         title = _(u"undefined")
         if value is not None:
             for term in vocab:

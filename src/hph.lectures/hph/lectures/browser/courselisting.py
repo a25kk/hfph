@@ -171,7 +171,7 @@ class CourseListing(BrowserView):
     def filter_options(self):
         context = aq_inner(self.context)
         vr = getVocabularyRegistry()
-        vocab = vr.get(context, 'hph.lectures.CourseType')
+        vocab = vr.get(context, 'hph.lectures.vocabulary.CourseType')
         return vocab
 
     def computed_class(self, value):
