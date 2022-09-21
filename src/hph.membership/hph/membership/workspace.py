@@ -127,23 +127,27 @@ class View(grok.View):
 
     def get_current_semester_lectures_container(self):
         sub_folders = self.course_folders()
-        for folder in sub_folders:
-            container = folder.getObject()
-            current_marker = getattr(container, 'is_current_semester', None)
-            if current_marker:
-                return folder
-        return sub_folders[0]
+        if sub_folders:
+            for folder in sub_folders:
+                container = folder.getObject()
+                current_marker = getattr(container, 'is_current_semester', None)
+                if current_marker:
+                    return folder
+            return sub_folders[0]
+        return None
 
     @memoize
     def _lectures(self):
         container = self.get_current_semester_lectures_container()
-        catalog = api.portal.get_tool(name='portal_catalog')
-        items = catalog(object_provides=ILecture.__identifier__,
-                        path=dict(query='/'.join(container.getPhysicalPath()),
-                                  depth=1),
-                        review_state='published',
-                        sort_on='courseNumber')
-        return items
+        if container:
+            catalog = api.portal.get_tool(name='portal_catalog')
+            items = catalog(object_provides=ILecture.__identifier__,
+                            path=dict(query='/'.join(container.getPhysicalPath()),
+                                      depth=1),
+                            review_state='published',
+                            sort_on='courseNumber')
+            return items
+        return None
 
     def contributing(self):
         context = aq_inner(self.context)
@@ -151,16 +155,17 @@ class View(grok.View):
         if len(self.worklist()):
             results = self.worklist()
         else:
-            for item in self._lectures():
-                if context.getId() in item.getObject().listContributors():
-                    info = {}
-                    info['uid'] = api.content.get_uuid(obj=item.getObject())
-                    info['title'] = item.Title
-                    info['url'] = '{0}/@@lecture-factory/{1}'.format(
-                        context.absolute_url(),
-                        api.content.get_uuid(obj=item.getObject()))
-                    info['path'] = self.breadcrumbs(item)
-                    results.append(info)
+            if self._lectures():
+                for item in self._lectures():
+                    if context.getId() in item.getObject().listContributors():
+                        info = {}
+                        info['uid'] = api.content.get_uuid(obj=item.getObject())
+                        info['title'] = item.Title
+                        info['url'] = '{0}/@@lecture-factory/{1}'.format(
+                            context.absolute_url(),
+                            api.content.get_uuid(obj=item.getObject()))
+                        info['path'] = self.breadcrumbs(item)
+                        results.append(info)
         return results
 
     def worklist(self):
