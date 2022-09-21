@@ -189,7 +189,7 @@ class CourseDurationVocabularyFactory(object):
                                 in six.iteritems(TYPES)])
 
 
-CourseDurationVocabulary = CourseDurationVocabularyFactory
+CourseDurationVocabulary = CourseDurationVocabularyFactory()
 
 
 @implementer(IVocabularyFactory)
