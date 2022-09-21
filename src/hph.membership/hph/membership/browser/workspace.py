@@ -145,7 +145,7 @@ class WorkSpaceView(BrowserView):
         if len(self.worklist()):
             results = self.worklist()
         else:
-            if len(self._lectures()) > 0:
+            if self._lectures():
                 for item in self._lectures():
                     if context.getId() in item.getObject().listContributors():
                         info = {}
