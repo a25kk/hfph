@@ -498,7 +498,7 @@ class CourseFilterSelectBox(BrowserView):
     def course_types(self):
         context = aq_inner(self.context)
         vr = getVocabularyRegistry()
-        vocab = vr.get(context, 'hph.lectures.CourseType')
+        vocab = vr.get(context, 'hph.lectures.vocabulary.CourseType')
         course_types = dict()
         for term in vocab:
             course_types[term.value] = term.title
