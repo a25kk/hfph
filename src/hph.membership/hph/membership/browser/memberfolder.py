@@ -53,7 +53,7 @@ class MemberFolderView(BrowserView):
         return is_adm
 
 
-class WorkspaceMissingView(BrowserView):
+class WorkSpaceMissingView(BrowserView):
     """ Browser View """
 
     def __init__(self, context, request):
