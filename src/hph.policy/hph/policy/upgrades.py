@@ -251,7 +251,7 @@ def fix_registry(context=None):
 
 
 def cleanup_post_python3_migration(context=None):
-    log.info(f'Cleanup after python3 migration')
+    log.info('Cleanup after python3 migration')
     fix_registry()
     fix_searchable_text()
     fix_portlets()
