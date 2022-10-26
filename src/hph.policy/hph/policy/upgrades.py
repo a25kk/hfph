@@ -246,7 +246,7 @@ def fix_registry(context=None):
             # That's also fine...
             continue
         if 'broken' in str(iface):
-            log.info(f'Removing broken record {key}')
+            log.info('Removing broken record {0}'.format(key))
             del registry.records[key]
 
 
@@ -255,7 +255,7 @@ def cleanup_post_python3_migration(context=None):
     fix_registry()
     fix_searchable_text()
     fix_portlets()
-    log.info(f'Plone fixes after python3 migration done')
+    log.info('Plone fixes after python3 migration done')
 
 
 def upgrade_1001(setup):
