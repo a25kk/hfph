@@ -264,7 +264,3 @@ def upgrade_1001(setup):
     # Cleanup in Plone 5.2.x
     cleanup_in_plone52()
 
-
-def upgrade_1002(setup):
-    # Cleanup after Python3 migration
-    cleanup_post_python3_migration()

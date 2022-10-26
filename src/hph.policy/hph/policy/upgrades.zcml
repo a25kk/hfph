@@ -13,14 +13,4 @@
         handler="hph.policy.upgrades.upgrade_1001"
         sortkey="1"
     />
-
-    <genericsetup:upgradeStep
-            title="Cleanup after python migration"
-            description="Update registry, catalog and portlet settings'"
-            source="1001"
-            destination="1002"
-            profile="hph.policy:default"
-            handler="hph.policy.upgrades.upgrade_1002"
-            sortkey="1"
-        />
 </configure>
