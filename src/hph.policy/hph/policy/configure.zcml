@@ -23,4 +23,7 @@
       />
   <!-- -*- extra stuff goes here -*- -->
 
+  <!-- Custom upgrade handler for package cleanups -->
+  <include file="upgrades.zcml" />
+
 </configure>

@@ -11,6 +11,7 @@ paths:
   site_theme: ../theme
   gulp_location: ../build/gulp
 modules:
+  template:
   virtualenv:
     python_bin: python2
   docker:
