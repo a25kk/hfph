@@ -14,8 +14,6 @@ from plone.portlets.interfaces import IPortletAssignmentMapping
 from plone.portlets.interfaces import IPortletManager
 from plone.registry.interfaces import IRegistry
 
-from hph.policy.migration import post_python3_fixes
-
 default_profile = 'profile-hph.policy:default'
 log = logging.getLogger(__name__)
 
