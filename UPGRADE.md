@@ -12,3 +12,4 @@ bin/zodbupdate --convert-py3 --file=var/filestorage/Data.fs --encoding utf8 --en
 ```
 8. Start instance and reindex catalog
 9. Run hph.policy upgrade step
+10. Run `plone.app.contenttypes` import profile in **portal_setup**
