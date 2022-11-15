@@ -87,7 +87,7 @@ class WidgetHPHContentAlias(BrowserView):
     @staticmethod
     def resolve_alias(content_uuid):
         content_item = api.content.get(UID=content_uuid)
-        return content_item.text
+        return content_item.get('text', '')
 
     def widget_content(self):
         widget_content = self.widget_content_record()
