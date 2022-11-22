@@ -12,7 +12,7 @@
             padding-top: 0;
             @include mq($from: md) {
                 padding-top: 1rem;
-            }    
+            }
         }
     }
 }
@@ -70,6 +70,7 @@
     @include media-breakpoint-up(md) {
        padding-bottom: $app-spacer-base;
     }
+    @include make-container-max-widths();
     &--centered {
         @include make-container-max-widths();
     }
