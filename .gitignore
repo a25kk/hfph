@@ -18,6 +18,7 @@
 .installed.cfg
 .mr.developer.cfg
 .Python
+.python-version
 .svn
 .vscode
 /.vscode
@@ -37,9 +38,11 @@ fabfile.py
 fake-eggs
 include
 lib
+lib64
 local.cfg
 parts
 pip-selfcheck.json
+pyvenv.cfg
 secret.cfg
 src/ade25.*
 src/bobtemplates.*
