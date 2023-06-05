@@ -15,12 +15,12 @@ from z3c.form import form
 from hph.sitecontent import MessageFactory as _
 
 
-def startDefaultValue(data):
+def startDefaultValue(data=None):
     # To get hold of the folder, do: context = data.context
     return datetime.datetime.today() + datetime.timedelta(7)
 
 
-def endDefaultValue(data):
+def endDefaultValue(data=None):
     # To get hold of the folder, do: context = data.context
     return datetime.datetime.today() + datetime.timedelta(10)
 
