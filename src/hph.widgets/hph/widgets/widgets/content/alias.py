@@ -86,8 +86,11 @@ class WidgetHPHContentAlias(BrowserView):
 
     @staticmethod
     def resolve_alias(content_uuid):
+        text_proxy = ''
         content_item = api.content.get(UID=content_uuid)
-        return content_item.get('text', '')
+        if content_item.text:
+            text_proxy = content_item.text
+        return text_proxy
 
     def widget_content(self):
         widget_content = self.widget_content_record()
