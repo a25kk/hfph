@@ -134,11 +134,11 @@ task:jekyll() {
 
 # docker
 task:run() {
-    docker:docker-compose up "$@"
+    docker:compose up "$@"
 }
 
 task:halt() {
-    docker:docker-compose down "$@"
+    docker:compose down "$@"
 }
 
 task:shell() {
