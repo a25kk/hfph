@@ -9,7 +9,7 @@ from plone.namedfile.field import NamedBlobImage
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
 
-# from five import grok
+# from five import grok (deprecated)
 from z3c.form import form
 
 from hph.sitecontent import MessageFactory as _
