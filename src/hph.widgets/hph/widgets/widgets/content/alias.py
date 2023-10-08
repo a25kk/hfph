@@ -104,3 +104,4 @@ class WidgetHPHContentAlias(BrowserView):
         context = aq_inner(self.context)
         link_action = replace_link_variables_by_paths(context, link)
         return link_action
+
