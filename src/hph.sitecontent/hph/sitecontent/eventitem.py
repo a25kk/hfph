@@ -9,18 +9,18 @@ from plone.namedfile.field import NamedBlobImage
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
 
-# from five import grok (deprecated)
+# from five import grok
 from z3c.form import form
 
 from hph.sitecontent import MessageFactory as _
 
 
-def startDefaultValue(data):
+def startDefaultValue(data=None):
     # To get hold of the folder, do: context = data.context
     return datetime.datetime.today() + datetime.timedelta(7)
 
 
-def endDefaultValue(data):
+def endDefaultValue(data=None):
     # To get hold of the folder, do: context = data.context
     return datetime.datetime.today() + datetime.timedelta(10)
 
@@ -113,3 +113,4 @@ class IEventItem(model.Schema):
 @implementer(IEventItem)
 class EventItem(Item):
     pass
+
