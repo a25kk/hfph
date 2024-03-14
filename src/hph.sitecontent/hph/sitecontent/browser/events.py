@@ -48,7 +48,7 @@ class EventListView(BrowserView):
             context=self.context,
             object_provides=IEventItem.__identifier__,
             review_state="published",
-            end={'query': DateTime.DateTime(), 'range': 'min'},
+            end={'query': DateTime.DateTime() + 1, 'range': 'min'},
             sort_on="start",
         )
         return items
